@@ -14,15 +14,15 @@ class PlusTest {
         assertThat(Plot() + (SomeFeature() + SomeFeature()))
             .features().length(2)
 
-        FeatureSpecAssert.assertThat(SomeFeature() + SomeFeature())
+        FeatureAssert.assertThat(SomeFeature() + SomeFeature())
             .isList().length(2)
-        FeatureSpecAssert.assertThat((SomeFeature() + SomeFeature()))
+        FeatureAssert.assertThat((SomeFeature() + SomeFeature()))
             .isList().length(2)
-        FeatureSpecAssert.assertThat((SomeFeature() + SomeFeature()) + SomeFeature())
+        FeatureAssert.assertThat((SomeFeature() + SomeFeature()) + SomeFeature())
             .isList().length(3)
-        FeatureSpecAssert.assertThat(SomeFeature() + (SomeFeature() + SomeFeature()))
+        FeatureAssert.assertThat(SomeFeature() + (SomeFeature() + SomeFeature()))
             .isList().length(3)
-        FeatureSpecAssert.assertThat((SomeFeature() + SomeFeature()) + (SomeFeature() + SomeFeature()))
+        FeatureAssert.assertThat((SomeFeature() + SomeFeature()) + (SomeFeature() + SomeFeature()))
             .isList().length(4)
     }
 }

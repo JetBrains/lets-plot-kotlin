@@ -16,15 +16,22 @@ class PlotDslTest {
 
     @Test
     fun `empty plot with mapping`() {
-        var p = ggplot(data = "data", mapping = { x = "X"; y = "Y" })
+        var p = ggplot(mapping = { x = "X"; y = "Y" })
         assertThat(p).features().length(0)
+        assertThat(p).mapping()
+            .contains("x", "X")
+            .contains("y", "Y")
 
-        p = ggplot { x = "X"; y = "Y" }
+        p = ggplot { alpha = "A"; group = "G" }
         assertThat(p).features().length(0)
+        assertThat(p).mapping()
+            .contains("alpha", "A")
+            .contains("group", "G")
 
-        p = ggplot(data = "data") { x = "X"; y = "Y" }
+        p = ggplot { color = "C"; fill = "F" }
         assertThat(p).features().length(0)
-
-        // ToDo: check mappings
+        assertThat(p).mapping()
+            .contains("color", "C")
+            .contains("fill", "F")
     }
 }

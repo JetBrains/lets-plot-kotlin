@@ -1,7 +1,7 @@
 package com.jetbrains.datalore.plot
 
 
-class Plot internal constructor(val data: Any?, val mapping: DefaultAesMapping?, val features: List<Feature>) {
+class Plot internal constructor(val data: Any?, val mapping: DefaultAesMapping, val features: List<Feature>) {
     companion object {
         fun withFeature(plot: Plot, feature: Feature): Plot {
             return Plot(
@@ -20,7 +20,7 @@ class Plot internal constructor(val data: Any?, val mapping: DefaultAesMapping?,
         }
     }
 
-    constructor() : this(null, null, emptyList())
+    constructor() : this(null, MutableDefaultAesMapping().toFrozen(), emptyList())
 
     operator fun plus(other: Feature): Plot {
         return when (other) {
@@ -68,28 +68,25 @@ internal object DummyFeature : Feature() {
 open class Layer : Feature() {
 }
 
-abstract class AestheticMapping()
-
 class MutableDefaultAesMapping(
     var x: Any? = null,
     var y: Any? = null,
     var alpha: Any? = null,
-    var colour: Any? = null,
+    var color: Any? = null,
     var fill: Any? = null,
     var group: Any? = null
 ) {
-    override fun toString(): String {
-        return "GenericMapping(x=$x, y=$y, alpha=$alpha, colour=$colour, fill=$fill, group=$group)"
-    }
 
-    fun toFrozen() = DefaultAesMapping(x, y, alpha, colour, fill, group)
+    fun toFrozen() = DefaultAesMapping(
+        mapOf(
+            "x" to x,
+            "y" to y,
+            "alpha" to alpha,
+            "color" to color,
+            "fill" to fill,
+            "group" to group
+        )
+    )
 }
 
-data class DefaultAesMapping(
-    val x: Any?,
-    val y: Any?,
-    val alpha: Any?,
-    val colour: Any?,
-    val fill: Any?,
-    val group: Any?
-) : Options<DefaultAesMapping>()
+class DefaultAesMapping(map: Map<String, Any?>) : Options(map)
