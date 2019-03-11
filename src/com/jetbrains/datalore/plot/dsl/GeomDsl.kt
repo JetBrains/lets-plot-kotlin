@@ -3,7 +3,7 @@ package com.jetbrains.datalore.plot.dsl
 import com.jetbrains.datalore.plot.PointGeom
 
 fun geom_point(
-    mapping: PointGeom.MutableAesMapping.() -> Unit = {},
+    mapping: PointGeom.AesMapping.() -> Unit = {},
     data: Any? = null,
     stat: Any? = null,
     position: Any? = null,
@@ -11,7 +11,7 @@ fun geom_point(
     sampling: Any? = null
 ): PointGeom {
     return PointGeom(
-        mapping = PointGeom.MutableAesMapping().apply(mapping).toFrozen(),
+        mapping = PointGeom.AesMapping().apply(mapping).toFrozen(),
         data = data,
         stat = stat,
         position = position,

@@ -1,7 +1,7 @@
 package com.jetbrains.datalore.plot
 
 
-class Plot internal constructor(val data: Any?, val mapping: DefaultAesMapping, val features: List<Feature>) {
+class Plot internal constructor(val data: Any?, val mapping: Options, val features: List<Feature>) {
     companion object {
         fun withFeature(plot: Plot, feature: Feature): Plot {
             return Plot(
@@ -20,7 +20,7 @@ class Plot internal constructor(val data: Any?, val mapping: DefaultAesMapping, 
         }
     }
 
-    constructor() : this(null, MutableDefaultAesMapping().toFrozen(), emptyList())
+    constructor() : this(null, DefaultAesMapping().toFrozen(), emptyList())
 
     operator fun plus(other: Feature): Plot {
         return when (other) {
@@ -68,10 +68,17 @@ internal object DummyFeature : Feature() {
     }
 }
 
-open class Layer(val mapping: Options) : Feature() {
+open class Layer(
+    val mapping: Options,
+    val data: Any? = null,
+    val stat: Any? = null,
+    val position: Any? = null,
+    val show_legend: Boolean = true,
+    val sampling: Any? = null
+) : Feature() {
 }
 
-class MutableDefaultAesMapping(
+class DefaultAesMapping(
     var x: Any? = null,
     var y: Any? = null,
     var alpha: Any? = null,
@@ -80,7 +87,7 @@ class MutableDefaultAesMapping(
     var group: Any? = null
 ) {
 
-    fun toFrozen() = DefaultAesMapping(
+    fun toFrozen() = Options(
         mapOf(
             "x" to x,
             "y" to y,
@@ -91,5 +98,3 @@ class MutableDefaultAesMapping(
         )
     )
 }
-
-class DefaultAesMapping(map: Map<String, Any?>) : Options(map)

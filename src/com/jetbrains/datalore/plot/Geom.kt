@@ -2,16 +2,23 @@ package com.jetbrains.datalore.plot
 
 
 class PointGeom(
-    mapping: AesMapping,
-    val data: Any? = null,
-    val stat: Any? = null,
-    val position: Any? = null,
-    val show_legend: Boolean = true,
-    val sampling: Any? = null
+    mapping: Options,
+    data: Any? = null,
+    stat: Any? = null,
+    position: Any? = null,
+    show_legend: Boolean = true,
+    sampling: Any? = null
 
-) : Layer(mapping = mapping) {
+) : Layer(
+    mapping = mapping,
+    data = data,
+    stat = stat,
+    position = position,
+    show_legend = show_legend,
+    sampling = sampling
+) {
 
-    class MutableAesMapping(
+    class AesMapping(
         var x: Any? = null,
         var y: Any? = null,
         var alpha: Any? = null,
@@ -22,7 +29,7 @@ class PointGeom(
         var size: Any? = null,
         var stroke: Any? = null
     ) {
-        fun toFrozen() = AesMapping(
+        fun toFrozen() = Options(
             mapOf(
                 "x" to x,
                 "y" to y,
@@ -36,8 +43,6 @@ class PointGeom(
             )
         )
     }
-
-    class AesMapping(map: Map<String, Any?>) : Options(map)
 }
 
 
