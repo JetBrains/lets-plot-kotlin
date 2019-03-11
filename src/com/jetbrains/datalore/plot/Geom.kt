@@ -2,14 +2,14 @@ package com.jetbrains.datalore.plot
 
 
 class PointGeom(
-    val mapping: AesMapping? = null,
+    mapping: AesMapping,
     val data: Any? = null,
     val stat: Any? = null,
     val position: Any? = null,
     val show_legend: Boolean = true,
     val sampling: Any? = null
 
-) : Layer() {
+) : Layer(mapping = mapping) {
 
     class MutableAesMapping(
         var x: Any? = null,

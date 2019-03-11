@@ -10,32 +10,43 @@ internal class PlotAssert(private val plot: Plot) {
     }
 
     fun features() = FeatureListAssert(plot.features)
+    fun layers() = LayerListAssert(plot.layers())
     fun mapping() = AesMappingAssert(plot.mapping)
 }
 
 
-internal class FeatureAssert(private val featureSpec: Feature) {
+internal open class FeatureAssert(private val feature: Feature) {
     companion object {
         internal fun assertThat(featureSpec: Feature) = FeatureAssert(featureSpec)
     }
 
     fun isList(): FeatureListAssert {
-        if (featureSpec is FeatureList) {
-            return FeatureListAssert(featureSpec.elements)
+        if (feature is FeatureList) {
+            return FeatureListAssert(feature.elements)
         }
-        throw AssertionFailedError("expected ${FeatureList::class.simpleName} but was ${featureSpec::class.simpleName}")
+        throw AssertionFailedError("expected ${FeatureList::class.simpleName} but was ${feature::class.simpleName}")
     }
 }
 
-internal class FeatureListAssert(private val featureSpecs: List<Feature>) {
-    companion object {
-        internal fun assertThat(specList: FeatureList) = FeatureListAssert(specList.elements)
-    }
-
-    fun length(length: Int): FeatureListAssert {
-        assertEquals(length, featureSpecs.size)
+internal open class FeatureListAssert(private val featureList: List<Feature>) {
+    open fun length(length: Int): FeatureListAssert {
+        assertEquals(length, featureList.size)
         return this
     }
+
+    open fun get(index: Int) = FeatureAssert(featureList[index])
+}
+
+internal class LayerListAssert(private val layerList: List<Layer>) : FeatureListAssert(layerList) {
+    override fun length(length: Int): LayerListAssert {
+        return super.length(length) as LayerListAssert
+    }
+
+    override fun get(index: Int) = LayerAssert(layerList[index])
+}
+
+internal class LayerAssert(private val layer: Layer) : FeatureAssert(layer) {
+    fun mapping() = AesMappingAssert(layer.mapping)
 }
 
 internal class AesMappingAssert(private val options: Options) {

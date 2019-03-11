@@ -30,11 +30,14 @@ class Plot internal constructor(val data: Any?, val mapping: DefaultAesMapping, 
         }
     }
 
-    override fun toString(): String {
-        return "PlotSpec(data=$data, mapping=$mapping, features=$features)"
+    fun layers(): List<Layer> {
+        @Suppress("UNCHECKED_CAST")
+        return features.filter { it is Layer } as List<Layer>
     }
 
-
+    override fun toString(): String {
+        return "Plot(data=$data, mapping=$mapping, features=$features)"
+    }
 }
 
 
@@ -65,7 +68,7 @@ internal object DummyFeature : Feature() {
     }
 }
 
-open class Layer : Feature() {
+open class Layer(val mapping: Options) : Feature() {
 }
 
 class MutableDefaultAesMapping(

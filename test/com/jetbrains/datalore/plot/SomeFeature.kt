@@ -1,4 +1,4 @@
 package com.jetbrains.datalore.plot
 
-class SomeFeature : Layer() {
+class SomeFeature : Layer(mapping = Options(emptyMap())) {
 }

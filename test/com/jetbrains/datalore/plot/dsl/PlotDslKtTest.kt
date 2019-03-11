@@ -34,4 +34,14 @@ class PlotDslTest {
             .contains("color", "C")
             .contains("fill", "F")
     }
+
+    @Test
+    fun `plot with layer and mapping`() {
+        val p = ggplot() + geom_point({ x = "X"; color = "C" })
+        assertThat(p).layers()
+            .length(1)
+            .get(0).mapping()
+            .contains("x", "X")
+            .contains("color", "C")
+    }
 }
