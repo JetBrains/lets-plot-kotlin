@@ -2,6 +2,7 @@ package com.jetbrains.datalore.plot.dsl
 
 import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.PlotAssert.Companion.assertThat
+import com.jetbrains.datalore.plot.geom.dsl.geom_point
 import org.junit.Test
 
 class PlotDslTest {
@@ -66,5 +67,21 @@ class PlotDslTest {
             .constant("x", 1)
             .constant("y", 2)
             .constant("color", "C")
+    }
+
+    @Test
+    fun `plot with layer, mapping and constants`() {
+        val p = ggplot() + geom_point({ x = "X"; fill = "F" }, x = 1, y = 2, color = "C")
+        assertThat(p).layers()
+            .length(1)
+            .get(0)
+            .geom()
+            .kind(GeomKind.POINT)
+            .constant("x", 1)
+            .constant("y", 2)
+            .constant("color", "C")
+            .mapping()
+            .contains("x", "X")
+            .contains("fill", "F")
     }
 }

@@ -1,5 +1,8 @@
 package com.jetbrains.datalore.plot
 
+import com.jetbrains.datalore.plot.geom.GeomOptions
+import com.jetbrains.datalore.plot.geom.blank
+
 class SomeFeature : Layer(
     data = null,
     stat = null,

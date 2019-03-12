@@ -1,6 +1,8 @@
-package com.jetbrains.datalore.plot.dsl
+package com.jetbrains.datalore.plot.geom.dsl
 
-import com.jetbrains.datalore.plot.*
+import com.jetbrains.datalore.plot.geom.GeomLayer
+import com.jetbrains.datalore.plot.geom.aes.PointAesthetics
+import com.jetbrains.datalore.plot.geom.aes.PointMapping
 
 @Suppress("ClassName")
 class geom_point(
@@ -31,22 +33,3 @@ class geom_point(
 }
 
 
-abstract class GeomLayer(
-    private val layerMapping: Options,
-    data: Any? = null,
-    stat: Any? = null,
-    position: Any? = null,
-    show_legend: Boolean = true,
-    sampling: Any? = null
-) : Layer(
-    data = data,
-    stat = stat,
-    position = position,
-    show_legend = show_legend,
-    sampling = sampling
-), GeomAesthetics {
-
-    override val geom: GeomOptions by lazy() {
-        GeomSuppliers.point(layerMapping, constants = toFrozen()).invoke()
-    }
-}

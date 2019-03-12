@@ -1,5 +1,7 @@
 package com.jetbrains.datalore.plot
 
+import com.jetbrains.datalore.plot.geom.GeomOptions
+
 
 class Plot internal constructor(val data: Any?, val mapping: Options, val features: List<Feature>) {
     companion object {

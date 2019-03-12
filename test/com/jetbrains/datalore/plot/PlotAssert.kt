@@ -1,5 +1,6 @@
 package com.jetbrains.datalore.plot
 
+import com.jetbrains.datalore.plot.geom.GeomOptions
 import junit.framework.AssertionFailedError
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue

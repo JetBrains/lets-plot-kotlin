@@ -1,8 +1,7 @@
-package com.jetbrains.datalore.plot
+package com.jetbrains.datalore.plot.geom.aes
 
-interface GeomAesthetics {
-   fun toFrozen(): Options
-}
+import com.jetbrains.datalore.plot.Options
+import com.jetbrains.datalore.plot.geom.GeomAesthetics
 
 interface PointAesthetics: GeomAesthetics {
     val x: Any?
@@ -40,7 +39,6 @@ class PointMapping(
     override var shape: Any? = null,
     override var size: Any? = null,
     override var stroke: Any? = null
-) : PointAesthetics {
-}
+) : PointAesthetics
 
 
