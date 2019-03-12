@@ -1,17 +1,21 @@
 package com.jetbrains.datalore.plot
 
-interface PointAesthetics {
-    var x: Any?
-    var y: Any?
-    var alpha: Any?
-    var color: Any?
-    var fill: Any?
-    var group: Any?
-    var shape: Any?
-    var size: Any?
-    var stroke: Any?
+interface GeomAesthetics {
+   fun toFrozen(): Options
+}
 
-    fun toFrozen() = Options(
+interface PointAesthetics: GeomAesthetics {
+    val x: Any?
+    val y: Any?
+    val alpha: Any?
+    val color: Any?
+    val fill: Any?
+    val group: Any?
+    val shape: Any?
+    val size: Any?
+    val stroke: Any?
+
+    override fun toFrozen() = Options(
         mapOf(
             "x" to x,
             "y" to y,

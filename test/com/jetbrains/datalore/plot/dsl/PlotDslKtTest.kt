@@ -1,5 +1,6 @@
 package com.jetbrains.datalore.plot.dsl
 
+import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.PlotAssert.Companion.assertThat
 import org.junit.Test
 
@@ -43,5 +44,26 @@ class PlotDslTest {
             .get(0).mapping()
             .contains("x", "X")
             .contains("color", "C")
+
+        // same mappings are accessible via `geom`
+        assertThat(p).layers()
+            .length(1)
+            .get(0).geom()
+            .kind(GeomKind.POINT)
+            .mapping()
+            .contains("x", "X")
+            .contains("color", "C")
+    }
+
+    @Test
+    fun `plot with layer and constants`() {
+        val p = ggplot() + geom_point(x = 1, y = 2, color = "C")
+        assertThat(p).layers()
+            .length(1)
+            .get(0).geom()
+            .kind(GeomKind.POINT)
+            .constant("x", 1)
+            .constant("y", 2)
+            .constant("color", "C")
     }
 }

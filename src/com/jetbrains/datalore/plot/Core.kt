@@ -68,15 +68,16 @@ internal object DummyFeature : Feature() {
     }
 }
 
-open class Layer(
-    val mapping: Options,
-    val data: Any? = null,
-    val geom: () -> GeomOptions,
-    val stat: Any? = null,
-    val position: Any? = null,
-    val show_legend: Boolean = true,
-    val sampling: Any? = null
+abstract class Layer(
+    val data: Any?,
+    val stat: Any?,
+    val position: Any?,
+    val show_legend: Boolean,
+    val sampling: Any?
 ) : Feature() {
+    val mapping: Options
+        get() = geom.mapping // ToDo: + stat.mapping
+    abstract val geom: GeomOptions
 }
 
 class DefaultAesMapping(

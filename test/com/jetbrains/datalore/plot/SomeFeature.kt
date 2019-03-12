@@ -1,8 +1,12 @@
 package com.jetbrains.datalore.plot
 
 class SomeFeature : Layer(
-    mapping = Options.empty(),
     data = null,
-    geom = blank
+    stat = null,
+    position = null,
+    show_legend = true,
+    sampling = null
 ) {
+    override val geom: GeomOptions
+        get() = blank.invoke()
 }

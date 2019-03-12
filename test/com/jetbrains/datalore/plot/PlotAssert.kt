@@ -47,12 +47,27 @@ internal class LayerListAssert(private val layerList: List<Layer>) : FeatureList
 
 internal class LayerAssert(private val layer: Layer) : FeatureAssert(layer) {
     fun mapping() = AesMappingAssert(layer.mapping)
+    fun geom() = GeomOptionsAssert(layer.geom)
 }
 
 internal class AesMappingAssert(private val options: Options) {
     fun contains(aes: String, variableName: String): AesMappingAssert {
         assertTrue(options.has(aes))
         assertEquals(variableName, options.get(aes))
+        return this
+    }
+}
+
+internal class GeomOptionsAssert(private val geom: GeomOptions) {
+    fun kind(kind: GeomKind): GeomOptionsAssert {
+        assertTrue(geom.kind === kind)
+        return this
+    }
+
+    fun mapping() = AesMappingAssert(options = geom.mapping)
+    fun constant(aes: String, value: Any): GeomOptionsAssert {
+        assertTrue(geom.constants.has(aes))
+        assertEquals(value, geom.constants.get(aes))
         return this
     }
 }

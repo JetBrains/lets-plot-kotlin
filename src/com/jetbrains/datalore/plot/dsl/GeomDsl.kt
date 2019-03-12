@@ -1,9 +1,6 @@
 package com.jetbrains.datalore.plot.dsl
 
-import com.jetbrains.datalore.plot.Layer
-import com.jetbrains.datalore.plot.PointAesthetics
-import com.jetbrains.datalore.plot.PointMapping
-import com.jetbrains.datalore.plot.point
+import com.jetbrains.datalore.plot.*
 
 @Suppress("ClassName")
 class geom_point(
@@ -13,23 +10,43 @@ class geom_point(
     position: Any? = null,
     show_legend: Boolean = true,
     sampling: Any? = null,
-    override var x: Any? = null,
-    override var y: Any? = null,
-    override var alpha: Any? = null,
-    override var color: Any? = null,
-    override var fill: Any? = null,
-    override var group: Any? = null,
-    override var shape: Any? = null,
-    override var size: Any? = null,
-    override var stroke: Any? = null
+    override val x: Any? = null,
+    override val y: Any? = null,
+    override val alpha: Any? = null,
+    override val color: Any? = null,
+    override val fill: Any? = null,
+    override val group: Any? = null,
+    override val shape: Any? = null,
+    override val size: Any? = null,
+    override val stroke: Any? = null
 ) : PointAesthetics,
-    Layer(
-    mapping = PointMapping().apply(mapping).toFrozen(),
+    GeomLayer(
+        layerMapping = PointMapping().apply(mapping).toFrozen(),
+        data = data,
+        stat = stat,
+        position = position,
+        show_legend = show_legend,
+        sampling = sampling
+    ) {
+}
+
+
+abstract class GeomLayer(
+    private val layerMapping: Options,
+    data: Any? = null,
+    stat: Any? = null,
+    position: Any? = null,
+    show_legend: Boolean = true,
+    sampling: Any? = null
+) : Layer(
     data = data,
-    geom = point(),
-            stat = stat,
+    stat = stat,
     position = position,
     show_legend = show_legend,
     sampling = sampling
-)
+), GeomAesthetics {
 
+    override val geom: GeomOptions by lazy() {
+        GeomSuppliers.point(layerMapping, constants = toFrozen()).invoke()
+    }
+}
