@@ -46,6 +46,11 @@ internal class LayerListAssert(private val layerList: List<Layer>) : FeatureList
 }
 
 internal class LayerAssert(private val layer: Layer) : FeatureAssert(layer) {
+    fun noMapping(): LayerAssert {
+        assertTrue(layer.mapping.isEmpty())
+        return this
+    }
+
     fun mapping() = AesMappingAssert(layer.mapping)
     fun geom() = GeomOptionsAssert(layer.geom)
 }
@@ -61,6 +66,11 @@ internal class AesMappingAssert(private val options: Options) {
 internal class GeomOptionsAssert(private val geom: GeomOptions) {
     fun kind(kind: GeomKind): GeomOptionsAssert {
         assertTrue(geom.kind === kind)
+        return this
+    }
+
+    fun noMapping(): GeomOptionsAssert {
+        assertTrue(geom.mapping.isEmpty())
         return this
     }
 

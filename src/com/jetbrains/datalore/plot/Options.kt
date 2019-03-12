@@ -24,4 +24,6 @@ open class Options(map: Map<String, Any?>) {
     fun get(k: String): Any {
         return byName[k] ?: throw IllegalArgumentException("No such option: '$k'")
     }
+
+    fun isEmpty() = byName.isEmpty()
 }
