@@ -71,6 +71,7 @@ internal object DummyFeature : Feature() {
 open class Layer(
     val mapping: Options,
     val data: Any? = null,
+    val geom: () -> GeomOptions,
     val stat: Any? = null,
     val position: Any? = null,
     val show_legend: Boolean = true,

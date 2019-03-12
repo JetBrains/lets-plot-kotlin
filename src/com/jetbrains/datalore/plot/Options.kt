@@ -1,6 +1,10 @@
 package com.jetbrains.datalore.plot
 
-open class Options(private val map: Map<String, Any?>) {
+open class Options(map: Map<String, Any?>) {
+    companion object {
+        fun empty() = Options(emptyMap())
+    }
+
     private val byName: Map<String, Any>
 
     init {
