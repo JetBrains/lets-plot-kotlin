@@ -1,12 +1,12 @@
 package com.jetbrains.datalore.plot.dsl
 
-import com.jetbrains.datalore.plot.DefaultAesMapping
+import com.jetbrains.datalore.plot.GenericAesMapping
 import com.jetbrains.datalore.plot.Plot
 
-fun ggplot(data: Any? = null, mapping: DefaultAesMapping.() -> Unit = {}): Plot {
+fun ggplot(data: Any? = null, mapping: GenericAesMapping.() -> Unit = {}): Plot {
     return Plot(
         data,
-        DefaultAesMapping().apply(mapping).toFrozen(),
+        GenericAesMapping().apply(mapping).toFrozen(),
         emptyList()
     )
 }

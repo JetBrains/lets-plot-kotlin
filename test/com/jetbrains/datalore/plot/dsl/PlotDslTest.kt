@@ -3,6 +3,7 @@ package com.jetbrains.datalore.plot.dsl
 import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.PlotAssert.Companion.assertThat
 import com.jetbrains.datalore.plot.dsl.geom.geom_point
+import com.jetbrains.datalore.plot.dsl.stat.density
 import org.junit.Test
 
 class PlotDslTest {
@@ -102,5 +103,24 @@ class PlotDslTest {
             .mapping()
             .contains("x", "X")
             .contains("group", "G")
+    }
+
+    @Test
+    fun `plot with point geom and density stat`() {
+        val p = ggplot() + geom_point({ group = "G" }, stat = density({ x = "X" }, kernel = "gaussian"), color = "C")
+        assertThat(p).layers()
+            .length(1)
+            .get(0).mapping()
+            .contains("group", "G")
+            .contains("x", "X")
+//        assertThat(p).layers()
+//            .length(1)
+//            .get(0)
+//            .geom()
+//            .kind(GeomKind.POINT)
+//            .constant("color", "C")
+//            .mapping()
+//            .contains("x", "X")
+//            .contains("group", "G")
     }
 }

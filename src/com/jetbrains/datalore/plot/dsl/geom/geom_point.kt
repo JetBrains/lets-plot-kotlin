@@ -3,12 +3,14 @@ package com.jetbrains.datalore.plot.dsl.geom
 import com.jetbrains.datalore.plot.geom.GeomLayer
 import com.jetbrains.datalore.plot.mapping.geom.PointAesthetics
 import com.jetbrains.datalore.plot.mapping.geom.PointMapping
+import com.jetbrains.datalore.plot.stat.StatOptions
+import com.jetbrains.datalore.plot.stat.identity
 
 @Suppress("ClassName")
 class geom_point(
     mapping: PointMapping.() -> Unit = {},
     data: Any? = null,
-    stat: Any? = null,
+    stat: () -> StatOptions = identity,
     position: Any? = null,
     show_legend: Boolean = true,
     sampling: Any? = null,
@@ -24,7 +26,7 @@ class geom_point(
     GeomLayer(
         layerMapping = PointMapping().apply(mapping).toFrozen(),
         data = data,
-        stat = stat,
+        statSupplier = stat,
         position = position,
         show_legend = show_legend,
         sampling = sampling

@@ -1,6 +1,7 @@
 package com.jetbrains.datalore.plot
 
 import com.jetbrains.datalore.plot.geom.GeomOptions
+import com.jetbrains.datalore.plot.stat.StatOptions
 
 
 class Plot internal constructor(val data: Any?, val mapping: Options, val features: List<Feature>) {
@@ -22,7 +23,7 @@ class Plot internal constructor(val data: Any?, val mapping: Options, val featur
         }
     }
 
-    constructor() : this(null, DefaultAesMapping().toFrozen(), emptyList())
+    constructor() : this(null, GenericAesMapping().toFrozen(), emptyList())
 
     operator fun plus(other: Feature): Plot {
         return when (other) {
@@ -72,17 +73,21 @@ internal object DummyFeature : Feature() {
 
 abstract class Layer(
     val data: Any?,
-    val stat: Any?,
     val position: Any?,
     val show_legend: Boolean,
     val sampling: Any?
 ) : Feature() {
-    val mapping: Options
-        get() = geom.mapping // ToDo: + stat.mapping
+    val mapping by lazy {
+        geom.mapping.union(stat.mapping)
+    }
+
     abstract val geom: GeomOptions
+    abstract val stat: StatOptions
 }
 
-class DefaultAesMapping(
+abstract class NotLayer : Feature()
+
+class GenericAesMapping(
     var x: Any? = null,
     var y: Any? = null,
     var alpha: Any? = null,
@@ -90,7 +95,6 @@ class DefaultAesMapping(
     var fill: Any? = null,
     var group: Any? = null
 ) {
-
     fun toFrozen() = Options(
         mapOf(
             "x" to x,
