@@ -17,7 +17,6 @@ class geom_point(
     override val alpha: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val group: Any? = null,
     override val shape: Any? = null,
     override val size: Any? = null,
     override val stroke: Any? = null

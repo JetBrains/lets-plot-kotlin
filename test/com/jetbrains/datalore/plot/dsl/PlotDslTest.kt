@@ -84,4 +84,18 @@ class PlotDslTest {
             .contains("x", "X")
             .contains("fill", "F")
     }
+
+    @Test
+    fun `plot with layer and group mapping`() {
+        val p = ggplot() + geom_point({ x = "X"; group = "G" }, color = "C")
+        assertThat(p).layers()
+            .length(1)
+            .get(0)
+            .geom()
+            .kind(GeomKind.POINT)
+            .constant("color", "C")
+            .mapping()
+            .contains("x", "X")
+            .contains("group", "G")
+    }
 }

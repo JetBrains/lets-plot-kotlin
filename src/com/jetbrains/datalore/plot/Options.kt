@@ -26,4 +26,5 @@ open class Options(map: Map<String, Any?>) {
     }
 
     fun isEmpty() = byName.isEmpty()
+    fun union(other: Options) = Options(this.byName + other.byName)
 }

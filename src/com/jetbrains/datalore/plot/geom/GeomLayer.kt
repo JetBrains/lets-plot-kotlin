@@ -16,7 +16,7 @@ abstract class GeomLayer(
     position = position,
     show_legend = show_legend,
     sampling = sampling
-), GeomAesthetics {
+), AestheticsOptions {
 
     override val geom: GeomOptions by lazy() {
         GeomSuppliers.point(layerMapping, constants = toFrozen()).invoke()
