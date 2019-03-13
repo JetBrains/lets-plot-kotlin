@@ -2,6 +2,7 @@ package com.jetbrains.datalore.plot.geom
 
 import com.jetbrains.datalore.plot.Layer
 import com.jetbrains.datalore.plot.Options
+import com.jetbrains.datalore.plot.mapping.AestheticsOptions
 
 abstract class GeomLayer(
     private val layerMapping: Options,

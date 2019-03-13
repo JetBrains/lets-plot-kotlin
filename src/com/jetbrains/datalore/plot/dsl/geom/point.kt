@@ -1,8 +1,8 @@
-package com.jetbrains.datalore.plot.geom.dsl
+package com.jetbrains.datalore.plot.dsl.geom
 
 import com.jetbrains.datalore.plot.geom.*
-import com.jetbrains.datalore.plot.geom.aes.PointAesthetics
-import com.jetbrains.datalore.plot.geom.aes.PointMapping
+import com.jetbrains.datalore.plot.mapping.geom.PointAesthetics
+import com.jetbrains.datalore.plot.mapping.geom.PointMapping
 
 @Suppress("ClassName")
 class point(

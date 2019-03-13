@@ -1,8 +1,8 @@
-package com.jetbrains.datalore.plot.geom.aes
+package com.jetbrains.datalore.plot.mapping.geom
 
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.geom.AestheticsOptions
-import com.jetbrains.datalore.plot.geom.MappingOptions
+import com.jetbrains.datalore.plot.mapping.AestheticsOptions
+import com.jetbrains.datalore.plot.mapping.MappingOptions
 
 interface PointAesthetics : AestheticsOptions {
     val x: Any?
