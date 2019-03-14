@@ -21,19 +21,19 @@ class PlotTest {
     fun `empty plot with mapping`() {
         var p = ggplot(mapping = { x = "X"; y = "Y" })
         assertThat(p).features().length(0)
-        assertThat(p).mapping()
+        assertThat(p)
             .aes("x", "X")
             .aes("y", "Y")
 
         p = ggplot { alpha = "A"; group = "G" }
         assertThat(p).features().length(0)
-        assertThat(p).mapping()
+        assertThat(p)
             .aes("alpha", "A")
             .aes("group", "G")
 
         p = ggplot { color = "C"; fill = "F" }
         assertThat(p).features().length(0)
-        assertThat(p).mapping()
+        assertThat(p)
             .aes("color", "C")
             .aes("fill", "F")
     }
@@ -43,7 +43,7 @@ class PlotTest {
         val p = ggplot() + geom_point({ x = "X"; color = "C" })
         assertThat(p).layers()
             .length(1)
-            .get(0).mapping()
+            .get(0)
             .aes("x", "X")
             .aes("color", "C")
 
@@ -52,7 +52,6 @@ class PlotTest {
             .length(1)
             .get(0).geom()
             .kind(GeomKind.POINT)
-            .mapping()
             .aes("x", "X")
             .aes("color", "C")
     }
@@ -83,12 +82,11 @@ class PlotTest {
             .get(0)
             .geom()
             .kind(GeomKind.POINT)
+            .aes("x", "X")
+            .aes("fill", "F")
             .constant("x", 1)
             .constant("y", 2)
             .constant("color", "C")
-            .mapping()
-            .aes("x", "X")
-            .aes("fill", "F")
     }
 
     @Test
@@ -99,10 +97,9 @@ class PlotTest {
             .get(0)
             .geom()
             .kind(GeomKind.POINT)
-            .constant("color", "C")
-            .mapping()
             .aes("x", "X")
             .aes("group", "G")
+            .constant("color", "C")
     }
 
     @Test
@@ -110,7 +107,7 @@ class PlotTest {
         val p = ggplot() + geom_point({ group = "G" }, stat = density({ x = "X" }, kernel = "gaussian"), color = "C")
         assertThat(p).layers()
             .length(1)
-            .get(0).mapping()
+            .get(0)
             .aes("group", "G")
             .aes("x", "X")
     }
