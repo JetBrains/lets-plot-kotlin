@@ -1,7 +1,10 @@
 package com.jetbrains.datalore.plot
 
-open class Options(map: Map<String, Any?>) {
+class Options(map: Map<String, Any?>) {
     companion object {
+        fun of(pair: Pair<String, Any?>) = Options(mapOf(pair))
+        fun of(vararg pairs: Pair<String, Any?>) = Options(mapOf(*pairs))
+
         fun empty() = Options(emptyMap())
     }
 
@@ -16,6 +19,8 @@ open class Options(map: Map<String, Any?>) {
         }
         byName = tmp
     }
+
+    operator fun plus(other: Options) = union(other)
 
     fun has(k: String): Boolean {
         return byName.containsKey(k)

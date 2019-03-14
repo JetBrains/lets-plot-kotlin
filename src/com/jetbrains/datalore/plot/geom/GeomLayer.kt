@@ -2,7 +2,7 @@ package com.jetbrains.datalore.plot.geom
 
 import com.jetbrains.datalore.plot.Layer
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.mapping.AestheticsOptions
+import com.jetbrains.datalore.plot.mapping.FreezableOptions
 import com.jetbrains.datalore.plot.stat.StatOptions
 
 abstract class GeomLayer(
@@ -17,7 +17,7 @@ abstract class GeomLayer(
     position = position,
     show_legend = show_legend,
     sampling = sampling
-), AestheticsOptions {
+), FreezableOptions {
 
     override val geom: GeomOptions by lazy {
         GeomSuppliers.point(layerMapping, constants = toFrozen()).invoke()

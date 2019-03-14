@@ -95,14 +95,12 @@ class GenericAesMapping(
     var fill: Any? = null,
     var group: Any? = null
 ) {
-    fun toFrozen() = Options(
-        mapOf(
-            "x" to x,
-            "y" to y,
-            "alpha" to alpha,
-            "color" to color,
-            "fill" to fill,
-            "group" to group
-        )
+    fun toFrozen() = Options.of(
+        "x" to x,
+        "y" to y,
+        "alpha" to alpha,
+        "color" to color,
+        "fill" to fill,
+        "group" to group
     )
 }
