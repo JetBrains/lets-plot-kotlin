@@ -1,11 +1,14 @@
 package com.jetbrains.datalore.plot.dsl.geom
 
+import com.jetbrains.datalore.plot.layer.GeomFactory
 import com.jetbrains.datalore.plot.layer.GeomLayer
 import com.jetbrains.datalore.plot.layer.geom.Geoms
 import com.jetbrains.datalore.plot.layer.geom.PointAesthetics
 import com.jetbrains.datalore.plot.layer.geom.PointMapping
 import com.jetbrains.datalore.plot.layer.stat.StatSupplier
 import com.jetbrains.datalore.plot.layer.stat.identity
+
+private val FACTORY: GeomFactory = { m, c -> Geoms.Point(m, c) }
 
 @Suppress("ClassName")
 class geom_point(
@@ -27,7 +30,7 @@ class geom_point(
     GeomLayer(
         layerMapping = PointMapping().apply(mapping).toFrozen(),
         data = data,
-        geomFactory = { m, c -> Geoms.Point(m, c) },
+        geomFactory = FACTORY,
         stat = stat.invoke(),
         position = position,
         show_legend = show_legend,

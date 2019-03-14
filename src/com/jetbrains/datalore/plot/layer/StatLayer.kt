@@ -3,11 +3,11 @@ package com.jetbrains.datalore.plot.layer
 import com.jetbrains.datalore.plot.Layer
 import com.jetbrains.datalore.plot.Options
 
-abstract class GeomLayer(
+abstract class StatLayer(
     private val layerMapping: Options,
     data: Any? = null,
-    private val geomFactory: GeomFactory,
-    override val stat: StatOptions,
+    override val geom: GeomOptions,
+    private val statFactory: StatFactory,
     position: Any? = null,
     show_legend: Boolean = true,
     sampling: Any? = null
@@ -17,8 +17,7 @@ abstract class GeomLayer(
     show_legend = show_legend,
     sampling = sampling
 ), FreezableOptions {
-
-    override val geom: GeomOptions by lazy {
-        geomFactory.invoke(layerMapping, toFrozen())
+    override val stat: StatOptions by lazy {
+        statFactory.invoke(layerMapping, toFrozen())
     }
 }
