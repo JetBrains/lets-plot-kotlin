@@ -35,4 +35,26 @@ class GeomLayerTest {
             .kind(StatKind.DENSITY)
             .parameter("kernel", "gaussian")
     }
+
+    @Test
+    fun `geom with overridden stat, mapping`() {
+        val l =
+            geom_point({ fill = "F" }, color = "C", stat = density({ fill = "F1"; alpha = "A" }, kernel = "gaussian"))
+        LayerAssert.assertThat(l)
+            .geom()
+            .kind(GeomKind.POINT)
+            .aes("fill", "F")
+            .constant("color", "C")
+        LayerAssert.assertThat(l)
+            .stat()
+            .kind(StatKind.DENSITY)
+            .aes("fill", "F1")
+            .aes("alpha", "A")
+            .parameter("kernel", "gaussian")
+
+        // When merged, `stat` mapping has precedence over `geom` mapping
+        LayerAssert.assertThat(l)
+            .aes("fill", "F1")
+            .aes("alpha", "A")
+    }
 }
