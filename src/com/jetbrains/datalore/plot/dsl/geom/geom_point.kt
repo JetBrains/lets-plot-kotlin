@@ -1,16 +1,17 @@
 package com.jetbrains.datalore.plot.dsl.geom
 
 import com.jetbrains.datalore.plot.layer.GeomLayer
-import com.jetbrains.datalore.plot.layer.StatOptions
+import com.jetbrains.datalore.plot.layer.geom.Geoms
 import com.jetbrains.datalore.plot.layer.geom.PointAesthetics
 import com.jetbrains.datalore.plot.layer.geom.PointMapping
+import com.jetbrains.datalore.plot.layer.stat.StatSupplier
 import com.jetbrains.datalore.plot.layer.stat.identity
 
 @Suppress("ClassName")
 class geom_point(
     mapping: PointMapping.() -> Unit = {},
     data: Any? = null,
-    stat: () -> StatOptions = { identity },
+    stat: StatSupplier = { identity },
     position: Any? = null,
     show_legend: Boolean = true,
     sampling: Any? = null,
@@ -26,11 +27,11 @@ class geom_point(
     GeomLayer(
         layerMapping = PointMapping().apply(mapping).toFrozen(),
         data = data,
-        statSupplier = stat,
+        geomFactory = { m, c -> Geoms.Point(m, c) },
+        stat = stat.invoke(),
         position = position,
         show_legend = show_legend,
         sampling = sampling
-    ) {
-}
+    )
 
 

@@ -10,9 +10,7 @@ val blank = object : GeomOptions() {
     override val constants = Options.empty()
 }
 
-internal typealias GeomSupplier = () -> GeomOptions
-
-internal object GeomSuppliers {
+internal object Geoms {
     class Point(
         override val mapping: Options,
         override val constants: Options

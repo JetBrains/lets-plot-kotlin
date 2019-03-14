@@ -2,7 +2,7 @@ package com.jetbrains.datalore.plot.dsl.geom
 
 import com.jetbrains.datalore.plot.layer.GeomOptions
 import com.jetbrains.datalore.plot.layer.geom.GeomSupplier
-import com.jetbrains.datalore.plot.layer.geom.GeomSuppliers
+import com.jetbrains.datalore.plot.layer.geom.Geoms
 import com.jetbrains.datalore.plot.layer.geom.PointAesthetics
 import com.jetbrains.datalore.plot.layer.geom.PointMapping
 
@@ -20,7 +20,7 @@ class point(
 ) : PointAesthetics, GeomSupplier {
 
     override fun invoke(): GeomOptions {
-        return GeomSuppliers.Point(
+        return Geoms.Point(
             mapping = PointMapping().apply(mapping).toFrozen(),
             constants = this.toFrozen()
         )
