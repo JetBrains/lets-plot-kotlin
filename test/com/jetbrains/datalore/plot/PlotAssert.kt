@@ -1,13 +1,14 @@
 package com.jetbrains.datalore.plot
 
 import com.jetbrains.datalore.plot.geom.GeomOptions
+import com.jetbrains.datalore.plot.stat.StatOptions
 import junit.framework.AssertionFailedError
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
 
 internal class PlotAssert(private val plot: Plot) {
     companion object {
-        internal fun assertThat(plotSpec: Plot) = PlotAssert(plotSpec)
+        internal fun assertThat(plot: Plot) = PlotAssert(plot)
     }
 
     fun features() = FeatureListAssert(plot.features)
@@ -47,6 +48,10 @@ internal class LayerListAssert(private val layerList: List<Layer>) : FeatureList
 }
 
 internal class LayerAssert(private val layer: Layer) : FeatureAssert(layer) {
+    companion object {
+        internal fun assertThat(layer: Layer) = LayerAssert(layer)
+    }
+
     fun noMapping(): LayerAssert {
         assertTrue(layer.mapping.isEmpty())
         return this
@@ -54,10 +59,11 @@ internal class LayerAssert(private val layer: Layer) : FeatureAssert(layer) {
 
     fun mapping() = AesMappingAssert(layer.mapping)
     fun geom() = GeomOptionsAssert(layer.geom)
+    fun stat() = StatOptionsAssert(layer.stat)
 }
 
 internal class AesMappingAssert(private val options: Options) {
-    fun contains(aes: String, variableName: String): AesMappingAssert {
+    fun aes(aes: String, variableName: String): AesMappingAssert {
         assertTrue(options.has(aes))
         assertEquals(variableName, options.get(aes))
         return this
@@ -79,6 +85,25 @@ internal class GeomOptionsAssert(private val geom: GeomOptions) {
     fun constant(aes: String, value: Any): GeomOptionsAssert {
         assertTrue(geom.constants.has(aes))
         assertEquals(value, geom.constants.get(aes))
+        return this
+    }
+}
+
+internal class StatOptionsAssert(private val stat: StatOptions) {
+    fun kind(kind: StatKind): StatOptionsAssert {
+        assertTrue(stat.kind === kind)
+        return this
+    }
+
+    fun noMapping(): StatOptionsAssert {
+        assertTrue(stat.mapping.isEmpty())
+        return this
+    }
+
+    fun mapping() = AesMappingAssert(options = stat.mapping)
+    fun parameter(name: String, value: Any): StatOptionsAssert {
+        assertTrue(stat.parameters.has(name))
+        assertEquals(value, stat.parameters.get(name))
         return this
     }
 }

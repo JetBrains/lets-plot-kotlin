@@ -6,7 +6,7 @@ import com.jetbrains.datalore.plot.dsl.geom.geom_point
 import com.jetbrains.datalore.plot.dsl.stat.density
 import org.junit.Test
 
-class PlotDslTest {
+class PlotTest {
 
     @Test
     fun `empty plot`() {
@@ -22,20 +22,20 @@ class PlotDslTest {
         var p = ggplot(mapping = { x = "X"; y = "Y" })
         assertThat(p).features().length(0)
         assertThat(p).mapping()
-            .contains("x", "X")
-            .contains("y", "Y")
+            .aes("x", "X")
+            .aes("y", "Y")
 
         p = ggplot { alpha = "A"; group = "G" }
         assertThat(p).features().length(0)
         assertThat(p).mapping()
-            .contains("alpha", "A")
-            .contains("group", "G")
+            .aes("alpha", "A")
+            .aes("group", "G")
 
         p = ggplot { color = "C"; fill = "F" }
         assertThat(p).features().length(0)
         assertThat(p).mapping()
-            .contains("color", "C")
-            .contains("fill", "F")
+            .aes("color", "C")
+            .aes("fill", "F")
     }
 
     @Test
@@ -44,8 +44,8 @@ class PlotDslTest {
         assertThat(p).layers()
             .length(1)
             .get(0).mapping()
-            .contains("x", "X")
-            .contains("color", "C")
+            .aes("x", "X")
+            .aes("color", "C")
 
         // same mappings are accessible via `geom`
         assertThat(p).layers()
@@ -53,8 +53,8 @@ class PlotDslTest {
             .get(0).geom()
             .kind(GeomKind.POINT)
             .mapping()
-            .contains("x", "X")
-            .contains("color", "C")
+            .aes("x", "X")
+            .aes("color", "C")
     }
 
     @Test
@@ -87,8 +87,8 @@ class PlotDslTest {
             .constant("y", 2)
             .constant("color", "C")
             .mapping()
-            .contains("x", "X")
-            .contains("fill", "F")
+            .aes("x", "X")
+            .aes("fill", "F")
     }
 
     @Test
@@ -101,8 +101,8 @@ class PlotDslTest {
             .kind(GeomKind.POINT)
             .constant("color", "C")
             .mapping()
-            .contains("x", "X")
-            .contains("group", "G")
+            .aes("x", "X")
+            .aes("group", "G")
     }
 
     @Test
@@ -111,16 +111,7 @@ class PlotDslTest {
         assertThat(p).layers()
             .length(1)
             .get(0).mapping()
-            .contains("group", "G")
-            .contains("x", "X")
-//        assertThat(p).layers()
-//            .length(1)
-//            .get(0)
-//            .geom()
-//            .kind(GeomKind.POINT)
-//            .constant("color", "C")
-//            .mapping()
-//            .contains("x", "X")
-//            .contains("group", "G")
+            .aes("group", "G")
+            .aes("x", "X")
     }
 }
