@@ -19,7 +19,7 @@ abstract class GeomLayer(
 ), FreezableOptions {
 
     override val geom: GeomOptions by lazy {
-        GeomSuppliers.point(layerMapping, constants = toFrozen()).invoke()
+        GeomSuppliers.Point(layerMapping, constants = toFrozen())
     }
 
     override val stat: StatOptions by lazy {

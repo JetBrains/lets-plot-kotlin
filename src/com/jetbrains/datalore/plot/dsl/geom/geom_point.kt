@@ -1,16 +1,16 @@
 package com.jetbrains.datalore.plot.dsl.geom
 
 import com.jetbrains.datalore.plot.layer.GeomLayer
+import com.jetbrains.datalore.plot.layer.StatOptions
 import com.jetbrains.datalore.plot.layer.geom.PointAesthetics
 import com.jetbrains.datalore.plot.layer.geom.PointMapping
-import com.jetbrains.datalore.plot.layer.StatOptions
 import com.jetbrains.datalore.plot.layer.stat.identity
 
 @Suppress("ClassName")
 class geom_point(
     mapping: PointMapping.() -> Unit = {},
     data: Any? = null,
-    stat: () -> StatOptions = identity,
+    stat: () -> StatOptions = { identity },
     position: Any? = null,
     show_legend: Boolean = true,
     sampling: Any? = null,

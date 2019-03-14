@@ -6,22 +6,18 @@ import com.jetbrains.datalore.plot.layer.StatOptions
 
 internal typealias StatSupplier = () -> StatOptions
 
-val identity: StatSupplier = {
-    StatOptions(
-        StatKind.IDENTITY
-    )
+val identity = object : StatOptions() {
+    override val kind = StatKind.IDENTITY
+    override val mapping = Options.empty()
+    override val parameters = Options.empty()
 }
 
 internal object StatSuppliers {
-    internal fun density(
-        mapping: Options,
-        parameters: Options
-    ) = {
-        StatOptions(
-            StatKind.DENSITY,
-            mapping = mapping,
-            parameters = parameters
-        )
+    class Density(
+        override val mapping: Options,
+        override val parameters: Options
+    ) : StatOptions() {
+        override val kind = StatKind.DENSITY
     }
 }
 

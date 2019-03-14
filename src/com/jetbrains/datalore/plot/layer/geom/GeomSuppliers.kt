@@ -4,24 +4,27 @@ import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.Options
 import com.jetbrains.datalore.plot.layer.GeomOptions
 
-internal typealias GeomSupplier = () -> GeomOptions
-
-val blank: GeomSupplier = {
-    GeomOptions(
-        GeomKind.BLANK
-    )
+val blank = object : GeomOptions() {
+    override val kind = GeomKind.BLANK
+    override val mapping = Options.empty()
+    override val constants = Options.empty()
 }
 
+internal typealias GeomSupplier = () -> GeomOptions
+
 internal object GeomSuppliers {
-    internal fun point(
-        mapping: Options,
-        constants: Options
-    ) = {
-        GeomOptions(
-            GeomKind.POINT,
-            mapping = mapping,
-            constants = constants
-        )
+    class Point(
+        override val mapping: Options,
+        override val constants: Options
+    ) : GeomOptions() {
+        override val kind = GeomKind.POINT
+    }
+
+    class Area(
+        override val mapping: Options = Options.empty(),
+        override val constants: Options = Options.empty()
+    ) : GeomOptions() {
+        override val kind = GeomKind.AREA
     }
 }
 

@@ -1,10 +1,10 @@
 package com.jetbrains.datalore.plot.dsl.stat
 
-import com.jetbrains.datalore.plot.StatKind.DENSITY
+import com.jetbrains.datalore.plot.layer.StatOptions
 import com.jetbrains.datalore.plot.layer.stat.DensityMapping
 import com.jetbrains.datalore.plot.layer.stat.DensityParameters
-import com.jetbrains.datalore.plot.layer.StatOptions
 import com.jetbrains.datalore.plot.layer.stat.StatSupplier
+import com.jetbrains.datalore.plot.layer.stat.StatSuppliers
 
 @Suppress("ClassName")
 class density(
@@ -15,8 +15,7 @@ class density(
     override val trim: Any? = null
 ) : DensityParameters, StatSupplier {
     override fun invoke(): StatOptions {
-        return StatOptions(
-            DENSITY,
+        return StatSuppliers.Density(
             mapping = DensityMapping().apply(mapping).toFrozen(),
             parameters = this.toFrozen()
         )
