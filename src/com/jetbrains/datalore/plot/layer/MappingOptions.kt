@@ -1,4 +1,4 @@
-package com.jetbrains.datalore.plot.mapping
+package com.jetbrains.datalore.plot.layer
 
 import com.jetbrains.datalore.plot.Options
 

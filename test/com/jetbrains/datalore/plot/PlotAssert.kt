@@ -1,7 +1,7 @@
 package com.jetbrains.datalore.plot
 
-import com.jetbrains.datalore.plot.geom.GeomOptions
-import com.jetbrains.datalore.plot.stat.StatOptions
+import com.jetbrains.datalore.plot.layer.GeomOptions
+import com.jetbrains.datalore.plot.layer.StatOptions
 import junit.framework.AssertionFailedError
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue

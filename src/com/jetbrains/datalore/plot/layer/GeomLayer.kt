@@ -1,9 +1,8 @@
-package com.jetbrains.datalore.plot.geom
+package com.jetbrains.datalore.plot.layer
 
 import com.jetbrains.datalore.plot.Layer
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.mapping.FreezableOptions
-import com.jetbrains.datalore.plot.stat.StatOptions
+import com.jetbrains.datalore.plot.layer.geom.GeomSuppliers
 
 abstract class GeomLayer(
     private val layerMapping: Options,

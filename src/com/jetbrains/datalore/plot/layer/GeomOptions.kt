@@ -1,4 +1,4 @@
-package com.jetbrains.datalore.plot.geom
+package com.jetbrains.datalore.plot.layer
 
 import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.Options

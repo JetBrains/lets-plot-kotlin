@@ -1,8 +1,8 @@
-package com.jetbrains.datalore.plot.mapping.geom
+package com.jetbrains.datalore.plot.layer.geom
 
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.mapping.FreezableOptions
-import com.jetbrains.datalore.plot.mapping.MappingOptions
+import com.jetbrains.datalore.plot.layer.FreezableOptions
+import com.jetbrains.datalore.plot.layer.MappingOptions
 
 interface PointAesthetics : FreezableOptions {
     val x: Any?

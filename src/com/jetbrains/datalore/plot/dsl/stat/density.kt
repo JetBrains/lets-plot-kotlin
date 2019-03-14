@@ -1,10 +1,10 @@
 package com.jetbrains.datalore.plot.dsl.stat
 
 import com.jetbrains.datalore.plot.StatKind.DENSITY
-import com.jetbrains.datalore.plot.mapping.stat.DensityMapping
-import com.jetbrains.datalore.plot.mapping.stat.DensityParameters
-import com.jetbrains.datalore.plot.stat.StatOptions
-import com.jetbrains.datalore.plot.stat.StatSupplier
+import com.jetbrains.datalore.plot.layer.stat.DensityMapping
+import com.jetbrains.datalore.plot.layer.stat.DensityParameters
+import com.jetbrains.datalore.plot.layer.StatOptions
+import com.jetbrains.datalore.plot.layer.stat.StatSupplier
 
 @Suppress("ClassName")
 class density(

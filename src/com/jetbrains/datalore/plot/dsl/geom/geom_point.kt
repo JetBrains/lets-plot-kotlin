@@ -1,10 +1,10 @@
 package com.jetbrains.datalore.plot.dsl.geom
 
-import com.jetbrains.datalore.plot.geom.GeomLayer
-import com.jetbrains.datalore.plot.mapping.geom.PointAesthetics
-import com.jetbrains.datalore.plot.mapping.geom.PointMapping
-import com.jetbrains.datalore.plot.stat.StatOptions
-import com.jetbrains.datalore.plot.stat.identity
+import com.jetbrains.datalore.plot.layer.GeomLayer
+import com.jetbrains.datalore.plot.layer.geom.PointAesthetics
+import com.jetbrains.datalore.plot.layer.geom.PointMapping
+import com.jetbrains.datalore.plot.layer.StatOptions
+import com.jetbrains.datalore.plot.layer.stat.identity
 
 @Suppress("ClassName")
 class geom_point(

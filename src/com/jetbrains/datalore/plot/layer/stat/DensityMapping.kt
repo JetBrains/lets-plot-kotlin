@@ -1,8 +1,8 @@
-package com.jetbrains.datalore.plot.mapping.stat
+package com.jetbrains.datalore.plot.layer.stat
 
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.mapping.MappingOptions
-import com.jetbrains.datalore.plot.mapping.geom.AreaAesthetics
+import com.jetbrains.datalore.plot.layer.MappingOptions
+import com.jetbrains.datalore.plot.layer.geom.AreaAesthetics
 
 interface DensityAesthetics : AreaAesthetics {
     val weight: Any?

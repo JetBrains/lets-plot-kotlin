@@ -1,7 +1,7 @@
-package com.jetbrains.datalore.plot.mapping.stat
+package com.jetbrains.datalore.plot.layer.stat
 
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.mapping.FreezableOptions
+import com.jetbrains.datalore.plot.layer.FreezableOptions
 
 interface DensityParameters : FreezableOptions {
     val bw: Any?

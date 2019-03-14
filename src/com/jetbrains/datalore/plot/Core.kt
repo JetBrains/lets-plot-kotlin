@@ -1,7 +1,7 @@
 package com.jetbrains.datalore.plot
 
-import com.jetbrains.datalore.plot.geom.GeomOptions
-import com.jetbrains.datalore.plot.stat.StatOptions
+import com.jetbrains.datalore.plot.layer.GeomOptions
+import com.jetbrains.datalore.plot.layer.StatOptions
 
 
 class Plot internal constructor(val data: Any?, val mapping: Options, val features: List<Feature>) {
