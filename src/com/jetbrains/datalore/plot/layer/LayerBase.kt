@@ -3,7 +3,7 @@ package com.jetbrains.datalore.plot.layer
 import com.jetbrains.datalore.plot.Layer
 import com.jetbrains.datalore.plot.Options
 
-abstract class GeomLayer(
+abstract class LayerBase(
     mapping: Options,
     data: Any? = null,
     geom: GeomOptions,
@@ -21,8 +21,5 @@ abstract class GeomLayer(
     sampling = sampling
 ), FreezableOptions {
 
-    //    override val geom: GeomOptions by lazy {
-//        geomFactory.invoke(layerMapping, toFrozen())
-//    }
     override val parameters by lazy { geom.parameters + stat.parameters + this.toFrozen() }
 }

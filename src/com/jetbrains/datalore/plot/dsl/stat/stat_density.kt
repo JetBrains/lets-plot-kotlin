@@ -2,7 +2,7 @@ package com.jetbrains.datalore.plot.dsl.stat
 
 import com.jetbrains.datalore.plot.Options
 import com.jetbrains.datalore.plot.layer.GeomOptions
-import com.jetbrains.datalore.plot.layer.StatLayer
+import com.jetbrains.datalore.plot.layer.LayerBase
 import com.jetbrains.datalore.plot.layer.geom.Geoms
 import com.jetbrains.datalore.plot.layer.stat.DensityAesthetics
 import com.jetbrains.datalore.plot.layer.stat.DensityMapping
@@ -30,7 +30,7 @@ class stat_density(
     override val trim: Any? = null
 
 ) : DensityAesthetics, DensityParameters,
-    StatLayer(
+    LayerBase(
         mapping = DensityMapping().apply(mapping).toFrozen(),
         data = data,
         geom = geom,

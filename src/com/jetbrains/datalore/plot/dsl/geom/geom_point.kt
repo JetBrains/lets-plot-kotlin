@@ -1,6 +1,6 @@
 package com.jetbrains.datalore.plot.dsl.geom
 
-import com.jetbrains.datalore.plot.layer.GeomLayer
+import com.jetbrains.datalore.plot.layer.LayerBase
 import com.jetbrains.datalore.plot.layer.StatOptions
 import com.jetbrains.datalore.plot.layer.geom.PointAesthetics
 import com.jetbrains.datalore.plot.layer.geom.PointMapping
@@ -23,7 +23,7 @@ class geom_point(
     override val size: Any? = null,
     override val stroke: Any? = null
 ) : PointAesthetics,
-    GeomLayer(
+    LayerBase(
         mapping = PointMapping().apply(mapping).toFrozen(),
         data = data,
         geom = point(),
