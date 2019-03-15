@@ -8,7 +8,7 @@ class Options(map: Map<String, Any?>) {
         fun empty() = Options(emptyMap())
     }
 
-    private val byName: Map<String, Any>
+    internal val byName: Map<String, Any>
 
     init {
         val tmp = mutableMapOf<String, Any>()

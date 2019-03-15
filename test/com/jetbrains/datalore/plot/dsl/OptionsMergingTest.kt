@@ -7,12 +7,13 @@ import com.jetbrains.datalore.plot.dsl.geom.geom_point
 import com.jetbrains.datalore.plot.dsl.geom.point
 import com.jetbrains.datalore.plot.dsl.stat.density
 import com.jetbrains.datalore.plot.dsl.stat.stat_density
+import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 class OptionsMergingTest {
 
     @Test
-    fun `geom layer options precedence`() {
+    fun `layer options precedence over geom`() {
         val l = geom_point(
             {
                 x = "layer X"
@@ -43,13 +44,13 @@ class OptionsMergingTest {
     }
 
     @Test
-    fun `stat layer options precedence`() {
+    fun `layer options precedence over stat`() {
         val l = stat_density(
             {
                 x = "layer X"
                 y = "layer Y"
                 group = "layer G"
-                linetype = "stat L"
+                linetype = "layer L"
             }, color = "layer C", fill = "layer F", geom = point(
                 {
                     x = "stat X"
@@ -62,12 +63,48 @@ class OptionsMergingTest {
             .aes("x", "layer X")
             .aes("y", "layer Y")
             .aes("group", "layer G")
-            .aes("linetype", "stat L")
+            .aes("linetype", "layer L")
             .parameter("color", "layer C")
             .parameter("fill", "layer F")
             .parameter("kernel", "gaussian")
             .geom().kind(GeomKind.POINT)
             .aes("x", "stat X")
             .aes("group", "stat G")
+    }
+
+    @Test
+    fun `geom and stat layer equivalence`() {
+        val geomLayer = geom_point(
+            { fill = "F" },
+            color = "C",
+            stat = density(
+                { x = "X"; linetype = "L" },
+                kernel = "gaussian"
+            )
+        )
+
+        var statLayer: stat_density
+        run {
+            statLayer = stat_density(
+                { x = "X"; linetype = "L" },
+                color = "C",
+                geom = point({ fill = "F" }),
+                kernel = "gaussian"
+            )
+
+            assertEquals(geomLayer.mapping.byName, statLayer.mapping.byName)
+            assertEquals(geomLayer.parameters.byName, statLayer.parameters.byName)
+        }
+
+        run {
+            statLayer = stat_density(
+                { x = "X"; linetype = "L" },
+                geom = point({ fill = "F" }, color = "C"),
+                kernel = "gaussian"
+            )
+
+            assertEquals(geomLayer.mapping.byName, statLayer.mapping.byName)
+            assertEquals(geomLayer.parameters.byName, statLayer.parameters.byName)
+        }
     }
 }

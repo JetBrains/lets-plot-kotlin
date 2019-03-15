@@ -81,15 +81,12 @@ abstract class Layer(
     val sampling: Any?
 ) : Feature() {
 
-    // later mapping has precedence over geom and stat
+    // layer mapping has precedence over geom and stat
     val mapping by lazy {
         geom.mapping + stat.mapping + mapping
     }
 
     abstract val parameters: Options
-
-//    abstract val geom: GeomOptions
-//    abstract val stat: StatOptions
 }
 
 abstract class NotLayer : Feature()
