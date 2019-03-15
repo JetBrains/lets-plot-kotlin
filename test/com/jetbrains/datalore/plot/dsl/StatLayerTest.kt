@@ -3,9 +3,7 @@ package com.jetbrains.datalore.plot.dsl
 import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.LayerAssert
 import com.jetbrains.datalore.plot.StatKind
-import com.jetbrains.datalore.plot.dsl.geom.geom_point
 import com.jetbrains.datalore.plot.dsl.geom.point
-import com.jetbrains.datalore.plot.dsl.stat.density
 import com.jetbrains.datalore.plot.dsl.stat.stat_density
 import org.junit.Test
 
@@ -58,26 +56,5 @@ class StatLayerTest {
             .stat()
             .kind(StatKind.DENSITY)
             .noMapping().noParameters()
-    }
-
-    @Test
-    fun `geom with overridden stat, mapping`() {
-        val l =
-            geom_point({ fill = "F" }, color = "C", stat = density({ fill = "F1"; alpha = "A" }, kernel = "gaussian"))
-
-        LayerAssert.assertThat(l)
-            .aes("fill", "F")                       // from layer
-            .aes("alpha", "A")                      // from stat
-            .parameter("color", "C")
-            .parameter("kernel", "gaussian")
-            .geom()
-            .kind(GeomKind.POINT)
-
-        LayerAssert.assertThat(l)
-            .stat()
-            .kind(StatKind.DENSITY)
-            .aes("fill", "F1")
-            .aes("alpha", "A")
-            .parameter("kernel", "gaussian")
     }
 }
