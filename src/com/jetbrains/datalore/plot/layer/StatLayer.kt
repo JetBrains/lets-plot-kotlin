@@ -4,20 +4,26 @@ import com.jetbrains.datalore.plot.Layer
 import com.jetbrains.datalore.plot.Options
 
 abstract class StatLayer(
-    private val layerMapping: Options,
+    mapping: Options,
     data: Any? = null,
-    override val geom: GeomOptions,
-    private val statFactory: StatFactory,
+    geom: GeomOptions,
+    stat: StatOptions,
     position: Any? = null,
     show_legend: Boolean = true,
     sampling: Any? = null
 ) : Layer(
+    mapping = mapping,
     data = data,
+    geom = geom,
+    stat = stat,
     position = position,
     show_legend = show_legend,
     sampling = sampling
 ), FreezableOptions {
-    override val stat: StatOptions by lazy {
-        statFactory.invoke(layerMapping, toFrozen())
-    }
+//    override val stat: StatOptions by lazy {
+//        statFactory.invoke(layerMapping, toFrozen())
+//    }
+//    }
+
+    override val parameters by lazy { geom.parameters + stat.parameters + this.toFrozen() }
 }

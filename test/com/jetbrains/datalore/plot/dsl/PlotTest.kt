@@ -3,7 +3,6 @@ package com.jetbrains.datalore.plot.dsl
 import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.PlotAssert.Companion.assertThat
 import com.jetbrains.datalore.plot.dsl.geom.geom_point
-import com.jetbrains.datalore.plot.dsl.stat.density
 import org.junit.Test
 
 class PlotTest {
@@ -25,7 +24,8 @@ class PlotTest {
             .aes("x", "X")
             .aes("y", "Y")
 
-        p = ggplot { alpha = "A"; group = "G" }
+        val data = emptyMap<String, List<Any>>()
+        p = ggplot(data, { alpha = "A"; group = "G" })
         assertThat(p).features().length(0)
         assertThat(p)
             .aes("alpha", "A")
@@ -46,14 +46,8 @@ class PlotTest {
             .get(0)
             .aes("x", "X")
             .aes("color", "C")
-
-        // same mappings are accessible via `geom`
-        assertThat(p).layers()
-            .length(1)
-            .get(0).geom()
+            .geom()
             .kind(GeomKind.POINT)
-            .aes("x", "X")
-            .aes("color", "C")
     }
 
     @Test
@@ -61,12 +55,14 @@ class PlotTest {
         val p = ggplot() + geom_point(x = 1, y = 2, color = "C")
         assertThat(p).layers()
             .length(1)
-            .get(0).noMapping()
-            .geom().noMapping()
+            .get(0)
+            .noMapping()
+            .parameter("x", 1)
+            .parameter("y", 2)
+            .parameter("color", "C")
+            .geom()
             .kind(GeomKind.POINT)
-            .constant("x", 1)
-            .constant("y", 2)
-            .constant("color", "C")
+            .noMapping().noParameters()
     }
 
     @Test
@@ -80,13 +76,13 @@ class PlotTest {
         assertThat(p).layers()
             .length(1)
             .get(0)
-            .geom()
-            .kind(GeomKind.POINT)
             .aes("x", "X")
             .aes("fill", "F")
-            .constant("x", 1)
-            .constant("y", 2)
-            .constant("color", "C")
+            .parameter("x", 1)
+            .parameter("y", 2)
+            .parameter("color", "C")
+            .geom()
+            .kind(GeomKind.POINT)
     }
 
     @Test
@@ -95,20 +91,10 @@ class PlotTest {
         assertThat(p).layers()
             .length(1)
             .get(0)
+            .aes("x", "X")
+            .aes("group", "G")
+            .parameter("color", "C")
             .geom()
             .kind(GeomKind.POINT)
-            .aes("x", "X")
-            .aes("group", "G")
-            .constant("color", "C")
-    }
-
-    @Test
-    fun `plot with point geom and density stat`() {
-        val p = ggplot() + geom_point({ group = "G" }, stat = density({ x = "X" }, kernel = "gaussian"), color = "C")
-        assertThat(p).layers()
-            .length(1)
-            .get(0)
-            .aes("group", "G")
-            .aes("x", "X")
     }
 }

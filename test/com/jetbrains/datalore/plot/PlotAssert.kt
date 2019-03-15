@@ -6,13 +6,12 @@ import junit.framework.AssertionFailedError
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertTrue
 
-internal class PlotAssert(private val plot: Plot) : AesMappingAssert<PlotAssert> {
+internal class PlotAssert(private val plot: Plot) : MappingAssert<PlotAssert> {
     companion object {
         internal fun assertThat(plot: Plot) = PlotAssert(plot)
     }
 
-    override val mappingOptions: Options
-        get() = plot.mapping
+    override val mappingOptions = plot.mapping
 
     fun features() = FeatureListAssert(plot.features)
     fun layers() = LayerListAssert(plot.layers())
@@ -49,24 +48,50 @@ internal class LayerListAssert(private val layerList: List<Layer>) : FeatureList
     override fun get(index: Int) = LayerAssert(layerList[index])
 }
 
-internal class LayerAssert(private val layer: Layer) : AesMappingAssert<LayerAssert>, FeatureAssert(layer) {
+internal class LayerAssert(private val layer: Layer) :
+    MappingAssert<LayerAssert>,
+    ParametersAssert<LayerAssert>,
+    FeatureAssert(layer) {
+
     companion object {
         internal fun assertThat(layer: Layer) = LayerAssert(layer)
     }
 
-    override val mappingOptions: Options
-        get() = layer.mapping
+    override val mappingOptions = layer.mapping
+    override val parameterOptions = layer.parameters
 
     fun geom() = GeomOptionsAssert(layer.geom)
     fun stat() = StatOptionsAssert(layer.stat)
 }
 
-internal interface AesMappingAssert<T> {
+internal class GeomOptionsAssert(private val geom: GeomOptions) : MappingAssert<GeomOptionsAssert>,
+    ParametersAssert<GeomOptionsAssert> {
+    override val mappingOptions = geom.mapping
+    override val parameterOptions = geom.parameters
+
+    fun kind(kind: GeomKind): GeomOptionsAssert {
+        assertTrue(geom.kind === kind)
+        return this
+    }
+}
+
+internal class StatOptionsAssert(private val stat: StatOptions) : MappingAssert<StatOptionsAssert>,
+    ParametersAssert<StatOptionsAssert> {
+    override val mappingOptions = stat.mapping
+    override val parameterOptions = stat.parameters
+
+    fun kind(kind: StatKind): StatOptionsAssert {
+        assertTrue(stat.kind === kind)
+        return this
+    }
+}
+
+internal interface MappingAssert<T> {
     val mappingOptions: Options
 
     @Suppress("UNCHECKED_CAST")
     fun aes(name: String, value: String): T {
-        assertTrue(mappingOptions.has(name))
+//        assertTrue(mappingOptions.has(name))
         assertEquals(value, mappingOptions.get(name))
         return this as T
     }
@@ -78,34 +103,19 @@ internal interface AesMappingAssert<T> {
     }
 }
 
-internal class GeomOptionsAssert(private val geom: GeomOptions) : AesMappingAssert<GeomOptionsAssert> {
-    override val mappingOptions: Options
-        get() = geom.mapping
+internal interface ParametersAssert<T> {
+    val parameterOptions: Options
 
-    fun kind(kind: GeomKind): GeomOptionsAssert {
-        assertTrue(geom.kind === kind)
-        return this
+    @Suppress("UNCHECKED_CAST")
+    fun parameter(name: String, value: Any): T {
+//        assertTrue(parameterOptions.has(name))
+        assertEquals(value, parameterOptions.get(name))
+        return this as T
     }
 
-    fun constant(aes: String, value: Any): GeomOptionsAssert {
-        assertTrue(geom.constants.has(aes))
-        assertEquals(value, geom.constants.get(aes))
-        return this
-    }
-}
-
-internal class StatOptionsAssert(private val stat: StatOptions) : AesMappingAssert<StatOptionsAssert> {
-    override val mappingOptions: Options
-        get() = stat.mapping
-
-    fun kind(kind: StatKind): StatOptionsAssert {
-        assertTrue(stat.kind === kind)
-        return this
-    }
-
-    fun parameter(name: String, value: Any): StatOptionsAssert {
-        assertTrue(stat.parameters.has(name))
-        assertEquals(value, stat.parameters.get(name))
-        return this
+    @Suppress("UNCHECKED_CAST")
+    fun noParameters(): T {
+        assertTrue(parameterOptions.isEmpty())
+        return this as T
     }
 }

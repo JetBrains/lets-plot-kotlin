@@ -1,22 +1,18 @@
 package com.jetbrains.datalore.plot.dsl.stat
 
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.layer.StatFactory
+import com.jetbrains.datalore.plot.layer.GeomOptions
 import com.jetbrains.datalore.plot.layer.StatLayer
-import com.jetbrains.datalore.plot.layer.geom.GeomSupplier
 import com.jetbrains.datalore.plot.layer.geom.Geoms
 import com.jetbrains.datalore.plot.layer.stat.DensityAesthetics
 import com.jetbrains.datalore.plot.layer.stat.DensityMapping
 import com.jetbrains.datalore.plot.layer.stat.DensityParameters
-import com.jetbrains.datalore.plot.layer.stat.Stats
-
-private var FACTORY: StatFactory = { m, p -> Stats.Density(m, p) }
 
 @Suppress("ClassName")
 class stat_density(
     mapping: DensityMapping.() -> Unit = {},
     data: Any? = null,
-    geom: GeomSupplier = { Geoms.Area() },
+    geom: GeomOptions = Geoms.Area(),
     position: Any? = null,
     show_legend: Boolean = true,
     sampling: Any? = null,
@@ -35,10 +31,10 @@ class stat_density(
 
 ) : DensityAesthetics, DensityParameters,
     StatLayer(
-        layerMapping = DensityMapping().apply(mapping).toFrozen(),
+        mapping = DensityMapping().apply(mapping).toFrozen(),
         data = data,
-        geom = geom.invoke(),
-        statFactory = FACTORY,
+        geom = geom,
+        stat = density(),
         position = position,
         show_legend = show_legend,
         sampling = sampling

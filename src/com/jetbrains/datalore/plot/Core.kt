@@ -72,17 +72,24 @@ internal object DummyFeature : Feature() {
 }
 
 abstract class Layer(
+    mapping: Options,
     val data: Any?,
+    val geom: GeomOptions,
+    val stat: StatOptions,
     val position: Any?,
     val show_legend: Boolean,
     val sampling: Any?
 ) : Feature() {
+
+    // later mapping has precedence over geom and stat
     val mapping by lazy {
-        geom.mapping.union(stat.mapping)
+        geom.mapping + stat.mapping + mapping
     }
 
-    abstract val geom: GeomOptions
-    abstract val stat: StatOptions
+    abstract val parameters: Options
+
+//    abstract val geom: GeomOptions
+//    abstract val stat: StatOptions
 }
 
 abstract class NotLayer : Feature()

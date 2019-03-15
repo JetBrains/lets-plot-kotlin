@@ -4,21 +4,25 @@ import com.jetbrains.datalore.plot.Layer
 import com.jetbrains.datalore.plot.Options
 
 abstract class GeomLayer(
-    private val layerMapping: Options,
+    mapping: Options,
     data: Any? = null,
-    private val geomFactory: GeomFactory,
-    override val stat: StatOptions,
+    geom: GeomOptions,
+    stat: StatOptions,
     position: Any? = null,
     show_legend: Boolean = true,
     sampling: Any? = null
 ) : Layer(
+    mapping = mapping,
     data = data,
+    geom = geom,
+    stat = stat,
     position = position,
     show_legend = show_legend,
     sampling = sampling
 ), FreezableOptions {
 
-    override val geom: GeomOptions by lazy {
-        geomFactory.invoke(layerMapping, toFrozen())
-    }
+    //    override val geom: GeomOptions by lazy {
+//        geomFactory.invoke(layerMapping, toFrozen())
+//    }
+    override val parameters by lazy { geom.parameters + stat.parameters + this.toFrozen() }
 }
