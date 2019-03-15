@@ -24,7 +24,7 @@ class geom_point(
     override val stroke: Any? = null
 ) : PointAesthetics,
     LayerBase(
-        mapping = PointMapping().apply(mapping).toFrozen(),
+        mapping = PointMapping().apply(mapping).seal(),
         data = data,
         geom = point(),
         stat = stat,

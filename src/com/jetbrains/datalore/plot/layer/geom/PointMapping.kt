@@ -1,10 +1,10 @@
 package com.jetbrains.datalore.plot.layer.geom
 
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.layer.FreezableOptions
+import com.jetbrains.datalore.plot.layer.OptionsCapsule
 import com.jetbrains.datalore.plot.layer.MappingOptions
 
-interface PointAesthetics : FreezableOptions {
+interface PointAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
     val alpha: Any?
@@ -14,7 +14,7 @@ interface PointAesthetics : FreezableOptions {
     val size: Any?
     val stroke: Any?
 
-    override fun toFrozen() = Options.of(
+    override fun seal() = Options.of(
         "x" to x,
         "y" to y,
         "alpha" to alpha,
@@ -37,7 +37,7 @@ class PointMapping(
     override var stroke: Any? = null,
     override var group: Any? = null
 ) : PointAesthetics, MappingOptions {
-    override fun toFrozen() = withGroup(super.toFrozen())
+    override fun seal() = withGroup(super.seal())
 }
 
 

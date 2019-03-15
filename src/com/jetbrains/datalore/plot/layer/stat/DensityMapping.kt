@@ -7,8 +7,8 @@ import com.jetbrains.datalore.plot.layer.geom.AreaAesthetics
 interface DensityAesthetics : AreaAesthetics {
     val weight: Any?
 
-    override fun toFrozen(): Options {
-        return super.toFrozen() +
+    override fun seal(): Options {
+        return super.seal() +
                 Options.of("weight" to weight)
     }
 }
@@ -24,5 +24,5 @@ class DensityMapping(
     override var weight: Any? = null,
     override var group: Any? = null
 ) : DensityAesthetics, MappingOptions {
-    override fun toFrozen() = withGroup(super.toFrozen())
+    override fun seal() = withGroup(super.seal())
 }

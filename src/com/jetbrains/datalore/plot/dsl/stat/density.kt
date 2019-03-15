@@ -15,13 +15,6 @@ class density(
 ) : DensityParameters,
     StatOptions() {
     override val kind = StatKind.DENSITY
-    override val mapping = DensityMapping().apply(mapping).toFrozen()
-    override val parameters = this.toFrozen()
-
-//    override fun invoke(): StatOptions {
-//        return Stats.Density(
-//            mapping = DensityMapping().apply(mapping).toFrozen(),
-//            parameters = this.toFrozen()
-//        )
-//    }
+    override val mapping = DensityMapping().apply(mapping).seal()
+    override val parameters = this.seal()
 }

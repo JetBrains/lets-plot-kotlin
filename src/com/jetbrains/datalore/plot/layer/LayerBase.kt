@@ -19,7 +19,7 @@ abstract class LayerBase(
     position = position,
     show_legend = show_legend,
     sampling = sampling
-), FreezableOptions {
+), OptionsCapsule {
 
-    override val parameters by lazy { geom.parameters + stat.parameters + this.toFrozen() }
+    override val parameters by lazy { geom.parameters + stat.parameters + this.seal() }
 }

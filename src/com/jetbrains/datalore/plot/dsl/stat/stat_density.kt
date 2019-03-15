@@ -31,7 +31,7 @@ class stat_density(
 
 ) : DensityAesthetics, DensityParameters,
     LayerBase(
-        mapping = DensityMapping().apply(mapping).toFrozen(),
+        mapping = DensityMapping().apply(mapping).seal(),
         data = data,
         geom = geom,
         stat = density(),
@@ -41,9 +41,9 @@ class stat_density(
 
     ) {
 
-    override fun toFrozen(): Options {
-        return super<DensityAesthetics>.toFrozen() +
-                super<DensityParameters>.toFrozen()
+    override fun seal(): Options {
+        return super<DensityAesthetics>.seal() +
+                super<DensityParameters>.seal()
     }
 }
 

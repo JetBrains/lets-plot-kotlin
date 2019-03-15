@@ -1,10 +1,7 @@
 package com.jetbrains.datalore.plot.dsl.geom
 
 import com.jetbrains.datalore.plot.GeomKind
-import com.jetbrains.datalore.plot.Options
 import com.jetbrains.datalore.plot.layer.GeomOptions
-import com.jetbrains.datalore.plot.layer.geom.GeomSupplier
-import com.jetbrains.datalore.plot.layer.geom.Geoms
 import com.jetbrains.datalore.plot.layer.geom.PointAesthetics
 import com.jetbrains.datalore.plot.layer.geom.PointMapping
 
@@ -22,13 +19,6 @@ class point(
 ) : PointAesthetics,
     GeomOptions() {
     override val kind = GeomKind.POINT
-    override val mapping = PointMapping().apply(mapping).toFrozen()
-    override val parameters = this.toFrozen()
-
-//    override fun invoke(): GeomOptions {
-//        return Geoms.Point(
-//            mapping = PointMapping().apply(mapping).toFrozen(),
-//            constants = this.toFrozen()
-//        )
-//    }
+    override val mapping = PointMapping().apply(mapping).seal()
+    override val parameters = this.seal()
 }

@@ -1,10 +1,10 @@
 package com.jetbrains.datalore.plot.layer.geom
 
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.layer.FreezableOptions
+import com.jetbrains.datalore.plot.layer.OptionsCapsule
 import com.jetbrains.datalore.plot.layer.MappingOptions
 
-interface AreaAesthetics : FreezableOptions {
+interface AreaAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
     val alpha: Any?
@@ -13,7 +13,7 @@ interface AreaAesthetics : FreezableOptions {
     val linetype: Any?
     val size: Any?
 
-    override fun toFrozen() = Options.of(
+    override fun seal() = Options.of(
         "x" to x,
         "y" to y,
         "alpha" to alpha,
@@ -34,7 +34,7 @@ class AreaMapping(
     override var size: Any? = null,
     override var group: Any? = null
 ) : AreaAesthetics, MappingOptions {
-    override fun toFrozen() = withGroup(super.toFrozen())
+    override fun seal() = withGroup(super.seal())
 }
 
 
