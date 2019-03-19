@@ -14,14 +14,14 @@ object Pos {
     val jitterdodge = PosOptions(PosKind.JITTER_DODGE)
 
     // parameter names
-    private val DODGE_WIDTH = "width"
-    private val JITTER_WIDTH = "width"
-    private val JITTER_HEIGHT = "height"
-    private val NUDGE_WIDTH = "x"
-    private val NUDGE_HEIGHT = "y"
-    private val JD_DODGE_WIDTH = "dodge_width"
-    private val JD_JITTER_WIDTH = "jitter_width"
-    private val JD_JITTER_HEIGHT = "jitter_height"
+    private const val DODGE_WIDTH = "width"
+    private const val JITTER_WIDTH = "width"
+    private const val JITTER_HEIGHT = "height"
+    private const val NUDGE_WIDTH = "x"
+    private const val NUDGE_HEIGHT = "y"
+    private const val JD_DODGE_WIDTH = "dodge_width"
+    private const val JD_JITTER_WIDTH = "jitter_width"
+    private const val JD_JITTER_HEIGHT = "jitter_height"
 
     fun position_dodge(width: Number? = null) = PosOptions(
         PosKind.DODGE,
