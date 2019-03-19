@@ -4,10 +4,11 @@ import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.Options
 
 
-abstract class GeomOptions {
-    abstract val kind: GeomKind
-    abstract val mapping: Options
-    abstract val parameters: Options
+open class GeomOptions(
+    val kind: GeomKind,
+    val mapping: Options = Options.empty()
+) {
+    open val parameters: Options = Options.empty()
 }
 
 

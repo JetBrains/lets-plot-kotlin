@@ -17,8 +17,9 @@ class point(
     override val size: Any? = null,
     override val stroke: Any? = null
 ) : PointAesthetics,
-    GeomOptions() {
-    override val kind = GeomKind.POINT
-    override val mapping = PointMapping().apply(mapping).seal()
+    GeomOptions(
+        GeomKind.POINT,
+        PointMapping().apply(mapping).seal()
+    ) {
     override val parameters = this.seal()
 }

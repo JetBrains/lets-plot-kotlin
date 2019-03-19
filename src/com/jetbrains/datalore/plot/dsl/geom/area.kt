@@ -16,8 +16,9 @@ class area(
     override val linetype: Any? = null,
     override val size: Any? = null
 ) : AreaAesthetics,
-    GeomOptions() {
-    override val kind = GeomKind.AREA
-    override val mapping = AreaMapping().apply(mapping).seal()
+    GeomOptions(
+        GeomKind.AREA,
+        AreaMapping().apply(mapping).seal()
+    ) {
     override val parameters = this.seal()
 }
