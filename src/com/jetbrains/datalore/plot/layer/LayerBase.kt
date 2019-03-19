@@ -8,7 +8,7 @@ abstract class LayerBase(
     data: Any? = null,
     geom: GeomOptions,
     stat: StatOptions,
-    position: Any? = null,
+    position: PosOptions,
     show_legend: Boolean = true,
     sampling: Any? = null
 ) : Layer(

@@ -1,17 +1,19 @@
 package com.jetbrains.datalore.plot.dsl.geom
 
+import com.jetbrains.datalore.plot.dsl.Pos
 import com.jetbrains.datalore.plot.layer.LayerBase
+import com.jetbrains.datalore.plot.layer.PosOptions
 import com.jetbrains.datalore.plot.layer.StatOptions
 import com.jetbrains.datalore.plot.layer.geom.AreaAesthetics
 import com.jetbrains.datalore.plot.layer.geom.AreaMapping
-import com.jetbrains.datalore.plot.layer.stat.identity
+import com.jetbrains.datalore.plot.layer.stat.Stat.identity
 
 @Suppress("ClassName")
 class geom_area(
     mapping: AreaMapping.() -> Unit = {},
     data: Any? = null,
     stat: StatOptions = identity,
-    position: Any? = null,
+    position: PosOptions = Pos.stack,
     show_legend: Boolean = true,
     sampling: Any? = null,
     override val x: Any? = null,
@@ -21,7 +23,7 @@ class geom_area(
     override val fill: Any? = null,
     override val linetype: Any? = null,
     override val size: Any? = null
-    ) : AreaAesthetics,
+) : AreaAesthetics,
     LayerBase(
         mapping = AreaMapping().apply(mapping).seal(),
         data = data,

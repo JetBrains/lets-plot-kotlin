@@ -1,6 +1,7 @@
 package com.jetbrains.datalore.plot
 
 import com.jetbrains.datalore.plot.layer.GeomOptions
+import com.jetbrains.datalore.plot.layer.PosOptions
 import com.jetbrains.datalore.plot.layer.StatOptions
 import junit.framework.AssertionFailedError
 import junit.framework.TestCase.assertEquals
@@ -62,6 +63,7 @@ internal class LayerAssert(private val layer: Layer) :
 
     fun geom() = GeomOptionsAssert(layer.geom)
     fun stat() = StatOptionsAssert(layer.stat)
+    fun position(kind: PosKind) = PosOptionsAssert(layer.position, kind)
 }
 
 internal class GeomOptionsAssert(private val geom: GeomOptions) : MappingAssert<GeomOptionsAssert>,
@@ -84,6 +86,17 @@ internal class StatOptionsAssert(private val stat: StatOptions) : MappingAssert<
         assertTrue(stat.kind === kind)
         return this
     }
+}
+
+internal class PosOptionsAssert(
+    pos: PosOptions,
+    kind: PosKind
+) : ParametersAssert<PosOptionsAssert> {
+    init {
+        assertTrue(pos.kind === kind)
+    }
+
+    override val parameterOptions = pos.parameters
 }
 
 internal interface MappingAssert<T> {

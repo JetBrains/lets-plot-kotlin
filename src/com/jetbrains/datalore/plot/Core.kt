@@ -2,6 +2,7 @@ package com.jetbrains.datalore.plot
 
 import com.jetbrains.datalore.plot.layer.GeomOptions
 import com.jetbrains.datalore.plot.layer.OptionsCapsule
+import com.jetbrains.datalore.plot.layer.PosOptions
 import com.jetbrains.datalore.plot.layer.StatOptions
 
 
@@ -77,7 +78,7 @@ abstract class Layer(
     val data: Any?,
     val geom: GeomOptions,
     val stat: StatOptions,
-    val position: Any?,
+    val position: PosOptions,
     val show_legend: Boolean,
     val sampling: Any?
 ) : Feature() {
