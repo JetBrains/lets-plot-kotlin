@@ -1,9 +1,9 @@
 package com.jetbrains.datalore.plot.dsl.stat
 
 import com.jetbrains.datalore.plot.Options
+import com.jetbrains.datalore.plot.dsl.Geom.area
 import com.jetbrains.datalore.plot.dsl.Pos.stack
 import com.jetbrains.datalore.plot.dsl.Stat.density
-import com.jetbrains.datalore.plot.dsl.geom.area
 import com.jetbrains.datalore.plot.layer.GeomOptions
 import com.jetbrains.datalore.plot.layer.LayerBase
 import com.jetbrains.datalore.plot.layer.PosOptions

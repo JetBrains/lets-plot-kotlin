@@ -3,9 +3,9 @@ package com.jetbrains.datalore.plot.dsl
 import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.LayerAssert
 import com.jetbrains.datalore.plot.StatKind
+import com.jetbrains.datalore.plot.dsl.Geom.point
 import com.jetbrains.datalore.plot.dsl.Stat.density
 import com.jetbrains.datalore.plot.dsl.geom.geom_point
-import com.jetbrains.datalore.plot.dsl.geom.point
 import com.jetbrains.datalore.plot.dsl.stat.stat_density
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
