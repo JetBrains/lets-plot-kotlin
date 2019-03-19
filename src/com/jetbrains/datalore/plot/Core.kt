@@ -1,6 +1,7 @@
 package com.jetbrains.datalore.plot
 
 import com.jetbrains.datalore.plot.layer.GeomOptions
+import com.jetbrains.datalore.plot.layer.OptionsCapsule
 import com.jetbrains.datalore.plot.layer.StatOptions
 
 
@@ -23,7 +24,7 @@ class Plot internal constructor(val data: Any?, val mapping: Options, val featur
         }
     }
 
-    constructor() : this(null, GenericAesMapping().toFrozen(), emptyList())
+    constructor() : this(null, GenericAesMapping().seal(), emptyList())
 
     operator fun plus(other: Feature): Plot {
         return when (other) {
@@ -98,8 +99,8 @@ class GenericAesMapping(
     var color: Any? = null,
     var fill: Any? = null,
     var group: Any? = null
-) {
-    fun toFrozen() = Options.of(
+) : OptionsCapsule {
+    override fun seal() = Options.of(
         "x" to x,
         "y" to y,
         "alpha" to alpha,

@@ -6,7 +6,7 @@ import com.jetbrains.datalore.plot.Plot
 fun ggplot(data: Any? = null, mapping: GenericAesMapping.() -> Unit = {}): Plot {
     return Plot(
         data,
-        GenericAesMapping().apply(mapping).toFrozen(),
+        GenericAesMapping().apply(mapping).seal(),
         emptyList()
     )
 }
