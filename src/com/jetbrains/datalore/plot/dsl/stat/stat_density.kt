@@ -1,9 +1,9 @@
 package com.jetbrains.datalore.plot.dsl.stat
 
 import com.jetbrains.datalore.plot.Options
+import com.jetbrains.datalore.plot.dsl.geom.area
 import com.jetbrains.datalore.plot.layer.GeomOptions
 import com.jetbrains.datalore.plot.layer.LayerBase
-import com.jetbrains.datalore.plot.layer.geom.Geoms
 import com.jetbrains.datalore.plot.layer.stat.DensityAesthetics
 import com.jetbrains.datalore.plot.layer.stat.DensityMapping
 import com.jetbrains.datalore.plot.layer.stat.DensityParameters
@@ -12,7 +12,7 @@ import com.jetbrains.datalore.plot.layer.stat.DensityParameters
 class stat_density(
     mapping: DensityMapping.() -> Unit = {},
     data: Any? = null,
-    geom: GeomOptions = Geoms.Area(),
+    geom: GeomOptions = area(),
     position: Any? = null,
     show_legend: Boolean = true,
     sampling: Any? = null,
