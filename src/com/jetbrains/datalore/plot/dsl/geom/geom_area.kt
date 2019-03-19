@@ -6,7 +6,7 @@ import com.jetbrains.datalore.plot.layer.PosOptions
 import com.jetbrains.datalore.plot.layer.StatOptions
 import com.jetbrains.datalore.plot.layer.geom.AreaAesthetics
 import com.jetbrains.datalore.plot.layer.geom.AreaMapping
-import com.jetbrains.datalore.plot.layer.stat.Stat.identity
+import com.jetbrains.datalore.plot.dsl.Stat.identity
 
 @Suppress("ClassName")
 class geom_area(

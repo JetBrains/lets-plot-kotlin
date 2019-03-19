@@ -4,10 +4,11 @@ import com.jetbrains.datalore.plot.Options
 import com.jetbrains.datalore.plot.PosKind
 
 
-open class PosOptions(
+class PosOptions(
     val kind: PosKind,
     val parameters: Options = Options.empty()
-) {}
+)
+
 
 
 

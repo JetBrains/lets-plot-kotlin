@@ -6,7 +6,7 @@ import com.jetbrains.datalore.plot.layer.PosOptions
 import com.jetbrains.datalore.plot.layer.StatOptions
 import com.jetbrains.datalore.plot.layer.geom.PointAesthetics
 import com.jetbrains.datalore.plot.layer.geom.PointMapping
-import com.jetbrains.datalore.plot.layer.stat.Stat
+import com.jetbrains.datalore.plot.dsl.Stat
 
 @Suppress("ClassName")
 class geom_point(

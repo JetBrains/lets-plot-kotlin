@@ -13,8 +13,9 @@ class density(
     override val n: Any? = null,
     override val trim: Any? = null
 ) : DensityParameters,
-    StatOptions() {
-    override val kind = StatKind.DENSITY
-    override val mapping = DensityMapping().apply(mapping).seal()
+    StatOptions(
+        StatKind.DENSITY,
+        mapping = DensityMapping().apply(mapping).seal()
+    ) {
     override val parameters = this.seal()
 }
