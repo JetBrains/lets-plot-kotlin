@@ -3,8 +3,8 @@ package com.jetbrains.datalore.plot.dsl
 import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.LayerAssert
 import com.jetbrains.datalore.plot.StatKind
+import com.jetbrains.datalore.plot.dsl.Stat.density
 import com.jetbrains.datalore.plot.dsl.geom.geom_point
-import com.jetbrains.datalore.plot.dsl.stat.density
 import org.junit.Test
 
 class GeomLayerTest {
@@ -44,7 +44,9 @@ class GeomLayerTest {
     @Test
     fun `geom with overridden stat, mapping`() {
         val l =
-            geom_point({ fill = "F" }, color = "C", stat = density({ fill = "F1"; alpha = "A" }, kernel = "gaussian"))
+            geom_point({ fill = "F" }, color = "C", stat = density({
+                fill = "F1"; alpha = "A"
+            }, kernel = "gaussian"))
 
         LayerAssert.assertThat(l)
             .aes("fill", "F")               // from layer
