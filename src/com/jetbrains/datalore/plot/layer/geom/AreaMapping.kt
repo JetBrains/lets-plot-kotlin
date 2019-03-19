@@ -2,7 +2,7 @@ package com.jetbrains.datalore.plot.layer.geom
 
 import com.jetbrains.datalore.plot.Options
 import com.jetbrains.datalore.plot.layer.OptionsCapsule
-import com.jetbrains.datalore.plot.layer.MappingOptions
+import com.jetbrains.datalore.plot.layer.WithGroupOption
 
 interface AreaAesthetics : OptionsCapsule {
     val x: Any?
@@ -33,8 +33,8 @@ class AreaMapping(
     override var linetype: Any? = null,
     override var size: Any? = null,
     override var group: Any? = null
-) : AreaAesthetics, MappingOptions {
-    override fun seal() = withGroup(super.seal())
+) : AreaAesthetics, WithGroupOption {
+    override fun seal() = super.seal() + group()
 }
 
 

@@ -1,7 +1,7 @@
 package com.jetbrains.datalore.plot.layer.stat
 
 import com.jetbrains.datalore.plot.Options
-import com.jetbrains.datalore.plot.layer.MappingOptions
+import com.jetbrains.datalore.plot.layer.WithGroupOption
 import com.jetbrains.datalore.plot.layer.geom.AreaAesthetics
 
 interface DensityAesthetics : AreaAesthetics {
@@ -23,6 +23,6 @@ class DensityMapping(
     override var size: Any? = null,
     override var weight: Any? = null,
     override var group: Any? = null
-) : DensityAesthetics, MappingOptions {
-    override fun seal() = withGroup(super.seal())
+) : DensityAesthetics, WithGroupOption {
+    override fun seal() = super.seal() + group()
 }

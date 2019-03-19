@@ -2,7 +2,7 @@ package com.jetbrains.datalore.plot.layer.geom
 
 import com.jetbrains.datalore.plot.Options
 import com.jetbrains.datalore.plot.layer.OptionsCapsule
-import com.jetbrains.datalore.plot.layer.MappingOptions
+import com.jetbrains.datalore.plot.layer.WithGroupOption
 
 interface PointAesthetics : OptionsCapsule {
     val x: Any?
@@ -36,8 +36,8 @@ class PointMapping(
     override var size: Any? = null,
     override var stroke: Any? = null,
     override var group: Any? = null
-) : PointAesthetics, MappingOptions {
-    override fun seal() = withGroup(super.seal())
+) : PointAesthetics, WithGroupOption {
+    override fun seal() = super.seal() + group()
 }
 
 
