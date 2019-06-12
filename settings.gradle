@@ -1,0 +1,5 @@
+rootProject.name = 'datalore-plot-kotlin'
+
+include 'ggplot-k',
+        'sandbox'
+

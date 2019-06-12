@@ -1,5 +1,3 @@
-package sandbox
-
 import com.jetbrains.datalore.plot.dsl.Geom.area
 import com.jetbrains.datalore.plot.dsl.Geom.point
 import com.jetbrains.datalore.plot.dsl.Pos.dodge
