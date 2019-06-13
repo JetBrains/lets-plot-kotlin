@@ -31,8 +31,16 @@ fun Layer.toSpec(): MutableMap<String, Any> {
 
     val geomOptions = layer.geom
     val statOptions = layer.stat
-    spec[Option.Layer.GEOM] = geomOptions.kind.toString().toLowerCase()
-    spec[Option.Layer.STAT] = statOptions.kind.toString().toLowerCase()
+    spec[Option.Layer.GEOM] = geomOptions.kind.optionName()
+    spec[Option.Layer.STAT] = statOptions.kind.optionName()
+
+    val posOptions = layer.position
+    spec[Option.Layer.POS] = if (posOptions.parameters.isEmpty()) {
+        posOptions.kind.optionName()
+    } else {
+        // ToDo: 'pos' -> constant
+        toFeatureSpec("pos", posOptions.kind.optionName(), posOptions.parameters.map)
+    }
 
     spec[Option.Layer.MAPPING] = (mapping + geomOptions.mapping + statOptions.mapping).map
 
@@ -44,3 +52,13 @@ fun Layer.toSpec(): MutableMap<String, Any> {
 
 
 private fun asPlotData(dataRaw: Any) = dataRaw  // placeholder
+
+private fun toFeatureSpec(kind: String, name: String?, parameters: Map<String, Any>): MutableMap<String, Any> {
+    val spec = HashMap<String, Any>()
+    spec[Option.Meta.KIND] = kind
+    // ToDo: 'name' -> constant
+    name?.let { spec["name"] = name }
+
+    spec.putAll(parameters)
+    return spec
+}

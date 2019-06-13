@@ -6,8 +6,9 @@ enum class PosKind {
     DODGE,
     FILL,
     NUDGE,
-    JITTER(),
-    JITTER_DODGE() {
+    JITTER,
+    JITTER_DODGE {
+        @Suppress("SpellCheckingInspection")
         override fun optionName() = "jitterdodge"
     };
 

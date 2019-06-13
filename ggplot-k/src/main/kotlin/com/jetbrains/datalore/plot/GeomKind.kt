@@ -31,5 +31,7 @@ enum class GeomKind {
     SEGMENT,
     TEXT,
     RASTER,
-    IMAGE,
+    IMAGE;
+
+    fun optionName() = name.toLowerCase()
 }

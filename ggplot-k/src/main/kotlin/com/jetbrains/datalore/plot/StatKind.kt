@@ -3,5 +3,7 @@ package com.jetbrains.datalore.plot
 enum class StatKind {
     IDENTITY,
     COUNT,
-    DENSITY,
+    DENSITY;
+
+    fun optionName() = name.toLowerCase()
 }
