@@ -2,6 +2,8 @@ package com.jetbrains.datalore.plot.dsl
 
 import com.jetbrains.datalore.plot.StatKind
 import com.jetbrains.datalore.plot.layer.StatOptions
+import com.jetbrains.datalore.plot.layer.stat.CountMapping
+import com.jetbrains.datalore.plot.layer.stat.CountParameters
 import com.jetbrains.datalore.plot.layer.stat.DensityMapping
 import com.jetbrains.datalore.plot.layer.stat.DensityParameters
 
@@ -21,6 +23,17 @@ object Stat {
         StatOptions(
             StatKind.DENSITY,
             mapping = DensityMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class count(
+        mapping: CountMapping.() -> Unit = {}
+    ) : CountParameters,
+        StatOptions(
+            StatKind.COUNT,
+            mapping = CountMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

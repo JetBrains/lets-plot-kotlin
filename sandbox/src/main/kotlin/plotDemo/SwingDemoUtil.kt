@@ -1,5 +1,7 @@
 package plotDemo
 
+import com.jetbrains.datalore.plot.Plot
+import com.jetbrains.datalore.plot.toSpec
 import jetbrains.datalore.base.event.awt.AwtEventUtil
 import jetbrains.datalore.base.geometry.DoubleRectangle
 import jetbrains.datalore.base.geometry.DoubleVector
@@ -9,8 +11,11 @@ import jetbrains.datalore.base.observable.property.ReadableProperty
 import jetbrains.datalore.base.observable.property.ValueProperty
 import jetbrains.datalore.visualization.base.svg.SvgColors
 import jetbrains.datalore.visualization.base.svg.SvgRectElement
+import jetbrains.datalore.visualization.base.swing.BatikMapperDemoFactory
 import jetbrains.datalore.visualization.base.swing.SwingDemoFactory
+import jetbrains.datalore.visualization.plot.Monolithic
 import jetbrains.datalore.visualization.plot.base.event.MouseEventSpec
+import jetbrains.datalore.visualization.plot.builder.PlotContainer
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.FlowLayout
@@ -23,6 +28,9 @@ import javax.swing.JComponent
 import javax.swing.SwingUtilities
 import javax.swing.border.LineBorder
 
+
+typealias PlotFactory = (plotSize: ReadableProperty<DoubleVector>) -> PlotContainer
+
 object SwingDemoUtil {
 
     private const val PADDING = 20
@@ -32,7 +40,22 @@ object SwingDemoUtil {
         containerSize.height.toDouble() - 2 * PADDING
     )
 
-    fun show(plotFactory: PlotFactory, factory: SwingDemoFactory) {
+
+    fun display(plot: Plot) {
+        display(plot.toSpec())
+    }
+
+    fun display(plotSpec: MutableMap<String, Any>) {
+
+        val plotFactory: PlotFactory = { plotSize ->
+            val plot = Monolithic.createPlot(plotSpec, null)
+            PlotContainer(plot, plotSize)
+        }
+
+        show(plotFactory, BatikMapperDemoFactory())
+    }
+
+    private fun show(plotFactory: PlotFactory, factory: SwingDemoFactory) {
         factory.createDemoFrame("Fit in the frame (try to resize)").show(false) {
             val panel = this
 
@@ -76,7 +99,7 @@ object SwingDemoUtil {
         factory: SwingDemoFactory
     ) {
 
-        val plot = plotFactory.createPlot(plotSizeProp)
+        val plot = plotFactory(plotSizeProp)
         plot.ensureContentBuilt()
         val svg = plot.svg
 
