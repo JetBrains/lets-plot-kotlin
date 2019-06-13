@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.jetbrains.datalore-plot</groupId>
+  <artifactId>visualization-base-canvas</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20190612232506</lastUpdated>
+  </versioning>
+</metadata>

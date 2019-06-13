@@ -17,10 +17,18 @@ compileTestKotlin {
 
 repositories {
     mavenCentral()
+
+    maven {
+        url "file://$project.rootDir/repo"
+    }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'junit', name: 'junit', version: junit_version
+
+    implementation "org.jetbrains.datalore-plot:visualization-plot-config:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-config-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-config-metadata:$datalore_plot_version"
 }
 

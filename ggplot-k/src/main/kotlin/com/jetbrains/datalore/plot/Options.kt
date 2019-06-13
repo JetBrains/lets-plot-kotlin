@@ -8,7 +8,7 @@ class Options(map: Map<String, Any?>) {
         fun empty() = Options(emptyMap())
     }
 
-    internal val byName: Map<String, Any>
+    internal val map: Map<String, Any>
 
     init {
         val tmp = mutableMapOf<String, Any>()
@@ -17,19 +17,20 @@ class Options(map: Map<String, Any?>) {
                 tmp[k] = v
             }
         }
-        byName = tmp
+        this.map = tmp
     }
 
     operator fun plus(other: Options) = union(other)
 
     fun has(k: String): Boolean {
-        return byName.containsKey(k)
+        return map.containsKey(k)
     }
 
     fun get(k: String): Any {
-        return byName[k] ?: throw IllegalArgumentException("No such option: '$k'")
+        return map[k] ?: throw IllegalArgumentException("No such option: '$k'")
     }
 
-    fun isEmpty() = byName.isEmpty()
-    fun union(other: Options) = Options(this.byName + other.byName)
+    fun isEmpty() = map.isEmpty()
+
+    fun union(other: Options) = Options(this.map + other.map)
 }

@@ -1,0 +1,36 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "url": "../../visualization-plot-base/1.0-SNAPSHOT/visualization-plot-base-1.0-SNAPSHOT.module",
+    "group": "org.jetbrains.datalore-plot",
+    "module": "visualization-plot-base",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "4.10.3",
+      "buildId": "aq3ilnhwhfe4plknbuylqngpsy"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadata-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "visualization-plot-base-metadata-1.0-SNAPSHOT.jar",
+          "url": "visualization-plot-base-metadata-1.0-SNAPSHOT.jar",
+          "size": 128562,
+          "sha1": "c841a1080a2317398f91877bdb935bbf198dfb97",
+          "md5": "fe17e275d974a06b9163a0618bd5bb8"
+        }
+      ]
+    }
+  ]
+}

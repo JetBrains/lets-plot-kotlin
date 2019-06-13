@@ -6,6 +6,6 @@ import com.jetbrains.datalore.plot.StatKind
 open class StatOptions(
     val kind: StatKind,
     val mapping: Options = Options.empty()
-    ) {
+) {
     open val parameters: Options = Options.empty()
 }

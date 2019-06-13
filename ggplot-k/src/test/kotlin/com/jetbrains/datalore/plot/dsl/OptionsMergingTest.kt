@@ -92,8 +92,8 @@ class OptionsMergingTest {
                 kernel = "gaussian"
             )
 
-            assertEquals(geomLayer.mapping.byName, statLayer.mapping.byName)
-            assertEquals(geomLayer.parameters.byName, statLayer.parameters.byName)
+            assertEquals(geomLayer.mapping.map, statLayer.mapping.map)
+            assertEquals(geomLayer.parameters.map, statLayer.parameters.map)
         }
 
         run {
@@ -103,8 +103,8 @@ class OptionsMergingTest {
                 kernel = "gaussian"
             )
 
-            assertEquals(geomLayer.mapping.byName, statLayer.mapping.byName)
-            assertEquals(geomLayer.parameters.byName, statLayer.parameters.byName)
+            assertEquals(geomLayer.mapping.map, statLayer.mapping.map)
+            assertEquals(geomLayer.parameters.map, statLayer.parameters.map)
         }
     }
 }

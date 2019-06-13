@@ -14,10 +14,45 @@ compileTestKotlin {
 
 repositories {
     mavenCentral()
+
+    maven {
+        url "file://$project.rootDir/repo"
+    }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation project(':ggplot-k')
+
+    implementation "org.jetbrains.datalore-plot:base:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:base-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:base-metadata:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:mapper-core:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:mapper-core-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:mapper-core-metadata:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-canvas:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-canvas-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-canvas-metadata:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-svg:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-svg-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-svg-metadata:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-svg-mapper:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-svg-mapper-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-svg-mapper-metadata:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-svg-mapper-batik:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-svg-mapper-batik-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-base-svg-mapper-batik-metadata:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-base:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-base-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-base-metadata:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-builder:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-builder-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-builder-metadata:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-common:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-common-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-common-metadata:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-config:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-config-jvm:$datalore_plot_version"
+    implementation "org.jetbrains.datalore-plot:visualization-plot-config-metadata:$datalore_plot_version"
 }
 

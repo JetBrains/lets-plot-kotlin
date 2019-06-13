@@ -97,4 +97,9 @@ class PlotTest {
             .geom()
             .kind(GeomKind.POINT)
     }
+
+    @Test
+    fun tmp() {
+        
+    }
 }
