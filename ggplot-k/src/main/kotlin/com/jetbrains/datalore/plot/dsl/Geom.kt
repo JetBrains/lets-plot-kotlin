@@ -4,6 +4,10 @@ import com.jetbrains.datalore.plot.GeomKind
 import com.jetbrains.datalore.plot.layer.GeomOptions
 import com.jetbrains.datalore.plot.layer.geom.*
 
+/**
+ * `Geom options` to pass as a value of `geom` parameter of `layer` functions like:
+ *  ggplot() + stat_density(..., geom = Pos.point(), ... )
+ */
 object Geom {
     val blank = GeomOptions(
         GeomKind.BLANK
@@ -60,6 +64,26 @@ object Geom {
         GeomOptions(
             GeomKind.BAR,
             BarMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class tile(
+        mapping: TileMapping.() -> Unit = {},
+        override val x: Any? = null,
+        override val y: Any? = null,
+        override var width: Any? = null,
+        override var height: Any? = null,
+        override val alpha: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Any? = null
+    ) : TileAesthetics,
+        GeomOptions(
+            GeomKind.TILE,
+            TileMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }
