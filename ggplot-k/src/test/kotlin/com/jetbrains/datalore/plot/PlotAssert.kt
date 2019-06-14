@@ -16,6 +16,7 @@ internal class PlotAssert(private val plot: Plot) : MappingAssert<PlotAssert> {
 
     fun features() = FeatureListAssert(plot.features)
     fun layers() = LayerListAssert(plot.layers())
+    // ToDo: scales..
 }
 
 

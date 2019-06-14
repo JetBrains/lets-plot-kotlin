@@ -3,6 +3,7 @@ package com.jetbrains.datalore.plot
 import com.jetbrains.datalore.plot.layer.GeomOptions
 import com.jetbrains.datalore.plot.layer.PosOptions
 import com.jetbrains.datalore.plot.layer.StatOptions
+import jetbrains.datalore.visualization.plot.base.Aes
 
 
 class Plot internal constructor(val data: Any?, val mapping: Options, val features: List<Feature>) {
@@ -37,6 +38,11 @@ class Plot internal constructor(val data: Any?, val mapping: Options, val featur
     fun layers(): List<Layer> {
         @Suppress("UNCHECKED_CAST")
         return features.filter { it is Layer } as List<Layer>
+    }
+
+    fun scales(): List<Scale> {
+        @Suppress("UNCHECKED_CAST")
+        return features.filter { it is Scale } as List<Scale>
     }
 
     override fun toString(): String {
@@ -89,6 +95,20 @@ abstract class Layer(
 
     abstract val parameters: Options
 }
+
+class Scale internal constructor(
+    val aesthetic: Aes<*>,
+    val name: String?,
+    val breaks: List<Any>?,
+    val labels: List<String>?,
+    val limits: List<Any>?,
+    val expand: Any?,
+    val na_value: Any?,
+    val guide: Any?,
+    val trans: Any?,
+    val otherOptions: Options
+
+) : Feature()
 
 abstract class NotLayer : Feature()
 
