@@ -16,13 +16,13 @@ class geom_area(
     position: PosOptions = Pos.stack,
     show_legend: Boolean = true,
     sampling: Any? = null,
-    override val x: Any? = null,
-    override val y: Any? = null,
-    override val alpha: Any? = null,
+    override val x: Double? = null,
+    override val y: Double? = null,
+    override val alpha: Double? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
     override val linetype: Any? = null,
-    override val size: Any? = null,
+    override val size: Double? = null,
     mapping: AreaMapping.() -> Unit = {}
 
 ) : AreaAesthetics,

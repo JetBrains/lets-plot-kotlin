@@ -24,7 +24,7 @@ object PointsOverBars {
         }
 
         // points with count stat and `stack` position adjustment
-        val pointLayer = geom_point(stat = Stat.count(), position = Pos.stack, size = 15) {
+        val pointLayer = geom_point(stat = Stat.count(), position = Pos.stack, size = 15.0) {
             x = "cat1"
             color = "cat2"
         }

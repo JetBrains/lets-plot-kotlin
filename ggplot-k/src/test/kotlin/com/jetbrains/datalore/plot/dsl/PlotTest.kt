@@ -25,7 +25,7 @@ class PlotTest {
             .aes("y", "Y")
 
         val data = emptyMap<String, List<Any>>()
-        p = ggplot(data, { alpha = "A"; group = "G" })
+        p = ggplot(data) { alpha = "A"; group = "G" }
         assertThat(p).features().length(0)
         assertThat(p)
             .aes("alpha", "A")
@@ -52,13 +52,13 @@ class PlotTest {
 
     @Test
     fun `plot with layer and constants`() {
-        val p = ggplot() + geom_point(x = 1, y = 2, color = "C")
+        val p = ggplot() + geom_point(x = 1.0, y = 2.0, color = "C")
         assertThat(p).layers()
             .length(1)
             .get(0)
             .noMapping()
-            .parameter("x", 1)
-            .parameter("y", 2)
+            .parameter("x", 1.0)
+            .parameter("y", 2.0)
             .parameter("color", "C")
             .geom()
             .kind(GeomKind.POINT)
@@ -69,8 +69,8 @@ class PlotTest {
     fun `plot with layer, mapping and constants`() {
         val p = ggplot() + geom_point(
             mapping = { x = "X"; fill = "F" },
-            x = 1,
-            y = 2,
+            x = 1.0,
+            y = 2.0,
             color = "C"
         )
         assertThat(p).layers()
@@ -78,8 +78,8 @@ class PlotTest {
             .get(0)
             .aes("x", "X")
             .aes("fill", "F")
-            .parameter("x", 1)
-            .parameter("y", 2)
+            .parameter("x", 1.0)
+            .parameter("y", 2.0)
             .parameter("color", "C")
             .geom()
             .kind(GeomKind.POINT)

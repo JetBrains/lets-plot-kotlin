@@ -16,14 +16,14 @@ object Geom {
     @Suppress("ClassName")
     class point(
         mapping: PointMapping.() -> Unit = {},
-        override val x: Any? = null,
-        override val y: Any? = null,
-        override val alpha: Any? = null,
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val shape: Any? = null,
-        override val size: Any? = null,
-        override val stroke: Any? = null
+        override val size: Double? = null,
+        override val stroke: Double? = null
     ) : PointAesthetics,
         GeomOptions(
             GeomKind.POINT,
@@ -35,13 +35,13 @@ object Geom {
     @Suppress("ClassName")
     class area(
         mapping: AreaMapping.() -> Unit = {},
-        override val x: Any? = null,
-        override val y: Any? = null,
-        override val alpha: Any? = null,
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val linetype: Any? = null,
-        override val size: Any? = null
+        override val size: Double? = null
     ) : AreaAesthetics,
         GeomOptions(
             GeomKind.AREA,
@@ -53,13 +53,13 @@ object Geom {
     @Suppress("ClassName")
     class bar(
         mapping: BarMapping.() -> Unit = {},
-        override val x: Any? = null,
-        override val y: Any? = null,
-        override val alpha: Any? = null,
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
-        override val width: Any? = null,
-        override val size: Any? = null
+        override val width: Double? = null,
+        override val size: Double? = null
     ) : BarAesthetics,
         GeomOptions(
             GeomKind.BAR,
@@ -71,15 +71,15 @@ object Geom {
     @Suppress("ClassName")
     class tile(
         mapping: TileMapping.() -> Unit = {},
-        override val x: Any? = null,
-        override val y: Any? = null,
-        override var width: Any? = null,
-        override var height: Any? = null,
-        override val alpha: Any? = null,
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val width: Double? = null,
+        override val height: Double? = null,
+        override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val linetype: Any? = null,
-        override val size: Any? = null
+        override val size: Double? = null
     ) : TileAesthetics,
         GeomOptions(
             GeomKind.TILE,
