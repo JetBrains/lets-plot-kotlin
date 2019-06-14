@@ -31,7 +31,6 @@ fun Layer.toSpec(): MutableMap<String, Any> {
 
     // ToDo:
 //    layer.sampling
-//    layer.show_legend
 
     layer.data?.let {
         spec[Option.Layer.DATA] = asPlotData(layer.data)
@@ -54,6 +53,9 @@ fun Layer.toSpec(): MutableMap<String, Any> {
 
     val allParameters = parameters + geomOptions.parameters + statOptions.parameters
     spec.putAll(allParameters.map)
+    if (!layer.show_legend) {
+        spec[Option.Layer.SHOW_LEGEND] = false
+    }
 
     return spec
 }
