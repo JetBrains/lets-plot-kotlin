@@ -15,18 +15,20 @@ class OptionsMergingTest {
     @Test
     fun `layer options precedence over geom`() {
         val l = geom_point(
-            {
-                x = "layer X"
-                y = "layer Y"
-                group = "layer G"
-            }, color = "layer C", fill = "layer F", stat = density(
+            color = "layer C", fill = "layer F",
+            stat = density(
                 {
                     x = "stat X"
                     group = "stat G"
                     linetype = "stat L"
-                }, kernel = "gaussian"
+                },
+                kernel = "gaussian"
             )
-        )
+        ) {
+            x = "layer X"
+            y = "layer Y"
+            group = "layer G"
+        }
 
         LayerAssert.assertThat(l)
             .aes("x", "layer X")
@@ -46,18 +48,18 @@ class OptionsMergingTest {
     @Test
     fun `layer options precedence over stat`() {
         val l = stat_density(
-            {
-                x = "layer X"
-                y = "layer Y"
-                group = "layer G"
-                linetype = "layer L"
-            }, color = "layer C", fill = "layer F", geom = point(
-                {
-                    x = "stat X"
-                    group = "stat G"
-                }
-            ), kernel = "gaussian"
-        )
+            color = "layer C", fill = "layer F",
+            geom = point({
+                x = "stat X"
+                group = "stat G"
+            }),
+            kernel = "gaussian"
+        ) {
+            x = "layer X"
+            y = "layer Y"
+            group = "layer G"
+            linetype = "layer L"
+        }
 
         LayerAssert.assertThat(l)
             .aes("x", "layer X")
@@ -75,22 +77,20 @@ class OptionsMergingTest {
     @Test
     fun `geom and stat layer equivalence`() {
         val geomLayer = geom_point(
-            { fill = "F" },
             color = "C",
             stat = density(
                 { x = "X"; linetype = "L" },
                 kernel = "gaussian"
             )
-        )
+        ) { fill = "F" }
 
         var statLayer: stat_density
         run {
             statLayer = stat_density(
-                { x = "X"; linetype = "L" },
                 color = "C",
                 geom = point({ fill = "F" }),
                 kernel = "gaussian"
-            )
+            ) { x = "X"; linetype = "L" }
 
             assertEquals(geomLayer.mapping.map, statLayer.mapping.map)
             assertEquals(geomLayer.parameters.map, statLayer.parameters.map)
@@ -98,10 +98,9 @@ class OptionsMergingTest {
 
         run {
             statLayer = stat_density(
-                { x = "X"; linetype = "L" },
                 geom = point({ fill = "F" }, color = "C"),
                 kernel = "gaussian"
-            )
+            ) { x = "X"; linetype = "L" }
 
             assertEquals(geomLayer.mapping.map, statLayer.mapping.map)
             assertEquals(geomLayer.parameters.map, statLayer.parameters.map)

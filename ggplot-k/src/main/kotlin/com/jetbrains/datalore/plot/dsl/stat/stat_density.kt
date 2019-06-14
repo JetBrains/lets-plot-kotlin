@@ -13,7 +13,6 @@ import com.jetbrains.datalore.plot.layer.stat.DensityParameters
 
 @Suppress("ClassName")
 class stat_density(
-    mapping: DensityMapping.() -> Unit = {},
     data: Any? = null,
     geom: GeomOptions = area(),
     position: PosOptions = stack,
@@ -30,7 +29,8 @@ class stat_density(
     override val bw: Any? = null,
     override val kernel: Any? = null,
     override val n: Any? = null,
-    override val trim: Any? = null
+    override val trim: Any? = null,
+    mapping: DensityMapping.() -> Unit = {}
 
 ) : DensityAesthetics, DensityParameters,
     LayerBase(

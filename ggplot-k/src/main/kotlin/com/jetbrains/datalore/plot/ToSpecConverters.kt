@@ -29,6 +29,14 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
     val layer = this
 
+    // ToDo:
+//    layer.sampling
+//    layer.show_legend
+
+    layer.data?.let {
+        spec[Option.Layer.DATA] = asPlotData(layer.data)
+    }
+
     val geomOptions = layer.geom
     val statOptions = layer.stat
     spec[Option.Layer.GEOM] = geomOptions.kind.optionName()

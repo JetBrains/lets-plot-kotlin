@@ -11,7 +11,6 @@ import com.jetbrains.datalore.plot.layer.geom.AreaMapping
 
 @Suppress("ClassName")
 class geom_area(
-    mapping: AreaMapping.() -> Unit = {},
     data: Any? = null,
     stat: StatOptions = identity,
     position: PosOptions = Pos.stack,
@@ -23,7 +22,9 @@ class geom_area(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val linetype: Any? = null,
-    override val size: Any? = null
+    override val size: Any? = null,
+    mapping: AreaMapping.() -> Unit = {}
+
 ) : AreaAesthetics,
     LayerBase(
         mapping = AreaMapping().apply(mapping).seal(),

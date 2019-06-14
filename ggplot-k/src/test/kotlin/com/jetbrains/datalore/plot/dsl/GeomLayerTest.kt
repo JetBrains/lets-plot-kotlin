@@ -11,7 +11,7 @@ class GeomLayerTest {
 
     @Test
     fun `geom with default stat`() {
-        val l = geom_point({ fill = "F" }, color = "C")
+        val l = geom_point(color = "C") { fill = "F" }
 
         LayerAssert.assertThat(l)
             .aes("fill", "F")
@@ -26,7 +26,7 @@ class GeomLayerTest {
 
     @Test
     fun `geom with overridden stat`() {
-        val l = geom_point({ fill = "F" }, color = "C", stat = density(kernel = "gaussian"))
+        val l = geom_point(color = "C", stat = density(kernel = "gaussian")) { fill = "F" }
         LayerAssert.assertThat(l)
             .aes("fill", "F")
             .parameter("color", "C")
@@ -44,9 +44,9 @@ class GeomLayerTest {
     @Test
     fun `geom with overridden stat, mapping`() {
         val l =
-            geom_point({ fill = "F" }, color = "C", stat = density({
+            geom_point(color = "C", stat = density({
                 fill = "F1"; alpha = "A"
-            }, kernel = "gaussian"))
+            }, kernel = "gaussian")) { fill = "F" }
 
         LayerAssert.assertThat(l)
             .aes("fill", "F")               // from layer

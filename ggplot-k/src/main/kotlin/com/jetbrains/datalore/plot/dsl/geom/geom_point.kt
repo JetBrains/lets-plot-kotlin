@@ -11,7 +11,6 @@ import com.jetbrains.datalore.plot.layer.geom.PointMapping
 
 @Suppress("ClassName")
 class geom_point(
-    mapping: PointMapping.() -> Unit = {},
     data: Any? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
@@ -24,7 +23,9 @@ class geom_point(
     override val fill: Any? = null,
     override val shape: Any? = null,
     override val size: Any? = null,
-    override val stroke: Any? = null
+    override val stroke: Any? = null,
+    mapping: PointMapping.() -> Unit = {}
+
 ) : PointAesthetics,
     LayerBase(
         mapping = PointMapping().apply(mapping).seal(),

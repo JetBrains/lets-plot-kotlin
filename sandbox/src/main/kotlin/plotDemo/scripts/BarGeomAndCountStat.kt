@@ -16,16 +16,16 @@ object BarGeomAndCountStat {
         val p = ggplot(data)
 
         // bar (with count stat by default)
-        val barLayer = geom_bar({
+        val barLayer = geom_bar {
             x = "cat1"
             fill = "cat2"
-        })
+        }
 
         // count stat (with bar geom by default)
-        val countLayer = stat_count({
+        val countLayer = stat_count {
             x = "cat1"
             fill = "cat2"
-        })
+        }
 
         // show two frames
         SwingDemoUtil.display(p + barLayer)

@@ -16,11 +16,11 @@ object Scatter {
 
 
         val p = ggplot(data) +
-                geom_point({
+                geom_point(color = "red") {
                     x = "weight"
                     y = "height"
                     size = "shoe"
-                }, color = "red")
+                }
 
         SwingDemoUtil.display(p)
     }

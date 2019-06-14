@@ -13,7 +13,6 @@ import com.jetbrains.datalore.plot.layer.stat.CountParameters
 
 @Suppress("ClassName")
 class stat_count(
-    mapping: CountMapping.() -> Unit = {},
     data: Any? = null,
     geom: GeomOptions = Geom.bar(),
     position: PosOptions = stack,
@@ -26,7 +25,8 @@ class stat_count(
     override val fill: Any? = null,
     override val width: Any? = null,
     override val size: Any? = null,
-    override val weight: Any? = null
+    override val weight: Any? = null,
+    mapping: CountMapping.() -> Unit = {}
 
 ) : CountAesthetics, CountParameters,
     LayerBase(

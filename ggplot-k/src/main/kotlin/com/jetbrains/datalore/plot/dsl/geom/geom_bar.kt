@@ -11,7 +11,6 @@ import com.jetbrains.datalore.plot.layer.geom.BarMapping
 
 @Suppress("ClassName")
 class geom_bar(
-    mapping: BarMapping.() -> Unit = {},
     data: Any? = null,
     stat: StatOptions = Stat.count(),
     position: PosOptions = Pos.stack,
@@ -23,7 +22,9 @@ class geom_bar(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val width: Any? = null,
-    override val size: Any? = null
+    override val size: Any? = null,
+    mapping: BarMapping.() -> Unit = {}
+
 ) : BarAesthetics,
     LayerBase(
         mapping = BarMapping().apply(mapping).seal(),

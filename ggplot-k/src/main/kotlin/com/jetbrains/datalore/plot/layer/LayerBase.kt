@@ -9,8 +9,8 @@ abstract class LayerBase(
     geom: GeomOptions,
     stat: StatOptions,
     position: PosOptions,
-    show_legend: Boolean = true,
-    sampling: Any? = null
+    show_legend: Boolean,
+    sampling: Any?
 ) : Layer(
     mapping = mapping,
     data = data,

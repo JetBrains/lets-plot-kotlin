@@ -18,16 +18,16 @@ object PointsOverBars {
         val p = ggplot(data)
 
         // bars
-        val barLayer = geom_bar({
+        val barLayer = geom_bar {
             x = "cat1"
             fill = "cat2"
-        })
+        }
 
         // points with count stat and `stack` position adjustment
-        val pointLayer = geom_point({
+        val pointLayer = geom_point(stat = Stat.count(), position = Pos.stack, size = 15) {
             x = "cat1"
             color = "cat2"
-        }, stat = Stat.count(), position = Pos.stack, size = 15)
+        }
 
         SwingDemoUtil.display(p + barLayer + pointLayer)
     }

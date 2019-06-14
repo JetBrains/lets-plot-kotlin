@@ -40,7 +40,7 @@ class PlotTest {
 
     @Test
     fun `plot with layer and mapping`() {
-        val p = ggplot() + geom_point({ x = "X"; color = "C" })
+        val p = ggplot() + geom_point { x = "X"; color = "C" }
         assertThat(p).layers()
             .length(1)
             .get(0)
@@ -68,7 +68,7 @@ class PlotTest {
     @Test
     fun `plot with layer, mapping and constants`() {
         val p = ggplot() + geom_point(
-            { x = "X"; fill = "F" },
+            mapping = { x = "X"; fill = "F" },
             x = 1,
             y = 2,
             color = "C"
@@ -87,7 +87,7 @@ class PlotTest {
 
     @Test
     fun `plot with layer and group mapping`() {
-        val p = ggplot() + geom_point({ x = "X"; group = "G" }, color = "C")
+        val p = ggplot() + geom_point(mapping = { x = "X"; group = "G" }, color = "C")
         assertThat(p).layers()
             .length(1)
             .get(0)
@@ -100,6 +100,6 @@ class PlotTest {
 
     @Test
     fun tmp() {
-        
+
     }
 }
