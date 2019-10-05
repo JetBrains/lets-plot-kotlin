@@ -1,0 +1,112 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "group": "org.jetbrains.datalore-plot",
+    "module": "visualization-plot-common-portable",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "5.2",
+      "buildId": "ne73s3woxzcojp4j2clll2tc3a"
+    }
+  },
+  "variants": [
+    {
+      "name": "js-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../visualization-plot-common-portable-js/1.0-SNAPSHOT/visualization-plot-common-portable-js-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "visualization-plot-common-portable-js",
+        "version": "1.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "js-runtime",
+      "attributes": {
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "available-at": {
+        "url": "../../visualization-plot-common-portable-js/1.0-SNAPSHOT/visualization-plot-common-portable-js-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "visualization-plot-common-portable-js",
+        "version": "1.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "jvm-api",
+      "attributes": {
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../visualization-plot-common-portable-jvm/1.0-SNAPSHOT/visualization-plot-common-portable-jvm-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "visualization-plot-common-portable-jvm",
+        "version": "1.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "jvm-runtime",
+      "attributes": {
+        "org.gradle.usage": "java-runtime-jars",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../visualization-plot-common-portable-jvm/1.0-SNAPSHOT/visualization-plot-common-portable-jvm-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "visualization-plot-common-portable-jvm",
+        "version": "1.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "linuxX64-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "linux_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../visualization-plot-common-portable-linuxx64/1.0-SNAPSHOT/visualization-plot-common-portable-linuxx64-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "visualization-plot-common-portable-linuxx64",
+        "version": "1.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosX64-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../visualization-plot-common-portable-macosx64/1.0-SNAPSHOT/visualization-plot-common-portable-macosx64-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "visualization-plot-common-portable-macosx64",
+        "version": "1.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "metadata-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "available-at": {
+        "url": "../../visualization-plot-common-portable-metadata/1.0-SNAPSHOT/visualization-plot-common-portable-metadata-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "visualization-plot-common-portable-metadata",
+        "version": "1.0-SNAPSHOT"
+      }
+    }
+  ]
+}

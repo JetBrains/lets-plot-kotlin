@@ -1,0 +1,36 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "url": "../../base-portable-macosx64/1.0-SNAPSHOT/base-portable-macosx64-1.0-SNAPSHOT.module",
+    "group": "org.jetbrains.datalore-plot",
+    "module": "base-portable-macosx64",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "5.2",
+      "buildId": "ne73s3woxzcojp4j2clll2tc3a"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadata-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "base-portable-metadata-1.0-SNAPSHOT.jar",
+          "url": "base-portable-metadata-1.0-SNAPSHOT.jar",
+          "size": 48457,
+          "sha1": "462b5470b9b1fc46cda18409f7bb21181a422b8d",
+          "md5": "18ec8b2232a8c7c71136f89656d0d820"
+        }
+      ]
+    }
+  ]
+}

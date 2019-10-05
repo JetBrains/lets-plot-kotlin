@@ -1,0 +1,36 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "url": "../../visualization-base-canvas/1.0-SNAPSHOT/visualization-base-canvas-1.0-SNAPSHOT.module",
+    "group": "org.jetbrains.datalore-plot",
+    "module": "visualization-base-canvas",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "5.2",
+      "buildId": "ne73s3woxzcojp4j2clll2tc3a"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadata-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "visualization-base-canvas-metadata-1.0-SNAPSHOT.jar",
+          "url": "visualization-base-canvas-metadata-1.0-SNAPSHOT.jar",
+          "size": 17226,
+          "sha1": "841a15930e0a81306da77ebe02e12bcc6f849b74",
+          "md5": "274e3d998c6d1601593ca65e151b029"
+        }
+      ]
+    }
+  ]
+}

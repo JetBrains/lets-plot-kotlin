@@ -1,0 +1,109 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "url": "../../visualization-plot-base-portable/1.0-SNAPSHOT/visualization-plot-base-portable-1.0-SNAPSHOT.module",
+    "group": "org.jetbrains.datalore-plot",
+    "module": "visualization-plot-base-portable",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "5.2",
+      "buildId": "ne73s3woxzcojp4j2clll2tc3a"
+    }
+  },
+  "variants": [
+    {
+      "name": "js-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "files": [
+        {
+          "name": "visualization-plot-base-portable-js-1.0-SNAPSHOT.jar",
+          "url": "visualization-plot-base-portable-js-1.0-SNAPSHOT.jar",
+          "size": 204780,
+          "sha1": "bdb97c6202cdc909a16b49fac53ce7fefd09ec47",
+          "md5": "a536560e269c403df97852298a43505"
+        }
+      ]
+    },
+    {
+      "name": "js-runtime",
+      "attributes": {
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-js",
+          "version": {
+            "requires": "1.3.50"
+          }
+        },
+        {
+          "group": "io.github.microutils",
+          "module": "kotlin-logging-js",
+          "version": {
+            "requires": "1.7.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.3.50"
+          }
+        },
+        {
+          "group": "io.github.microutils",
+          "module": "kotlin-logging-common",
+          "version": {
+            "requires": "1.7.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.datalore-plot",
+          "module": "base-portable",
+          "version": {
+            "requires": "1.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.datalore-plot",
+          "module": "visualization-plot-common-portable",
+          "version": {
+            "requires": "1.0-SNAPSHOT"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "visualization-plot-base-portable-js-1.0-SNAPSHOT.jar",
+          "url": "visualization-plot-base-portable-js-1.0-SNAPSHOT.jar",
+          "size": 204780,
+          "sha1": "bdb97c6202cdc909a16b49fac53ce7fefd09ec47",
+          "md5": "a536560e269c403df97852298a43505"
+        }
+      ]
+    },
+    {
+      "name": "metadata-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "available-at": {
+        "url": "../../visualization-plot-base-portable-metadata/1.0-SNAPSHOT/visualization-plot-base-portable-metadata-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "visualization-plot-base-portable-metadata",
+        "version": "1.0-SNAPSHOT"
+      }
+    }
+  ]
+}

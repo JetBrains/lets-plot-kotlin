@@ -1,0 +1,58 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "group": "org.jetbrains.datalore-plot",
+    "module": "datalore-plot-jfx",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "5.2",
+      "buildId": "ne73s3woxzcojp4j2clll2tc3a"
+    }
+  },
+  "variants": [
+    {
+      "name": "jvm-api",
+      "attributes": {
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../datalore-plot-jvm-jfx/1.0-SNAPSHOT/datalore-plot-jvm-jfx-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "datalore-plot-jvm-jfx",
+        "version": "1.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "jvm-runtime",
+      "attributes": {
+        "org.gradle.usage": "java-runtime-jars",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../datalore-plot-jvm-jfx/1.0-SNAPSHOT/datalore-plot-jvm-jfx-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "datalore-plot-jvm-jfx",
+        "version": "1.0-SNAPSHOT"
+      }
+    },
+    {
+      "name": "metadata-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "available-at": {
+        "url": "../../datalore-plot-metadata-jfx/1.0-SNAPSHOT/datalore-plot-metadata-jfx-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "datalore-plot-metadata-jfx",
+        "version": "1.0-SNAPSHOT"
+      }
+    }
+  ]
+}

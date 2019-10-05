@@ -1,0 +1,36 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "url": "../../visualization-base-svg-mapper/1.0-SNAPSHOT/visualization-base-svg-mapper-1.0-SNAPSHOT.module",
+    "group": "org.jetbrains.datalore-plot",
+    "module": "visualization-base-svg-mapper",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "5.2",
+      "buildId": "ne73s3woxzcojp4j2clll2tc3a"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadata-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "visualization-base-svg-mapper-metadata-1.0-SNAPSHOT.jar",
+          "url": "visualization-base-svg-mapper-metadata-1.0-SNAPSHOT.jar",
+          "size": 2614,
+          "sha1": "60851b259a700a0e314cb0ddec80fdbfc2a34ec3",
+          "md5": "d08e88247c52a3ba681afaf013568290"
+        }
+      ]
+    }
+  ]
+}

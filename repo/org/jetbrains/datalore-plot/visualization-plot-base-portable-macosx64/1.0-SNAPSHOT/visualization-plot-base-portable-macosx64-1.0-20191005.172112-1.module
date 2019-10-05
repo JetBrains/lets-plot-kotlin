@@ -1,0 +1,80 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "url": "../../visualization-plot-base-portable/1.0-SNAPSHOT/visualization-plot-base-portable-1.0-SNAPSHOT.module",
+    "group": "org.jetbrains.datalore-plot",
+    "module": "visualization-plot-base-portable",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "5.2",
+      "buildId": "ne73s3woxzcojp4j2clll2tc3a"
+    }
+  },
+  "variants": [
+    {
+      "name": "macosX64-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.3.50"
+          }
+        },
+        {
+          "group": "io.github.microutils",
+          "module": "kotlin-logging-common",
+          "version": {
+            "requires": "1.7.6"
+          }
+        },
+        {
+          "group": "org.jetbrains.datalore-plot",
+          "module": "base-portable",
+          "version": {
+            "requires": "1.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.jetbrains.datalore-plot",
+          "module": "visualization-plot-common-portable",
+          "version": {
+            "requires": "1.0-SNAPSHOT"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "visualization-plot-base-portable.klib",
+          "url": "visualization-plot-base-portable-macosx64-1.0-SNAPSHOT.klib",
+          "size": 504988,
+          "sha1": "a35656164b91c742ed816921b634ea01b83f5d4b",
+          "md5": "30f69f6322184765aa956a80c5b50ae6"
+        }
+      ]
+    },
+    {
+      "name": "metadata-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "available-at": {
+        "url": "../../visualization-plot-base-portable-metadata/1.0-SNAPSHOT/visualization-plot-base-portable-metadata-1.0-SNAPSHOT.module",
+        "group": "org.jetbrains.datalore-plot",
+        "module": "visualization-plot-base-portable-metadata",
+        "version": "1.0-SNAPSHOT"
+      }
+    }
+  ]
+}

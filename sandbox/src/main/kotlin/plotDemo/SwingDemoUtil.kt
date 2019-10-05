@@ -2,6 +2,7 @@ package plotDemo
 
 import com.jetbrains.datalore.plot.Plot
 import com.jetbrains.datalore.plot.toSpec
+import jetbrains.datalore.base.event.MouseEventSpec
 import jetbrains.datalore.base.event.awt.AwtEventUtil
 import jetbrains.datalore.base.geometry.DoubleRectangle
 import jetbrains.datalore.base.geometry.DoubleVector
@@ -11,11 +12,11 @@ import jetbrains.datalore.base.observable.property.ReadableProperty
 import jetbrains.datalore.base.observable.property.ValueProperty
 import jetbrains.datalore.visualization.base.svg.SvgColors
 import jetbrains.datalore.visualization.base.svg.SvgRectElement
-import jetbrains.datalore.visualization.base.swing.BatikMapperDemoFactory
-import jetbrains.datalore.visualization.base.swing.SwingDemoFactory
+import jetbrains.datalore.visualization.demoUtils.jfx.SceneMapperDemoFactory
+import jetbrains.datalore.visualization.demoUtils.swing.SwingDemoFactory
 import jetbrains.datalore.visualization.plot.Monolithic
-import jetbrains.datalore.visualization.plot.base.event.MouseEventSpec
 import jetbrains.datalore.visualization.plot.builder.PlotContainer
+import jetbrains.datalore.visualization.plot.builder.presentation.Style
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.FlowLayout
@@ -52,7 +53,7 @@ object SwingDemoUtil {
             PlotContainer(plot, plotSize)
         }
 
-        show(plotFactory, BatikMapperDemoFactory())
+        show(plotFactory, SceneMapperDemoFactory(Style.JFX_PLOT_STYLESHEET))
     }
 
     private fun show(plotFactory: PlotFactory, factory: SwingDemoFactory) {

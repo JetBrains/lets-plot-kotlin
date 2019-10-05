@@ -1,0 +1,36 @@
+{
+  "formatVersion": "0.4",
+  "component": {
+    "url": "../../visualization-plot-builder-portable-macosx64/1.0-SNAPSHOT/visualization-plot-builder-portable-macosx64-1.0-SNAPSHOT.module",
+    "group": "org.jetbrains.datalore-plot",
+    "module": "visualization-plot-builder-portable-macosx64",
+    "version": "1.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "5.2",
+      "buildId": "ne73s3woxzcojp4j2clll2tc3a"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadata-api",
+      "attributes": {
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "visualization-plot-builder-portable-metadata-1.0-SNAPSHOT.jar",
+          "url": "visualization-plot-builder-portable-metadata-1.0-SNAPSHOT.jar",
+          "size": 42485,
+          "sha1": "332d88335f7e74d4858f7cad9513177090fbfb49",
+          "md5": "13bb31daadbc014369fd917d50205592"
+        }
+      ]
+    }
+  ]
+}

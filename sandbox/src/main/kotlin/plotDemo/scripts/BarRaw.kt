@@ -37,6 +37,6 @@ object BarRaw {
 
 
         val spec = JsonSupport.parseJson(specRaw)
-        SwingDemoUtil.display(spec)
+        SwingDemoUtil.display(spec as MutableMap<String, Any>)
     }
 }
