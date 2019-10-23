@@ -3,7 +3,7 @@ package com.jetbrains.datalore.plot
 import com.jetbrains.datalore.plot.layer.GeomOptions
 import com.jetbrains.datalore.plot.layer.PosOptions
 import com.jetbrains.datalore.plot.layer.StatOptions
-import jetbrains.datalore.visualization.plot.base.Aes
+import jetbrains.datalore.plot.base.Aes
 
 
 class Plot internal constructor(val data: Any?, val mapping: Options, val features: List<Feature>) {

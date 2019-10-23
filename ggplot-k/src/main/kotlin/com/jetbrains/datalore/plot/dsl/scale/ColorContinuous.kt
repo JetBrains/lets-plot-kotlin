@@ -4,19 +4,19 @@ package com.jetbrains.datalore.plot.dsl.scale
 
 import com.jetbrains.datalore.plot.Options
 import com.jetbrains.datalore.plot.Scale
-import jetbrains.datalore.visualization.plot.base.Aes
-import jetbrains.datalore.visualization.plot.config.Option.Scale.CHROMA
-import jetbrains.datalore.visualization.plot.config.Option.Scale.DIRECTION
-import jetbrains.datalore.visualization.plot.config.Option.Scale.END
-import jetbrains.datalore.visualization.plot.config.Option.Scale.HIGH
-import jetbrains.datalore.visualization.plot.config.Option.Scale.HUE_RANGE
-import jetbrains.datalore.visualization.plot.config.Option.Scale.LOW
-import jetbrains.datalore.visualization.plot.config.Option.Scale.LUMINANCE
-import jetbrains.datalore.visualization.plot.config.Option.Scale.MID
-import jetbrains.datalore.visualization.plot.config.Option.Scale.MIDPOINT
-import jetbrains.datalore.visualization.plot.config.Option.Scale.SCALE_MAPPER_KIND
-import jetbrains.datalore.visualization.plot.config.Option.Scale.START
-import jetbrains.datalore.visualization.plot.config.Option.Scale.START_HUE
+import jetbrains.datalore.plot.base.Aes
+import jetbrains.datalore.plot.config.Option.Scale.CHROMA
+import jetbrains.datalore.plot.config.Option.Scale.DIRECTION
+import jetbrains.datalore.plot.config.Option.Scale.END
+import jetbrains.datalore.plot.config.Option.Scale.HIGH
+import jetbrains.datalore.plot.config.Option.Scale.HUE_RANGE
+import jetbrains.datalore.plot.config.Option.Scale.LOW
+import jetbrains.datalore.plot.config.Option.Scale.LUMINANCE
+import jetbrains.datalore.plot.config.Option.Scale.MID
+import jetbrains.datalore.plot.config.Option.Scale.MIDPOINT
+import jetbrains.datalore.plot.config.Option.Scale.SCALE_MAPPER_KIND
+import jetbrains.datalore.plot.config.Option.Scale.START
+import jetbrains.datalore.plot.config.Option.Scale.START_HUE
 
 
 fun scale_fill_continuous(

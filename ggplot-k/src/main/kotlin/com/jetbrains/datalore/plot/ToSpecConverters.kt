@@ -1,14 +1,14 @@
 package com.jetbrains.datalore.plot
 
-import jetbrains.datalore.visualization.plot.config.Option
-import jetbrains.datalore.visualization.plot.config.Option.Scale.AES
-import jetbrains.datalore.visualization.plot.config.Option.Scale.BREAKS
-import jetbrains.datalore.visualization.plot.config.Option.Scale.EXPAND
-import jetbrains.datalore.visualization.plot.config.Option.Scale.GUIDE
-import jetbrains.datalore.visualization.plot.config.Option.Scale.LABELS
-import jetbrains.datalore.visualization.plot.config.Option.Scale.LIMITS
-import jetbrains.datalore.visualization.plot.config.Option.Scale.NAME
-import jetbrains.datalore.visualization.plot.config.Option.Scale.NA_VALUE
+import jetbrains.datalore.plot.config.Option
+import jetbrains.datalore.plot.config.Option.Scale.AES
+import jetbrains.datalore.plot.config.Option.Scale.BREAKS
+import jetbrains.datalore.plot.config.Option.Scale.EXPAND
+import jetbrains.datalore.plot.config.Option.Scale.GUIDE
+import jetbrains.datalore.plot.config.Option.Scale.LABELS
+import jetbrains.datalore.plot.config.Option.Scale.LIMITS
+import jetbrains.datalore.plot.config.Option.Scale.NAME
+import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
 
 fun Plot.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()

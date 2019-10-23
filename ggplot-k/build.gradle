@@ -1,36 +1,17 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.3.50'
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 group 'org.jetbrains.datalore-plot'
 version '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.8
-
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
-repositories {
-    mavenCentral()
-
-    jcenter()
-
-    maven {
-        url "file://$project.rootDir/repo"
-//        url "file:///Users/Igor/Work/datalore-plot/.maven-publish-dev-repo"
-    }
-}
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
     testCompile "junit:junit:$junit_version"
 
-    api "org.jetbrains.datalore-plot:datalore-plot-jvm-jfx:$datalore_plot_version"
+//    api "org.jetbrains.datalore-plot:datalore-plot-jvm-jfx:$datalore_plot_version"
+    api "org.jetbrains.datalore-plot:datalore-plot-jfx:$datalore_plot_version"
 }
 

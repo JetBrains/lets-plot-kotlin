@@ -3,4 +3,4 @@ rootProject.name = 'datalore-plot-kotlin'
 include 'ggplot-k',
         'sandbox'
 
-//enableFeaturePreview('GRADLE_METADATA')
+enableFeaturePreview('GRADLE_METADATA')
