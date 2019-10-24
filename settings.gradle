@@ -1,6 +1,6 @@
 rootProject.name = 'datalore-plot-kotlin'
 
-include 'ggplot-k',
+include 'plot-api',
         'sandbox'
 
 enableFeaturePreview('GRADLE_METADATA')
