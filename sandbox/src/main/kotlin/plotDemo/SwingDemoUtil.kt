@@ -1,7 +1,7 @@
 package plotDemo
 
-import com.jetbrains.datalore.plot.Plot
-import com.jetbrains.datalore.plot.toSpec
+import jetbrains.datalorePlot.intern.Plot
+import jetbrains.datalorePlot.intern.toSpec
 import jetbrains.datalore.base.event.MouseEventSpec
 import jetbrains.datalore.base.event.awt.AwtEventUtil
 import jetbrains.datalore.base.geometry.DoubleRectangle

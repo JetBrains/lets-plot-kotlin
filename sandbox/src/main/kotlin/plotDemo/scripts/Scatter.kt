@@ -1,7 +1,7 @@
 package plotDemo.scripts
 
-import com.jetbrains.datalore.plot.dsl.geom.geom_point
-import com.jetbrains.datalore.plot.dsl.ggplot
+import jetbrains.datalorePlot.geom.geom_point
+import jetbrains.datalorePlot.ggplot
 import plotDemo.SwingDemoUtil
 
 object Scatter {

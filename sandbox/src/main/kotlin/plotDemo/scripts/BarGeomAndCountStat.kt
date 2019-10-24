@@ -1,8 +1,8 @@
 package plotDemo.scripts
 
-import com.jetbrains.datalore.plot.dsl.geom.geom_bar
-import com.jetbrains.datalore.plot.dsl.ggplot
-import com.jetbrains.datalore.plot.dsl.stat.stat_count
+import jetbrains.datalorePlot.geom.geom_bar
+import jetbrains.datalorePlot.ggplot
+import jetbrains.datalorePlot.stat.stat_count
 import plotDemo.SwingDemoUtil
 
 object BarGeomAndCountStat {

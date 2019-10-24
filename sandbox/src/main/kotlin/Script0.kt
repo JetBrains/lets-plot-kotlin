@@ -1,11 +1,11 @@
-import com.jetbrains.datalore.plot.dsl.Geom.area
-import com.jetbrains.datalore.plot.dsl.Geom.point
-import com.jetbrains.datalore.plot.dsl.Pos.dodge
-import com.jetbrains.datalore.plot.dsl.Pos.position_dodge
-import com.jetbrains.datalore.plot.dsl.geom.geom_area
-import com.jetbrains.datalore.plot.dsl.geom.geom_point
-import com.jetbrains.datalore.plot.dsl.ggplot
-import com.jetbrains.datalore.plot.dsl.stat.stat_density
+import jetbrains.datalorePlot.Geom.area
+import jetbrains.datalorePlot.Geom.point
+import jetbrains.datalorePlot.Pos.dodge
+import jetbrains.datalorePlot.Pos.position_dodge
+import jetbrains.datalorePlot.geom.geom_area
+import jetbrains.datalorePlot.geom.geom_point
+import jetbrains.datalorePlot.ggplot
+import jetbrains.datalorePlot.stat.stat_density
 
 
 var df = null

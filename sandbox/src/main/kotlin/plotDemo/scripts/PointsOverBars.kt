@@ -1,10 +1,10 @@
 package plotDemo.scripts
 
-import com.jetbrains.datalore.plot.dsl.Pos
-import com.jetbrains.datalore.plot.dsl.Stat
-import com.jetbrains.datalore.plot.dsl.geom.geom_bar
-import com.jetbrains.datalore.plot.dsl.geom.geom_point
-import com.jetbrains.datalore.plot.dsl.ggplot
+import jetbrains.datalorePlot.Pos
+import jetbrains.datalorePlot.Stat
+import jetbrains.datalorePlot.geom.geom_bar
+import jetbrains.datalorePlot.geom.geom_point
+import jetbrains.datalorePlot.ggplot
 import plotDemo.SwingDemoUtil
 
 object PointsOverBars {

@@ -1,8 +1,8 @@
 package plotDemo.scripts
 
-import com.jetbrains.datalore.plot.dsl.geom.geom_tile
-import com.jetbrains.datalore.plot.dsl.ggplot
-import com.jetbrains.datalore.plot.dsl.scale.scale_fill_gradient2
+import jetbrains.datalorePlot.geom.geom_tile
+import jetbrains.datalorePlot.ggplot
+import jetbrains.datalorePlot.scale.scale_fill_gradient2
 import plotDemo.SwingDemoUtil
 import javax.swing.Timer
 
