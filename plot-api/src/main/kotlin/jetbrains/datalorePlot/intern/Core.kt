@@ -1,30 +1,15 @@
 package jetbrains.datalorePlot.intern
 
+import frontendApi.Figure
+import jetbrains.datalore.plot.base.Aes
+import jetbrains.datalorePlot.GlobalSettings
+import jetbrains.datalorePlot.intern.frontendContext.FrontendContextUtil
 import jetbrains.datalorePlot.intern.layer.GeomOptions
 import jetbrains.datalorePlot.intern.layer.PosOptions
 import jetbrains.datalorePlot.intern.layer.StatOptions
-import jetbrains.datalore.plot.base.Aes
 
 
-class Plot internal constructor(val data: Any?, val mapping: Options, val features: List<Feature>) {
-    companion object {
-        fun withFeature(plot: Plot, feature: Feature): Plot {
-            return Plot(
-                data = plot.data,
-                mapping = plot.mapping,
-                features = plot.features + listOf(feature)
-            )
-        }
-
-        private fun withFeatureList(plot: Plot, featureList: FeatureList): Plot {
-            return Plot(
-                data = plot.data,
-                mapping = plot.mapping,
-                features = plot.features + featureList.elements
-            )
-        }
-    }
-
+class Plot internal constructor(val data: Any?, val mapping: Options, val features: List<Feature>) : Figure {
     constructor() : this(null, GenericAesMapping().seal(), emptyList())
 
     operator fun plus(other: Feature): Plot {
@@ -47,6 +32,28 @@ class Plot internal constructor(val data: Any?, val mapping: Options, val featur
 
     override fun toString(): String {
         return "Plot(data=$data, mapping=$mapping, features=$features)"
+    }
+
+    override fun show() {
+        FrontendContextUtil.display(this, GlobalSettings.frontendContext)
+    }
+
+    companion object {
+        fun withFeature(plot: Plot, feature: Feature): Plot {
+            return Plot(
+                data = plot.data,
+                mapping = plot.mapping,
+                features = plot.features + listOf(feature)
+            )
+        }
+
+        private fun withFeatureList(plot: Plot, featureList: FeatureList): Plot {
+            return Plot(
+                data = plot.data,
+                mapping = plot.mapping,
+                features = plot.features + featureList.elements
+            )
+        }
     }
 }
 

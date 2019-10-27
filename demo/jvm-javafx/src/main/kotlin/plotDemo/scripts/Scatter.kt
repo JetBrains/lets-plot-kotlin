@@ -1,12 +1,14 @@
 package plotDemo.scripts
 
+import jetbrains.datalorePlot.GlobalSettings
 import jetbrains.datalorePlot.geom.geom_point
 import jetbrains.datalorePlot.ggplot
-import plotDemo.SwingDemoUtil
+import plotDemo.SwingJfxFrontendContext
 
 object Scatter {
     @JvmStatic
     fun main(args: Array<String>) {
+        GlobalSettings.frontendContext = SwingJfxFrontendContext()
 
         val data = mapOf<String, Any>(
             "weight" to listOf(68, 84, 73),
@@ -22,6 +24,6 @@ object Scatter {
                     size = "shoe"
                 }
 
-        SwingDemoUtil.display(p)
+        p.show()
     }
 }

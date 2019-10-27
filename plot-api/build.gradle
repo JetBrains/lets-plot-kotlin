@@ -3,15 +3,13 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
 }
 
-group 'org.jetbrains.datalore-plot'
-version '1.0-SNAPSHOT'
-
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
     testCompile "junit:junit:$junit_version"
 
-//    api "org.jetbrains.datalore-plot:datalore-plot-jvm-jfx:$datalore_plot_version"
+    api project(':frontend-api')
+
     api "org.jetbrains.datalore-plot:datalore-plot-jfx:$datalore_plot_version"
 }
 

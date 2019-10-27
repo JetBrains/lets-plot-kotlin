@@ -1,6 +1,9 @@
 rootProject.name = 'datalore-plot-kotlin'
 
 include 'plot-api',
-        'sandbox'
+        'frontend-api',
+        'jvm-javafx'
+
+project(':jvm-javafx').projectDir = new File('./demo/jvm-javafx')
 
 enableFeaturePreview('GRADLE_METADATA')

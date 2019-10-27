@@ -1,13 +1,17 @@
 package plotDemo.scripts
 
+import jetbrains.datalorePlot.GlobalSettings
+import jetbrains.datalorePlot.Pos
+import jetbrains.datalorePlot.Stat
 import jetbrains.datalorePlot.geom.geom_bar
+import jetbrains.datalorePlot.geom.geom_point
 import jetbrains.datalorePlot.ggplot
-import jetbrains.datalorePlot.stat.stat_count
-import plotDemo.SwingDemoUtil
+import plotDemo.SwingJfxFrontendContext
 
-object BarGeomAndCountStat {
+object PointsOverBars {
     @JvmStatic
     fun main(args: Array<String>) {
+        GlobalSettings.frontendContext = SwingJfxFrontendContext()
 
         val data = mapOf<String, Any>(
             "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
@@ -15,20 +19,18 @@ object BarGeomAndCountStat {
         )
         val p = ggplot(data)
 
-        // bar (with count stat by default)
+        // bars
         val barLayer = geom_bar {
             x = "cat1"
             fill = "cat2"
         }
 
-        // count stat (with bar geom by default)
-        val countLayer = stat_count {
+        // points with count stat and `stack` position adjustment
+        val pointLayer = geom_point(stat = Stat.count(), position = Pos.stack, size = 15.0) {
             x = "cat1"
-            fill = "cat2"
+            color = "cat2"
         }
 
-        // show two frames
-        SwingDemoUtil.display(p + barLayer)
-        SwingDemoUtil.display(p + countLayer)
+        (p + barLayer + pointLayer).show()
     }
 }
