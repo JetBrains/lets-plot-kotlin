@@ -8,10 +8,10 @@ import plotDemo.SwingJfxFrontendContext
 
 object BarGeomAndCountStat {
     @JvmStatic
+    @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
         GlobalSettings.frontendContext = SwingJfxFrontendContext()
 
-        @Suppress("DuplicatedCode")
         val data = mapOf<String, Any>(
             "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
             "cat2" to listOf("c", "c", "d", "d", "d", "c", "c", "d", "c", "c", "d")
@@ -30,7 +30,7 @@ object BarGeomAndCountStat {
             fill = "cat2"
         }
 
-        // show two frames
+        // show two identical plots
         (p + barLayer).show()
         (p + countLayer).show()
     }

@@ -12,8 +12,8 @@ object ColorScaleContinuous {
     fun main(args: Array<String>) {
         GlobalSettings.frontendContext = SwingJfxFrontendContext()
 
-        val X = (-64..64).toList()
-        val data = mapOf("x" to X)
+        val xs = (-64..64).toList()
+        val data = mapOf("x" to xs)
 
         val p = ggplot(data) +
                 geom_tile(width = 1.0, height = 10.0) {
@@ -26,7 +26,7 @@ object ColorScaleContinuous {
         p.show()
 
         // rainbow
-        println("wait for a rainbow ...")
+        println("wait for the rainbow ...")
         val timer = Timer(5000) {
             val gradient = scale_fill_gradient2(low = "green", mid = "yellow", high = "red")
             (p + gradient).show()

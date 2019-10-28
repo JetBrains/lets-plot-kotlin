@@ -1,6 +1,8 @@
 package jetbrains.datalorePlot.intern
 
 import jetbrains.datalore.plot.config.Option
+import jetbrains.datalore.plot.config.Option.Meta.KIND
+import jetbrains.datalore.plot.config.Option.Meta.Kind.PLOT
 import jetbrains.datalore.plot.config.Option.Scale.AES
 import jetbrains.datalore.plot.config.Option.Scale.BREAKS
 import jetbrains.datalore.plot.config.Option.Scale.EXPAND
@@ -13,6 +15,8 @@ import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
 fun Plot.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
     val plot = this
+
+    spec[KIND] = PLOT
 
     plot.data?.let {
         spec[Option.Plot.DATA] = asPlotData(plot.data)
@@ -88,7 +92,7 @@ private fun asPlotData(dataRaw: Any) = dataRaw  // placeholder
 
 private fun toFeatureSpec(kind: String, name: String?, parameters: Map<String, Any>): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
-    spec[Option.Meta.KIND] = kind
+    spec[KIND] = kind
     // ToDo: 'name' -> constant
     name?.let { spec["name"] = name }
 

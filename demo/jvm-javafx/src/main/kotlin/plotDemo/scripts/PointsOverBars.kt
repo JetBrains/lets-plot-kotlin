@@ -10,6 +10,7 @@ import plotDemo.SwingJfxFrontendContext
 
 object PointsOverBars {
     @JvmStatic
+    @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
         GlobalSettings.frontendContext = SwingJfxFrontendContext()
 

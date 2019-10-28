@@ -1,5 +1,5 @@
 package frontendApi
 
 interface HtmlFrontendContext: FrontendContext {
-    fun displayHtml(s:String)
+    fun displayHtml(html:String)
 }
