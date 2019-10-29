@@ -1,7 +1,5 @@
 package plotDemo
 
-import jetbrains.datalorePlot.intern.Plot
-import jetbrains.datalorePlot.intern.toSpec
 import jetbrains.datalore.base.event.MouseEventSpec
 import jetbrains.datalore.base.event.awt.AwtEventUtil
 import jetbrains.datalore.base.geometry.DoubleRectangle
@@ -10,13 +8,15 @@ import jetbrains.datalore.base.observable.event.EventHandler
 import jetbrains.datalore.base.observable.property.PropertyChangeEvent
 import jetbrains.datalore.base.observable.property.ReadableProperty
 import jetbrains.datalore.base.observable.property.ValueProperty
-import jetbrains.datalore.vis.svg.SvgColors
-import jetbrains.datalore.vis.svg.SvgRectElement
-import jetbrains.datalore.vis.demoUtils.jfx.SceneMapperDemoFactory
-import jetbrains.datalore.vis.demoUtils.swing.SwingDemoFactory
 import jetbrains.datalore.plot.Monolithic
 import jetbrains.datalore.plot.builder.PlotContainer
 import jetbrains.datalore.plot.builder.presentation.Style
+import jetbrains.datalore.vis.demoUtils.jfx.SceneMapperDemoFactory
+import jetbrains.datalore.vis.demoUtils.swing.SwingDemoFactory
+import jetbrains.datalore.vis.svg.SvgColors
+import jetbrains.datalore.vis.svg.SvgRectElement
+import jetbrains.datalorePlot.intern.Plot
+import jetbrains.datalorePlot.intern.toSpec
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.FlowLayout
@@ -56,8 +56,8 @@ object SwingDemoUtil {
         show(plotFactory, SceneMapperDemoFactory(Style.JFX_PLOT_STYLESHEET))
     }
 
-    private fun show(plotFactory: PlotFactory, factory: SwingDemoFactory) {
-        factory.createDemoFrame("Fit in the frame (try to resize)").show(false) {
+    private fun show(plotFactory: PlotFactory, swingFactory: SwingDemoFactory) {
+        swingFactory.createDemoFrame("Fit in the frame (try to resize)").show(false) {
             val panel = this
 
             panel.removeAll()
@@ -71,7 +71,15 @@ object SwingDemoUtil {
                 private val plotSizeProp = ValueProperty(DoubleVector.ZERO)
                 override fun componentResized(e: ComponentEvent) {
                     eventCount.incrementAndGet()
-                    SwingUtilities.invokeLater {
+
+                    val executor: (() -> Unit) -> Unit = if (plotCreated) {
+                        // Supposedly, Java FX has already been initialized at this time
+                        swingFactory.createPlotEdtExecutor()
+                    } else {
+                        { runnable: () -> Unit -> SwingUtilities.invokeLater(runnable) }
+                    }
+
+                    executor {
                         if (eventCount.decrementAndGet() == 0) {
                             val container = e.component as JComponent
                             container.invalidate()
@@ -81,7 +89,7 @@ object SwingDemoUtil {
                             plotSizeProp.set(newPlotSize)
                             if (!plotCreated) {
                                 plotCreated = true
-                                createPlot(plotFactory, plotSizeProp, container, factory)
+                                createPlot(plotFactory, plotSizeProp, container, swingFactory)
                             }
 
                             container.revalidate()
@@ -97,7 +105,7 @@ object SwingDemoUtil {
         plotFactory: PlotFactory,
         plotSizeProp: ReadableProperty<DoubleVector>,
         container: JComponent,
-        factory: SwingDemoFactory
+        swingFactory: SwingDemoFactory
     ) {
 
         val plot = plotFactory(plotSizeProp)
@@ -110,7 +118,7 @@ object SwingDemoUtil {
         frameRect.fill().set(SvgColors.NONE)
         svg.children().add(frameRect)
 
-        val component = factory.createSvgComponent(svg)
+        val component = swingFactory.createSvgComponent(svg)
         container.add(component)
 
         plotSizeProp.addHandler(object : EventHandler<PropertyChangeEvent<out DoubleVector>> {
@@ -121,7 +129,7 @@ object SwingDemoUtil {
         })
 
         // Bind mouse events
-        val plotEdt = factory.createPlotEdtExecutor()
+        val plotEdt = swingFactory.createPlotEdtExecutor()
         component.addMouseListener(object : MouseAdapter() {
             override fun mouseExited(e: MouseEvent) {
                 super.mouseExited(e)

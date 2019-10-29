@@ -12,6 +12,7 @@ object BarRaw {
                 "   }"
 
         val specRaw = "{" +
+                "   'kind': 'plot'," +
                 "   'data': " + data +
                 "           ," +
                 "   'mapping': {" +
