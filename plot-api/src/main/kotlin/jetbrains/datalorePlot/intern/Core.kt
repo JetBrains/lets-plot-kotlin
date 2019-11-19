@@ -21,13 +21,15 @@ class Plot internal constructor(val data: Any?, val mapping: Options, val featur
     }
 
     fun layers(): List<Layer> {
-        @Suppress("UNCHECKED_CAST")
-        return features.filter { it is Layer } as List<Layer>
+        return features.filterIsInstance<Layer>()
     }
 
     fun scales(): List<Scale> {
-        @Suppress("UNCHECKED_CAST")
-        return features.filter { it is Scale } as List<Scale>
+        return features.filterIsInstance<Scale>()
+    }
+
+    fun otherFeatures(): List<OtherPlotFeature> {
+        return features.filterIsInstance<OtherPlotFeature>()
     }
 
     override fun toString(): String {
@@ -115,6 +117,11 @@ class Scale internal constructor(
     val trans: Any?,
     val otherOptions: Options
 
+) : Feature()
+
+class OtherPlotFeature internal constructor(
+    val kind: String,
+    val options: Map<String, Any>
 ) : Feature()
 
 abstract class NotLayer : Feature()

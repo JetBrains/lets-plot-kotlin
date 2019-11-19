@@ -32,7 +32,11 @@ fun Plot.toSpec(): MutableMap<String, Any> {
 //    const val COORD = "coord"
 //    const val FACET = "facet"
 //    const val THEME = "theme"
-//    const val SIZE = "ggsize"
+//    const val SIZE = "ggsize"    // done
+
+    for (plotFeature in plot.otherFeatures()) {
+        spec[plotFeature.kind] = plotFeature.toSpec()
+    }
 
     return spec
 }
@@ -54,7 +58,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     spec[Option.Layer.POS] = if (posOptions.parameters.isEmpty()) {
         posOptions.kind.optionName()
     } else {
-        // ToDo: 'pos' -> constant
+        // ToDo: 'pos' -> constant (see: Option.Meta.Kind)
         toFeatureSpec("pos", posOptions.kind.optionName(), posOptions.parameters.map)
     }
 
@@ -87,6 +91,9 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     return spec
 }
 
+fun OtherPlotFeature.toSpec(): MutableMap<String, Any> {
+    return HashMap(options)
+}
 
 private fun asPlotData(dataRaw: Any) = dataRaw  // placeholder
 
