@@ -8,7 +8,7 @@ import org.junit.Test
 class PlotSizeTest {
 
     @Test
-    fun `empty plot`() {
+    fun `check plot option`() {
         val p = ggplot() + ggsize(5, 10)
         assertThat(p).features().length(1)
 
