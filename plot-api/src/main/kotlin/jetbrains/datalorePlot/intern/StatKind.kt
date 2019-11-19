@@ -3,7 +3,8 @@ package jetbrains.datalorePlot.intern
 enum class StatKind {
     IDENTITY,
     COUNT,
-    DENSITY;
+    DENSITY,
+    BIN;
 
     fun optionName() = name.toLowerCase()
 }

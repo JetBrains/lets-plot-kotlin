@@ -2,10 +2,7 @@ package jetbrains.datalorePlot
 
 import jetbrains.datalorePlot.intern.StatKind
 import jetbrains.datalorePlot.intern.layer.StatOptions
-import jetbrains.datalorePlot.intern.layer.stat.CountMapping
-import jetbrains.datalorePlot.intern.layer.stat.CountParameters
-import jetbrains.datalorePlot.intern.layer.stat.DensityMapping
-import jetbrains.datalorePlot.intern.layer.stat.DensityParameters
+import jetbrains.datalorePlot.intern.layer.stat.*
 
 object Stat {
     val identity = StatOptions(
@@ -34,6 +31,21 @@ object Stat {
         StatOptions(
             StatKind.COUNT,
             mapping = CountMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class bin(
+        mapping: BinMapping.() -> Unit = {},
+        override val binCount: Int = BinParameters.DEF_BIN_COUNT,
+        override val binWidth: Double? = null,
+        override val center: Double? = null,
+        override val boundary: Double? = null
+    ) : BinParameters,
+        StatOptions(
+            StatKind.BIN,
+            mapping = BinMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

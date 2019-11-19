@@ -51,6 +51,23 @@ object Geom {
     }
 
     @Suppress("ClassName")
+    class histogram(
+        mapping: HistogramMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val size: Double? = null
+    ) : HistogramAesthetics,
+        GeomOptions(
+            GeomKind.HISTOGRAM,
+            HistogramMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class bar(
         mapping: BarMapping.() -> Unit = {},
         override val x: Double? = null,
