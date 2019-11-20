@@ -13,7 +13,7 @@ dependencies {
     api project(':frontend-api')
 
     api "org.jetbrains.datalore-plot:datalore-plot-common:$datalore_plot_version"
-    api "org.jetbrains.datalore-plot:datalore-plot-jfx:$datalore_plot_version"
+//    api "org.jetbrains.datalore-plot:datalore-plot-jfx:$datalore_plot_version"
 }
 
 

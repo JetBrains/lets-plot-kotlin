@@ -1,7 +1,6 @@
 package plotDemo
 
 import frontendApi.HtmlFrontendContext
-import jetbrains.datalore.vis.demoUtils.browser.BrowserDemoUtil
 
 class BrowserFrontendContext : HtmlFrontendContext {
     override var headHtml: String? = null

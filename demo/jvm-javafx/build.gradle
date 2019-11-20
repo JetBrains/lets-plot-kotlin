@@ -6,6 +6,7 @@ plugins {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
+    implementation "org.jetbrains.datalore-plot:datalore-plot-jfx:$datalore_plot_version"
     implementation project(':plot-api')
 }
 
