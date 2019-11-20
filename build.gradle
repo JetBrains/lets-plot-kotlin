@@ -1,7 +1,18 @@
+buildscript {
+    dependencies {
+        classpath("org.yaml:snakeyaml:1.25")
+    }
+}
+
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.3.50'
+    id "com.jfrog.bintray" version '1.8.4' apply false
 }
+
+group 'org.jetbrains.datalore-plot'
+version "0.0.1-SNAPSHOT"
+
 
 repositories {
     mavenCentral()
@@ -9,9 +20,21 @@ repositories {
 }
 
 
-subprojects {
-    sourceCompatibility = 1.8
+import org.yaml.snakeyaml.Yaml
 
+def build_settings_file = new File(rootDir, "build_settings.yml")
+if (!build_settings_file.canRead()) {
+    throw new GradleException("Couldn't read build_settings.yml")
+}
+def settings = new Yaml().load(build_settings_file.newInputStream())
+project.ext.buildSettings = settings
+
+
+subprojects {
+    group = rootProject.group
+    version = rootProject.version
+
+    sourceCompatibility = 1.8
     compileKotlin {
         kotlinOptions.jvmTarget = "1.8"
     }
@@ -19,9 +42,13 @@ subprojects {
         kotlinOptions.jvmTarget = "1.8"
     }
 
+//    // make sure sources jar is built
+//    apply plugin: 'kotlin-multiplatform'
+//    kotlin.jvm {}   // for `jvmSourcesJar` task
+//    build.dependsOn += jvmSourcesJar
+
     repositories {
         mavenCentral()
-
         jcenter()
 
         maven {

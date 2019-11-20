@@ -1,9 +1,97 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
+    id 'maven-publish'
+    id "com.jfrog.bintray"
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
+def artifactBaseName = 'kotlin-frontend-api'
+def artifactGroupId = project.group
+def artifactVersion = project.version
+
+def task_group = 'datalore plot'
+
+task jarClasses(type: Jar, dependsOn: classes) {
+    group task_group
+    baseName artifactBaseName
+    version artifactVersion
+    from sourceSets.main.output
+}
+
+task jarSources(type: Jar) {
+    classifier 'sources'
+    group task_group
+    baseName artifactBaseName
+    version artifactVersion
+    from sourceSets.main.allSource
+}
+
+publishing {
+    publications {
+        datalorePlotKotlinApi(MavenPublication) {
+            groupId artifactGroupId
+            artifactId artifactBaseName
+            version artifactVersion
+
+            artifact jarClasses
+            artifact jarSources
+
+            pom {
+                name = "Kotlin Frontend API"
+                description = "API prototype for Kotlin notebook"
+                url = "https://github.com/JetBrains/datalore-plot-kotlin"
+                licenses {
+                    license {
+                        name = "MIT"
+                        url = "https://opensource.org/licenses/MIT"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "jetbrains"
+                        name = "JetBrains"
+                        email = "datalore-plot@jetbrains.com"
+                    }
+                }
+                scm {
+                    url = "https://github.com/JetBrains/datalore-plot-kotlin"
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri("https://jetbrains.bintray.com/datalore-plot-maven")
+        }
+    }
+}
+
+// Provide Bintray-specific Information
+def bintray_user = project.buildSettings?.bintray?.user
+def bintray_key = project.buildSettings?.bintray?.key
+
+if (bintray_user != null && bintray_key != null) {
+    bintray {
+        user = bintray_user
+        key = bintray_key
+        publications = ['datalorePlotKotlinApi']
+        publish = true
+        override = true
+
+        pkg {
+            repo = 'datalore-plot-maven'
+            name = 'datalore-plot-kotlin-api-jars'
+            userOrg = 'jetbrains'
+            licenses = ['MIT']
+            vcsUrl = 'https://github.com/JetBrains/datalore-plot-kotlin'
+            version {
+                name = artifactVersion
+            }
+        }
+    }
+}
