@@ -19,13 +19,12 @@ object FrontendContextUtil {
         }
     }
 
-
-    private fun displayHtml(plot: Plot, ctx: HtmlFrontendContext) {
+    fun getHtml(plot: Plot) : String {
         val plotSpec = PlotConfigServerSide.processTransform(plot.toSpec())
         val plotOutputId = "plot_output_${randomStr()}"
         val plotSpecJs = mapToJsObjectInitializer(plotSpec)
 
-        val html = """
+        return """
             <div id="$plotOutputId"></div>
             <script type="text/javascript">
                 var plotSpec=$plotSpecJs;
@@ -34,8 +33,10 @@ object FrontendContextUtil {
                 DatalorePlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
             </script>
         """
+    }
 
-        ctx.displayHtml(html)
+    private fun displayHtml(plot: Plot, ctx: HtmlFrontendContext) {
+        ctx.displayHtml(getHtml(plot))
     }
 
     private fun randomStr(): String {
