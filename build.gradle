@@ -11,7 +11,7 @@ plugins {
 }
 
 group 'org.jetbrains.datalore-plot'
-version "0.0.1-SNAPSHOT"
+version "0.0.2-SNAPSHOT"
 
 
 repositories {
@@ -41,11 +41,6 @@ subprojects {
     compileTestKotlin {
         kotlinOptions.jvmTarget = "1.8"
     }
-
-//    // make sure sources jar is built
-//    apply plugin: 'kotlin-multiplatform'
-//    kotlin.jvm {}   // for `jvmSourcesJar` task
-//    build.dependsOn += jvmSourcesJar
 
     repositories {
         mavenCentral()
