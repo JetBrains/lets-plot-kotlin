@@ -68,6 +68,23 @@ object Geom {
     }
 
     @Suppress("ClassName")
+    class line(
+        mapping: LineMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : LineAesthetics,
+        GeomOptions(
+            GeomKind.LINE,
+            LineMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class bar(
         mapping: BarMapping.() -> Unit = {},
         override val x: Double? = null,
