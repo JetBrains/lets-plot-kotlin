@@ -10,8 +10,8 @@ plugins {
     id "com.jfrog.bintray" version '1.8.4' apply false
 }
 
-group 'org.jetbrains.datalore-plot'
-version "0.0.2-SNAPSHOT"
+group 'org.jetbrains.lets-plot'
+version "0.0.3-SNAPSHOT"
 
 
 repositories {
@@ -50,7 +50,7 @@ subprojects {
 //            url "file://$project.rootDir/.maven_repo"
 //            url "file:///Users/Igor/Work/datalore-plot/.maven-publish-dev-repo"
 
-            url "https://jetbrains.bintray.com/datalore-plot-maven"
+            url "https://jetbrains.bintray.com/lets-plot-maven"
         }
     }
 }

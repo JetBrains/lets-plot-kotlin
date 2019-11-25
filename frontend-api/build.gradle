@@ -54,7 +54,7 @@ publishing {
                     developer {
                         id = "jetbrains"
                         name = "JetBrains"
-                        email = "datalore-plot@jetbrains.com"
+                        email = "lets-plot@jetbrains.com"
                     }
                 }
                 scm {
@@ -66,7 +66,7 @@ publishing {
 
     repositories {
         maven {
-            url = uri("https://jetbrains.bintray.com/datalore-plot-maven")
+            url = uri("https://jetbrains.bintray.com/lets-plot-maven")
         }
     }
 }
@@ -84,8 +84,8 @@ if (bintray_user != null && bintray_key != null) {
         override = true
 
         pkg {
-            repo = 'datalore-plot-maven'
-            name = 'datalore-plot-kotlin-api-jars'
+            repo = 'lets-plot-maven'
+            name = 'lets-plot-kotlin-api-jars'
             userOrg = 'jetbrains'
             licenses = ['MIT']
             vcsUrl = 'https://github.com/JetBrains/datalore-plot-kotlin'

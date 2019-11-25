@@ -1,1 +1,1 @@
-# datalore-plot-kotlin
+# lets-plot-kotlin

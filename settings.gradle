@@ -1,4 +1,4 @@
-rootProject.name = 'datalore-plot-kotlin'
+rootProject.name = 'lets-plot-kotlin'
 
 include 'plot-api',
         'frontend-api',
