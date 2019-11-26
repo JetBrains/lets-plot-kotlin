@@ -5,7 +5,7 @@ import java.io.File
 import java.io.FileWriter
 
 object BrowserDemoUtil {
-    private const val ROOT_PROJECT = "datalore-plot-kotlin"
+    private const val ROOT_PROJECT = "lets-plot-kotlin"
 
     fun openInBrowser(demoProjectRelativePath: String, html: () -> String) {
 
