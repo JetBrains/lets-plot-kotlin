@@ -3,13 +3,13 @@ package jetbrains.datalorePlot.intern.layer.stat
 import jetbrains.datalorePlot.intern.layer.WithGroupOption
 
 class CountMapping(
-    override var x: Any? = null,
-    override var y: Any? = null,
-    override var alpha: Any? = null,
-    override var color: Any? = null,
-    override var fill: Any? = null,
-    override var width: Any? = null,
-    override var size: Any? = null,
+    var x: Any? = null,
+    var y: Any? = null,
+    var alpha: Any? = null,
+    var color: Any? = null,
+    var fill: Any? = null,
+    var width: Any? = null,
+    var size: Any? = null,
     override var weight: Any? = null,
     override var group: Any? = null
 ) : CountAesthetics, WithGroupOption {

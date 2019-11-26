@@ -7,6 +7,7 @@ import jetbrains.datalorePlot.Stat
 import jetbrains.datalorePlot.intern.layer.GeomOptions
 import jetbrains.datalorePlot.intern.layer.LayerBase
 import jetbrains.datalorePlot.intern.layer.PosOptions
+import jetbrains.datalorePlot.intern.layer.geom.BarAesthetics
 import jetbrains.datalorePlot.intern.layer.stat.CountAesthetics
 import jetbrains.datalorePlot.intern.layer.stat.CountMapping
 import jetbrains.datalorePlot.intern.layer.stat.CountParameters
@@ -28,7 +29,7 @@ class stat_count(
     override val weight: Double? = null,
     mapping: CountMapping.() -> Unit = {}
 
-) : CountAesthetics, CountParameters,
+) : CountAesthetics, BarAesthetics, CountParameters,
     LayerBase(
         mapping = CountMapping().apply(mapping).seal(),
         data = data,
@@ -41,7 +42,8 @@ class stat_count(
     ) {
 
     override fun seal(): Options {
-        return super<CountAesthetics>.seal() +
+        return super<BarAesthetics>.seal() +
+                super<CountAesthetics>.seal() +
                 super<CountParameters>.seal()
     }
 }
