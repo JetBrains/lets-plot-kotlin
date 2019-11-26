@@ -33,6 +33,25 @@ object Geom {
     }
 
     @Suppress("ClassName")
+    class path(
+        mapping: PathMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val speed: Double? = null,
+        override val flow: Double? = null
+    ) : PathAesthetics,
+        GeomOptions(
+            GeomKind.PATH,
+            PathMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class area(
         mapping: AreaMapping.() -> Unit = {},
         override val x: Double? = null,
@@ -66,6 +85,7 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
 
     @Suppress("ClassName")
     class line(
