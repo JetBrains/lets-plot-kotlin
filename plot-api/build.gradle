@@ -40,7 +40,7 @@ task jarSources(type: Jar) {
 
 publishing {
     publications {
-        datalorePlotKotlinApi(MavenPublication) {
+        letsPlotKotlinApi(MavenPublication) {
             groupId artifactGroupId
             artifactId artifactBaseName
             version artifactVersion
@@ -86,7 +86,7 @@ if (bintray_user != null && bintray_key != null) {
     bintray {
         user = bintray_user
         key = bintray_key
-        publications = ['datalorePlotKotlinApi']
+        publications = ['letsPlotKotlinApi']
         publish = true
         override = true
 
