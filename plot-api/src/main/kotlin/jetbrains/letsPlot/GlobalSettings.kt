@@ -5,7 +5,7 @@ import frontendApi.HtmlFrontendContext
 import frontendApi.SimpleTextFrontendContext
 
 object GlobalSettings {
-    private const val PLOT_LIB_URL = "http://dl.bintray.com/jetbrains/lets-plot/lets-plot-latest.min.js"
+    private const val PLOT_LIB_URL = "https://dl.bintray.com/jetbrains/lets-plot/lets-plot-latest.min.js"
 
     var frontendContext: FrontendContext = SimpleTextFrontendContext()
         set(value) {
