@@ -1,0 +1,56 @@
+package jetbrains.letsPlot
+
+import jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
+import jetbrains.letsPlot.intern.toSpec
+import jetbrains.letsPlot.scale.scale_size
+import jetbrains.letsPlot.scale.scale_size_area
+import junit.framework.TestCase.assertEquals
+import org.junit.Test
+
+class ScaleSizeTest {
+
+    @Test
+    fun `check scale size option`() {
+        val p = ggplot() + scale_size(range = listOf(5, 10))
+        assertThat(p).features().length(1)
+
+        val spec = p.toSpec()
+        assertEquals(
+            mapOf(
+                "kind" to "plot",
+                "mapping" to emptyMap<Any, Any>(),
+                "layers" to emptyList<Any>(),
+                "scales" to listOf(
+                    mapOf(
+                        "aesthetic" to "size",
+                        "range" to listOf(5, 10)
+                    )
+                )
+            ),
+            spec
+        )
+    }
+
+    @Test
+    fun `check scale size area option`() {
+        val p = ggplot() + scale_size_area(max_size = 30)
+        assertThat(p).features().length(1)
+
+        val spec = p.toSpec()
+        assertEquals(
+            mapOf(
+                "kind" to "plot",
+                "mapping" to emptyMap<Any, Any>(),
+                "layers" to emptyList<Any>(),
+                "scales" to listOf(
+                    mapOf(
+                        "aesthetic" to "size",
+                        "max_size" to 30,
+                        "scale_mapper_kind" to "size_area"
+                    )
+                )
+            ),
+            spec
+        )
+    }
+}
