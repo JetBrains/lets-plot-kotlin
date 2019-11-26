@@ -107,15 +107,15 @@ abstract class Layer(
 
 class Scale internal constructor(
     val aesthetic: Aes<*>,
-    val name: String?,
-    val breaks: List<Any>?,
-    val labels: List<String>?,
-    val limits: List<Any>?,
-    val expand: Any?,
-    val na_value: Any?,
-    val guide: Any?,
-    val trans: Any?,
-    val otherOptions: Options
+    val name: String? = null,
+    val breaks: List<Any>? = null,
+    val labels: List<String>? = null,
+    val limits: List<Any>? = null,
+    val expand: Any? = null,
+    val na_value: Any? = null,
+    val guide: Any? = null,
+    val trans: Any? = null,
+    val otherOptions: Options = Options.empty()
 
 ) : Feature()
 

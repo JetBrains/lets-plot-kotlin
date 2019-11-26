@@ -17,8 +17,8 @@ fun scale_x_datetime(
     na_value: Any? = null
 ) = Scale(
     Aes.X,
-    name, breaks, labels, limits, expand, na_value, null, null,
-    Options(
+    name, breaks, labels, limits, expand, na_value,
+    otherOptions = Options(
         mapOf(
             DATE_TIME to true
         )
