@@ -1,11 +1,11 @@
 package plotDemo.scripts
 
-import jetbrains.datalorePlot.GlobalSettings
-import jetbrains.datalorePlot.Pos
-import jetbrains.datalorePlot.Stat
-import jetbrains.datalorePlot.geom.geom_bar
-import jetbrains.datalorePlot.geom.geom_point
-import jetbrains.datalorePlot.ggplot
+import jetbrains.letsPlot.GlobalSettings
+import jetbrains.letsPlot.Pos
+import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.geom.geom_bar
+import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.ggplot
 import plotDemo.BrowserFrontendContext
 
 object PointsOverBars {

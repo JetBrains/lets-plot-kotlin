@@ -1,9 +1,9 @@
 package plotDemo.scripts
 
-import jetbrains.datalorePlot.GlobalSettings
-import jetbrains.datalorePlot.geom.geom_bar
-import jetbrains.datalorePlot.ggplot
-import jetbrains.datalorePlot.stat.stat_count
+import jetbrains.letsPlot.GlobalSettings
+import jetbrains.letsPlot.geom.geom_bar
+import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.stat.stat_count
 import plotDemo.BrowserFrontendContext
 
 object BarGeomAndCountStat {

@@ -4,10 +4,10 @@ import jetbrains.datalore.base.datetime.Date
 import jetbrains.datalore.base.datetime.DateTime
 import jetbrains.datalore.base.datetime.Month
 import jetbrains.datalore.base.datetime.tz.TimeZone
-import jetbrains.datalorePlot.GlobalSettings
-import jetbrains.datalorePlot.geom.geom_line
-import jetbrains.datalorePlot.ggplot
-import jetbrains.datalorePlot.scale.scale_x_datetime
+import jetbrains.letsPlot.GlobalSettings
+import jetbrains.letsPlot.geom.geom_line
+import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.scale.scale_x_datetime
 import plotDemo.SwingJfxFrontendContext
 import kotlin.random.Random
 

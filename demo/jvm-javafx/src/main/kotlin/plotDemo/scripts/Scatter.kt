@@ -1,8 +1,8 @@
 package plotDemo.scripts
 
-import jetbrains.datalorePlot.GlobalSettings
-import jetbrains.datalorePlot.geom.geom_point
-import jetbrains.datalorePlot.ggplot
+import jetbrains.letsPlot.GlobalSettings
+import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.ggplot
 import plotDemo.SwingJfxFrontendContext
 
 object Scatter {

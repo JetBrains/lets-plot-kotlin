@@ -1,9 +1,9 @@
 package plotDemo.scripts
 
-import jetbrains.datalorePlot.GlobalSettings
-import jetbrains.datalorePlot.geom.geom_tile
-import jetbrains.datalorePlot.ggplot
-import jetbrains.datalorePlot.scale.scale_fill_gradient2
+import jetbrains.letsPlot.GlobalSettings
+import jetbrains.letsPlot.geom.geom_tile
+import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.scale.scale_fill_gradient2
 import plotDemo.SwingJfxFrontendContext
 import javax.swing.Timer
 

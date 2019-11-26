@@ -1,7 +1,7 @@
 package plotDemo
 
 import frontendApi.RawObjectFrontendContext
-import jetbrains.datalorePlot.intern.Plot
+import jetbrains.letsPlot.intern.Plot
 
 class SwingJfxFrontendContext : RawObjectFrontendContext {
     override fun displayObject(o: Any) {

@@ -49,9 +49,9 @@ publishing {
             artifact jarSources
 
             pom {
-                name = "Datalore Plot Kotlin API"
-                description = "Datalore Plot Kotlin API"
-                url = "https://github.com/JetBrains/datalore-plot-kotlin"
+                name = "Lets-Plot Kotlin API"
+                description = "Lets-Plot Kotlin API"
+                url = "https://github.com/JetBrains/lets-plot-kotlin"
                 licenses {
                     license {
                         name = "MIT"
@@ -66,7 +66,7 @@ publishing {
                     }
                 }
                 scm {
-                    url = "https://github.com/JetBrains/datalore-plot-kotlin"
+                    url = "https://github.com/JetBrains/lets-plot-kotlin"
                 }
             }
         }
@@ -95,7 +95,7 @@ if (bintray_user != null && bintray_key != null) {
             name = 'lets-plot-kotlin-api-jars'
             userOrg = 'jetbrains'
             licenses = ['MIT']
-            vcsUrl = 'https://github.com/JetBrains/datalore-plot-kotlin'
+            vcsUrl = 'https://github.com/JetBrains/lets-plot-kotlin'
             version {
                 name = artifactVersion
             }

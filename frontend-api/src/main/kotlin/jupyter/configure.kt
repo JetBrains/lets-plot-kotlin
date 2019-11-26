@@ -39,7 +39,7 @@ fun configureScript() : String {
                                
                    var div = document.createElement("div");
                    div.style.color = 'darkblue';
-                   div.textContent = 'Datalore Plot JS successfully loaded.';
+                   div.textContent = 'Lets-Plot JS successfully loaded.';
                    document.getElementById("$id").appendChild(div);
                
                            };
@@ -48,7 +48,7 @@ fun configureScript() : String {
                                window.datalorePlotCallQueue = [];
                                var div = document.createElement("div");
                                div.style.color = 'darkred';
-                               div.textContent = 'Error loading Datalore Plot JS';
+                               div.textContent = 'Error loading Lets-Plot JS';
                                document.getElementById("$id").appendChild(div);
                            };
                            var e = document.getElementById("$id");

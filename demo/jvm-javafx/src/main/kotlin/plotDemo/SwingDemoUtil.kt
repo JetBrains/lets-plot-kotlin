@@ -15,8 +15,8 @@ import jetbrains.datalore.vis.demoUtils.jfx.SceneMapperDemoFactory
 import jetbrains.datalore.vis.demoUtils.swing.SwingDemoFactory
 import jetbrains.datalore.vis.svg.SvgColors
 import jetbrains.datalore.vis.svg.SvgRectElement
-import jetbrains.datalorePlot.intern.Plot
-import jetbrains.datalorePlot.intern.toSpec
+import jetbrains.letsPlot.intern.Plot
+import jetbrains.letsPlot.intern.toSpec
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.FlowLayout
