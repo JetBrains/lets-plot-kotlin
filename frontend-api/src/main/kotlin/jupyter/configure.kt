@@ -13,29 +13,29 @@ fun randomString(len : Long) : String {
 
 fun configureScript() : String {
 
-    val baseUrl = "https://dl.bintray.com/jetbrains/datalore-plot"
-    val version = "0.0.1rc4"
+    val baseUrl = "https://dl.bintray.com/jetbrains/lets-plot"
+    val version = "1.0.0rc1"
     val suffix = "min.js"
 
     val id = randomString(6)
-    val url = "$baseUrl/datalore-plot-$version.$suffix"
+    val url = "$baseUrl/lets-plot-$version.$suffix"
 
     return """<div id="$id"></div>
                    <script type="text/javascript">
-                       if(!window.datalorePlotCallQueue) {
-                           window.datalorePlotCallQueue = [];
+                       if(!window.letsPlotCallQueue) {
+                           window.letsPlotCallQueue = [];
                        }; 
-                       window.datalorePlotCall = function(f) {
-                           window.datalorePlotCallQueue.push(f);
+                       window.letsPlotCall = function(f) {
+                           window.letsPlotCallQueue.push(f);
                        };
                        (function() {
                            var script = document.createElement("script");
                            script.type = "text/javascript";
                            script.src = "$url";
                            script.onload = function() {
-                               window.datalorePlotCall = function(f) {f();};
-                               window.datalorePlotCallQueue.forEach(function(f) {f();});
-                               window.datalorePlotCallQueue = [];
+                               window.letsPlotCall = function(f) {f();};
+                               window.letsPlotCallQueue.forEach(function(f) {f();});
+                               window.letsPlotCallQueue = [];
                                
                    var div = document.createElement("div");
                    div.style.color = 'darkblue';
@@ -44,8 +44,8 @@ fun configureScript() : String {
                
                            };
                            script.onerror = function(event) {
-                               window.datalorePlotCall = function(f) {};
-                               window.datalorePlotCallQueue = [];
+                               window.letsPlotCall = function(f) {};
+                               window.letsPlotCallQueue = [];
                                var div = document.createElement("div");
                                div.style.color = 'darkred';
                                div.textContent = 'Error loading Lets-Plot JS';

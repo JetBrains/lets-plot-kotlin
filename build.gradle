@@ -48,7 +48,7 @@ subprojects {
 
         maven {
 //            url "file://$project.rootDir/.maven_repo"
-//            url "file:///Users/Igor/Work/datalore-plot/.maven-publish-dev-repo"
+//            url "file:///Users/Igor/Work/lets-plot/.maven-publish-dev-repo"
 
             url "https://jetbrains.bintray.com/lets-plot-maven"
         }
