@@ -157,6 +157,55 @@ object Geom {
     }
 
     @Suppress("ClassName")
+    class abline(
+        mapping: ABLineMapping.() -> Unit = {},
+        override val slope: Double? = null,
+        override val intercept: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : ABLineAesthetics,
+        GeomOptions(
+            GeomKind.AB_LINE,
+            ABLineMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class hline(
+        mapping: HLineMapping.() -> Unit = {},
+        override val yintercept: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : HLineAesthetics,
+        GeomOptions(
+            GeomKind.H_LINE,
+            HLineMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class vline(
+        mapping: VLineMapping.() -> Unit = {},
+        override val xintercept: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : VLineAesthetics,
+        GeomOptions(
+            GeomKind.V_LINE,
+            VLineMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class rect(
         mapping: RectMapping.() -> Unit = {},
         override val xmin: Double? = null,
