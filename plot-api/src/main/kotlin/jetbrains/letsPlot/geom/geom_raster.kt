@@ -14,6 +14,7 @@ class geom_raster(
     data: Any? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
+    show_legend: Boolean = true,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Double? = null,
@@ -27,7 +28,7 @@ class geom_raster(
         geom = raster(),
         stat = stat,
         position = position,
-        show_legend = false
+        show_legend = show_legend
     )
 
 

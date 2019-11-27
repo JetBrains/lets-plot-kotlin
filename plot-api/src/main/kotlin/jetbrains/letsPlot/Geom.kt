@@ -86,7 +86,6 @@ object Geom {
         override val parameters = this.seal()
     }
 
-
     @Suppress("ClassName")
     class line(
         mapping: LineMapping.() -> Unit = {},
@@ -153,6 +152,26 @@ object Geom {
         GeomOptions(
             GeomKind.RASTER,
             RasterMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class rect(
+        mapping: RectMapping.() -> Unit = {},
+        override val xmin: Double? = null,
+        override val xmax: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val fill: Any? = null
+    ) : RectAesthetics,
+        GeomOptions(
+            GeomKind.RECT,
+            RectMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }
