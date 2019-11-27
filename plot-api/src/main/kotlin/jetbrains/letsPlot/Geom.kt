@@ -175,4 +175,25 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class segment(
+        mapping: SegmentMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val xend: Double? = null,
+        override val yend: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val speed: Double? = null,
+        override val flow: Double? = null
+    ) : SegmentAesthetics,
+        GeomOptions(
+            GeomKind.SEGMENT,
+            SegmentMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
