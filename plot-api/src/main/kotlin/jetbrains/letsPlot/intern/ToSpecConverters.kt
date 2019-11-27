@@ -73,6 +73,11 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     return spec
 }
 
+@Suppress("UNCHECKED_CAST")
+fun Map<String, Any?>.filterNonNullValues(): Map<String, Any> {
+  return filter { it.value != null } as Map<String, Any>
+}
+
 
 fun Scale.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
