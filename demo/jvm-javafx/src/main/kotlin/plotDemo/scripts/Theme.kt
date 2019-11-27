@@ -8,7 +8,7 @@ import jetbrains.letsPlot.theme
 import plotDemo.SwingJfxFrontendContext
 import javax.swing.Timer
 
-object ColorScaleContinuous {
+object Theme {
     @JvmStatic
     fun main(args: Array<String>) {
         GlobalSettings.frontendContext = SwingJfxFrontendContext()
@@ -17,22 +17,9 @@ object ColorScaleContinuous {
         val data = mapOf("x" to xs)
 
         val p = ggplot(data) +
-                geom_tile(width = 1.0, height = 10.0) {
-                    x = "x"
-                    color = "x"
-                    fill = "x"
-                }
-
+                geom_tile(width = 1.0, height = 10.0) { x = "x"; color = "x"; fill = "x" } +
+                theme(legend_position = "none")
 
         p.show()
-
-        // rainbow
-        println("wait for the rainbow ...")
-        val timer = Timer(5000) {
-            val gradient = scale_fill_gradient2(low = "green", mid = "yellow", high = "red")
-            (p + gradient).show()
-        }
-        timer.isRepeats = false
-        timer.start()
     }
 }
