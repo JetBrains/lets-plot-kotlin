@@ -4,6 +4,50 @@ import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.OtherPlotFeature
 
+/**
+* Use theme() to modify individual components of a theme,
+* allowing you to control the appearance of all non-data components of the plot.
+*
+* @param axis_title result of element_text() or [element_blank() | "blank"] to draw nothing and assign no space.
+* label of axes
+* 
+* @param axis_title_x result of element_text() or [element_blank() | "blank"] to draw nothing and assign no space.
+* x axis label
+* 
+* @param axis_title_y result of element_text() or [element_blank() | "blank"] to draw nothing and assign no space.
+* y axis label
+* 
+* @param axis_text result of element_text() or [element_blank() | "blank"] to draw nothing and assign no space.
+* tick labels along axes
+* 
+* @param axis_text_x result of element_text() or [element_blank() | "blank"] to draw nothing and assign no space.
+* x axis tick labels
+* 
+* @param axis_text_y result of element_text() or [element_blank() | "blank"] to draw nothing and assign no space.
+* y axis tick labels
+* 
+* @param axis_ticks result of element_line() or [element_blank() | "blank"] to draw nothing and assign no space.
+* tick marks along axes
+* 
+* @param axis_ticks_x result of element_line() or [element_blank() | "blank"] to draw nothing and assign no space.
+* x axis tick marks
+* 
+* @param axis_ticks_y result of element_line() or [element_blank() | "blank"] to draw nothing and assign no space.
+* y axis tick marks
+* 
+* @param axis_line result of element_line() or [element_blank() | "blank"] to draw nothing and assign no space.
+* lines along axes
+* 
+* @param axis_line_x result of element_line() or [element_blank() | "blank"] to draw nothing and assign no space.
+* line along x axis
+* 
+* @param axis_line_y result of element_line() or [element_blank() | "blank"] to draw nothing and assign no space.
+* line along y axis
+* 
+* @param legend_position ["none" | "left" | "right" | "bottom" | "top"] or two-element numeric vector.
+* the position of legends
+* 
+ */
 fun theme(
     axis_title: Any? = null,
     axis_title_x: Any? = null,
@@ -40,3 +84,9 @@ fun theme(
 
     return OtherPlotFeature(Option.Plot.THEME, options)
 }
+
+/**
+ *  Element to draw nothing and assigns no space
+ */
+@Suppress("FunctionName")
+fun element_blank() = "blank"

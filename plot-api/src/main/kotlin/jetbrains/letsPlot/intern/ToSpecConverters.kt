@@ -31,7 +31,7 @@ fun Plot.toSpec(): MutableMap<String, Any> {
 //    const val TITLE_TEXT = "text"
 //    const val COORD = "coord"
 //    const val FACET = "facet"
-//    const val THEME = "theme"
+//    const val THEME = "theme"    // done
 //    const val SIZE = "ggsize"    // done
 
     for (plotFeature in plot.otherFeatures()) {
