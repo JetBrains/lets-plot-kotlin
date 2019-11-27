@@ -196,4 +196,26 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class text(
+        mapping: TextMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val label: String? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val size: Double? = null,
+        override val family: String? = null,
+        override val fontface: String? = null,
+        override val hjust: Any? = null,
+        override val vjust: Any? = null,
+        override val angle: Double? = null
+    ) : TextAesthetics,
+        GeomOptions(
+            GeomKind.TEXT,
+            TextMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
