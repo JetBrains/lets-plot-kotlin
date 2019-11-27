@@ -10,7 +10,7 @@ abstract class LayerBase(
     stat: StatOptions,
     position: PosOptions,
     show_legend: Boolean,
-    sampling: Any?
+    sampling: Any? = null
 ) : Layer(
     mapping = mapping,
     data = data,

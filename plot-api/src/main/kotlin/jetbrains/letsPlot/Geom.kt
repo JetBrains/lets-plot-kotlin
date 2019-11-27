@@ -141,4 +141,19 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class raster(
+        mapping: RasterMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val fill: Any? = null
+    ) : RasterAesthetics,
+        GeomOptions(
+            GeomKind.RASTER,
+            RasterMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
