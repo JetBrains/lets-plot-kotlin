@@ -28,7 +28,7 @@ In Jupyter create new notebook, choose kernel - `kotlin`.
 To evaluate the plotting capabilities of Lets-Plot, add the following code to a Jupyter notebook:
 
 ```python
-%%ggplot
+%use lets-plot
 ```     
 
 ```
