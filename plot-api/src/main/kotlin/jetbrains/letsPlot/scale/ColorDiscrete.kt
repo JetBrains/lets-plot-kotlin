@@ -55,3 +55,29 @@ fun scale_fill_discrete(
         )
     )
 )
+
+fun scale_color_discrete(
+    h: Int? = null, c: Int? = null, l: Int? = null, h_start: Int? = null, direction: Int? = null,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    expand: Any? = null,
+    na_value: Any? = null,
+    guide: Any? = null,
+    trans: Any? = null
+) = Scale(
+    Aes.COLOR,
+    name, breaks, labels, limits, expand, na_value, guide, trans,
+    Options(
+        mapOf(
+            Option.Scale.HUE_RANGE to h,
+            Option.Scale.CHROMA to c,
+            Option.Scale.LUMINANCE to l,
+            Option.Scale.START_HUE to h_start,
+            Option.Scale.DIRECTION to direction,
+            Option.Scale.SCALE_MAPPER_KIND to "color_hue",
+            Option.Scale.DISCRETE_DOMAIN to true
+        )
+    )
+)
