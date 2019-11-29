@@ -3,6 +3,16 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'maven-publish'
     id "com.jfrog.bintray"
+    id 'org.jetbrains.dokka' version '0.10.0'
+}
+
+repositories {
+    jcenter()
+}
+
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$projectDir/docs"
 }
 
 dependencies {

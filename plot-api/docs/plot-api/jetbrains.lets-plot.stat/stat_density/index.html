@@ -1,0 +1,274 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>stat_density - plot-api</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">plot-api</a>&nbsp;/&nbsp;<a href="../index.html">jetbrains.letsPlot.stat</a>&nbsp;/&nbsp;<a
+        href="./index.html">stat_density</a><br/>
+<br/>
+<h1>stat_density</h1>
+<code><span class="keyword">class </span><span class="identifier">stat_density</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+        href="../../jetbrains.lets-plot.intern.layer.stat/-density-aesthetics/index.html"><span class="identifier">DensityAesthetics</span></a><span
+        class="symbol">, </span><a
+        href="../../jetbrains.lets-plot.intern.layer.stat/-density-parameters/index.html"><span class="identifier">DensityParameters</span></a><span
+        class="symbol">, </span><a href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span
+        class="identifier">LayerBase</span></a></code>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="-init-.html">&lt;init&gt;</a></h4>
+        </td>
+        <td>
+            <code><span class="identifier">stat_density</span><span class="symbol">(</span><span class="identifier"
+                                                                                                 id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/geom">geom</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer/-geom-options/index.html"><span class="identifier">GeomOptions</span></a>&nbsp;<span
+                    class="symbol">=</span>&nbsp;area()<span class="symbol">, </span><span class="identifier"
+                                                                                           id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/position">position</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer/-pos-options/index.html"><span class="identifier">PosOptions</span></a>&nbsp;<span
+                    class="symbol">=</span>&nbsp;stack<span class="symbol">, </span><span class="identifier"
+                                                                                          id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/show_legend">show_legend</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/sampling">sampling</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/y">y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/alpha">alpha</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/color">color</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/fill">fill</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/linetype">linetype</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/size">size</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/weight">weight</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/bw">bw</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/kernel">kernel</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/n">n</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/trim">trim</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.stat.stat_density$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.stat.DensityMapping, kotlin.Unit)))/mapping">mapping</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-mapping/index.html"><span
+                    class="identifier">DensityMapping</span></a><span class="symbol">.</span><span
+                    class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span
+                    class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{}<span
+                    class="symbol">)</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="alpha.html">alpha</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">alpha</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="bw.html">bw</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">bw</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="color.html">color</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">color</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="fill.html">fill</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">fill</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="kernel.html">kernel</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">kernel</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="linetype.html">linetype</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">linetype</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="n.html">n</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">n</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="size.html">size</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">size</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="trim.html">trim</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">trim</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="weight.html">weight</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">weight</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="x.html">x</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">x</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="y.html">y</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">y</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="seal.html">seal</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">seal</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="../../jetbrains.lets-plot.intern/-options/index.html"><span class="identifier">Options</span></a></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern/to-spec.html">toSpec</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><a href="../../jetbrains.lets-plot.intern/-layer/index.html"><span
+                    class="identifier">Layer</span></a><span class="symbol">.</span><span
+                    class="identifier">toSpec</span><span class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span
+                    class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">&gt;</span></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

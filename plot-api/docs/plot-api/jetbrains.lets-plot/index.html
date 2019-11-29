@@ -1,0 +1,186 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>jetbrains.letsPlot - plot-api</title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">plot-api</a>&nbsp;/&nbsp;<a href="./index.html">jetbrains.letsPlot</a><br/>
+<br/>
+<h2>Package jetbrains.letsPlot</h2>
+<h3>Types</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="-geom/index.html">Geom</a></h4>
+        </td>
+        <td>
+            <p><code>Geom options</code> to pass as a value of <code>geom</code> parameter of <code>layer</code>
+                functions like:
+                ggplot() + stat_density(..., geom = Pos.point(), ... )</p>
+            <code><span class="keyword">object </span><span class="identifier">Geom</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="-global-settings/index.html">GlobalSettings</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">object </span><span class="identifier">GlobalSettings</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="-pos/index.html">Pos</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">object </span><span class="identifier">Pos</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="-stat/index.html">Stat</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">object </span><span class="identifier">Stat</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="element_blank.html">element_blank</a></h4>
+        </td>
+        <td>
+            <p>Element to draw nothing and assigns no space</p>
+            <code><span class="keyword">fun </span><span class="identifier">element_blank</span><span
+                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="ggplot.html">ggplot</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">ggplot</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot$ggplot(kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.GenericAesMapping, kotlin.Unit)))/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$ggplot(kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.GenericAesMapping, kotlin.Unit)))/mapping">mapping</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../jetbrains.lets-plot.intern/-generic-aes-mapping/index.html"><span class="identifier">GenericAesMapping</span></a><span
+                    class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span
+                    class="symbol">-&gt;</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span
+                    class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{}<span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../jetbrains.lets-plot.intern/-plot/index.html"><span
+                    class="identifier">Plot</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="ggsize.html">ggsize</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">ggsize</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot$ggsize(kotlin.Int, kotlin.Int)/width">width</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$ggsize(kotlin.Int, kotlin.Int)/height">height</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../jetbrains.lets-plot.intern/-other-plot-feature/index.html"><span class="identifier">OtherPlotFeature</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="theme.html">theme</a></h4>
+        </td>
+        <td>
+            <p>Use theme() to modify individual components of a theme,
+                allowing you to control the appearance of all non-data components of the plot.</p>
+            <code><span class="keyword">fun </span><span class="identifier">theme</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_title">axis_title</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_title_x">axis_title_x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_title_y">axis_title_y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_text">axis_text</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_text_x">axis_text_x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_text_y">axis_text_y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_ticks">axis_ticks</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_ticks_x">axis_ticks_x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_ticks_y">axis_ticks_y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_line">axis_line</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_line_x">axis_line_x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axis_line_y">axis_line_y</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/legend_position">legend_position</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/otherOptions">otherOptions</span><span
+                    class="symbol">:</span>&nbsp;<a href="../jetbrains.lets-plot.intern/-options/index.html"><span
+                    class="identifier">Options</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Options.empty()<span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../jetbrains.lets-plot.intern/-other-plot-feature/index.html"><span class="identifier">OtherPlotFeature</span></a></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

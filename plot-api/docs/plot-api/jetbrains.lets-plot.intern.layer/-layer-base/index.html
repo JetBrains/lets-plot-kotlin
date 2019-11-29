@@ -1,0 +1,291 @@
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>LayerBase - plot-api</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">plot-api</a>&nbsp;/&nbsp;<a href="../index.html">jetbrains.letsPlot.intern.layer</a>&nbsp;/&nbsp;<a
+        href="./index.html">LayerBase</a><br/>
+<br/>
+<h1>LayerBase</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">LayerBase</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<a href="../../jetbrains.lets-plot.intern/-layer/index.html"><span
+        class="identifier">Layer</span></a><span class="symbol">, </span><a href="../-options-capsule/index.html"><span
+        class="identifier">OptionsCapsule</span></a></code>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="-init-.html">&lt;init&gt;</a></h4>
+        </td>
+        <td>
+            <code><span class="identifier">LayerBase</span><span class="symbol">(</span><span class="identifier"
+                                                                                              id="jetbrains.letsPlot.intern.layer.LayerBase$<init>(jetbrains.letsPlot.intern.Options, kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any)/mapping">mapping</span><span
+                    class="symbol">:</span>&nbsp;<a href="../../jetbrains.lets-plot.intern/-options/index.html"><span
+                    class="identifier">Options</span></a><span class="symbol">, </span><span class="identifier"
+                                                                                             id="jetbrains.letsPlot.intern.layer.LayerBase$<init>(jetbrains.letsPlot.intern.Options, kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any)/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.intern.layer.LayerBase$<init>(jetbrains.letsPlot.intern.Options, kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any)/geom">geom</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-geom-options/index.html"><span class="identifier">GeomOptions</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.intern.layer.LayerBase$<init>(jetbrains.letsPlot.intern.Options, kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any)/stat">stat</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-stat-options/index.html"><span class="identifier">StatOptions</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.intern.layer.LayerBase$<init>(jetbrains.letsPlot.intern.Options, kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any)/position">position</span><span
+                    class="symbol">:</span>&nbsp;<a href="../-pos-options/index.html"><span class="identifier">PosOptions</span></a><span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.intern.layer.LayerBase$<init>(jetbrains.letsPlot.intern.Options, kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any)/show_legend">show_legend</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier"
+                                                                                             id="jetbrains.letsPlot.intern.layer.LayerBase$<init>(jetbrains.letsPlot.intern.Options, kotlin.Any, jetbrains.letsPlot.intern.layer.GeomOptions, jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any)/sampling">sampling</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">)</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="parameters.html">parameters</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">val </span><span
+                    class="identifier">parameters</span><span class="symbol">: </span><a
+                    href="../../jetbrains.lets-plot.intern/-options/index.html"><span class="identifier">Options</span></a></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern/to-spec.html">toSpec</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><a href="../../jetbrains.lets-plot.intern/-layer/index.html"><span
+                    class="identifier">Layer</span></a><span class="symbol">.</span><span
+                    class="identifier">toSpec</span><span class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span
+                    class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">&gt;</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_abline/index.html">geom_abline</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_abline</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-a-b-line-aesthetics/index.html"><span
+                    class="identifier">ABLineAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_area/index.html">geom_area</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_area</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-area-aesthetics/index.html"><span
+                    class="identifier">AreaAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_bar/index.html">geom_bar</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_bar</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-bar-aesthetics/index.html"><span
+                    class="identifier">BarAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_density/index.html">geom_density</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_density</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-aesthetics/index.html"><span
+                    class="identifier">DensityAesthetics</span></a><span class="symbol">, </span><a href="./index.html"><span
+                    class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_histogram/index.html">geom_histogram</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_histogram</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-histogram-aesthetics/index.html"><span
+                    class="identifier">HistogramAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin-aesthetics/index.html"><span
+                    class="identifier">BinAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_hline/index.html">geom_hline</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_hline</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-h-line-aesthetics/index.html"><span
+                    class="identifier">HLineAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_line/index.html">geom_line</a></h4>
+        </td>
+        <td>
+            <p>Connect points in order of the variable on the x-axis</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_line</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-line-aesthetics/index.html"><span
+                    class="identifier">LineAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_path/index.html">geom_path</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_path</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-path-aesthetics/index.html"><span
+                    class="identifier">PathAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_point/index.html">geom_point</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_point</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-point-aesthetics/index.html"><span
+                    class="identifier">PointAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_raster/index.html">geom_raster</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_raster</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-raster-aesthetics/index.html"><span
+                    class="identifier">RasterAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_rect/index.html">geom_rect</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_rect</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-rect-aesthetics/index.html"><span
+                    class="identifier">RectAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_segment/index.html">geom_segment</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_segment</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-segment-aesthetics/index.html"><span
+                    class="identifier">SegmentAesthetics</span></a><span class="symbol">, </span><a href="./index.html"><span
+                    class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_text/index.html">geom_text</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_text</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-text-aesthetics/index.html"><span
+                    class="identifier">TextAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_tile/index.html">geom_tile</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_tile</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-tile-aesthetics/index.html"><span
+                    class="identifier">TileAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_vline/index.html">geom_vline</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">geom_vline</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-v-line-aesthetics/index.html"><span
+                    class="identifier">VLineAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_count/index.html">stat_count</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_count</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-count-aesthetics/index.html"><span
+                    class="identifier">CountAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-bar-aesthetics/index.html"><span
+                    class="identifier">BarAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-count-parameters/index.html"><span
+                    class="identifier">CountParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_density/index.html">stat_density</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_density</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-aesthetics/index.html"><span
+                    class="identifier">DensityAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-parameters/index.html"><span
+                    class="identifier">DensityParameters</span></a><span class="symbol">, </span><a href="./index.html"><span
+                    class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>
