@@ -13,9 +13,10 @@ object Stat {
     class density(
         mapping: DensityMapping.() -> Unit = {},
         override val bw: Any? = null,
-        override val kernel: Any? = null,
-        override val n: Any? = null,
-        override val trim: Any? = null
+        override val kernel: String? = null,
+        override val n: Int? = null,
+        override val trim: Boolean? = false,
+        override val adjust: Double? = null
     ) : DensityParameters,
         StatOptions(
             StatKind.DENSITY,
