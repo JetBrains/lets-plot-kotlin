@@ -1,6 +1,7 @@
 package plotDemo.scripts
 
 import jetbrains.letsPlot.GlobalSettings
+import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
 import plotDemo.SwingJfxFrontendContext
@@ -16,7 +17,9 @@ object Histogram {
             "c" to List(500) { "A" } + List(500) { "B" }
         )
 
-        val geom = geom_histogram(alpha = 0.3, size = 0.0) { x = "x"; fill = "c" }
+        val geom = geom_histogram(stat = Stat.bin(binWidth = 0.5, boundary = 0.0), alpha = 0.3, size = 0.0) {
+            x = "x"; fill = "c"
+        }
         val p = ggplot(data) + geom
         p.show()
     }

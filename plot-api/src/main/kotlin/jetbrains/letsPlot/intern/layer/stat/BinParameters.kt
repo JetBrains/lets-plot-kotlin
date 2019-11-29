@@ -10,8 +10,8 @@ interface BinParameters : OptionsCapsule {
     val boundary: Double?
 
     override fun seal() = Options.of(
-        "binCount" to binCount,
-        "binWidth" to binWidth,
+        "bins" to binCount,
+        "binwidth" to binWidth,
         "center" to center,
         "boundary" to boundary
     )
