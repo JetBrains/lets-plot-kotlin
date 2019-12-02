@@ -13,6 +13,49 @@
         href="../../jetbrains.lets-plot.intern.layer.geom/-rect-aesthetics/index.html"><span class="identifier">RectAesthetics</span></a><span
         class="symbol">, </span><a href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span
         class="identifier">LayerBase</span></a></code>
+<p>Draws rectangles</p>
+<h3>Parameters</h3>
+<p><a name="data"></a>
+    <code>data</code> - dictionary or pandas DataFrame, optional.
+    The data to be displayed in this layer. If None, the default, the data
+    is inherited from the plot data as specified in the call to <a href="../../jetbrains.lets-plot/lets_plot.html">lets_plot</a>.
+</p>
+<p><a name="stat"></a>
+    <code>stat</code> - string, optional.
+    The statistical transformation to use on the data for this layer, as a string. Supported transformations:
+    "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
+    "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
+    linear default)</p>
+<p><a name="position"></a>
+    <code>position</code> - string, optional.
+    Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
+    position adjustment function.</p>
+<p><a name="xmin"></a>
+    <code>xmin</code> - x-axis value.</p>
+<p><a name="xmax"></a>
+    <code>xmax</code> - x-axis value.</p>
+<p><a name="ymin"></a>
+    <code>ymin</code> - y-axis value.</p>
+<p><a name="ymax"></a>
+    <code>ymax</code> - y-axis value.</p>
+<p><a name="alpha"></a>
+    <code>alpha</code> - transparency level of a layer
+    Understands numbers between 0 and 1.</p>
+<p><a name="color"></a>
+    <code>color</code> - (colour) color of a geometry lines.
+    Can be continuous or discrete. For continuous value this will be a color gradient between two colors.</p>
+<p><a name="size"></a>
+    <code>size</code> - lines width.</p>
+<p><a name="linetype"></a>
+    <code>linetype</code> - type of the line of tile's border.
+    Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+    5 = "longdash", 6 = "twodash".</p>
+<p><a name="fill"></a>
+    <code>fill</code> - color of geometry filling.</p>
+<p><a name="mapping"></a>
+    <code>mapping</code> - set of aesthetic mappings.
+    Aesthetic mappings describe the way that variables in the data are
+    mapped to plot "aesthetics".</p>
 <h3>Constructors</h3>
 <table>
     <tbody>
@@ -21,6 +64,7 @@
             <h4><a href="-init-.html">&lt;init&gt;</a></h4>
         </td>
         <td>
+            <p>Draws rectangles</p>
             <code><span class="identifier">geom_rect</span><span class="symbol">(</span><span class="identifier"
                                                                                               id="jetbrains.letsPlot.geom.geom_rect$<init>(kotlin.Any, jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, kotlin.Any, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.RectMapping, kotlin.Unit)))/data">data</span><span
                     class="symbol">:</span>&nbsp;<a
@@ -109,6 +153,8 @@
             <h4><a href="alpha.html">alpha</a></h4>
         </td>
         <td>
+            <p>transparency level of a layer
+                Understands numbers between 0 and 1.</p>
             <code><span class="keyword">val </span><span class="identifier">alpha</span><span class="symbol">: </span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
                     class="identifier">Double</span></a><span class="symbol">?</span></code></td>
@@ -118,6 +164,9 @@
             <h4><a href="color.html">color</a></h4>
         </td>
         <td>
+            <p>(colour) color of a geometry lines.
+                Can be continuous or discrete. For continuous value this will be a color gradient between two
+                colors.</p>
             <code><span class="keyword">val </span><span class="identifier">color</span><span class="symbol">: </span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">?</span></code></td>
@@ -127,6 +176,7 @@
             <h4><a href="fill.html">fill</a></h4>
         </td>
         <td>
+            <p>color of geometry filling.</p>
             <code><span class="keyword">val </span><span class="identifier">fill</span><span class="symbol">: </span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">?</span></code></td>
@@ -136,6 +186,9 @@
             <h4><a href="linetype.html">linetype</a></h4>
         </td>
         <td>
+            <p>type of the line of tile's border.
+                Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+                5 = "longdash", 6 = "twodash".</p>
             <code><span class="keyword">val </span><span class="identifier">linetype</span><span
                     class="symbol">: </span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
@@ -146,6 +199,7 @@
             <h4><a href="size.html">size</a></h4>
         </td>
         <td>
+            <p>lines width.</p>
             <code><span class="keyword">val </span><span class="identifier">size</span><span class="symbol">: </span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
                     class="identifier">Double</span></a><span class="symbol">?</span></code></td>
@@ -155,6 +209,7 @@
             <h4><a href="xmax.html">xmax</a></h4>
         </td>
         <td>
+            <p>x-axis value.</p>
             <code><span class="keyword">val </span><span class="identifier">xmax</span><span class="symbol">: </span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
                     class="identifier">Double</span></a><span class="symbol">?</span></code></td>
@@ -164,6 +219,7 @@
             <h4><a href="xmin.html">xmin</a></h4>
         </td>
         <td>
+            <p>x-axis value.</p>
             <code><span class="keyword">val </span><span class="identifier">xmin</span><span class="symbol">: </span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
                     class="identifier">Double</span></a><span class="symbol">?</span></code></td>
@@ -173,6 +229,7 @@
             <h4><a href="ymax.html">ymax</a></h4>
         </td>
         <td>
+            <p>y-axis value.</p>
             <code><span class="keyword">val </span><span class="identifier">ymax</span><span class="symbol">: </span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
                     class="identifier">Double</span></a><span class="symbol">?</span></code></td>
@@ -182,6 +239,7 @@
             <h4><a href="ymin.html">ymin</a></h4>
         </td>
         <td>
+            <p>y-axis value.</p>
             <code><span class="keyword">val </span><span class="identifier">ymin</span><span class="symbol">: </span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
                     class="identifier">Double</span></a><span class="symbol">?</span></code></td>
