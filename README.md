@@ -38,7 +38,7 @@ val data = mapOf<String, Any>(
     "cond" to List(200) { "A" } + List(200) { "B" }
 )
 
-var p = ggplot(data)
+var p = lets_plot(data)
 p += geom_density(color="dark_green", alpha=.3) {x="rating"; fill="cond"}
 p + ggsize(500, 250)
 ```
