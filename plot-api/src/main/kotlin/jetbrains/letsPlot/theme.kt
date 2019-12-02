@@ -44,8 +44,8 @@ import jetbrains.letsPlot.intern.filterNonNullValues
 * 
 * @param axis_line_y result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
 * line along y axis
-* 
-* @param legend_position ["none" | "left" | "right" | "bottom" | "top"] or two-element numeric vector.
+ *
+ * @param legend_position ("none" | "left" | "right" | "bottom" | "top") or two-element numeric vector.
 * the position of legends
 * 
  */

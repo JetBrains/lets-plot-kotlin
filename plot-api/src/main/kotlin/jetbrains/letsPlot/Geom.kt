@@ -7,7 +7,7 @@ import jetbrains.letsPlot.intern.layer.geom.*
 
 /**
  * `Geom options` to pass as a value of `geom` parameter of `layer` functions like:
- *  ggplot() + stat_density(..., geom = Pos.point(), ... )
+ *  lets_plot() + stat_density(..., geom = Pos.point(), ... )
  */
 object Geom {
     val blank = GeomOptions(

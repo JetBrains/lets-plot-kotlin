@@ -14,7 +14,7 @@ import jetbrains.letsPlot.intern.layer.geom.LineMapping
  * Connect points in order of the variable on the x-axis
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [ggplot][jetbrains.datalorePlot.ggplot].
+ *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
  * @param stat string, optional.
  *     The statistical transformation to use on the data for this layer, as a string. Supported transformations:
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),

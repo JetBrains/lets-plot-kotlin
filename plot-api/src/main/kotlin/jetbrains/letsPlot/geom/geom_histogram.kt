@@ -11,6 +11,33 @@ import jetbrains.letsPlot.intern.layer.geom.HistogramMapping
 import jetbrains.letsPlot.intern.layer.stat.BinAesthetics
 
 @Suppress("ClassName", "unused")
+/**
+ * Displays a 1d distribution by dividing variable mapped to x axis into bins and counting the number of observations in each bin.
+ * @param data dictionary or pandas DataFrame, optional.
+ *     The data to be displayed in this layer. If None, the default, the data
+ *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
+ * @param stat string, optional.
+ *     The statistical transformation to use on the data for this layer, as a string. Supported transformations:
+ *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
+ *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
+ *     linear default)
+ * @param position string, optional.
+ *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
+ *     position adjustment function.
+ * @param x x-axis value (this values will produce cases or bins for bars).
+ * @param y y-axis value (this value will be used to multiply the bar heights), setting y to '..density..' produces
+ *     normalized (density) histogram.
+ * @param alpha transparency level of a layer
+ *     Understands numbers between 0 and 1.
+ * @param color (colour) color of a geometry lines.
+ *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
+ * @param fill color of geometry filling.
+ * @param size line width.
+ *     Defines bar line width.
+ * @param mapping set of aesthetic mappings.
+ *     Aesthetic mappings describe the way that variables in the data are
+ *     mapped to plot "aesthetics".
+ */
 class geom_histogram(
     data: Any? = null,
     stat: StatOptions = Stat.bin(),

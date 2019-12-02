@@ -10,6 +10,33 @@ import jetbrains.letsPlot.intern.layer.geom.HLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.HLineMapping
 
 @Suppress("ClassName")
+/**
+ * Add straight horizontal lines to a plot
+ * @param data dictionary or pandas DataFrame, optional.
+ *     The data to be displayed in this layer. If None, the default, the data
+ *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
+ * @param stat string, optional.
+ *     The statistical transformation to use on the data for this layer, as a string. Supported transformations:
+ *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
+ *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
+ *     linear default)
+ * @param position string, optional.
+ *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
+ *     position adjustment function.
+ * @param yintercept line y-intercept
+ *     The value of y at the point where the line crosses the y axis.
+ * @param alpha transparency level of a layer
+ *     Understands numbers between 0 and 1.
+ * @param color (colour) color of a geometry lines.
+ *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
+ * @param size line width.
+ * @param linetype type of the line of tile's border.
+ *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *     5 = "longdash", 6 = "twodash".
+ * @param mapping set of aesthetic mappings.
+ *     Aesthetic mappings describe the way that variables in the data are
+ *     mapped to plot "aesthetics".
+ */
 class geom_hline(
     data: Any? = null,
     stat: StatOptions = Stat.identity,
