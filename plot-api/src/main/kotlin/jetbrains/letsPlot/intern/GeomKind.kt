@@ -11,10 +11,18 @@ enum class GeomKind {
     MAP,
     ERROR_BAR,
     POLYGON,
-    AB_LINE,
-    H_LINE,
-    V_LINE,
-    BOX_PLOT,
+    AB_LINE {
+        override fun optionName() = "abline"
+    },
+    H_LINE {
+        override fun optionName() = "hline"
+    },
+    V_LINE {
+        override fun optionName() = "vline"
+    },
+    BOX_PLOT {
+        override fun optionName() = "boxplot"
+    },
     LIVE_MAP,
     POINT,
     RIBBON,
@@ -33,5 +41,5 @@ enum class GeomKind {
     RASTER,
     IMAGE;
 
-    fun optionName() = name.toLowerCase()
+    open fun optionName() = name.toLowerCase()
 }

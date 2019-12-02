@@ -1,6 +1,7 @@
 package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.GeomKind
+import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.geom.*
 
@@ -266,5 +267,40 @@ object Geom {
             TextMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class boxplot(
+        mapping: BoxplotMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val lower: Double? = null,
+        override val middle: Double? = null,
+        override val upper: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val outlierColor: Any? = null,
+        override val outlierFill: Any? = null,
+        override val outlierShape: Any? = null,
+        override val outlierSize: Double? = null,
+        override val varwidth: Boolean? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val size: Double? = null,
+        override val linetype: Any? = null,
+        override val shape: Any? = null,
+        override val width: Double? = null
+    ) : BoxplotAesthetics,
+        BoxplotParameters,
+        GeomOptions(
+            GeomKind.BOX_PLOT,
+            BoxplotMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+
+        override fun seal(): Options {
+            return super<BoxplotAesthetics>.seal() +
+                    super<BoxplotParameters>.seal()
+        }
     }
 }
