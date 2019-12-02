@@ -8,39 +8,31 @@ import jetbrains.datalore.base.jsObject.JsObjectSupport.mapToJsObjectInitializer
 import jetbrains.datalore.plot.server.config.PlotConfigServerSide
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.toSpec
+import tmp.LetsPlotHtml
 
 object FrontendContextUtil {
     fun display(plot: Plot, ctx: FrontendContext) {
         when (ctx) {
             is RawObjectFrontendContext -> ctx.displayObject(plot)
-            is HtmlFrontendContext -> displayHtml(plot, ctx)
+            is HtmlFrontendContext -> ctx.displayHtml(getStaticHtml(plot))   // TODO: `static html` is only good for demo
             is TextFrontendContext -> ctx.displayText(plot.toString())
             else -> throw IllegalArgumentException("Unsupported frontend context ${ctx::class.simpleName}")
         }
     }
 
-    fun getHtml(plot: Plot) : String {
+    // Currently used as API method
+    // TODO: private
+    // TODO: move to Frontend Context (re-design needed)
+    fun getHtml(plot: Plot): String {
         val plotSpec = PlotConfigServerSide.processTransform(plot.toSpec())
-        val plotOutputId = "plot_output_${randomStr()}"
         val plotSpecJs = mapToJsObjectInitializer(plotSpec)
-
-        return """
-            <div id="$plotOutputId"></div>
-            <script type="text/javascript">
-                var plotSpec=$plotSpecJs;
-
-                var plotContainer = document.getElementById("$plotOutputId");
-                LetsPlot.buildPlotFromProcessedSpecs(plotSpec, -1, -1, plotContainer);
-            </script>
-        """
+        return LetsPlotHtml.getDynamicScriptPlotDisplayHtml(plotSpecJs)
     }
 
-    private fun displayHtml(plot: Plot, ctx: HtmlFrontendContext) {
-        ctx.displayHtml(getHtml(plot))
-    }
-
-    private fun randomStr(): String {
-        val alphabet: List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
-        return List(6) { alphabet.random() }.joinToString("")
+    // TODO: move to Frontend Context (re-design needed)
+    private fun getStaticHtml(plot: Plot): String {
+        val plotSpec = PlotConfigServerSide.processTransform(plot.toSpec())
+        val plotSpecJs = mapToJsObjectInitializer(plotSpec)
+        return LetsPlotHtml.getStaticScriptPlotDisplayHtml(plotSpecJs)
     }
 }
