@@ -2,7 +2,7 @@ package plotDemo.scripts
 
 import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_density
-import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.lets_plot
 import plotDemo.SwingJfxFrontendContext
 
 object Density {
@@ -16,7 +16,7 @@ object Density {
         )
 
         val density = geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
-        val p = ggplot(data) + density
+        val p = lets_plot(data) + density
         p.show()
     }
 }
