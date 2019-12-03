@@ -8,6 +8,8 @@
 
 **Lets-Plot** for Kotlin is a Kotlin API for [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an open-source plotting library for statistical data which is written entirely in the [Kotlin programming language](https://kotlinlang.org/). 
 
+[Here](docs/kotlin-lets-plot-documentation.ipynb) you can find a documentation with examples in form of Jupyter notebook using Kotlin kernel.
+
 Lets-Plot Kotlin API was built on the principals of layered graphics first described in the Leland Wilkinson work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
 and later implemented in the [`ggplot2`](https://ggplot2.tidyverse.org/) package for R.
 
