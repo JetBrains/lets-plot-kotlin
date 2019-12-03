@@ -11,7 +11,7 @@ import kotlin.streams.asSequence
 // TODO: This object is NOT part of `frontend API` and is here temporarily, only because it is used by `configure.kt`
 object LetsPlotHtml {
     private const val baseUrl = "https://dl.bintray.com/jetbrains/lets-plot"
-    private const val version = "1.0.dev1"
+    private const val version = "1.0.0"
     private const val suffix = "min.js"
 
     @Suppress("SameParameterValue")
