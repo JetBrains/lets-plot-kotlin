@@ -88,6 +88,11 @@ publishing {
     }
 }
 
+/*
+ * Copyright (c) 2019. JetBrains s.r.o.
+ * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+ */
+
 // Provide Bintray-specific Information
 def bintray_user = project.buildSettings?.bintray?.user
 def bintray_key = project.buildSettings?.bintray?.key
