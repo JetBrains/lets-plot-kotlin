@@ -4,6 +4,7 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos.stack
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
@@ -18,7 +19,7 @@ class stat_count(
     geom: GeomOptions = Geom.bar(),
     position: PosOptions = stack,
     show_legend: Boolean = true,
-    sampling: Any? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Double? = null,
@@ -38,7 +39,6 @@ class stat_count(
         position = position,
         show_legend = show_legend,
         sampling = sampling
-
     ) {
 
     override fun seal(): Options {
