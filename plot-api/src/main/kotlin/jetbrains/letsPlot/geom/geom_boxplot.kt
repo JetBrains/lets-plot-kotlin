@@ -6,6 +6,7 @@ import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
@@ -59,7 +60,7 @@ class geom_boxplot(
     stat: StatOptions = Stat.boxplot(),
     position: PosOptions = Pos.dodge,
     show_legend: Boolean = true,
-    sampling: Any? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val lower: Double? = null,
     override val middle: Double? = null,

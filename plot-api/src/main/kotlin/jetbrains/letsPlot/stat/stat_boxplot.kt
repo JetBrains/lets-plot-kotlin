@@ -7,6 +7,7 @@ import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.stat.*
 
 @Suppress("ClassName")
@@ -15,7 +16,7 @@ class stat_boxplot(
     geom: GeomOptions = Geom.boxplot(),
     position: PosOptions = dodge,
     show_legend: Boolean = true,
-    sampling: Any? = null,
+    sampling: SamplingOptions? = null,
     override val varwidth: Any? = null,
     override val coef: Any? = null,
     override val weight: Double? = null,
