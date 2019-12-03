@@ -73,5 +73,44 @@
         class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a
         href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span
         class="symbol">=</span>&nbsp;{}<span class="symbol">)</span></code>
+<p>Display an area.</p>
+<h3>Parameters</h3>
+<p><a name="data"></a>
+    <code>data</code> - dictionary or pandas DataFrame, optional.
+    The data to be displayed in this layer. If None, the default, the data
+    is inherited from the plot data as specified in the call to <a href="../../jetbrains.lets-plot/lets_plot.html">lets_plot</a>.
+</p>
+<p><a name="stat"></a>
+    <code>stat</code> - string, optional.
+    The statistical transformation to use on the data for this layer, as a string. Supported transformations:
+    "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
+    "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
+    linear default)</p>
+<p><a name="position"></a>
+    <code>position</code> - string, optional.
+    Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
+    position adjustment function.</p>
+<p><a name="x"></a>
+    <code>x</code> - x-axis coordinates.</p>
+<p><a name="y"></a>
+    <code>y</code> - y-axis coordinates.</p>
+<p><a name="alpha"></a>
+    <code>alpha</code> - transparency level of a layer
+    Understands numbers between 0 and 1.</p>
+<p><a name="color"></a>
+    <code>color</code> - (colour) color of a geometry lines.
+    Can be continuous or discrete. For continuous value this will be a color gradient between two colors.</p>
+<p><a name="fill"></a>
+    <code>fill</code> - color of geometry filling.</p>
+<p><a name="linetype"></a>
+    <code>linetype</code> - type of the line of tile's border.
+    Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+    5 = "longdash", 6 = "twodash".</p>
+<p><a name="size"></a>
+    <code>size</code> - line width.</p>
+<p><a name="mapping"></a>
+    <code>mapping</code> - set of aesthetic mappings.
+    Aesthetic mappings describe the way that variables in the data are
+    mapped to plot "aesthetics".</p>
 </BODY>
 </HTML>

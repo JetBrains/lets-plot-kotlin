@@ -8,11 +8,13 @@ interface DensityParameters : OptionsCapsule {
     val kernel: Any?
     val n: Any?
     val trim: Any?
+    val adjust: Any?
 
     override fun seal() = Options.of(
         "bw" to bw,
         "kernel" to kernel,
         "n" to n,
-        "trim" to trim
+        "trim" to trim,
+        "adjust" to adjust
     )
 }

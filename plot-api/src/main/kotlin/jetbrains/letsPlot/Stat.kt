@@ -13,9 +13,10 @@ object Stat {
     class density(
         mapping: DensityMapping.() -> Unit = {},
         override val bw: Any? = null,
-        override val kernel: Any? = null,
-        override val n: Any? = null,
-        override val trim: Any? = null
+        override val kernel: String? = null,
+        override val n: Int? = null,
+        override val trim: Boolean? = null,
+        override val adjust: Double? = null
     ) : DensityParameters,
         StatOptions(
             StatKind.DENSITY,
@@ -46,6 +47,19 @@ object Stat {
         StatOptions(
             StatKind.BIN,
             mapping = BinMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class boxplot(
+        mapping: BoxplotMapping.() -> Unit = {},
+        override val varwidth: Boolean? = null,
+        override val coef: Double? = null
+    ) : BoxplotParameters,
+        StatOptions(
+            StatKind.BOXPLOT,
+            mapping = BoxplotMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

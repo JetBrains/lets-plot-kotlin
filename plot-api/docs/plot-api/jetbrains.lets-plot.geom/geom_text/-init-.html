@@ -93,5 +93,54 @@
         class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a
         href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span
         class="symbol">=</span>&nbsp;{}<span class="symbol">)</span></code>
+<p>Adds text directly to the plot</p>
+<h3>Parameters</h3>
+<p><a name="data"></a>
+    <code>data</code> - dictionary or pandas DataFrame, optional.
+    The data to be displayed in this layer. If None, the default, the data
+    is inherited from the plot data as specified in the call to <a href="../../jetbrains.lets-plot/lets_plot.html">lets_plot</a>.
+</p>
+<p><a name="stat"></a>
+    <code>stat</code> - string, optional.
+    The statistical transformation to use on the data for this layer, as a string. Supported transformations:
+    "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
+    "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
+    linear default)</p>
+<p><a name="position"></a>
+    <code>position</code> - string, optional.
+    Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
+    position adjustment function.</p>
+<p><a name="x"></a>
+    <code>x</code> - x-axis value.</p>
+<p><a name="y"></a>
+    <code>y</code> - y-axis value.</p>
+<p><a name="label"></a>
+    <code>label</code> - text to add to plot.</p>
+<p><a name="alpha"></a>
+    <code>alpha</code> - transparency level of a point
+    Understands numbers between 0 and 1.</p>
+<p><a name="color"></a>
+    <code>color</code> - (colour) color of a geometry.
+    Can be continuous or discrete. For continuous value this will be a color gradient between two colors.</p>
+<p><a name="size"></a>
+    <code>size</code> - font size.</p>
+<p><a name="family"></a>
+    <code>family</code> - ('sans' | 'serif' | 'mono' | any other like: "Times New Roman")
+    Font family. The default is 'sans'</p>
+<p><a name="fontface"></a>
+    <code>fontface</code> - ('plain' | 'bold' | 'italic' | 'bold italic')
+    Font style and weight. The default is 'plain'</p>
+<p><a name="hjust"></a>
+    <code>hjust</code> - ('left', 'middle', 'right') or number between 0 ('right') and 1 ('left').
+    Horizontal text alignment.</p>
+<p><a name="vjust"></a>
+    <code>vjust</code> - ('bottom', 'center', 'top') or number between 0 ('bottom') and 1 ('top').
+    Vertical text alignment.</p>
+<p><a name="angle"></a>
+    <code>angle</code> - text rotation angle in degrees.</p>
+<p><a name="mapping"></a>
+    <code>mapping</code> - set of aesthetic mappings.
+    Aesthetic mappings describe the way that variables in the data are
+    mapped to plot "aesthetics".</p>
 </BODY>
 </HTML>

@@ -31,6 +31,7 @@ class stat_density(
     override val kernel: Any? = null,
     override val n: Any? = null,
     override val trim: Any? = null,
+    override val adjust: Any? = null,
     mapping: DensityMapping.() -> Unit = {}
 
 ) : DensityAesthetics, DensityParameters,

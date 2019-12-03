@@ -4,7 +4,8 @@ enum class StatKind {
     IDENTITY,
     COUNT,
     DENSITY,
-    BIN;
+    BIN,
+    BOXPLOT;
 
     fun optionName() = name.toLowerCase()
 }
