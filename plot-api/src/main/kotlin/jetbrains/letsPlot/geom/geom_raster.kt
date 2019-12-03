@@ -3,6 +3,7 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.raster
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
@@ -37,6 +38,7 @@ class geom_raster(
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Double? = null,
@@ -50,7 +52,8 @@ class geom_raster(
         geom = raster(),
         stat = stat,
         position = position,
-        show_legend = show_legend
+        show_legend = show_legend,
+        sampling = sampling
     )
 
 

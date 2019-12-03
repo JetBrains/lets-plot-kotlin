@@ -3,6 +3,7 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
@@ -43,7 +44,7 @@ class geom_histogram(
     stat: StatOptions = Stat.bin(),
     position: PosOptions = Pos.stack,
     show_legend: Boolean = true,
-    sampling: Any? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Double? = null,

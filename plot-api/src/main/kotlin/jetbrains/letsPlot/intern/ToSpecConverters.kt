@@ -62,6 +62,10 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         toFeatureSpec("pos", posOptions.kind.optionName(), posOptions.parameters.map)
     }
 
+    sampling?.let {
+        spec[Option.Layer.SAMPLING] = sampling.mapping.map
+    }
+
     spec[Option.Layer.MAPPING] = (mapping + geom.mapping + stat.mapping).map
 
     val allParameters = parameters + geom.parameters + stat.parameters

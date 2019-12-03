@@ -6,6 +6,7 @@ import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.intern.frontendContext.FrontendContextUtil
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 
 
@@ -94,7 +95,7 @@ abstract class Layer(
     val stat: StatOptions,
     val position: PosOptions,
     val show_legend: Boolean,
-    val sampling: Any?
+    val sampling: SamplingOptions?
 ) : Feature() {
 
     // layer mapping has precedence over geom and stat

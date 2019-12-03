@@ -4,6 +4,7 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.Geom.area
 import jetbrains.letsPlot.Pos.stack
 import jetbrains.letsPlot.Stat.density
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
@@ -17,7 +18,7 @@ class stat_density(
     geom: GeomOptions = area(),
     position: PosOptions = stack,
     show_legend: Boolean = true,
-    sampling: Any? = null,
+    sampling: SamplingOptions? = null,
     override val x: Any? = null,
     override val y: Any? = null,
     override val alpha: Any? = null,
@@ -42,7 +43,6 @@ class stat_density(
         position = position,
         show_legend = show_legend,
         sampling = sampling
-
     ) {
 
     override fun seal(): Options {

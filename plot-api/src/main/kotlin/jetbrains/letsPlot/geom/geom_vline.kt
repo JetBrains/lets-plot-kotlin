@@ -3,6 +3,7 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.vline
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
@@ -42,7 +43,7 @@ class geom_vline(
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,
-    sampling: Any? = null,
+    sampling: SamplingOptions? = null,
     override val xintercept: Double? = null,
     override val alpha: Double? = null,
     override val color: Any? = null,

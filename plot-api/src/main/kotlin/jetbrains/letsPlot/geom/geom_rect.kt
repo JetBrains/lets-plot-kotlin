@@ -3,6 +3,7 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
@@ -44,7 +45,7 @@ class geom_rect(
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,
-    sampling: Any? = null,
+    sampling: SamplingOptions? = null,
     override val xmin: Double? = null,
     override val xmax: Double? = null,
     override val ymin: Double? = null,
