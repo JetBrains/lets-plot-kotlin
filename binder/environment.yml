@@ -4,3 +4,4 @@ dependencies:
   - python=3.6
 channels:
   - jetbrains
+
