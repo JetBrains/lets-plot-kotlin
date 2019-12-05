@@ -194,7 +194,11 @@ fun scale_color_grey(
 
 
 fun scale_fill_hue(
-    h: Int?, c: Int?, l: Int?, h_start: Int?, direction: Int?,
+    h: Int? = null,
+    c: Int? = null,
+    l: Int? = null,
+    h_start: Int? = null,
+    direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
