@@ -43,6 +43,7 @@ object BarRaw {
 
 
         val spec = JsonSupport.parseJson(specRaw)
+        @Suppress("UNCHECKED_CAST")
         SwingDemoUtil.display(spec as MutableMap<String, Any>)
     }
 }
