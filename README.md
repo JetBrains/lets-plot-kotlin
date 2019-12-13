@@ -45,6 +45,14 @@ p += geom_density(color="dark_green", alpha=.3) {x="rating"; fill="cond"}
 p + ggsize(500, 250)
 ```
 
+<img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/quickstart.png" alt="Couldn't load quickstart.png" width="500" height="270"/>
+<br/>
+<br/>
+<a href="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb" 
+   target="_parent"> 
+   <img src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png" 
+        width="109" height="20">
+</a>
 
 #### Resources
 
