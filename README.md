@@ -58,3 +58,8 @@ p + ggsize(500, 250)
 
 * [Kotlin for Data Science](https://kotlinlang.org/docs/reference/data-science-overview.html) : overview of Kotlin Jupyter kernel etc.
 * [Using Kotlin for Data Science](https://www.youtube.com/watch?v=Pf6PG26gM2Y&feature=youtu.be&t=4041) : recording of the talk at KotlinConf-19. 
+
+### License
+
+Code and documentation released under the [MIT license](https://github.com/JetBrains/lets-plot/blob/master/LICENSE).
+Copyright 2019, JetBrains s.r.o.
