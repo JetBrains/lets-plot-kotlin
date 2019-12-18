@@ -57,7 +57,7 @@ p + ggsize(500, 250)
 #### Resources
 
 * [Kotlin for Data Science](https://kotlinlang.org/docs/reference/data-science-overview.html) : overview of Kotlin Jupyter kernel etc.
-* [Using Kotlin for Data Science](https://www.youtube.com/watch?v=Pf6PG26gM2Y&feature=youtu.be&t=4041) : recording of the talk at KotlinConf-19. 
+* [Using Kotlin for Data Science](https://www.youtube.com/watch?v=APnyDVye4JA&list=PLQ176FUIyIUY6SKGl3Cj9yeYibBuRr3Hl&index=39&t=0s) : recording of the talk at KotlinConf-19. 
 
 ### License
 
