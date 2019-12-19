@@ -5,21 +5,15 @@
 
 package plotDemo
 
-import jetbrains.datalore.base.event.MouseEventSpec
-import jetbrains.datalore.base.event.awt.AwtEventUtil
-import jetbrains.datalore.base.geometry.DoubleRectangle
 import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.datalore.base.observable.event.EventHandler
-import jetbrains.datalore.base.observable.property.PropertyChangeEvent
 import jetbrains.datalore.base.observable.property.ReadableProperty
 import jetbrains.datalore.base.observable.property.ValueProperty
-import jetbrains.datalore.plot.Monolithic
+import jetbrains.datalore.plot.DemoAndTest
+import jetbrains.datalore.plot.MonolithicAwt
 import jetbrains.datalore.plot.builder.PlotContainer
 import jetbrains.datalore.plot.builder.presentation.Style
 import jetbrains.datalore.vis.demoUtils.jfx.SceneMapperDemoFactory
 import jetbrains.datalore.vis.demoUtils.swing.SwingDemoFactory
-import jetbrains.datalore.vis.svg.SvgColors
-import jetbrains.datalore.vis.svg.SvgRectElement
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.toSpec
 import java.awt.Color
@@ -27,9 +21,8 @@ import java.awt.Dimension
 import java.awt.FlowLayout
 import java.awt.event.ComponentAdapter
 import java.awt.event.ComponentEvent
-import java.awt.event.MouseAdapter
-import java.awt.event.MouseEvent
 import java.util.concurrent.atomic.AtomicInteger
+import javax.swing.BorderFactory
 import javax.swing.JComponent
 import javax.swing.SwingUtilities
 import javax.swing.border.LineBorder
@@ -54,7 +47,7 @@ object SwingDemoUtil {
     fun display(plotSpec: MutableMap<String, Any>) {
 
         val plotFactory: PlotFactory = { plotSize ->
-            val plot = Monolithic.createPlot(plotSpec, null)
+            val plot = DemoAndTest.createPlot(plotSpec)
             PlotContainer(plot, plotSize)
         }
 
@@ -114,42 +107,12 @@ object SwingDemoUtil {
     ) {
 
         val plot = plotFactory(plotSizeProp)
-        plot.ensureContentBuilt()
-        val svg = plot.svg
-
-        // make a blue frame
-        val frameRect = SvgRectElement(DoubleRectangle(DoubleVector.ZERO, plotSizeProp.get()))
-        frameRect.stroke().set(SvgColors.LIGHT_CORAL)
-        frameRect.fill().set(SvgColors.NONE)
-        svg.children().add(frameRect)
-
-        val component = swingFactory.createSvgComponent(svg)
+        val component = MonolithicAwt.buildPlotSvgComponent(
+            plot,
+            swingFactory::createSvgComponent,
+            swingFactory.createPlotEdtExecutor()
+        )
+        component.border = BorderFactory.createLineBorder(Color.BLUE, 1)
         container.add(component)
-
-        plotSizeProp.addHandler(object : EventHandler<PropertyChangeEvent<out DoubleVector>> {
-            override fun onEvent(event: PropertyChangeEvent<out DoubleVector>) {
-                frameRect.width().set(event.newValue!!.x)
-                frameRect.height().set(event.newValue!!.y)
-            }
-        })
-
-        // Bind mouse events
-        val plotEdt = swingFactory.createPlotEdtExecutor()
-        component.addMouseListener(object : MouseAdapter() {
-            override fun mouseExited(e: MouseEvent) {
-                super.mouseExited(e)
-                plotEdt {
-                    plot.mouseEventPeer.dispatch(MouseEventSpec.MOUSE_LEFT, AwtEventUtil.translate(e))
-                }
-            }
-        })
-        component.addMouseMotionListener(object : MouseAdapter() {
-            override fun mouseMoved(e: MouseEvent) {
-                super.mouseMoved(e)
-                plotEdt {
-                    plot.mouseEventPeer.dispatch(MouseEventSpec.MOUSE_MOVED, AwtEventUtil.translate(e))
-                }
-            }
-        })
     }
 }
