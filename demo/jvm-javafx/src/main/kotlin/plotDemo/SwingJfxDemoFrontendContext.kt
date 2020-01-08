@@ -28,7 +28,6 @@ class SwingJfxDemoFrontendContext(private val title: String) : FrontendContext {
             val frame = JFrame(title)
 
             val panel = JPanel()
-//            panel.border = EmptyBorder(5, 10, 10, 10)
             panel.layout = BoxLayout(panel, BoxLayout.Y_AXIS)
 
             // build plots

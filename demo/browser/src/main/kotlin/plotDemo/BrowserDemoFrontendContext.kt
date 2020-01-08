@@ -11,26 +11,44 @@ import jetbrains.letsPlot.FrontendContext
 import tmp.LetsPlotHtml
 import java.io.FileWriter
 
-class BrowserDemoFrontendContext : FrontendContext {
-    private val file = BrowserDemoUtil.createTemporaryFile(DEMO_PROJECT_RELATIVE_PATH)
-
-    init {
-        FileWriter(file).use {
-            it.write(LetsPlotHtml.getStaticScriptLoadingHtml())
-        }
-    }
+class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
+    private val plotSpecs = ArrayList<MutableMap<String, Any>>()
 
     override fun display(plotSpecRaw: MutableMap<String, Any>) {
-        val plotSpec = PlotConfigServerSide.processTransform(plotSpecRaw)
-        val plotSpecJs = JsObjectSupport.mapToJsObjectInitializer(plotSpec)
-        val html = LetsPlotHtml.getStaticScriptPlotDisplayHtml(plotSpecJs)
-
-        FileWriter(file, true).use {
-            it.write(html)
-        }
+        plotSpecs.add(plotSpecRaw)
     }
 
     fun showAll() {
+        val file = BrowserDemoUtil.createTemporaryFile(DEMO_PROJECT_RELATIVE_PATH)
+
+        FileWriter(file).use {
+            it.write(
+                """
+                |<head>
+                |   <title>$title</title>
+                |
+                |   ${LetsPlotHtml.getStaticScriptLoadingHtml()}
+                |   
+                |</head>
+                |<body>
+                |
+            """.trimMargin()
+            )
+
+            // append JS with plot data and a call to the build function.
+            for (plotSpec in plotSpecs) {
+                @Suppress("NAME_SHADOWING")
+                val plotSpec = PlotConfigServerSide.processTransform(plotSpec)
+                val plotSpecJs = JsObjectSupport.mapToJsObjectInitializer(plotSpec)
+                val html = LetsPlotHtml.getStaticScriptPlotDisplayHtml(plotSpecJs)
+
+                it.write(html)
+                it.write("\n")
+            }
+
+            it.write("</body>")
+        }
+
         BrowserDemoUtil.openInBrowser(file)
     }
 
