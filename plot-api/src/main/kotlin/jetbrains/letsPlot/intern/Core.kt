@@ -5,10 +5,9 @@
 
 package jetbrains.letsPlot.intern
 
-import frontendApi.Figure
 import jetbrains.datalore.plot.base.Aes
+import jetbrains.letsPlot.Figure
 import jetbrains.letsPlot.GlobalSettings
-import jetbrains.letsPlot.intern.frontendContext.FrontendContextUtil
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
@@ -43,7 +42,7 @@ class Plot internal constructor(val data: Any?, val mapping: Options, val featur
     }
 
     override fun show() {
-        FrontendContextUtil.display(this, GlobalSettings.frontendContext)
+        GlobalSettings.frontendContext.display(this.toSpec())
     }
 
     companion object {

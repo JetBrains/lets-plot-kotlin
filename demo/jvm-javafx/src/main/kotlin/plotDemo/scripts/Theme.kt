@@ -9,15 +9,14 @@ import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.element_blank
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.scale.scale_fill_gradient2
 import jetbrains.letsPlot.theme
-import plotDemo.SwingJfxFrontendContext
-import javax.swing.Timer
+import plotDemo.SwingJfxDemoFrontendContext
 
 object Theme {
     @JvmStatic
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("Theme")
+        GlobalSettings.frontendContext = ctx
 
         val xs = (-64..64).toList()
         val data = mapOf("x" to xs)
@@ -32,5 +31,8 @@ object Theme {
                 )
 
         p.show()
+
+        // ====================
+        ctx.showAll()
     }
 }

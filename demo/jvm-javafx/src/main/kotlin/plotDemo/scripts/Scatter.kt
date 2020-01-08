@@ -8,12 +8,13 @@ package plotDemo.scripts
 import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggplot
-import plotDemo.SwingJfxFrontendContext
+import plotDemo.SwingJfxDemoFrontendContext
 
 object Scatter {
     @JvmStatic
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("Scatter")
+        GlobalSettings.frontendContext = ctx
 
         val data = mapOf<String, Any>(
             "weight" to listOf(68, 84, 73),
@@ -30,5 +31,8 @@ object Scatter {
                 }
 
         p.show()
+
+        // ====================
+        ctx.showAll()
     }
 }

@@ -9,13 +9,14 @@ import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.stat.stat_count
-import plotDemo.SwingJfxFrontendContext
+import plotDemo.SwingJfxDemoFrontendContext
 
 object BarGeomAndCountStat {
     @JvmStatic
     @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("'geom_bar()' == 'stat_count'")
+        GlobalSettings.frontendContext = ctx
 
         val data = mapOf<String, Any>(
             "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
@@ -38,5 +39,8 @@ object BarGeomAndCountStat {
         // show two identical plots
         (p + barLayer).show()
         (p + countLayer).show()
+
+        // ====================
+        ctx.showAll()
     }
 }

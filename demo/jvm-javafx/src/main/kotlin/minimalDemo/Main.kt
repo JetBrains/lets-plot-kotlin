@@ -16,13 +16,15 @@ import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggtitle
 import jetbrains.letsPlot.intern.toSpec
 import java.awt.Dimension
+import java.util.*
 import javax.swing.JFrame
 import javax.swing.SwingUtilities
 import javax.swing.WindowConstants
 
 // Setup
-val COMPONENT_FACTORY_JFX = { svg: SvgSvgElement -> SceneMapperJfxPanel(svg, listOf(Style.JFX_PLOT_STYLESHEET)) }
-val EXECUTOR_JFX = { r: () -> Unit ->
+private val SVG_COMPONENT_FACTORY_JFX =
+    { svg: SvgSvgElement -> SceneMapperJfxPanel(svg, listOf(Style.JFX_PLOT_STYLESHEET)) }
+private val EXECUTOR_JFX = { r: () -> Unit ->
     if (Platform.isFxApplicationThread()) {
         r.invoke()
     } else {
@@ -34,7 +36,7 @@ fun main() {
     SwingUtilities.invokeLater {
 
         // Generate random data-points
-        val rand = java.util.Random()
+        val rand = Random()
         val data = mapOf<String, Any>(
             "x" to List(500) { rand.nextGaussian() } + List(500) { rand.nextGaussian() + 1.0 },
             "c" to List(500) { "A" } + List(500) { "B" }
@@ -51,7 +53,7 @@ fun main() {
         val plotSize = DoubleVector(600.0, 300.0)
 
         val component =
-            MonolithicAwt.buildPlotFromRawSpecs(plotSpec, plotSize, COMPONENT_FACTORY_JFX, EXECUTOR_JFX) {
+            MonolithicAwt.buildPlotFromRawSpecs(plotSpec, plotSize, SVG_COMPONENT_FACTORY_JFX, EXECUTOR_JFX) {
                 for (message in it) {
                     println("PLOT MESSAGE: $message")
                 }

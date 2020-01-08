@@ -32,9 +32,9 @@ typealias PlotFactory = (plotSize: ReadableProperty<DoubleVector>) -> PlotContai
 
 object SwingDemoUtil {
 
-    private const val PADDING = 20
+    const val PADDING = 20
 
-    private fun toPlotSize(containerSize: Dimension) = DoubleVector(
+    fun toPlotSize(containerSize: Dimension) = DoubleVector(
         containerSize.width.toDouble() - 2 * PADDING,
         containerSize.height.toDouble() - 2 * PADDING
     )

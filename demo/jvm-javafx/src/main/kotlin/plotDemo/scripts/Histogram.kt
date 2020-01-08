@@ -9,12 +9,13 @@ import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
-import plotDemo.SwingJfxFrontendContext
+import plotDemo.SwingJfxDemoFrontendContext
 
 object Histogram {
     @JvmStatic
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("'geom_bar()' == 'stat_count'")
+        GlobalSettings.frontendContext = ctx
 
         val rand = java.util.Random()
         val data = mapOf<String, Any>(
@@ -27,5 +28,8 @@ object Histogram {
         }
         val p = ggplot(data) + geom
         p.show()
+
+        // ====================
+        ctx.showAll()
     }
 }

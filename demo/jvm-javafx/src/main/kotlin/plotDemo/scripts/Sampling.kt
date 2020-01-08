@@ -10,14 +10,16 @@ import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.sampling.sampling_random
 import jetbrains.letsPlot.scale.scale_size_area
-import plotDemo.SwingJfxFrontendContext
+import plotDemo.SwingJfxDemoFrontendContext
 import kotlin.math.PI
 import kotlin.math.sin
 
 object Sampling {
     @JvmStatic
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("Sampling")
+        GlobalSettings.frontendContext = ctx
+
         val dat = mapOf<String, Any>(
             "x" to (0..100).map { it * 2 * PI / 100 },
             "y" to (0..100).map { sin(it * 2 * PI / 100) }
@@ -28,5 +30,8 @@ object Sampling {
                 scale_size_area(max_size = 70, guide = "none")
 
         p.show()
+
+        // ====================
+        ctx.showAll()
     }
 }

@@ -8,12 +8,13 @@ package plotDemo.scripts
 import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_density
 import jetbrains.letsPlot.lets_plot
-import plotDemo.SwingJfxFrontendContext
+import plotDemo.SwingJfxDemoFrontendContext
 
 object Density {
     @JvmStatic
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("Density plot")
+        GlobalSettings.frontendContext = ctx
 
         val rand = java.util.Random()
         val data = mapOf<String, Any>(
@@ -23,5 +24,8 @@ object Density {
         val density = geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
         val p = lets_plot(data) + density
         p.show()
+
+        // ====================
+        ctx.showAll()
     }
 }

@@ -8,13 +8,14 @@ package plotDemo.scripts
 import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_boxplot
 import jetbrains.letsPlot.lets_plot
-import plotDemo.SwingJfxFrontendContext
+import plotDemo.SwingJfxDemoFrontendContext
 import kotlin.math.abs
 
 object Boxplot {
     @JvmStatic
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("Boxplot")
+        GlobalSettings.frontendContext = ctx
 
         val categories = listOf("A", "B", "C", "D", "E")
 
@@ -27,5 +28,8 @@ object Boxplot {
 
         val p = lets_plot(data) { x = "cat"; y = "val" } + geom_boxplot(outlierColor = "red")
         p.show()
+
+        // ====================
+        ctx.showAll()
     }
 }

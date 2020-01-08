@@ -13,13 +13,15 @@ import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_line
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scale_x_datetime
-import plotDemo.SwingJfxFrontendContext
+import plotDemo.SwingJfxDemoFrontendContext
 import kotlin.random.Random
 
 object DateTimeScale {
     @JvmStatic
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("DateTime Scale")
+        GlobalSettings.frontendContext = ctx
+
         val second = 1000.0
         val minute = 60.0 * second
         val hour = 60.0 * minute
@@ -51,5 +53,8 @@ object DateTimeScale {
                 geom_line() { x = "seconds"; y = "val" } +
                 scale_x_datetime("Time (min)")
         t.show()
+
+        // ====================
+        ctx.showAll()
     }
 }

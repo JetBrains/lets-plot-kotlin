@@ -9,14 +9,13 @@ import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scale_fill_gradient2
-import jetbrains.letsPlot.theme
-import plotDemo.SwingJfxFrontendContext
-import javax.swing.Timer
+import plotDemo.SwingJfxDemoFrontendContext
 
 object ColorScaleContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("Color Scale")
+        GlobalSettings.frontendContext = ctx
 
         val xs = (-64..64).toList()
         val data = mapOf("x" to xs)
@@ -31,13 +30,10 @@ object ColorScaleContinuous {
 
         p.show()
 
-        // rainbow
-        println("wait for the rainbow ...")
-        val timer = Timer(5000) {
-            val gradient = scale_fill_gradient2(low = "green", mid = "yellow", high = "red")
-            (p + gradient).show()
-        }
-        timer.isRepeats = false
-        timer.start()
+        val gradient = scale_fill_gradient2(low = "green", mid = "yellow", high = "red")
+        (p + gradient).show()
+
+        // ====================
+        ctx.showAll()
     }
 }

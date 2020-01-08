@@ -7,25 +7,22 @@ package plotDemo
 
 import java.awt.Desktop
 import java.io.File
-import java.io.FileWriter
 
 object BrowserDemoUtil {
     private const val ROOT_PROJECT = "lets-plot-kotlin"
 
-    fun openInBrowser(demoProjectRelativePath: String, html: () -> String) {
+    fun openInBrowser(file: File) {
+        val desktop = Desktop.getDesktop()
+        desktop.browse(file.toURI())
+    }
 
+    fun createTemporaryFile(demoProjectRelativePath: String): File {
         val rootPath = getRootPath()
         println("Project root: $rootPath")
         val tmpDir = File(rootPath, "$demoProjectRelativePath/build/tmp")
         val file = File.createTempFile("index", ".html", tmpDir)
         println(file.canonicalFile)
-
-        FileWriter(file).use {
-            it.write(html())
-        }
-
-        val desktop = Desktop.getDesktop()
-        desktop.browse(file.toURI())
+        return file
     }
 
     private fun getRootPath(): String {

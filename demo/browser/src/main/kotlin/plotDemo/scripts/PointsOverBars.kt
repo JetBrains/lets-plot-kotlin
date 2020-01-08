@@ -11,13 +11,15 @@ import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggplot
-import plotDemo.BrowserFrontendContext
+import plotDemo.BrowserDemoFrontendContext
 
 object PointsOverBars {
     @JvmStatic
     @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = BrowserFrontendContext()
+//        GlobalSettings.frontendContext = BrowserFrontendContext()
+        val ctx = BrowserDemoFrontendContext()
+        GlobalSettings.frontendContext = ctx
 
         val data = mapOf<String, Any>(
             "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
@@ -38,5 +40,8 @@ object PointsOverBars {
         }
 
         (p + bars + points).show()
+
+        // ====================
+        ctx.showAll()
     }
 }

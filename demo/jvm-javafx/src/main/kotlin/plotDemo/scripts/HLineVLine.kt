@@ -7,15 +7,18 @@ package plotDemo.scripts
 
 import jetbrains.datalore.base.values.Color
 import jetbrains.letsPlot.GlobalSettings
-import jetbrains.letsPlot.geom.*
+import jetbrains.letsPlot.geom.geom_hline
+import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geom_vline
 import jetbrains.letsPlot.ggtitle
 import jetbrains.letsPlot.lets_plot
-import plotDemo.SwingJfxFrontendContext
+import plotDemo.SwingJfxDemoFrontendContext
 
 object HLineVLine {
     @JvmStatic
     fun main(args: Array<String>) {
-        GlobalSettings.frontendContext = SwingJfxFrontendContext()
+        val ctx = SwingJfxDemoFrontendContext("HLine, VLine")
+        GlobalSettings.frontendContext = ctx
 
         val data = mapOf<String, Any>(
             "x" to (0..4).toList(),
@@ -42,5 +45,8 @@ object HLineVLine {
                 geom_vline(xintercept = 3.7)
 
         p.show()
+
+        // ====================
+        ctx.showAll()
     }
 }
