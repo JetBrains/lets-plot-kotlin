@@ -5,42 +5,37 @@
 
 package plotDemo.scripts
 
-import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.stat.stat_count
-import plotDemo.SwingJfxDemoFrontendContext
+import plotDemo.SwingJfxDemoFrontend
 
 object BarGeomAndCountStat {
     @JvmStatic
     @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
-        val ctx = SwingJfxDemoFrontendContext("'geom_bar()' == 'stat_count'")
-        GlobalSettings.frontendContext = ctx
+        SwingJfxDemoFrontend.eval("'geom_bar()' == 'stat_count'") {
+            val data = mapOf<String, Any>(
+                "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
+                "cat2" to listOf("c", "c", "d", "d", "d", "c", "c", "d", "c", "c", "d")
+            )
+            val p = ggplot(data)
 
-        val data = mapOf<String, Any>(
-            "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
-            "cat2" to listOf("c", "c", "d", "d", "d", "c", "c", "d", "c", "c", "d")
-        )
-        val p = ggplot(data)
+            // bar (with count stat by default)
+            val barLayer = geom_bar {
+                x = "cat1"
+                fill = "cat2"
+            }
 
-        // bar (with count stat by default)
-        val barLayer = geom_bar {
-            x = "cat1"
-            fill = "cat2"
+            // count stat (with bar geom by default)
+            val countLayer = stat_count {
+                x = "cat1"
+                fill = "cat2"
+            }
+
+            // show two identical plots
+            (p + barLayer).show()
+            (p + countLayer).show()
         }
-
-        // count stat (with bar geom by default)
-        val countLayer = stat_count {
-            x = "cat1"
-            fill = "cat2"
-        }
-
-        // show two identical plots
-        (p + barLayer).show()
-        (p + countLayer).show()
-
-        // ====================
-        ctx.showAll()
     }
 }

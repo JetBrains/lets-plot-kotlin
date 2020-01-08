@@ -5,31 +5,27 @@
 
 package plotDemo.scripts
 
-import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_boxplot
 import jetbrains.letsPlot.lets_plot
-import plotDemo.SwingJfxDemoFrontendContext
+import plotDemo.SwingJfxDemoFrontend
 import kotlin.math.abs
 
 object Boxplot {
     @JvmStatic
     fun main(args: Array<String>) {
-        val ctx = SwingJfxDemoFrontendContext("Boxplot")
-        GlobalSettings.frontendContext = ctx
+        SwingJfxDemoFrontend.eval("Boxplot") {
 
-        val categories = listOf("A", "B", "C", "D", "E")
+            val categories = listOf("A", "B", "C", "D", "E")
 
-        val n = 500
-        val rand = java.util.Random()
-        val data = mapOf<String, Any>(
-            "val" to List(n) { rand.nextGaussian() },
-            "cat" to List(n) { categories[abs(rand.nextInt()).rem(categories.size)] }
-        )
+            val n = 500
+            val rand = java.util.Random()
+            val data = mapOf<String, Any>(
+                "val" to List(n) { rand.nextGaussian() },
+                "cat" to List(n) { categories[abs(rand.nextInt()).rem(categories.size)] }
+            )
 
-        val p = lets_plot(data) { x = "cat"; y = "val" } + geom_boxplot(outlierColor = "red")
-        p.show()
-
-        // ====================
-        ctx.showAll()
+            val p = lets_plot(data) { x = "cat"; y = "val" } + geom_boxplot(outlierColor = "red")
+            p.show()
+        }
     }
 }

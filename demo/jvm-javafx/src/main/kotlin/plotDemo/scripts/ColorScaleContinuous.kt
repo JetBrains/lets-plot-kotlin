@@ -5,35 +5,29 @@
 
 package plotDemo.scripts
 
-import jetbrains.letsPlot.GlobalSettings
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scale_fill_gradient2
-import plotDemo.SwingJfxDemoFrontendContext
+import plotDemo.SwingJfxDemoFrontend
 
 object ColorScaleContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        val ctx = SwingJfxDemoFrontendContext("Color Scale")
-        GlobalSettings.frontendContext = ctx
+        SwingJfxDemoFrontend.eval("Color Scale") {
+            val xs = (-64..64).toList()
+            val data = mapOf("x" to xs)
 
-        val xs = (-64..64).toList()
-        val data = mapOf("x" to xs)
+            val p = ggplot(data) +
+                    geom_tile(width = 1.0, height = 10.0) {
+                        x = "x"
+                        color = "x"
+                        fill = "x"
+                    }
 
-        val p = ggplot(data) +
-                geom_tile(width = 1.0, height = 10.0) {
-                    x = "x"
-                    color = "x"
-                    fill = "x"
-                }
+            p.show()
 
-
-        p.show()
-
-        val gradient = scale_fill_gradient2(low = "green", mid = "yellow", high = "red")
-        (p + gradient).show()
-
-        // ====================
-        ctx.showAll()
+            val gradient = scale_fill_gradient2(low = "green", mid = "yellow", high = "red")
+            (p + gradient).show()
+        }
     }
 }
