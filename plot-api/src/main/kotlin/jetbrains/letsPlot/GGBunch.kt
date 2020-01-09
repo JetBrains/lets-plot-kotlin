@@ -5,9 +5,50 @@
 
 package jetbrains.letsPlot
 
-// TODO
+import jetbrains.datalore.plot.config.Option
+import jetbrains.datalore.plot.config.Option.GGBunch.ITEMS
+import jetbrains.datalore.plot.config.Option.GGBunch.Item
+import jetbrains.datalore.plot.config.Option.Meta.KIND
+import jetbrains.letsPlot.intern.Plot
+import jetbrains.letsPlot.intern.toSpec
+
 class GGBunch : Figure {
-    override fun show() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    private val items: MutableList<PlotItem> = ArrayList()
+
+    fun addPlot(plot: Plot, x: Int, y: Int, width: Int? = null, height: Int? = null) {
+        items.add(PlotItem(plot, x, y, width, height))
     }
+
+    fun toSpec(): MutableMap<String, Any> {
+        val spec = HashMap<String, Any>()
+        spec[KIND] = Option.Meta.Kind.GG_BUNCH
+
+        val itemSpecs = ArrayList<Map<String, Any?>>()
+        for (item in items) {
+            itemSpecs.add(
+                mapOf(
+                    Item.FEATURE_SPEC to item.plot.toSpec(),
+                    Item.X to item.x,
+                    Item.Y to item.y,
+                    Item.WIDTH to item.width,
+                    Item.HEIGHT to item.height
+                )
+            )
+        }
+
+        spec[ITEMS] = itemSpecs
+        return spec
+    }
+
+    override fun show() {
+        GlobalSettings.frontendContext.display(this.toSpec())
+    }
+
+    private class PlotItem(
+        val plot: Plot,
+        val x: Int,
+        val y: Int,
+        val width: Int?,
+        val height: Int?
+    )
 }
