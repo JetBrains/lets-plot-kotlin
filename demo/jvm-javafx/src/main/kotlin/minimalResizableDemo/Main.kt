@@ -7,7 +7,6 @@ package minimalResizableDemo
 
 import javafx.application.Platform
 import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.datalore.base.observable.property.ReadableProperty
 import jetbrains.datalore.base.observable.property.ValueProperty
 import jetbrains.datalore.plot.MonolithicAwt
 import jetbrains.datalore.plot.builder.PlotContainer
@@ -108,13 +107,7 @@ private fun createPlotPanel(
         computationMessagesHandler(computationMessages)
     }
 
-    // Plot factory rebuilds plot each time the container component is re-sized
-    val plotFactory = { plotSize: ReadableProperty<DoubleVector> ->
-        val assembler = PlotConfigClientSideUtil.createPlotAssembler(plotSpec)
-        val plot = assembler.createPlot()
-        PlotContainer(plot, plotSize)
-    }
-
+    // Create panel-container for plot component and start listening its `resized` events.
     val panel = JPanel()
     panel.border = LineBorder(Color.LIGHT_GRAY, PADDING)
     panel.layout = FlowLayout(FlowLayout.CENTER, 0, 0)
@@ -139,14 +132,21 @@ private fun createPlotPanel(
                     val container = e.component as JComponent
                     container.invalidate()
 
-                    // existing plot will be updated here
                     val newPlotSize = toPlotSize(e.component.size)
+
+                    // existing plot will be updated here
                     plotSizeProp.set(newPlotSize)
+
                     if (!plotCreated) {
                         plotCreated = true
-                        val plot = plotFactory(plotSizeProp)
+
+                        // create plot
+                        val assembler = PlotConfigClientSideUtil.createPlotAssembler(plotSpec)
+                        val plot = assembler.createPlot()
+                        val plotContainer = PlotContainer(plot, plotSizeProp)
+
                         val component = MonolithicAwt.buildPlotSvgComponent(
-                            plot,
+                            plotContainer,
                             SVG_COMPONENT_FACTORY_JFX,
                             EXECUTOR_JFX
                         )
@@ -155,7 +155,6 @@ private fun createPlotPanel(
                     }
 
                     container.revalidate()
-//                            container.repaint()
                 }
             }
         }
