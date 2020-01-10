@@ -7,6 +7,7 @@ package minimalResizableDemo
 
 import javafx.application.Platform
 import jetbrains.datalore.base.geometry.DoubleVector
+import jetbrains.datalore.base.observable.property.ReadableProperty
 import jetbrains.datalore.base.observable.property.ValueProperty
 import jetbrains.datalore.plot.MonolithicAwt
 import jetbrains.datalore.plot.builder.PlotContainer
@@ -22,8 +23,6 @@ import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggtitle
 import jetbrains.letsPlot.intern.toSpec
-import plotDemo.PlotFactory
-import plotDemo.SwingDemoUtil
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.FlowLayout
@@ -44,6 +43,13 @@ private val EXECUTOR_JFX = { r: () -> Unit ->
         Platform.runLater(r)
     }
 }
+
+private const val PADDING = 20
+
+private fun toPlotSize(containerSize: Dimension) = DoubleVector(
+    containerSize.width.toDouble() - 2 * PADDING,
+    containerSize.height.toDouble() - 2 * PADDING
+)
 
 fun main() {
     SwingUtilities.invokeLater {
@@ -80,8 +86,6 @@ fun main() {
         frame.size = Dimension(700, 400)
         frame.isVisible = true
     }
-
-
 }
 
 private fun createPlotPanel(
@@ -105,14 +109,14 @@ private fun createPlotPanel(
     }
 
     // Plot factory rebuilds plot each time the container component is re-sized
-    val plotFactory: PlotFactory = { plotSize ->
+    val plotFactory = { plotSize: ReadableProperty<DoubleVector> ->
         val assembler = PlotConfigClientSideUtil.createPlotAssembler(plotSpec)
         val plot = assembler.createPlot()
         PlotContainer(plot, plotSize)
     }
 
     val panel = JPanel()
-    panel.border = LineBorder(Color.LIGHT_GRAY, SwingDemoUtil.PADDING)
+    panel.border = LineBorder(Color.LIGHT_GRAY, PADDING)
     panel.layout = FlowLayout(FlowLayout.CENTER, 0, 0)
 
     panel.addComponentListener(object : ComponentAdapter() {
@@ -136,7 +140,7 @@ private fun createPlotPanel(
                     container.invalidate()
 
                     // existing plot will be updated here
-                    val newPlotSize = SwingDemoUtil.toPlotSize(e.component.size)
+                    val newPlotSize = toPlotSize(e.component.size)
                     plotSizeProp.set(newPlotSize)
                     if (!plotCreated) {
                         plotCreated = true

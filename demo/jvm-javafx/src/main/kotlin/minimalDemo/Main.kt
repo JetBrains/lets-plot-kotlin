@@ -15,7 +15,6 @@ import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggtitle
 import jetbrains.letsPlot.intern.toSpec
-import java.awt.Dimension
 import java.util.*
 import javax.swing.JFrame
 import javax.swing.SwingUtilities
@@ -63,7 +62,7 @@ fun main() {
         val frame = JFrame("The Minimal")
         frame.contentPane.add(component)
         frame.defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
-        frame.size = Dimension(plotSize.x.toInt() + 100, plotSize.y.toInt() + 100)
+        frame.pack()
         frame.isVisible = true
     }
 }
