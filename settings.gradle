@@ -6,7 +6,6 @@
 rootProject.name = 'lets-plot-kotlin'
 
 include 'plot-api',
-        'frontend-api',
         'jvm-javafx',
         'browser'
 
