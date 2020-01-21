@@ -1,25 +1,33 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2020. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package frontendContextDemo
-
 import java.awt.Desktop
 import java.io.File
+import java.io.FileWriter
 
 object BrowserDemoUtil {
     private const val ROOT_PROJECT = "lets-plot-kotlin"
+    private const val DEMO_PROJECT_RELATIVE_PATH = "demo/browser"
+
+    fun openInBrowser(html: String) {
+        val file = createTemporaryFile()
+        FileWriter(file).use {
+            it.write(html)
+        }
+        openInBrowser(file)
+    }
 
     fun openInBrowser(file: File) {
         val desktop = Desktop.getDesktop()
         desktop.browse(file.toURI())
     }
 
-    fun createTemporaryFile(demoProjectRelativePath: String): File {
+    fun createTemporaryFile(): File {
         val rootPath = getRootPath()
         println("Project root: $rootPath")
-        val tmpDir = File(rootPath, "$demoProjectRelativePath/build/tmp")
+        val tmpDir = File(rootPath, "$DEMO_PROJECT_RELATIVE_PATH/build/tmp")
         val file = File.createTempFile("index", ".html", tmpDir)
         println(file.canonicalFile)
         return file

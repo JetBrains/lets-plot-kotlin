@@ -5,10 +5,10 @@
 
 package frontendContextDemo
 
+import BrowserDemoUtil
 import jetbrains.datalore.plot.PlotHtmlHelper
 import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 import jetbrains.letsPlot.FrontendContext
-import java.io.FileWriter
 
 class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
     private val plotSpecs = ArrayList<MutableMap<String, Any>>()
@@ -18,10 +18,8 @@ class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
     }
 
     fun showAll() {
-        val file = BrowserDemoUtil.createTemporaryFile(DEMO_PROJECT_RELATIVE_PATH)
-
-        FileWriter(file).use {
-            it.write(
+        val buffer = StringBuffer()
+            .append(
                 """
                 |<head>
                 |   <title>$title</title>
@@ -34,21 +32,13 @@ class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
             """.trimMargin()
             )
 
-            // For each `plot spec` append html/js block responsible for building the plot
-            for (plotSpec in plotSpecs) {
-                val html = PlotHtmlHelper.getStaticDisplayHtmlForRawSpec(plotSpec)
-
-                it.write(html)
-                it.write("\n")
-            }
-
-            it.write("</body>")
+        // For each `plot spec` append html/js block responsible for building the plot
+        for (plotSpec in plotSpecs) {
+            val html = PlotHtmlHelper.getStaticDisplayHtmlForRawSpec(plotSpec)
+            buffer.append(html).append("\n")
         }
 
-        BrowserDemoUtil.openInBrowser(file)
-    }
-
-    companion object {
-        const val DEMO_PROJECT_RELATIVE_PATH = "demo/browser"
+        buffer.append("</body>")
+        BrowserDemoUtil.openInBrowser(buffer.toString())
     }
 }
