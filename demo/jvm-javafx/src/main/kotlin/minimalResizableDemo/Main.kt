@@ -16,8 +16,8 @@ import jetbrains.datalore.plot.config.PlotConfigClientSide
 import jetbrains.datalore.plot.config.PlotConfigClientSideUtil
 import jetbrains.datalore.plot.config.PlotConfigUtil
 import jetbrains.datalore.plot.server.config.PlotConfigServerSide
-import jetbrains.datalore.vis.demoUtils.jfx.SceneMapperJfxPanel
 import jetbrains.datalore.vis.svg.SvgSvgElement
+import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggtitle

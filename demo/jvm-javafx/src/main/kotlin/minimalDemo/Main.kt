@@ -9,8 +9,8 @@ import javafx.application.Platform
 import jetbrains.datalore.base.geometry.DoubleVector
 import jetbrains.datalore.plot.MonolithicAwt
 import jetbrains.datalore.plot.builder.presentation.Style
-import jetbrains.datalore.vis.demoUtils.jfx.SceneMapperJfxPanel
 import jetbrains.datalore.vis.svg.SvgSvgElement
+import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggtitle

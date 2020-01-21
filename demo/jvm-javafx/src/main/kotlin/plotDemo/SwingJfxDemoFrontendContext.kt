@@ -8,8 +8,8 @@ package plotDemo
 import javafx.application.Platform
 import jetbrains.datalore.plot.MonolithicAwt
 import jetbrains.datalore.plot.builder.presentation.Style
-import jetbrains.datalore.vis.demoUtils.jfx.SceneMapperJfxPanel
 import jetbrains.datalore.vis.svg.SvgSvgElement
+import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
 import jetbrains.letsPlot.FrontendContext
 import java.awt.Color
 import java.awt.Dimension

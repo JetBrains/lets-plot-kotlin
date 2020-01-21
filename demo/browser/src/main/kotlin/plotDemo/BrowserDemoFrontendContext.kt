@@ -5,10 +5,9 @@
 
 package plotDemo
 
-import jetbrains.datalore.base.jsObject.JsObjectSupport
-import jetbrains.datalore.plot.server.config.PlotConfigServerSide
+import jetbrains.datalore.plot.PlotHtmlHelper
+import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 import jetbrains.letsPlot.FrontendContext
-import tmp.LetsPlotHtml
 import java.io.FileWriter
 
 class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
@@ -27,7 +26,7 @@ class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
                 |<head>
                 |   <title>$title</title>
                 |
-                |   ${LetsPlotHtml.getStaticScriptLoadingHtml()}
+                |   ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl("1.1.dev2"))}
                 |   
                 |</head>
                 |<body>
@@ -37,10 +36,7 @@ class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
 
             // append JS with plot data and a call to the build function.
             for (plotSpec in plotSpecs) {
-                @Suppress("NAME_SHADOWING")
-                val plotSpec = PlotConfigServerSide.processTransform(plotSpec)
-                val plotSpecJs = JsObjectSupport.mapToJsObjectInitializer(plotSpec)
-                val html = LetsPlotHtml.getStaticScriptPlotDisplayHtml(plotSpecJs)
+                val html = PlotHtmlHelper.getStaticDisplayHtmlForRawSpec(plotSpec)
 
                 it.write(html)
                 it.write("\n")

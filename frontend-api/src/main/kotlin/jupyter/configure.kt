@@ -6,10 +6,12 @@
 // TODO: fix package
 package jetbrains.datalore.jupyter
 
-import tmp.LetsPlotHtml
+import jetbrains.datalore.plot.PlotHtmlHelper
+
+private const val VERSION = "1.0.0"
 
 // Currently used as API method
 // TODO: move to Frontend Context (re-design needed)
 fun configureScript(): String {
-    return LetsPlotHtml.getDynamicScriptLoadingHtml(false)
+    return PlotHtmlHelper.getDynamicConfigureHtml(PlotHtmlHelper.scriptUrl(VERSION), false)
 }

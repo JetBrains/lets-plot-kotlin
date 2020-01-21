@@ -20,8 +20,6 @@ dependencies {
 
     testCompile "junit:junit:$junit_version"
 
-    api project(':frontend-api')
-
     api "org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version"
 }
 
