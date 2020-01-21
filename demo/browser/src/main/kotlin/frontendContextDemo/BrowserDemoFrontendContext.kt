@@ -3,7 +3,7 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo
+package frontendContextDemo
 
 import jetbrains.datalore.plot.PlotHtmlHelper
 import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
@@ -34,7 +34,7 @@ class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
             """.trimMargin()
             )
 
-            // append JS with plot data and a call to the build function.
+            // For each `plot spec` append html/js block responsible for building the plot
             for (plotSpec in plotSpecs) {
                 val html = PlotHtmlHelper.getStaticDisplayHtmlForRawSpec(plotSpec)
 

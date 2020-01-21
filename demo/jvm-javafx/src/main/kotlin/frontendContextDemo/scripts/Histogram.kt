@@ -3,17 +3,17 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo.scripts
+package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
-import plotDemo.SwingJfxDemoFrontend
+import frontendContextDemo.SwingJfxDemo
 
 object Histogram {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemoFrontend.eval("Histogram") {
+        SwingJfxDemo.eval("Histogram") {
             val rand = java.util.Random()
             val data = mapOf<String, Any>(
                 "x" to List(500) { rand.nextGaussian() } + List(500) { rand.nextGaussian() + 1.0 },

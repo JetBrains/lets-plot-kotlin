@@ -3,11 +3,11 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo
+package frontendContextDemo
 
 import jetbrains.letsPlot.GlobalSettings
 
-object SwingJfxDemoFrontend {
+object SwingJfxDemo {
     fun eval(title: String, script: () -> Unit) {
         val ctx = SwingJfxDemoFrontendContext(title)
         GlobalSettings.frontendContext = ctx

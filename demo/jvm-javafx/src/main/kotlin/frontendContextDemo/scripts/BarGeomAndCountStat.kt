@@ -3,18 +3,18 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo.scripts
+package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.stat.stat_count
-import plotDemo.SwingJfxDemoFrontend
+import frontendContextDemo.SwingJfxDemo
 
 object BarGeomAndCountStat {
     @JvmStatic
     @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
-        SwingJfxDemoFrontend.eval("'geom_bar()' == 'stat_count'") {
+        SwingJfxDemo.eval("'geom_bar()' == 'stat_count'") {
             val data = mapOf<String, Any>(
                 "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
                 "cat2" to listOf("c", "c", "d", "d", "d", "c", "c", "d", "c", "c", "d")

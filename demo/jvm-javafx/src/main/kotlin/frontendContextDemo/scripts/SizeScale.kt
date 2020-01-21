@@ -3,19 +3,19 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo.scripts
+package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggtitle
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_size
 import jetbrains.letsPlot.scale.scale_size_area
-import plotDemo.SwingJfxDemoFrontend
+import frontendContextDemo.SwingJfxDemo
 
 object SizeScale {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemoFrontend.eval("Size Scale") {
+        SwingJfxDemo.eval("Size Scale") {
             val dat = mapOf<String, Any>(
                 "x" to (0..5).map { it },
                 "y" to (0..5).map { 0 },

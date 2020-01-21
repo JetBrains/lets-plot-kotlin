@@ -3,20 +3,20 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo.scripts
+package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.GGBunch
 import jetbrains.letsPlot.geom.geom_boxplot
 import jetbrains.letsPlot.geom.geom_density
 import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.lets_plot
-import plotDemo.SwingJfxDemoFrontend
+import frontendContextDemo.SwingJfxDemo
 import kotlin.math.abs
 
 object GGBunchDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemoFrontend.eval("GGBunch: Density + Boxplot") {
+        SwingJfxDemo.eval("GGBunch: Density + Boxplot") {
             val density = lets_plot(densityData()) + geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
             val boxplot = lets_plot(boxplotData()) { x = "cat"; y = "val" } + geom_boxplot(outlierColor = "red")
 

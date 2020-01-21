@@ -3,16 +3,16 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo.scripts
+package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.geom.geom_density
 import jetbrains.letsPlot.lets_plot
-import plotDemo.SwingJfxDemoFrontend
+import frontendContextDemo.SwingJfxDemo
 
 object Density {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemoFrontend.eval("Density plot") {
+        SwingJfxDemo.eval("Density plot") {
             val rand = java.util.Random()
             val data = mapOf<String, Any>(
                 "x" to List(500) { rand.nextGaussian() }

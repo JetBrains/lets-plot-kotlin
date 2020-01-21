@@ -3,16 +3,16 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo.scripts
+package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggplot
-import plotDemo.SwingJfxDemoFrontend
+import frontendContextDemo.SwingJfxDemo
 
 object Scatter {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemoFrontend.eval("Scatter") {
+        SwingJfxDemo.eval("Scatter") {
             val data = mapOf<String, Any>(
                 "weight" to listOf(68, 84, 73),
                 "height" to listOf(175, 169, 180),

@@ -3,7 +3,7 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo.scripts
+package frontendContextDemo.scripts
 
 import jetbrains.datalore.base.values.Color
 import jetbrains.letsPlot.geom.geom_hline
@@ -11,12 +11,12 @@ import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_vline
 import jetbrains.letsPlot.ggtitle
 import jetbrains.letsPlot.lets_plot
-import plotDemo.SwingJfxDemoFrontend
+import frontendContextDemo.SwingJfxDemo
 
 object HLineVLine {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemoFrontend.eval("HLine, VLine") {
+        SwingJfxDemo.eval("HLine, VLine") {
             val data = mapOf<String, Any>(
                 "x" to (0..4).toList(),
                 "y" to listOf(0.0, 2.0, 4.0, 3.0, 1.0),

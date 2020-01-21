@@ -3,17 +3,17 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo.scripts
+package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scale_fill_gradient2
-import plotDemo.SwingJfxDemoFrontend
+import frontendContextDemo.SwingJfxDemo
 
 object ColorScaleContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemoFrontend.eval("Color Scale") {
+        SwingJfxDemo.eval("Color Scale") {
             val xs = (-64..64).toList()
             val data = mapOf("x" to xs)
 

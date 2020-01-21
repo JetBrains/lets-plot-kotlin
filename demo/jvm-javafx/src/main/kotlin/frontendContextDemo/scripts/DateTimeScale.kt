@@ -3,7 +3,7 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotDemo.scripts
+package frontendContextDemo.scripts
 
 import jetbrains.datalore.base.datetime.Date
 import jetbrains.datalore.base.datetime.DateTime
@@ -12,13 +12,13 @@ import jetbrains.datalore.base.datetime.tz.TimeZone
 import jetbrains.letsPlot.geom.geom_line
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scale_x_datetime
-import plotDemo.SwingJfxDemoFrontend
+import frontendContextDemo.SwingJfxDemo
 import kotlin.random.Random
 
 object DateTimeScale {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemoFrontend.eval("DateTime Scale") {
+        SwingJfxDemo.eval("DateTime Scale") {
             val second = 1000.0
             val minute = 60.0 * second
             val hour = 60.0 * minute
