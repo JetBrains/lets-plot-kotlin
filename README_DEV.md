@@ -4,7 +4,7 @@
 
 ### Build
 
-Copy file `build_settings.template.yml` located in the project root directory to the file named `build_settings.yml` in the same location
+Copy file `build_settings.template.yml` located in the project root directory to the file named `build_settings.yml` in the same location.
 
 run `./gradlew build`
 
@@ -29,20 +29,20 @@ org.jetbrains.lets-plot:lets-plot-kotlin-api:0.0.9-SNAPSHOT
 
 Please note that said maven artifacts are not yet released and are only available as snapshots.
 
-###Frontend context
+### Frontend context
 
 `Frontend context` is required for method `show()` in `Figure` interface to work properly. Both `Plot` and `GGBunch` classes in `lets-plot` Kotlin API implement `Figure` interface. Calling method `show` is typical for interactive notebook-like applications.
 
 To integrate `lets-plot` into such application:
 
-####Add dependencies on maven artifacts
+#### Add dependencies on maven artifacts
 
 ```
 org.jetbrains.lets-plot:lets-plot-common:1.1.2-SNAPSHOT
 org.jetbrains.lets-plot:lets-plot-kotlin-api:0.0.9-SNAPSHOT
 ```
 
-####Implement interface `jetbrains.letsPlot.FrontendContext` like: 
+#### Implement interface `jetbrains.letsPlot.FrontendContext` like: 
 ```
 import jetbrains.datalore.plot.PlotHtmlHelper
 import jetbrains.letsPlot.FrontendContext
@@ -55,7 +55,7 @@ class MyNotebookContext: FrontendContext {
 }
 ```
 
-####Initialize `lets-plot` at runtime
+#### Initialize `lets-plot` at runtime
 
 Load `lets-plot` JS library to the user agent:
 ```
