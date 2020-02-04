@@ -22,8 +22,8 @@ lets-plot-kotlin/demo/browser
 
 To use `lets-plot` and `lets-plot-kotlin` maven artifacts in your own project add the following dependencies: 
 ```
-org.jetbrains.lets-plot:lets-plot-common:1.1.2-SNAPSHOT
-org.jetbrains.lets-plot:lets-plot-jfx:1.1.2-SNAPSHOT
+org.jetbrains.lets-plot:lets-plot-common:1.2.1-SNAPSHOT
+org.jetbrains.lets-plot:lets-plot-jfx:1.2.1-SNAPSHOT
 org.jetbrains.lets-plot:lets-plot-kotlin-api:0.0.9-SNAPSHOT
 ```
 
@@ -38,7 +38,7 @@ To integrate `lets-plot` into such application:
 #### Add dependencies on maven artifacts
 
 ```
-org.jetbrains.lets-plot:lets-plot-common:1.1.2-SNAPSHOT
+org.jetbrains.lets-plot:lets-plot-common:1.2.1-SNAPSHOT
 org.jetbrains.lets-plot:lets-plot-kotlin-api:0.0.9-SNAPSHOT
 ```
 
