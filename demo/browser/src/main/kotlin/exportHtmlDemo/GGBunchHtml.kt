@@ -3,8 +3,10 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package plotSvgDemo
+package exportHtmlDemo
 
+import BrowserDemoUtil
+import jetbrains.datalore.plot.PlotHtmlExport
 import jetbrains.letsPlot.GGBunch
 import jetbrains.letsPlot.geom.geom_boxplot
 import jetbrains.letsPlot.geom.geom_density
@@ -12,7 +14,7 @@ import jetbrains.letsPlot.lets_plot
 import kotlin.math.abs
 
 @Suppress("DuplicatedCode")
-object GGBunchSvg {
+object GGBunchHtml {
     @JvmStatic
     fun main(args: Array<String>) {
         val density = lets_plot(densityData()) + geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
@@ -26,11 +28,10 @@ object GGBunchSvg {
         bunch.addPlot(boxplot, w + 10, h + 10, w, h)
 
         val spec = bunch.toSpec()
-        PlotSvgDemoUtil.show(
-            "GGBunch: a separate SVG image is created for each plot in bunch",
-            listOf(spec),
-            null
-        )
+
+        // Export: use PlotHtmlExport utility to generate dynamic HTML (optionally in iframe).
+        val html = PlotHtmlExport.buildHtmlFromRawSpecs(spec, iFrame = true)
+        BrowserDemoUtil.openInBrowser(html)
     }
 
     private fun densityData(): Map<*, *> {

@@ -9,8 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.10-SNAPSHOT] - 2020-03-26
 ### Changed
-- switch to 1.3.1
-ToDo
+- Upgrade Lets-Plot Maven artifact dependency to v.1.3.1 (lets-plot-common.jar, lets-plot-jfx.jar)
+  
+  What's new is 1.3.1:
+    - SVG export: function `MonolithicAwt.buildSvgImagesFromRawSpecs` was deprecated and replaced with  
+    `PlotSvgExport.buildSvgImageFromRawSpecs`. PlotSvgExport utility now generates single SVG image from `GGBunch` 
+    (before it was separate SVG per plot in the bunch).
+    - HTML export: New `PlotHtmlExport.buildHtmlFromRawSpecs` utility exports plot as a dynamic HTML page optionally
+      wrapped into iframe (see `iFrame` parameter). 
+    
+    See updated demos in `exportSvgDemo` and `exportHtmlDemo` packages.  
+
+
 
 ## [0.0.9-SNAPSHOT] - 2020-01-21
 ### Added

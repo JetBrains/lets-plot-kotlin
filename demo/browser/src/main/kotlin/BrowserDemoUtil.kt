@@ -19,12 +19,12 @@ object BrowserDemoUtil {
         openInBrowser(file)
     }
 
-    fun openInBrowser(file: File) {
+    private fun openInBrowser(file: File) {
         val desktop = Desktop.getDesktop()
         desktop.browse(file.toURI())
     }
 
-    fun createTemporaryFile(): File {
+    private fun createTemporaryFile(): File {
         val rootPath = getRootPath()
         println("Project root: $rootPath")
         val tmpDir = File(rootPath, "$DEMO_PROJECT_RELATIVE_PATH/build/tmp")
