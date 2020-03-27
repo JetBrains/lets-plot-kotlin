@@ -31,19 +31,19 @@ object BarRaw {
     fun main(args: Array<String>) {
         val specRaw = """
             {
-                'kind': 'plot',
-                'data':  { 'time': ['Lunch','Lunch', 'Dinner', 'Dinner', 'Dinner']},
-                'mapping': {
-                          'x': 'time',
-                          'y': '..count..',
-                          'fill': '..count..'
+                "kind": "plot",
+                "data":  { "time": ["Lunch","Lunch", "Dinner", "Dinner", "Dinner"]},
+                "mapping": {
+                          "x": "time",
+                          "y": "..count..",
+                          "fill": "..count.."
                         },
-                'layers': [{'geom': 'bar'}],
-                'scales': [
+                "layers": [{"geom": "bar"}],
+                "scales": [
                             {
-                               'aesthetic': 'fill',
-                               'discrete': true,
-                               'scale_mapper_kind': 'color_hue'
+                               "aesthetic": "fill",
+                               "discrete": true,
+                               "scale_mapper_kind": "color_hue"
                             }
                         ]
             }"""

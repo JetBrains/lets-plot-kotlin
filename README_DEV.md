@@ -20,6 +20,8 @@ lets-plot-kotlin/demo/browser
 
 ### Maven Artifacts
 
+[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-jars/_latestVersion)
+
 To use `lets-plot` and `lets-plot-kotlin` maven artifacts in your own project add the following dependencies: 
 ```
 org.jetbrains.lets-plot:lets-plot-common:1.2.1-SNAPSHOT

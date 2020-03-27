@@ -7,7 +7,7 @@ package plotSvgDemo
 
 import BrowserDemoUtil
 import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.datalore.plot.MonolithicAwt
+import jetbrains.datalore.plot.PlotSvgExport
 import kotlinx.html.*
 import kotlinx.html.stream.appendHTML
 import java.io.StringWriter
@@ -53,14 +53,10 @@ object PlotSvgDemoUtil {
             }
             body {
                 for (plotSpec in plotSpecList) {
-                    // Generate SVG images from plot or bunch specifications
-                    val svgImages = MonolithicAwt.buildSvgImagesFromRawSpecs(plotSpec, plotSize) {
-                        println(it)
-                    }
-                    for (svgImage in svgImages) {
-                        div("demo") {
-                            unsafe { +svgImage }
-                        }
+                    // Generate SVG image from plot or bunch specifications
+                    val svgImage = PlotSvgExport.buildSvgImageFromRawSpecs(plotSpec, plotSize)
+                    div("demo") {
+                        unsafe { +svgImage }
                     }
                 }
             }

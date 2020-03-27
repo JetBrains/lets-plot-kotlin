@@ -15,6 +15,7 @@ import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggtitle
 import jetbrains.letsPlot.intern.toSpec
+import java.awt.Color
 import java.util.*
 import javax.swing.JFrame
 import javax.swing.SwingUtilities
@@ -60,6 +61,9 @@ fun main() {
 
         // Show plot in Swing frame.
         val frame = JFrame("The Minimal")
+        // ToDo: setting background here shouldn't be necessary.
+        //  Plot component itself should have white background.
+//        frame.contentPane.background = Color.WHITE
         frame.contentPane.add(component)
         frame.defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
         frame.pack()
