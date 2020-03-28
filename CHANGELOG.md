@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.10-SNAPSHOT] - 2020-03-26
+## [0.0.10-SNAPSHOT] - 2020-03-26 (not published)
 ### Changed
 - Upgrade Lets-Plot Maven artifact dependency to v.1.3.1 (lets-plot-common.jar, lets-plot-jfx.jar)
   
