@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
       wrapped into iframe (see `iFrame` parameter). 
     
     See updated demos in `exportSvgDemo` and `exportHtmlDemo` packages.  
+    
+    - `lets-plot-common` and `lets-plot-jfx` artifacts are included in [jcenter](https://bintray.com/bintray/jcenter) Maven repository.
 
 
 

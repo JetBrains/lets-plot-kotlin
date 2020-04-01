@@ -33,7 +33,9 @@ along with other artifacts as a part of `Lets-Plot` library release.
 
 All artifacts are published to the following Maven repository: `https://jetbrains.bintray.com/lets-plot-maven`
 
-An example of **minimal JVM-base** application showing a simple plot:
+Additionally, `lets-plot-common` and `lets-plot-jfx` are included in [jcenter](https://bintray.com/bintray/jcenter) Maven repository (package `lets-plot-jars`).
+
+Try an example of a **minimal JVM-base** application which creates a simple plot:
 [minimalDemo/Main.kt](https://github.com/JetBrains/lets-plot-kotlin/blob/master/demo/jvm-javafx/src/main/kotlin/minimalDemo/Main.kt)
 
 
