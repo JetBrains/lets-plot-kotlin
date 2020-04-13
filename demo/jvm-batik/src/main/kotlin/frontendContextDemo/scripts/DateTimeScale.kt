@@ -12,13 +12,13 @@ import jetbrains.datalore.base.datetime.tz.TimeZone
 import jetbrains.letsPlot.geom.geom_line
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scale_x_datetime
-import frontendContextDemo.ScriptInJfxContext
+import frontendContextDemo.ScriptInBatikContext
 import kotlin.random.Random
 
 object DateTimeScale {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("DateTime Scale") {
+        ScriptInBatikContext.eval("DateTime Scale") {
             val second = 1000.0
             val minute = 60.0 * second
             val hour = 60.0 * minute

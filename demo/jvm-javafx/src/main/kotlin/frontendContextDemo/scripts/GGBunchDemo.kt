@@ -10,13 +10,13 @@ import jetbrains.letsPlot.geom.geom_boxplot
 import jetbrains.letsPlot.geom.geom_density
 import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.lets_plot
-import frontendContextDemo.SwingJfxDemo
+import frontendContextDemo.ScriptInJfxContext
 import kotlin.math.abs
 
 object GGBunchDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemo.eval("GGBunch: Density + Boxplot") {
+        ScriptInJfxContext.eval("GGBunch: Density + Boxplot") {
             val density = lets_plot(densityData()) + geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
             val boxplot = lets_plot(boxplotData()) { x = "cat"; y = "val" } + geom_boxplot(outlierColor = "red")
 

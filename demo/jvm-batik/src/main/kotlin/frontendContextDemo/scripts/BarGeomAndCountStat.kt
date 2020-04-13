@@ -8,13 +8,13 @@ package frontendContextDemo.scripts
 import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.stat.stat_count
-import frontendContextDemo.ScriptInBrowserContext
+import frontendContextDemo.ScriptInBatikContext
 
 object BarGeomAndCountStat {
     @JvmStatic
     @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
-        ScriptInBrowserContext.eval("'geom_bar()' == 'stat_count'") {
+        ScriptInBatikContext.eval("'geom_bar()' == 'stat_count'") {
             val data = mapOf<String, Any>(
                 "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
                 "cat2" to listOf("c", "c", "d", "d", "d", "c", "c", "d", "c", "c", "d")

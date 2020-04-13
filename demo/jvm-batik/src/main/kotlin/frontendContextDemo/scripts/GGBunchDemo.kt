@@ -5,18 +5,18 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBrowserContext
 import jetbrains.letsPlot.GGBunch
 import jetbrains.letsPlot.geom.geom_boxplot
 import jetbrains.letsPlot.geom.geom_density
 import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.lets_plot
+import frontendContextDemo.ScriptInBatikContext
 import kotlin.math.abs
 
 object GGBunchDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBrowserContext.eval("GGBunch: Density + Boxplot") {
+        ScriptInBatikContext.eval("GGBunch: Density + Boxplot") {
             val density = lets_plot(densityData()) + geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
             val boxplot = lets_plot(boxplotData()) { x = "cat"; y = "val" } + geom_boxplot(outlierColor = "red")
 

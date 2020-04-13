@@ -8,12 +8,12 @@ package frontendContextDemo.scripts
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scale_fill_gradient2
-import frontendContextDemo.ScriptInJfxContext
+import frontendContextDemo.ScriptInBatikContext
 
 object ColorScaleContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("Color Scale") {
+        ScriptInBatikContext.eval("Color Scale") {
             val xs = (-64..64).toList()
             val data = mapOf("x" to xs)
 

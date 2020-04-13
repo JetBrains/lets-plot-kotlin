@@ -5,18 +5,17 @@
 
 package frontendContextDemo
 
-import javafx.application.Platform
 import jetbrains.datalore.plot.MonolithicAwt
-import jetbrains.datalore.plot.builder.presentation.Style
 import jetbrains.datalore.vis.svg.SvgSvgElement
-import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
+import jetbrains.datalore.vis.swing.BatikMapperComponent
+import jetbrains.datalore.vis.swing.BatikMessageCallback
 import jetbrains.letsPlot.FrontendContext
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.FlowLayout
 import javax.swing.*
 
-class SwingJfxDemoFrontendContext(private val title: String) : FrontendContext {
+class SwingBatikDemoFrontendContext(private val title: String) : FrontendContext {
     private val plotSpecs = ArrayList<MutableMap<String, Any>>()
 
     override fun display(plotSpecRaw: MutableMap<String, Any>) {
@@ -35,8 +34,8 @@ class SwingJfxDemoFrontendContext(private val title: String) : FrontendContext {
                 val component =
                     MonolithicAwt.buildPlotFromRawSpecs(
                         plotSpec, null,
-                        SVG_COMPONENT_FACTORY_JFX,
-                        JFX_EDT_EXECUTOR,
+                        SVG_COMPONENT_FACTORY_BATIK,
+                        AWT_EDT_EXECUTOR,
                         COMPUTATION_MESSAGES_HANDLER
                     )
 
@@ -64,16 +63,27 @@ class SwingJfxDemoFrontendContext(private val title: String) : FrontendContext {
     }
 
     companion object {
-        private val SVG_COMPONENT_FACTORY_JFX =
-            { svg: SvgSvgElement -> SceneMapperJfxPanel(svg, listOf(Style.JFX_PLOT_STYLESHEET)) }
+        private val SVG_COMPONENT_FACTORY_BATIK =
+            { svg: SvgSvgElement -> BatikMapperComponent(svg, BATIK_MESSAGE_CALLBACK) }
 
-        private val JFX_EDT_EXECUTOR = { runnable: () -> Unit ->
-            if (Platform.isFxApplicationThread()) {
-                runnable.invoke()
-            } else {
-                Platform.runLater(runnable)
+        private val BATIK_MESSAGE_CALLBACK = object : BatikMessageCallback {
+            override fun handleMessage(message: String) {
+                println(message)
+            }
+
+            override fun handleException(e: Exception) {
+                if (e is RuntimeException) {
+                    throw e
+                }
+                throw RuntimeException(e)
             }
         }
+
+        private val AWT_EDT_EXECUTOR = { runnable: () -> Unit ->
+            // Just invoke in the current thread.
+            runnable.invoke()
+        }
+
         private val COMPUTATION_MESSAGES_HANDLER: (List<String>) -> Unit = {
             for (message in it) {
                 println("PLOT MESSAGE: $message")

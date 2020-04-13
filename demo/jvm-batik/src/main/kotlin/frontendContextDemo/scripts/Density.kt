@@ -7,12 +7,12 @@ package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.geom.geom_density
 import jetbrains.letsPlot.lets_plot
-import frontendContextDemo.ScriptInJfxContext
+import frontendContextDemo.ScriptInBatikContext
 
 object Density {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("Density plot") {
+        ScriptInBatikContext.eval("Density plot") {
             val rand = java.util.Random()
             val data = mapOf<String, Any>(
                 "x" to List(500) { rand.nextGaussian() }

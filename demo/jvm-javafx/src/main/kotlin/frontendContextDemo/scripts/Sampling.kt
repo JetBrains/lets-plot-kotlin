@@ -8,14 +8,14 @@ package frontendContextDemo.scripts
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.sampling.sampling_random
-import frontendContextDemo.SwingJfxDemo
+import frontendContextDemo.ScriptInJfxContext
 import kotlin.math.PI
 import kotlin.math.sin
 
 object Sampling {
     @JvmStatic
     fun main(args: Array<String>) {
-        SwingJfxDemo.eval("Sampling") {
+        ScriptInJfxContext.eval("Sampling") {
             val dat = mapOf<String, Any>(
                 "x" to (0..100).map { it * 2 * PI / 100 },
                 "y" to (0..100).map { sin(it * 2 * PI / 100) }

@@ -10,13 +10,13 @@ import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggplot
-import frontendContextDemo.BrowserDemo
+import frontendContextDemo.ScriptInBrowserContext
 
 object PointsOverBars {
     @JvmStatic
     @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
-        BrowserDemo.eval("Points on Bars") {
+        ScriptInBrowserContext.eval("Points on Bars") {
             val data = mapOf<String, Any>(
                 "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
                 "cat2" to listOf("c", "c", "d", "d", "d", "c", "c", "d", "c", "c", "d")

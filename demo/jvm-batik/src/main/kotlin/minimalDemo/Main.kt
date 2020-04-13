@@ -5,12 +5,11 @@
 
 package minimalDemo
 
-import javafx.application.Platform
 import jetbrains.datalore.base.geometry.DoubleVector
 import jetbrains.datalore.plot.MonolithicAwt
-import jetbrains.datalore.plot.builder.presentation.Style
 import jetbrains.datalore.vis.svg.SvgSvgElement
-import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
+import jetbrains.datalore.vis.swing.BatikMapperComponent
+import jetbrains.datalore.vis.swing.BatikMessageCallback
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggtitle
@@ -21,15 +20,25 @@ import javax.swing.SwingUtilities
 import javax.swing.WindowConstants
 
 // Setup
-private val SVG_COMPONENT_FACTORY_JFX =
-    { svg: SvgSvgElement -> SceneMapperJfxPanel(svg, listOf(Style.JFX_PLOT_STYLESHEET)) }
+private val SVG_COMPONENT_FACTORY_BATIK =
+    { svg: SvgSvgElement -> BatikMapperComponent(svg, BATIK_MESSAGE_CALLBACK) }
 
-private val JFX_EDT_EXECUTOR = { runnable: () -> Unit ->
-    if (Platform.isFxApplicationThread()) {
-        runnable.invoke()
-    } else {
-        Platform.runLater(runnable)
+private val BATIK_MESSAGE_CALLBACK = object : BatikMessageCallback {
+    override fun handleMessage(message: String) {
+        println(message)
     }
+
+    override fun handleException(e: Exception) {
+        if (e is RuntimeException) {
+            throw e
+        }
+        throw RuntimeException(e)
+    }
+}
+
+private val AWT_EDT_EXECUTOR = { runnable: () -> Unit ->
+    // Just invoke in the current thread.
+    runnable.invoke()
 }
 
 fun main() {
@@ -48,12 +57,12 @@ fun main() {
         }
         val p = ggplot(data) + geom + ggtitle("The normal distribution")
 
-        // Create JFXPanel showing the plot.
+        // Create Swing Panel showing the plot.
         val plotSpec = p.toSpec()
         val plotSize = DoubleVector(600.0, 300.0)
 
         val component =
-            MonolithicAwt.buildPlotFromRawSpecs(plotSpec, plotSize, SVG_COMPONENT_FACTORY_JFX, JFX_EDT_EXECUTOR) {
+            MonolithicAwt.buildPlotFromRawSpecs(plotSpec, plotSize, SVG_COMPONENT_FACTORY_BATIK, AWT_EDT_EXECUTOR) {
                 for (message in it) {
                     println("PLOT MESSAGE: $message")
                 }

@@ -10,12 +10,12 @@ import jetbrains.letsPlot.ggtitle
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_size
 import jetbrains.letsPlot.scale.scale_size_area
-import frontendContextDemo.ScriptInJfxContext
+import frontendContextDemo.ScriptInBatikContext
 
 object SizeScale {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("Size Scale") {
+        ScriptInBatikContext.eval("Size Scale") {
             val dat = mapOf<String, Any>(
                 "x" to (0..5).map { it },
                 "y" to (0..5).map { 0 },

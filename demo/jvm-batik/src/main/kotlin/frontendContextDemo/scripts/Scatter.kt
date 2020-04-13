@@ -7,12 +7,12 @@ package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggplot
-import frontendContextDemo.ScriptInJfxContext
+import frontendContextDemo.ScriptInBatikContext
 
 object Scatter {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("Scatter") {
+        ScriptInBatikContext.eval("Scatter") {
             val data = mapOf<String, Any>(
                 "weight" to listOf(68, 84, 73),
                 "height" to listOf(175, 169, 180),

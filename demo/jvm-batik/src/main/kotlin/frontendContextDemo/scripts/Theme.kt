@@ -9,12 +9,12 @@ import jetbrains.letsPlot.element_blank
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.theme
-import frontendContextDemo.ScriptInJfxContext
+import frontendContextDemo.ScriptInBatikContext
 
 object Theme {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("Theme") {
+        ScriptInBatikContext.eval("Theme") {
             val xs = (-64..64).toList()
             val data = mapOf("x" to xs)
 

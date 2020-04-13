@@ -7,13 +7,13 @@ package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.geom.geom_boxplot
 import jetbrains.letsPlot.lets_plot
-import frontendContextDemo.ScriptInJfxContext
+import frontendContextDemo.ScriptInBatikContext
 import kotlin.math.abs
 
 object Boxplot {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("Boxplot") {
+        ScriptInBatikContext.eval("Boxplot") {
 
             val categories = listOf("A", "B", "C", "D", "E")
 

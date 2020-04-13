@@ -5,19 +5,18 @@
 
 package minimalResizableDemo
 
-import javafx.application.Platform
 import jetbrains.datalore.base.geometry.DoubleVector
 import jetbrains.datalore.base.observable.property.ValueProperty
 import jetbrains.datalore.plot.MonolithicAwt
 import jetbrains.datalore.plot.builder.PlotContainer
-import jetbrains.datalore.plot.builder.presentation.Style
 import jetbrains.datalore.plot.config.PlotConfig
 import jetbrains.datalore.plot.config.PlotConfigClientSide
 import jetbrains.datalore.plot.config.PlotConfigClientSideUtil
 import jetbrains.datalore.plot.config.PlotConfigUtil
 import jetbrains.datalore.plot.server.config.PlotConfigServerSide
 import jetbrains.datalore.vis.svg.SvgSvgElement
-import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
+import jetbrains.datalore.vis.swing.BatikMapperComponent
+import jetbrains.datalore.vis.swing.BatikMessageCallback
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggtitle
@@ -33,15 +32,25 @@ import javax.swing.*
 import javax.swing.border.LineBorder
 
 // Setup
-private val SVG_COMPONENT_FACTORY_JFX =
-    { svg: SvgSvgElement -> SceneMapperJfxPanel(svg, listOf(Style.JFX_PLOT_STYLESHEET)) }
+private val SVG_COMPONENT_FACTORY_BATIK =
+    { svg: SvgSvgElement -> BatikMapperComponent(svg, BATIK_MESSAGE_CALLBACK) }
 
-private val JFX_EDT_EXECUTOR = { runnable: () -> Unit ->
-    if (Platform.isFxApplicationThread()) {
-        runnable.invoke()
-    } else {
-        Platform.runLater(runnable)
+private val BATIK_MESSAGE_CALLBACK = object : BatikMessageCallback {
+    override fun handleMessage(message: String) {
+        println(message)
     }
+
+    override fun handleException(e: Exception) {
+        if (e is RuntimeException) {
+            throw e
+        }
+        throw RuntimeException(e)
+    }
+}
+
+private val AWT_EDT_EXECUTOR = { runnable: () -> Unit ->
+    // Just invoke in the current thread.
+    runnable.invoke()
 }
 
 private const val PADDING = 20
@@ -67,7 +76,7 @@ fun main() {
         }
         val p = ggplot(data) + geom + ggtitle("The normal distribution")
 
-        // Create JFXPanel showing the plot.
+        // Create Swing Panel showing the plot.
         val plotSpec = p.toSpec()
 
         // This plot panel will adapt to dimensions of container
@@ -122,7 +131,7 @@ private fun createPlotPanel(
 
             val executor: (() -> Unit) -> Unit = if (plotCreated) {
                 // Supposedly, Java FX has already been initialized at this time
-                JFX_EDT_EXECUTOR
+                AWT_EDT_EXECUTOR
             } else {
                 // Java FX is not yet started - execute in Swing EDT
                 { runnable: () -> Unit -> SwingUtilities.invokeLater(runnable) }
@@ -148,8 +157,8 @@ private fun createPlotPanel(
 
                         val component = MonolithicAwt.buildPlotSvgComponent(
                             plotContainer,
-                            SVG_COMPONENT_FACTORY_JFX,
-                            JFX_EDT_EXECUTOR
+                            SVG_COMPONENT_FACTORY_BATIK,
+                            AWT_EDT_EXECUTOR
                         )
                         component.border = BorderFactory.createLineBorder(Color.BLUE, 1)
                         container.add(component)

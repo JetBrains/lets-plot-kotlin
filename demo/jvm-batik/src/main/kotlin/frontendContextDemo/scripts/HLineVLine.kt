@@ -11,12 +11,12 @@ import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_vline
 import jetbrains.letsPlot.ggtitle
 import jetbrains.letsPlot.lets_plot
-import frontendContextDemo.ScriptInJfxContext
+import frontendContextDemo.ScriptInBatikContext
 
 object HLineVLine {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("HLine, VLine") {
+        ScriptInBatikContext.eval("HLine, VLine") {
             val data = mapOf<String, Any>(
                 "x" to (0..4).toList(),
                 "y" to listOf(0.0, 2.0, 4.0, 3.0, 1.0),

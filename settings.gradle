@@ -7,9 +7,11 @@ rootProject.name = 'lets-plot-kotlin'
 
 include 'plot-api',
         'jvm-javafx',
+        'jvm-batik',
         'browser'
 
 project(':jvm-javafx').projectDir = new File('./demo/jvm-javafx')
+project(':jvm-batik').projectDir = new File('./demo/jvm-batik')
 project(':browser').projectDir = new File('./demo/browser')
 
 enableFeaturePreview('GRADLE_METADATA')

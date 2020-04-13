@@ -7,7 +7,7 @@ package frontendContextDemo
 
 import jetbrains.letsPlot.GlobalSettings
 
-object BrowserDemo {
+object ScriptInBrowserContext {
     fun eval(title: String, script: () -> Unit) {
         val ctx = BrowserDemoFrontendContext(title)
         GlobalSettings.frontendContext = ctx

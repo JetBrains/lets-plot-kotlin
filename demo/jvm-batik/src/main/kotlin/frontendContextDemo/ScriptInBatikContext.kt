@@ -7,9 +7,9 @@ package frontendContextDemo
 
 import jetbrains.letsPlot.GlobalSettings
 
-object SwingJfxDemo {
+object ScriptInBatikContext {
     fun eval(title: String, script: () -> Unit) {
-        val ctx = SwingJfxDemoFrontendContext(title)
+        val ctx = SwingBatikDemoFrontendContext(title)
         GlobalSettings.frontendContext = ctx
 
         script()
