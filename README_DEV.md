@@ -10,33 +10,64 @@ run `./gradlew build`
 
 Aside from examples of Jupyter notebooks the project also contains a set of simple demos showing how plots can be built outside Jupyter notebook environment. Each such demo  has `main` method and is launched like any other simple JVM application.
 
-The simple demos are in folders: 
+The simple demos can be found in the following folders: 
 ```
-lets-plot-kotlin/demo/jvm-javafx
 lets-plot-kotlin/demo/browser
+lets-plot-kotlin/demo/jvm-batik
+lets-plot-kotlin/demo/jvm-javafx
 ```
 
-### Maven Artifacts
+### Creating plots in JVM-based applications
 
-`Let-Plot` Kotlin API is published as `lets-plot-kotlin-api` JAR (only snapshot, not yet released)
+Lets-Plot library enables embedding plots into a JVM-based application.
 
-[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/_latestVersion)
+It also offers a choice between [JavaFX](https://en.wikipedia.org/wiki/JavaFX) graphics and rendering powered by [Apache Batik SVG Toolkit](https://xmlgraphics.apache.org/batik/). 
 
-To create plots in JVM-based application two other JARs are required: 
+#### Required Maven artifacts published by the main [Lets-Plot](https://github.com/JetBrains/lets-plot) project
+
 - `lets-plot-common`
-- `lets-plot-jfx`
-   
-These artifacts are published by the main [Lets-Plot](https://github.com/JetBrains/lets-plot) project 
-along with other artifacts as a part of `Lets-Plot` library release.  
+- `lets-plot-batik` or `lets-plot-jfx` (choose one) 
 
 [ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-jars/_latestVersion)
 
-All artifacts are published to the following Maven repository: `https://jetbrains.bintray.com/lets-plot-maven`
+These artifacts are available at [jcenter](https://bintray.com/bintray/jcenter) Maven repository (package `lets-plot-jars`).
 
-Additionally, `lets-plot-common` and `lets-plot-jfx` are included in [jcenter](https://bintray.com/bintray/jcenter) Maven repository (package `lets-plot-jars`).
 
-Try an example of a **minimal JVM-base** application which creates a simple plot:
-[minimalDemo/Main.kt](https://github.com/JetBrains/lets-plot-kotlin/blob/master/demo/jvm-javafx/src/main/kotlin/minimalDemo/Main.kt)
+#### Optional but indispensable Kotlin API artifact (published by this project)
+
+- `lets-plot-kotlin-api`
+
+This artifact is not yet released and only available as a SNAPSHOT.
+
+[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/_latestVersion)
+
+Maven repository: `https://jetbrains.bintray.com/lets-plot-maven`
+
+The following is an example fragment of a Gradle project that uses `lets-plot-kotlin-api` artifact:
+
+```groovy
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    api "org.jetbrains.lets-plot:lets-plot-kotlin-api:0.0.10-SNAPSHOT"
+}
+```
+
+```groovy
+repositories {
+    maven {
+        url "https://jetbrains.bintray.com/lets-plot-maven"
+    }
+}
+```
+
+
+#### An example of a **minimal JVM-based** application
+
+- Using Apache Batik: 
+    [minimalDemo/Main.kt](https://github.com/JetBrains/lets-plot-kotlin/blob/master/demo/jvm-batik/src/main/kotlin/minimalDemo/Main.kt)
+
+- Using JavaFX: 
+    [minimalDemo/Main.kt](https://github.com/JetBrains/lets-plot-kotlin/blob/master/demo/jvm-javafx/src/main/kotlin/minimalDemo/Main.kt)
 
 
 ### Frontend context
@@ -44,7 +75,7 @@ Try an example of a **minimal JVM-base** application which creates a simple plot
 `Frontend context` is required for method `show()` in `Figure` interface to work properly. Both `Plot` and `GGBunch` classes in `Lets-Plot` Kotlin API implement `Figure` interface. 
 Calling method `show` is typical for interactive notebook-like applications.
 
-To integrate `Lets-Plot` into such application:
+The following steps describe how to use `Lets-Plot` JVM "backend" in "browser" frontend context.
 
 #### Add dependencies on maven artifacts
 

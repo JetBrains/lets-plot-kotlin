@@ -59,6 +59,12 @@ p + ggsize(500, 250)
 * [Kotlin for Data Science](https://kotlinlang.org/docs/reference/data-science-overview.html) : overview of Kotlin Jupyter kernel etc.
 * [Using Kotlin for Data Science](https://www.youtube.com/watch?v=APnyDVye4JA&list=PLQ176FUIyIUY6SKGl3Cj9yeYibBuRr3Hl&index=39&t=0s) : recording of the talk at KotlinConf-19. 
 
+### `Lets-Plot` in JVM-based application
+
+Besides Jupyter notebooks, Lets-Plot library and Kotlin API enables embedding plots into a JVM-based application.
+
+See [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md) to learn more about creating plots in a JVM environment.
+
 ### License
 
 Code and documentation released under the [MIT license](https://github.com/JetBrains/lets-plot/blob/master/LICENSE).
