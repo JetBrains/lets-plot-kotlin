@@ -129,15 +129,17 @@ private fun createPlotPanel(
         override fun componentResized(e: ComponentEvent) {
             eventCount.incrementAndGet()
 
-            val executor: (() -> Unit) -> Unit = if (plotCreated) {
-                // Supposedly, Java FX has already been initialized at this time
-                AWT_EDT_EXECUTOR
-            } else {
-                // Java FX is not yet started - execute in Swing EDT
-                { runnable: () -> Unit -> SwingUtilities.invokeLater(runnable) }
-            }
-
-            executor {
+//      This is only needed for JavaFX
+//            val executor: (() -> Unit) -> Unit = if (plotCreated) {
+//                // Supposedly, Java FX has already been initialized at this time
+//                AWT_EDT_EXECUTOR
+//            } else {
+//                // Java FX is not yet started - execute in Swing EDT
+//                { runnable: () -> Unit -> SwingUtilities.invokeLater(runnable) }
+//            }
+//
+//            executor {
+            SwingUtilities.invokeLater {
                 if (eventCount.decrementAndGet() == 0) {
                     val container = e.component as JComponent
                     container.invalidate()
