@@ -157,7 +157,7 @@ private fun createPlotPanel(
                         val plot = assembler.createPlot()
                         val plotContainer = PlotContainer(plot, plotSizeProp)
 
-                        val component = MonolithicAwt.buildPlotSvgComponent(
+                        val component = MonolithicAwt.buildPlotComponent(
                             plotContainer,
                             SVG_COMPONENT_FACTORY_BATIK,
                             AWT_EDT_EXECUTOR

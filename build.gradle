@@ -10,16 +10,6 @@ plugins {
     id "com.jfrog.bintray" version '1.8.4' apply false
 }
 
-group 'org.jetbrains.lets-plot'
-version "0.0.10-SNAPSHOT"
-
-
-repositories {
-    mavenCentral()
-    jcenter()
-}
-
-
 /*
  * Copyright (c) 2019. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
@@ -35,9 +25,9 @@ def settings = new Yaml().load(build_settings_file.newInputStream())
 project.ext.buildSettings = settings
 
 
-subprojects {
-    group = rootProject.group
-    version = rootProject.version
+allprojects {
+    group 'org.jetbrains.lets-plot'
+    version "0.0.10-SNAPSHOT"
 
     sourceCompatibility = 1.8
     compileKotlin {
@@ -51,8 +41,9 @@ subprojects {
         mavenCentral()
         jcenter()
 
+//        mavenLocal()
+
 //        maven {
-////            url "file://$project.rootDir/.maven_repo"
 //            url "file:///Users/Igor/Work/lets-plot/.maven-publish-dev-repo"
 //        }
 

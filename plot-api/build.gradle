@@ -6,10 +6,6 @@ plugins {
     id 'org.jetbrains.dokka' version '0.10.0'
 }
 
-repositories {
-    jcenter()
-}
-
 dokka {
     outputFormat = 'html'
     outputDirectory = "$projectDir/docs"

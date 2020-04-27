@@ -24,10 +24,10 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     spec[KIND] = PLOT
 
     plot.data?.let {
-        spec[Option.Plot.DATA] = asPlotData(plot.data)
+        spec[Option.PlotBase.DATA] = asPlotData(plot.data)
     }
 
-    spec[Option.Plot.MAPPING] = plot.mapping.map
+    spec[Option.PlotBase.MAPPING] = plot.mapping.map
     spec[Option.Plot.LAYERS] = plot.layers().map { it.toSpec() }
     spec[Option.Plot.SCALES] = plot.scales().map { it.toSpec() }
 
@@ -53,7 +53,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
 //    layer.sampling
 
     data?.let {
-        spec[Option.Layer.DATA] = asPlotData(data)
+        spec[Option.PlotBase.DATA] = asPlotData(data)
     }
 
     spec[Option.Layer.GEOM] = geom.kind.optionName()
@@ -71,7 +71,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         spec[Option.Layer.SAMPLING] = sampling.mapping.map
     }
 
-    spec[Option.Layer.MAPPING] = (mapping + geom.mapping + stat.mapping).map
+    spec[Option.PlotBase.MAPPING] = (mapping + geom.mapping + stat.mapping).map
 
     val allParameters = parameters + geom.parameters + stat.parameters
     spec.putAll(allParameters.map)

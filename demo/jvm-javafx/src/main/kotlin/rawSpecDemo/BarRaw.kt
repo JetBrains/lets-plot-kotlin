@@ -54,7 +54,7 @@ object BarRaw {
         val component = MonolithicAwt.buildPlotFromRawSpecs(
             plotSpec = spec as MutableMap<String, Any>,
             plotSize = DoubleVector(600.0, 300.0),
-            componentFactory = SVG_COMPONENT_FACTORY_JFX,
+            svgComponentFactory = SVG_COMPONENT_FACTORY_JFX,
             executor = EXECUTOR_JFX
         ) {
             for (message in it) {
