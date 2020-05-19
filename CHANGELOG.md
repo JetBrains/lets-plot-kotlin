@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [0.0.11-SNAPSHOT] - 2020-05-19
+### Changed
+ - Upgrade Lets-Plot Maven artifact dependency to v.1.4.0 (lets-plot-common.jar etc.)
+ - More slick shape for tooltips on the axis.
+
+### Fixed
+ - Severe performance degradation when using discrete scales [[#119](https://github.com/JetBrains/lets-plot/issues/119)].
+
+
 ## [0.0.10-SNAPSHOT] - 2020-03-26 (not published)
 ### Changed
 - Upgrade Lets-Plot Maven artifact dependency to v.1.3.1 (lets-plot-common.jar, lets-plot-jfx.jar)
@@ -21,7 +31,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     See updated demos in `exportSvgDemo` and `exportHtmlDemo` packages.  
     
     - `lets-plot-common` and `lets-plot-jfx` artifacts are included in [jcenter](https://bintray.com/bintray/jcenter) Maven repository.
-
 
 
 ## [0.0.9-SNAPSHOT] - 2020-01-21
