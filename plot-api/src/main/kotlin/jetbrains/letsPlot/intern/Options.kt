@@ -13,7 +13,7 @@ class Options(map: Map<String, Any?>) {
         fun empty() = Options(emptyMap())
     }
 
-    internal val map: Map<String, Any>
+    val map: Map<String, Any>
 
     init {
         val tmp = mutableMapOf<String, Any>()

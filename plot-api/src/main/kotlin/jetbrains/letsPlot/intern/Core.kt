@@ -110,7 +110,7 @@ abstract class Layer(
     abstract val parameters: Options
 }
 
-class Scale internal constructor(
+class Scale(
     val aesthetic: Aes<*>,
     val name: String? = null,
     val breaks: List<Any>? = null,
