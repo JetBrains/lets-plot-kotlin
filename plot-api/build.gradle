@@ -72,6 +72,15 @@ publishing {
                 scm {
                     url = "https://github.com/JetBrains/lets-plot-kotlin"
                 }
+                // Add dependency on lets-plot-common
+                withXml {
+                    def deps = asNode().appendNode('dependencies')
+                    def dep = deps.appendNode('dependency')
+                    dep.appendNode('groupId', 'org.jetbrains.lets-plot')
+                    dep.appendNode('artifactId', 'lets-plot-common')
+                    dep.appendNode('version', lets_plot_version)
+                }
+
             }
         }
     }
