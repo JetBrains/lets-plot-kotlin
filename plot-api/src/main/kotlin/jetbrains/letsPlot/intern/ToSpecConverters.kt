@@ -31,6 +31,9 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     spec[Option.Plot.LAYERS] = plot.layers().map { it.toSpec() }
     spec[Option.Plot.SCALES] = plot.scales().map { it.toSpec() }
 
+    // Width of plot in percents of the available in frontend width.
+    plot.widthScale?.let { spec["widthScale"] = it }
+
 // TODO:
 //    const val TITLE = "ggtitle"
 //    const val TITLE_TEXT = "text"

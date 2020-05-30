@@ -14,8 +14,12 @@ import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 
 
-class Plot internal constructor(val data: Any?, val mapping: Options, val features: List<Feature>) : Figure {
-    constructor() : this(null, GenericAesMapping().seal(), emptyList())
+class Plot internal constructor(
+    val data: Any? = null,
+    val mapping: Options = GenericAesMapping().seal(),
+    val features: List<Feature> = emptyList(),
+    val widthScale: Int? = null
+) : Figure {
 
     operator fun plus(other: Feature): Plot {
         return when (other) {
