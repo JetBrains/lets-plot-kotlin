@@ -101,6 +101,9 @@ class MyNotebookContext: FrontendContext {
 
 Load `Lets-Plot` JS library to the user agent:
 ```
+import jetbrains.datalore.plot.PlotHtmlHelper
+import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
+
 val ver = .. // JS library version, for example: "1.1.dev2"
 val html:String = PlotHtmlHelper.getDynamicConfigureHtml(scriptUrl(ver), false)
 // include `configure html` in your document ...

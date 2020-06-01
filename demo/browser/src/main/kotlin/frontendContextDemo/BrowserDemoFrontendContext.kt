@@ -24,7 +24,7 @@ class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
                 |<head>
                 |   <title>$title</title>
                 |
-                |   ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl("1.1.dev2"))}
+                |   ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl("1.4.2"))}
                 |   
                 |</head>
                 |<body>
