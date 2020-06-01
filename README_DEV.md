@@ -111,9 +111,9 @@ val html:String = PlotHtmlHelper.getDynamicConfigureHtml(scriptUrl(ver), false)
 
 Define `Lets-Plot` frontend context:
 ```
-import jetbrains.letsPlot.GlobalSettings
+import jetbrains.letsPlot.LetsPlot
 ...
-GlobalSettings.frontendContext = MyNotebookContext()
+LetsPlot.frontendContext = MyNotebookContext()
 ```
 
 

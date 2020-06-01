@@ -7,7 +7,7 @@ package jetbrains.letsPlot.intern
 
 import jetbrains.datalore.plot.base.Aes
 import jetbrains.letsPlot.Figure
-import jetbrains.letsPlot.GlobalSettings
+import jetbrains.letsPlot.LetsPlot
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
@@ -46,7 +46,7 @@ class Plot internal constructor(
     }
 
     override fun show() {
-        GlobalSettings.frontendContext.display(this.toSpec())
+        LetsPlot.frontendContext.display(this.toSpec())
     }
 
     companion object {

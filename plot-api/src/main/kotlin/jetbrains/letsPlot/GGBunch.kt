@@ -41,7 +41,7 @@ class GGBunch : Figure {
     }
 
     override fun show() {
-        GlobalSettings.frontendContext.display(this.toSpec())
+        LetsPlot.frontendContext.display(this.toSpec())
     }
 
     private class PlotItem(

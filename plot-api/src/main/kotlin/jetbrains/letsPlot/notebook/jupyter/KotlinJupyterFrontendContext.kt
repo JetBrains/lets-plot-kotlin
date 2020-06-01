@@ -11,6 +11,7 @@ import jetbrains.letsPlot.GGBunch
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.toSpec
 
+@Suppress("unused")
 class KotlinJupyterFrontendContext(private val htmlRenderer: (String) -> Unit) : FrontendContext {
     override fun display(plotSpecRaw: MutableMap<String, Any>) {
         val html = PlotHtmlHelper.getDynamicDisplayHtmlForRawSpec(plotSpecRaw)

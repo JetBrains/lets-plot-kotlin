@@ -5,12 +5,12 @@
 
 package frontendContextDemo
 
-import jetbrains.letsPlot.GlobalSettings
+import jetbrains.letsPlot.LetsPlot
 
 object ScriptInBatikContext {
     fun eval(title: String, script: () -> Unit) {
         val ctx = SwingBatikDemoFrontendContext(title)
-        GlobalSettings.frontendContext = ctx
+        LetsPlot.frontendContext = ctx
 
         script()
 
