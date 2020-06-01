@@ -20,6 +20,9 @@ enum class GeomKind {
     CROSS_BAR {
         override fun optionName() = "crossbar"
     },
+    LINE_RANGE {
+        override fun optionName() = "linerange"
+    },
     POINT_RANGE {
         override fun optionName() = "pointrange"
     },

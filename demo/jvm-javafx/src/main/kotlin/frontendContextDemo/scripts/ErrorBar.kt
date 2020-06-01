@@ -7,10 +7,10 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.Pos
-import jetbrains.letsPlot.geom.geom_errorbar
-import jetbrains.letsPlot.geom.geom_line
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.geom.*
+import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.ggtitle
 
 object ErrorBar {
     @JvmStatic
@@ -18,23 +18,90 @@ object ErrorBar {
         ScriptInJfxContext.eval("ErrorBar") {
             val data = mapOf<String, Any>(
                 "supp" to listOf("OJ", "OJ", "OJ", "VC", "VC", "VC"),
-                "dose" to listOf(0.5, 1.0, 1.5, 0.5, 1.0, 1.5),
-                "len" to listOf(13.23, 21.7, 27.06, 7.00, 17.77, 25.14),
+                "dose" to listOf(0.5, 1.0, 2.0, 0.5, 1.0, 2.0),
+                "len" to listOf(13.23, 22.7, 26.06, 7.98, 16.77, 26.14),
                 "min" to listOf(10.83, 20.8, 24.0, 5.24, 15.26, 24.35),
                 "max" to listOf(15.63, 24.6, 28.11, 10.72, 18.28, 27.93)
             )
+            val plot = ggplot(data) { x = "dose"; y = "len"; color = "supp" }
 
-            val geom = geom_errorbar(
-                position = Pos.position_dodge(width = 0.1),
-                color = "black", width = 0.1
-            ) {
-                ymin = "min"; ymax = "max"; group = "supp"
-            } +
-                    geom_line(position = Pos.position_dodge(width = 0.1)) +
-                    geom_point(position = Pos.position_dodge(width = 0.1), size = 2.0)
+            fun withLinesAndPoints() {
+                val geom = geom_errorbar(
+                    position = Pos.position_dodge(width = 0.1),
+                    color = "black",
+                    width = 0.1
+                ) {
+                    ymin = "min"; ymax = "max"; group = "supp"
+                } +
+                        geom_line(position = Pos.position_dodge(width = 0.1)) +
+                        geom_point(position = Pos.position_dodge(width = 0.1), size = 5.0)
 
-            val p = lets_plot(data) { x = "dose"; y = "len"; color = "supp" } + geom
-            p.show()
+                val p = plot + geom
+                p.show()
+            }
+
+            fun errorbar() {
+                val geom = geom_errorbar(
+                    position = Pos.position_dodge(width = 0.1),
+                    width = 0.1
+                ) {
+                    ymin = "min"; ymax = "max";
+                } +
+                        geom_line(position = Pos.position_dodge(width = 0.1)) +
+                        geom_point(position = Pos.position_dodge(width = 0.1), size = 2.0)
+
+                val p = plot + geom + ggtitle("errorbar")
+                p.show()
+            }
+
+            fun pointrange() {
+                val geom = geom_pointrange(
+                    position = Pos.position_dodge(width = 0.1),
+                    color = "black",
+                    size = 1.0
+                ) {
+                    ymin = "min"; ymax = "max"; group = "supp"
+                } + geom_line(position = Pos.position_dodge(width = 0.1))
+
+                val p = plot + geom + ggtitle("pointrange")
+                p.show()
+            }
+
+            fun linerange() {
+                val geom = geom_linerange(
+                    position = Pos.position_dodge(width = 0.1),
+                    size = 5.0
+                ) {
+                    ymin = "min"; ymax = "max"; group = "supp"
+                } +
+                        geom_line(position = Pos.position_dodge(width = 0.1)) +
+                        geom_point(position = Pos.position_dodge(width = 0.1), size = 2.0)
+                val p = plot + geom + ggtitle("linerange")
+                p.show()
+            }
+
+            fun withBars() {
+                val geom = geom_bar(
+                    position = Pos.dodge,
+                    color = "black",
+                    stat = Stat.identity
+                ) { fill = "supp" } +
+                        geom_errorbar(
+                            position = Pos.position_dodge(width = 0.9),
+                            color = "black",
+                            width = 0.1
+                        ) {
+                            ymin = "min"; ymax = "max"; group = "supp"
+                        }
+                val p = plot + geom + ggtitle("with bars")
+                p.show()
+            }
+
+            withLinesAndPoints()
+            errorbar()
+            pointrange()
+            linerange()
+            withBars()
         }
     }
 }

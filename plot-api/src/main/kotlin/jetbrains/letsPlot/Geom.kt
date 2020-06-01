@@ -390,4 +390,22 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class linerange(
+        mapping: LineRangeMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : LineRangeAesthetics,
+        GeomOptions(
+            GeomKind.LINE_RANGE,
+            LineRangeMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
