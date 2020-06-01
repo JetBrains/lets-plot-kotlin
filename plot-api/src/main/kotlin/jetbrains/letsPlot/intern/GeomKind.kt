@@ -17,6 +17,9 @@ enum class GeomKind {
     ERROR_BAR {
         override fun optionName() = "errorbar"
     },
+    CROSS_BAR {
+        override fun optionName() = "crossbar"
+    },
     POLYGON,
     AB_LINE {
         override fun optionName() = "abline"
