@@ -14,7 +14,9 @@ enum class GeomKind {
     HISTOGRAM,
     TILE,
     MAP,
-    ERROR_BAR,
+    ERROR_BAR {
+        override fun optionName() = "errorbar"
+    },
     POLYGON,
     AB_LINE {
         override fun optionName() = "abline"

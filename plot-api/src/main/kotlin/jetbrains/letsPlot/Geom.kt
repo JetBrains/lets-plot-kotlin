@@ -328,4 +328,23 @@ object Geom {
                     super<BoxplotParameters>.seal()
         }
     }
+
+    @Suppress("ClassName")
+    class errorbar(
+        mapping: ErrorBarMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val width: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : ErrorBarAesthetics,
+        GeomOptions(
+            GeomKind.ERROR_BAR,
+            ErrorBarMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
