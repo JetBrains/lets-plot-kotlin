@@ -6,6 +6,7 @@
 package jetbrains.letsPlot.frontend
 
 import jetbrains.datalore.plot.PlotHtmlHelper
+import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 import jetbrains.letsPlot.FrontendContext
 import jetbrains.letsPlot.GGBunch
 import jetbrains.letsPlot.intern.Plot
@@ -24,7 +25,7 @@ class NotebookFrontendContext(
 
     override fun getInfo(): String {
         return "Notebook with ${if (isolatedFrame) "static HTML in output" else "dynamically loaded JS"}. " +
-                "Lets-Plot library v. $libraryVersion."
+                "Lets-Plot library v.$libraryVersion."
     }
 
     fun getConfigureHtml(): String {
@@ -32,7 +33,7 @@ class NotebookFrontendContext(
             // Do not pre-load JS library
             ""
         } else {
-            PlotHtmlHelper.getDynamicConfigureHtml(PlotHtmlHelper.scriptUrl(libraryVersion), false)
+            PlotHtmlHelper.getDynamicConfigureHtml(scriptUrl(libraryVersion), false)
         }
     }
 
@@ -47,7 +48,7 @@ class NotebookFrontendContext(
     private fun getDisplayHtml(rawSpec: MutableMap<String, Any>): String {
         return if (isolatedFrame) {
             """
-            ${PlotHtmlHelper.getStaticConfigureHtml(libraryVersion)}    
+            ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl(libraryVersion))}    
             ${PlotHtmlHelper.getStaticDisplayHtmlForRawSpec(rawSpec)}    
             """.trimIndent()
         } else {

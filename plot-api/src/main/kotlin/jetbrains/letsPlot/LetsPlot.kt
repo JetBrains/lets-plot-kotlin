@@ -21,7 +21,7 @@ object LetsPlot {
     var apiVersion: String = "Unknown"
 
     @Suppress("unused")
-    fun getInfo() = "Kotlin API version: $apiVersion. Frontend: ${frontendContext.getInfo()}"
+    fun getInfo() = "Lets-Plot Kotlin API v.$apiVersion. Frontend: ${frontendContext.getInfo()}"
 
     @Suppress("unused")
     fun setupNotebook(
