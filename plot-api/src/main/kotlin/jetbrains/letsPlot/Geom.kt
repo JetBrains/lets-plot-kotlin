@@ -408,4 +408,23 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class ribbon(
+        mapping: RibbonMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val size: Double? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Double? = null
+    ) : RibbonAesthetics,
+        GeomOptions(
+            GeomKind.RIBBON,
+            RibbonMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
