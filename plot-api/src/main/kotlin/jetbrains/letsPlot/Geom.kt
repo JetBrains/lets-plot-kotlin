@@ -168,6 +168,26 @@ object Geom {
     }
 
     @Suppress("ClassName")
+    class bin2d(
+        mapping: Bin2dMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val width: Double? = null,
+        override val height: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : Bin2dAesthetics,
+        GeomOptions(
+            GeomKind.BIN_2D,
+            Bin2dMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class raster(
         mapping: RasterMapping.() -> Unit = {},
         override val x: Double? = null,

@@ -13,6 +13,9 @@ enum class GeomKind {
     BAR,
     HISTOGRAM,
     TILE,
+    BIN_2D {
+        override fun optionName() = "bin2d"
+    },
     MAP,
     ERROR_BAR {
         override fun optionName() = "errorbar"

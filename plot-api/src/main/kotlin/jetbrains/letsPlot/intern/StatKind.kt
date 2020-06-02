@@ -10,6 +10,7 @@ enum class StatKind {
     COUNT,
     DENSITY,
     BIN,
+    BIN2D,
     BOXPLOT;
 
     fun optionName() = name.toLowerCase()

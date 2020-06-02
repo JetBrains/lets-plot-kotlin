@@ -57,6 +57,20 @@ object Stat {
     }
 
     @Suppress("ClassName")
+    class bin2d(
+        mapping: Bin2dMapping.() -> Unit = {},
+        override val bins: List<Int> = List(2) { Bin2dParameters.DEF_BINS },
+        override val binwidth: List<Double?> = List(2) { Bin2dParameters.DEF_BINWIDTH },
+        override val drop: Boolean = Bin2dParameters.DEF_DROP
+    ) : Bin2dParameters,
+        StatOptions(
+            StatKind.BIN2D,
+            mapping = Bin2dMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class boxplot(
         mapping: BoxplotMapping.() -> Unit = {},
         override val varwidth: Boolean? = null,
