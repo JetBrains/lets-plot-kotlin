@@ -38,15 +38,9 @@ object LetsPlot {
     private fun getBooleanFromEnv(@Suppress("SameParameterValue") name: String): Boolean {
         val value = System.getenv(name)
         return when {
-            value == null -> {
-                false
-            }
-            value.trim().toLowerCase() in listOf("true", "1", "t", "y", "yes") -> {
-                true
-            }
-            value.trim().toLowerCase() in listOf("false", "0", "f", "n", "no") -> {
-                false
-            }
+            value.isNullOrBlank() -> false
+            value.trim().toLowerCase() in listOf("true", "1", "t", "y", "yes") -> true
+            value.trim().toLowerCase() in listOf("false", "0", "f", "n", "no") -> false
             else -> {
                 throw IllegalArgumentException("Can't convert str to boolean : [$name] : $value")
             }
