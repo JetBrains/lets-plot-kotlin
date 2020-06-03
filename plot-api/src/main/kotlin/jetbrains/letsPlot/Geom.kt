@@ -487,8 +487,7 @@ object Geom {
         override val linetype: Any? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
-        override val alpha: Any? = null,
-        override val map_id: Any? = null
+        override val alpha: Any? = null
         // TODO add map/map_join parameters support
     ) : PolygonAesthetics,
         GeomOptions(

@@ -53,7 +53,6 @@ import jetbrains.letsPlot.intern.layer.geom.PolygonMapping
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash".
  * @param fill color of geometry filling.
- * @param map_id name used to join data with map coordinates.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -71,7 +70,6 @@ class geom_polygon(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val alpha: Double? = null,
-    override val map_id: Any? = null,
     // TODO add map/map_join parameters support
     mapping: PolygonMapping.() -> Unit = {}
 ) : PolygonAesthetics,

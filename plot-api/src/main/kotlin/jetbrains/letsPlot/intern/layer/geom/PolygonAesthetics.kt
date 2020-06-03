@@ -16,7 +16,6 @@ interface PolygonAesthetics : OptionsCapsule {
     val color: Any?
     val fill: Any?
     val alpha: Any?
-    val map_id: Any?
 
     override fun seal() = Options.of(
         "x" to x,
@@ -25,7 +24,6 @@ interface PolygonAesthetics : OptionsCapsule {
         "linetype" to linetype,
         "color" to color,
         "fill" to fill,
-        "alpha" to alpha,
-        "map_id" to map_id
+        "alpha" to alpha
     )
 }
