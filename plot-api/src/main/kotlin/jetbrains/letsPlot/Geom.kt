@@ -456,4 +456,25 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class jitter(
+        mapping: JitterMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val shape: Any? = null,
+        override val size: Double? = null,
+        override val stroke: Double? = null,
+        override val width: Double? = null,
+        override val height: Double? = null
+    ) : JitterAesthetics,
+        GeomOptions(
+            GeomKind.JITTER,
+            JitterMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
