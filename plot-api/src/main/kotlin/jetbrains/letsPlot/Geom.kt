@@ -477,4 +477,24 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class polygon(
+        mapping: PolygonMapping.() -> Unit = {},
+        override val x: Any? = null,
+        override val y: Any? = null,
+        override val size: Any? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Any? = null,
+        override val map_id: Any? = null
+        // TODO add map/map_join parameters support
+    ) : PolygonAesthetics,
+        GeomOptions(
+            GeomKind.POLYGON,
+            PolygonMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
