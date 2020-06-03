@@ -5,4 +5,11 @@
 
 package jetbrains.letsPlot.intern.layer.geom
 
-interface Bin2dAesthetics : TileAesthetics
+import jetbrains.letsPlot.intern.Options
+
+interface Bin2dAesthetics : TileAesthetics {
+    val weight: Any?
+
+    override fun seal() = super.seal() + Options.of(
+        "weight" to weight)
+}

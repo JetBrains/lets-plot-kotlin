@@ -17,7 +17,8 @@ class Bin2dMapping(
     override var fill: Any? = null,
     override var linetype: Any? = null,
     override var size: Any? = null,
-    override var group: Any? = null
+    override var group: Any? = null,
+    override var weight: Any? = null
 ) : Bin2dAesthetics,
     WithGroupOption {
     override fun seal() = super.seal() + group()

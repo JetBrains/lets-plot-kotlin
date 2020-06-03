@@ -178,13 +178,22 @@ object Geom {
         override val color: Any? = null,
         override val fill: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        override val weight: Any? = null,
+        override val bins: Any? = null,
+        override val binwidth: Any? = null,
+        override val drop: Any? = null
     ) : Bin2dAesthetics,
+        Bin2dParameters,
         GeomOptions(
             GeomKind.BIN_2D,
             Bin2dMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<Bin2dAesthetics>.seal() +
+                    super<Bin2dParameters>.seal()
+        }
     }
 
     @Suppress("ClassName")

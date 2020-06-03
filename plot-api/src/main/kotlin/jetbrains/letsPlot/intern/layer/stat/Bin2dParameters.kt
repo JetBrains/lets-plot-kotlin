@@ -9,9 +9,9 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface Bin2dParameters : OptionsCapsule {
-    val bins:  List<Int>
-    val binwidth:  List<Double?>
-    val drop: Boolean
+    val bins: List<Int>?
+    val binwidth: List<Double?>?
+    val drop: Boolean?
 
     override fun seal() = Options.of(
         P_BINS to bins,
@@ -23,9 +23,5 @@ interface Bin2dParameters : OptionsCapsule {
         const val P_BINS = "bins"
         const val P_BINWIDTH = "binwidth"
         const val P_DROP = "drop"
-
-        const val DEF_BINS = 30
-        val DEF_BINWIDTH: Double? = null
-        const val DEF_DROP = true
     }
 }

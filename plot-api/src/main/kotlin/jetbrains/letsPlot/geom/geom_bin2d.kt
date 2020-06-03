@@ -14,7 +14,7 @@ import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.Bin2dAesthetics
 import jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
-import jetbrains.letsPlot.intern.layer.stat.Bin2dAesthetics as Bin2dStatAesthetics
+import jetbrains.letsPlot.intern.layer.geom.Bin2dParameters
 
 
 @Suppress("ClassName")
@@ -69,9 +69,12 @@ class geom_bin2d(
     override val linetype: Any? = null,
     override val size: Double? = null,
     override val weight: Any? = null,
+    override val bins: List<Int>? = null,
+    override val binwidth: List<Double?>? = null,
+    override val drop: Boolean? = null,
     mapping: Bin2dMapping.() -> Unit = {}
 ) : Bin2dAesthetics,
-    Bin2dStatAesthetics,
+    Bin2dParameters,
     LayerBase(
         mapping = Bin2dMapping().apply(mapping).seal(),
         data = data,
@@ -81,5 +84,5 @@ class geom_bin2d(
         show_legend = show_legend,
         sampling = sampling
     ) {
-    override fun seal() = super<Bin2dAesthetics>.seal() + super<Bin2dStatAesthetics>.seal()
+    override fun seal() = super<Bin2dAesthetics>.seal() + super<Bin2dParameters>.seal()
 }
