@@ -7,10 +7,11 @@ package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.Options
 
-interface Bin2dAesthetics : TileAesthetics {
-    val weight: Any?
+// TODO same aesthetics as the path has
+interface ContourAesthetics : PathAesthetics {
+    val z: Any?
 
     override fun seal() = super.seal() + Options.of(
-        "weight" to weight
+        "z" to z
     )
 }

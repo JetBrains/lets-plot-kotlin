@@ -11,7 +11,8 @@ enum class StatKind {
     DENSITY,
     BIN,
     BIN2D,
-    BOXPLOT;
+    BOXPLOT,
+    CONTOUR;
 
     fun optionName() = name.toLowerCase()
 }

@@ -497,4 +497,24 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class contour(
+        mapping: ContourMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val z: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val speed: Double? = null,
+        override val flow: Double? = null
+    ) : ContourAesthetics,
+        GeomOptions(
+            GeomKind.CONTOUR,
+            ContourMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
