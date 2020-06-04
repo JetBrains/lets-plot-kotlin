@@ -31,6 +31,24 @@ object Stat {
     }
 
     @Suppress("ClassName")
+    class density2d(
+        mapping: Density2dMapping.() -> Unit = {},
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Int? = null,
+        override val adjust: Double? = null,
+        override val contour: Boolean? = null,
+        override val bins: Int? = null,
+        override val binWidth: Double? = null
+    ) : Density2dParameters,
+        StatOptions(
+            StatKind.DENSITY2D,
+            mapping = Density2dMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class count(
         mapping: CountMapping.() -> Unit = {}
     ) : CountParameters,

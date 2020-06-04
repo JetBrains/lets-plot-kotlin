@@ -9,6 +9,7 @@ enum class StatKind {
     IDENTITY,
     COUNT,
     DENSITY,
+    DENSITY2D,
     BIN,
     BIN2D,
     BOXPLOT,
