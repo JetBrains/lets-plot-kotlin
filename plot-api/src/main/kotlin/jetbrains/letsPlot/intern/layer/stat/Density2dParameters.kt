@@ -15,7 +15,7 @@ interface Density2dParameters : OptionsCapsule {
     val adjust: Any?
     val contour: Any?
     val bins: Any?
-    val binWidth: Any?
+    val binwidth: Any?
 
     override fun seal() = Options.of(
         "bw" to bw,
@@ -24,6 +24,6 @@ interface Density2dParameters : OptionsCapsule {
         "adjust" to adjust,
         "contour" to contour,
         "bins" to bins,
-        "binwidth" to binWidth
+        "binwidth" to binwidth
     )
 }

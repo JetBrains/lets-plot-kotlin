@@ -7,6 +7,7 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geom_contour
+import jetbrains.letsPlot.geom.geom_contourf
 import jetbrains.letsPlot.lets_plot
 import kotlin.math.PI
 import kotlin.math.sin
@@ -16,8 +17,12 @@ object Contour {
     fun main(args: Array<String>) {
         ScriptInJfxContext.eval("Contour") {
             val data = contourData()
-            val p = lets_plot(data) { x = "x"; y = "y" } + geom_contour { z = "z" }
+
+            val p = lets_plot(data) + geom_contour { x = "x"; y = "y"; z = "z" }
             p.show()
+
+            val p1 = lets_plot(data) + geom_contourf { x = "x"; y = "y"; z = "z"; fill = "..level.." }
+            p1.show()
         }
     }
 

@@ -6,9 +6,8 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 
-interface Density2dAesthetics : PathAesthetics {
+interface Density2dfAesthetics : ContourfAesthetics {
     val weight: Any?
 
     override fun seal(): Options {

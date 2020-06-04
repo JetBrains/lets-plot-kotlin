@@ -6,20 +6,20 @@
 package jetbrains.letsPlot.geom
 
 import jetbrains.letsPlot.Geom
-import jetbrains.letsPlot.Pos.identity
+import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.stat.ContourAesthetics
-import jetbrains.letsPlot.intern.layer.stat.ContourMapping
-import jetbrains.letsPlot.intern.layer.stat.ContourParameters
+import jetbrains.letsPlot.intern.layer.stat.Density2dParameters
+import jetbrains.letsPlot.intern.layer.stat.Density2dfAesthetics
+import jetbrains.letsPlot.intern.layer.stat.Density2dfMapping
 
 @Suppress("ClassName")
 /**
- * Display contours of a 3d surface in 2d.
+ * Fill density function contour.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
@@ -31,55 +31,64 @@ import jetbrains.letsPlot.intern.layer.stat.ContourParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param kernel string, optional.
+ *     The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
+ *     "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic")
+ * @param bw string or double array, optional.
+ *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd"), or a double array of length 2.
+ * @param adjust double, optional.
+ *     Adjust the value of bandwidth my multiplying it. Changes how smooth the frequency curve is.
+ * @param n int array, optional.
+ *     The number of sampled points for plotting the function (on x and y direction correspondingly)
  * @param bins int, optional.
  *     Number of levels.
  * @param binwidth double, optional.
  *     Distance between levels.
- * @param x x-axis coordinates of the center of rectangles, forming a tessellation.
- * @param y y-axis coordinates of the center of rectangles, forming a tessellation.
+ * @param x x-axis coordinates.
+ * @param y y-axis coordinates.
  * @param alpha transparency level of a point
  *     Understands numbers between 0 and 1.
- * @param color (colour) color of a geometry.
- *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
- * @param linetype type of the line.
- *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *     5 = "longdash", 6 = "twodash".
- * @param size line width.
+ * @param fill color of geometry filling.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_contour(
+class geom_density2df(
     data: Any? = null,
-    stat: StatOptions = Stat.contour(),
-    position: PosOptions = identity,
+    stat: StatOptions = Stat.density2df(),
+    position: PosOptions = Pos.identity,
     show_legend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val z: Double? = null,
-    override val alpha: Double? = null,
-    override val color: Any? = null,
-    override val linetype: Any? = null,
     override val size: Double? = null,
-    override val speed: Double? = null,
-    override val flow: Double? = null,
+    override val linetype: Any? = null,
+    override val color: Any? = null,
+    override val fill: Any? = null,
+    override val alpha: Double? = null,
+    override var weight: Any? = null,
+    override val bw: Any? = null,
+    override val kernel: String? = null,
+    override val n: Int? = null,
+    override val adjust: Double? = null,
+    override val contour: Boolean? = null,
     override val bins: Int? = null,
     override val binwidth: Double? = null,
-    mapping: ContourMapping.() -> Unit = {}
-) : ContourAesthetics,
-    ContourParameters,
+    mapping: Density2dfMapping.() -> Unit = {}
+) : Density2dfAesthetics,
+    Density2dParameters,
     LayerBase(
-        mapping = ContourMapping().apply(mapping).seal(),
+        mapping = Density2dfMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.contour(),
+        geom = Geom.density2df(),
         stat = stat,
         position = position,
         show_legend = show_legend,
         sampling = sampling
     ) {
     override fun seal(): Options {
-        return super<ContourAesthetics>.seal() +
-                super<ContourParameters>.seal()
+        return super<Density2dfAesthetics>.seal() +
+                super<Density2dParameters>.seal()
     }
 }

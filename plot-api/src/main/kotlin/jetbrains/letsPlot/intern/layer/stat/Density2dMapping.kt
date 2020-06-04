@@ -10,7 +10,6 @@ import jetbrains.letsPlot.intern.layer.WithGroupOption
 class Density2dMapping(
     override var x: Any? = null,
     override var y: Any? = null,
-    override var z: Any? = null,
     override var alpha: Any? = null,
     override var color: Any? = null,
     override var linetype: Any? = null,

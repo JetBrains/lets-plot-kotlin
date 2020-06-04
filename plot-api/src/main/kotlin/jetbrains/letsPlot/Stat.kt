@@ -39,7 +39,7 @@ object Stat {
         override val adjust: Double? = null,
         override val contour: Boolean? = null,
         override val bins: Int? = null,
-        override val binWidth: Double? = null
+        override val binwidth: Double? = null
     ) : Density2dParameters,
         StatOptions(
             StatKind.DENSITY2D,
@@ -48,6 +48,23 @@ object Stat {
         override val parameters = this.seal()
     }
 
+    @Suppress("ClassName")
+    class density2df(
+        mapping: Density2dfMapping.() -> Unit = {},
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Int? = null,
+        override val adjust: Double? = null,
+        override val contour: Boolean? = null,
+        override val bins: Int? = null,
+        override val binwidth: Double? = null
+    ) : Density2dParameters,
+        StatOptions(
+            StatKind.DENSITY2DF,
+            mapping = Density2dfMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
     @Suppress("ClassName")
     class count(
         mapping: CountMapping.() -> Unit = {}
@@ -104,12 +121,25 @@ object Stat {
     @Suppress("ClassName")
     class contour(
         mapping: ContourMapping.() -> Unit = {},
-        override val binCount: Int = ContourParameters.DEF_BIN_COUNT,
-        override val binWidth: Double? = null
+        override val bins: Int = ContourParameters.DEF_BIN_COUNT,
+        override val binwidth: Double? = null
     ) : ContourParameters,
         StatOptions(
             StatKind.CONTOUR,
             mapping = ContourMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class contourf(
+        mapping: ContourfMapping.() -> Unit = {},
+        override val bins: Int = ContourfParameters.DEF_BIN_COUNT,
+        override val binwidth: Double? = null
+    ) : ContourfParameters,
+        StatOptions(
+            StatKind.CONTOURF,
+            mapping = ContourfMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

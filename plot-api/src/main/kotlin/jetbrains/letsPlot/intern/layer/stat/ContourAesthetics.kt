@@ -6,16 +6,13 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.OptionsCapsule
+import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 
-interface ContourAesthetics: OptionsCapsule {
-    val x: Any?
-    val y: Any?
+// TODO same aesthetics as the Path has
+interface ContourAesthetics: PathAesthetics {
     val z: Any?
 
-    override fun seal() = Options.of(
-        "x" to x,
-        "y" to y,
+    override fun seal() = super.seal() + Options.of(
         "z" to z
     )
 }

@@ -13,13 +13,13 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.stat.ContourAesthetics
-import jetbrains.letsPlot.intern.layer.stat.ContourMapping
-import jetbrains.letsPlot.intern.layer.stat.ContourParameters
+import jetbrains.letsPlot.intern.layer.stat.ContourfAesthetics
+import jetbrains.letsPlot.intern.layer.stat.ContourfMapping
+import jetbrains.letsPlot.intern.layer.stat.ContourfParameters
 
 @Suppress("ClassName")
 /**
- * Display contours of a 3d surface in 2d.
+ * Fill contours of a 3d surface in 2d.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
@@ -37,49 +37,45 @@ import jetbrains.letsPlot.intern.layer.stat.ContourParameters
  *     Distance between levels.
  * @param x x-axis coordinates of the center of rectangles, forming a tessellation.
  * @param y y-axis coordinates of the center of rectangles, forming a tessellation.
- * @param alpha transparency level of a point
+ * @param alpha transparency level of a layer.
  *     Understands numbers between 0 and 1.
- * @param color (colour) color of a geometry.
+ * @param fill color of a geometry areas.
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
- * @param linetype type of the line.
- *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *     5 = "longdash", 6 = "twodash".
- * @param size line width.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_contour(
+
+class geom_contourf(
     data: Any? = null,
-    stat: StatOptions = Stat.contour(),
+    stat: StatOptions = Stat.contourf(),
     position: PosOptions = identity,
     show_legend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val z: Double? = null,
-    override val alpha: Double? = null,
-    override val color: Any? = null,
-    override val linetype: Any? = null,
     override val size: Double? = null,
-    override val speed: Double? = null,
-    override val flow: Double? = null,
+    override val linetype: Any? = null,
+    override val color: Any? = null,
+    override val fill: Any? = null,
+    override val alpha: Double? = null,
     override val bins: Int? = null,
     override val binwidth: Double? = null,
-    mapping: ContourMapping.() -> Unit = {}
-) : ContourAesthetics,
-    ContourParameters,
+    mapping: ContourfMapping.() -> Unit = {}
+) : ContourfAesthetics,
+    ContourfParameters,
     LayerBase(
-        mapping = ContourMapping().apply(mapping).seal(),
+        mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.contour(),
+        geom = Geom.contourf(),
         stat = stat,
         position = position,
         show_legend = show_legend,
         sampling = sampling
     ) {
     override fun seal(): Options {
-        return super<ContourAesthetics>.seal() +
-                super<ContourParameters>.seal()
+        return super<ContourfAesthetics>.seal() +
+                super<ContourfParameters>.seal()
     }
 }

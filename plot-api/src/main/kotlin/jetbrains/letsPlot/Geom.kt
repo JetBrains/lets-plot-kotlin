@@ -10,6 +10,13 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.geom.*
 import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
+import jetbrains.letsPlot.intern.layer.geom.Bin2dAesthetics
+import jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
+import jetbrains.letsPlot.intern.layer.geom.Bin2dParameters
+import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
+import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
+import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
+import jetbrains.letsPlot.intern.layer.stat.*
 
 /**
  * `Geom options` to pass as a value of `geom` parameter of `layer` functions like:
@@ -508,12 +515,109 @@ object Geom {
         override val linetype: Any? = null,
         override val size: Double? = null,
         override val speed: Double? = null,
-        override val flow: Double? = null
+        override val flow: Double? = null,
+        override val bins: Int? = null,
+        override val binwidth: Double? = null
     ) : ContourAesthetics,
+        ContourParameters,
         GeomOptions(
             GeomKind.CONTOUR,
             ContourMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<ContourAesthetics>.seal() +
+                    super<ContourParameters>.seal()
+        }
+    }
+
+    @Suppress("ClassName")
+    class contourf(
+        mapping: ContourfMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val z: Double? = null,
+        override val size: Double? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Double? = null,
+        override val bins: Int? = null,
+        override val binwidth: Double? = null
+    ) : ContourfAesthetics,
+        ContourfParameters,
+        GeomOptions(
+            GeomKind.CONTOURF,
+            ContourfMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<ContourfAesthetics>.seal() +
+                    super<ContourfParameters>.seal()
+        }
+    }
+
+    @Suppress("ClassName")
+    class density2d(
+        mapping: Density2dMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val speed: Double? = null,
+        override val flow: Double? = null,
+        override val weight: Double? = null,
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Int? = null,
+        override val adjust: Double? = null,
+        override val contour: Boolean? = null,
+        override val bins: Int? = null,
+        override val binwidth: Double? = null
+    ) : Density2dAesthetics,
+        Density2dParameters,
+        GeomOptions(
+            GeomKind.DENSITY2D,
+            Density2dMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<Density2dAesthetics>.seal() +
+                    super<Density2dParameters>.seal()
+        }
+    }
+
+    @Suppress("ClassName")
+    class density2df(
+        mapping: Density2dfMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val z: Double? = null,
+        override val size: Double? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Double? = null,
+        override var weight: Any? = null,
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Int? = null,
+        override val adjust: Double? = null,
+        override val contour: Boolean? = null,
+        override val bins: Int? = null,
+        override val binwidth: Double? = null
+    ) : Density2dfAesthetics,
+        Density2dParameters,
+        GeomOptions(
+            GeomKind.DENSITY2DF,
+            Density2dfMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<Density2dfAesthetics>.seal() +
+                    super<Density2dParameters>.seal()
+        }
     }
 }

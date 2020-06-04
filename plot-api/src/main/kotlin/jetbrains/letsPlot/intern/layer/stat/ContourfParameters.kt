@@ -8,7 +8,7 @@ package jetbrains.letsPlot.intern.layer.stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
-interface ContourParameters : OptionsCapsule {
+interface ContourfParameters : OptionsCapsule {
     val bins: Any?
     val binwidth: Any?
 
