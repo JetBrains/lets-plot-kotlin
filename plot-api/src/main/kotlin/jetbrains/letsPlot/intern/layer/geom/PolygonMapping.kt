@@ -15,7 +15,6 @@ class PolygonMapping(
     override var color: Any? = null,
     override var fill: Any? = null,
     override var alpha: Any? = null,
-    override var map_id: Any? = null,
     override var group: Any? = null
 ) : PolygonAesthetics, WithGroupOption {
     override fun seal() = super.seal() + group()
