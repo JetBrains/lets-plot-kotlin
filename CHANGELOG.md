@@ -6,7 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+ - Fixes in geom_density: 
+    - defaults: alpha=0, fill=white
+    - support `weight` aesthetic
 
+## [0.0.17-SNAPSHOT] - 2020-06-02
+### Changed
+ - Upgraded Lets-Plot dependency to v.1.4.2. Now bundled with Jupyter Kotlin kernel. 
+
+### Added
+ - Support for Kotlin kernel in Datalore.
+ - New initialization parameters: `isolatedFrame` (bool), `apiVersion` (str), `libraryVersion` (str).
+ - `LetsPlot.showInfo()`.
+ 
 
 ## [0.0.11-SNAPSHOT] - 2020-05-19
 ### Changed
