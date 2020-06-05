@@ -5,12 +5,12 @@
 
 package jetbrains.letsPlot.geom
 
-import jetbrains.letsPlot.Geom.area
+import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
 import jetbrains.letsPlot.intern.layer.stat.DensityMapping
@@ -40,6 +40,7 @@ import jetbrains.letsPlot.intern.layer.stat.DensityMapping
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash".
  * @param fill color of geometry filling.
+ * @param weight used by "density" stat to compute weighted density.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -64,7 +65,7 @@ class geom_density(
     LayerBase(
         mapping = DensityMapping().apply(mapping).seal(),
         data = data,
-        geom = area(),
+        geom = Geom.density(),
         stat = stat,
         position = position,
         show_legend = show_legend,

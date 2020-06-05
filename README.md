@@ -47,12 +47,15 @@ p + ggsize(500, 250)
 
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/quickstart.png" alt="Couldn't load quickstart.png" width="500" height="270"/>
 <br/>
-<br/>
 <a href="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb" 
    target="_parent"> 
    <img src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png" 
         width="109" height="20">
 </a>
+<br/>
+
+To find more information about Jupyter Kotlin kernel check the [Kotlin kernel for Jupyter/iPython](https://github.com/Kotlin/kotlin-jupyter) project.
+
 
 #### Resources
 
