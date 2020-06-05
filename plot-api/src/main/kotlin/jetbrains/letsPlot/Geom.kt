@@ -621,4 +621,42 @@ object Geom {
                     super<Density2dParameters>.seal()
         }
     }
+
+    @Suppress("ClassName")
+    class freqpoly(
+        mapping: PathMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val speed: Double? = null,
+        override val flow: Double? = null
+    ) : PathAesthetics,
+        GeomOptions(
+            GeomKind.FREQPOLY,
+            PathMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class step(
+        mapping: PathMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val speed: Double? = null,
+        override val flow: Double? = null
+    ) : PathAesthetics,
+        GeomOptions(
+            GeomKind.STEP,
+            PathMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
