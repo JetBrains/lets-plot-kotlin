@@ -42,6 +42,8 @@ import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
  *     if FALSE (default) make a standard box plot.
  *     If TRUE, boxes are drawn with widths proportional to the square-roots of the number of
  *     observations in the groups.
+ *  @param fatten : number, default: 1.0
+ *     A multiplicative factor applied to size of the middle bar
  * @param lower lower hinge, 25% quantile
  * @param middle median, 50% quantile
  * @param upper upper hinge, 75% quantile
@@ -77,6 +79,7 @@ class geom_boxplot(
     override val outlierShape: Any? = null,
     override val outlierSize: Double? = null,
     override val varwidth: Boolean? = null,
+    override val fatten: Double? = null,
     override val alpha: Double? = null,
     override val color: Any? = null,
     override val fill: Any? = null,

@@ -344,6 +344,7 @@ object Geom {
         override val outlierShape: Any? = null,
         override val outlierSize: Double? = null,
         override val varwidth: Boolean? = null,
+        override val fatten: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
