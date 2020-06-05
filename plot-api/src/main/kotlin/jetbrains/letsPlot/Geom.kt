@@ -659,4 +659,37 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class smooth(
+        mapping: SmoothMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val size: Double? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Any? = null,
+        override val method: String? = null,
+        override val n: Int? = null,
+        override val level: Double? = null,
+        override val se: Boolean? = null,
+        override val span: Double? = null,
+        override val deg: Int? = null,
+        override val seed: Long? = null,
+        override val max_n: Int? = null
+    ) : SmoothAesthetics,
+        SmoothParameters,
+        GeomOptions(
+            GeomKind.SMOOTH,
+            SmoothMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<SmoothAesthetics>.seal() +
+                    super<SmoothParameters>.seal()
+        }
+    }
 }
