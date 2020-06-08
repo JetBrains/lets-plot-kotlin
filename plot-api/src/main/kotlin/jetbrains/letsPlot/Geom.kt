@@ -692,4 +692,19 @@ object Geom {
                     super<SmoothParameters>.seal()
         }
     }
+
+    @Suppress("ClassName")
+    class image(
+        mapping: ImageMapping.() -> Unit = {},
+        override val xmin: Any? = null,
+        override val xmax: Any? = null,
+        override val ymin: Any? = null,
+        override val ymax: Any? = null
+    ) : ImageAesthetics,
+        GeomOptions(
+            GeomKind.IMAGE,
+            ImageMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
