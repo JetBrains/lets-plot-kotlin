@@ -51,7 +51,7 @@ import jetbrains.letsPlot.intern.layer.geom.TextMapping
  *     mapped to plot "aesthetics".
  */
 class geom_text(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,

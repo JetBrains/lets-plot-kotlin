@@ -43,7 +43,7 @@ import jetbrains.letsPlot.intern.layer.geom.LineRangeMapping
  */
 
 class geom_linerange(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,
     show_legend: Boolean = true,

@@ -45,7 +45,7 @@ import jetbrains.letsPlot.intern.layer.geom.AreaMapping
  *     mapped to plot "aesthetics".
  */
 class geom_area(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = identity,
     position: PosOptions = Pos.stack,
     show_legend: Boolean = true,

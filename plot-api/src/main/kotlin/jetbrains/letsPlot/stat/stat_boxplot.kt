@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.stat.*
 
 @Suppress("ClassName")
 class stat_boxplot(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     geom: GeomOptions = Geom.boxplot(),
     position: PosOptions = dodge,
     show_legend: Boolean = true,

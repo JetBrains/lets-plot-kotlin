@@ -45,7 +45,7 @@ import jetbrains.letsPlot.intern.layer.geom.TileMapping
  *     mapped to plot "aesthetics".
  */
 class geom_tile(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = identity,
     position: PosOptions = Pos.identity,
     show_legend: Boolean = true,

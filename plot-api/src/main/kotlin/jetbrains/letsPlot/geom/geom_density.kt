@@ -46,7 +46,7 @@ import jetbrains.letsPlot.intern.layer.stat.DensityMapping
  *     mapped to plot "aesthetics".
  */
 class geom_density(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.density(),
     position: PosOptions = Pos.identity,
     show_legend: Boolean = true,

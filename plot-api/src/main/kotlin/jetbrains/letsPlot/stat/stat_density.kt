@@ -19,7 +19,7 @@ import jetbrains.letsPlot.intern.layer.stat.DensityParameters
 
 @Suppress("ClassName")
 class stat_density(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     geom: GeomOptions = area(),
     position: PosOptions = stack,
     show_legend: Boolean = true,

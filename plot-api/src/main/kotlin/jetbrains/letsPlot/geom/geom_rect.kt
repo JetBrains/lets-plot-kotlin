@@ -46,7 +46,7 @@ import jetbrains.letsPlot.intern.layer.geom.*
  *     mapped to plot "aesthetics".
  */
 class geom_rect(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,

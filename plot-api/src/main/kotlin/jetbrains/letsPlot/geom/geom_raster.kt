@@ -39,7 +39,7 @@ import jetbrains.letsPlot.intern.layer.geom.RasterMapping
  *     mapped to plot "aesthetics".
  */
 class geom_raster(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,

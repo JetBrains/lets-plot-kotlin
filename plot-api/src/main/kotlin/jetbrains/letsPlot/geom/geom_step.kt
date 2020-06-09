@@ -47,7 +47,7 @@ import jetbrains.letsPlot.intern.layer.geom.LineMapping
  *     mapped to plot "aesthetics".
  */
 class geom_step(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,
     show_legend: Boolean = true,

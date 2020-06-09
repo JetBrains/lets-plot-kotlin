@@ -15,7 +15,7 @@ import jetbrains.letsPlot.intern.layer.StatOptions
 
 
 class Plot internal constructor(
-    val data: Any? = null,
+    val data: Map<*, *>? = null,
     val mapping: Options = GenericAesMapping().seal(),
     val features: List<Feature> = emptyList(),
     val widthScale: Int? = null
@@ -98,7 +98,7 @@ internal object DummyFeature : Feature() {
 
 abstract class Layer(
     mapping: Options,
-    val data: Any?,
+    val data: Map<*, *>?,
     val geom: GeomOptions,
     val stat: StatOptions,
     val position: PosOptions,

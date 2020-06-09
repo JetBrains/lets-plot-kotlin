@@ -10,7 +10,7 @@ import jetbrains.letsPlot.intern.Options
 
 abstract class LayerBase(
     mapping: Options,
-    data: Any? = null,
+    data: Map<*, *>? = null,
     geom: GeomOptions,
     stat: StatOptions,
     position: PosOptions,

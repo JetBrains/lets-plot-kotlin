@@ -44,7 +44,7 @@ import jetbrains.letsPlot.intern.layer.geom.HLineMapping
  *     mapped to plot "aesthetics".
  */
 class geom_hline(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,

@@ -63,7 +63,7 @@ import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
  *     mapped to plot "aesthetics".
  */
 class geom_boxplot(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.boxplot(),
     position: PosOptions = Pos.dodge,
     show_legend: Boolean = true,

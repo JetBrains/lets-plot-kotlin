@@ -20,7 +20,7 @@ import jetbrains.letsPlot.intern.layer.stat.CountParameters
 
 @Suppress("ClassName")
 class stat_count(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     geom: GeomOptions = Geom.bar(),
     position: PosOptions = stack,
     show_legend: Boolean = true,

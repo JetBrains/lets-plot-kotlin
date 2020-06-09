@@ -47,7 +47,7 @@ import jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping
  */
 
 class geom_errorbar(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,
     show_legend: Boolean = true,

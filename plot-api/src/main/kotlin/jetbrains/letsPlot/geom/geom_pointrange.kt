@@ -46,7 +46,7 @@ import jetbrains.letsPlot.intern.layer.geom.PointRangeMapping
  */
 
 class geom_pointrange(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,
     show_legend: Boolean = true,

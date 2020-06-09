@@ -49,7 +49,7 @@ import jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
  */
 
 class geom_crossbar(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.dodge,
     show_legend: Boolean = true,

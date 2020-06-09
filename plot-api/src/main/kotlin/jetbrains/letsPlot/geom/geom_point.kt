@@ -44,7 +44,7 @@ import jetbrains.letsPlot.intern.layer.geom.PointMapping
  *     mapped to plot "aesthetics".
  */
 class geom_point(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,

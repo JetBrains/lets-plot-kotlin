@@ -50,7 +50,7 @@ import jetbrains.letsPlot.intern.layer.geom.SegmentMapping
  *     mapped to plot "aesthetics".
  */
 class geom_segment(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,

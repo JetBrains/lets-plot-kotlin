@@ -48,7 +48,7 @@ import jetbrains.letsPlot.intern.layer.geom.PathMapping
  *     mapped to plot "aesthetics".
  */
 class geom_path(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     show_legend: Boolean = true,

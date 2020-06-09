@@ -24,7 +24,7 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     spec[KIND] = PLOT
 
     plot.data?.let {
-        spec[Option.PlotBase.DATA] = asPlotData(plot.data as Map<*, *>)
+        spec[Option.PlotBase.DATA] = asPlotData(plot.data)
     }
 
     spec[Option.PlotBase.MAPPING] = plot.mapping.map
@@ -53,7 +53,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
 
     data?.let {
-        spec[Option.PlotBase.DATA] = asPlotData(data as Map<*, *>)
+        spec[Option.PlotBase.DATA] = asPlotData(data)
     }
 
     spec[Option.Layer.GEOM] = geom.kind.optionName()

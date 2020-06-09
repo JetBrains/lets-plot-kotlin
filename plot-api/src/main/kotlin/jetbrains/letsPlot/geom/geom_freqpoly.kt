@@ -46,7 +46,7 @@ import jetbrains.letsPlot.intern.layer.stat.BinParameters
  *     mapped to plot "aesthetics".
  */
 class geom_freqpoly(
-    data: Any? = null,
+    data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin(),
     position: PosOptions = Pos.identity,
     show_legend: Boolean = true,
