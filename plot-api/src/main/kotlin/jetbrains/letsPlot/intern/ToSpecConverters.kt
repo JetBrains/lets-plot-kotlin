@@ -24,7 +24,7 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     spec[KIND] = PLOT
 
     plot.data?.let {
-        spec[Option.PlotBase.DATA] = asPlotData(plot.data)
+        spec[Option.PlotBase.DATA] = asPlotData(plot.data as Map<*, *>)
     }
 
     spec[Option.PlotBase.MAPPING] = plot.mapping.map
@@ -52,11 +52,8 @@ fun Plot.toSpec(): MutableMap<String, Any> {
 fun Layer.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
 
-    // ToDo:
-//    layer.sampling
-
     data?.let {
-        spec[Option.PlotBase.DATA] = asPlotData(data)
+        spec[Option.PlotBase.DATA] = asPlotData(data as Map<*, *>)
     }
 
     spec[Option.Layer.GEOM] = geom.kind.optionName()
@@ -66,8 +63,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     spec[Option.Layer.POS] = if (posOptions.parameters.isEmpty()) {
         posOptions.kind.optionName()
     } else {
-        // ToDo: 'pos' -> constant (see: Option.Meta.Kind)
-        toFeatureSpec("pos", posOptions.kind.optionName(), posOptions.parameters.map)
+        toFeatureSpec(Option.Meta.Kind.POS, posOptions.kind.optionName(), posOptions.parameters.map)
     }
 
     sampling?.let {
@@ -87,7 +83,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
 
 @Suppress("UNCHECKED_CAST")
 fun Map<String, Any?>.filterNonNullValues(): Map<String, Any> {
-  return filter { it.value != null } as Map<String, Any>
+    return filter { it.value != null } as Map<String, Any>
 }
 
 
@@ -112,8 +108,6 @@ fun OtherPlotFeature.toSpec(): MutableMap<String, Any> {
     return HashMap(options)
 }
 
-private fun asPlotData(dataRaw: Any) = dataRaw  // placeholder
-
 private fun toFeatureSpec(kind: String, name: String?, parameters: Map<String, Any>): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
     spec[KIND] = kind
@@ -123,3 +117,21 @@ private fun toFeatureSpec(kind: String, name: String?, parameters: Map<String, A
     spec.putAll(parameters)
     return spec
 }
+
+private fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
+    fun valueAsList(rawValue: Any): List<Any?> {
+        return when (rawValue) {
+            is List<*> -> rawValue
+            is Sequence<*> -> rawValue.asIterable().toList()
+            else -> throw IllegalArgumentException("Can't transform input data to list: ${rawValue::class.simpleName}")
+        }
+    }
+
+
+    val standardisedData = HashMap<String, List<Any?>>()
+    for ((rawKey, rawValue) in rawData) {
+        standardisedData[rawKey.toString()] = valueAsList(rawValue!!)
+    }
+    return standardisedData
+}
+

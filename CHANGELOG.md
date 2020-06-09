@@ -6,9 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
- - Fixes in geom_density: 
+### Fixed
+ - geom_density: 
     - defaults: alpha=0, fill=white
     - support `weight` aesthetic
+
+ - geom_histogram: added 'bin' parameters: binCount, binWidth, center, boundary.
 
 ## [0.0.17-SNAPSHOT] - 2020-06-02
 ### Changed

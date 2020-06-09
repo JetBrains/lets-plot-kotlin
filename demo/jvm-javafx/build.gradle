@@ -13,5 +13,7 @@ dependencies {
 
     implementation "org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_version"
     implementation project(':plot-api')
+
+    implementation project(':demo-common')
 }
 

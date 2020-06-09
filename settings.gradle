@@ -6,10 +6,12 @@
 rootProject.name = 'lets-plot-kotlin'
 
 include 'plot-api',
+        'demo-common',
         'jvm-javafx',
         'jvm-batik',
         'browser'
 
+project(':demo-common').projectDir = new File('./demo/demo-common')
 project(':jvm-javafx').projectDir = new File('./demo/jvm-javafx')
 project(':jvm-batik').projectDir = new File('./demo/jvm-batik')
 project(':browser').projectDir = new File('./demo/browser')
