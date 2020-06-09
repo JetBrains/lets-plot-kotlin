@@ -5,9 +5,9 @@
 
 package frontendContextDemo.scripts
 
+import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geom_density
 import jetbrains.letsPlot.lets_plot
-import frontendContextDemo.ScriptInJfxContext
 
 object Density {
     @JvmStatic
@@ -15,7 +15,7 @@ object Density {
         ScriptInJfxContext.eval("Density plot") {
             val rand = java.util.Random()
             val data = mapOf<String, Any>(
-                "x" to List(500) { rand.nextGaussian() }
+                "x" to List(100) { rand.nextGaussian() }
             )
 
             val density = geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }

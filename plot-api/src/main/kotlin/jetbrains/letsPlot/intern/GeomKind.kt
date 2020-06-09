@@ -13,8 +13,22 @@ enum class GeomKind {
     BAR,
     HISTOGRAM,
     TILE,
+    BIN_2D {
+        override fun optionName() = "bin2d"
+    },
     MAP,
-    ERROR_BAR,
+    ERROR_BAR {
+        override fun optionName() = "errorbar"
+    },
+    CROSS_BAR {
+        override fun optionName() = "crossbar"
+    },
+    LINE_RANGE {
+        override fun optionName() = "linerange"
+    },
+    POINT_RANGE {
+        override fun optionName() = "pointrange"
+    },
     POLYGON,
     AB_LINE {
         override fun optionName() = "abline"

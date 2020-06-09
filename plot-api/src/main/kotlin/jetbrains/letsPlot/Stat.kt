@@ -29,7 +29,6 @@ object Stat {
         ) {
         override val parameters = this.seal()
     }
-
     @Suppress("ClassName")
     class count(
         mapping: CountMapping.() -> Unit = {}

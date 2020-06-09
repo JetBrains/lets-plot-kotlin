@@ -9,8 +9,14 @@ enum class StatKind {
     IDENTITY,
     COUNT,
     DENSITY,
+    DENSITY2D,
+    DENSITY2DF,
     BIN,
-    BOXPLOT;
+    BIN2D,
+    BOXPLOT,
+    CONTOUR,
+    CONTOURF,
+    SMOOTH;
 
     fun optionName() = name.toLowerCase()
 }

@@ -10,6 +10,10 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.geom.*
 import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
+import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
+import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
+import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
+import jetbrains.letsPlot.intern.layer.stat.BinParameters
 
 /**
  * `Geom options` to pass as a value of `geom` parameter of `layer` functions like:
@@ -308,6 +312,7 @@ object Geom {
         override val outlierShape: Any? = null,
         override val outlierSize: Double? = null,
         override val varwidth: Boolean? = null,
+        override val fatten: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -327,5 +332,181 @@ object Geom {
             return super<BoxplotAesthetics>.seal() +
                     super<BoxplotParameters>.seal()
         }
+    }
+
+    @Suppress("ClassName")
+    class errorbar(
+        mapping: ErrorBarMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val width: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : ErrorBarAesthetics,
+        GeomOptions(
+            GeomKind.ERROR_BAR,
+            ErrorBarMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class crossbar(
+        mapping: CrossBarMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val middle: Double? = null,
+        override val width: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val linetype: Any? = null,
+        override val shape: Any? = null,
+        override val size: Any? = null
+    ) : CrossBarAesthetics,
+        GeomOptions(
+            GeomKind.CROSS_BAR,
+            CrossBarMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class pointrange(
+        mapping: PointRangeMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val linetype: Any? = null,
+        override val shape: Any? = null,
+        override val size: Double? = null
+    ) : PointRangeAesthetics,
+        GeomOptions(
+            GeomKind.POINT_RANGE,
+            PointRangeMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class linerange(
+        mapping: LineRangeMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : LineRangeAesthetics,
+        GeomOptions(
+            GeomKind.LINE_RANGE,
+            LineRangeMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class ribbon(
+        mapping: RibbonMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val ymin: Double? = null,
+        override val ymax: Double? = null,
+        override val size: Double? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Double? = null
+    ) : RibbonAesthetics,
+        GeomOptions(
+            GeomKind.RIBBON,
+            RibbonMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class polygon(
+        mapping: PolygonMapping.() -> Unit = {},
+        override val x: Any? = null,
+        override val y: Any? = null,
+        override val size: Any? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Any? = null
+        // TODO add map/map_join parameters support
+    ) : PolygonAesthetics,
+        GeomOptions(
+            GeomKind.POLYGON,
+            PolygonMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class freqpoly(
+        mapping: LineMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val binCount: Int = BinParameters.DEF_BIN_COUNT,
+        override val binWidth: Double? = null,
+        override val center: Double? = null,
+        override val boundary: Double? = null
+    ) : LineAesthetics,
+        BinParameters,
+        GeomOptions(
+            GeomKind.FREQPOLY,
+            LineMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<LineAesthetics>.seal() +
+                    super<BinParameters>.seal()
+        }
+    }
+
+    @Suppress("ClassName")
+    class step(
+        mapping: LineMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null
+    ) : LineAesthetics,
+        GeomOptions(
+            GeomKind.STEP,
+            LineMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class image(
+        mapping: ImageMapping.() -> Unit = {},
+        override val xmin: Any? = null,
+        override val xmax: Any? = null,
+        override val ymin: Any? = null,
+        override val ymax: Any? = null
+    ) : ImageAesthetics,
+        GeomOptions(
+            GeomKind.IMAGE,
+            ImageMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
     }
 }
