@@ -57,7 +57,7 @@ class geom_freqpoly(
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Double? = null,
-    override val binCount: Int? = null,
+    override val binCount: Int = BinParameters.DEF_BIN_COUNT,
     override val binWidth: Double? = null,
     override val center: Double? = null,
     override val boundary: Double? = null,

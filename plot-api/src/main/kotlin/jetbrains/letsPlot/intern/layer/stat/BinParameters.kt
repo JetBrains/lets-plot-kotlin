@@ -9,7 +9,7 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface BinParameters : OptionsCapsule {
-    val binCount: Int?
+    val binCount: Int
     val binWidth: Double?
     val center: Double?
     val boundary: Double?

@@ -79,7 +79,7 @@ object Stat {
     @Suppress("ClassName")
     class bin(
         mapping: BinMapping.() -> Unit = {},
-        override val binCount: Int? = BinParameters.DEF_BIN_COUNT,
+        override val binCount: Int = BinParameters.DEF_BIN_COUNT,
         override val binWidth: Double? = null,
         override val center: Double? = null,
         override val boundary: Double? = null
