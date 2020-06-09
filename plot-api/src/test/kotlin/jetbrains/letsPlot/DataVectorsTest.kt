@@ -69,33 +69,20 @@ class DataVectorsTest(
                         "anyNums" to anyNums.asSequence()
                     ),
                     expectedMap
+                ),
+                arrayOf(
+                    // iterables
+                    mapOf(
+                        "bytes" to bytes.asSequence().asIterable(),
+                        "shorts" to shorts.asSequence().asIterable(),
+                        "ints" to ints.asSequence().asIterable(),
+                        "longs" to longs.asSequence().asIterable(),
+                        "floats" to floats.asSequence().asIterable(),
+                        "doubles" to doubles.asSequence().asIterable(),
+                        "anyNums" to anyNums.asSequence().asIterable()
+                    ),
+                    expectedMap
                 )
-//                arrayOf(
-//                    // iterables
-//                    mapOf(
-//                        "bytes" to bytes.asSequence().asIterable(),
-//                        "shorts" to shorts.asSequence().asIterable(),
-//                        "ints" to ints.asSequence().asIterable(),
-//                        "longs" to longs.asSequence().asIterable(),
-//                        "floats" to floats.asSequence().asIterable(),
-//                        "doubles" to doubles.asSequence().asIterable(),
-//                        "anyNums" to anyNums.asSequence().asIterable()
-//                    ),
-//                    expectedMap
-//                )
-//                arrayOf(
-//                    // sets
-//                    mapOf(
-//                        "bytes" to LinkedHashSet(bytes),
-//                        "shorts" to LinkedHashSet(shorts),
-//                        "ints" to LinkedHashSet(ints),
-//                        "longs" to LinkedHashSet(longs),
-//                        "floats" to LinkedHashSet(floats),
-//                        "doubles" to LinkedHashSet(doubles),
-//                        "anyNums" to LinkedHashSet(anyNums)
-//                    ),
-//                    expectedMap
-//                )
             )
         }
     }
