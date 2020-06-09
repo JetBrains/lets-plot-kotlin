@@ -13,8 +13,8 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
-import jetbrains.letsPlot.intern.layer.geom.PathMapping
+import jetbrains.letsPlot.intern.layer.geom.LineAesthetics
+import jetbrains.letsPlot.intern.layer.geom.LineMapping
 
 @Suppress("ClassName")
 /**
@@ -59,12 +59,10 @@ class geom_step(
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Double? = null,
-    override val speed: Double? = null,
-    override val flow: Double? = null,
-    mapping: PathMapping.() -> Unit = {}
-) : PathAesthetics,
+    mapping: LineMapping.() -> Unit = {}
+) : LineAesthetics,
     LayerBase(
-        mapping = PathMapping().apply(mapping).seal(),
+        mapping = LineMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.step(),
         stat = stat,

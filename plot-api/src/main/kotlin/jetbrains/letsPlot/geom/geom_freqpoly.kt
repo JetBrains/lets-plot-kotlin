@@ -8,12 +8,14 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
-import jetbrains.letsPlot.intern.layer.geom.PathMapping
+import jetbrains.letsPlot.intern.layer.geom.LineAesthetics
+import jetbrains.letsPlot.intern.layer.geom.LineMapping
+import jetbrains.letsPlot.intern.layer.stat.BinParameters
 
 @Suppress("ClassName")
 /**
@@ -55,16 +57,24 @@ class geom_freqpoly(
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Double? = null,
-    override val speed: Double? = null,
-    override val flow: Double? = null,
-    mapping: PathMapping.() -> Unit = {}
-) : PathAesthetics,
+    override val binCount: Int? = null,
+    override val binWidth: Double? = null,
+    override val center: Double? = null,
+    override val boundary: Double? = null,
+    mapping: LineMapping.() -> Unit = {}
+) : LineAesthetics,
+    BinParameters,
     LayerBase(
-        mapping = PathMapping().apply(mapping).seal(),
+        mapping = LineMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.freqpoly(),
         stat = stat,
         position = position,
         show_legend = show_legend,
         sampling = sampling
-    )
+    ) {
+    override fun seal(): Options {
+        return super<LineAesthetics>.seal() +
+                super<BinParameters>.seal()
+    }
+}

@@ -624,38 +624,43 @@ object Geom {
 
     @Suppress("ClassName")
     class freqpoly(
-        mapping: PathMapping.() -> Unit = {},
+        mapping: LineMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Double? = null,
-        override val speed: Double? = null,
-        override val flow: Double? = null
-    ) : PathAesthetics,
+        override val binCount: Int? = null,
+        override val binWidth: Double? = null,
+        override val center: Double? = null,
+        override val boundary: Double? = null
+    ) : LineAesthetics,
+        BinParameters,
         GeomOptions(
             GeomKind.FREQPOLY,
-            PathMapping().apply(mapping).seal()
+            LineMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<LineAesthetics>.seal() +
+                    super<BinParameters>.seal()
+        }
     }
 
     @Suppress("ClassName")
     class step(
-        mapping: PathMapping.() -> Unit = {},
+        mapping: LineMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null,
-        override val speed: Double? = null,
-        override val flow: Double? = null
-    ) : PathAesthetics,
+        override val size: Double? = null
+    ) : LineAesthetics,
         GeomOptions(
             GeomKind.STEP,
-            PathMapping().apply(mapping).seal()
+            LineMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }
