@@ -6,8 +6,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [0.0.18-SNAPSHOT] - 2020-06-10
 ### Added
- - Standardize Date, Instant and ZonedDateTime as the number of milliseconds from the epoch of 1970-01-01T00:00:00Z.
+ - Geometries:
+    - geom_crossbar()
+    - geom_errorbar()
+    - geom_freqpoly()
+    - geom_linerange()
+    - geom_pointrange()
+    - geom_polygon()
+    - geom_ribbon()
+    - geom_step()    
+    
+ - Standardize input data series as List<*>:
+    - Iterable<*>
+    - Sequence<*>
+    - Array<*>
+    - ByteArray
+    - ShortArray
+    - IntArray
+    - LongArray
+    - FloatArray
+    - DoubleArray
+    - CharArray
+ 
+ - Standardize values in the input data series:
+    - Date, Instant and ZonedDateTime as the number of milliseconds from the epoch of 1970-01-01T00:00:00Z.
+    - Char as string
 
 ### Fixed
  - geom_density: 
