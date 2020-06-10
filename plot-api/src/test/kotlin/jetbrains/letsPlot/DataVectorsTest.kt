@@ -24,6 +24,7 @@ class DataVectorsTest(
         @JvmStatic
         @Parameterized.Parameters
         fun data(): Collection<Array<Any>> {
+            // Lists
             val bytes = listOf<Byte?>(1, 2, null)
             val shorts = listOf<Short?>(1, 2, null)
             val ints = listOf<Int?>(1, 2, null)
@@ -32,6 +33,7 @@ class DataVectorsTest(
             val doubles = listOf<Double?>(1.0, 2.0, null)
             val anyNums = listOf<Any?>(1, 2.0f, null)
 
+            // Expected after standardisation
             val expectedList = listOf<Double?>(1.0, 2.0, null)
             val expectedMap = mapOf(
                 "bytes" to expectedList,
@@ -40,6 +42,26 @@ class DataVectorsTest(
                 "longs" to expectedList,
                 "floats" to expectedList,
                 "doubles" to expectedList,
+                "anyNums" to expectedList
+            )
+
+            // Arrays
+            val byteArr = byteArrayOf(1, 2)
+            val shortArr = shortArrayOf(1, 2)
+            val intArr = intArrayOf(1, 2)
+            val longArr = longArrayOf(1L, 2L)
+            val floatArr = floatArrayOf(1.0f, 2.0f)
+            val doubleArr = doubleArrayOf(1.0, 2.0)
+            val anyNumArr = arrayOf<Any?>(1, 2.0f, null)
+
+            val expectedList2 = listOf<Double>(1.0, 2.0)
+            val expectedMap2 = mapOf(
+                "bytes" to expectedList2,
+                "shorts" to expectedList2,
+                "ints" to expectedList2,
+                "longs" to expectedList2,
+                "floats" to expectedList2,
+                "doubles" to expectedList2,
                 "anyNums" to expectedList
             )
 
@@ -82,6 +104,19 @@ class DataVectorsTest(
                         "anyNums" to anyNums.asSequence().asIterable()
                     ),
                     expectedMap
+                ),
+                arrayOf(
+                    // arrays
+                    mapOf(
+                        "bytes" to byteArr,
+                        "shorts" to shortArr,
+                        "ints" to intArr,
+                        "longs" to longArr,
+                        "floats" to floatArr,
+                        "doubles" to doubleArr,
+                        "anyNums" to anyNumArr
+                    ),
+                    expectedMap2
                 )
             )
         }
