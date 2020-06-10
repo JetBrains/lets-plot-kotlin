@@ -15,9 +15,10 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
 @RunWith(Parameterized::class)
-class DataVectorsTest(
+class DataSeriesTest(
     private val inputData: Map<String, Any>,
-    private val expectedData: Map<String, List<*>>
+    private val expectedData: Map<String, List<*>>,
+    private val assertSameDoubles: Any
 ) {
 
     companion object {
@@ -65,6 +66,7 @@ class DataVectorsTest(
                 "anyNums" to expectedList
             )
 
+            // Test case arguments
             return listOf<Array<Any>>(
                 arrayOf(
                     // lists
@@ -77,7 +79,7 @@ class DataVectorsTest(
                         "doubles" to doubles,
                         "anyNums" to anyNums
                     ),
-                    expectedMap
+                    expectedMap, doubles
                 ),
                 arrayOf(
                     // sequences
@@ -90,7 +92,7 @@ class DataVectorsTest(
                         "doubles" to doubles.asSequence(),
                         "anyNums" to anyNums.asSequence()
                     ),
-                    expectedMap
+                    expectedMap, false
                 ),
                 arrayOf(
                     // iterables
@@ -103,7 +105,7 @@ class DataVectorsTest(
                         "doubles" to doubles.asSequence().asIterable(),
                         "anyNums" to anyNums.asSequence().asIterable()
                     ),
-                    expectedMap
+                    expectedMap, false
                 ),
                 arrayOf(
                     // arrays
@@ -116,7 +118,7 @@ class DataVectorsTest(
                         "doubles" to doubleArr,
                         "anyNums" to anyNumArr
                     ),
-                    expectedMap2
+                    expectedMap2, false
                 )
             )
         }
@@ -132,6 +134,10 @@ class DataVectorsTest(
         val standardisedData = processedSpec[Option.PlotBase.DATA] as Map<String, Any>
 
         Assert.assertEquals(expectedData, standardisedData)
+
+        if (assertSameDoubles != false) {
+            Assert.assertSame("[${assertSameDoubles::class.simpleName}]", assertSameDoubles, standardisedData["doubles"])
+        }
     }
 
     @Test
@@ -147,6 +153,10 @@ class DataVectorsTest(
         val standardisedData = layerSpec[Option.PlotBase.DATA] as Map<String, Any>
 
         Assert.assertEquals(expectedData, standardisedData)
+
+        if (assertSameDoubles != false) {
+            Assert.assertSame("[${assertSameDoubles::class.simpleName}]", assertSameDoubles, standardisedData["doubles"])
+        }
     }
 
     private fun applyEntryTransforms(rawSpec: MutableMap<String, Any>): MutableMap<String, Any> {

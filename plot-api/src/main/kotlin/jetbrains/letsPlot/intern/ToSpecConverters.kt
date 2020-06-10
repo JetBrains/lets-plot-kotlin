@@ -119,28 +119,9 @@ private fun toFeatureSpec(kind: String, name: String?, parameters: Map<String, A
 }
 
 private fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
-    // ToDo: DateTime
-    // ToDo: Char --> String
-
-    fun valueAsList(key: String, rawValue: Any): List<Any?> {
-        return when (rawValue) {
-            is List<*> -> rawValue
-            is Iterable<*> -> rawValue.toList()
-            is Sequence<*> -> rawValue.asIterable().toList()
-            is Array<*> -> rawValue.asList()
-            is ByteArray -> rawValue.asList()
-            is ShortArray -> rawValue.asList()
-            is IntArray -> rawValue.asList()
-            is LongArray -> rawValue.asList()
-            is FloatArray -> rawValue.asList()
-            is DoubleArray -> rawValue.asList()
-            else -> throw IllegalArgumentException("Can't transform data[\"$key\"] to a list: \"${rawValue::class.simpleName}\"")
-        }
-    }
-
     val standardisedData = HashMap<String, List<Any?>>()
     for ((rawKey, rawValue) in rawData) {
-        standardisedData[rawKey.toString()] = valueAsList(rawKey.toString(), rawValue!!)
+        standardisedData[rawKey.toString()] = SeriesStandardizing.toList(rawKey.toString(), rawValue!!)
     }
     return standardisedData
 }

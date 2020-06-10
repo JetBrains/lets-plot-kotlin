@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+ - Standardize Date, Instant and ZonedDateTime as the number of milliseconds from the epoch of 1970-01-01T00:00:00Z.
+
 ### Fixed
  - geom_density: 
     - defaults: alpha=0, fill=white
