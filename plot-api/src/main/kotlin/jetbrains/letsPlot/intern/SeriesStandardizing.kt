@@ -9,9 +9,6 @@ import java.time.*
 import java.util.*
 
 object SeriesStandardizing {
-    // ToDo: Char --> String
-
-
     fun toList(key: String, rawValue: Any): List<Any?> {
         return when (rawValue) {
             is List<*> -> standardizeList(rawValue)
@@ -24,7 +21,8 @@ object SeriesStandardizing {
             is LongArray -> standardizeList(rawValue.asList())
             is FloatArray -> standardizeList(rawValue.asList())
             is DoubleArray -> standardizeList(rawValue.asList())
-            else -> throw IllegalArgumentException("Can't transform data[\"$key\"] to a list: \"${rawValue::class.qualifiedName}\"")
+            is CharArray -> standardizeList(rawValue.asList())
+            else -> throw IllegalArgumentException("Can't transform data[\"$key\"] of type ${rawValue::class.qualifiedName} to a list")
         }
     }
 
@@ -51,13 +49,14 @@ object SeriesStandardizing {
                     null -> it
                     is String -> it
                     is Number -> it
+                    is Char -> it.toString()
                     is Date -> it.time
                     is Instant -> it.toEpochMilli()
                     is ZonedDateTime -> it.toInstant().toEpochMilli()
                     is LocalDate -> noTimeZoneError(it)
                     is LocalTime -> noTimeZoneError(it)
                     is LocalDateTime -> noTimeZoneError(it)
-                    else -> throw IllegalArgumentException("Can't standardize the value $it [${it::class.qualifiedName}] to a string, number or date-time.")
+                    else -> throw IllegalArgumentException("Can't standardize the value \"$it\" of type ${it::class.qualifiedName} as a string, number or date-time.")
                 }
             }
         } else {

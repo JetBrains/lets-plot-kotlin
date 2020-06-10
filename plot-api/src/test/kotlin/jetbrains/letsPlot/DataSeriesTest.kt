@@ -54,6 +54,7 @@ class DataSeriesTest(
             val floatArr = floatArrayOf(1.0f, 2.0f)
             val doubleArr = doubleArrayOf(1.0, 2.0)
             val anyNumArr = arrayOf<Any?>(1, 2.0f, null)
+            val charArr = charArrayOf('a', 'b')
 
             val expectedList2 = listOf<Double>(1.0, 2.0)
             val expectedMap2 = mapOf(
@@ -63,7 +64,8 @@ class DataSeriesTest(
                 "longs" to expectedList2,
                 "floats" to expectedList2,
                 "doubles" to expectedList2,
-                "anyNums" to expectedList
+                "anyNums" to expectedList,
+                "chars" to listOf("a", "b")
             )
 
             // Test case arguments
@@ -116,7 +118,8 @@ class DataSeriesTest(
                         "longs" to longArr,
                         "floats" to floatArr,
                         "doubles" to doubleArr,
-                        "anyNums" to anyNumArr
+                        "anyNums" to anyNumArr,
+                        "chars" to charArr
                     ),
                     expectedMap2, false
                 )
