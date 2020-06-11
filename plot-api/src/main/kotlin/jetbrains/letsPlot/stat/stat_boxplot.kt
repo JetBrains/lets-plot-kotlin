@@ -22,12 +22,12 @@ class stat_boxplot(
     position: PosOptions = dodge,
     show_legend: Boolean = true,
     sampling: SamplingOptions? = null,
-    override val varwidth: Any? = null,
+    override val varWidth: Any? = null,
     override val coef: Any? = null,
     override val weight: Double? = null,
     mapping: BoxplotMapping.() -> Unit = {}
 
-) : BoxplotAesthetics, BoxplotParameters,
+) : BoxplotAesthetics, BoxplotStatParameters,
     LayerBase(
         mapping = BoxplotMapping().apply(mapping).seal(),
         data = data,
@@ -41,7 +41,7 @@ class stat_boxplot(
 
     override fun seal(): Options {
         return super<BoxplotAesthetics>.seal() +
-                super<BoxplotParameters>.seal()
+                super<BoxplotStatParameters>.seal()
     }
 }
 

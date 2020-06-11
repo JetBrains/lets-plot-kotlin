@@ -58,9 +58,9 @@ object Stat {
     @Suppress("ClassName")
     class boxplot(
         mapping: BoxplotMapping.() -> Unit = {},
-        override val varwidth: Boolean? = null,
+        override val varWidth: Boolean? = null,
         override val coef: Double? = null
-    ) : BoxplotParameters,
+    ) : BoxplotStatParameters,
         StatOptions(
             StatKind.BOXPLOT,
             mapping = BoxplotMapping().apply(mapping).seal()

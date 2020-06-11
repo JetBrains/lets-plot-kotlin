@@ -9,12 +9,14 @@ import jetbrains.datalore.plot.base.stat.BoxplotStat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
-interface BoxplotParameters : OptionsCapsule {
-    val varwidth: Any?
+interface BoxplotStatParameters : OptionsCapsule {
+    val varWidth: Any?
+
+    @Suppress("SpellCheckingInspection")
     val coef: Any?
 
     override fun seal() = Options.of(
-        BoxplotStat.P_VARWIDTH to varwidth,
+        BoxplotStat.P_VARWIDTH to varWidth,
         BoxplotStat.P_COEF to coef
     )
 }

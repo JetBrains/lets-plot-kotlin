@@ -9,11 +9,8 @@ import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.geom.*
-import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
-import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
-import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
-import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
 import jetbrains.letsPlot.intern.layer.stat.BinParameters
+import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
 
 /**
  * `Geom options` to pass as a value of `geom` parameter of `layer` functions like:
@@ -186,7 +183,7 @@ object Geom {
         override val parameters = this.seal()
     }
 
-    @Suppress("ClassName")
+    @Suppress("ClassName", "SpellCheckingInspection")
     class abline(
         mapping: ABLineMapping.() -> Unit = {},
         override val slope: Double? = null,
@@ -311,8 +308,9 @@ object Geom {
         override val outlierFill: Any? = null,
         override val outlierShape: Any? = null,
         override val outlierSize: Double? = null,
-        override val varwidth: Boolean? = null,
         override val fatten: Double? = null,
+        override val varWidth: Boolean? = null,
+        @Suppress("SpellCheckingInspection") override val coef: Any? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -334,7 +332,7 @@ object Geom {
         }
     }
 
-    @Suppress("ClassName")
+    @Suppress("ClassName", "SpellCheckingInspection")
     class errorbar(
         mapping: ErrorBarMapping.() -> Unit = {},
         override val x: Double? = null,
@@ -375,7 +373,7 @@ object Geom {
         override val parameters = this.seal()
     }
 
-    @Suppress("ClassName")
+    @Suppress("ClassName", "SpellCheckingInspection")
     class pointrange(
         mapping: PointRangeMapping.() -> Unit = {},
         override val x: Double? = null,
@@ -396,7 +394,7 @@ object Geom {
         override val parameters = this.seal()
     }
 
-    @Suppress("ClassName")
+    @Suppress("ClassName", "SpellCheckingInspection")
     class linerange(
         mapping: LineRangeMapping.() -> Unit = {},
         override val x: Double? = null,

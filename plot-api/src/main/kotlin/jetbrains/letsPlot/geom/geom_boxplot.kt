@@ -38,7 +38,7 @@ import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
  * @param outlierShape
  * @param outlierSize
  *     Default aesthetics for outliers.
- * @param varwidth
+ * @param varWidth
  *     if FALSE (default) make a standard box plot.
  *     If TRUE, boxes are drawn with widths proportional to the square-roots of the number of
  *     observations in the groups.
@@ -78,8 +78,9 @@ class geom_boxplot(
     override val outlierFill: Any? = null,
     override val outlierShape: Any? = null,
     override val outlierSize: Double? = null,
-    override val varwidth: Boolean? = null,
     override val fatten: Double? = null,
+    override val varWidth: Boolean? = null,
+    @Suppress("SpellCheckingInspection") override val coef: Any? = null,
     override val alpha: Double? = null,
     override val color: Any? = null,
     override val fill: Any? = null,

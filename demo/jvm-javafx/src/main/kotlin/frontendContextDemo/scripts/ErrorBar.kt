@@ -40,12 +40,13 @@ object ErrorBar {
                 p.show()
             }
 
+            @Suppress("SpellCheckingInspection")
             fun errorbar() {
                 val geom = geom_errorbar(
                     position = Pos.position_dodge(width = 0.1),
                     width = 0.1
                 ) {
-                    ymin = "min"; ymax = "max";
+                    ymin = "min"; ymax = "max"
                 } +
                         geom_line(position = Pos.position_dodge(width = 0.1)) +
                         geom_point(position = Pos.position_dodge(width = 0.1), size = 2.0)
@@ -54,6 +55,7 @@ object ErrorBar {
                 p.show()
             }
 
+            @Suppress("SpellCheckingInspection")
             fun pointrange() {
                 val geom = geom_pointrange(
                     position = Pos.position_dodge(width = 0.1),
@@ -67,6 +69,7 @@ object ErrorBar {
                 p.show()
             }
 
+            @Suppress("SpellCheckingInspection")
             fun linerange() {
                 val geom = geom_linerange(
                     position = Pos.position_dodge(width = 0.1),
