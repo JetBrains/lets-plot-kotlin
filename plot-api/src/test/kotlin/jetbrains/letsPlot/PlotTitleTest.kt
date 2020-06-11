@@ -7,6 +7,7 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
 import jetbrains.letsPlot.intern.toSpec
+import jetbrains.letsPlot.label.ggtitle
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 

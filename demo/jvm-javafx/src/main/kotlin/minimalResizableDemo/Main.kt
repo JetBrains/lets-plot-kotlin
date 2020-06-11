@@ -20,7 +20,7 @@ import jetbrains.datalore.vis.svg.SvgSvgElement
 import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.ggtitle
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.intern.toSpec
 import java.awt.Color
 import java.awt.Dimension

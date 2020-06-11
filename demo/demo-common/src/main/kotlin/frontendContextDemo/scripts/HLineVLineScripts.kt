@@ -10,7 +10,7 @@ import jetbrains.letsPlot.geom.geom_hline
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_vline
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.ggtitle
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
 
 object HLineVLineScripts {

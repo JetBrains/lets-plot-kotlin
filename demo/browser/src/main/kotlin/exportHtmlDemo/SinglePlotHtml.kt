@@ -9,7 +9,7 @@ import BrowserDemoUtil
 import jetbrains.datalore.plot.PlotHtmlExport
 import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.ggtitle
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.intern.toSpec
 
 @Suppress("DuplicatedCode")

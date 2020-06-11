@@ -8,7 +8,7 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.facet.facet_grid
 import jetbrains.letsPlot.geom.geom_histogram
-import jetbrains.letsPlot.ggtitle
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
 
 object FacetGrid {

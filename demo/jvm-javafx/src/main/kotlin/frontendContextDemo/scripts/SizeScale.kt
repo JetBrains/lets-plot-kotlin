@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.ggtitle
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_size
 import jetbrains.letsPlot.scale.scale_size_area
@@ -25,7 +25,9 @@ object SizeScale {
             val p = lets_plot(dat) + geom_point { x = "x"; y = "y"; size = "s" }
 
             // size ~= radius
-            (p + scale_size(range = listOf(5, 50), guide = "none") + ggtitle("scale_size")).show()
+            (p + scale_size(range = listOf(5, 50), guide = "none") + ggtitle(
+                "scale_size"
+            )).show()
 
             // size ~= radius where 0 size --> 0 radius
             (p + scale_size_area(max_size = 50, guide = "none") + ggtitle("scale_size_area")).show()

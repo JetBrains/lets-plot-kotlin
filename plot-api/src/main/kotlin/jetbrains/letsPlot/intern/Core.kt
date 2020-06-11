@@ -80,7 +80,7 @@ sealed class Feature {
 }
 
 
-internal class FeatureList(val elements: List<Feature>) : Feature() {
+class FeatureList(val elements: List<Feature>) : Feature() {
     override operator fun plus(other: Feature): Feature {
         return when (other) {
             is DummyFeature -> this // nothing
