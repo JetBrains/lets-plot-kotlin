@@ -14,77 +14,77 @@ import jetbrains.letsPlot.intern.filterNonNullValues
 * Use theme() to modify individual components of a theme,
 * allowing you to control the appearance of all non-data components of the plot.
 *
-* @param axis_title result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisTitle result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
 * label of axes
 * 
-* @param axis_title_x result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisTitleX result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
 * x axis label
 * 
-* @param axis_title_y result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisTitleY result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
 * y axis label
 * 
-* @param axis_text result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisText result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
 * tick labels along axes
 * 
-* @param axis_text_x result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisTextX result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
 * x axis tick labels
 * 
-* @param axis_text_y result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisTextY result of element_text() or (element_blank() | "blank") to draw nothing and assign no space.
 * y axis tick labels
 * 
-* @param axis_ticks result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisTicks result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
 * tick marks along axes
 * 
-* @param axis_ticks_x result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisTicksX result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
 * x axis tick marks
 * 
-* @param axis_ticks_y result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisTicksY result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
 * y axis tick marks
 * 
-* @param axis_line result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisLine result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
 * lines along axes
 * 
-* @param axis_line_x result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisLineX result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
 * line along x axis
 * 
-* @param axis_line_y result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
+* @param axisLineY result of element_line() or (element_blank() | "blank") to draw nothing and assign no space.
 * line along y axis
  *
- * @param legend_position ("none" | "left" | "right" | "bottom" | "top") or two-element numeric vector.
+ * @param legendPosition ("none" | "left" | "right" | "bottom" | "top") or two-element numeric vector.
 * the position of legends
 * 
  */
 fun theme(
-    axis_title: String? = null,
-    axis_title_x: String? = null,
-    axis_title_y: String? = null,
-    axis_text: String? = null,
-    axis_text_x: String? = null,
-    axis_text_y: String? = null,
-    axis_ticks: String? = null,
-    axis_ticks_x: String? = null,
-    axis_ticks_y: String? = null,
-    axis_line: String? = null,
-    axis_line_x: String? = null,
-    axis_line_y: String? = null,
-    legend_position: String? = null,
+    axisTitle: String? = null,
+    axisTitleX: String? = null,
+    axisTitleY: String? = null,
+    axisText: String? = null,
+    axisTextX: String? = null,
+    axisTextY: String? = null,
+    axisTicks: String? = null,
+    axisTicksX: String? = null,
+    axisTicksY: String? = null,
+    axisLine: String? = null,
+    axisLineX: String? = null,
+    axisLineY: String? = null,
+    legendPosition: String? = null,
     otherOptions: Options = Options.empty()
 ) : OtherPlotFeature {
     @Suppress("UNCHECKED_CAST")
     val options = mapOf(
-        "axis_title" to axis_title,
-        "axis_title_x" to axis_title_x,
-        "axis_title_y" to axis_title_y,
-        "axis_text" to axis_text,
-        "axis_text_x" to axis_text_x,
-        "axis_text_y" to axis_text_y,
-        "axis_ticks" to axis_ticks,
-        "axis_ticks_x" to axis_ticks_x,
-        "axis_ticks_y" to axis_ticks_y,
-        "axis_line" to axis_line,
-        "axis_line_x" to axis_line_x,
-        "axis_line_y" to axis_line_y,
-        "legend_position" to legend_position,
+        "axis_title" to axisTitle,
+        "axis_title_x" to axisTitleX,
+        "axis_title_y" to axisTitleY,
+        "axis_text" to axisText,
+        "axis_text_x" to axisTextX,
+        "axis_text_y" to axisTextY,
+        "axis_ticks" to axisTicks,
+        "axis_ticks_x" to axisTicksX,
+        "axis_ticks_y" to axisTicksY,
+        "axis_line" to axisLine,
+        "axis_line_x" to axisLineX,
+        "axis_line_y" to axisLineY,
+        "legend_position" to legendPosition,
         "other_options" to otherOptions
     ).filterNonNullValues()
 

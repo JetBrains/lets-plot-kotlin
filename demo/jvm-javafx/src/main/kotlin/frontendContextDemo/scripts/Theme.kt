@@ -21,10 +21,10 @@ object Theme {
             val p = ggplot(data) +
                     geom_tile(width = 1.0, height = 10.0) { x = "x"; color = "x"; fill = "x" } +
                     theme(
-                        legend_position = "none",
-                        axis_text_y = element_blank(),
-                        axis_ticks_y = element_blank(),
-                        axis_title_y = element_blank()
+                        legendPosition = "none",
+                        axisTextY = element_blank(),
+                        axisTicksY = element_blank(),
+                        axisTitleY = element_blank()
                     )
 
             p.show()
