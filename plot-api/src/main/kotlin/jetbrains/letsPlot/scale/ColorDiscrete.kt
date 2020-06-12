@@ -36,7 +36,7 @@ import jetbrains.letsPlot.intern.Scale
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  */
 fun scale_fill_discrete(
-    h: Int? = null, c: Int? = null, l: Int? = null, h_start: Int? = null, direction: Int? = null,
+    h: Int? = null, c: Int? = null, l: Int? = null, hStart: Int? = null, direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -53,7 +53,7 @@ fun scale_fill_discrete(
             Option.Scale.HUE_RANGE to h,
             Option.Scale.CHROMA to c,
             Option.Scale.LUMINANCE to l,
-            Option.Scale.START_HUE to h_start,
+            Option.Scale.START_HUE to hStart,
             Option.Scale.DIRECTION to direction,
             Option.Scale.SCALE_MAPPER_KIND to "color_hue",
             Option.Scale.DISCRETE_DOMAIN to true
@@ -62,7 +62,7 @@ fun scale_fill_discrete(
 )
 
 fun scale_color_discrete(
-    h: Int? = null, c: Int? = null, l: Int? = null, h_start: Int? = null, direction: Int? = null,
+    h: Int? = null, c: Int? = null, l: Int? = null, hStart: Int? = null, direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -79,7 +79,7 @@ fun scale_color_discrete(
             Option.Scale.HUE_RANGE to h,
             Option.Scale.CHROMA to c,
             Option.Scale.LUMINANCE to l,
-            Option.Scale.START_HUE to h_start,
+            Option.Scale.START_HUE to hStart,
             Option.Scale.DIRECTION to direction,
             Option.Scale.SCALE_MAPPER_KIND to "color_hue",
             Option.Scale.DISCRETE_DOMAIN to true

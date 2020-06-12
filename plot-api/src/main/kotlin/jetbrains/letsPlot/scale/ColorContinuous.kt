@@ -197,7 +197,7 @@ fun scale_fill_hue(
     h: Int? = null,
     c: Int? = null,
     l: Int? = null,
-    h_start: Int? = null,
+    hStart: Int? = null,
     direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
@@ -215,7 +215,7 @@ fun scale_fill_hue(
             HUE_RANGE to h,
             CHROMA to c,
             LUMINANCE to l,
-            START_HUE to h_start,
+            START_HUE to hStart,
             DIRECTION to direction,
             SCALE_MAPPER_KIND to "color_hue"
         )
@@ -224,7 +224,7 @@ fun scale_fill_hue(
 
 
 fun scale_color_hue(
-    h: Int?, c: Int?, l: Int?, h_start: Int?, direction: Int?,
+    h: Int?, c: Int?, l: Int?, hStart: Int?, direction: Int?,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -241,7 +241,7 @@ fun scale_color_hue(
             HUE_RANGE to h,
             CHROMA to c,
             LUMINANCE to l,
-            START_HUE to h_start,
+            START_HUE to hStart,
             DIRECTION to direction,
             SCALE_MAPPER_KIND to "color_hue"
         )
