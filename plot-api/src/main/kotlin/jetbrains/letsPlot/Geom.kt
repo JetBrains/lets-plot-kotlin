@@ -203,7 +203,7 @@ object Geom {
     @Suppress("ClassName")
     class hline(
         mapping: HLineMapping.() -> Unit = {},
-        override val yintercept: Double? = null,
+        override val yIntercept: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -219,7 +219,7 @@ object Geom {
     @Suppress("ClassName")
     class vline(
         mapping: VLineMapping.() -> Unit = {},
-        override val xintercept: Double? = null,
+        override val xIntercept: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -310,7 +310,8 @@ object Geom {
         override val outlierSize: Double? = null,
         override val fatten: Double? = null,
         override val varWidth: Boolean? = null,
-        @Suppress("SpellCheckingInspection") override val coef: Any? = null,
+        @Suppress("SpellCheckingInspection")
+        override val coef: Any? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,

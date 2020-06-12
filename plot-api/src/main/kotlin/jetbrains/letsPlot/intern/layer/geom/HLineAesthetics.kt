@@ -9,14 +9,15 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface HLineAesthetics : OptionsCapsule {
-    val yintercept: Any?
+    val yIntercept: Any?
     val alpha: Any?
     val color: Any?
     val linetype: Any?
     val size: Any?
 
+    @Suppress("SpellCheckingInspection")
     override fun seal() = Options.of(
-        "yintercept" to yintercept,
+        "yintercept" to yIntercept,
         "alpha" to alpha,
         "color" to color,
         "linetype" to linetype,

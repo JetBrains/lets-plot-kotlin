@@ -7,7 +7,6 @@ package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.OptionsCapsule
 import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 
 interface BoxplotParameters : BoxplotStatParameters {
@@ -23,5 +22,5 @@ interface BoxplotParameters : BoxplotStatParameters {
         Option.Geom.BoxplotOutlier.FILL to outlierFill,
         Option.Geom.BoxplotOutlier.SHAPE to outlierShape,
         Option.Geom.BoxplotOutlier.SIZE to outlierSize
-    ) + super<BoxplotStatParameters>.seal()
+    ) + super.seal()
 }

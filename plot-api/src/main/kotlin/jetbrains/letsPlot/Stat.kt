@@ -29,6 +29,7 @@ object Stat {
         ) {
         override val parameters = this.seal()
     }
+
     @Suppress("ClassName")
     class count(
         mapping: CountMapping.() -> Unit = {}
@@ -59,6 +60,7 @@ object Stat {
     class boxplot(
         mapping: BoxplotMapping.() -> Unit = {},
         override val varWidth: Boolean? = null,
+        @Suppress("SpellCheckingInspection")
         override val coef: Double? = null
     ) : BoxplotStatParameters,
         StatOptions(

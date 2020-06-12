@@ -16,7 +16,7 @@ import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.CrossBarAesthetics
 import jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
 
-@Suppress("ClassName", "unused")
+@Suppress("ClassName")
 /**
  * Bar with horizontal median line
  * @param data dictionary or pandas DataFrame, optional

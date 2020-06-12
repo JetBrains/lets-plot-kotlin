@@ -15,7 +15,7 @@ import jetbrains.letsPlot.intern.Scale
 /**
  * Continuous scale for size (~radius)
  *
- * @param range A list of numerics of length 2.
+ * @param range A list of numbers of length 2.
  *              The range of sizes that the input values are mapped to.
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
@@ -28,7 +28,6 @@ import jetbrains.letsPlot.intern.Scale
  * @param guide TBD
  * @param trans TBD
  */
-@Suppress("unused")
 fun scale_size(
     range: List<Number>,
     name: String? = null,
@@ -64,7 +63,6 @@ fun scale_size(
  * @param guide TBD
  * @param trans TBD
  */
-@Suppress("unused")
 fun scale_size_area(
     max_size: Number,
     name: String? = null,

@@ -15,7 +15,7 @@ import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
 import jetbrains.letsPlot.intern.layer.stat.DensityMapping
 
-@Suppress("ClassName", "unused")
+@Suppress("ClassName")
 /**
  * Display density function.
  * @param data dictionary or pandas DataFrame, optional.

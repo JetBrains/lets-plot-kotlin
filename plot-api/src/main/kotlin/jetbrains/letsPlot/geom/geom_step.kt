@@ -52,7 +52,7 @@ class geom_step(
     position: PosOptions = Pos.identity,
     show_legend: Boolean = true,
     sampling: SamplingOptions? = null,
-    val direction: String? = null,
+    private val direction: String? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Double? = null,

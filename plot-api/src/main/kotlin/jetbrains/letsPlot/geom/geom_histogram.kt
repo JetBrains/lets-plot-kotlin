@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.geom.HistogramMapping
 import jetbrains.letsPlot.intern.layer.stat.BinAesthetics
 import jetbrains.letsPlot.intern.layer.stat.BinParameters
 
-@Suppress("ClassName", "unused")
+@Suppress("ClassName")
 /**
  * Displays a 1d distribution by dividing variable mapped to x axis into bins and counting the number of observations in each bin.
  * @param data dictionary or pandas DataFrame, optional.

@@ -23,6 +23,7 @@ class stat_boxplot(
     show_legend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val varWidth: Any? = null,
+    @Suppress("SpellCheckingInspection")
     override val coef: Any? = null,
     override val weight: Double? = null,
     mapping: BoxplotMapping.() -> Unit = {}

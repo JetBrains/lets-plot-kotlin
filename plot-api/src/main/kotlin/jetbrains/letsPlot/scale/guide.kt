@@ -11,20 +11,21 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * Legend guide.
  * Legend type guide shows key (i.e., geoms) mapped onto values.
  *
- * @param nrow A number of rows in legend's guide
- * @param ncol A number of columns in legend's guide
- * @param byrow A type of output: by row (default), or by column
+ * @param nRow A number of rows in legend's guide
+ * @param nCol A number of columns in legend's guide
+ * @param byRow A type of output: by row (default), or by column
  */
 @Suppress("FunctionName")
 fun guide_legend(
-    nrow: Int? = null,
-    ncol: Int? = null,
-    byrow: Boolean? = null
+    nRow: Int? = null,
+    nCol: Int? = null,
+    byRow: Boolean? = null
 ): Map<String, Any> {
+    @Suppress("SpellCheckingInspection")
     return mapOf(
-        "nrow" to nrow,
-        "ncol" to ncol,
-        "byrow" to byrow
+        "nrow" to nRow,
+        "ncol" to nCol,
+        "byrow" to byRow
     ).filterNonNullValues()
 }
 
@@ -32,19 +33,19 @@ fun guide_legend(
  * Continuous color bar guide.
  * Color bar guide shows continuous color scales mapped onto values.
  * Color bar is available with scale_fill and scale_color.
- * @param barwidth Color bar width
- * @param barheight Color bar height
- * @param nbin Number of bins in color bar
+ * @param barWidth Color bar width
+ * @param barHeight Color bar height
+ * @param nBin Number of bins in color bar
  */
-@Suppress("FunctionName")
+@Suppress("FunctionName", "SpellCheckingInspection")
 fun guide_colorbar(
-    barwidth: Double? = null,
-    barheight: Double? = null,
-    nbin: Int? = null
+    barWidth: Double? = null,
+    barHeight: Double? = null,
+    nBin: Int? = null
 ): Map<String, Any> {
     return mapOf(
-        "barwidth" to barwidth,
-        "barheight" to barheight,
-        "nbin" to nbin
+        "barwidth" to barWidth,
+        "barheight" to barHeight,
+        "nbin" to nBin
     ).filterNonNullValues()
 }

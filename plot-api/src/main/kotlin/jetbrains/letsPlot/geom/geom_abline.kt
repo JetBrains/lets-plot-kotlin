@@ -15,7 +15,7 @@ import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.ABLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.ABLineMapping
 
-@Suppress("ClassName")
+@Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Add straight lines to a plot specified by slope and intercept.
  * @param data dictionary or pandas DataFrame, optional.
