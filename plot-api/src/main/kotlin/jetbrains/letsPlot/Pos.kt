@@ -21,47 +21,54 @@ object Pos {
     val jitterdodge = PosOptions(PosKind.JITTER_DODGE)
 
     // parameter names
-    private const val DODGE_WIDTH = "width"
-    private const val JITTER_WIDTH = "width"
-    private const val JITTER_HEIGHT = "height"
-    private const val NUDGE_WIDTH = "x"
-    private const val NUDGE_HEIGHT = "y"
-    private const val JD_DODGE_WIDTH = "dodge_width"
-    private const val JD_JITTER_WIDTH = "jitter_width"
-    private const val JD_JITTER_HEIGHT = "jitter_height"
+    internal const val DODGE_WIDTH = "width"
+    internal const val JITTER_WIDTH = "width"
+    internal const val JITTER_HEIGHT = "height"
+    internal const val NUDGE_WIDTH = "x"
+    internal const val NUDGE_HEIGHT = "y"
+    internal const val JD_DODGE_WIDTH = "dodge_width"
+    internal const val JD_JITTER_WIDTH = "jitter_width"
+    internal const val JD_JITTER_HEIGHT = "jitter_height"
+}
 
-    @Suppress("FunctionName")
-    fun position_dodge(width: Number? = null) = PosOptions(
+@Suppress("FunctionName")
+fun position_dodge(width: Number? = null) =
+    PosOptions(
         PosKind.DODGE,
-        Options.of(DODGE_WIDTH to width)
+        Options.of(Pos.DODGE_WIDTH to width)
     )
 
-    @Suppress("FunctionName")
-    fun position_jitter(width: Number? = null, height: Number? = null) = PosOptions(
+@Suppress("FunctionName")
+fun position_jitter(width: Number? = null, height: Number? = null) =
+    PosOptions(
         PosKind.JITTER,
         Options.of(
-            JITTER_WIDTH to width,
-            JITTER_HEIGHT to height
+            Pos.JITTER_WIDTH to width,
+            Pos.JITTER_HEIGHT to height
         )
     )
 
-    @Suppress("FunctionName")
-    fun position_nudge(x: Number? = null, y: Number? = null) = PosOptions(
+@Suppress("FunctionName")
+fun position_nudge(x: Number? = null, y: Number? = null) =
+    PosOptions(
         PosKind.NUDGE,
         Options.of(
-            NUDGE_WIDTH to x,
-            NUDGE_HEIGHT to y
+            Pos.NUDGE_WIDTH to x,
+            Pos.NUDGE_HEIGHT to y
         )
     )
 
-    @Suppress("FunctionName", "SpellCheckingInspection")
-    fun position_jitterdodge(dodgeWidth: Number? = null, jitterWidth: Number? = null, jitterHeight: Number? = null) =
-        PosOptions(
-            PosKind.JITTER_DODGE,
-            Options.of(
-                JD_DODGE_WIDTH to dodgeWidth,
-                JD_JITTER_WIDTH to jitterWidth,
-                JD_JITTER_HEIGHT to jitterHeight
-            )
+@Suppress("FunctionName", "SpellCheckingInspection")
+fun position_jitterdodge(
+    dodgeWidth: Number? = null,
+    jitterWidth: Number? = null,
+    jitterHeight: Number? = null
+) =
+    PosOptions(
+        PosKind.JITTER_DODGE,
+        Options.of(
+            Pos.JD_DODGE_WIDTH to dodgeWidth,
+            Pos.JD_JITTER_WIDTH to jitterWidth,
+            Pos.JD_JITTER_HEIGHT to jitterHeight
         )
-}
+    )

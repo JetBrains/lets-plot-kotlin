@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.Pos.position_dodge
+import jetbrains.letsPlot.position_dodge
 import jetbrains.letsPlot.geom.geom_crossbar
 import jetbrains.letsPlot.lets_plot
 

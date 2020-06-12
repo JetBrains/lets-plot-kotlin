@@ -8,7 +8,7 @@ package jetbrains.letsPlot
 import jetbrains.letsPlot.intern.LayerAssert
 import jetbrains.letsPlot.intern.PosKind
 import jetbrains.letsPlot.Pos.dodge
-import jetbrains.letsPlot.Pos.position_dodge
+import jetbrains.letsPlot.position_dodge
 import jetbrains.letsPlot.geom.geom_point
 import org.junit.Test
 
