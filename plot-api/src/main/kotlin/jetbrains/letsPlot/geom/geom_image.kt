@@ -21,7 +21,7 @@ class geom_image(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     val href: String? = null,
     override val xmin: Any? = null,
@@ -36,7 +36,7 @@ class geom_image(
         geom = Geom.image(),
         stat = stat,
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     ) {
     override fun seal(): Options {

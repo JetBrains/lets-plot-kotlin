@@ -49,7 +49,7 @@ class geom_errorbar(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val ymin: Double? = null,
@@ -67,6 +67,6 @@ class geom_errorbar(
         geom = Geom.errorbar(),
         stat = stat,
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     )

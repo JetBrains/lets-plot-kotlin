@@ -49,7 +49,7 @@ class geom_density(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.density(),
     position: PosOptions = Pos.identity,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -68,7 +68,7 @@ class geom_density(
         geom = Geom.density(),
         stat = stat,
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     )
 

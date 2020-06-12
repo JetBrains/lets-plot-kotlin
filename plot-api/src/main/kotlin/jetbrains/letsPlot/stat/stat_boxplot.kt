@@ -20,7 +20,7 @@ class stat_boxplot(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.boxplot(),
     position: PosOptions = dodge,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val varWidth: Any? = null,
     @Suppress("SpellCheckingInspection")
@@ -35,7 +35,7 @@ class stat_boxplot(
         geom = geom,
         stat = Stat.boxplot(),
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
 
     ) {

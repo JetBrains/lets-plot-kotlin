@@ -102,7 +102,7 @@ abstract class Layer(
     val geom: GeomOptions,
     val stat: StatOptions,
     val position: PosOptions,
-    val show_legend: Boolean,
+    val showLegend: Boolean,
     val sampling: SamplingOptions?
 ) : Feature() {
 
@@ -121,7 +121,7 @@ class Scale(
     val labels: List<String>? = null,
     val limits: List<Any>? = null,
     val expand: Any? = null,
-    val na_value: Any? = null,
+    val naValue: Any? = null,
     val guide: Any? = null,
     val trans: Any? = null,
     val otherOptions: Options = Options.empty()

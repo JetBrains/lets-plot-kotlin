@@ -29,7 +29,7 @@ object HLineVLineScripts {
 
         val p = lets_plot(data) { x = "x"; y = "y" } +
                 ggtitle("Horizontal and vertical lines of different styles + points") +
-                geom_point(size = 80.0, alpha = 0.2, show_legend = false) { color = "c" } +
+                geom_point(size = 80.0, alpha = 0.2, showLegend = false) { color = "c" } +
                 geom_hline(yIntercept = 3.7) +
                 geom_hline(yIntercept = 2.7, color = "red", linetype = "dashed", size = 1.0) +
                 geom_hline(yIntercept = 1.7, color = "green", linetype = "dotted", size = 2.0) +

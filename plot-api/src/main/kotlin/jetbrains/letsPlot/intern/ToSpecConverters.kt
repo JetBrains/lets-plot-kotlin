@@ -69,7 +69,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
 
     val allParameters = parameters + geom.parameters + stat.parameters
     spec.putAll(allParameters.map)
-    if (!show_legend) {
+    if (!showLegend) {
         spec[Option.Layer.SHOW_LEGEND] = false
     }
 
@@ -91,7 +91,7 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     labels?.let { spec[LABELS] = labels }
     limits?.let { spec[LIMITS] = limits }
     expand?.let { spec[EXPAND] = expand }
-    na_value?.let { spec[NA_VALUE] = na_value }
+    naValue?.let { spec[NA_VALUE] = naValue }
     guide?.let { spec[GUIDE] = guide }
 //    trans    ?.let{ spec[TRANS    ] = trans    }  // ToDo: add trans
 

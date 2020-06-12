@@ -25,7 +25,7 @@ object Title {
             val p = lets_plot(dat) +
                     geom_point { x = "x"; y = "y" } +
                     ggtitle("Sine function") +
-                    scale_size_area(max_size = 70, guide = "none")
+                    scale_size_area(maxSize = 70, guide = "none")
 
             p.show()
         }

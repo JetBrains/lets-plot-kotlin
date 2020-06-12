@@ -52,7 +52,7 @@ class geom_crossbar(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.dodge,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     val fatten: Double? = null,
     override val x: Double? = null,
@@ -74,7 +74,7 @@ class geom_crossbar(
         geom = Geom.crossbar(),
         stat = stat,
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     ) {
     override fun seal(): Options {

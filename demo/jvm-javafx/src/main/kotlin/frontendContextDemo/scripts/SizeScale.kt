@@ -30,7 +30,7 @@ object SizeScale {
             )).show()
 
             // size ~= radius where 0 size --> 0 radius
-            (p + scale_size_area(max_size = 50, guide = "none") + ggtitle("scale_size_area")).show()
+            (p + scale_size_area(maxSize = 50, guide = "none") + ggtitle("scale_size_area")).show()
         }
     }
 }

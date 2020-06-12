@@ -23,7 +23,7 @@ class stat_count(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.bar(),
     position: PosOptions = stack,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -42,7 +42,7 @@ class stat_count(
         geom = geom,
         stat = Stat.count(),
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     ) {
 

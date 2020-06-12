@@ -48,7 +48,7 @@ class geom_area(
     data: Map<*, *>? = null,
     stat: StatOptions = identity,
     position: PosOptions = Pos.stack,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -66,7 +66,7 @@ class geom_area(
         geom = area(),
         stat = stat,
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     )
 

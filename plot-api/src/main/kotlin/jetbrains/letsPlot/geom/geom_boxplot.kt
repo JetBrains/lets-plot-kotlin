@@ -66,7 +66,7 @@ class geom_boxplot(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.boxplot(),
     position: PosOptions = Pos.dodge,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val lower: Double? = null,
@@ -99,7 +99,7 @@ class geom_boxplot(
         geom = boxplot(),
         stat = stat,
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     ) {
     override fun seal(): Options {

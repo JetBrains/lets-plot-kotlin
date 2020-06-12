@@ -42,12 +42,12 @@ fun scale_fill_discrete(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.FILL,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             Option.Scale.HUE_RANGE to h,
@@ -68,12 +68,12 @@ fun scale_color_discrete(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.COLOR,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             Option.Scale.HUE_RANGE to h,

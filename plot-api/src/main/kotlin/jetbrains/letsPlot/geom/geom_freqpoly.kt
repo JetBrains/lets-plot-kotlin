@@ -49,7 +49,7 @@ class geom_freqpoly(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin(),
     position: PosOptions = Pos.identity,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -70,7 +70,7 @@ class geom_freqpoly(
         geom = Geom.freqpoly(),
         stat = stat,
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     ) {
     override fun seal(): Options {

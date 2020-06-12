@@ -31,12 +31,12 @@ fun scale_fill_continuous(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.FILL,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             LOW to low,
@@ -53,12 +53,12 @@ fun scale_color_continuous(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.COLOR,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             LOW to low,
@@ -75,12 +75,12 @@ fun scale_fill_gradient(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = scale_fill_continuous(
     low, high,
-    name, breaks, labels, limits, expand, na_value, guide, trans
+    name, breaks, labels, limits, expand, naValue, guide, trans
 )
 
 fun scale_color_gradient(
@@ -90,12 +90,12 @@ fun scale_color_gradient(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = scale_color_continuous(
     low, high,
-    name, breaks, labels, limits, expand, na_value, guide, trans
+    name, breaks, labels, limits, expand, naValue, guide, trans
 )
 
 fun scale_fill_gradient2(
@@ -105,12 +105,12 @@ fun scale_fill_gradient2(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.FILL,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             LOW to low,
@@ -129,12 +129,12 @@ fun scale_color_gradient2(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.COLOR,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             LOW to low,
@@ -153,12 +153,12 @@ fun scale_fill_grey(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.FILL,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             START to start,
@@ -176,12 +176,12 @@ fun scale_color_grey(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.COLOR,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             START to start,
@@ -204,12 +204,12 @@ fun scale_fill_hue(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.FILL,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             HUE_RANGE to h,
@@ -230,12 +230,12 @@ fun scale_color_hue(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: Any? = null,
-    na_value: Any? = null,
+    naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
     Aes.COLOR,
-    name, breaks, labels, limits, expand, na_value, guide, trans,
+    name, breaks, labels, limits, expand, naValue, guide, trans,
     Options(
         mapOf(
             HUE_RANGE to h,

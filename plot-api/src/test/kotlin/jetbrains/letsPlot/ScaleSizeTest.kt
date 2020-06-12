@@ -38,7 +38,7 @@ class ScaleSizeTest {
 
     @Test
     fun `check scale size area option`() {
-        val p = ggplot() + scale_size_area(max_size = 30)
+        val p = ggplot() + scale_size_area(maxSize = 30)
         assertThat(p).features().length(1)
 
         val spec = p.toSpec()

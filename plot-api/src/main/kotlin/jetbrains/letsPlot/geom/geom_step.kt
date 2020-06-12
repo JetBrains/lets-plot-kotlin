@@ -50,7 +50,7 @@ class geom_step(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     private val direction: String? = null,
     override val x: Double? = null,
@@ -67,7 +67,7 @@ class geom_step(
         geom = Geom.step(),
         stat = stat,
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     ) {
     override fun seal(): Options {

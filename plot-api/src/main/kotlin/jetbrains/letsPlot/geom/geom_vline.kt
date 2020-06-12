@@ -47,7 +47,7 @@ class geom_vline(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val xIntercept: Double? = null,
     override val alpha: Double? = null,
@@ -63,7 +63,7 @@ class geom_vline(
         geom = vline(),
         stat = stat,
         position = position,
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     )
 
