@@ -9,10 +9,11 @@ import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.geom.*
-import jetbrains.letsPlot.intern.layer.stat.Bin2dAesthetics
-import jetbrains.letsPlot.intern.layer.stat.Bin2dParameters
-import jetbrains.letsPlot.intern.layer.stat.BinParameters
-import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
+import jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
+import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
+import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
+import jetbrains.letsPlot.intern.layer.geom.ContourMapping
+import jetbrains.letsPlot.intern.layer.stat.*
 
 /**
  * `Geom options` to pass as a value of `geom` parameter of `layer` functions like:
@@ -566,6 +567,35 @@ object Geom {
             return super<TileAesthetics>.seal() +
                     super<Bin2dAesthetics>.seal() +
                     super<Bin2dParameters>.seal()
+        }
+    }
+
+    @Suppress("ClassName")
+    class contour(
+        mapping: ContourMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val z: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val speed: Double? = null,
+        override val flow: Double? = null,
+        override val binCount: Int? = null,
+        override val binWidth: Double? = null
+    ) : PathAesthetics,
+        ContourAesthetics,
+        ContourParameters,
+        GeomOptions(
+            GeomKind.CONTOUR,
+            ContourMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<PathAesthetics>.seal() +
+                    super<ContourAesthetics>.seal() +
+                    super<ContourParameters>.seal()
         }
     }
 }
