@@ -16,6 +16,7 @@ import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PointMapping
 import jetbrains.letsPlot.intern.layer.geom.JitterParameters
+import jetbrains.letsPlot.position_jitter
 
 @Suppress("ClassName")
 /**
@@ -53,7 +54,7 @@ class geom_jitter(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.jitter,
-    show_legend: Boolean = true,
+    showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -75,10 +76,10 @@ class geom_jitter(
         stat = stat,
         position = when {
             // todo init with the given width/height if its parameters was not specified
-            position.parameters.isEmpty() -> Pos.position_jitter(width, height)
+            position.parameters.isEmpty() -> position_jitter(width, height)
             else -> position
         },
-        show_legend = show_legend,
+        showLegend = showLegend,
         sampling = sampling
     ) {
     override fun seal(): Options {
