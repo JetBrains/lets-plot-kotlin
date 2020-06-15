@@ -38,7 +38,12 @@ fun Plot.toSpec(): MutableMap<String, Any> {
 //    const val COORD = "coord"
 
     for (plotFeature in plot.otherFeatures()) {
-        spec[plotFeature.kind] = plotFeature.toSpec()
+        if (plotFeature.kind == Option.Plot.THEME && spec.containsKey(Option.Plot.THEME)) {
+            // merge themes
+            spec[Option.Plot.THEME] = spec[Option.Plot.THEME] as Map<*, *> + plotFeature.toSpec()
+        } else {
+            spec[plotFeature.kind] = plotFeature.toSpec()
+        }
     }
 
     return spec

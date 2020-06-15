@@ -18,14 +18,25 @@ object Theme {
             val data = mapOf("x" to xs)
 
             val p = ggplot(data) +
-                    geom_tile(width = 1.0, height = 10.0) { x = "x"; color = "x"; fill = "x" } +
+                    geom_tile(width = 1.0, height = 10.0) { x = "x"; color = "x"; fill = "x" }
+
+
+            (p + theme()
+                .legendPosition_none()
+                .axisTextY_blank()
+                .axisTicksY_blank()
+                .axisTitleY_blank())
+                .show()
+
+            // compose themes
+            (p + theme()
+                .legendPosition_none() +
                     theme()
-                        .legendPosition_none()
                         .axisTextY_blank()
                         .axisTicksY_blank()
-                        .axisTitleY_blank()
+                        .axisTitleY_blank())
+                .show()
 
-            p.show()
         }
     }
 }

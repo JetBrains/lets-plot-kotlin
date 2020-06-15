@@ -30,11 +30,27 @@ internal open class FeatureAssert(private val feature: Feature) {
         internal fun assertThat(featureSpec: Feature) = FeatureAssert(featureSpec)
     }
 
+    fun isUntypedFeature(): UntypedFeatureAssert {
+        if (feature is OtherPlotFeature) {
+            return UntypedFeatureAssert(feature)
+        }
+        throw AssertionFailedError("expected UntypedFeature but was ${feature::class.simpleName}")
+    }
+
     fun isList(): FeatureListAssert {
         if (feature is FeatureList) {
             return FeatureListAssert(feature.elements)
         }
-        throw AssertionFailedError("expected ${FeatureList::class.simpleName} but was ${feature::class.simpleName}")
+        throw AssertionFailedError("expected FeatureList but was ${feature::class.simpleName}")
+    }
+}
+
+internal class UntypedFeatureAssert(private val untypedFeature: OtherPlotFeature) {
+    val options = untypedFeature.options
+
+    fun kind(kind: String): UntypedFeatureAssert {
+        assertEquals(kind, untypedFeature.kind)
+        return this
     }
 }
 
