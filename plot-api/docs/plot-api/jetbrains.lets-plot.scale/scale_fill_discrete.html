@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2019. JetBrains s.r.o.
+  ~ Copyright (c) 2020. JetBrains s.r.o.
   ~ Use of this source code is governed by the MIT license that can be found in the LICENSE file.
   -->
 
@@ -29,7 +29,7 @@
         class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
         class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
         class="symbol">, </span><span class="identifier"
-                                      id="jetbrains.letsPlot.scale$scale_fill_discrete(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/h_start">h_start</span><span
+                                      id="jetbrains.letsPlot.scale$scale_fill_discrete(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/hStart">hStart</span><span
         class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span
         class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
         class="symbol">, </span><span class="identifier"
@@ -67,7 +67,7 @@
         class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
         class="identifier">Any</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
         class="symbol">, </span><span class="identifier"
-                                      id="jetbrains.letsPlot.scale$scale_fill_discrete(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/na_value">na_value</span><span
+                                      id="jetbrains.letsPlot.scale$scale_fill_discrete(kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/naValue">naValue</span><span
         class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
         class="identifier">Any</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
         class="symbol">, </span><span class="identifier"
@@ -84,15 +84,14 @@
     Defines qualitative color scale with evenly spaced hues for color aesthetic</p>
 <h3>Parameters</h3>
 <p><a name="h"></a>
-    <code>h</code> - list of two numerics
+    <code>h</code> - list of two numbers
     Range of hues, from 0 to 360</p>
 <p><a name="c"></a>
     <code>c</code> - numeric
     Chroma (intensity of color), maximum value varies depending on.</p>
 <p><a name="l"></a>
-    <code>l</code> - numeric</p>
-<p><a name="Luminance"></a>
-    <code>Luminance</code> - (lightness), from 0 to 100</p>
+    <code>l</code> - numeric
+    Luminance (lightness), from 0 to 100</p>
 <p><a name="direction"></a>
     <code>direction</code> - numeric
     Direction to travel around the color wheel, 1 = clockwise (default), -1=counter-clockwise</p>
@@ -110,6 +109,8 @@
     <code>limits</code> - list
     A vector specifying the data range for the scale. and the default order of their display in guides.</p>
 <p><a name="expand"></a>
-    <code>expand</code> - A numeric vector of length two giving multiplicative and additive expansion constants.</p>
+    <code>expand</code> -
+<pre><code>    A numeric vector of length two giving multiplicative and additive expansion constants.</code></pre>
+</p>
 </BODY>
 </HTML>

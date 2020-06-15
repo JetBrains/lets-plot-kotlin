@@ -1,0 +1,169 @@
+<!--
+  ~ Copyright (c) 2020. JetBrains s.r.o.
+  ~ Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+  -->
+
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>Geom.errorbar - plot-api</title>
+    <link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">plot-api</a>&nbsp;/&nbsp;<a href="../../index.html">jetbrains.letsPlot</a>&nbsp;/&nbsp;<a
+        href="../index.html">Geom</a>&nbsp;/&nbsp;<a href="./index.html">errorbar</a><br/>
+<br/>
+<h1>errorbar</h1>
+<code><span class="keyword">class </span><span class="identifier">errorbar</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+        href="../../../jetbrains.lets-plot.intern.layer.geom/-error-bar-aesthetics/index.html"><span class="identifier">ErrorBarAesthetics</span></a><span
+        class="symbol">, </span><a href="../../../jetbrains.lets-plot.intern.layer/-geom-options/index.html"><span
+        class="identifier">GeomOptions</span></a></code>
+<h3>Constructors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="-init-.html">&lt;init&gt;</a></h4>
+        </td>
+        <td>
+            <code><span class="identifier">errorbar</span><span class="symbol">(</span><span class="identifier"
+                                                                                             id="jetbrains.letsPlot.Geom.errorbar$<init>(kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping, kotlin.Unit)), kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double)/mapping">mapping</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../../jetbrains.lets-plot.intern.layer.geom/-error-bar-mapping/index.html"><span
+                    class="identifier">ErrorBarMapping</span></a><span class="symbol">.</span><span
+                    class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span
+                    class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{}<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.Geom.errorbar$<init>(kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping, kotlin.Unit)), kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double)/x">x</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.Geom.errorbar$<init>(kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping, kotlin.Unit)), kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double)/ymin">ymin</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.Geom.errorbar$<init>(kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping, kotlin.Unit)), kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double)/ymax">ymax</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.Geom.errorbar$<init>(kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping, kotlin.Unit)), kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double)/width">width</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.Geom.errorbar$<init>(kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping, kotlin.Unit)), kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double)/alpha">alpha</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.Geom.errorbar$<init>(kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping, kotlin.Unit)), kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double)/color">color</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.Geom.errorbar$<init>(kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping, kotlin.Unit)), kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double)/linetype">linetype</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.Geom.errorbar$<init>(kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping, kotlin.Unit)), kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double)/size">size</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">)</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="alpha.html">alpha</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">alpha</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="color.html">color</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">color</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="linetype.html">linetype</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">linetype</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="parameters.html">parameters</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">parameters</span><span
+                    class="symbol">: </span><a href="../../../jetbrains.lets-plot.intern/-options/index.html"><span
+                    class="identifier">Options</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="size.html">size</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">size</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="width.html">width</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">width</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="x.html">x</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">x</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="ymax.html">ymax</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">ymax</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="ymin.html">ymin</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">ymin</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>
