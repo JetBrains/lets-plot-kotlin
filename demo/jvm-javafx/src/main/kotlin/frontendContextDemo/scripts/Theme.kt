@@ -5,11 +5,10 @@
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.element_blank
+import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.theme
-import frontendContextDemo.ScriptInJfxContext
 
 object Theme {
     @JvmStatic
@@ -20,12 +19,11 @@ object Theme {
 
             val p = ggplot(data) +
                     geom_tile(width = 1.0, height = 10.0) { x = "x"; color = "x"; fill = "x" } +
-                    theme(
-                        legendPosition = "none",
-                        axisTextY = element_blank(),
-                        axisTicksY = element_blank(),
-                        axisTitleY = element_blank()
-                    )
+                    theme()
+                        .legendPosition_none()
+                        .axisTextY_blank()
+                        .axisTicksY_blank()
+                        .axisTitleY_blank()
 
             p.show()
         }

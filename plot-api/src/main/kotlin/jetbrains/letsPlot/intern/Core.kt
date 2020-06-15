@@ -128,7 +128,7 @@ class Scale(
 
 ) : Feature()
 
-class OtherPlotFeature internal constructor(
+open class OtherPlotFeature internal constructor(
     val kind: String,
     val options: Map<String, Any>
 ) : Feature()
