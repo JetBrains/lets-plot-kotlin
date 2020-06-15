@@ -9,6 +9,8 @@ import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.geom.*
+import jetbrains.letsPlot.intern.layer.stat.Bin2dAesthetics
+import jetbrains.letsPlot.intern.layer.stat.Bin2dParameters
 import jetbrains.letsPlot.intern.layer.stat.BinParameters
 import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
 
@@ -532,6 +534,38 @@ object Geom {
         override fun seal(): Options {
             return super<PointAesthetics>.seal() +
                     super<JitterParameters>.seal()
+        }
+    }
+
+    @Suppress("ClassName")
+    class bin2d(
+        mapping: Bin2dMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val width: Double? = null,
+        override val height: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val weight: Any? = null,
+        override val binCount: List<Int>? = null,
+        override val binWidth: List<Double?>? = null,
+        override val drop: Boolean? = null
+    ) : TileAesthetics,
+        Bin2dAesthetics,
+        Bin2dParameters,
+        GeomOptions(
+            GeomKind.BIN_2D,
+            Bin2dMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+
+        override fun seal(): Options {
+            return super<TileAesthetics>.seal() +
+                    super<Bin2dAesthetics>.seal() +
+                    super<Bin2dParameters>.seal()
         }
     }
 }
