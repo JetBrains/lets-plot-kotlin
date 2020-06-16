@@ -551,8 +551,8 @@ object Geom {
         override val linetype: Any? = null,
         override val size: Double? = null,
         override val weight: Any? = null,
-        override val binCount: List<Int>? = null,
-        override val binWidth: List<Double?>? = null,
+        override val binCount: Pair<Int, Int>? = null,
+        override val binWidth: Pair<Number?, Number?>? = null,
         override val drop: Boolean? = null
     ) : TileAesthetics,
         Bin2dAesthetics,
