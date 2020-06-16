@@ -75,7 +75,7 @@ class geom_jitter(
         geom = Geom.jitter(),
         stat = stat,
         position = when {
-            // todo init with the given width/height if its parameters was not specified
+            // init with the given width/height if its parameters was not specified
             position.parameters.isEmpty() -> position_jitter(width, height)
             else -> position
         },

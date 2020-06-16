@@ -33,9 +33,9 @@ import jetbrains.letsPlot.intern.layer.stat.ContourParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param bins int, optional.
+ * @param binCount int, optional.
  *     Number of levels.
- * @param binwidth double, optional.
+ * @param binWidth double, optional.
  *     Distance between levels.
  * @param x x-axis coordinates of the center of rectangles, forming a tessellation.
  * @param y y-axis coordinates of the center of rectangles, forming a tessellation.
