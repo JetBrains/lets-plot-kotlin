@@ -6,14 +6,16 @@
 package jetbrains.letsPlot.stat
 
 import jetbrains.letsPlot.Geom
-import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.Pos.dodge
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.stat.*
+import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
+import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
+import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
 
 @Suppress("ClassName")
 class stat_boxplot(
@@ -22,13 +24,32 @@ class stat_boxplot(
     position: PosOptions = dodge,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
-    override val varWidth: Any? = null,
+    override val x: Double? = null,
+    override val lower: Double? = null,
+    override val middle: Double? = null,
+    override val upper: Double? = null,
+    override val ymin: Double? = null,
+    override val ymax: Double? = null,
+    override val alpha: Double? = null,
+    override val color: Any? = null,
+    override val fill: Any? = null,
+    override val size: Double? = null,
+    override val linetype: Any? = null,
+    override val shape: Any? = null,
+    override val width: Any? = null,
+    override val weight: Any? = null,
+    override val outlierColor: Any? = null,
+    override val outlierFill: Any? = null,
+    override val outlierShape: Any? = null,
+    override val outlierSize: Double? = null,
+    override val fatten: Double? = null,
+    override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Any? = null,
-    override val weight: Double? = null,
     mapping: BoxplotMapping.() -> Unit = {}
 
-) : BoxplotAesthetics, BoxplotStatParameters,
+) : BoxplotAesthetics,
+    BoxplotParameters,
     LayerBase(
         mapping = BoxplotMapping().apply(mapping).seal(),
         data = data,
@@ -42,7 +63,7 @@ class stat_boxplot(
 
     override fun seal(): Options {
         return super<BoxplotAesthetics>.seal() +
-                super<BoxplotStatParameters>.seal()
+                super<BoxplotParameters>.seal()
     }
 }
 

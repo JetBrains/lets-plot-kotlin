@@ -22,5 +22,6 @@ interface BoxplotAesthetics : OptionsCapsule {
     val linetype: Any?
     val shape: Any?
     val width: Any?
+    val weight: Any?
     override fun seal() = Options.empty()
 }

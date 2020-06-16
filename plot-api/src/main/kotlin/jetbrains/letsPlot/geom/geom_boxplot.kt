@@ -74,6 +74,14 @@ class geom_boxplot(
     override val upper: Double? = null,
     override val ymin: Double? = null,
     override val ymax: Double? = null,
+    override val alpha: Double? = null,
+    override val color: Any? = null,
+    override val fill: Any? = null,
+    override val size: Double? = null,
+    override val linetype: Any? = null,
+    override val shape: Any? = null,
+    override val width: Any? = null,
+    override val weight: Any? = null,
     override val outlierColor: Any? = null,
     override val outlierFill: Any? = null,
     override val outlierShape: Any? = null,
@@ -82,13 +90,6 @@ class geom_boxplot(
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Any? = null,
-    override val alpha: Double? = null,
-    override val color: Any? = null,
-    override val fill: Any? = null,
-    override val size: Double? = null,
-    override val linetype: Any? = null,
-    override val shape: Any? = null,
-    override val width: Any? = null,
     mapping: BoxplotMapping.() -> Unit = {}
 
 ) : BoxplotAesthetics,

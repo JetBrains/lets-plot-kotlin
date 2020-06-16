@@ -11,7 +11,6 @@ import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.geom.*
 import jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
-import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import jetbrains.letsPlot.intern.layer.geom.ContourMapping
 import jetbrains.letsPlot.intern.layer.stat.*
 
@@ -321,7 +320,8 @@ object Geom {
         override val size: Double? = null,
         override val linetype: Any? = null,
         override val shape: Any? = null,
-        override val width: Double? = null
+        override val width: Double? = null,
+        override val weight: Any? = null
     ) : BoxplotAesthetics,
         BoxplotParameters,
         GeomOptions(

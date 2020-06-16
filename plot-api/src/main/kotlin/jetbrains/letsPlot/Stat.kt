@@ -7,6 +7,7 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.StatKind
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import jetbrains.letsPlot.intern.layer.stat.*
 
 object Stat {
