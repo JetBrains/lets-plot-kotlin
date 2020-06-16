@@ -30,11 +30,11 @@ internal open class FeatureAssert(private val feature: Feature) {
         internal fun assertThat(featureSpec: Feature) = FeatureAssert(featureSpec)
     }
 
-    fun isUntypedFeature(): UntypedFeatureAssert {
-        if (feature is OtherPlotFeature) {
-            return UntypedFeatureAssert(feature)
+    fun isOptionsMap(): OptionsMapAssert {
+        if (feature is OptionsMap) {
+            return OptionsMapAssert(feature)
         }
-        throw AssertionFailedError("expected UntypedFeature but was ${feature::class.simpleName}")
+        throw AssertionFailedError("expected OptionsMap but was ${feature::class.simpleName}")
     }
 
     fun isList(): FeatureListAssert {
@@ -45,11 +45,11 @@ internal open class FeatureAssert(private val feature: Feature) {
     }
 }
 
-internal class UntypedFeatureAssert(private val untypedFeature: OtherPlotFeature) {
-    val options = untypedFeature.options
+internal class OptionsMapAssert(private val optionsMap: OptionsMap) {
+    val options = optionsMap.options
 
-    fun kind(kind: String): UntypedFeatureAssert {
-        assertEquals(kind, untypedFeature.kind)
+    fun kind(kind: String): OptionsMapAssert {
+        assertEquals(kind, optionsMap.kind)
         return this
     }
 }
@@ -126,7 +126,6 @@ internal interface MappingAssert<T> {
 
     @Suppress("UNCHECKED_CAST")
     fun aes(name: String, value: String): T {
-//        assertTrue(mappingOptions.has(name))
         assertEquals(value, mappingOptions.get(name))
         return this as T
     }
@@ -143,7 +142,6 @@ internal interface ParametersAssert<T> {
 
     @Suppress("UNCHECKED_CAST")
     fun parameter(name: String, value: Any): T {
-//        assertTrue(parameterOptions.has(name))
         assertEquals(value, parameterOptions.get(name))
         return this as T
     }

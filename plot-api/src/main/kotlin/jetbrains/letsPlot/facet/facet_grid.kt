@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.facet
 
 import jetbrains.datalore.plot.config.Option
-import jetbrains.letsPlot.intern.OtherPlotFeature
+import jetbrains.letsPlot.intern.OptionsMap
 import jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
@@ -17,8 +17,8 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  *     The name of a feature, which defines rows of the facet grid to be displayed.
  */
 @Suppress("FunctionName")
-fun facet_grid(x: String? = null, y: String? = null): OtherPlotFeature {
-    return OtherPlotFeature(
+fun facet_grid(x: String? = null, y: String? = null): OptionsMap {
+    return OptionsMap(
         Option.Plot.FACET,
         mapOf(
             "x" to x,

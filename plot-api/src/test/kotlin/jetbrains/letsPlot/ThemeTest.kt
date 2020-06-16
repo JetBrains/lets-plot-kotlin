@@ -22,7 +22,7 @@ class ThemeTest {
 
         assertThat(p).features().length(1)
         val theme = assertThat(p).features().get(0)
-        val options = theme.isUntypedFeature()
+        val options = theme.isOptionsMap()
             .kind(Option.Plot.THEME)
             .options
 

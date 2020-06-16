@@ -6,7 +6,7 @@
 package jetbrains.letsPlot
 
 import jetbrains.datalore.plot.config.Option
-import jetbrains.letsPlot.intern.OtherPlotFeature
+import jetbrains.letsPlot.intern.OptionsMap
 
 /**
  * Use theme() to modify individual components of a theme,
@@ -96,7 +96,7 @@ import jetbrains.letsPlot.intern.OtherPlotFeature
 //fun element_blank() = "blank"
 
 @Suppress("ClassName", "FunctionName")
-class theme() : OtherPlotFeature(Option.Plot.THEME, HashMap()) {
+class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
     private constructor(other: theme) : this() {
         (this.options as MutableMap<String, Any>).putAll(other.options)
     }

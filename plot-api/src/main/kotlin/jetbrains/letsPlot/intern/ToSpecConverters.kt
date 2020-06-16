@@ -104,7 +104,7 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     return spec
 }
 
-fun OtherPlotFeature.toSpec(): MutableMap<String, Any> {
+fun OptionsMap.toSpec(): MutableMap<String, Any> {
     return HashMap(options)
 }
 

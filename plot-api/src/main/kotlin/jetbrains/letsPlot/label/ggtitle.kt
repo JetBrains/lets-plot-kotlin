@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.label
 
 import jetbrains.datalore.plot.config.Option
-import jetbrains.letsPlot.intern.OtherPlotFeature
+import jetbrains.letsPlot.intern.OptionsMap
 
 /**
  * Add title to the plot.
@@ -15,8 +15,8 @@ import jetbrains.letsPlot.intern.OtherPlotFeature
  *     The text for the plot title.
  */
 @Suppress("SpellCheckingInspection")
-fun ggtitle(title: String): OtherPlotFeature {
-    return OtherPlotFeature(
+fun ggtitle(title: String): OptionsMap {
+    return OptionsMap(
         Option.Plot.TITLE,
         mapOf(
             "text" to title

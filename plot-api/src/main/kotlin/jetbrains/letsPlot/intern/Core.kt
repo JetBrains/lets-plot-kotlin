@@ -37,8 +37,8 @@ class Plot internal constructor(
         return features.filterIsInstance<Scale>()
     }
 
-    fun otherFeatures(): List<OtherPlotFeature> {
-        return features.filterIsInstance<OtherPlotFeature>()
+    fun otherFeatures(): List<OptionsMap> {
+        return features.filterIsInstance<OptionsMap>()
     }
 
     override fun toString(): String {
@@ -128,7 +128,7 @@ class Scale(
 
 ) : Feature()
 
-open class OtherPlotFeature internal constructor(
+open class OptionsMap internal constructor(
     val kind: String,
     val options: Map<String, Any>
 ) : Feature()

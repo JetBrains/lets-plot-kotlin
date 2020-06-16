@@ -6,7 +6,7 @@
 package jetbrains.letsPlot
 
 import jetbrains.datalore.plot.config.Option
-import jetbrains.letsPlot.intern.OtherPlotFeature
+import jetbrains.letsPlot.intern.OptionsMap
 
 /**
  * Specifies overall size of plot.
@@ -16,8 +16,8 @@ import jetbrains.letsPlot.intern.OtherPlotFeature
  *     Height of plot in px.
  */
 @Suppress("SpellCheckingInspection")
-fun ggsize(width: Int, height: Int): OtherPlotFeature {
-    return OtherPlotFeature(
+fun ggsize(width: Int, height: Int): OptionsMap {
+    return OptionsMap(
         Option.Plot.SIZE,
         mapOf(
             "width" to width,
