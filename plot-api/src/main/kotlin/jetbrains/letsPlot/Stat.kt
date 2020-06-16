@@ -96,4 +96,17 @@ object Stat {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class contourf(
+        mapping: ContourfMapping.() -> Unit = {},
+        override val binCount: Int? = null,
+        override val binWidth: Double? = null
+    ) : ContourfParameters,
+        StatOptions(
+            StatKind.CONTOURF,
+            mapping = ContourfMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
