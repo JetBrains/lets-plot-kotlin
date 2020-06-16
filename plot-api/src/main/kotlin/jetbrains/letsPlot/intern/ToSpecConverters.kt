@@ -63,7 +63,9 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     spec[Option.Layer.POS] = if (posOptions.parameters.isEmpty()) {
         posOptions.kind.optionName()
     } else {
-        toFeatureSpec(Option.Meta.Kind.POS, posOptions.kind.optionName(), posOptions.parameters.map)
+        OptionsMap(
+            Option.Meta.Kind.POS, posOptions.kind.optionName(), posOptions.parameters.map
+        ).toSpec(true)
     }
 
     sampling?.let {
@@ -104,18 +106,12 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     return spec
 }
 
-fun OptionsMap.toSpec(): MutableMap<String, Any> {
-    return HashMap(options)
-}
-
-private fun toFeatureSpec(kind: String, name: String?, parameters: Map<String, Any>): MutableMap<String, Any> {
-    val spec = HashMap<String, Any>()
-    spec[KIND] = kind
-    // ToDo: 'name' -> constant
-    name?.let { spec["name"] = name }
-
-    spec.putAll(parameters)
-    return spec
+fun OptionsMap.toSpec(includeKind: Boolean = false): MutableMap<String, Any> {
+    return if (includeKind) {
+        HashMap(mapOf(KIND to kind) + options)
+    } else {
+        HashMap(options)
+    }
 }
 
 private fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {

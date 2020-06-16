@@ -131,7 +131,16 @@ class Scale(
 open class OptionsMap internal constructor(
     val kind: String,
     val options: Map<String, Any>
-) : Feature()
+) : Feature() {
+    internal constructor(
+        kind: String,
+        name: String,
+        options: Map<String, Any>
+    ) : this(
+        kind = kind,
+        options = mapOf("name" to name) + options
+    )
+}
 
 abstract class NotLayer : Feature()
 

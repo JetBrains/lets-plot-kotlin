@@ -5,11 +5,13 @@
 
 package jetbrains.letsPlot
 
+import jetbrains.datalore.plot.config.Option
+import jetbrains.letsPlot.Pos.dodge
+import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.intern.LayerAssert
 import jetbrains.letsPlot.intern.PosKind
-import jetbrains.letsPlot.Pos.dodge
-import jetbrains.letsPlot.position_dodge
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.intern.toSpec
+import junit.framework.Assert.assertEquals
 import org.junit.Test
 
 class PositionAdjustmentTest {
@@ -39,5 +41,17 @@ class PositionAdjustmentTest {
         LayerAssert.assertThat(l)
             .position(PosKind.DODGE)
             .parameter("width", 10)
+
+
+        val expectedSpec = HashMap(geom_point().toSpec())
+        expectedSpec[Option.Layer.POS] = mapOf(
+            Option.Meta.KIND to Option.Meta.Kind.POS,
+            "name" to "dodge",
+            "width" to 10
+        )
+        assertEquals(
+            expectedSpec,
+            l.toSpec()
+        )
     }
 }
