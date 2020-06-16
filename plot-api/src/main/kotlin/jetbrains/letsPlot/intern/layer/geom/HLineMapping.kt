@@ -8,7 +8,7 @@ package jetbrains.letsPlot.intern.layer.geom
 import jetbrains.letsPlot.intern.layer.WithGroupOption
 
 class HLineMapping(
-    override var yIntercept: Any? = null,
+    override var yintercept: Any? = null,
     override var alpha: Any? = null,
     override var color: Any? = null,
     override var linetype: Any? = null,

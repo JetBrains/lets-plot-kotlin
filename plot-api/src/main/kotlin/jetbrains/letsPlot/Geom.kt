@@ -206,7 +206,7 @@ object Geom {
     @Suppress("ClassName")
     class hline(
         mapping: HLineMapping.() -> Unit = {},
-        override val yIntercept: Double? = null,
+        override val yintercept: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -222,7 +222,7 @@ object Geom {
     @Suppress("ClassName")
     class vline(
         mapping: VLineMapping.() -> Unit = {},
-        override val xIntercept: Double? = null,
+        override val xintercept: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,

@@ -30,14 +30,14 @@ object HLineVLineScripts {
         val p = lets_plot(data) { x = "x"; y = "y" } +
                 ggtitle("Horizontal and vertical lines of different styles + points") +
                 geom_point(size = 80.0, alpha = 0.2, showLegend = false) { color = "c" } +
-                geom_hline(yIntercept = 3.7) +
-                geom_hline(yIntercept = 2.7, color = "red", linetype = "dashed", size = 1.0) +
-                geom_hline(yIntercept = 1.7, color = "green", linetype = "dotted", size = 2.0) +
-                geom_hline(yIntercept = 0.7, color = "orange", linetype = "dotdash", size = 3.0) +
-                geom_vline(xIntercept = 0.7, color = "black", linetype = "longdash", size = 1.5, alpha = 0.5) +
-                geom_vline(xIntercept = 1.7, color = "#770077", linetype = "twodash", size = 1.0) +
-                geom_vline(xIntercept = 2.7, color = "blue", linetype = "blank", size = 0.7) +
-                geom_vline(xIntercept = 3.7)
+                geom_hline(yintercept = 3.7) +
+                geom_hline(yintercept = 2.7, color = "red", linetype = "dashed", size = 1.0) +
+                geom_hline(yintercept = 1.7, color = "green", linetype = "dotted", size = 2.0) +
+                geom_hline(yintercept = 0.7, color = "orange", linetype = "dotdash", size = 3.0) +
+                geom_vline(xintercept = 0.7, color = "black", linetype = "longdash", size = 1.5, alpha = 0.5) +
+                geom_vline(xintercept = 1.7, color = "#770077", linetype = "twodash", size = 1.0) +
+                geom_vline(xintercept = 2.7, color = "blue", linetype = "blank", size = 0.7) +
+                geom_vline(xintercept = 3.7)
 
         p.show()
     }
@@ -49,7 +49,7 @@ object HLineVLineScripts {
         )
         val p = ggplot() +
                 geom_vline(data = cdata, linetype = "dashed", size = 1.0) {
-                    xIntercept = "rating"
+                    xintercept = "rating"
                     color = "cond"
                 }
 
@@ -68,7 +68,7 @@ object HLineVLineScripts {
         )
         val p = ggplot() +
                 geom_vline(data = cdata, linetype = "dashed", size = 1.0) {
-                    xIntercept = "rating"
+                    xintercept = "rating"
                     color = "cond"
                 }
 

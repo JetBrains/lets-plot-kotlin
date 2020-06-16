@@ -7,8 +7,6 @@
 
 package jetbrains.letsPlot.scale
 
-import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.Scale
 import jetbrains.datalore.plot.base.Aes
 import jetbrains.datalore.plot.config.Option.Scale.CHROMA
 import jetbrains.datalore.plot.config.Option.Scale.DIRECTION
@@ -22,6 +20,8 @@ import jetbrains.datalore.plot.config.Option.Scale.MIDPOINT
 import jetbrains.datalore.plot.config.Option.Scale.SCALE_MAPPER_KIND
 import jetbrains.datalore.plot.config.Option.Scale.START
 import jetbrains.datalore.plot.config.Option.Scale.START_HUE
+import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.Scale
 
 
 fun scale_fill_continuous(
@@ -197,7 +197,8 @@ fun scale_fill_hue(
     h: Int? = null,
     c: Int? = null,
     l: Int? = null,
-    hStart: Int? = null,
+    @Suppress("SpellCheckingInspection")
+    hstart: Int? = null,
     direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
@@ -215,7 +216,7 @@ fun scale_fill_hue(
             HUE_RANGE to h,
             CHROMA to c,
             LUMINANCE to l,
-            START_HUE to hStart,
+            START_HUE to hstart,
             DIRECTION to direction,
             SCALE_MAPPER_KIND to "color_hue"
         )
@@ -224,7 +225,10 @@ fun scale_fill_hue(
 
 
 fun scale_color_hue(
-    h: Int?, c: Int?, l: Int?, hStart: Int?, direction: Int?,
+    h: Int?, c: Int?, l: Int?,
+    @Suppress("SpellCheckingInspection")
+    hstart: Int?,
+    direction: Int?,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -241,7 +245,7 @@ fun scale_color_hue(
             HUE_RANGE to h,
             CHROMA to c,
             LUMINANCE to l,
-            START_HUE to hStart,
+            START_HUE to hstart,
             DIRECTION to direction,
             SCALE_MAPPER_KIND to "color_hue"
         )
