@@ -12,6 +12,8 @@ import jetbrains.letsPlot.geom.geom_vline
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.scale.scale_color_continuous
+import jetbrains.letsPlot.scale.scale_size_area
 
 object HLineVLineScripts {
     fun script0() {
@@ -38,6 +40,9 @@ object HLineVLineScripts {
                 geom_vline(xintercept = 1.7, color = "#770077", linetype = "twodash", size = 1.0) +
                 geom_vline(xintercept = 2.7, color = "blue", linetype = "blank", size = 0.7) +
                 geom_vline(xintercept = 3.7)
+
+        // ToDo: scale_xxx_identity
+        // + scale_color_identity()
 
         p.show()
     }

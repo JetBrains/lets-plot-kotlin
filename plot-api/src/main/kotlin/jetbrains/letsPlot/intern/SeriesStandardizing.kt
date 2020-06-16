@@ -56,6 +56,8 @@ object SeriesStandardizing {
                     is LocalDate -> noTimeZoneError(it)
                     is LocalTime -> noTimeZoneError(it)
                     is LocalDateTime -> noTimeZoneError(it)
+                    is jetbrains.datalore.base.values.Color -> it.toHexColor()
+                    is java.awt.Color -> "#%02x%02x%02x".format(it.red, it.green, it.blue)
                     else -> throw IllegalArgumentException("Can't standardize the value \"$it\" of type ${it::class.qualifiedName} as a string, number or date-time.")
                 }
             }
