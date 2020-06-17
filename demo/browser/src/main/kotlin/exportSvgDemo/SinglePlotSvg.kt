@@ -9,8 +9,8 @@ import BrowserDemoUtil
 import jetbrains.datalore.plot.PlotSvgExport
 import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.intern.toSpec
+import jetbrains.letsPlot.label.ggtitle
 
 @Suppress("DuplicatedCode")
 object SinglePlotSvg {
@@ -30,7 +30,7 @@ object SinglePlotSvg {
         val spec = p.toSpec()
 
         // Export: use PlotSvgExport utility to generate SVG.
-        val svg = PlotSvgExport.buildSvgImageFromRawSpecs(spec, null)
+        val svg = PlotSvgExport.buildSvgImageFromRawSpecs(spec)
         BrowserDemoUtil.openInBrowser(svg)
     }
 }

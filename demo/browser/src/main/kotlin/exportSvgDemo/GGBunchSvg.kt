@@ -30,7 +30,7 @@ object GGBunchSvg {
         val spec = bunch.toSpec()
 
         // Export: use PlotSvgExport utility to generate SVG.
-        val svg = PlotSvgExport.buildSvgImageFromRawSpecs(spec, null)
+        val svg = PlotSvgExport.buildSvgImageFromRawSpecs(spec)
         BrowserDemoUtil.openInBrowser(svg)
     }
 
