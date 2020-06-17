@@ -3,25 +3,23 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-
 package jetbrains.letsPlot.geom
 
 import jetbrains.letsPlot.Geom
-import jetbrains.letsPlot.Pos.identity
+import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.geom.ContourMapping
 import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
-import jetbrains.letsPlot.intern.layer.stat.ContourAesthetics
-import jetbrains.letsPlot.intern.layer.stat.ContourParameters
+import jetbrains.letsPlot.intern.layer.geom.Density2dMapping
+import jetbrains.letsPlot.intern.layer.stat.*
 
 @Suppress("ClassName")
 /**
- * Display contours of a 3d surface in 2d.
+ * Display density function contour.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
@@ -33,6 +31,16 @@ import jetbrains.letsPlot.intern.layer.stat.ContourParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param kernel string, optional.
+ *     The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
+ *     "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic")
+ * @param bw string or double array, optional.
+ *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd"), or a double array of length 2.
+ * @param adjust double, optional.
+ *     Adjust the value of bandwidth my multiplying it. Changes how smooth the frequency curve is.
+ * @param n int array, optional.
+ *     The number of sampled points for plotting the function (on x and y direction correspondingly)
+ * @param isContour Boolean, optional.
  * @param binCount int, optional.
  *     Number of levels.
  * @param binWidth double, optional.
@@ -51,10 +59,11 @@ import jetbrains.letsPlot.intern.layer.stat.ContourParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_contour(
+
+class geom_density2d(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.contour(),
-    position: PosOptions = identity,
+    stat: StatOptions = Stat.density2d(),
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
@@ -66,16 +75,23 @@ class geom_contour(
     override val size: Double? = null,
     override val speed: Double? = null,
     override val flow: Double? = null,
+    override val weight: Double? = null,
+    override val bw: Any? = null,
+    override val kernel: String? = null,
+    override val n: Any? = null,
+    override val adjust: Double? = null,
+    override val isContour: Boolean? = null,
     override val binCount: Int? = null,
     override val binWidth: Double? = null,
-    mapping: ContourMapping.() -> Unit = {}
+    mapping: Density2dMapping.() -> Unit = {}
 ) : PathAesthetics,
     ContourAesthetics,
-    ContourParameters,
+    Density2dAesthetics,
+    Density2dParameters,
     LayerBase(
-        mapping = ContourMapping().apply(mapping).seal(),
+        mapping = Density2dMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.contour(),
+        geom = Geom.density2d(),
         stat = stat,
         position = position,
         showLegend = showLegend,
@@ -84,6 +100,7 @@ class geom_contour(
     override fun seal(): Options {
         return super<PathAesthetics>.seal() +
                 super<ContourAesthetics>.seal() +
-                super<ContourParameters>.seal()
+                super<Density2dAesthetics>.seal() +
+                super<Density2dParameters>.seal()
     }
 }

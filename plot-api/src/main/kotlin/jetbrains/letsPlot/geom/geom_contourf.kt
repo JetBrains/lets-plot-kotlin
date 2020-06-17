@@ -13,14 +13,15 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.geom.PointAesthetics
-import jetbrains.letsPlot.intern.layer.geom.PointMapping
-import jetbrains.letsPlot.intern.layer.geom.JitterParameters
-import jetbrains.letsPlot.position_jitter
+import jetbrains.letsPlot.intern.layer.geom.ContourfMapping
+import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
+import jetbrains.letsPlot.intern.layer.stat.ContourfAesthetics
+import jetbrains.letsPlot.intern.layer.stat.ContourfParameters
+
 
 @Suppress("ClassName")
 /**
- * Jittered points, especially for discrete plots or dense plots.
+ * Fill contours of a 3d surface in 2d.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
@@ -32,58 +33,52 @@ import jetbrains.letsPlot.position_jitter
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param width double, optional.
- *     width for jitter, default=0.4
- * @param height double, optional.
- *     height for jitter, default=0.4
- * @param x x-axis value.
- * @param y y-axis value.
- * @param alpha transparency level of the point
+ * @param binCount int, optional.
+ *     Number of levels.
+ * @param binWidth double, optional.
+ *     Distance between levels.
+ * @param x x-axis coordinates of the center of rectangles, forming a tessellation.
+ * @param y y-axis coordinates of the center of rectangles, forming a tessellation.
+ * @param alpha transparency level of a layer.
  *     Understands numbers between 0 and 1.
- * @param color (colour) color of the geometry.
+ * @param fill color of a geometry areas.
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
- * @param fill color to paint shape's inner points.
- *     Is applied only to the points of shapes having inner points.
- * @param shape shape of the point.
- * @param size size of the point.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_jitter(
+class geom_contourf(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.identity,
-    position: PosOptions = Pos.jitter,
+    stat: StatOptions = Stat.contourf(),
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
-    override val alpha: Double? = null,
+    override val z: Double? = null,
+    override val size: Double? = null,
+    override val linetype: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val shape: Any? = null,
-    override val size: Double? = null,
-    override val stroke: Double? = null,
-    override val width: Double? = null,
-    override val height: Double? = null,
-    mapping: PointMapping.() -> Unit = {}
-) : PointAesthetics,
-    JitterParameters,
+    override val alpha: Double? = null,
+    override val binCount: Int? = null,
+    override val binWidth: Double? = null,
+    mapping: ContourfMapping.() -> Unit = {}
+) : PolygonAesthetics,
+    ContourfAesthetics,
+    ContourfParameters,
     LayerBase(
-        mapping = PointMapping().apply(mapping).seal(),
+        mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.jitter(),
+        geom = Geom.contourf(),
         stat = stat,
-        position = when {
-            // init with the given width/height if its parameters was not specified
-            position.parameters.isEmpty() -> position_jitter(width, height)
-            else -> position
-        },
+        position = position,
         showLegend = showLegend,
         sampling = sampling
     ) {
     override fun seal(): Options {
-        return super<PointAesthetics>.seal() +
-                super<JitterParameters>.seal()
+        return super<PolygonAesthetics>.seal() +
+                super<ContourfAesthetics>.seal() +
+                super<ContourfParameters>.seal()
     }
 }

@@ -12,6 +12,8 @@ import jetbrains.letsPlot.intern.layer.WithGroupOption
 import jetbrains.letsPlot.intern.layer.geom.*
 import jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import jetbrains.letsPlot.intern.layer.geom.ContourMapping
+import jetbrains.letsPlot.intern.layer.geom.ContourfMapping
+import jetbrains.letsPlot.intern.layer.geom.Density2dMapping
 import jetbrains.letsPlot.intern.layer.stat.*
 
 /**
@@ -599,6 +601,107 @@ object Geom {
             return super<PathAesthetics>.seal() +
                     super<ContourAesthetics>.seal() +
                     super<ContourParameters>.seal()
+        }
+    }
+
+    @Suppress("ClassName")
+    class contourf(
+        mapping: ContourfMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val z: Double? = null,
+        override val size: Double? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Double? = null,
+        override val binCount: Int? = null,
+        override val binWidth: Double? = null
+    ) : PolygonAesthetics,
+        ContourfAesthetics,
+        ContourfParameters,
+        GeomOptions(
+            GeomKind.CONTOURF,
+            ContourfMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<PolygonAesthetics>.seal() +
+                    super<ContourfAesthetics>.seal() +
+                    super<ContourfParameters>.seal()
+        }
+    }
+
+    @Suppress("ClassName")
+    class density2d(
+        mapping: Density2dMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val z: Double? = null,
+        override val alpha: Double? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Double? = null,
+        override val speed: Double? = null,
+        override val flow: Double? = null,
+        override val weight: Double? = null,
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Any? = null,
+        override val adjust: Double? = null,
+        override val isContour: Boolean? = null,
+        override val binCount: Int? = null,
+        override val binWidth: Double? = null
+    ) : PathAesthetics,
+        ContourAesthetics,
+        Density2dAesthetics,
+        Density2dParameters,
+        GeomOptions(
+            GeomKind.DENSITY2D,
+            Density2dMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<PathAesthetics>.seal() +
+                    super<ContourAesthetics>.seal() +
+                    super<Density2dAesthetics>.seal() +
+                    super<Density2dParameters>.seal()
+        }
+    }
+
+    @Suppress("ClassName")
+    class density2df(
+        mapping: Density2dfMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val z: Double? = null,
+        override val size: Double? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Double? = null,
+        override val weight: Double? = null,
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Any? = null,
+        override val adjust: Double? = null,
+        override val isContour: Boolean? = null,
+        override val binCount: Int? = null,
+        override val binWidth: Double? = null
+    ) : PolygonAesthetics,
+        ContourfAesthetics,
+        Density2dAesthetics,
+        Density2dParameters,
+        GeomOptions(
+            GeomKind.DENSITY2DF,
+            Density2dfMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<PolygonAesthetics>.seal() +
+                    super<ContourfAesthetics>.seal() +
+                    super<Density2dAesthetics>.seal() +
+                    super<Density2dParameters>.seal()
         }
     }
 }

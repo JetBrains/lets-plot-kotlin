@@ -7,6 +7,7 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geom_contour
+import jetbrains.letsPlot.geom.geom_contourf
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_color_gradient
 import kotlin.math.PI
@@ -19,9 +20,12 @@ object Contour {
             val data = contourData()
 
             val p = lets_plot(data) { x = "x"; y = "y" }
-            ( p + geom_contour(color = "red") { z = "z" } ).show()
-            ( p + geom_contour(binCount = 20) { z = "z"; color = "..level.." } +
-                    scale_color_gradient(low = "dark_green", high = "yellow") ).show()
+
+            (p + geom_contour(color = "red") { z = "z" }).show()
+            (p + geom_contour(binCount = 20) { z = "z"; color = "..level.." } +
+                    scale_color_gradient(low = "dark_green", high = "yellow")).show()
+
+            (p + geom_contourf { z = "z"; fill = "..level.." }).show()
         }
     }
 
