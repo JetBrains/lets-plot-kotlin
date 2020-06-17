@@ -9,10 +9,7 @@ import jetbrains.letsPlot.Geom.boxplot
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
@@ -69,6 +66,7 @@ class geom_boxplot(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
+    override val y: Double? = null,
     override val lower: Double? = null,
     override val middle: Double? = null,
     override val upper: Double? = null,
@@ -90,10 +88,12 @@ class geom_boxplot(
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Any? = null,
-    mapping: BoxplotMapping.() -> Unit = {}
+    override val group: Any? = null,
+    mapping: BoxplotMapping .() -> Unit = {}
 
 ) : BoxplotAesthetics,
     BoxplotParameters,
+    WithGroupOption,
     LayerBase(
         mapping = BoxplotMapping().apply(mapping).seal(),
         data = data,
@@ -105,6 +105,6 @@ class geom_boxplot(
     ) {
     override fun seal(): Options {
         return super<BoxplotAesthetics>.seal() +
-                super<BoxplotParameters>.seal()
+                super<BoxplotParameters>.seal() + group()
     }
 }

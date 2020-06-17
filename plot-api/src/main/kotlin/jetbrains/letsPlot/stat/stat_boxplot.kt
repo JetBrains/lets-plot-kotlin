@@ -25,6 +25,7 @@ class stat_boxplot(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
+    override val y: Double? = null,
     override val lower: Double? = null,
     override val middle: Double? = null,
     override val upper: Double? = null,
@@ -46,6 +47,7 @@ class stat_boxplot(
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Any? = null,
+    override val group: Any? = null,
     mapping: BoxplotMapping.() -> Unit = {}
 
 ) : BoxplotAesthetics,

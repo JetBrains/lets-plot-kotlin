@@ -16,11 +16,11 @@ interface BoxplotParameters : BoxplotStatParameters {
     val outlierSize: Any?
     val fatten: Any?
 
-    @Suppress("SpellCheckingInspection")
     override fun seal() = Options.of(
         Option.Geom.BoxplotOutlier.COLOR to outlierColor,
         Option.Geom.BoxplotOutlier.FILL to outlierFill,
         Option.Geom.BoxplotOutlier.SHAPE to outlierShape,
-        Option.Geom.BoxplotOutlier.SIZE to outlierSize
+        Option.Geom.BoxplotOutlier.SIZE to outlierSize,
+        Option.Geom.Boxplot.FATTEN to fatten
     ) + super.seal()
 }

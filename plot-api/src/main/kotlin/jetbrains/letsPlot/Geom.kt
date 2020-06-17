@@ -8,9 +8,9 @@ package jetbrains.letsPlot
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.WithGroupOption
 import jetbrains.letsPlot.intern.layer.geom.*
 import jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
-import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import jetbrains.letsPlot.intern.layer.geom.ContourMapping
 import jetbrains.letsPlot.intern.layer.stat.*
 
@@ -301,6 +301,7 @@ object Geom {
     class boxplot(
         mapping: BoxplotMapping.() -> Unit = {},
         override val x: Double? = null,
+        override val y: Double? = null,
         override val lower: Double? = null,
         override val middle: Double? = null,
         override val upper: Double? = null,
@@ -321,9 +322,11 @@ object Geom {
         override val linetype: Any? = null,
         override val shape: Any? = null,
         override val width: Double? = null,
-        override val weight: Any? = null
+        override val weight: Any? = null,
+        override val group: Any? = null
     ) : BoxplotAesthetics,
         BoxplotParameters,
+        WithGroupOption,
         GeomOptions(
             GeomKind.BOX_PLOT,
             BoxplotMapping().apply(mapping).seal()
@@ -332,7 +335,7 @@ object Geom {
 
         override fun seal(): Options {
             return super<BoxplotAesthetics>.seal() +
-                    super<BoxplotParameters>.seal()
+                    super<BoxplotParameters>.seal() + group()
         }
     }
 

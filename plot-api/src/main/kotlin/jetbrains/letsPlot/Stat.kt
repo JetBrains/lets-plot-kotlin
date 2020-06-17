@@ -7,7 +7,6 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.StatKind
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import jetbrains.letsPlot.intern.layer.stat.*
 
 object Stat {
@@ -59,14 +58,14 @@ object Stat {
 
     @Suppress("ClassName")
     class boxplot(
-        mapping: BoxplotMapping.() -> Unit = {},
+        mapping: BoxplotStatMapping.() -> Unit = {},
         override val varWidth: Boolean? = null,
         @Suppress("SpellCheckingInspection")
         override val coef: Double? = null
     ) : BoxplotStatParameters,
         StatOptions(
             StatKind.BOXPLOT,
-            mapping = BoxplotMapping().apply(mapping).seal()
+            mapping = BoxplotStatMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

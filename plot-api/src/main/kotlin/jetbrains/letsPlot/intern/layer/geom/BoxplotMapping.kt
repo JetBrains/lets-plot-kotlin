@@ -10,6 +10,7 @@ import jetbrains.letsPlot.intern.layer.WithGroupOption
 
 class BoxplotMapping(
     override var x: Any? = null,
+    override val y: Any? = null,
     override var lower: Any? = null,
     override var middle: Any? = null,
     override var upper: Any? = null,
@@ -27,6 +28,7 @@ class BoxplotMapping(
 ) : BoxplotAesthetics, WithGroupOption {
     override fun seal() = super.seal() + Options.of(
         "x" to x,
+        "y" to y,
         "lower" to lower,
         "middle" to middle,
         "upper" to upper,
