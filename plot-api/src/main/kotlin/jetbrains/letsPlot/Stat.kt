@@ -74,8 +74,8 @@ object Stat {
     @Suppress("ClassName")
     class bin2d(
         mapping: Bin2dMapping.() -> Unit = {},
-        override val binCount: List<Int>? = null,
-        override val binWidth: List<Double?>? = null,
+        override val binCount: Pair<Int, Int>? = null,
+        override val binWidth: Pair<Number?, Number?>? = null,
         override val drop: Boolean? = null
     ) : Bin2dParameters,
         StatOptions(

@@ -58,14 +58,14 @@ object Bin2d {
 
     private fun setBinCount() {
         val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
-            binCount = listOf(5, 5)
+            binCount = Pair(5, 5)
         )
         p.show()
     }
 
     private fun setBinWidth() {
         val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
-            binWidth = listOf(3.0, 3.0)
+            binWidth = Pair(3, 3)
         )
         p.show()
     }
@@ -73,7 +73,7 @@ object Bin2d {
     @Suppress("FunctionName")
     private fun setBinWidth_Weight() {
         val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
-            binWidth = listOf(3.0, 3.0)
+            binWidth = Pair(3, 3)
         ) { weight = "weight" }
 
         p.show()
@@ -81,7 +81,7 @@ object Bin2d {
     @Suppress("FunctionName")
     private fun setBinWidth_Weight_Density() {
         val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
-            binWidth = listOf(3.0, 3.0)
+            binWidth = Pair(3, 3)
         ) { weight = "weight"; fill = "..density.." }
         p.show()
     }
