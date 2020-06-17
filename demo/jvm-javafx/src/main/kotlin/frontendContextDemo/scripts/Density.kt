@@ -8,6 +8,7 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geom_density
 import jetbrains.letsPlot.geom.geom_density2d
+import jetbrains.letsPlot.geom.geom_density2df
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.lets_plot
 
@@ -23,7 +24,7 @@ object Density {
             val p = lets_plot(data) { x = "x"; y = "y" }
 
             fun density() {
-                val pl = p + geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
+                val pl = p + geom_density(color = "red", alpha = 0.3, size = 5.0)
                 pl.show()
             }
 
@@ -32,8 +33,14 @@ object Density {
                 pl.show()
             }
 
+            fun density2df() {
+                val pl = p + geom_density2df { fill = "..level.." }
+                pl.show()
+            }
+
             density()
             pointsWithDensity2d()
+            density2df()
         }
     }
 }

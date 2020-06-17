@@ -127,4 +127,22 @@ object Stat {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class density2df(
+        mapping: Density2dMapping.() -> Unit = {},
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Any? = null,
+        override val adjust: Double? = null,
+        override val isContour: Boolean? = null,
+        override val binCount: Int? = null,
+        override val binWidth: Double? = null
+    ) : Density2dParameters,
+        StatOptions(
+            StatKind.DENSITY2DF,
+            mapping = Density2dMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }

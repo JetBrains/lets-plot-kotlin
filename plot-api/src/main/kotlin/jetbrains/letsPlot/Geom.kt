@@ -668,4 +668,40 @@ object Geom {
                     super<Density2dParameters>.seal()
         }
     }
+
+    @Suppress("ClassName")
+    class density2df(
+        mapping: Density2dfMapping.() -> Unit = {},
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val z: Double? = null,
+        override val size: Double? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Double? = null,
+        override val weight: Double? = null,
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Any? = null,
+        override val adjust: Double? = null,
+        override val isContour: Boolean? = null,
+        override val binCount: Int? = null,
+        override val binWidth: Double? = null
+    ) : PolygonAesthetics,
+        ContourfAesthetics,
+        Density2dAesthetics,
+        Density2dParameters,
+        GeomOptions(
+            GeomKind.DENSITY2DF,
+            Density2dfMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+        override fun seal(): Options {
+            return super<PolygonAesthetics>.seal() +
+                    super<ContourfAesthetics>.seal() +
+                    super<Density2dAesthetics>.seal() +
+                    super<Density2dParameters>.seal()
+        }
+    }
 }
