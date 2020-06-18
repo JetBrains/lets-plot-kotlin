@@ -15,7 +15,6 @@ interface HistogramAesthetics : OptionsCapsule {
     val color: Any?
     val fill: Any?
     val size: Any?
-//    val weight: Any?  moved to `bin` stat
 
     override fun seal() = Options.of(
         "x" to x,

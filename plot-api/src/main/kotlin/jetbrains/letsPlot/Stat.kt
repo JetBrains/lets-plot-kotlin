@@ -43,15 +43,15 @@ object Stat {
 
     @Suppress("ClassName")
     class bin(
-        mapping: BinMapping.() -> Unit = {},
-        override val binCount: Int = BinParameters.DEF_BIN_COUNT,
+        mapping: BinStatMapping.() -> Unit = {},
+        override val binCount: Int = BinStatParameters.DEF_BIN_COUNT,
         override val binWidth: Double? = null,
         override val center: Double? = null,
         override val boundary: Double? = null
-    ) : BinParameters,
+    ) : BinStatParameters,
         StatOptions(
             StatKind.BIN,
-            mapping = BinMapping().apply(mapping).seal()
+            mapping = BinStatMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

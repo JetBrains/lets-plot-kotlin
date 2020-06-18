@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.layer.WithGroupOption
-import jetbrains.letsPlot.intern.layer.stat.BinAesthetics
+import jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
 
 class HistogramMapping(
     override var x: Any? = null,
@@ -17,8 +17,8 @@ class HistogramMapping(
     override var size: Any? = null,
     override var weight: Any? = null,
     override var group: Any? = null
-) : HistogramAesthetics, BinAesthetics, WithGroupOption {
+) : HistogramAesthetics, BinStatAesthetics, WithGroupOption {
     override fun seal() = super<HistogramAesthetics>.seal() +
-            super<BinAesthetics>.seal() +
+            super<BinStatAesthetics>.seal() +
             group()
 }

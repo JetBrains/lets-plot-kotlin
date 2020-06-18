@@ -15,7 +15,7 @@ import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.LineMapping
-import jetbrains.letsPlot.intern.layer.stat.BinParameters
+import jetbrains.letsPlot.intern.layer.stat.BinStatParameters
 
 @Suppress("ClassName")
 /**
@@ -57,17 +57,17 @@ class geom_freqpoly(
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Double? = null,
-    override val binCount: Int = BinParameters.DEF_BIN_COUNT,
+    override val binCount: Int = BinStatParameters.DEF_BIN_COUNT,
     override val binWidth: Double? = null,
     override val center: Double? = null,
     override val boundary: Double? = null,
     mapping: LineMapping.() -> Unit = {}
 ) : LineAesthetics,
-    BinParameters,
+    BinStatParameters,
     LayerBase(
         mapping = LineMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.freqpoly(),
+        geom = Geom.line(),
         stat = stat,
         position = position,
         showLegend = showLegend,
@@ -75,6 +75,6 @@ class geom_freqpoly(
     ) {
     override fun seal(): Options {
         return super<LineAesthetics>.seal() +
-                super<BinParameters>.seal()
+                super<BinStatParameters>.seal()
     }
 }

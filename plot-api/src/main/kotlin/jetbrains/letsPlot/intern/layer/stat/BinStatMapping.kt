@@ -5,7 +5,7 @@
 
 package jetbrains.letsPlot.intern.layer.stat
 
-class BinMapping(
+class BinStatMapping(
     override var x: Any? = null,
     override var weight: Any? = null
-) : BinAesthetics
+) : BinStatAesthetics

@@ -459,32 +459,6 @@ object Geom {
     }
 
     @Suppress("ClassName")
-    class freqpoly(
-        mapping: LineMapping.() -> Unit = {},
-        override val x: Double? = null,
-        override val y: Double? = null,
-        override val alpha: Double? = null,
-        override val color: Any? = null,
-        override val linetype: Any? = null,
-        override val size: Double? = null,
-        override val binCount: Int = BinParameters.DEF_BIN_COUNT,
-        override val binWidth: Double? = null,
-        override val center: Double? = null,
-        override val boundary: Double? = null
-    ) : LineAesthetics,
-        BinParameters,
-        GeomOptions(
-            GeomKind.FREQPOLY,
-            LineMapping().apply(mapping).seal()
-        ) {
-        override val parameters = this.seal()
-        override fun seal(): Options {
-            return super<LineAesthetics>.seal() +
-                    super<BinParameters>.seal()
-        }
-    }
-
-    @Suppress("ClassName")
     class step(
         mapping: LineMapping.() -> Unit = {},
         override val x: Double? = null,
