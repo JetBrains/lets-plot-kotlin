@@ -5,18 +5,15 @@
 
 package jetbrains.letsPlot.geom
 
-import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.Density2dfMapping
 import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
-import jetbrains.letsPlot.intern.layer.stat.Density2dAesthetics
-import jetbrains.letsPlot.intern.layer.stat.Density2dParameters
+import jetbrains.letsPlot.intern.layer.stat.Density2dStatAesthetics
+import jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
 
 
 @Suppress("ClassName")
@@ -79,12 +76,12 @@ class geom_density2df(
     override val binWidth: Double? = null,
     mapping: Density2dfMapping.() -> Unit = {}
 ) : PolygonAesthetics,
-    Density2dAesthetics,
-    Density2dParameters,
+    Density2dStatAesthetics,
+    Density2dStatParameters,
     LayerBase(
         mapping = Density2dfMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.density2df(),
+        geom = GeomOptions(GeomKind.DENSITY2DF),
         stat = stat,
         position = position,
         showLegend = showLegend,
@@ -92,7 +89,7 @@ class geom_density2df(
     ) {
     override fun seal(): Options {
         return super<PolygonAesthetics>.seal() +
-                super<Density2dAesthetics>.seal() +
-                super<Density2dParameters>.seal()
+                super<Density2dStatAesthetics>.seal() +
+                super<Density2dStatParameters>.seal()
     }
 }

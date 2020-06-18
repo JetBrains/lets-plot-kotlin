@@ -8,7 +8,7 @@ package jetbrains.letsPlot.intern.layer.stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
-interface Density2dParameters : OptionsCapsule {
+interface Density2dStatParameters : OptionsCapsule {
     val bw: Any?
     val kernel: Any?
     val n: Any?

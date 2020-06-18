@@ -5,13 +5,8 @@
 
 package jetbrains.letsPlot.intern.layer.stat
 
-import jetbrains.letsPlot.intern.layer.WithGroupOption
-
-class Density2dMapping(
+class Density2dStatMapping(
     override var x: Any? = null,
     override var y: Any? = null,
-    override var weight: Any? = null,
-    override var group: Any? = null
-) : Density2dAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
-}
+    override var weight: Any? = null
+) : Density2dStatAesthetics

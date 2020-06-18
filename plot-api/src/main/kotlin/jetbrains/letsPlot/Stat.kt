@@ -110,7 +110,7 @@ object Stat {
 
     @Suppress("ClassName")
     class density2d(
-        mapping: Density2dMapping.() -> Unit = {},
+        mapping: Density2dStatMapping.() -> Unit = {},
         override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Any? = null,
@@ -118,17 +118,17 @@ object Stat {
         override val isContour: Boolean? = null,
         override val binCount: Int? = null,
         override val binWidth: Double? = null
-    ) : Density2dParameters,
+    ) : Density2dStatParameters,
         StatOptions(
             StatKind.DENSITY2D,
-            mapping = Density2dMapping().apply(mapping).seal()
+            mapping = Density2dStatMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }
 
     @Suppress("ClassName")
     class density2df(
-        mapping: Density2dMapping.() -> Unit = {},
+        mapping: Density2dStatMapping.() -> Unit = {},
         override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Any? = null,
@@ -136,10 +136,10 @@ object Stat {
         override val isContour: Boolean? = null,
         override val binCount: Int? = null,
         override val binWidth: Double? = null
-    ) : Density2dParameters,
+    ) : Density2dStatParameters,
         StatOptions(
             StatKind.DENSITY2DF,
-            mapping = Density2dMapping().apply(mapping).seal()
+            mapping = Density2dStatMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.layer.WithGroupOption
-import jetbrains.letsPlot.intern.layer.stat.Density2dAesthetics
+import jetbrains.letsPlot.intern.layer.stat.Density2dStatAesthetics
 
 class Density2dfMapping(
     override var x: Any? = null,
@@ -18,8 +18,8 @@ class Density2dfMapping(
     override var alpha: Any? = null,
     override var weight: Any? = null,
     override var group: Any? = null
-) : PolygonAesthetics, Density2dAesthetics, WithGroupOption {
+) : PolygonAesthetics, Density2dStatAesthetics, WithGroupOption {
     override fun seal() = super<PolygonAesthetics>.seal() +
-            super<Density2dAesthetics>.seal() +
+            super<Density2dStatAesthetics>.seal() +
             group()
 }

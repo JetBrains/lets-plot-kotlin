@@ -8,7 +8,7 @@ package jetbrains.letsPlot.intern.layer.stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
-interface Density2dAesthetics : OptionsCapsule {
+interface Density2dStatAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
     val weight: Any?
