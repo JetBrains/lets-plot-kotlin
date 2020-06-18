@@ -6,8 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
+import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.geom.geom_area
 import jetbrains.letsPlot.geom.geom_density
 import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.stat.stat_density
 
 object Density {
     @JvmStatic
@@ -22,14 +25,37 @@ object Density {
             )
 
             // Basic plot
-            val density = geom_density(color = "red", size = 5.0) { x = "x" }
-            val p0 = lets_plot(data) + density
-            p0.show()
+            run {
+                val p = lets_plot(data) + geom_density(color = "red", size = 5.0) { x = "x" }
+                p.show()
+            }
 
             // Weighted density plot
-            val densityW = geom_density(color = "red", size = 5.0) { x = "x"; weight = "w" }
-            val p1 = lets_plot(data) + densityW
-            p1.show()
+            run {
+                val p = lets_plot(data) +
+                        geom_density(color = "red", size = 5.0) { x = "x"; weight = "w" }
+                p.show()
+            }
+
+            // stat_density : the sane
+            run {
+                val p = lets_plot(data) +
+                        stat_density(color = "red", size = 5.0) { x = "x"; weight = "w" }
+                p.show()
+            }
+
+            // Area + density stat ==> the sane
+            run {
+                val p = lets_plot(data) +
+                        geom_area(
+                            stat = Stat.density({ x = "x"; weight = "w" }),
+                            color = "red",
+                            fill = "green",
+                            alpha = .3,
+                            size = 5.0
+                        )
+                p.show()
+            }
         }
     }
 }

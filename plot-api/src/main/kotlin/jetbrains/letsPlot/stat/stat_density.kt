@@ -5,22 +5,23 @@
 
 package jetbrains.letsPlot.stat
 
-import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.Geom.area
 import jetbrains.letsPlot.Pos.stack
 import jetbrains.letsPlot.Stat.density
-import jetbrains.letsPlot.intern.layer.SamplingOptions
+import jetbrains.letsPlot.intern.GeomKind
+import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
-import jetbrains.letsPlot.intern.layer.stat.DensityMapping
-import jetbrains.letsPlot.intern.layer.stat.DensityParameters
+import jetbrains.letsPlot.intern.layer.SamplingOptions
+import jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
+import jetbrains.letsPlot.intern.layer.geom.DensityMapping
+import jetbrains.letsPlot.intern.layer.stat.DensityStatAesthetics
+import jetbrains.letsPlot.intern.layer.stat.DensityStatParameters
 
 @Suppress("ClassName")
 class stat_density(
     data: Map<*, *>? = null,
-    geom: GeomOptions = area(),
+    geom: GeomOptions = GeomOptions(GeomKind.DENSITY),
     position: PosOptions = stack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
@@ -32,14 +33,16 @@ class stat_density(
     override val linetype: Any? = null,
     override val size: Any? = null,
     override val weight: Any? = null,
-    override val bw: Any? = null,
-    override val kernel: Any? = null,
-    override val n: Any? = null,
-    override val trim: Any? = null,
-    override val adjust: Any? = null,
+    override val bw: String? = null,
+    override val kernel: String? = null,
+    override val n: Int? = null,
+    override val trim: Boolean? = null,
+    override val adjust: Number? = null,
     mapping: DensityMapping.() -> Unit = {}
 
-) : DensityAesthetics, DensityParameters,
+) : AreaAesthetics,
+    DensityStatAesthetics,
+    DensityStatParameters,
     LayerBase(
         mapping = DensityMapping().apply(mapping).seal(),
         data = data,
@@ -51,8 +54,9 @@ class stat_density(
     ) {
 
     override fun seal(): Options {
-        return super<DensityAesthetics>.seal() +
-                super<DensityParameters>.seal()
+        return super<AreaAesthetics>.seal() +
+                super<DensityStatAesthetics>.seal() +
+                super<DensityStatParameters>.seal()
     }
 }
 

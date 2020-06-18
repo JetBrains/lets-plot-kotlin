@@ -10,7 +10,6 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.WithGroupOption
 import jetbrains.letsPlot.intern.layer.geom.*
-import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
 
 /**
  * `Geom options` to pass as a value of `geom` parameter of `layer` functions like:
@@ -72,25 +71,6 @@ object Geom {
     ) : AreaAesthetics,
         GeomOptions(
             GeomKind.AREA,
-            AreaMapping().apply(mapping).seal()
-        ) {
-        override val parameters = this.seal()
-    }
-
-    @Suppress("ClassName")
-    class density(
-        mapping: AreaMapping.() -> Unit = {},
-        override val x: Double? = null,
-        override val y: Double? = null,
-        override val alpha: Double? = null,
-        override val color: Any? = null,
-        override val fill: Any? = null,
-        override val linetype: Any? = null,
-        override val size: Double? = null,
-        override val weight: Any? = null
-    ) : DensityAesthetics,
-        GeomOptions(
-            GeomKind.DENSITY,
             AreaMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()

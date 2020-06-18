@@ -5,11 +5,11 @@
 
 package jetbrains.letsPlot
 
+import jetbrains.letsPlot.Stat.density
+import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.LayerAssert
 import jetbrains.letsPlot.intern.StatKind
-import jetbrains.letsPlot.Stat.density
-import jetbrains.letsPlot.geom.geom_point
 import org.junit.Test
 
 class GeomLayerTest {
@@ -50,12 +50,11 @@ class GeomLayerTest {
     fun `geom with overridden stat, mapping`() {
         val l =
             geom_point(color = "C", stat = density({
-                fill = "F1"; alpha = "A"
-            }, kernel = "gaussian")) { fill = "F" }
+                x = "F1"; weight = "W"
+            }, kernel = "gaussian")) { x = "F" }
 
         LayerAssert.assertThat(l)
-            .aes("fill", "F")               // from layer
-            .aes("alpha", "A")              // from stat
+            .aes("weight", "W")               // from stat
             .parameter("color", "C")            // from layer
             .parameter("kernel", "gaussian")    // from stat
 
@@ -67,8 +66,7 @@ class GeomLayerTest {
         LayerAssert.assertThat(l)
             .stat()
             .kind(StatKind.DENSITY)
-            .aes("fill", "F1")
-            .aes("alpha", "A")
+            .aes("x", "F1")
             .parameter("kernel", "gaussian")
     }
 }

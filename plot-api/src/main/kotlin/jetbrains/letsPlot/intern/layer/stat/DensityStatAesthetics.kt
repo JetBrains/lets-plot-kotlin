@@ -8,18 +8,12 @@ package jetbrains.letsPlot.intern.layer.stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
-interface DensityParameters : OptionsCapsule {
-    val bw: Any?
-    val kernel: Any?
-    val n: Any?
-    val trim: Any?
-    val adjust: Any?
+interface DensityStatAesthetics : OptionsCapsule {
+    val x: Any?
+    val weight: Any?
 
     override fun seal() = Options.of(
-        "bw" to bw,
-        "kernel" to kernel,
-        "n" to n,
-        "trim" to trim,
-        "adjust" to adjust
+        "x" to x,
+        "weight" to weight
     )
 }

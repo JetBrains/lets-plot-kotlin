@@ -16,16 +16,16 @@ object Stat {
 
     @Suppress("ClassName")
     class density(
-        mapping: DensityMapping.() -> Unit = {},
-        override val bw: Any? = null,
+        mapping: DensityStatMapping.() -> Unit = {},
+        override val bw: String? = null,
         override val kernel: String? = null,
         override val n: Int? = null,
         override val trim: Boolean? = null,
         override val adjust: Double? = null
-    ) : DensityParameters,
+    ) : DensityStatParameters,
         StatOptions(
             StatKind.DENSITY,
-            mapping = DensityMapping().apply(mapping).seal()
+            mapping = DensityStatMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

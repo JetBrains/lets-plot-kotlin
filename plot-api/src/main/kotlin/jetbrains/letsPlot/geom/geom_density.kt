@@ -5,15 +5,14 @@
 
 package jetbrains.letsPlot.geom
 
-import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
-import jetbrains.letsPlot.intern.layer.stat.DensityMapping
+import jetbrains.letsPlot.intern.GeomKind
+import jetbrains.letsPlot.intern.layer.*
+import jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
+import jetbrains.letsPlot.intern.layer.geom.DensityMapping
+import jetbrains.letsPlot.intern.layer.stat.DensityStatAesthetics
+import jetbrains.letsPlot.intern.layer.stat.DensityStatParameters
 
 @Suppress("ClassName")
 /**
@@ -59,17 +58,29 @@ class geom_density(
     override val linetype: Any? = null,
     override val size: Double? = null,
     override val weight: Any? = null,
+    override val bw: String? = null,
+    override val kernel: String? = null,
+    override val n: Int? = null,
+    override val trim: Boolean? = null,
+    override val adjust: Number? = null,
     mapping: DensityMapping.() -> Unit = {}
 
-) : DensityAesthetics,
+) : AreaAesthetics,
+    DensityStatAesthetics,
+    DensityStatParameters,
     LayerBase(
         mapping = DensityMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.density(),
+        geom = GeomOptions(GeomKind.DENSITY),
         stat = stat,
         position = position,
         showLegend = showLegend,
         sampling = sampling
-    )
+    ) {
+
+    override fun seal() = super<AreaAesthetics>.seal() +
+            super<DensityStatAesthetics>.seal() +
+            super<DensityStatParameters>.seal()
+}
 
 

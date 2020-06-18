@@ -3,9 +3,10 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package jetbrains.letsPlot.intern.layer.stat
+package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.layer.WithGroupOption
+import jetbrains.letsPlot.intern.layer.stat.DensityStatAesthetics
 
 class DensityMapping(
     override var x: Any? = null,
@@ -17,6 +18,10 @@ class DensityMapping(
     override var size: Any? = null,
     override var weight: Any? = null,
     override var group: Any? = null
-) : DensityAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+) : AreaAesthetics,
+    DensityStatAesthetics, WithGroupOption {
+    override fun seal() = super<AreaAesthetics>.seal() +
+            super<DensityStatAesthetics>.seal() + group()
 }
+
+
