@@ -5,14 +5,11 @@
 
 package jetbrains.letsPlot.geom
 
-import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.ContourfMapping
 import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
@@ -70,7 +67,7 @@ class geom_contourf(
     LayerBase(
         mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.contourf(),
+        geom = GeomOptions(GeomKind.CONTOURF),
         stat = stat,
         position = position,
         showLegend = showLegend,

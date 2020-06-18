@@ -10,9 +10,10 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.WithGroupOption
 import jetbrains.letsPlot.intern.layer.geom.*
-import jetbrains.letsPlot.intern.layer.geom.ContourfMapping
-import jetbrains.letsPlot.intern.layer.geom.Density2dMapping
-import jetbrains.letsPlot.intern.layer.stat.*
+import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
+import jetbrains.letsPlot.intern.layer.stat.Density2dAesthetics
+import jetbrains.letsPlot.intern.layer.stat.Density2dParameters
+import jetbrains.letsPlot.intern.layer.stat.DensityAesthetics
 
 /**
  * `Geom options` to pass as a value of `geom` parameter of `layer` functions like:
@@ -512,34 +513,6 @@ object Geom {
         override fun seal(): Options {
             return super<PointAesthetics>.seal() +
                     super<JitterParameters>.seal()
-        }
-    }
-
-    @Suppress("ClassName")
-    class contourf(
-        mapping: ContourfMapping.() -> Unit = {},
-        override val x: Double? = null,
-        override val y: Double? = null,
-        override val z: Double? = null,
-        override val size: Double? = null,
-        override val linetype: Any? = null,
-        override val color: Any? = null,
-        override val fill: Any? = null,
-        override val alpha: Double? = null,
-        override val binCount: Int? = null,
-        override val binWidth: Double? = null
-    ) : PolygonAesthetics,
-        ContourStatAesthetics,
-        ContourStatParameters,
-        GeomOptions(
-            GeomKind.CONTOURF,
-            ContourfMapping().apply(mapping).seal()
-        ) {
-        override val parameters = this.seal()
-        override fun seal(): Options {
-            return super<PolygonAesthetics>.seal() +
-                    super<ContourStatAesthetics>.seal() +
-                    super<ContourStatParameters>.seal()
         }
     }
 
