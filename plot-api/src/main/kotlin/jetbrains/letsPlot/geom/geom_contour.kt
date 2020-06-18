@@ -6,18 +6,15 @@
 
 package jetbrains.letsPlot.geom
 
-import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.ContourMapping
 import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
-import jetbrains.letsPlot.intern.layer.stat.ContourAesthetics
-import jetbrains.letsPlot.intern.layer.stat.ContourParameters
+import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
+import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
 
 @Suppress("ClassName")
 /**
@@ -70,12 +67,12 @@ class geom_contour(
     override val binWidth: Double? = null,
     mapping: ContourMapping.() -> Unit = {}
 ) : PathAesthetics,
-    ContourAesthetics,
-    ContourParameters,
+    ContourStatAesthetics,
+    ContourStatParameters,
     LayerBase(
         mapping = ContourMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.contour(),
+        geom = GeomOptions(GeomKind.CONTOUR),
         stat = stat,
         position = position,
         showLegend = showLegend,
@@ -83,7 +80,7 @@ class geom_contour(
     ) {
     override fun seal(): Options {
         return super<PathAesthetics>.seal() +
-                super<ContourAesthetics>.seal() +
-                super<ContourParameters>.seal()
+                super<ContourStatAesthetics>.seal() +
+                super<ContourStatParameters>.seal()
     }
 }

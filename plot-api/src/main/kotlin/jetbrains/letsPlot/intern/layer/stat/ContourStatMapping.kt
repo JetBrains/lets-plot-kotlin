@@ -5,14 +5,8 @@
 
 package jetbrains.letsPlot.intern.layer.stat
 
-import jetbrains.letsPlot.intern.layer.WithGroupOption
-
-class ContourMapping(
+class ContourStatMapping(
     override var x: Any? = null,
     override var y: Any? = null,
-    override var z: Any? = null,
-    override var group: Any? = null
-) : ContourAesthetics,
-    WithGroupOption {
-    override fun seal() = super.seal() + group()
-}
+    override var z: Any? = null
+) : ContourStatAesthetics

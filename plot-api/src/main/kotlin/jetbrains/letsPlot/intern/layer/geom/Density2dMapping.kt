@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.layer.WithGroupOption
-import jetbrains.letsPlot.intern.layer.stat.ContourAesthetics
+import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
 import jetbrains.letsPlot.intern.layer.stat.Density2dAesthetics
 
 class Density2dMapping(
@@ -21,9 +21,9 @@ class Density2dMapping(
     override var flow: Any? = null,
     override var weight: Any? = null,
     override var group: Any? = null
-) : PathAesthetics, ContourAesthetics, Density2dAesthetics, WithGroupOption {
+) : PathAesthetics, ContourStatAesthetics, Density2dAesthetics, WithGroupOption {
     override fun seal() = super<PathAesthetics>.seal() +
-            super<ContourAesthetics>.seal() +
+            super<ContourStatAesthetics>.seal() +
             super<Density2dAesthetics>.seal() +
             group()
 }

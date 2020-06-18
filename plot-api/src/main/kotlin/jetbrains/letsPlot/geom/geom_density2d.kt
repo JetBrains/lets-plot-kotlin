@@ -85,7 +85,7 @@ class geom_density2d(
     override val binWidth: Double? = null,
     mapping: Density2dMapping.() -> Unit = {}
 ) : PathAesthetics,
-    ContourAesthetics,
+    ContourStatAesthetics,
     Density2dAesthetics,
     Density2dParameters,
     LayerBase(
@@ -99,7 +99,7 @@ class geom_density2d(
     ) {
     override fun seal(): Options {
         return super<PathAesthetics>.seal() +
-                super<ContourAesthetics>.seal() +
+                super<ContourStatAesthetics>.seal() +
                 super<Density2dAesthetics>.seal() +
                 super<Density2dParameters>.seal()
     }
