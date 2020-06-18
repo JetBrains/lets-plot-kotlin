@@ -15,8 +15,8 @@ import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.ContourfMapping
 import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
-import jetbrains.letsPlot.intern.layer.stat.ContourfAesthetics
-import jetbrains.letsPlot.intern.layer.stat.ContourfParameters
+import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
+import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
 
 
 @Suppress("ClassName")
@@ -65,8 +65,8 @@ class geom_contourf(
     override val binWidth: Double? = null,
     mapping: ContourfMapping.() -> Unit = {}
 ) : PolygonAesthetics,
-    ContourfAesthetics,
-    ContourfParameters,
+    ContourStatAesthetics,
+    ContourStatParameters,
     LayerBase(
         mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
@@ -78,7 +78,7 @@ class geom_contourf(
     ) {
     override fun seal(): Options {
         return super<PolygonAesthetics>.seal() +
-                super<ContourfAesthetics>.seal() +
-                super<ContourfParameters>.seal()
+                super<ContourStatAesthetics>.seal() +
+                super<ContourStatParameters>.seal()
     }
 }

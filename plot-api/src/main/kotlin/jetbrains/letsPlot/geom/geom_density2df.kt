@@ -15,7 +15,6 @@ import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.Density2dfMapping
 import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
-import jetbrains.letsPlot.intern.layer.stat.ContourfAesthetics
 import jetbrains.letsPlot.intern.layer.stat.Density2dAesthetics
 import jetbrains.letsPlot.intern.layer.stat.Density2dParameters
 
@@ -65,7 +64,6 @@ class geom_density2df(
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
-    override val z: Double? = null,
     override val size: Double? = null,
     override val linetype: Any? = null,
     override val color: Any? = null,
@@ -81,7 +79,6 @@ class geom_density2df(
     override val binWidth: Double? = null,
     mapping: Density2dfMapping.() -> Unit = {}
 ) : PolygonAesthetics,
-    ContourfAesthetics,
     Density2dAesthetics,
     Density2dParameters,
     LayerBase(
@@ -95,7 +92,6 @@ class geom_density2df(
     ) {
     override fun seal(): Options {
         return super<PolygonAesthetics>.seal() +
-                super<ContourfAesthetics>.seal() +
                 super<Density2dAesthetics>.seal() +
                 super<Density2dParameters>.seal()
     }

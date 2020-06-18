@@ -97,13 +97,13 @@ object Stat {
 
     @Suppress("ClassName")
     class contourf(
-        mapping: ContourfMapping.() -> Unit = {},
+        mapping: ContourStatMapping.() -> Unit = {},
         override val binCount: Int? = null,
-        override val binWidth: Double? = null
-    ) : ContourfParameters,
+        override val binWidth: Number? = null
+    ) : ContourStatParameters,
         StatOptions(
             StatKind.CONTOURF,
-            mapping = ContourfMapping().apply(mapping).seal()
+            mapping = ContourStatMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.layer.WithGroupOption
-import jetbrains.letsPlot.intern.layer.stat.ContourfAesthetics
+import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
 
 class ContourfMapping(
     override var x: Any? = null,
@@ -18,8 +18,8 @@ class ContourfMapping(
     override var fill: Any? = null,
     override var alpha: Any? = null,
     override var group: Any? = null
-) : PolygonAesthetics, ContourfAesthetics, WithGroupOption {
+) : PolygonAesthetics, ContourStatAesthetics, WithGroupOption {
     override fun seal() = super<PolygonAesthetics>.seal() +
-            super<ContourfAesthetics>.seal() +
+            super<ContourStatAesthetics>.seal() +
             group()
 }

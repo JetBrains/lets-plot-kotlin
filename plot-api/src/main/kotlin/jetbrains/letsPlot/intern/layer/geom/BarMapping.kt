@@ -17,7 +17,7 @@ class BarMapping(
     override var width: Any? = null,
     override var size: Any? = null,
     override var group: Any? = null,
-    override val weight: Any? = null
+    override var weight: Any? = null
 ) : BarAesthetics, CountStatAesthetics, WithGroupOption {
     override fun seal() = super<BarAesthetics>.seal() +
             super<CountStatAesthetics>.seal() + group()

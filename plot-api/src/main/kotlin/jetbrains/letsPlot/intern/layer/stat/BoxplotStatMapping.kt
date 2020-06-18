@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 class BoxplotStatMapping(
-    override val x: Any? = null,
-    override val y: Any? = null,
+    override var x: Any? = null,
+    override var y: Any? = null,
     override var weight: Any? = null
 ) : BoxplotStatAesthetics
