@@ -9,7 +9,7 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 /**
- * Five number summary require x,y to compute (weight is optional)
+ * The "Five Number Summary" requires x,y (weight is optional)
  */
 interface BoxplotStatAesthetics : OptionsCapsule {
     val x: Any?

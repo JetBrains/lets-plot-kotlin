@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.layer.WithGroupOption
-import jetbrains.letsPlot.intern.layer.stat.Bin2dAesthetics
+import jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
 
 class Bin2dMapping(
     override var x: Any? = null,
@@ -20,8 +20,8 @@ class Bin2dMapping(
     override var size: Any? = null,
     override var weight: Any? = null,
     override var group: Any? = null
-) : TileAesthetics, Bin2dAesthetics, WithGroupOption {
+) : TileAesthetics, Bin2dStatAesthetics, WithGroupOption {
     override fun seal() = super<TileAesthetics>.seal() +
-            super<Bin2dAesthetics>.seal() +
+            super<Bin2dStatAesthetics>.seal() +
             group()
 }

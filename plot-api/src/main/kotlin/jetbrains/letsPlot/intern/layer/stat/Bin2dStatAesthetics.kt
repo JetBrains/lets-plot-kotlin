@@ -8,16 +8,17 @@ package jetbrains.letsPlot.intern.layer.stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
-interface Bin2dAesthetics : OptionsCapsule {
+/**
+ * 'bin2d' stat requires x,y (weight is optional)
+ */
+interface Bin2dStatAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
     val weight: Any?
-    val fill: Any?
 
     override fun seal() = Options.of(
-        "weight" to weight,
-        "fill" to fill,
         "x" to x,
-        "y" to y
+        "y" to y,
+        "weight" to weight
     )
 }
