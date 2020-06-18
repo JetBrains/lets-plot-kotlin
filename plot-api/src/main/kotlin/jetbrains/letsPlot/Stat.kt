@@ -32,13 +32,11 @@ object Stat {
 
     @Suppress("ClassName")
     class count(
-        mapping: CountMapping.() -> Unit = {}
-    ) : CountParameters,
-        StatOptions(
-            StatKind.COUNT,
-            mapping = CountMapping().apply(mapping).seal()
-        ) {
-        override val parameters = this.seal()
+        mapping: CountStatMapping.() -> Unit = {}
+    ) : StatOptions(
+        StatKind.COUNT,
+        mapping = CountStatMapping().apply(mapping).seal()
+    ) {
     }
 
     @Suppress("ClassName")

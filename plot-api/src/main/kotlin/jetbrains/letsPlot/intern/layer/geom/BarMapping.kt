@@ -6,6 +6,7 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.layer.WithGroupOption
+import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
 
 class BarMapping(
     override var x: Any? = null,
@@ -15,9 +16,11 @@ class BarMapping(
     override var fill: Any? = null,
     override var width: Any? = null,
     override var size: Any? = null,
-    override var group: Any? = null
-) : BarAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override var group: Any? = null,
+    override val weight: Any? = null
+) : BarAesthetics, CountStatAesthetics, WithGroupOption {
+    override fun seal() = super<BarAesthetics>.seal() +
+            super<CountStatAesthetics>.seal() + group()
 }
 
 

@@ -8,7 +8,14 @@ package jetbrains.letsPlot.intern.layer.stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
-interface CountParameters : OptionsCapsule {
-    // no parameters
-    override fun seal() = Options.empty()
+interface CountStatAesthetics : OptionsCapsule {
+    val x: Any?
+    val weight: Any?
+
+    override fun seal(): Options {
+        return Options.of(
+            "x" to x,
+            "weight" to weight
+        )
+    }
 }

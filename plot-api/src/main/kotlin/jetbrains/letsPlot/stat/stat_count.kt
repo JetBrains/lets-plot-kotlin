@@ -5,18 +5,17 @@
 
 package jetbrains.letsPlot.stat
 
-import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos.stack
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
+import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.BarAesthetics
-import jetbrains.letsPlot.intern.layer.stat.CountAesthetics
-import jetbrains.letsPlot.intern.layer.stat.CountMapping
-import jetbrains.letsPlot.intern.layer.stat.CountParameters
+import jetbrains.letsPlot.intern.layer.geom.BarMapping
+import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
 
 @Suppress("ClassName")
 class stat_count(
@@ -33,11 +32,11 @@ class stat_count(
     override val width: Double? = null,
     override val size: Double? = null,
     override val weight: Double? = null,
-    mapping: CountMapping.() -> Unit = {}
+    mapping: BarMapping.() -> Unit = {}
 
-) : CountAesthetics, BarAesthetics, CountParameters,
+) : CountStatAesthetics, BarAesthetics,
     LayerBase(
-        mapping = CountMapping().apply(mapping).seal(),
+        mapping = BarMapping().apply(mapping).seal(),
         data = data,
         geom = geom,
         stat = Stat.count(),
@@ -48,8 +47,7 @@ class stat_count(
 
     override fun seal(): Options {
         return super<BarAesthetics>.seal() +
-                super<CountAesthetics>.seal() +
-                super<CountParameters>.seal()
+                super<CountStatAesthetics>.seal()
     }
 }
 

@@ -8,12 +8,14 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
+import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.BarAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BarMapping
+import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
 
 @Suppress("ClassName")
 /**
@@ -55,9 +57,11 @@ class geom_bar(
     override val fill: Any? = null,
     override val width: Double? = null,
     override val size: Double? = null,
+    override val weight: Double? = null,
     mapping: BarMapping.() -> Unit = {}
 
 ) : BarAesthetics,
+    CountStatAesthetics,
     LayerBase(
         mapping = BarMapping().apply(mapping).seal(),
         data = data,
@@ -66,6 +70,11 @@ class geom_bar(
         position = position,
         showLegend = showLegend,
         sampling = sampling
-    )
+    ) {
+    override fun seal(): Options {
+        return super<BarAesthetics>.seal() +
+                super<CountStatAesthetics>.seal()
+    }
+}
 
 
