@@ -6,9 +6,7 @@
 package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.GeomKind
-import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
-import jetbrains.letsPlot.intern.layer.WithGroupOption
 import jetbrains.letsPlot.intern.layer.geom.*
 
 /**
@@ -292,31 +290,24 @@ object Geom {
         override val outlierShape: Any? = null,
         override val outlierSize: Double? = null,
         override val fatten: Double? = null,
-        override val varWidth: Boolean? = null,
-        @Suppress("SpellCheckingInspection")
-        override val coef: Any? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val size: Double? = null,
         override val linetype: Any? = null,
         override val shape: Any? = null,
-        override val width: Double? = null,
-        override val weight: Any? = null,
-        override val group: Any? = null
+        override val width: Double? = null
     ) : BoxplotAesthetics,
         BoxplotParameters,
-        WithGroupOption,
         GeomOptions(
             GeomKind.BOX_PLOT,
             BoxplotMapping().apply(mapping).seal()
         ) {
+
         override val parameters = this.seal()
 
-        override fun seal(): Options {
-            return super<BoxplotAesthetics>.seal() +
-                    super<BoxplotParameters>.seal() + group()
-        }
+        override fun seal() = super<BoxplotAesthetics>.seal() +
+                super<BoxplotParameters>.seal()
     }
 
     @Suppress("ClassName", "SpellCheckingInspection")

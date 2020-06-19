@@ -6,10 +6,11 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.WithGroupOption
-import jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
+import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
-interface BoxplotAesthetics : BoxplotStatAesthetics, WithGroupOption {
+interface BoxplotAesthetics : OptionsCapsule {
+    val x: Any?
+    val y: Any?
     val lower: Any?
     val middle: Any?
     val upper: Any?
@@ -25,6 +26,8 @@ interface BoxplotAesthetics : BoxplotStatAesthetics, WithGroupOption {
 
     override fun seal(): Options {
         return Options.of(
+            "x" to x,
+            "y" to y,
             "lower" to lower,
             "middle" to middle,
             "upper" to upper,
@@ -37,6 +40,6 @@ interface BoxplotAesthetics : BoxplotStatAesthetics, WithGroupOption {
             "linetype" to linetype,
             "shape" to shape,
             "width" to width
-        ) + super<BoxplotStatAesthetics>.seal() + group()
+        )
     }
 }

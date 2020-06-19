@@ -16,6 +16,8 @@ import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
+import jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
+import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 
 @Suppress("ClassName")
 class stat_boxplot(
@@ -47,11 +49,12 @@ class stat_boxplot(
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Any? = null,
-    override val group: Any? = null,
     mapping: BoxplotMapping.() -> Unit = {}
 
 ) : BoxplotAesthetics,
     BoxplotParameters,
+    BoxplotStatAesthetics,
+    BoxplotStatParameters,
     LayerBase(
         mapping = BoxplotMapping().apply(mapping).seal(),
         data = data,
@@ -65,7 +68,9 @@ class stat_boxplot(
 
     override fun seal(): Options {
         return super<BoxplotAesthetics>.seal() +
-                super<BoxplotParameters>.seal()
+                super<BoxplotParameters>.seal() +
+                super<BoxplotStatAesthetics>.seal() +
+                super<BoxplotStatParameters>.seal()
     }
 }
 

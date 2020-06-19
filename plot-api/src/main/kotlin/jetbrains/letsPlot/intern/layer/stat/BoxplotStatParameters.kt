@@ -13,7 +13,7 @@ interface BoxplotStatParameters : OptionsCapsule {
     val varWidth: Any?
 
     @Suppress("SpellCheckingInspection")
-    val coef: Any?
+    val coef: Any?  // Whisker IQR ratio
 
     override fun seal() = Options.of(
         BoxplotStat.P_VARWIDTH to varWidth,

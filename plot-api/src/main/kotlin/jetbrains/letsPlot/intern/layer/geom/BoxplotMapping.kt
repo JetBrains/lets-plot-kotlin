@@ -5,8 +5,8 @@
 
 package jetbrains.letsPlot.intern.layer.geom
 
-import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.WithGroupOption
+import jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
 
 class BoxplotMapping(
     override var x: Any? = null,
@@ -25,22 +25,8 @@ class BoxplotMapping(
     override var width: Any? = null,
     override var group: Any? = null,
     override var weight: Any? = null
-) : BoxplotAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + Options.of(
-        "x" to x,
-        "y" to y,
-        "lower" to lower,
-        "middle" to middle,
-        "upper" to upper,
-        "ymin" to ymin,
-        "ymax" to ymax,
-        "alpha" to alpha,
-        "color" to color,
-        "fill" to fill,
-        "size" to size,
-        "linetype" to linetype,
-        "shape" to shape,
-        "width" to width,
-        "weight" to weight
-    ) + group()
+) : BoxplotAesthetics, BoxplotStatAesthetics, WithGroupOption {
+
+    override fun seal() = super<BoxplotAesthetics>.seal() +
+            super<BoxplotStatAesthetics>.seal() + group()
 }
