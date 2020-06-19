@@ -143,4 +143,23 @@ object Stat {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class smooth(
+        mapping: SmoothStatMapping.() -> Unit = {},
+        override val method: String? = null,
+        override val n: Int? = null,
+        override val level: Number? = null,
+        override val se: Boolean? = null,
+        override val span: Number? = null,
+        override val deg: Int? = null,
+        override val seed: Long? = null,
+        override val maxn: Int? = null
+    ) : SmoothStatParameters,
+        StatOptions(
+            StatKind.SMOOTH,
+            mapping = SmoothStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
