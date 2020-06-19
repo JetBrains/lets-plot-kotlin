@@ -10,10 +10,10 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface BoxplotStatParameters : OptionsCapsule {
-    val varWidth: Any?
+    val varWidth: Boolean?
 
     @Suppress("SpellCheckingInspection")
-    val coef: Any?  // Whisker IQR ratio
+    val coef: Number?  // Whisker IQR ratio
 
     override fun seal() = Options.of(
         BoxplotStat.P_VARWIDTH to varWidth,

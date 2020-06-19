@@ -88,11 +88,11 @@ class geom_boxplot(
     override val outlierColor: Any? = null,
     override val outlierFill: Any? = null,
     override val outlierShape: Any? = null,
-    override val outlierSize: Double? = null,
-    override val fatten: Double? = null,
+    override val outlierSize: Number? = null,
+    override val fatten: Number? = null,
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
-    override val coef: Any? = null,
+    override val coef: Number? = null,
     mapping: BoxplotMapping .() -> Unit = {}
 
 ) : BoxplotAesthetics,

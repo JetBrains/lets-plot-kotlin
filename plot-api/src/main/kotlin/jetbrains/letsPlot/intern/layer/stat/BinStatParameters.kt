@@ -10,9 +10,9 @@ import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface BinStatParameters : OptionsCapsule {
     val binCount: Int
-    val binWidth: Double?
-    val center: Double?
-    val boundary: Double?
+    val binWidth: Number?
+    val center: Number?
+    val boundary: Number?
 
     override fun seal() = Options.of(
         "bins" to binCount,

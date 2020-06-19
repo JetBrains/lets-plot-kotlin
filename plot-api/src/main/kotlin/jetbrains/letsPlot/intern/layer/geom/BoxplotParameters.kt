@@ -13,8 +13,8 @@ interface BoxplotParameters : OptionsCapsule {
     val outlierColor: Any?
     val outlierFill: Any?
     val outlierShape: Any?
-    val outlierSize: Any?
-    val fatten: Any?
+    val outlierSize: Number?
+    val fatten: Number?
 
     override fun seal() = Options.of(
         Option.Geom.BoxplotOutlier.COLOR to outlierColor,

@@ -10,6 +10,7 @@ import jetbrains.letsPlot.geom.geom_boxplot
 import jetbrains.letsPlot.geom.geom_jitter
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.stat.stat_boxplot
+import java.awt.Color
 import kotlin.math.abs
 
 object Boxplot {
@@ -33,7 +34,7 @@ object Boxplot {
             (p + geom_jitter()).show()
             (p + geom_boxplot(outlierColor = "red")).show()
             (p + geom_boxplot(outlierColor = "red", varWidth = true)).show()
-            (p + stat_boxplot(outlierColor = "red", varWidth = true, fatten = 2.0)).show()
+            (p + stat_boxplot(outlierColor = "red", varWidth = true, fatten = 2, color= "dark-magenta")).show()
         }
     }
 }

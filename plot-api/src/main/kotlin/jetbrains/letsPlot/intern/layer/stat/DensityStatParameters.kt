@@ -9,7 +9,7 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface DensityStatParameters : OptionsCapsule {
-    val bw: String?       // ToDo: constants
+    val bw: Any?       // ToDo: constants (bin width: string (method) or Number)
     val kernel: String?   // ToDo: constants
     val n: Int?
     val trim: Boolean?

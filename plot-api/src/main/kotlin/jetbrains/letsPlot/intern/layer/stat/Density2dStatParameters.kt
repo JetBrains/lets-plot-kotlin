@@ -9,13 +9,13 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface Density2dStatParameters : OptionsCapsule {
-    val bw: Any?
-    val kernel: Any?
-    val n: Any?
-    val adjust: Any?
-    val isContour: Any?
-    val binCount: Any?
-    val binWidth: Any?
+    val bw: Any?       // ToDo: constants. (bin width: string (method) or Number or Pair<Number>)
+    val kernel: String?   // ToDo: constants
+    val n: Int?
+    val adjust: Number?
+    val isContour: Boolean?  // If TRUE, contour the results of the 2d density estimation.
+    val binCount: Int?
+    val binWidth: Number?
 
     override fun seal() = Options.of(
         "bw" to bw,

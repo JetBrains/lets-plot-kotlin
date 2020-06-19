@@ -59,7 +59,7 @@ class geom_contourf(
     override val fill: Any? = null,
     override val alpha: Double? = null,
     override val binCount: Int? = null,
-    override val binWidth: Double? = null,
+    override val binWidth: Number? = null,
     mapping: ContourfMapping.() -> Unit = {}
 ) : PolygonAesthetics,
     ContourStatAesthetics,

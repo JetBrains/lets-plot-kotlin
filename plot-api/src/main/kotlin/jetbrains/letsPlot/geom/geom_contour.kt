@@ -64,7 +64,7 @@ class geom_contour(
     override val speed: Double? = null,
     override val flow: Double? = null,
     override val binCount: Int? = null,
-    override val binWidth: Double? = null,
+    override val binWidth: Number? = null,
     mapping: ContourMapping.() -> Unit = {}
 ) : PathAesthetics,
     ContourStatAesthetics,

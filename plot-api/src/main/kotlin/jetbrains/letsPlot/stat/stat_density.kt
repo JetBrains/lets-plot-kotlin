@@ -33,7 +33,7 @@ class stat_density(
     override val linetype: Any? = null,
     override val size: Any? = null,
     override val weight: Any? = null,
-    override val bw: String? = null,
+    override val bw: Any? = null,
     override val kernel: String? = null,
     override val n: Int? = null,
     override val trim: Boolean? = null,

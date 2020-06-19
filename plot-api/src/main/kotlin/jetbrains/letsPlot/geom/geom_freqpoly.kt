@@ -58,9 +58,9 @@ class geom_freqpoly(
     override val linetype: Any? = null,
     override val size: Double? = null,
     override val binCount: Int = BinStatParameters.DEF_BIN_COUNT,
-    override val binWidth: Double? = null,
-    override val center: Double? = null,
-    override val boundary: Double? = null,
+    override val binWidth: Number? = null,
+    override val center: Number? = null,
+    override val boundary: Number? = null,
     mapping: LineMapping.() -> Unit = {}
 ) : LineAesthetics,
     BinStatParameters,

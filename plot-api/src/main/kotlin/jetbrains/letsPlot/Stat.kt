@@ -17,11 +17,11 @@ object Stat {
     @Suppress("ClassName")
     class density(
         mapping: DensityStatMapping.() -> Unit = {},
-        override val bw: String? = null,
+        override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Int? = null,
         override val trim: Boolean? = null,
-        override val adjust: Double? = null
+        override val adjust: Number? = null
     ) : DensityStatParameters,
         StatOptions(
             StatKind.DENSITY,
@@ -43,9 +43,9 @@ object Stat {
     class bin(
         mapping: BinStatMapping.() -> Unit = {},
         override val binCount: Int = BinStatParameters.DEF_BIN_COUNT,
-        override val binWidth: Double? = null,
-        override val center: Double? = null,
-        override val boundary: Double? = null
+        override val binWidth: Number? = null,
+        override val center: Number? = null,
+        override val boundary: Number? = null
     ) : BinStatParameters,
         StatOptions(
             StatKind.BIN,
@@ -59,7 +59,7 @@ object Stat {
         mapping: BoxplotStatMapping.() -> Unit = {},
         override val varWidth: Boolean? = null,
         @Suppress("SpellCheckingInspection")
-        override val coef: Double? = null
+        override val coef: Number? = null
     ) : BoxplotStatParameters,
         StatOptions(
             StatKind.BOXPLOT,
@@ -113,11 +113,11 @@ object Stat {
         mapping: Density2dStatMapping.() -> Unit = {},
         override val bw: Any? = null,
         override val kernel: String? = null,
-        override val n: Any? = null,
-        override val adjust: Double? = null,
+        override val n: Int? = null,
+        override val adjust: Number? = null,
         override val isContour: Boolean? = null,
         override val binCount: Int? = null,
-        override val binWidth: Double? = null
+        override val binWidth: Number? = null
     ) : Density2dStatParameters,
         StatOptions(
             StatKind.DENSITY2D,
@@ -131,11 +131,11 @@ object Stat {
         mapping: Density2dStatMapping.() -> Unit = {},
         override val bw: Any? = null,
         override val kernel: String? = null,
-        override val n: Any? = null,
-        override val adjust: Double? = null,
+        override val n: Int? = null,
+        override val adjust: Number? = null,
         override val isContour: Boolean? = null,
         override val binCount: Int? = null,
-        override val binWidth: Double? = null
+        override val binWidth: Number? = null
     ) : Density2dStatParameters,
         StatOptions(
             StatKind.DENSITY2DF,
