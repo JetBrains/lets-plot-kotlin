@@ -5,17 +5,14 @@
 
 package jetbrains.letsPlot.geom
 
-import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.SmoothAesthetics
 import jetbrains.letsPlot.intern.layer.geom.SmoothMapping
-import jetbrains.letsPlot.intern.layer.stat.SmoothParameters
+import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
 
 @Suppress("ClassName")
 /**
@@ -71,19 +68,19 @@ class geom_smooth(
     override val alpha: Any? = null,
     override val method: String? = null,
     override val n: Int? = null,
-    override val level: Double? = null,
+    override val level: Number? = null,
     override val se: Boolean? = null,
-    override val span: Double? = null,
+    override val span: Number? = null,
     override val deg: Int? = null,
     override val seed: Long? = null,
     override val maxn: Int? = null,
     mapping: SmoothMapping.() -> Unit = {}
 ) : SmoothAesthetics,
-    SmoothParameters,
+    SmoothStatParameters,
     LayerBase(
         mapping = SmoothMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.smooth(),
+        geom = GeomOptions(GeomKind.SMOOTH),
         stat = stat,
         position = position,
         showLegend = showLegend,
@@ -91,6 +88,6 @@ class geom_smooth(
     ) {
     override fun seal(): Options {
         return super<SmoothAesthetics>.seal() +
-                super<SmoothParameters>.seal()
+                super<SmoothStatParameters>.seal()
     }
 }

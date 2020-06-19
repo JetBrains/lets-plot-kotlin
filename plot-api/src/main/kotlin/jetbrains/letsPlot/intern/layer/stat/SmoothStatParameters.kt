@@ -18,15 +18,15 @@ import jetbrains.letsPlot.intern.layer.OptionsCapsule
  * seed  - random seed for LOESS sampling
  * maxn (1000)  - maximum points in DF for LOESS
  */
-interface SmoothParameters : OptionsCapsule {
-    val method: Any?
-    val n: Any?
-    val level: Any?
-    val se: Any?
-    val span: Any?
-    val deg: Any?
-    val seed: Any?
-    val maxn: Any?
+interface SmoothStatParameters : OptionsCapsule {
+    val method: String?
+    val n: Int?
+    val level: Number?
+    val se: Boolean?
+    val span: Number?
+    val deg: Int?
+    val seed: Long?
+    val maxn: Int?
 
     override fun seal() = Options.of(
         "method" to method,

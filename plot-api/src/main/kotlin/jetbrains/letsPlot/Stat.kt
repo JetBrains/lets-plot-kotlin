@@ -146,19 +146,19 @@ object Stat {
 
     @Suppress("ClassName")
     class smooth(
-        mapping: CountMapping.() -> Unit = {},
+        mapping: SmoothStatMapping.() -> Unit = {},
         override val method: String? = null,
         override val n: Int? = null,
-        override val level: Double? = null,
+        override val level: Number? = null,
         override val se: Boolean? = null,
-        override val span: Double? = null,
+        override val span: Number? = null,
         override val deg: Int? = null,
         override val seed: Long? = null,
         override val maxn: Int? = null
-    ) : SmoothParameters,
+    ) : SmoothStatParameters,
         StatOptions(
             StatKind.SMOOTH,
-            mapping = CountMapping().apply(mapping).seal()
+            mapping = SmoothStatMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }
