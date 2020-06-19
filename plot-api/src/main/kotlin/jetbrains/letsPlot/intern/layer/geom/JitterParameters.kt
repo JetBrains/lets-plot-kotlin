@@ -10,8 +10,8 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface JitterParameters : OptionsCapsule {
-    val width: Any?
-    val height: Any?
+    val width: Number?
+    val height: Number?
 
     override fun seal() = Options.of(
         Option.Geom.Jitter.WIDTH to width,

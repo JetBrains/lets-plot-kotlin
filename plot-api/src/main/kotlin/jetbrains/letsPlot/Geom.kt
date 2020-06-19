@@ -183,6 +183,7 @@ object Geom {
     @Suppress("ClassName")
     class hline(
         mapping: HLineMapping.() -> Unit = {},
+        @Suppress("SpellCheckingInspection")
         override val yintercept: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
@@ -199,6 +200,7 @@ object Geom {
     @Suppress("ClassName")
     class vline(
         mapping: VLineMapping.() -> Unit = {},
+        @Suppress("SpellCheckingInspection")
         override val xintercept: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
@@ -465,31 +467,5 @@ object Geom {
             ImageMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
-    }
-
-    @Suppress("ClassName")
-    class jitter(
-        mapping: PointMapping.() -> Unit = {},
-        override val x: Double? = null,
-        override val y: Double? = null,
-        override val alpha: Double? = null,
-        override val color: Any? = null,
-        override val fill: Any? = null,
-        override val shape: Any? = null,
-        override val size: Double? = null,
-        override val stroke: Double? = null,
-        override val width: Double? = null,
-        override val height: Double? = null
-    ) : PointAesthetics,
-        JitterParameters,
-        GeomOptions(
-            GeomKind.JITTER,
-            PointMapping().apply(mapping).seal()
-        ) {
-        override val parameters = this.seal()
-        override fun seal(): Options {
-            return super<PointAesthetics>.seal() +
-                    super<JitterParameters>.seal()
-        }
     }
 }

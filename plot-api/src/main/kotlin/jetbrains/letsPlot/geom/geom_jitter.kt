@@ -13,9 +13,9 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.geom.JitterParameters
 import jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PointMapping
-import jetbrains.letsPlot.intern.layer.geom.JitterParameters
 import jetbrains.letsPlot.position_jitter
 
 @Suppress("ClassName")
@@ -64,15 +64,15 @@ class geom_jitter(
     override val shape: Any? = null,
     override val size: Double? = null,
     override val stroke: Double? = null,
-    override val width: Double? = null,
-    override val height: Double? = null,
+    override val width: Number? = null,
+    override val height: Number? = null,
     mapping: PointMapping.() -> Unit = {}
 ) : PointAesthetics,
     JitterParameters,
     LayerBase(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.jitter(),
+        geom = Geom.point(),
         stat = stat,
         position = when {
             // init with the given width/height if its parameters was not specified

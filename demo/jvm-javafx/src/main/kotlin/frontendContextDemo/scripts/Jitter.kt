@@ -20,7 +20,7 @@ object Jitter {
             )
 
             val p = ggplot(data) { x = "l"; y = "d"; color = "l" } +
-                    geom_jitter(size = 3.0, width = 0.2)
+                    geom_jitter(size = 3.0, width = .2)
             p.show()
         }
     }
