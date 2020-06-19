@@ -5,10 +5,10 @@
 
 package jetbrains.letsPlot
 
+import jetbrains.letsPlot.Geom.point
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.LayerAssert
 import jetbrains.letsPlot.intern.StatKind
-import jetbrains.letsPlot.Geom.point
 import jetbrains.letsPlot.stat.stat_density
 import org.junit.Test
 
@@ -27,7 +27,7 @@ class StatLayerTest {
 
         LayerAssert.assertThat(l)
             .geom()
-            .kind(GeomKind.AREA)
+            .kind(GeomKind.DENSITY)
             .noMapping().noParameters()
     }
 
