@@ -10,12 +10,12 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface Bin2dStatParameters : OptionsCapsule {
-    val binCount: Pair<Int, Int>?
+    val bins: Pair<Int, Int>?
     val binWidth: Pair<Number?, Number?>?
     val drop: Boolean?
 
     override fun seal() = Options.of(
-        Bin2dStat.P_BINS to binCount?.toList(),
+        Bin2dStat.P_BINS to bins?.toList(),
         Bin2dStat.P_BINWIDTH to binWidth?.toList(),
         Bin2dStat.P_DROP to drop
     )

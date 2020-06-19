@@ -42,7 +42,7 @@ object Stat {
     @Suppress("ClassName")
     class bin(
         mapping: BinStatMapping.() -> Unit = {},
-        override val binCount: Int = BinStatParameters.DEF_BIN_COUNT,
+        override val bins: Int = BinStatParameters.DEF_BIN_COUNT,
         override val binWidth: Number? = null,
         override val center: Number? = null,
         override val boundary: Number? = null
@@ -71,7 +71,7 @@ object Stat {
     @Suppress("ClassName")
     class bin2d(
         mapping: Bin2dStatMapping.() -> Unit = {},
-        override val binCount: Pair<Int, Int>? = null,
+        override val bins: Pair<Int, Int>? = null,
         override val binWidth: Pair<Number?, Number?>? = null,
         override val drop: Boolean? = null
     ) : Bin2dStatParameters,
@@ -85,7 +85,7 @@ object Stat {
     @Suppress("ClassName")
     class contour(
         mapping: ContourStatMapping.() -> Unit = {},
-        override val binCount: Int? = null,
+        override val bins: Int? = null,
         override val binWidth: Double? = null
     ) : ContourStatParameters,
         StatOptions(
@@ -98,7 +98,7 @@ object Stat {
     @Suppress("ClassName")
     class contourf(
         mapping: ContourStatMapping.() -> Unit = {},
-        override val binCount: Int? = null,
+        override val bins: Int? = null,
         override val binWidth: Number? = null
     ) : ContourStatParameters,
         StatOptions(
@@ -115,8 +115,8 @@ object Stat {
         override val kernel: String? = null,
         override val n: Int? = null,
         override val adjust: Number? = null,
-        override val isContour: Boolean? = null,
-        override val binCount: Int? = null,
+        override val contour: Boolean? = null,
+        override val bins: Int? = null,
         override val binWidth: Number? = null
     ) : Density2dStatParameters,
         StatOptions(
@@ -133,8 +133,8 @@ object Stat {
         override val kernel: String? = null,
         override val n: Int? = null,
         override val adjust: Number? = null,
-        override val isContour: Boolean? = null,
-        override val binCount: Int? = null,
+        override val contour: Boolean? = null,
+        override val bins: Int? = null,
         override val binWidth: Number? = null
     ) : Density2dStatParameters,
         StatOptions(

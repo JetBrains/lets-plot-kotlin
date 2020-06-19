@@ -30,7 +30,7 @@ import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param binCount int, optional.
+ * @param bins int, optional.
  *     Number of levels.
  * @param binWidth double, optional.
  *     Distance between levels.
@@ -58,7 +58,7 @@ class geom_contourf(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val alpha: Double? = null,
-    override val binCount: Int? = null,
+    override val bins: Int? = null,
     override val binWidth: Number? = null,
     mapping: ContourfMapping.() -> Unit = {}
 ) : PolygonAesthetics,

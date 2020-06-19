@@ -58,7 +58,7 @@ object Bin2d {
 
     private fun setBinCount() {
         val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
-            binCount = 5 to 5
+            bins = 5 to 5
         )
         p.show()
     }

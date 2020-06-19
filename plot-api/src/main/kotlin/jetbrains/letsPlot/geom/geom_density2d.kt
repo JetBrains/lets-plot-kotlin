@@ -39,8 +39,8 @@ import jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
  *     Adjust the value of bandwidth my multiplying it. Changes how smooth the frequency curve is.
  * @param n int array, optional.
  *     The number of sampled points for plotting the function (on x and y direction correspondingly)
- * @param isContour Boolean, optional.
- * @param binCount int, optional.
+ * @param contour Boolean, optional.
+ * @param bins int, optional.
  *     Number of levels.
  * @param binWidth double, optional.
  *     Distance between levels.
@@ -79,8 +79,8 @@ class geom_density2d(
     override val kernel: String? = null,
     override val n: Int? = null,
     override val adjust: Number? = null,
-    override val isContour: Boolean? = null,
-    override val binCount: Int? = null,
+    override val contour: Boolean? = null,
+    override val bins: Int? = null,
     override val binWidth: Number? = null,
     mapping: Density2dMapping.() -> Unit = {}
 ) : PathAesthetics,

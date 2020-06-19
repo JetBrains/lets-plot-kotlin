@@ -24,11 +24,11 @@ object Contour {
             val p = lets_plot(data) { x = "x"; y = "y" }
 
             (p + geom_contour(color = "red") { z = "z" }).show()
-            (p + geom_contour(binCount = 20) { z = "z"; color = "..level.." } +
+            (p + geom_contour(bins = 20) { z = "z"; color = "..level.." } +
                     scale_color_gradient(low = "dark_green", high = "yellow")).show()
 
             // Path + contour stat ==> same
-            (p + geom_path(stat = Stat.contour({ z = "z" }, binCount = 20)) { color = "..level.." } +
+            (p + geom_path(stat = Stat.contour({ z = "z" }, bins = 20)) { color = "..level.." } +
                     scale_color_gradient(low = "dark_green", high = "yellow")).show()
 
 

@@ -58,7 +58,7 @@ class geom_histogram(
     override val fill: Any? = null,
     override val size: Double? = null,
     override val weight: Any? = null,
-    override val binCount: Int = BinStatParameters.DEF_BIN_COUNT,
+    override val bins: Int = BinStatParameters.DEF_BIN_COUNT,
     override val binWidth: Number? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,

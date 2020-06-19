@@ -9,11 +9,11 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface ContourStatParameters : OptionsCapsule {
-    val binCount: Int?
+    val bins: Int?
     val binWidth: Number?
 
     override fun seal() = Options.of(
-        "bins" to binCount,
+        "bins" to bins,
         "binwidth" to binWidth
     )
 }

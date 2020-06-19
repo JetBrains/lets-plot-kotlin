@@ -13,8 +13,8 @@ interface Density2dStatParameters : OptionsCapsule {
     val kernel: String?   // ToDo: constants
     val n: Int?
     val adjust: Number?
-    val isContour: Boolean?  // If TRUE, contour the results of the 2d density estimation.
-    val binCount: Int?
+    val contour: Boolean?  // If TRUE, contour the results of the 2d density estimation.
+    val bins: Int?
     val binWidth: Number?
 
     override fun seal() = Options.of(
@@ -22,8 +22,8 @@ interface Density2dStatParameters : OptionsCapsule {
         "kernel" to kernel,
         "n" to n,
         "adjust" to adjust,
-        "contour" to isContour,
-        "bins" to binCount,
+        "contour" to contour,
+        "bins" to bins,
         "binwidth" to binWidth
     )
 }

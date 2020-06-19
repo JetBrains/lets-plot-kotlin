@@ -31,7 +31,7 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param binCount list of 2 numbers, default: [30,30]
+ * @param bins list of 2 numbers, default: [30,30]
  *     Number of bins in both directions, vertical and horizontal.  Overridden by binwidth.
  * @param binWidth list of 2 numbers, optional
  *     The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
@@ -70,7 +70,7 @@ class geom_bin2d(
     override val linetype: Any? = null,
     override val size: Double? = null,
     override val weight: Any? = null,
-    override val binCount: Pair<Int, Int>? = null,
+    override val bins: Pair<Int, Int>? = null,
     override val binWidth: Pair<Number?, Number?>? = null,
     override val drop: Boolean? = null,
     mapping: Bin2dMapping.() -> Unit = {}

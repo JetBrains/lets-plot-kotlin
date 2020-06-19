@@ -9,13 +9,13 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
 interface BinStatParameters : OptionsCapsule {
-    val binCount: Int
+    val bins: Int
     val binWidth: Number?
     val center: Number?
     val boundary: Number?
 
     override fun seal() = Options.of(
-        "bins" to binCount,
+        "bins" to bins,
         "binwidth" to binWidth,
         "center" to center,
         "boundary" to boundary
