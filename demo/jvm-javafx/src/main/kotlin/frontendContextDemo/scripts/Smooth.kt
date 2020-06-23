@@ -10,6 +10,7 @@ import jetbrains.letsPlot.geom.geom_point
 
 import jetbrains.letsPlot.geom.geom_smooth
 import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.stat.stat_smooth
 import jetbrains.letsPlot.theme
 
 object Smooth {
@@ -22,12 +23,24 @@ object Smooth {
                 "x" to List(n) { rand.nextGaussian() },
                 "y" to List(n) { rand.nextGaussian() }
             )
-            val p = lets_plot(data) { x = "x"; y = "y" } +
-                    theme().legendPosition_none() +
-                    geom_point(shape=21, fill="yellow", color="blue") +
-                    geom_smooth(method="lm", deg=5, size=1.2)
+            run {
+                val p = lets_plot(data) { x = "x"; y = "y" } +
+                        theme().legendPosition_none() +
+                        geom_point(shape = 21, fill = "yellow", color = "blue") +
+                        geom_smooth(method = "lm", deg = 5, size = 1.2)
 
-            p.show()
+                p.show()
+            }
+
+            run {
+                // the same
+                val p = lets_plot(data) { x = "x"; y = "y" } +
+                        theme().legendPosition_none() +
+                        geom_point(shape = 21, fill = "yellow", color = "blue") +
+                        stat_smooth(method = "lm", deg = 5, size = 1.2)
+
+                p.show()
+            }
         }
     }
 }
