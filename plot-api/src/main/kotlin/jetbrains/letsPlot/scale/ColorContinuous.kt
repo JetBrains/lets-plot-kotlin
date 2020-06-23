@@ -83,7 +83,7 @@ fun scale_color_continuous(
 )
 
 fun scale_fill_gradient(
-    low: String? = null, high: String? = null,
+    low: String, high: String,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -105,7 +105,7 @@ fun scale_fill_gradient(
 )
 
 fun scale_color_gradient(
-    low: String? = null, high: String? = null,
+    low: String, high: String,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -127,7 +127,7 @@ fun scale_color_gradient(
 )
 
 fun scale_fill_gradient2(
-    low: String? = null, mid: String? = null, high: String? = null,
+    low: String, mid: String, high: String,
     midpoint: Double = 0.0,
     name: String? = null,
     breaks: List<Any>? = null,
@@ -159,7 +159,7 @@ fun scale_fill_gradient2(
 )
 
 fun scale_color_gradient2(
-    low: String? = null, mid: String? = null, high: String? = null,
+    low: String, mid: String, high: String,
     midpoint: Double = 0.0,
     name: String? = null,
     breaks: List<Any>? = null,
