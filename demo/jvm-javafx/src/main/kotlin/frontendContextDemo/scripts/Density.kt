@@ -9,6 +9,7 @@ import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.*
 import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.stat.stat_density2d
 
 object Density {
     @JvmStatic
@@ -35,6 +36,13 @@ object Density {
             run {
                 val pl = p + geom_point(alpha = .7) +
                         geom_path(stat = Stat.density2d(), size = 1.0, alpha = .7) { color = "..level.." }
+                pl.show()
+            }
+
+            // Path + stat_density2d ==> the same
+            run {
+                val pl = p + geom_point(alpha = .7) +
+                        stat_density2d(size = 1.0, alpha = .7) { color = "..level.." }
                 pl.show()
             }
 

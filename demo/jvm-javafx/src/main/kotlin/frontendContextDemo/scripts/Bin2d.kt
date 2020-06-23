@@ -16,12 +16,48 @@ object Bin2d {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInJfxContext.eval("Bin2d") {
-            basic()
-            setBinCount()
-            setBinWidth()
-            setBinWidth_Weight()
-            setBinWidth_Weight_Density()
-            useStatBin2d()
+
+            run {
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d()
+                p.show()
+            }
+
+            run {
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
+                    bins = 5 to 5
+                )
+                p.show()
+            }
+
+            run {
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
+                    binWidth = Pair(3, 3)
+                )
+                p.show()
+            }
+
+            run {
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
+                    binWidth = Pair(3, 3)
+                ) { weight = "weight" }
+
+                p.show()
+            }
+
+            run {
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
+                    binWidth = Pair(3, 3)
+                ) { weight = "weight"; fill = "..density.." }
+                p.show()
+            }
+
+            // stat_bin2d ==> the same
+            run {
+                val p = ggplot(DATA) { x = "x"; y = "y" } + stat_bin2d(
+                    binWidth = Pair(3, 3)
+                ) { weight = "weight"; fill = "..density.." }
+                p.show()
+            }
         }
     }
 
@@ -51,47 +87,5 @@ object Bin2d {
             "y" to ys,
             "weight" to weights
         )
-    }
-
-    private fun basic() {
-        val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d()
-        p.show()
-    }
-
-    private fun setBinCount() {
-        val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
-            bins = 5 to 5
-        )
-        p.show()
-    }
-
-    private fun setBinWidth() {
-        val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
-            binWidth = Pair(3, 3)
-        )
-        p.show()
-    }
-
-    @Suppress("FunctionName")
-    private fun setBinWidth_Weight() {
-        val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
-            binWidth = Pair(3, 3)
-        ) { weight = "weight" }
-
-        p.show()
-    }
-    @Suppress("FunctionName")
-    private fun setBinWidth_Weight_Density() {
-        val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
-            binWidth = Pair(3, 3)
-        ) { weight = "weight"; fill = "..density.." }
-        p.show()
-    }
-
-    private fun useStatBin2d() {
-        val p = ggplot(DATA) { x = "x"; y = "y" } + stat_bin2d(
-            binWidth = Pair(3, 3)
-        ) { weight = "weight"; fill = "..density.." }
-        p.show()
     }
 }
