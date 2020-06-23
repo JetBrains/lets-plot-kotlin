@@ -25,7 +25,7 @@ import jetbrains.letsPlot.intern.Scale
 
 
 fun scale_fill_continuous(
-    low: String, high: String,
+    low: String? = null, high: String? = null,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -83,7 +83,7 @@ fun scale_color_continuous(
 )
 
 fun scale_fill_gradient(
-    low: String, high: String,
+    low: String? = null, high: String? = null,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -105,7 +105,7 @@ fun scale_fill_gradient(
 )
 
 fun scale_color_gradient(
-    low: String, high: String,
+    low: String? = null, high: String? = null,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -127,7 +127,8 @@ fun scale_color_gradient(
 )
 
 fun scale_fill_gradient2(
-    low: String, mid: String, high: String, midpoint: Double = 0.0,
+    low: String? = null, mid: String? = null, high: String? = null,
+    midpoint: Double = 0.0,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -158,7 +159,8 @@ fun scale_fill_gradient2(
 )
 
 fun scale_color_gradient2(
-    low: String, mid: String, high: String, midpoint: Double = 0.0,
+    low: String? = null, mid: String? = null, high: String? = null,
+    midpoint: Double = 0.0,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -192,7 +194,7 @@ fun scale_color_gradient2(
 fun scale_fill_grey(
     start: Double? = null,
     end: Double? = null,   // start, end: [0..100].
-    direction: Int?,        // direction < 0 - reversed
+    direction: Int = 1,        // direction < 0 - reversed
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -301,10 +303,12 @@ fun scale_fill_hue(
 )
 
 fun scale_color_hue(
-    h: Int?, c: Int?, l: Int?,
+    h: Int? = null,
+    c: Int? = null,
+    l: Int? = null,
     @Suppress("SpellCheckingInspection")
-    hstart: Int?,
-    direction: Int?,
+    hstart: Int? = null,
+    direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,

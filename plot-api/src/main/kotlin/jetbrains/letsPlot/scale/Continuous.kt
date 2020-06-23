@@ -77,7 +77,7 @@ fun scale_size(
  * @param trans TBD
  */
 fun scale_size_area(
-    maxSize: Number,
+    maxSize: Number? = null,
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,

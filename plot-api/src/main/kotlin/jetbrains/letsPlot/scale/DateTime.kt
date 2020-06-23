@@ -15,7 +15,7 @@ import jetbrains.letsPlot.intern.Scale
 
 fun scale_x_datetime(
     name: String? = null,
-    breaks: List<Any>? = null,
+    breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: Any? = null,
