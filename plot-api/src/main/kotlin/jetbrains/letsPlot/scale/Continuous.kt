@@ -39,9 +39,16 @@ fun scale_size(
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
-    Aes.SIZE,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.SIZE,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
         mapOf(
             Option.Scale.RANGE to range
         )
@@ -74,9 +81,16 @@ fun scale_size_area(
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
-    Aes.SIZE,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.SIZE,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
         mapOf(
             Option.Scale.MAX_SIZE to maxSize,
             Option.Scale.SCALE_MAPPER_KIND to "size_area"

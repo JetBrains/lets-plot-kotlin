@@ -10,8 +10,10 @@ import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.*
 import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.position_dodge
+import jetbrains.letsPlot.scale.scale_color_manual
 
 object ErrorBar {
     @JvmStatic
@@ -80,7 +82,8 @@ object ErrorBar {
                 } +
                         geom_line(position = position_dodge(width = 0.1)) +
                         geom_point(position = position_dodge(width = 0.1), size = 2.0)
-                val p = plot + geom + ggtitle("linerange")
+                val p = plot + geom + ggtitle("linerange") +
+                        scale_color_manual(listOf("orange", "dark_green"), naValue = "gray")
                 p.show()
             }
 
@@ -101,11 +104,11 @@ object ErrorBar {
                 p.show()
             }
 
-            withLinesAndPoints()
-            errorbar()
-            pointrange()
+//            withLinesAndPoints()
+//            errorbar()
+//            pointrange()
             linerange()
-            withBars()
+//            withBars()
         }
     }
 }

@@ -46,12 +46,17 @@ fun scale_fill_discrete(
     limits: List<Any>? = null,
     expand: Any? = null,
     naValue: Any? = null,
-    guide: Any? = null,
-    trans: Any? = null
+    guide: Any? = null
 ) = Scale(
-    Aes.FILL,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.FILL,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    otherOptions = Options(
         mapOf(
             Option.Scale.HUE_RANGE to h,
             Option.Scale.CHROMA to c,
@@ -75,12 +80,17 @@ fun scale_color_discrete(
     limits: List<Any>? = null,
     expand: Any? = null,
     naValue: Any? = null,
-    guide: Any? = null,
-    trans: Any? = null
+    guide: Any? = null
 ) = Scale(
-    Aes.COLOR,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.COLOR,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    otherOptions = Options(
         mapOf(
             Option.Scale.HUE_RANGE to h,
             Option.Scale.CHROMA to c,

@@ -35,9 +35,16 @@ fun scale_fill_continuous(
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
-    Aes.FILL,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.FILL,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
         mapOf(
             LOW to low,
             HIGH to high,
@@ -57,9 +64,16 @@ fun scale_color_continuous(
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
-    Aes.COLOR,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.COLOR,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
         mapOf(
             LOW to low,
             HIGH to high,
@@ -80,7 +94,14 @@ fun scale_fill_gradient(
     trans: Any? = null
 ) = scale_fill_continuous(
     low, high,
-    name, breaks, labels, limits, expand, naValue, guide, trans
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans
 )
 
 fun scale_color_gradient(
@@ -95,7 +116,14 @@ fun scale_color_gradient(
     trans: Any? = null
 ) = scale_color_continuous(
     low, high,
-    name, breaks, labels, limits, expand, naValue, guide, trans
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans
 )
 
 fun scale_fill_gradient2(
@@ -109,9 +137,16 @@ fun scale_fill_gradient2(
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
-    Aes.FILL,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.FILL,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
         mapOf(
             LOW to low,
             HIGH to high,
@@ -133,9 +168,16 @@ fun scale_color_gradient2(
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
-    Aes.COLOR,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.COLOR,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
         mapOf(
             LOW to low,
             HIGH to high,
@@ -146,8 +188,11 @@ fun scale_color_gradient2(
     )
 )
 
+// ToDo: since Lets-Plot v.1.4.3 params start, end are in range [0..1].
 fun scale_fill_grey(
-    start: Int?, end: Int?, direction: Int?,  // start, end: [0..100]. direction < 0 - reversed
+    start: Double? = null,
+    end: Double? = null,   // start, end: [0..100].
+    direction: Int?,        // direction < 0 - reversed
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -156,21 +201,36 @@ fun scale_fill_grey(
     naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
-) = Scale(
-    Aes.FILL,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
-        mapOf(
-            START to start,
-            END to end,
-            DIRECTION to direction,
-            SCALE_MAPPER_KIND to "color_grey"
+): Scale {
+    start?.let { require(start in (0.0..100.0)) { "'start' must be in range: [0,100]: $start" } }
+    end?.let { require(end in (0.0..100.0)) { "'end' must be in range: [0,100]: $end" } }
+
+    return Scale(
+        aesthetic = Aes.FILL,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits,
+        expand = expand,
+        naValue = naValue,
+        guide = guide,
+        trans = trans,
+        otherOptions = Options(
+            mapOf(
+                START to start,
+                END to end,
+                DIRECTION to direction,
+                SCALE_MAPPER_KIND to "color_grey"
+            )
         )
     )
-)
+}
 
+// ToDo: since Lets-Plot v.1.4.3 params start, end are in range [0..1].
 fun scale_color_grey(
-    start: Int?, end: Int?, direction: Int?,  // start, end: [0..100]. direction < 0 - reversed
+    start: Double? = null,
+    end: Double? = null,   // start, end: [0..100].
+    direction: Int = 1,         // direction < 0 - reversed
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -179,19 +239,29 @@ fun scale_color_grey(
     naValue: Any? = null,
     guide: Any? = null,
     trans: Any? = null
-) = Scale(
-    Aes.COLOR,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
-        mapOf(
-            START to start,
-            END to end,
-            DIRECTION to direction,
-            SCALE_MAPPER_KIND to "color_grey"
+): Scale {
+    start?.let { require(start in (0.0..100.0)) { "'start' must be in range: [0,100]: $start" } }
+    end?.let { require(end in (0.0..100.0)) { "'end' must be in range: [0,100]: $end" } }
+    return Scale(
+        aesthetic = Aes.COLOR,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits,
+        expand = expand,
+        naValue = naValue,
+        guide = guide,
+        trans = trans,
+        otherOptions = Options(
+            mapOf(
+                START to start,
+                END to end,
+                DIRECTION to direction,
+                SCALE_MAPPER_KIND to "color_grey"
+            )
         )
     )
-)
-
+}
 
 fun scale_fill_hue(
     h: Int? = null,
@@ -209,9 +279,16 @@ fun scale_fill_hue(
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
-    Aes.FILL,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.FILL,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
         mapOf(
             HUE_RANGE to h,
             CHROMA to c,
@@ -222,7 +299,6 @@ fun scale_fill_hue(
         )
     )
 )
-
 
 fun scale_color_hue(
     h: Int?, c: Int?, l: Int?,
@@ -238,9 +314,16 @@ fun scale_color_hue(
     guide: Any? = null,
     trans: Any? = null
 ) = Scale(
-    Aes.COLOR,
-    name, breaks, labels, limits, expand, naValue, guide, trans,
-    Options(
+    aesthetic = Aes.COLOR,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    expand = expand,
+    naValue = naValue,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
         mapOf(
             HUE_RANGE to h,
             CHROMA to c,
