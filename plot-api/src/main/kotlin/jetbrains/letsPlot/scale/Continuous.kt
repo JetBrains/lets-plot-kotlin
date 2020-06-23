@@ -22,7 +22,10 @@ import jetbrains.letsPlot.intern.Scale
  *              is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
- * @param limits A vector specifying the data range for the scale. and the default order of their display in guides.
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ *      Set limits if you want values to be consistent across multiple plots.
+ *
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue Missing values will be replaced with this value.
  * @param guide TBD
@@ -33,7 +36,7 @@ fun scale_size(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
-    limits: List<Number>? = null,
+    limits: Pair<Number?, Number?>? = null,
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
@@ -43,7 +46,7 @@ fun scale_size(
     name = name,
     breaks = breaks,
     labels = labels,
-    limits = limits,
+    limits = limits?.toList(),
     expand = expand,
     naValue = naValue,
     guide = guide,

@@ -16,7 +16,7 @@ class ScaleSizeTest {
 
     @Test
     fun `check scale size option`() {
-        val p = ggplot() + scale_size(range = listOf(5, 10))
+        val p = ggplot() + scale_size(range = 5 to 10)
         assertThat(p).features().length(1)
 
         val spec = p.toSpec()
