@@ -17,7 +17,7 @@ fun scale_x_datetime(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
-    limits: List<Any>? = null,
+    limits: Pair<Number?, Number?>? = null,
     expand: Any? = null,
     naValue: Any? = null
 ) = Scale(
@@ -25,7 +25,7 @@ fun scale_x_datetime(
     name = name,
     breaks = breaks,
     labels = labels,
-    limits = limits,
+    limits = limits?.toList(),
     expand = expand,
     naValue = naValue,
     otherOptions = Options(

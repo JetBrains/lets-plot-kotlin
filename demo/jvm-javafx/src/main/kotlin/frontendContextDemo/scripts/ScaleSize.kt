@@ -12,7 +12,7 @@ import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_size
 import jetbrains.letsPlot.scale.scale_size_area
 
-object SizeScale {
+object ScaleSize {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInJfxContext.eval("Size Scale") {

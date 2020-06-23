@@ -16,7 +16,7 @@ class ScaleSizeTest {
 
     @Test
     fun `check scale size option`() {
-        val p = ggplot() + scale_size(range = 5 to 10)
+        val p = ggplot() + scale_size(range = 5 to 10, limits = -10 to null)
         assertThat(p).features().length(1)
 
         val spec = p.toSpec()
@@ -28,7 +28,8 @@ class ScaleSizeTest {
                 "scales" to listOf(
                     mapOf(
                         "aesthetic" to "size",
-                        "range" to listOf(5, 10)
+                        "range" to listOf(5, 10),
+                        "limits" to listOf(-10, null)
                     )
                 )
             ),
@@ -38,7 +39,7 @@ class ScaleSizeTest {
 
     @Test
     fun `check scale size area option`() {
-        val p = ggplot() + scale_size_area(maxSize = 30)
+        val p = ggplot() + scale_size_area(maxSize = 30, limits = null to 20.5)
         assertThat(p).features().length(1)
 
         val spec = p.toSpec()
@@ -51,6 +52,7 @@ class ScaleSizeTest {
                     mapOf(
                         "aesthetic" to "size",
                         "max_size" to 30,
+                        "limits" to listOf(null, 20.5),
                         "scale_mapper_kind" to "size_area"
                     )
                 )

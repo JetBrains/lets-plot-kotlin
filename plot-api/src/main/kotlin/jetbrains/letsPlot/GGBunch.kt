@@ -15,8 +15,9 @@ import jetbrains.letsPlot.intern.toSpec
 class GGBunch : Figure {
     private val items: MutableList<PlotItem> = ArrayList()
 
-    fun addPlot(plot: Plot, x: Int, y: Int, width: Int? = null, height: Int? = null) {
+    fun addPlot(plot: Plot, x: Int, y: Int, width: Int? = null, height: Int? = null): GGBunch {
         items.add(PlotItem(plot, x, y, width, height))
+        return this;
     }
 
     fun toSpec(): MutableMap<String, Any> {
