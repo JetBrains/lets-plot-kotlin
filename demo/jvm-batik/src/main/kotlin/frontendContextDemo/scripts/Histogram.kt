@@ -9,6 +9,7 @@ import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.stat.stat_bin
 
 object Histogram {
     @JvmStatic
@@ -30,6 +31,14 @@ object Histogram {
 
             run {
                 val geom = geom_histogram(alpha = 0.3, size = 0.0, binWidth = 1.0, boundary = 0.0) {
+                    x = "x"; fill = "c"
+                }
+                val p = ggplot(data) + geom
+                p.show()
+            }
+
+            run {
+                val geom = stat_bin(alpha = 0.3, size = 0.0, binWidth = 1.0, boundary = 0.0) {
                     x = "x"; fill = "c"
                 }
                 val p = ggplot(data) + geom

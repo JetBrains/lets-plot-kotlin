@@ -12,6 +12,7 @@ import jetbrains.letsPlot.geom.geom_contourf
 import jetbrains.letsPlot.geom.geom_path
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_color_gradient
+import jetbrains.letsPlot.stat.stat_contour
 import kotlin.math.PI
 import kotlin.math.sin
 
@@ -31,6 +32,9 @@ object Contour {
             (p + geom_path(stat = Stat.contour({ z = "z" }, bins = 20)) { color = "..level.." } +
                     scale_color_gradient(low = "dark_green", high = "yellow")).show()
 
+            // stat_contour ==> same
+            (p + stat_contour(bins = 20) { z = "z"; color = "..level.." } +
+                    scale_color_gradient(low = "dark_green", high = "yellow")).show()
 
             (p + geom_contourf { z = "z"; fill = "..level.." }).show()
         }
