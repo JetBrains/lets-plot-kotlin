@@ -9,6 +9,7 @@ import frontendContextDemo.ScriptInJfxContext
 import jetbrains.datalore.base.random.RandomGaussian
 import jetbrains.letsPlot.geom.geom_bin2d
 import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.stat.stat_bin2d
 import kotlin.random.Random
 
 object Bin2d {
@@ -20,6 +21,7 @@ object Bin2d {
             setBinWidth()
             setBinWidth_Weight()
             setBinWidth_Weight_Density()
+            useStatBin2d()
         }
     }
 
@@ -81,6 +83,13 @@ object Bin2d {
     @Suppress("FunctionName")
     private fun setBinWidth_Weight_Density() {
         val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
+            binWidth = Pair(3, 3)
+        ) { weight = "weight"; fill = "..density.." }
+        p.show()
+    }
+
+    private fun useStatBin2d() {
+        val p = ggplot(DATA) { x = "x"; y = "y" } + stat_bin2d(
             binWidth = Pair(3, 3)
         ) { weight = "weight"; fill = "..density.." }
         p.show()
