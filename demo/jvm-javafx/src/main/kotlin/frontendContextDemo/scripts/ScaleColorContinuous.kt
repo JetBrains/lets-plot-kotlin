@@ -10,7 +10,7 @@ import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scale_fill_gradient2
 import frontendContextDemo.ScriptInJfxContext
 
-object ColorScaleContinuous {
+object ScaleColorContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInJfxContext.eval("Color Scale") {

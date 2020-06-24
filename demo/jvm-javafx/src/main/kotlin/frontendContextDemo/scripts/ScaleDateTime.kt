@@ -15,7 +15,7 @@ import jetbrains.letsPlot.scale.scale_x_datetime
 import frontendContextDemo.ScriptInJfxContext
 import kotlin.random.Random
 
-object DateTimeScale {
+object ScaleDateTime {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInJfxContext.eval("DateTime Scale") {

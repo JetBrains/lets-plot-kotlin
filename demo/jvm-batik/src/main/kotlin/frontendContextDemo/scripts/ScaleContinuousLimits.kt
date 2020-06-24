@@ -9,7 +9,6 @@ import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.GGBunch
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.label.ylab
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_color_continuous
 import jetbrains.letsPlot.scale.scale_size
@@ -30,8 +29,9 @@ object ScaleContinuousLimits {
             val settings = theme()
                 .legendPosition_none()
                 .axisLine_blank()
-                .axisTextY_blank().axisTicksY_blank().axisTextY_blank() +
-                    ylab("aa") +    // ToDo: doesn't work
+                .axisTextY_blank()
+                .axisTicksY_blank().axisTextY_blank()
+                .axisTitleY_blank() +
                     ggsize(500, 100)
             val p0 = lets_plot(dat0) + geom_point { x = "x"; size = "x"; color = "x" } + settings
             val p1 = lets_plot(dat1) + geom_point { x = "x"; size = "x"; color = "x" } + settings
