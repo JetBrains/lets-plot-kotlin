@@ -155,7 +155,8 @@ fun scale_shape_identity(
     guide = guide,
     otherOptions = Options(
         mapOf(
-            Option.Scale.SCALE_MAPPER_KIND to "identity"
+            Option.Scale.SCALE_MAPPER_KIND to "identity",
+            Option.Scale.DISCRETE_DOMAIN to true
         )
     )
 )
@@ -204,7 +205,8 @@ fun scale_linetype_identity(
     guide = guide,
     otherOptions = Options(
         mapOf(
-            Option.Scale.SCALE_MAPPER_KIND to "identity"
+            Option.Scale.SCALE_MAPPER_KIND to "identity",
+            Option.Scale.DISCRETE_DOMAIN to true
         )
     )
 )
