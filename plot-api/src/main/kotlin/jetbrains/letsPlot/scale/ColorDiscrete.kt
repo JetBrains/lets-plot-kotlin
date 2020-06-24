@@ -36,7 +36,7 @@ import jetbrains.letsPlot.intern.Scale
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  */
 fun scale_fill_discrete(
-    h: Pair<Number, Number>? = null,
+    h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,
     @Suppress("SpellCheckingInspection")
@@ -95,7 +95,7 @@ fun scale_fill_discrete(
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  */
 fun scale_color_discrete(
-    h: Pair<Number, Number>? = null,
+    h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,
     @Suppress("SpellCheckingInspection")
