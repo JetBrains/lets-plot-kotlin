@@ -10,7 +10,7 @@ import java.util.*
 
 object SeriesStandardizing {
     @Suppress("SpellCheckingInspection")
-    fun isListy(rawValue: Any) = when (rawValue) {
+    fun isListy(rawValue: Any?) = when (rawValue) {
         is List<*> -> true
         is Iterable<*> -> true
         is Sequence<*> -> true
@@ -42,6 +42,13 @@ object SeriesStandardizing {
             is Pair<*, *> -> standardizeList(rawValue.toList())
             else -> throw IllegalArgumentException("Can't transform data[\"$key\"] of type ${rawValue::class.qualifiedName} to a list")
         }
+    }
+
+    fun toListOrPass(rawValue: Any): Any {
+        if (isListy(rawValue)) {
+            return toList("<key not provided>", rawValue)
+        }
+        return rawValue
     }
 
     private fun needToStandardizeValues(series: Iterable<*>): Boolean {

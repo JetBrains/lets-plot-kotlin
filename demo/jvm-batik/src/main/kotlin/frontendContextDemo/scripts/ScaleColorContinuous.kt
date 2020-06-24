@@ -15,7 +15,7 @@ import jetbrains.letsPlot.scale.scale_fill_gradient2
 object ScaleColorContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Color Scale") {
+        ScriptInBatikContext.eval("Color scale (continuous)") {
             val xs = (-64..64).toList()
             val data = mapOf("x" to xs)
 

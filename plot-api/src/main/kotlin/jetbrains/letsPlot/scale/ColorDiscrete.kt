@@ -13,33 +13,35 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.Scale
 
 /**
- * Qualitative color scale with evenly spaced hues for color aesthetic
- * Defines qualitative color scale with evenly spaced hues for color aesthetic
- * @param h list of two numbers
+ * Qualitative color scale with evenly spaced hues for color aesthetic.
+ *
+ * @param h pair of two numbers
  *      Range of hues, from 0 to 360
- * @param c numeric
- *      Chroma (intensity of color), maximum value varies depending on.
- * @param l numeric
- *      Luminance (lightness), from 0 to 100
+ * @param c numeric in range (0,99)
+ *      Chroma (intensity of color), 0 is grey, default - 50
+ * @param l numeric in range (0,99)
+ *      Luminance (lightness), 0 - black, 99 - white, default - 90
  * @param direction numeric
  *      Direction to travel around the color wheel, 1 = clockwise (default), -1=counter-clockwise
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numerics
- *      A numeric vector of positions (of ticks)
+ * @param breaks list of data values
+ *      A vector specifying values to display as breaks (ticks) on guides (axis)
  * @param labels list of strings
  *      A vector of labels (on ticks)
- * @param limits list
- *      A vector specifying the data range for the scale. and the default order of their display in guides.
+ * @param limits list of data values
+ *      A vector specifying values to display with the scale and their order in guides (axis).
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  */
 fun scale_fill_discrete(
-    h: Int? = null, c: Int? = null, l: Int? = null,
+    h: Pair<Number, Number>? = null,
+    c: Int? = null,
+    l: Int? = null,
     @Suppress("SpellCheckingInspection")
     hstart: Int? = null,
-    direction: Int? = null,
+    direction: Int = 1,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -69,11 +71,36 @@ fun scale_fill_discrete(
     )
 )
 
+/**
+ * Qualitative color scale with evenly spaced hues for fill aesthetic.
+ *
+ * @param h pair of two numbers
+ *      Range of hues, from 0 to 360
+ * @param c numeric in range (0,99)
+ *      Chroma (intensity of color), 0 is grey, default - 50
+ * @param l numeric in range (0,99)
+ *      Luminance (lightness), 0 - black, 99 - white, default - 90
+ * @param direction numeric
+ *      Direction to travel around the color wheel, 1 = clockwise (default), -1=counter-clockwise
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of data values
+ *      A vector specifying values to display as breaks (ticks) on guides (axis)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits list of data values
+ *      A vector specifying values to display with the scale and their order in guides (axis).
+ * @param expand
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
+ */
 fun scale_color_discrete(
-    h: Int? = null, c: Int? = null, l: Int? = null,
+    h: Pair<Number, Number>? = null,
+    c: Int? = null,
+    l: Int? = null,
     @Suppress("SpellCheckingInspection")
     hstart: Int? = null,
-    direction: Int? = null,
+    direction: Int = 1,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,

@@ -29,7 +29,7 @@ class ScaleSizeTest {
                     mapOf(
                         "aesthetic" to "size",
                         "range" to listOf(5.0, 10.0),
-                        "limits" to listOf(-10, null)
+                        "limits" to listOf(-10.0, null)
                     )
                 )
             ),

@@ -15,10 +15,10 @@ import jetbrains.letsPlot.scale.scale_size
 import jetbrains.letsPlot.scale.scale_x_continuous
 import jetbrains.letsPlot.theme
 
-object ScaleContinuousLimits {
+object ScaleLimitsContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Scale limits") {
+        ScriptInBatikContext.eval("Scale limits (continuous)") {
             val dat0 = mapOf<String, Any>(
                 "x" to (0..4).map { it }
             )
