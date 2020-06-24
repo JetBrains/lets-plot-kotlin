@@ -11,8 +11,8 @@ object HLineVLine {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInBatikContext.eval("HLine, VLine") {
-//            HLineVLineScripts.script0()
-//            HLineVLineScripts.script1()
+            HLineVLineScripts.script0()
+            HLineVLineScripts.script1()
             HLineVLineScripts.script2()
         }
     }

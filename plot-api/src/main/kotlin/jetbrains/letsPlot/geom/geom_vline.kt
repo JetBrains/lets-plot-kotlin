@@ -49,7 +49,8 @@ class geom_vline(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
-    override val xintercept: Double? = null,
+    @Suppress("SpellCheckingInspection")
+    override val xintercept: Number? = null,
     override val alpha: Double? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,

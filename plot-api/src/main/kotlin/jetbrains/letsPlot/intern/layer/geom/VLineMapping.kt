@@ -8,6 +8,7 @@ package jetbrains.letsPlot.intern.layer.geom
 import jetbrains.letsPlot.intern.layer.WithGroupOption
 
 class VLineMapping(
+    @Suppress("SpellCheckingInspection")
     override var xintercept: Any? = null,
     override var alpha: Any? = null,
     override var color: Any? = null,

@@ -28,7 +28,7 @@ class ScaleSizeTest {
                 "scales" to listOf(
                     mapOf(
                         "aesthetic" to "size",
-                        "range" to listOf(5, 10),
+                        "range" to listOf(5.0, 10.0),
                         "limits" to listOf(-10, null)
                     )
                 )

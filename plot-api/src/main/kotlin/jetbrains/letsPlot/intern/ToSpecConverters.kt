@@ -117,7 +117,8 @@ fun OptionsMap.toSpec(includeKind: Boolean = false): MutableMap<String, Any> {
 private fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
     val standardisedData = HashMap<String, List<Any?>>()
     for ((rawKey, rawValue) in rawData) {
-        standardisedData[rawKey.toString()] = SeriesStandardizing.toList(rawKey.toString(), rawValue!!)
+        val key = rawKey.toString()
+        standardisedData[key] = SeriesStandardizing.toList(key, rawValue!!)
     }
     return standardisedData
 }

@@ -28,7 +28,7 @@ object Theme {
                 .axisTitleY_blank())
                 .show()
 
-            // compose themes
+            // compose themes --> the same
             (p + theme()
                 .legendPosition_none() +
                     theme()

@@ -19,7 +19,11 @@ class Options(map: Map<String, Any?>) {
         val tmp = mutableMapOf<String, Any>()
         for ((k, v) in map) {
             if (v != null) {
-                tmp[k] = v
+                if (SeriesStandardizing.isListy(v)) {
+                    tmp[k] = SeriesStandardizing.toList(k, v)
+                } else {
+                    tmp[k] = v
+                }
             }
         }
         this.map = tmp

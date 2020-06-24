@@ -13,6 +13,7 @@ import jetbrains.letsPlot.label.ylab
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_color_continuous
 import jetbrains.letsPlot.scale.scale_size
+import jetbrains.letsPlot.scale.scale_x_continuous
 import jetbrains.letsPlot.theme
 
 object ScaleContinuousLimits {
@@ -45,7 +46,9 @@ object ScaleContinuousLimits {
 
             // Both plots use the same size limits
             run {
-                val scales = scale_size(limits = 0 to 9) + scale_color_continuous(limits = 0 to 9)
+                val scales = scale_size(limits = 0 to 9) +
+                        scale_color_continuous(limits = 0 to 9) +
+                        scale_x_continuous(limits = 0 to 9)
                 val b = GGBunch()
                     .addPlot(p0 + scales, 0, 0)
                     .addPlot(p1 + scales, 0, 100)

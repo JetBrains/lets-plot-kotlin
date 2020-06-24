@@ -8,9 +8,9 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.hline
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.HLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.HLineMapping
@@ -49,7 +49,8 @@ class geom_hline(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
-    override val yintercept: Double? = null,
+    @Suppress("SpellCheckingInspection")
+    override val yintercept: Number? = null,
     override val alpha: Double? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,

@@ -9,6 +9,23 @@ import java.time.*
 import java.util.*
 
 object SeriesStandardizing {
+    @Suppress("SpellCheckingInspection")
+    fun isListy(rawValue: Any) = when (rawValue) {
+        is List<*> -> true
+        is Iterable<*> -> true
+        is Sequence<*> -> true
+        is Array<*> -> true
+        is ByteArray -> true
+        is ShortArray -> true
+        is IntArray -> true
+        is LongArray -> true
+        is FloatArray -> true
+        is DoubleArray -> true
+        is CharArray -> true
+        is Pair<*, *> -> true
+        else -> false
+    }
+
     fun toList(key: String, rawValue: Any): List<Any?> {
         return when (rawValue) {
             is List<*> -> standardizeList(rawValue)
@@ -22,13 +39,14 @@ object SeriesStandardizing {
             is FloatArray -> standardizeList(rawValue.asList())
             is DoubleArray -> standardizeList(rawValue.asList())
             is CharArray -> standardizeList(rawValue.asList())
+            is Pair<*, *> -> standardizeList(rawValue.toList())
             else -> throw IllegalArgumentException("Can't transform data[\"$key\"] of type ${rawValue::class.qualifiedName} to a list")
         }
     }
 
     private fun needToStandardizeValues(series: Iterable<*>): Boolean {
         return series.any {
-            it != null && !(it is String || it is Number)
+            it != null && !(it is String || it is Double)
         }
     }
 
@@ -48,7 +66,7 @@ object SeriesStandardizing {
                 when (it) {
                     null -> it
                     is String -> it
-                    is Number -> it
+                    is Number -> it.toDouble()
                     is Char -> it.toString()
                     is Date -> it.time
                     is Instant -> it.toEpochMilli()
