@@ -30,6 +30,13 @@ object Histogram {
             }
 
             run {
+                val geom = geom_histogram(bins = 3, alpha = 0.3, size = 0.0) {
+                    x = "x"; fill = "c"
+                }
+                (ggplot(data) + geom).show()
+            }
+
+            run {
                 val geom = geom_histogram(alpha = 0.3, size = 0.0, binWidth = 1.0, boundary = 0.0) {
                     x = "x"; fill = "c"
                 }

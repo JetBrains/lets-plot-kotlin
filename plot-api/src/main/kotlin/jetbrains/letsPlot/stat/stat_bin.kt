@@ -32,7 +32,7 @@ class stat_bin(
     override val fill: Any? = null,
     override val size: Double? = null,
     override val weight: Any? = null,
-    override val bins: Int = BinStatParameters.DEF_BIN_COUNT,
+    override val bins: Int? = null,
     override val binWidth: Number? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,
