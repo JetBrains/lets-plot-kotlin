@@ -47,3 +47,15 @@ fun xlim(limits: Pair<Number?, Number?>): Feature {
 fun ylim(limits: Pair<Number?, Number?>): Feature {
     return scale_y_continuous(limits = limits)
 }
+
+///**
+// * Specifies data values to dispay on  x axis, and their order.
+// * Setting limits will remove data not included in the list.
+// *
+// * @param limits list of data values.
+// */
+//@Suppress("SpellCheckingInspection")
+//fun xlim_discrete(limits: List<Any>): Feature {
+//    return scale_x_dis(limits = limits)
+//}
+
