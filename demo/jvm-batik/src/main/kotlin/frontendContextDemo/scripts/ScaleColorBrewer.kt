@@ -16,8 +16,7 @@ object ScaleColorBrewer {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInBatikContext.eval("Color Brewer Scale") {
-            val xs = (-64..64).toList()
-            val data = mapOf("x" to xs)
+            val data = mapOf("x" to (-64..64))
 
             val p = ggplot(data) + ggsize(600, 200) +
                     geom_tile(width = 1.0, height = 10.0) {

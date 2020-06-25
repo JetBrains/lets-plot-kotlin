@@ -17,11 +17,11 @@ import jetbrains.letsPlot.intern.SeriesStandardizing
  *
  * @param x The data range for x axis.
  *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
- *      Discrete scale: list of data values to dispay on axis, and their order.
+ *      Discrete scale: list of data values to display on axis, and their order.
  *
  * @param y The data range for y axis.
  *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
- *      Discrete scale: list of data values to dispay on axis, and their order.
+ *      Discrete scale: list of data values to display on axis, and their order.
  *
  */
 @Suppress("SpellCheckingInspection")
@@ -36,7 +36,7 @@ fun lims(x: Any, y: Any): Feature {
  *
  * @param limits The data range for x axis.
  *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
- *      Discrete scale: list of data values to dispay on axis, and their order.
+ *      Discrete scale: list of data values to display on axis, and their order.
  *
  */
 @Suppress("SpellCheckingInspection")
@@ -51,7 +51,7 @@ fun xlim(limits: Any): Feature {
  *
  * @param limits The data range for y axis.
  *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
- *      Discrete scale: list of data values to dispay on axis, and their order.
+ *      Discrete scale: list of data values to display on axis, and their order.
  *
  */
 @Suppress("SpellCheckingInspection")

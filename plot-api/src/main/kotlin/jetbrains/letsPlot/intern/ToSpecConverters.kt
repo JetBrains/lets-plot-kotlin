@@ -16,7 +16,7 @@ import jetbrains.datalore.plot.config.Option.Scale.LABELS
 import jetbrains.datalore.plot.config.Option.Scale.LIMITS
 import jetbrains.datalore.plot.config.Option.Scale.NAME
 import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
-import jetbrains.letsPlot.intern.SeriesStandardizing.toListOrPass
+import jetbrains.letsPlot.intern.SeriesStandardizing.toList
 
 fun Plot.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
@@ -95,9 +95,9 @@ fun Scale.toSpec(): MutableMap<String, Any> {
 
     spec[AES] = aesthetic.name
     name?.let { spec[NAME] = name }
-    breaks?.let { spec[BREAKS] = toListOrPass(breaks) }
+    breaks?.let { spec[BREAKS] = toList(BREAKS, breaks) }
     labels?.let { spec[LABELS] = labels }
-    limits?.let { spec[LIMITS] = toListOrPass(limits) }
+    limits?.let { spec[LIMITS] = toList(LIMITS, limits) }
     expand?.let { spec[EXPAND] = expand }
     naValue?.let { spec[NA_VALUE] = naValue }
     guide?.let { spec[GUIDE] = guide }

@@ -28,9 +28,9 @@ import jetbrains.letsPlot.intern.Scale
  *      A numeric vector of positions (of ticks)
  * @param labels list of strings
  *      A vector of labels (on ticks)
- * @param limits list
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
+ * @param limits data range for this scale.
+ *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *      Discrete scale: list of data values to display, and their order.
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
@@ -43,7 +43,7 @@ fun scale_fill_brewer(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
-    limits: List<Any>? = null,
+    limits: Any? = null,
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
@@ -86,9 +86,9 @@ fun scale_fill_brewer(
  *      A numeric vector of positions (of ticks)
  * @param labels list of strings
  *      A vector of labels (on ticks)
- * @param limits list
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
+ * @param limits data range for this scale.
+ *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *      Discrete scale: list of data values to display, and their order.
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
@@ -101,7 +101,7 @@ fun scale_color_brewer(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
-    limits: List<Any>? = null,
+    limits: Any? = null,
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
