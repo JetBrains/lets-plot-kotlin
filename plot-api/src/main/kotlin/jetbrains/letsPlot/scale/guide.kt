@@ -43,8 +43,8 @@ fun guide_legend(
  */
 @Suppress("FunctionName", "SpellCheckingInspection")
 fun guide_colorbar(
-    barWidth: Double? = null,
-    barHeight: Double? = null,
+    barWidth: Number? = null,
+    barHeight: Number? = null,
     nbin: Int? = null
 ): Map<String, Any> {
     return mapOf(

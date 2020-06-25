@@ -12,6 +12,7 @@ import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_color_discrete
 import jetbrains.letsPlot.scale.scale_x_discrete
+import jetbrains.letsPlot.scale.xlim
 import jetbrains.letsPlot.theme
 
 object ScaleLimitsDiscrete {
@@ -39,13 +40,9 @@ object ScaleLimitsDiscrete {
             (p + scale_color_discrete(limits = limits, naValue = Color.WHITE)).show()
 
             (p + scale_color_discrete(limits = limits) + scale_x_discrete(limits = limits)).show()
-//            println((p + scale_fill_discrete(limits = limits) + scale_x_discrete(limits = limits)).toSpec())
 
-//            // bug
-//            val dd = mapOf(
-//                "x" to ('a'..'c')
-//            )
-//            println((lets_plot(dd) + geom_tile { x = "x" } + scale_x_discrete(limits = listOf('b'))).toSpec())
+            // `xlim` is the other way to do the same
+            (p + scale_color_discrete(limits = limits) + xlim(limits)).show()
         }
     }
 }

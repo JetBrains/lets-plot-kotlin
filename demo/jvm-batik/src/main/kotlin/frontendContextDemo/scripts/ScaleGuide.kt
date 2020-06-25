@@ -47,7 +47,12 @@ object ScaleGuide {
 
                 (p + scale_color_gradient(
                     low = "dark_green", high = "yellow",
-                    guide = guide_colorbar(barHeight = 10.0, barWidth = 300.0)
+                    guide = guide_colorbar(barHeight = 10, barWidth = 300)
+                )).show()
+
+                (p + scale_color_gradient(
+                    low = "dark_green", high = "yellow",
+                    guide = "legend"
                 )).show()
             }
         }
