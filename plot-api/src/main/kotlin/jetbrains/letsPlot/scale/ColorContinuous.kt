@@ -194,7 +194,7 @@ fun scale_color_gradient2(
 fun scale_fill_grey(
     start: Double? = null,
     end: Double? = null,   // start, end: [0..100].
-    direction: Int = 1,        // direction < 0 - reversed
+    direction: Int? = null,        // direction < 0 - reversed
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -232,7 +232,7 @@ fun scale_fill_grey(
 fun scale_color_grey(
     start: Double? = null,
     end: Double? = null,   // start, end: [0..100].
-    direction: Int = 1,         // direction < 0 - reversed
+    direction: Int? = null,         // direction < 0 - reversed
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,

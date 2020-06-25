@@ -5,20 +5,27 @@
 
 package jetbrains.letsPlot.scale
 
+import jetbrains.datalore.plot.base.Aes
 import jetbrains.letsPlot.intern.Feature
+import jetbrains.letsPlot.intern.Scale
+import jetbrains.letsPlot.intern.SeriesStandardizing
 
 /**
  * Specifies data range for x and y axis.
  * Set limits if you want values to be consistent across multiple plots.
  * Setting limits will remove data outside of the limits.
  *
- * @param x A pair of numbers. The data range for x axis.
- *      Use null to refer to default min/max.
- * @param y A pair of numbers. The data range for y axis.
- *      Use null to refer to default min/max.
+ * @param x The data range for x axis.
+ *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *      Discrete scale: list of data values to dispay on axis, and their order.
+ *
+ * @param y The data range for y axis.
+ *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *      Discrete scale: list of data values to dispay on axis, and their order.
+ *
  */
 @Suppress("SpellCheckingInspection")
-fun lims(x: Pair<Number?, Number?>, y: Pair<Number?, Number?>): Feature {
+fun lims(x: Any, y: Any): Feature {
     return xlim(x) + ylim(y)
 }
 
@@ -27,12 +34,14 @@ fun lims(x: Pair<Number?, Number?>, y: Pair<Number?, Number?>): Feature {
  * Set limits if you want values to be consistent across multiple plots.
  * Setting limits will remove data outside of the limits.
  *
- * @param limits A pair of numbers. The data range for x axis.
- *      Use null to refer to default min/max.
+ * @param limits The data range for x axis.
+ *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *      Discrete scale: list of data values to dispay on axis, and their order.
+ *
  */
 @Suppress("SpellCheckingInspection")
-fun xlim(limits: Pair<Number?, Number?>): Feature {
-    return scale_x_continuous(limits = limits)
+fun xlim(limits: Any): Feature {
+    return Scale(aesthetic = Aes.X, limits = SeriesStandardizing.toList("limits", limits))
 }
 
 /**
@@ -40,22 +49,12 @@ fun xlim(limits: Pair<Number?, Number?>): Feature {
  * Set limits if you want values to be consistent across multiple plots.
  * Setting limits will remove data outside of the limits.
  *
- * @param limits A pair of numbers. The data range for y axis.
- *      Use null to refer to default min/max.
+ * @param limits The data range for y axis.
+ *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *      Discrete scale: list of data values to dispay on axis, and their order.
+ *
  */
 @Suppress("SpellCheckingInspection")
-fun ylim(limits: Pair<Number?, Number?>): Feature {
-    return scale_y_continuous(limits = limits)
+fun ylim(limits: Any): Feature {
+    return Scale(aesthetic = Aes.Y, limits = SeriesStandardizing.toList("limits", limits))
 }
-
-///**
-// * Specifies data values to dispay on  x axis, and their order.
-// * Setting limits will remove data not included in the list.
-// *
-// * @param limits list of data values.
-// */
-//@Suppress("SpellCheckingInspection")
-//fun xlim_discrete(limits: List<Any>): Feature {
-//    return scale_x_dis(limits = limits)
-//}
-

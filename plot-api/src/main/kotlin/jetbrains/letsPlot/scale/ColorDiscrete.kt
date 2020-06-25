@@ -41,7 +41,7 @@ fun scale_fill_discrete(
     l: Int? = null,
     @Suppress("SpellCheckingInspection")
     hstart: Int? = null,
-    direction: Int = 1,
+    direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -100,7 +100,7 @@ fun scale_color_discrete(
     l: Int? = null,
     @Suppress("SpellCheckingInspection")
     hstart: Int? = null,
-    direction: Int = 1,
+    direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
