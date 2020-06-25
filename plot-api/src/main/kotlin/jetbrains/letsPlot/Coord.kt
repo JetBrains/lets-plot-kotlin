@@ -12,8 +12,8 @@ import jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
  * A fixed scale coordinate system forces a specified ratio between the physical representation of data units on the axes.
- * @param xlim list of 2 numbers
- * @param ylim list of 2 numbers
+ * @param xlim A pair of numbers
+ * @param ylim A pair of numbers
  *      Limits for the x and y axes.
  * @param ratio double
  *      The ratio represents the number of units on the y-axis equivalent to one unit on the x-axis.
@@ -24,16 +24,16 @@ import jetbrains.letsPlot.intern.filterNonNullValues
 @Suppress("FunctionName")
 fun coord_fixed(
     ratio: Double? = null,
-    xlim: List<Number>? = null,
-    ylim: List<Number>? = null
+    xlim: Pair<Number?, Number?>? = null,
+    ylim: Pair<Number?, Number?>? = null
 ): OptionsMap {
     return OptionsMap(
         Option.Plot.COORD,
         mapOf(
             "name" to Option.CoordName.FIXED,
             "ratio" to ratio,
-            "xlim" to xlim,
-            "ylim" to ylim
+            "xlim" to xlim?.toList(),
+            "ylim" to ylim?.toList()
         ).filterNonNullValues()
     )
 }

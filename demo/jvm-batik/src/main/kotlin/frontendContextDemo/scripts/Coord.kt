@@ -24,11 +24,11 @@ object Coord {
             val p = lets_plot(data) { x = "x"; y = "y"; color = "g"; group = "g" } + geom_line()
 
             (p + ggtitle("coord_fixed()") + coord_fixed()).show()
-            (p + ggtitle("coord_fixed(x_lim)") + coord_fixed(xlim = listOf(7, 17))).show()
-            (p + ggtitle("coord_fixed(y_lim)") + coord_fixed(ylim = listOf(7, 17))).show()
+            (p + ggtitle("coord_fixed(x_lim)") + coord_fixed(xlim = 7 to 17)).show()
+            (p + ggtitle("coord_fixed(y_lim)") + coord_fixed(ylim = 7 to 17)).show()
             (p + ggtitle("coord_fixed(x_lim+y_lim)") + coord_fixed(
-                xlim = listOf(-1, 7),
-                ylim = listOf(-1, 15)
+                xlim = -1 to 7,
+                ylim = -1 to 15
             )).show()
         }
     }
