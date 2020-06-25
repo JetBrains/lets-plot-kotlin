@@ -5,6 +5,7 @@
 
 package jetbrains.letsPlot.scale
 
+import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
@@ -25,9 +26,10 @@ fun guide_legend(
 ): Map<String, Any> {
     @Suppress("SpellCheckingInspection")
     return mapOf(
-        "nrow" to nrow,
-        "ncol" to ncol,
-        "byrow" to byRow
+        "name" to Option.Guide.LEGEND,
+        Option.Guide.Legend.ROW_COUNT to nrow,
+        Option.Guide.Legend.COL_COUNT to ncol,
+        Option.Guide.Legend.BY_ROW to byRow
     ).filterNonNullValues()
 }
 
@@ -46,8 +48,9 @@ fun guide_colorbar(
     nbin: Int? = null
 ): Map<String, Any> {
     return mapOf(
-        "barwidth" to barWidth,
-        "barheight" to barHeight,
-        "nbin" to nbin
+        "name" to Option.Guide.COLOR_BAR,
+        Option.Guide.ColorBar.WIDTH to barWidth,
+        Option.Guide.ColorBar.HEIGHT to barHeight,
+        Option.Guide.ColorBar.BIN_COUNT to nbin
     ).filterNonNullValues()
 }
