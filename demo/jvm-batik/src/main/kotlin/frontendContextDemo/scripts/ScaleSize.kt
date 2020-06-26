@@ -29,6 +29,9 @@ object ScaleSize {
                 "scale_size"
             )).show()
 
+            // with reversed transformation
+            (p + scale_size(range = 5 to 50, guide = "none", trans = "reverse") + ggtitle("reversed ")).show()
+
             // size ~= radius where 0 size --> 0 radius
             (p + scale_size_area(maxSize = 50, guide = "none") + ggtitle("scale_size_area")).show()
         }

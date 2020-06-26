@@ -30,7 +30,7 @@ import jetbrains.letsPlot.intern.Scale
  * @param naValue Missing values will be replaced with this value.
  * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend").
  *      Defaults to "none".
- * @param trans TBD
+ * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 fun scale_size(
     range: Pair<Number, Number>? = null,
@@ -76,7 +76,7 @@ fun scale_size(
  * @param naValue Missing values will be replaced with this value.
  * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend").
  *      Defaults to "none".
- * @param trans TBD
+ * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 fun scale_size_area(
     maxSize: Number? = null,
