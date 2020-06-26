@@ -56,3 +56,23 @@ fun coord_cartesian(
         ).filterNonNullValues()
     )
 }
+
+/**
+ * Projects a portion of the earth, which is approximately spherical,
+ * onto a flat 2D plane using any projection defined by the mapproj package.
+ * Map projections do not, in general, preserve straight lines, so this requires considerable computation.
+ */
+@Suppress("FunctionName")
+fun coord_map(
+    xlim: Pair<Number?, Number?>? = null,
+    ylim: Pair<Number?, Number?>? = null
+): OptionsMap {
+    return OptionsMap(
+        Option.Plot.COORD,
+        mapOf(
+            "name" to Option.CoordName.MAP,
+            "xlim" to xlim?.toList(),
+            "ylim" to ylim?.toList()
+        ).filterNonNullValues()
+    )
+}
