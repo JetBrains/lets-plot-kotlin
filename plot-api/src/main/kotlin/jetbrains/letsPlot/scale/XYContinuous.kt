@@ -23,7 +23,6 @@ import jetbrains.letsPlot.intern.Scale
  *
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue Missing values will be replaced with this value.
- * @param guide TBD
  * @param trans TBD
  */
 @Suppress("FunctionName")
@@ -61,7 +60,6 @@ fun scale_x_continuous(
  *
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue Missing values will be replaced with this value.
- * @param guide TBD
  * @param trans TBD
  */
 @Suppress("FunctionName")
