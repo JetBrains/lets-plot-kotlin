@@ -34,9 +34,9 @@ import jetbrains.letsPlot.intern.Scale
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
- *      Guide to use for this scale. Defaults to "none".
+ *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
- *      specifying additional arguments.
+ *      specifying additional arguments; "none" will hide the guide.
  */
 @Suppress("FunctionName")
 fun scale_color_identity(
@@ -87,9 +87,9 @@ fun scale_color_identity(
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
- *      Guide to use for this scale. Defaults to "none".
+ *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
- *      specifying additional arguments.
+ *      specifying additional arguments; "none" will hide the guide.
  */
 @Suppress("FunctionName")
 fun scale_fill_identity(
@@ -137,9 +137,9 @@ fun scale_fill_identity(
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
- *      Guide to use for this scale. Defaults to "none".
+ *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
- *      specifying additional arguments.
+ *      specifying additional arguments; "none" will hide the guide.
  */
 @Suppress("FunctionName")
 fun scale_shape_identity(
@@ -189,9 +189,9 @@ fun scale_shape_identity(
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
- *      Guide to use for this scale. Defaults to "none".
+ *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
- *      specifying additional arguments.
+ *      specifying additional arguments; "none" will hide the guide.
  */
 @Suppress("FunctionName")
 fun scale_linetype_identity(
@@ -240,9 +240,9 @@ fun scale_linetype_identity(
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
- *      Guide to use for this scale. Defaults to "none".
+ *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
- *      specifying additional arguments.
+ *      specifying additional arguments; "none" will hide the guide.
  */
 @Suppress("FunctionName")
 fun scale_alpha_identity(
@@ -290,9 +290,9 @@ fun scale_alpha_identity(
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
- *      Guide to use for this scale. Defaults to "none".
+ *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
- *      specifying additional arguments.
+ *      specifying additional arguments; "none" will hide the guide.
  */
 @Suppress("FunctionName")
 fun scale_size_identity(

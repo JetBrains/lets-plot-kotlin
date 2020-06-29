@@ -29,6 +29,7 @@ object ScaleGuide {
                             fill = colors
                         }
 
+                (p + scale_fill_identity(guide = "none")).show()
                 (p + scale_fill_identity(guide = guide_legend(ncol = 2))).show()
                 (p + scale_fill_identity(guide = guide_legend(nrow = 2, byRow = true))).show()
                 (p + scale_fill_identity(guide = guide_legend(nrow = 2, byRow = false))).show()
