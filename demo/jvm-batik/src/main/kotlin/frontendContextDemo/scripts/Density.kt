@@ -48,7 +48,7 @@ object Density {
             run {
                 val p = lets_plot(data) +
                         geom_area(
-                            stat = Stat.density({ x = "x"; weight = "w" }),
+                            stat = Stat.density { x = "x"; weight = "w" },
                             color = "red",
                             fill = "green",
                             alpha = .3,

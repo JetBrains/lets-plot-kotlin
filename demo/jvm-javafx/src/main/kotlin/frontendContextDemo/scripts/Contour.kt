@@ -29,7 +29,7 @@ object Contour {
                     scale_color_gradient(low = "dark_green", high = "yellow")).show()
 
             // Path + contour stat ==> same
-            (p + geom_path(stat = Stat.contour({ z = "z" }, bins = 20)) { color = "..level.." } +
+            (p + geom_path(stat = Stat.contour(bins = 20) { z = "z" }) { color = "..level.." } +
                     scale_color_gradient(low = "dark_green", high = "yellow")).show()
 
             // stat_contour ==> same

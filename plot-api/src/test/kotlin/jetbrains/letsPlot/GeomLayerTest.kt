@@ -49,9 +49,9 @@ class GeomLayerTest {
     @Test
     fun `geom with overridden stat, mapping`() {
         val l =
-            geom_point(color = "C", stat = density({
-                x = "F1"; weight = "W"
-            }, kernel = "gaussian")) { x = "F" }
+            geom_point(color = "C", stat = density(kernel = "gaussian") { x = "F1"; weight = "W" }) {
+                x = "F"
+            }
 
         LayerAssert.assertThat(l)
             .aes("weight", "W")               // from stat

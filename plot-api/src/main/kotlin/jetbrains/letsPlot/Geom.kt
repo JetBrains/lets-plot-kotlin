@@ -20,7 +20,6 @@ object Geom {
 
     @Suppress("ClassName")
     class point(
-        mapping: PointMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
@@ -28,7 +27,8 @@ object Geom {
         override val fill: Any? = null,
         override val shape: Any? = null,
         override val size: Double? = null,
-        override val stroke: Double? = null
+        override val stroke: Double? = null,
+        mapping: PointMapping.() -> Unit = {}
     ) : PointAesthetics,
         GeomOptions(
             GeomKind.POINT,
@@ -39,7 +39,6 @@ object Geom {
 
     @Suppress("ClassName")
     class path(
-        mapping: PathMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
@@ -47,7 +46,8 @@ object Geom {
         override val linetype: Any? = null,
         override val size: Double? = null,
         override val speed: Double? = null,
-        override val flow: Double? = null
+        override val flow: Double? = null,
+        mapping: PathMapping.() -> Unit = {}
     ) : PathAesthetics,
         GeomOptions(
             GeomKind.PATH,
@@ -58,14 +58,14 @@ object Geom {
 
     @Suppress("ClassName")
     class area(
-        mapping: AreaMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: AreaMapping.() -> Unit = {}
     ) : AreaAesthetics,
         GeomOptions(
             GeomKind.AREA,
@@ -76,13 +76,13 @@ object Geom {
 
     @Suppress("ClassName")
     class histogram(
-        mapping: HistogramMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: HistogramMapping.() -> Unit = {}
     ) : HistogramAesthetics,
         GeomOptions(
             GeomKind.HISTOGRAM,
@@ -93,13 +93,13 @@ object Geom {
 
     @Suppress("ClassName")
     class line(
-        mapping: LineMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: LineMapping.() -> Unit = {}
     ) : LineAesthetics,
         GeomOptions(
             GeomKind.LINE,
@@ -110,14 +110,14 @@ object Geom {
 
     @Suppress("ClassName")
     class bar(
-        mapping: BarMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val width: Double? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: BarMapping.() -> Unit = {}
     ) : BarAesthetics,
         GeomOptions(
             GeomKind.BAR,
@@ -128,7 +128,6 @@ object Geom {
 
     @Suppress("ClassName")
     class tile(
-        mapping: TileMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val width: Double? = null,
@@ -137,7 +136,8 @@ object Geom {
         override val color: Any? = null,
         override val fill: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: TileMapping.() -> Unit = {}
     ) : TileAesthetics,
         GeomOptions(
             GeomKind.TILE,
@@ -148,11 +148,11 @@ object Geom {
 
     @Suppress("ClassName")
     class raster(
-        mapping: RasterMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
-        override val fill: Any? = null
+        override val fill: Any? = null,
+        mapping: RasterMapping.() -> Unit = {}
     ) : RasterAesthetics,
         GeomOptions(
             GeomKind.RASTER,
@@ -163,13 +163,13 @@ object Geom {
 
     @Suppress("ClassName", "SpellCheckingInspection")
     class abline(
-        mapping: ABLineMapping.() -> Unit = {},
         override val slope: Double? = null,
         override val intercept: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: ABLineMapping.() -> Unit = {}
     ) : ABLineAesthetics,
         GeomOptions(
             GeomKind.AB_LINE,
@@ -180,13 +180,13 @@ object Geom {
 
     @Suppress("ClassName")
     class hline(
-        mapping: HLineMapping.() -> Unit = {},
         @Suppress("SpellCheckingInspection")
         override val yintercept: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: HLineMapping.() -> Unit = {}
     ) : HLineAesthetics,
         GeomOptions(
             GeomKind.H_LINE,
@@ -197,13 +197,13 @@ object Geom {
 
     @Suppress("ClassName")
     class vline(
-        mapping: VLineMapping.() -> Unit = {},
         @Suppress("SpellCheckingInspection")
         override val xintercept: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: VLineMapping.() -> Unit = {}
     ) : VLineAesthetics,
         GeomOptions(
             GeomKind.V_LINE,
@@ -214,7 +214,6 @@ object Geom {
 
     @Suppress("ClassName")
     class rect(
-        mapping: RectMapping.() -> Unit = {},
         override val xmin: Double? = null,
         override val xmax: Double? = null,
         override val ymin: Double? = null,
@@ -223,7 +222,8 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Double? = null,
-        override val fill: Any? = null
+        override val fill: Any? = null,
+        mapping: RectMapping.() -> Unit = {}
     ) : RectAesthetics,
         GeomOptions(
             GeomKind.RECT,
@@ -234,7 +234,6 @@ object Geom {
 
     @Suppress("ClassName")
     class segment(
-        mapping: SegmentMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val xend: Double? = null,
@@ -244,7 +243,8 @@ object Geom {
         override val linetype: Any? = null,
         override val size: Double? = null,
         override val speed: Double? = null,
-        override val flow: Double? = null
+        override val flow: Double? = null,
+        mapping: SegmentMapping.() -> Unit = {}
     ) : SegmentAesthetics,
         GeomOptions(
             GeomKind.SEGMENT,
@@ -255,7 +255,6 @@ object Geom {
 
     @Suppress("ClassName")
     class text(
-        mapping: TextMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val label: String? = null,
@@ -266,7 +265,8 @@ object Geom {
         override val fontface: String? = null,
         override val hjust: Any? = null,
         override val vjust: Any? = null,
-        override val angle: Double? = null
+        override val angle: Double? = null,
+        mapping: TextMapping.() -> Unit = {}
     ) : TextAesthetics,
         GeomOptions(
             GeomKind.TEXT,
@@ -277,7 +277,6 @@ object Geom {
 
     @Suppress("ClassName")
     class boxplot(
-        mapping: BoxplotMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val lower: Double? = null,
@@ -296,7 +295,8 @@ object Geom {
         override val size: Double? = null,
         override val linetype: Any? = null,
         override val shape: Any? = null,
-        override val width: Double? = null
+        override val width: Double? = null,
+        mapping: BoxplotMapping.() -> Unit = {}
     ) : BoxplotAesthetics,
         BoxplotParameters,
         GeomOptions(
@@ -312,7 +312,6 @@ object Geom {
 
     @Suppress("ClassName", "SpellCheckingInspection")
     class errorbar(
-        mapping: ErrorBarMapping.() -> Unit = {},
         override val x: Double? = null,
         override val ymin: Double? = null,
         override val ymax: Double? = null,
@@ -320,7 +319,8 @@ object Geom {
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: ErrorBarMapping.() -> Unit = {}
     ) : ErrorBarAesthetics,
         GeomOptions(
             GeomKind.ERROR_BAR,
@@ -331,7 +331,6 @@ object Geom {
 
     @Suppress("ClassName")
     class crossbar(
-        mapping: CrossBarMapping.() -> Unit = {},
         override val x: Double? = null,
         override val ymin: Double? = null,
         override val ymax: Double? = null,
@@ -342,7 +341,8 @@ object Geom {
         override val fill: Any? = null,
         override val linetype: Any? = null,
         override val shape: Any? = null,
-        override val size: Any? = null
+        override val size: Any? = null,
+        mapping: CrossBarMapping.() -> Unit = {}
     ) : CrossBarAesthetics,
         GeomOptions(
             GeomKind.CROSS_BAR,
@@ -353,7 +353,6 @@ object Geom {
 
     @Suppress("ClassName", "SpellCheckingInspection")
     class pointrange(
-        mapping: PointRangeMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val ymin: Double? = null,
@@ -363,7 +362,8 @@ object Geom {
         override val fill: Any? = null,
         override val linetype: Any? = null,
         override val shape: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: PointRangeMapping.() -> Unit = {}
     ) : PointRangeAesthetics,
         GeomOptions(
             GeomKind.POINT_RANGE,
@@ -374,14 +374,14 @@ object Geom {
 
     @Suppress("ClassName", "SpellCheckingInspection")
     class linerange(
-        mapping: LineRangeMapping.() -> Unit = {},
         override val x: Double? = null,
         override val ymin: Double? = null,
         override val ymax: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: LineRangeMapping.() -> Unit = {}
     ) : LineRangeAesthetics,
         GeomOptions(
             GeomKind.LINE_RANGE,
@@ -392,7 +392,6 @@ object Geom {
 
     @Suppress("ClassName")
     class ribbon(
-        mapping: RibbonMapping.() -> Unit = {},
         override val x: Double? = null,
         override val ymin: Double? = null,
         override val ymax: Double? = null,
@@ -400,7 +399,8 @@ object Geom {
         override val linetype: Any? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
-        override val alpha: Double? = null
+        override val alpha: Double? = null,
+        mapping: RibbonMapping.() -> Unit = {}
     ) : RibbonAesthetics,
         GeomOptions(
             GeomKind.RIBBON,
@@ -411,15 +411,15 @@ object Geom {
 
     @Suppress("ClassName")
     class polygon(
-        mapping: PolygonMapping.() -> Unit = {},
         override val x: Any? = null,
         override val y: Any? = null,
         override val size: Any? = null,
         override val linetype: Any? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
-        override val alpha: Any? = null
+        override val alpha: Any? = null,
         // TODO add map/map_join parameters support
+        mapping: PolygonMapping.() -> Unit = {}
     ) : PolygonAesthetics,
         GeomOptions(
             GeomKind.POLYGON,
@@ -430,13 +430,13 @@ object Geom {
 
     @Suppress("ClassName")
     class step(
-        mapping: LineMapping.() -> Unit = {},
         override val x: Double? = null,
         override val y: Double? = null,
         override val alpha: Double? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
-        override val size: Double? = null
+        override val size: Double? = null,
+        mapping: LineMapping.() -> Unit = {}
     ) : LineAesthetics,
         GeomOptions(
             GeomKind.STEP,
@@ -447,11 +447,11 @@ object Geom {
 
     @Suppress("ClassName")
     class image(
-        mapping: ImageMapping.() -> Unit = {},
         override val xmin: Any? = null,
         override val xmax: Any? = null,
         override val ymin: Any? = null,
-        override val ymax: Any? = null
+        override val ymax: Any? = null,
+        mapping: ImageMapping.() -> Unit = {}
     ) : ImageAesthetics,
         GeomOptions(
             GeomKind.IMAGE,

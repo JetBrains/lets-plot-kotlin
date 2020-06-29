@@ -16,12 +16,12 @@ object Stat {
 
     @Suppress("ClassName")
     class density(
-        mapping: DensityStatMapping.() -> Unit = {},
         override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Int? = null,
         override val trim: Boolean? = null,
-        override val adjust: Number? = null
+        override val adjust: Number? = null,
+        mapping: DensityStatMapping.() -> Unit = {}
     ) : DensityStatParameters,
         StatOptions(
             StatKind.DENSITY,
@@ -41,11 +41,11 @@ object Stat {
 
     @Suppress("ClassName")
     class bin(
-        mapping: BinStatMapping.() -> Unit = {},
         override val bins: Int? = null,
         override val binWidth: Number? = null,
         override val center: Number? = null,
-        override val boundary: Number? = null
+        override val boundary: Number? = null,
+        mapping: BinStatMapping.() -> Unit = {}
     ) : BinStatParameters,
         StatOptions(
             StatKind.BIN,
@@ -56,10 +56,10 @@ object Stat {
 
     @Suppress("ClassName")
     class boxplot(
-        mapping: BoxplotStatMapping.() -> Unit = {},
         override val varWidth: Boolean? = null,
         @Suppress("SpellCheckingInspection")
-        override val coef: Number? = null
+        override val coef: Number? = null,
+        mapping: BoxplotStatMapping.() -> Unit = {}
     ) : BoxplotStatParameters,
         StatOptions(
             StatKind.BOXPLOT,
@@ -70,10 +70,10 @@ object Stat {
 
     @Suppress("ClassName")
     class bin2d(
-        mapping: Bin2dStatMapping.() -> Unit = {},
         override val bins: Pair<Int, Int>? = null,
         override val binWidth: Pair<Number?, Number?>? = null,
-        override val drop: Boolean? = null
+        override val drop: Boolean? = null,
+        mapping: Bin2dStatMapping.() -> Unit = {}
     ) : Bin2dStatParameters,
         StatOptions(
             StatKind.BIN2D,
@@ -84,9 +84,9 @@ object Stat {
 
     @Suppress("ClassName")
     class contour(
-        mapping: ContourStatMapping.() -> Unit = {},
         override val bins: Int? = null,
-        override val binWidth: Double? = null
+        override val binWidth: Double? = null,
+        mapping: ContourStatMapping.() -> Unit = {}
     ) : ContourStatParameters,
         StatOptions(
             StatKind.CONTOUR,
@@ -97,9 +97,9 @@ object Stat {
 
     @Suppress("ClassName")
     class contourf(
-        mapping: ContourStatMapping.() -> Unit = {},
         override val bins: Int? = null,
-        override val binWidth: Number? = null
+        override val binWidth: Number? = null,
+        mapping: ContourStatMapping.() -> Unit = {}
     ) : ContourStatParameters,
         StatOptions(
             StatKind.CONTOURF,
@@ -110,14 +110,14 @@ object Stat {
 
     @Suppress("ClassName")
     class density2d(
-        mapping: Density2dStatMapping.() -> Unit = {},
         override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Int? = null,
         override val adjust: Number? = null,
         override val contour: Boolean? = null,
         override val bins: Int? = null,
-        override val binWidth: Number? = null
+        override val binWidth: Number? = null,
+        mapping: Density2dStatMapping.() -> Unit = {}
     ) : Density2dStatParameters,
         StatOptions(
             StatKind.DENSITY2D,
@@ -128,14 +128,14 @@ object Stat {
 
     @Suppress("ClassName")
     class density2df(
-        mapping: Density2dStatMapping.() -> Unit = {},
         override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Int? = null,
         override val adjust: Number? = null,
         override val contour: Boolean? = null,
         override val bins: Int? = null,
-        override val binWidth: Number? = null
+        override val binWidth: Number? = null,
+        mapping: Density2dStatMapping.() -> Unit = {}
     ) : Density2dStatParameters,
         StatOptions(
             StatKind.DENSITY2DF,
@@ -146,7 +146,6 @@ object Stat {
 
     @Suppress("ClassName")
     class smooth(
-        mapping: SmoothStatMapping.() -> Unit = {},
         override val method: String? = null,
         override val n: Int? = null,
         override val level: Number? = null,
@@ -154,7 +153,8 @@ object Stat {
         override val span: Number? = null,
         override val deg: Int? = null,
         override val seed: Long? = null,
-        override val maxn: Int? = null
+        override val maxn: Int? = null,
+        mapping: SmoothStatMapping.() -> Unit = {}
     ) : SmoothStatParameters,
         StatOptions(
             StatKind.SMOOTH,

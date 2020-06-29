@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- scale_shape()
+
+### Changed
+- Parameter `mapping` (lambda) has been moved to the last position to allow the value to be outside parentheses.
 
 ## [0.0.20-SNAPSHOT] - 2020-06-25
 ### Added

@@ -22,13 +22,10 @@ class OptionsMergingTest {
     fun `layer options precedence over geom`() {
         val l = geom_point(
             color = "layer C", fill = "layer F",
-            stat = density(
-                {
-                    x = "stat X"
-                    weight = "stat W"
-                },
-                kernel = "gaussian"
-            )
+            stat = density(kernel = "gaussian") {
+                x = "stat X"
+                weight = "stat W"
+            }
         ) {
             x = "layer X"
             y = "layer Y"
@@ -52,10 +49,10 @@ class OptionsMergingTest {
     fun `layer options precedence over stat`() {
         val l = stat_density(
             color = "layer C", fill = "layer F",
-            geom = point({
+            geom = point {
                 x = "stat X"
                 group = "stat G"
-            }),
+            },
             kernel = "gaussian"
         ) {
             x = "layer X"
@@ -81,17 +78,14 @@ class OptionsMergingTest {
     fun `geom and stat layer equivalence`() {
         val geomLayer = geom_area(
             color = "C",
-            stat = density(
-                { x = "X" },
-                kernel = "gaussian"
-            )
+            stat = density(kernel = "gaussian") { x = "X" }
         ) { fill = "F" }
 
         var statLayer: stat_density
         run {
             statLayer = stat_density(
                 color = "C",
-                geom = point({ fill = "F" }),
+                geom = point { fill = "F" },
                 kernel = "gaussian"
             ) { x = "X" }
 
@@ -101,7 +95,7 @@ class OptionsMergingTest {
 
         run {
             statLayer = stat_density(
-                geom = point({ fill = "F" }, color = "C"),
+                geom = point(color = "C") { fill = "F" },
                 kernel = "gaussian"
             ) { x = "X" }
 
