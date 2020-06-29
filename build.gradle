@@ -27,7 +27,7 @@ project.ext.buildSettings = settings
 
 allprojects {
     group 'org.jetbrains.lets-plot'
-    version "0.0.21-SNAPSHOT"   // ToDo: since Lets-Plot v.1.4.3 in scale_fill/color_grey: params start, end are in range [0..1].
+    version "0.0.22-SNAPSHOT"   // ToDo: since Lets-Plot v.1.4.3 in scale_fill/color_grey: params start, end are in range [0..1].
 
     sourceCompatibility = 1.8
     compileKotlin {
