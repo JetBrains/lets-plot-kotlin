@@ -28,8 +28,9 @@ import jetbrains.letsPlot.intern.Scale
  *
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue Missing values will be replaced with this value.
- * @param guide TBD
- * @param trans TBD
+ * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 fun scale_size(
     range: Pair<Number, Number>? = null,
@@ -73,8 +74,9 @@ fun scale_size(
  *
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue Missing values will be replaced with this value.
- * @param guide TBD
- * @param trans TBD
+ * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 fun scale_size_area(
     maxSize: Number? = null,

@@ -10,6 +10,7 @@ import jetbrains.datalore.plot.config.Option.Meta.KIND
 import jetbrains.datalore.plot.config.Option.Meta.Kind.PLOT
 import jetbrains.datalore.plot.config.Option.Scale.AES
 import jetbrains.datalore.plot.config.Option.Scale.BREAKS
+import jetbrains.datalore.plot.config.Option.Scale.CONTINUOUS_TRANSFORM
 import jetbrains.datalore.plot.config.Option.Scale.EXPAND
 import jetbrains.datalore.plot.config.Option.Scale.GUIDE
 import jetbrains.datalore.plot.config.Option.Scale.LABELS
@@ -101,7 +102,7 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     expand?.let { spec[EXPAND] = expand }
     naValue?.let { spec[NA_VALUE] = naValue }
     guide?.let { spec[GUIDE] = guide }
-//    trans    ?.let{ spec[TRANS    ] = trans    }  // ToDo: add trans
+    trans?.let { spec[CONTINUOUS_TRANSFORM] = trans }
 
     spec.putAll(otherOptions.map)
     return spec
