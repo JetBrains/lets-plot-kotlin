@@ -47,10 +47,9 @@ allprojects {
 //            url "file:///Users/Igor/Work/lets-plot/.maven-publish-dev-repo"
 //        }
 
-//        maven {
-// Repository URL is not necessary since `lets-plot-common` and `lets-plot-jfx` artifacts are included in jcenter repository.
-// Since Lets-Plot 1.3.1.
-//            url "https://jetbrains.bintray.com/lets-plot-maven"
-//        }
+        maven {
+            // Required when working with SNAPSHOT-s
+            url "https://jetbrains.bintray.com/lets-plot-maven"
+        }
     }
 }
