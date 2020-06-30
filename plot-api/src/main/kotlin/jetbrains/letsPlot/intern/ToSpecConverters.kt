@@ -6,6 +6,7 @@
 package jetbrains.letsPlot.intern
 
 import jetbrains.datalore.plot.config.Option
+import jetbrains.datalore.plot.config.Option.Meta.DATA_META
 import jetbrains.datalore.plot.config.Option.Meta.KIND
 import jetbrains.datalore.plot.config.Option.Meta.Kind.PLOT
 import jetbrains.datalore.plot.config.Option.Scale.AES
@@ -17,6 +18,7 @@ import jetbrains.datalore.plot.config.Option.Scale.LABELS
 import jetbrains.datalore.plot.config.Option.Scale.LIMITS
 import jetbrains.datalore.plot.config.Option.Scale.NAME
 import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
+import jetbrains.letsPlot.MappingMeta
 import jetbrains.letsPlot.intern.SeriesStandardizing.toList
 
 fun Plot.toSpec(): MutableMap<String, Any> {
@@ -29,9 +31,11 @@ fun Plot.toSpec(): MutableMap<String, Any> {
         spec[Option.PlotBase.DATA] = asPlotData(plot.data)
     }
 
-    spec[Option.PlotBase.MAPPING] = plot.mapping.map
+    spec[Option.PlotBase.MAPPING] = asMappingData(plot.mapping.map)
     spec[Option.Plot.LAYERS] = plot.layers().map { it.toSpec() }
     spec[Option.Plot.SCALES] = plot.scales().map { it.toSpec() }
+
+    spec += asAnnotatedData(plot.mapping.map)
 
     // Width of plot in percents of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
@@ -74,9 +78,12 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         spec[Option.Layer.SAMPLING] = sampling.mapping.map
     }
 
-    spec[Option.PlotBase.MAPPING] = (mapping + geom.mapping + stat.mapping).map
+    val allMappings = (mapping + geom.mapping + stat.mapping).map
 
-    val allParameters = parameters + geom.parameters + stat.parameters
+    spec[Option.PlotBase.MAPPING] = asMappingData(allMappings)
+
+    val dataMeta = asAnnotatedData(allMappings)
+    val allParameters = parameters + geom.parameters + stat.parameters + Options(dataMeta)
     spec.putAll(allParameters.map)
     if (!showLegend) {
         spec[Option.Layer.SHOW_LEGEND] = false
@@ -125,3 +132,24 @@ private fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
     return standardisedData
 }
 
+private fun asMappingData(rawMapping: Map<String, Any>): Map<String, Any> {
+    val mapping = rawMapping.toMutableMap()
+    mapping.replaceAll { _, value ->
+        when (value) {
+            is MappingMeta -> value.variable
+            else -> value
+        }
+    }
+    return mapping
+}
+
+private fun asAnnotatedData(rawMapping: Map<String, Any>): Map<String, Any> {
+    // mapping
+    val dataMeta = mutableMapOf<String, Any>()
+    rawMapping.forEach {
+        if (it.value is MappingMeta) {
+            dataMeta[DATA_META] = (it.value as MappingMeta).getAnnotatedData(it.key)
+        }
+    }
+    return dataMeta
+}
