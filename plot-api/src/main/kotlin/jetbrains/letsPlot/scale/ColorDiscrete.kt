@@ -13,7 +13,7 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.Scale
 
 /**
- * Qualitative color scale with evenly spaced hues for color aesthetic.
+ * Qualitative color scale with evenly spaced hues for fill aesthetic.
  *
  * @param h pair of two numbers
  *      Range of hues, from 0 to 360
@@ -72,7 +72,7 @@ fun scale_fill_discrete(
 )
 
 /**
- * Qualitative color scale with evenly spaced hues for fill aesthetic.
+ * Qualitative color scale with evenly spaced hues for color aesthetic.
  *
  * @param h pair of two numbers
  *      Range of hues, from 0 to 360
