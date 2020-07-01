@@ -25,13 +25,13 @@ object LetsPlot {
 
     @Suppress("unused")
     fun setupNotebook(
-        libraryVersion: String,
+        jsVersion: String,
         isolatedFrame: Boolean?,
         htmlRenderer: (String) -> Unit
     ): NotebookFrontendContext {
 
         val isolatedFrameContext: Boolean = isolatedFrame ?: getBooleanFromEnv(ENV_HTML_ISOLATED_FRAME)
-        this.frontendContext = NotebookFrontendContext(libraryVersion, isolatedFrameContext, htmlRenderer)
+        this.frontendContext = NotebookFrontendContext(jsVersion, isolatedFrameContext, htmlRenderer)
         return frontendContext as NotebookFrontendContext
     }
 

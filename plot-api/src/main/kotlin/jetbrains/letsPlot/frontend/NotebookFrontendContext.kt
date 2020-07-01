@@ -14,7 +14,7 @@ import jetbrains.letsPlot.intern.toSpec
 
 @Suppress("unused")
 class NotebookFrontendContext(
-    private val libraryVersion: String,
+    private val jsVersion: String,
     private val isolatedFrame: Boolean,
     private val htmlRenderer: (String) -> Unit
 ) : FrontendContext {
@@ -25,7 +25,7 @@ class NotebookFrontendContext(
 
     override fun getInfo(): String {
         return "Notebook with ${if (isolatedFrame) "static HTML in output" else "dynamically loaded JS"}. " +
-                "Lets-Plot library v.$libraryVersion."
+                "Lets-Plot JS v.$jsVersion."
     }
 
     fun getConfigureHtml(): String {
@@ -33,7 +33,7 @@ class NotebookFrontendContext(
             // Do not pre-load JS library
             ""
         } else {
-            PlotHtmlHelper.getDynamicConfigureHtml(scriptUrl(libraryVersion), false)
+            PlotHtmlHelper.getDynamicConfigureHtml(scriptUrl(jsVersion), false)
         }
     }
 
@@ -48,7 +48,7 @@ class NotebookFrontendContext(
     private fun getDisplayHtml(rawSpec: MutableMap<String, Any>): String {
         return if (isolatedFrame) {
             """
-            ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl(libraryVersion))}    
+            ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl(jsVersion))}    
             ${PlotHtmlHelper.getStaticDisplayHtmlForRawSpec(rawSpec)}    
             """.trimIndent()
         } else {
