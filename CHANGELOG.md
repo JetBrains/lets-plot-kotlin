@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.21-SNAPSHOT] - 2020-06-29
+## [0.0.22-SNAPSHOT] - 2020-06-30 (Not released)
+### Added
+- as_discrete()
+
+### Changed
+- Lets-Plot core version upgraded to 1.4.3-SNAPSHOT
+- scale_color_grey(), scale_fill_grey() : arguments `start`, `end` are now in range [0,1] (before was [0,100]).
+
+## [0.0.21-SNAPSHOT] - 2020-06-29 (Not released)
 ### Added
 - scale_shape()
 

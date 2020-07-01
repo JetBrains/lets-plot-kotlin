@@ -190,10 +190,9 @@ fun scale_color_gradient2(
     )
 )
 
-// ToDo: since Lets-Plot v.1.4.3 params start, end are in range [0..1].
 fun scale_fill_grey(
-    start: Double? = null,
-    end: Double? = null,   // start, end: [0..100].
+    start: Number? = null,
+    end: Number? = null,
     direction: Int? = null,        // direction < 0 - reversed
     name: String? = null,
     breaks: List<Any>? = null,
@@ -204,8 +203,8 @@ fun scale_fill_grey(
     guide: Any? = null,
     trans: Any? = null
 ): Scale {
-    start?.let { require(start in (0.0..100.0)) { "'start' must be in range: [0,100]: $start" } }
-    end?.let { require(end in (0.0..100.0)) { "'end' must be in range: [0,100]: $end" } }
+    start?.let { require(start.toDouble() in (0.0..1.0)) { "'start' must be in range: [0,1]: $start" } }
+    end?.let { require(end.toDouble() in (0.0..1.0)) { "'end' must be in range: [0,1]: $end" } }
 
     return Scale(
         aesthetic = Aes.FILL,
@@ -219,8 +218,13 @@ fun scale_fill_grey(
         trans = trans,
         otherOptions = Options(
             mapOf(
-                START to start,
-                END to end,
+                // ToDo: scale_xxx_grey
+                // Tmp scale values back to the old range [1,100]
+                // Remove when next Lets-Plot RC is released
+                START to if(start != null) start.toDouble() * 100 else null,
+                END to if(end != null) end.toDouble() * 100 else null,
+//                START to start,
+//                END to end,
                 DIRECTION to direction,
                 SCALE_MAPPER_KIND to "color_grey"
             )
@@ -228,10 +232,9 @@ fun scale_fill_grey(
     )
 }
 
-// ToDo: since Lets-Plot v.1.4.3 params start, end are in range [0..1].
 fun scale_color_grey(
-    start: Double? = null,
-    end: Double? = null,   // start, end: [0..100].
+    start: Number? = null,
+    end: Number? = null,
     direction: Int? = null,         // direction < 0 - reversed
     name: String? = null,
     breaks: List<Any>? = null,
@@ -242,8 +245,9 @@ fun scale_color_grey(
     guide: Any? = null,
     trans: Any? = null
 ): Scale {
-    start?.let { require(start in (0.0..100.0)) { "'start' must be in range: [0,100]: $start" } }
-    end?.let { require(end in (0.0..100.0)) { "'end' must be in range: [0,100]: $end" } }
+    start?.let { require(start.toDouble() in (0.0..1.0)) { "'start' must be in range: [0,1]: $start" } }
+    end?.let { require(end.toDouble() in (0.0..1.0)) { "'end' must be in range: [0,1]: $end" } }
+
     return Scale(
         aesthetic = Aes.COLOR,
         name = name,
@@ -256,8 +260,13 @@ fun scale_color_grey(
         trans = trans,
         otherOptions = Options(
             mapOf(
-                START to start,
-                END to end,
+                // ToDo: scale_xxx_grey
+                // Tmp scale values back to the old range [1,100]
+                // Remove when next Lets-Plot RC is released
+                START to if(start != null) start.toDouble() * 100 else null,
+                END to if(end != null) end.toDouble() * 100 else null,
+//                START to start,
+//                END to end,
                 DIRECTION to direction,
                 SCALE_MAPPER_KIND to "color_grey"
             )

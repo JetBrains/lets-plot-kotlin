@@ -80,7 +80,6 @@ publishing {
                     dep.appendNode('artifactId', 'lets-plot-common')
                     dep.appendNode('version', lets_plot_version)
                 }
-
             }
         }
     }
