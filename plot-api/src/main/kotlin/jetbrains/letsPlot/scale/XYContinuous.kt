@@ -31,7 +31,7 @@ fun scale_x_continuous(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null,
     trans: Any? = null
 ) = Scale(
@@ -68,7 +68,7 @@ fun scale_y_continuous(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null,
     trans: Any? = null
 ) = Scale(
