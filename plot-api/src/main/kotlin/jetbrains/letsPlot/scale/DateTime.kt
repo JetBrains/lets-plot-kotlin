@@ -12,7 +12,23 @@ import jetbrains.datalore.plot.config.Option.Scale.DATE_TIME
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.Scale
 
-
+/**
+ * Continuous position scale (x).
+ *
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numeric
+ *     A numeric vector of positions (of ticks).
+ * @param labels list of strings
+ *      A vector of labels (on ticks).
+ * @param limits list of numerics
+ *      A numeric vector of length two providing limits of the scale.
+ * @param expand
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
+ * @param naValue
+ *       Missing values will be replaced with this value.
+ */
 fun scale_x_datetime(
     name: String? = null,
     breaks: List<Any>? = null,      // ToDo: should understand Date
@@ -22,6 +38,45 @@ fun scale_x_datetime(
     naValue: Any? = null
 ) = Scale(
     aesthetic = Aes.X,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits?.toList(),
+    expand = expand,
+    naValue = naValue,
+    otherOptions = Options(
+        mapOf(
+            DATE_TIME to true
+        )
+    )
+)
+
+/**
+ * Continuous position scale (y).
+ *
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numerics
+ *     A numeric vector of positions (of ticks).
+ * @param labels list of strings
+ *      A vector of labels (on ticks).
+ * @param limits list of numerics
+ *      A numeric vector of length two providing limits of the scale.
+ * @param expand
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
+ * @param naValue
+ *       Missing values will be replaced with this value.
+ */
+fun scale_y_datetime(
+    name: String? = null,
+    breaks: List<Any>? = null,      // ToDo: should understand Date
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    expand: Any? = null,
+    naValue: Any? = null
+) = Scale(
+    aesthetic = Aes.Y,
     name = name,
     breaks = breaks,
     labels = labels,
