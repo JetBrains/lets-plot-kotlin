@@ -8,6 +8,7 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geom_jitter
 import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.scale.scale_x_discrete
 
 object Jitter {
     @JvmStatic
@@ -22,6 +23,8 @@ object Jitter {
             val p = ggplot(data) { x = "l"; y = "d"; color = "l" } +
                     geom_jitter(size = 3.0, width = .2)
             p.show()
+
+            (p + scale_x_discrete(expand = listOf(0, .1))).show()
         }
     }
 }
