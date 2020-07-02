@@ -24,8 +24,10 @@ import jetbrains.letsPlot.intern.Scale
  *      A vector of labels (on ticks).
  * @param limits list of numerics
  *      A numeric vector of length two providing limits of the scale.
- * @param expand
+ * @param expand list of numbers
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
+ *      The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
  */
@@ -34,22 +36,27 @@ fun scale_x_datetime(
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
+    expand: List<Any>? = null,
     naValue: Any? = null
-) = Scale(
-    aesthetic = Aes.X,
-    name = name,
-    breaks = breaks,
-    labels = labels,
-    limits = limits?.toList(),
-    expand = expand,
-    naValue = naValue,
-    otherOptions = Options(
-        mapOf(
-            DATE_TIME to true
+): Scale {
+    expand?.let { require(expand.size <= 2) { "'expand' can contain no more than two values: $expand" } }
+    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
+
+    return Scale(
+        aesthetic = Aes.X,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits?.toList(),
+        expand = expand,
+        naValue = naValue,
+        otherOptions = Options(
+            mapOf(
+                DATE_TIME to true
+            )
         )
     )
-)
+}
 
 /**
  * Continuous position scale (y).
@@ -63,8 +70,10 @@ fun scale_x_datetime(
  *      A vector of labels (on ticks).
  * @param limits list of numerics
  *      A numeric vector of length two providing limits of the scale.
- * @param expand
+ * @param expand list of numbers
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
+ *      The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
  */
@@ -73,19 +82,24 @@ fun scale_y_datetime(
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
+    expand: List<Any>? = null,
     naValue: Any? = null
-) = Scale(
-    aesthetic = Aes.Y,
-    name = name,
-    breaks = breaks,
-    labels = labels,
-    limits = limits?.toList(),
-    expand = expand,
-    naValue = naValue,
-    otherOptions = Options(
-        mapOf(
-            DATE_TIME to true
+): Scale {
+    expand?.let { require(expand.size <= 2) { "'expand' can contain no more than two values: $expand" } }
+    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
+
+    return Scale(
+        aesthetic = Aes.Y,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits?.toList(),
+        expand = expand,
+        naValue = naValue,
+        otherOptions = Options(
+            mapOf(
+                DATE_TIME to true
+            )
         )
     )
-)
+}
