@@ -23,7 +23,8 @@ import jetbrains.letsPlot.intern.Scale
  *
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue Missing values will be replaced with this value.
- * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 @Suppress("FunctionName")
 fun scale_x_continuous(
@@ -33,7 +34,7 @@ fun scale_x_continuous(
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.X,
     name = name,
@@ -60,7 +61,8 @@ fun scale_x_continuous(
  *
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue Missing values will be replaced with this value.
- * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 @Suppress("FunctionName")
 fun scale_y_continuous(
@@ -70,7 +72,7 @@ fun scale_y_continuous(
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.Y,
     name = name,

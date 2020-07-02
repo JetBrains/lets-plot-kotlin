@@ -123,7 +123,7 @@ class Scale(
     val expand: Any? = null,
     val naValue: Any? = null,
     val guide: Any? = null,
-    val trans: Any? = null,
+    val trans: String? = null,
     val otherOptions: Options = Options.empty()
 
 ) : Feature()

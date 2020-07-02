@@ -34,6 +34,8 @@ import jetbrains.letsPlot.intern.Scale
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 @Suppress("FunctionName")
 fun scale_fill_brewer(
@@ -47,7 +49,7 @@ fun scale_fill_brewer(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.FILL,
     name = name,
@@ -92,6 +94,8 @@ fun scale_fill_brewer(
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 @Suppress("FunctionName")
 fun scale_color_brewer(
@@ -105,7 +109,7 @@ fun scale_color_brewer(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
     name = name,

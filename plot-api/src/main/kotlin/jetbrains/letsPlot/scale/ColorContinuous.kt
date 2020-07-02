@@ -33,7 +33,7 @@ fun scale_fill_continuous(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.FILL,
     name = name,
@@ -62,7 +62,7 @@ fun scale_color_continuous(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
     name = name,
@@ -91,7 +91,7 @@ fun scale_fill_gradient(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = scale_fill_continuous(
     low, high,
     name = name,
@@ -113,7 +113,7 @@ fun scale_color_gradient(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = scale_color_continuous(
     low, high,
     name = name,
@@ -136,7 +136,7 @@ fun scale_fill_gradient2(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.FILL,
     name = name,
@@ -168,7 +168,7 @@ fun scale_color_gradient2(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
     name = name,
@@ -201,7 +201,7 @@ fun scale_fill_grey(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ): Scale {
     start?.let { require(start.toDouble() in (0.0..1.0)) { "'start' must be in range: [0,1]: $start" } }
     end?.let { require(end.toDouble() in (0.0..1.0)) { "'end' must be in range: [0,1]: $end" } }
@@ -243,7 +243,7 @@ fun scale_color_grey(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ): Scale {
     start?.let { require(start.toDouble() in (0.0..1.0)) { "'start' must be in range: [0,1]: $start" } }
     end?.let { require(end.toDouble() in (0.0..1.0)) { "'end' must be in range: [0,1]: $end" } }
@@ -288,7 +288,7 @@ fun scale_fill_hue(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.FILL,
     name = name,
@@ -325,7 +325,7 @@ fun scale_color_hue(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
     name = name,

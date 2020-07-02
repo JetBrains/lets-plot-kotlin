@@ -30,7 +30,8 @@ import jetbrains.letsPlot.intern.Scale
  * @param naValue Missing values will be replaced with this value.
  * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
  *      "none" will hide the guide.
- * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 fun scale_size(
     range: Pair<Number, Number>? = null,
@@ -41,7 +42,7 @@ fun scale_size(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.SIZE,
     name = name,
@@ -76,7 +77,8 @@ fun scale_size(
  * @param naValue Missing values will be replaced with this value.
  * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
  *      "none" will hide the guide.
- * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 fun scale_size_area(
     maxSize: Number? = null,
@@ -87,7 +89,7 @@ fun scale_size_area(
     expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.SIZE,
     name = name,
