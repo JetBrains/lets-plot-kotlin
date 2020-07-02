@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.22-SNAPSHOT] - 2020-06-30 (Not released)
+
+## [0.0.22-SNAPSHOT] - 2020-07-01 (Bundled with Kotlin Kernel)
 ### Added
 - as_discrete()
 
