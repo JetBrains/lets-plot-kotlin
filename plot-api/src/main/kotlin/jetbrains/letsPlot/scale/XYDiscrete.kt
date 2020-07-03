@@ -7,6 +7,7 @@ package jetbrains.letsPlot.scale
 
 import jetbrains.datalore.plot.base.Aes
 import jetbrains.letsPlot.intern.Scale
+import jetbrains.letsPlot.intern.checkScaleExpand
 
 /**
  * Discrete scale for x axis
@@ -34,9 +35,7 @@ fun scale_x_discrete(
     expand: List<Any>? = null,
     naValue: Any? = null
 ): Scale {
-    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
-    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
-
+    checkScaleExpand(expand)
     return Scale(
         aesthetic = Aes.X,
         name = name,
@@ -74,9 +73,7 @@ fun scale_y_discrete(
     expand: List<Any>? = null,
     naValue: Any? = null
 ): Scale {
-    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
-    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
-
+    checkScaleExpand(expand)
     return Scale(
         aesthetic = Aes.Y,
         name = name,

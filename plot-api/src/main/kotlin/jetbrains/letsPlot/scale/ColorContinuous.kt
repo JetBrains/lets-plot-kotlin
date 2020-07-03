@@ -22,6 +22,7 @@ import jetbrains.datalore.plot.config.Option.Scale.START
 import jetbrains.datalore.plot.config.Option.Scale.START_HUE
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.Scale
+import jetbrains.letsPlot.intern.checkGreyScaleStartEnd
 
 /**
  * Defines smooth color gradient between two colors for fill aesthetic.
@@ -361,9 +362,7 @@ fun scale_fill_grey(
     guide: Any? = null,
     trans: String? = null
 ): Scale {
-    start?.let { require(start.toDouble() in (0.0..1.0)) { "'start' must be in range: [0,1]: $start" } }
-    end?.let { require(end.toDouble() in (0.0..1.0)) { "'end' must be in range: [0,1]: $end" } }
-
+    checkGreyScaleStartEnd(start, end)
     return Scale(
         aesthetic = Aes.FILL,
         name = name,
@@ -378,8 +377,8 @@ fun scale_fill_grey(
                 // ToDo: scale_xxx_grey
                 // Tmp scale values back to the old range [1,100]
                 // Remove when next Lets-Plot RC is released
-                START to if(start != null) start.toDouble() * 100 else null,
-                END to if(end != null) end.toDouble() * 100 else null,
+                START to if (start != null) start.toDouble() * 100 else null,
+                END to if (end != null) end.toDouble() * 100 else null,
 //                START to start,
 //                END to end,
                 DIRECTION to direction,
@@ -426,9 +425,7 @@ fun scale_color_grey(
     guide: Any? = null,
     trans: String? = null
 ): Scale {
-    start?.let { require(start.toDouble() in (0.0..1.0)) { "'start' must be in range: [0,1]: $start" } }
-    end?.let { require(end.toDouble() in (0.0..1.0)) { "'end' must be in range: [0,1]: $end" } }
-
+    checkGreyScaleStartEnd(start, end)
     return Scale(
         aesthetic = Aes.COLOR,
         name = name,
@@ -443,8 +440,8 @@ fun scale_color_grey(
                 // ToDo: scale_xxx_grey
                 // Tmp scale values back to the old range [1,100]
                 // Remove when next Lets-Plot RC is released
-                START to if(start != null) start.toDouble() * 100 else null,
-                END to if(end != null) end.toDouble() * 100 else null,
+                START to if (start != null) start.toDouble() * 100 else null,
+                END to if (end != null) end.toDouble() * 100 else null,
 //                START to start,
 //                END to end,
                 DIRECTION to direction,

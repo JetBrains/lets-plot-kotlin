@@ -11,6 +11,7 @@ import jetbrains.datalore.plot.base.Aes
 import jetbrains.datalore.plot.config.Option.Scale.DATE_TIME
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.Scale
+import jetbrains.letsPlot.intern.checkScaleExpand
 
 /**
  * Continuous position scale (x).
@@ -39,9 +40,7 @@ fun scale_x_datetime(
     expand: List<Any>? = null,
     naValue: Any? = null
 ): Scale {
-    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
-    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
-
+    checkScaleExpand(expand)
     return Scale(
         aesthetic = Aes.X,
         name = name,
@@ -85,9 +84,7 @@ fun scale_y_datetime(
     expand: List<Any>? = null,
     naValue: Any? = null
 ): Scale {
-    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
-    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
-
+    checkScaleExpand(expand)
     return Scale(
         aesthetic = Aes.Y,
         name = name,
