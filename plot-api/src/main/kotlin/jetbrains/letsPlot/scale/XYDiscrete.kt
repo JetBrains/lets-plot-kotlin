@@ -21,6 +21,8 @@ import jetbrains.letsPlot.intern.Scale
  *      A vector specifying values to display on the axis and their order.
  *      Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *      The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
  */
 @Suppress("FunctionName")
@@ -29,17 +31,22 @@ fun scale_x_discrete(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
+    expand: List<Any>? = null,
     naValue: Any? = null
-) = Scale(
-    aesthetic = Aes.X,
-    name = name,
-    breaks = breaks,
-    labels = labels,
-    limits = limits,
-    expand = expand,
-    naValue = naValue
-)
+): Scale {
+    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
+    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
+
+    return Scale(
+        aesthetic = Aes.X,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits,
+        expand = expand,
+        naValue = naValue
+    )
+}
 
 /**
  * Discrete scale for y axis
@@ -54,6 +61,8 @@ fun scale_x_discrete(
  *      A vector specifying values to display on the axis and their order.
  *      Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *      The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
  */
 @Suppress("FunctionName")
@@ -62,14 +71,19 @@ fun scale_y_discrete(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
+    expand: List<Any>? = null,
     naValue: Any? = null
-) = Scale(
-    aesthetic = Aes.Y,
-    name = name,
-    breaks = breaks,
-    labels = labels,
-    limits = limits?.toList(),
-    expand = expand,
-    naValue = naValue
-)
+): Scale {
+    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
+    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
+
+    return Scale(
+        aesthetic = Aes.Y,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits?.toList(),
+        expand = expand,
+        naValue = naValue
+    )
+}

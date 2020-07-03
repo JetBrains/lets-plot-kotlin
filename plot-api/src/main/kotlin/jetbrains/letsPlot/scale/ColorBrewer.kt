@@ -31,9 +31,9 @@ import jetbrains.letsPlot.intern.Scale
  * @param limits data range for this scale.
  *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *      Discrete scale: list of data values to display, and their order.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 @Suppress("FunctionName")
 fun scale_fill_brewer(
@@ -44,17 +44,15 @@ fun scale_fill_brewer(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Any? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.FILL,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -89,9 +87,9 @@ fun scale_fill_brewer(
  * @param limits data range for this scale.
  *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *      Discrete scale: list of data values to display, and their order.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 @Suppress("FunctionName")
 fun scale_color_brewer(
@@ -102,17 +100,15 @@ fun scale_color_brewer(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Any? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,

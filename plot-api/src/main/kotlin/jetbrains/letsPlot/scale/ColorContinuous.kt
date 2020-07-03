@@ -23,6 +23,32 @@ import jetbrains.datalore.plot.config.Option.Scale.START_HUE
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.Scale
 
+/**
+ * Defines smooth color gradient between two colors for fill aesthetic.
+ *
+ * @param low string
+ *      Color for low end of gradient
+ * @param high string
+ *      Color for high end of gradient
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits list of numbers
+ *      A numeric vector of length two providing limits of the scale.
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 
 fun scale_fill_continuous(
     low: String? = null, high: String? = null,
@@ -30,17 +56,15 @@ fun scale_fill_continuous(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.FILL,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -53,23 +77,45 @@ fun scale_fill_continuous(
     )
 )
 
+/**
+ * Defines smooth color gradient between two colors for color aesthetic.
+ *
+ * @param low string
+ *      Color for low end of gradient
+ * @param high string
+ *      Color for high end of gradient
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 fun scale_color_continuous(
     low: String? = null, high: String? = null,           // ToDo: string or Color
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -82,50 +128,118 @@ fun scale_color_continuous(
     )
 )
 
+/**
+ * Defines smooth color gradient between two colors (low-high) for fill aesthetic.
+ *
+ * @param low string
+ *      Color for low end of gradient
+ * @param high string
+ *      Color for high end of gradient
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 fun scale_fill_gradient(
     low: String, high: String,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = scale_fill_continuous(
     low, high,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans
 )
 
+/**
+ * Defines smooth color gradient between two colors (low-high) for color aesthetic.
+ *
+ * @param low string
+ *      Color for low end of gradient
+ * @param high string
+ *      Color for high end of gradient
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 fun scale_color_gradient(
     low: String, high: String,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = scale_color_continuous(
     low, high,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans
 )
 
+/**
+ * Defines diverging color gradient (low-mid-high) for fill aesthetic.
+ *
+ * @param low string
+ *      Color for low end of gradient
+ * @param high string
+ *      Color for high end of gradient
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 fun scale_fill_gradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
@@ -133,17 +247,15 @@ fun scale_fill_gradient2(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.FILL,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -158,6 +270,30 @@ fun scale_fill_gradient2(
     )
 )
 
+/**
+ * Defines diverging color gradient (low-mid-high) for color aesthetic.
+ *
+ * @param low string
+ *      Color for low end of gradient
+ * @param high string
+ *      Color for high end of gradient
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 fun scale_color_gradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
@@ -165,17 +301,15 @@ fun scale_color_gradient2(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -190,6 +324,31 @@ fun scale_color_gradient2(
     )
 )
 
+/**
+ * Sequential grey color scale for fill aesthetic.
+ * The palette is computed using HSV (hue, saturation, value) color model.
+ *
+ * @param start numeric
+ *      Gray value at low end of palette in range [0,1]
+ * @param end numeric
+ *      Gray value at high end of palette in range [0,1]
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 fun scale_fill_grey(
     start: Number? = null,
     end: Number? = null,
@@ -198,10 +357,9 @@ fun scale_fill_grey(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ): Scale {
     start?.let { require(start.toDouble() in (0.0..1.0)) { "'start' must be in range: [0,1]: $start" } }
     end?.let { require(end.toDouble() in (0.0..1.0)) { "'end' must be in range: [0,1]: $end" } }
@@ -212,7 +370,6 @@ fun scale_fill_grey(
         breaks = breaks,
         labels = labels,
         limits = limits?.toList(),
-        expand = expand,
         naValue = naValue,
         guide = guide,
         trans = trans,
@@ -232,6 +389,31 @@ fun scale_fill_grey(
     )
 }
 
+/**
+ * Sequential grey color scale for color aesthetic.
+ * The palette is computed using HSV (hue, saturation, value) color model.
+ *
+ * @param start numeric
+ *      Gray value at low end of palette in range [0,1]
+ * @param end numeric
+ *      Gray value at high end of palette in range [0,1]
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 fun scale_color_grey(
     start: Number? = null,
     end: Number? = null,
@@ -240,10 +422,9 @@ fun scale_color_grey(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ): Scale {
     start?.let { require(start.toDouble() in (0.0..1.0)) { "'start' must be in range: [0,1]: $start" } }
     end?.let { require(end.toDouble() in (0.0..1.0)) { "'end' must be in range: [0,1]: $end" } }
@@ -254,7 +435,6 @@ fun scale_color_grey(
         breaks = breaks,
         labels = labels,
         limits = limits?.toList(),
-        expand = expand,
         naValue = naValue,
         guide = guide,
         trans = trans,
@@ -274,8 +454,38 @@ fun scale_color_grey(
     )
 }
 
+/**
+ * Qualitative color scale with evenly spaced hues for fill aesthetic.
+ *
+ * @param h a pair of numbers
+ *      Range of hues, in [0,360].
+ * @param c numeric
+ *      Chroma (intensity of color), maximum value varies depending on.
+ * @param l numeric
+ *      Luminance (lightness), in [0,100].
+ * @param hstart list of two numbers
+ *      Hue to start at.
+ * @param direction numeric
+ *      Direction to travel around the color wheel, 1 = clockwise (default), -1=counter-clockwise.
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 fun scale_fill_hue(
-    h: Int? = null,
+    h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,
     @Suppress("SpellCheckingInspection")
@@ -285,17 +495,15 @@ fun scale_fill_hue(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.FILL,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -311,8 +519,38 @@ fun scale_fill_hue(
     )
 )
 
+/**
+ * Qualitative color scale with evenly spaced hues for color aesthetic.
+ *
+ * @param h a pair of numbers
+ *      Range of hues, in [0,360].
+ * @param c numeric
+ *      Chroma (intensity of color), maximum value varies depending on.
+ * @param l numeric
+ *      Luminance (lightness), in [0,100].
+ * @param hstart list of two numbers
+ *      Hue to start at.
+ * @param direction numeric
+ *      Direction to travel around the color wheel, 1 = clockwise (default), -1=counter-clockwise.
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param guide
+ *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ */
 fun scale_color_hue(
-    h: Int? = null,
+    h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,
     @Suppress("SpellCheckingInspection")
@@ -322,17 +560,15 @@ fun scale_color_hue(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
-    trans: Any? = null
+    trans: String? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,

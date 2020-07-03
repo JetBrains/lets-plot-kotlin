@@ -20,10 +20,12 @@ import jetbrains.letsPlot.intern.Scale
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- *
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *      The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 @Suppress("FunctionName")
 fun scale_x_continuous(
@@ -31,19 +33,24 @@ fun scale_x_continuous(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
+    expand: List<Any>? = null,
     naValue: Any? = null,
-    trans: Any? = null
-) = Scale(
-    aesthetic = Aes.X,
-    name = name,
-    breaks = breaks,
-    labels = labels,
-    limits = limits?.toList(),
-    expand = expand,
-    naValue = naValue,
-    trans = trans
-)
+    trans: String? = null
+): Scale {
+    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
+    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
+
+    return Scale(
+        aesthetic = Aes.X,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits?.toList(),
+        expand = expand,
+        naValue = naValue,
+        trans = trans
+    )
+}
 
 /**
  * Continuous scale for y axis
@@ -57,10 +64,12 @@ fun scale_x_continuous(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- *
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *      The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param trans Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 @Suppress("FunctionName")
 fun scale_y_continuous(
@@ -68,16 +77,21 @@ fun scale_y_continuous(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
+    expand: List<Any>? = null,
     naValue: Any? = null,
-    trans: Any? = null
-) = Scale(
-    aesthetic = Aes.Y,
-    name = name,
-    breaks = breaks,
-    labels = labels,
-    limits = limits?.toList(),
-    expand = expand,
-    naValue = naValue,
-    trans = trans
-)
+    trans: String? = null
+): Scale {
+    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
+    expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
+
+    return Scale(
+        aesthetic = Aes.Y,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits?.toList(),
+        expand = expand,
+        naValue = naValue,
+        trans = trans
+    )
+}

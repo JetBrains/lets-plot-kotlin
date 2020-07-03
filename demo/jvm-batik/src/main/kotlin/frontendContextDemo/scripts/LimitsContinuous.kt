@@ -10,9 +10,7 @@ import jetbrains.letsPlot.geom.geom_hline
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_vline
 import jetbrains.letsPlot.lets_plot
-import jetbrains.letsPlot.scale.lims
-import jetbrains.letsPlot.scale.xlim
-import jetbrains.letsPlot.scale.ylim
+import jetbrains.letsPlot.scale.*
 import java.util.*
 
 @Suppress("DuplicatedCode")
@@ -46,6 +44,22 @@ object LimitsContinuous {
             (p + xlim(-10 to 10) + ylim(-10 to 10) +
                     geom_vline(linetype = 3) { xintercept = Pair(-10, 10) } +
                     geom_hline(linetype = 3) { yintercept = listOf(-10, 10) }
+                    ).show()
+
+            // scale continuous limits
+
+            (p + scale_x_continuous(limits = -1 to 1) +
+                    geom_vline(linetype = 3) { xintercept = -1 to 1 }
+                    ).show()
+
+            (p + scale_x_continuous(limits = -1 to 1, expand = listOf(.0, .5)) +
+                    geom_vline(linetype = 3) { xintercept = -1 to 1 }
+                    ).show()
+
+            (p + scale_x_continuous(limits = -1 to 1, expand = listOf(.0, .5)) +
+                    geom_vline(linetype = 3) { xintercept = -1 to 1 } +
+                    scale_y_continuous(limits = -2 to 2, expand = listOf(.0, 1)) +
+                    geom_hline(linetype = 3) { yintercept = -2 to 2 }
                     ).show()
         }
     }
