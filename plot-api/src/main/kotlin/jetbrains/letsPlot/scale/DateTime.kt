@@ -39,7 +39,7 @@ fun scale_x_datetime(
     expand: List<Any>? = null,
     naValue: Any? = null
 ): Scale {
-    expand?.let { require(expand.size <= 2) { "'expand' can contain no more than two values: $expand" } }
+    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
     expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
 
     return Scale(
@@ -85,7 +85,7 @@ fun scale_y_datetime(
     expand: List<Any>? = null,
     naValue: Any? = null
 ): Scale {
-    expand?.let { require(expand.size <= 2) { "'expand' can contain no more than two values: $expand" } }
+    expand?.let { require(expand.size in (1..2)) { "'expand' can contain no more than two values: $expand" } }
     expand?.let { require(expand.all { it is Number }) { "'expand' must contain numbers: $expand" } }
 
     return Scale(

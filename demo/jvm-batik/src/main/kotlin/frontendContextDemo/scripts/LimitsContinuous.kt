@@ -58,7 +58,7 @@ object LimitsContinuous {
 
             (p + scale_x_continuous(limits = -1 to 1, expand = listOf(.0, .5)) +
                     geom_vline(linetype = 3) { xintercept = -1 to 1 } +
-                    scale_y_continuous(limits = -2 to 2, expand = listOf(.0, 1.0)) +
+                    scale_y_continuous(limits = -2 to 2, expand = listOf(.0, 1)) +
                     geom_hline(linetype = 3) { yintercept = -2 to 2 }
                     ).show()
         }
