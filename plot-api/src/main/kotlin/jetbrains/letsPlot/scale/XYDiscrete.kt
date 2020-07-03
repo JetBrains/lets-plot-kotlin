@@ -82,7 +82,7 @@ fun scale_y_discrete(
         name = name,
         breaks = breaks,
         labels = labels,
-        limits = limits?.toList(),
+        limits = limits,
         expand = expand,
         naValue = naValue
     )

@@ -45,7 +45,7 @@ fun scale_x_continuous(
         name = name,
         breaks = breaks,
         labels = labels,
-        limits = limits?.toList(),
+        limits = limits,
         expand = expand,
         naValue = naValue,
         trans = trans
@@ -89,7 +89,7 @@ fun scale_y_continuous(
         name = name,
         breaks = breaks,
         labels = labels,
-        limits = limits?.toList(),
+        limits = limits,
         expand = expand,
         naValue = naValue,
         trans = trans

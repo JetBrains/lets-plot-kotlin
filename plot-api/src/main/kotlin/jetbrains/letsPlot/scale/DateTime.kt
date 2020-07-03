@@ -47,7 +47,7 @@ fun scale_x_datetime(
         name = name,
         breaks = breaks,
         labels = labels,
-        limits = limits?.toList(),
+        limits = limits,
         expand = expand,
         naValue = naValue,
         otherOptions = Options(
@@ -93,7 +93,7 @@ fun scale_y_datetime(
         name = name,
         breaks = breaks,
         labels = labels,
-        limits = limits?.toList(),
+        limits = limits,
         expand = expand,
         naValue = naValue,
         otherOptions = Options(
