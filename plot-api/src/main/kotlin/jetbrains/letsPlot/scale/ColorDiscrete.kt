@@ -32,8 +32,6 @@ import jetbrains.letsPlot.intern.Scale
  *      A vector of labels (on ticks)
  * @param limits list of data values
  *      A vector specifying values to display with the scale and their order in guides (axis).
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  */
 fun scale_fill_discrete(
     h: Pair<Int, Int>? = null,
@@ -46,7 +44,6 @@ fun scale_fill_discrete(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null
 ) = Scale(
@@ -55,7 +52,6 @@ fun scale_fill_discrete(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     otherOptions = Options(
@@ -91,8 +87,6 @@ fun scale_fill_discrete(
  *      A vector of labels (on ticks)
  * @param limits list of data values
  *      A vector specifying values to display with the scale and their order in guides (axis).
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  */
 fun scale_color_discrete(
     h: Pair<Int, Int>? = null,
@@ -105,7 +99,6 @@ fun scale_color_discrete(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null
 ) = Scale(
@@ -114,7 +107,6 @@ fun scale_color_discrete(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     otherOptions = Options(

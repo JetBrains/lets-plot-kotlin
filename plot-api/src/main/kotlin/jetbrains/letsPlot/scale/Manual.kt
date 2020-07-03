@@ -27,8 +27,6 @@ import jetbrains.letsPlot.intern.Scale
  * @param limits list
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  */
 @Suppress("FunctionName")
@@ -38,7 +36,6 @@ fun scale_color_manual(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null
 ) = Scale(
@@ -47,7 +44,6 @@ fun scale_color_manual(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     otherOptions = Options(
@@ -74,8 +70,6 @@ fun scale_color_manual(
  * @param limits list
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  */
 @Suppress("FunctionName")
@@ -85,7 +79,6 @@ fun scale_fill_manual(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null
 ) = Scale(
@@ -94,7 +87,6 @@ fun scale_fill_manual(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     otherOptions = Options(
@@ -121,8 +113,6 @@ fun scale_fill_manual(
  * @param limits list
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  */
 @Suppress("FunctionName")
@@ -132,7 +122,6 @@ fun scale_size_manual(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null
 ) = Scale(
@@ -141,7 +130,6 @@ fun scale_size_manual(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     otherOptions = Options(
@@ -168,8 +156,6 @@ fun scale_size_manual(
  * @param limits list
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  */
 @Suppress("FunctionName")
@@ -179,7 +165,6 @@ fun scale_shape_manual(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null
 ) = Scale(
@@ -188,7 +173,6 @@ fun scale_shape_manual(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     otherOptions = Options(
@@ -215,8 +199,6 @@ fun scale_shape_manual(
  * @param limits list
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  */
 @Suppress("FunctionName")
@@ -226,7 +208,6 @@ fun scale_linetype_manual(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null
 ) = Scale(
@@ -235,7 +216,6 @@ fun scale_linetype_manual(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     otherOptions = Options(
@@ -262,8 +242,6 @@ fun scale_linetype_manual(
  * @param limits list
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  */
 @Suppress("FunctionName")
@@ -273,7 +251,6 @@ fun scale_alpha_manual(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null
 ) = Scale(
@@ -282,7 +259,6 @@ fun scale_alpha_manual(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     otherOptions = Options(

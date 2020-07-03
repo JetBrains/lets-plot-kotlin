@@ -25,8 +25,6 @@ import jetbrains.letsPlot.intern.Scale
  * @param limits list
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
  *      Guide to use for this scale.
@@ -40,7 +38,6 @@ fun scale_shape(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null
 ) = Scale(
@@ -49,7 +46,6 @@ fun scale_shape(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     otherOptions = Options(

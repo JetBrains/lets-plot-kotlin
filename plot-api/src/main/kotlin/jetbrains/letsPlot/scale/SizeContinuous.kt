@@ -25,8 +25,6 @@ import jetbrains.letsPlot.intern.Scale
  * @param limits A pair of numbers specifying the data range for the scale.
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
- *
- * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue Missing values will be replaced with this value.
  * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
  *      "none" will hide the guide.
@@ -39,7 +37,6 @@ fun scale_size(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -49,7 +46,6 @@ fun scale_size(
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -72,8 +68,6 @@ fun scale_size(
  * @param limits A pair of numbers specifying the data range for the scale.
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
- *
- * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  * @param naValue Missing values will be replaced with this value.
  * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
  *      "none" will hide the guide.
@@ -86,7 +80,6 @@ fun scale_size_area(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -96,7 +89,6 @@ fun scale_size_area(
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,

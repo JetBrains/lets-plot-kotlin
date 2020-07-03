@@ -30,7 +30,6 @@ fun scale_fill_continuous(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -40,7 +39,6 @@ fun scale_fill_continuous(
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -59,7 +57,6 @@ fun scale_color_continuous(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -69,7 +66,6 @@ fun scale_color_continuous(
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -88,7 +84,6 @@ fun scale_fill_gradient(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -98,7 +93,6 @@ fun scale_fill_gradient(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans
@@ -110,7 +104,6 @@ fun scale_color_gradient(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -120,7 +113,6 @@ fun scale_color_gradient(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans
@@ -133,7 +125,6 @@ fun scale_fill_gradient2(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -143,7 +134,6 @@ fun scale_fill_gradient2(
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -165,7 +155,6 @@ fun scale_color_gradient2(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -175,7 +164,6 @@ fun scale_color_gradient2(
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -198,7 +186,6 @@ fun scale_fill_grey(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -212,7 +199,6 @@ fun scale_fill_grey(
         breaks = breaks,
         labels = labels,
         limits = limits?.toList(),
-        expand = expand,
         naValue = naValue,
         guide = guide,
         trans = trans,
@@ -240,7 +226,6 @@ fun scale_color_grey(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -254,7 +239,6 @@ fun scale_color_grey(
         breaks = breaks,
         labels = labels,
         limits = limits?.toList(),
-        expand = expand,
         naValue = naValue,
         guide = guide,
         trans = trans,
@@ -285,7 +269,6 @@ fun scale_fill_hue(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -295,7 +278,6 @@ fun scale_fill_hue(
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
@@ -322,7 +304,6 @@ fun scale_color_hue(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: Any? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -332,7 +313,6 @@ fun scale_color_hue(
     breaks = breaks,
     labels = labels,
     limits = limits?.toList(),
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,
