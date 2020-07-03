@@ -9,10 +9,7 @@ import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.scale.scale_color_gradient2
-import jetbrains.letsPlot.scale.scale_color_grey
-import jetbrains.letsPlot.scale.scale_fill_gradient2
-import jetbrains.letsPlot.scale.scale_fill_grey
+import jetbrains.letsPlot.scale.*
 
 object ScaleColorContinuous {
     @JvmStatic
@@ -38,6 +35,13 @@ object ScaleColorContinuous {
             (p + WB).show()
             val BW = scale_fill_grey(1, 0) + scale_color_grey(1, 0)
             (p + BW).show()
+
+            // evenly spaced hues
+            (p + scale_fill_hue() + scale_color_hue()).show()
+            (p + scale_fill_hue(c = 20) + scale_color_hue(c = 20)).show()
+            (p + scale_fill_hue(l = 40) + scale_color_hue(l = 40)).show()
+            (p + scale_fill_hue(h = 0 to 60) + scale_color_hue(h = 0 to 60)).show()
+            (p + scale_fill_hue(hstart = 180) + scale_color_hue(hstart = 180)).show()
         }
     }
 }

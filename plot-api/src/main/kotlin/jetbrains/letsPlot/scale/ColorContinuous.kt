@@ -259,7 +259,7 @@ fun scale_color_grey(
 }
 
 fun scale_fill_hue(
-    h: Int? = null,
+    h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,
     @Suppress("SpellCheckingInspection")
@@ -294,7 +294,7 @@ fun scale_fill_hue(
 )
 
 fun scale_color_hue(
-    h: Int? = null,
+    h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,
     @Suppress("SpellCheckingInspection")
