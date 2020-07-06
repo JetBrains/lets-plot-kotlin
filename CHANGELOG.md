@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.23-SNAPSHOT]
+### Added
+- Parameter `expand` in positional scales.
+- Demo notebooks (GGBunch, Legends & Axis) 
+
+### Changed
+- Lets-Plot core version upgraded to 1.4.4-SNAPSHOT - now without dependencies on Kotlin-test, junit.
+
+### Fixed
+- Loading Kotlin-numpy when opening demo notebooks at `mybinder.org`.
 
 ## [0.0.22-SNAPSHOT] - 2020-07-01 (Bundled with Kotlin Kernel)
 ### Added
