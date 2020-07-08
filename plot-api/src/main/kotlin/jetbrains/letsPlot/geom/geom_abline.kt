@@ -53,10 +53,10 @@ class geom_abline(
     sampling: SamplingOptions? = null,
     override val slope: Double? = null,
     override val intercept: Double? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     mapping: ABLineMapping.() -> Unit = {}
 
 ) : ABLineAesthetics,

@@ -54,11 +54,11 @@ class geom_tile(
     override val y: Double? = null,
     override val width: Double? = null,
     override val height: Double? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     mapping: TileMapping.() -> Unit = {}
 
 ) : TileAesthetics,

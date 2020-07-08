@@ -65,11 +65,11 @@ class geom_polygon(
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val linetype: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     // TODO add map/map_join parameters support
     mapping: PolygonMapping.() -> Unit = {}
 ) : PolygonAesthetics,

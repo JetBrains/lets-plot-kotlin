@@ -51,10 +51,10 @@ class geom_vline(
     sampling: SamplingOptions? = null,
     @Suppress("SpellCheckingInspection")
     override val xintercept: Number? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     mapping: VLineMapping.() -> Unit = {}
 
 ) : VLineAesthetics,

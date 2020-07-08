@@ -51,10 +51,10 @@ class geom_line(
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     mapping: LineMapping.() -> Unit = {}
 
 ) : LineAesthetics,

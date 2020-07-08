@@ -59,10 +59,10 @@ class geom_segment(
     override val y: Double? = null,
     override val xend: Double? = null,
     override val yend: Double? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val speed: Double? = null,
     override val flow: Double? = null,
     mapping: SegmentMapping.() -> Unit = {}

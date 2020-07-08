@@ -7,6 +7,7 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geom_jitter
+import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scale_x_discrete
 
@@ -20,11 +21,16 @@ object Jitter {
                 "l" to List(100) { "A" } + List(100) { "B" } + List(100) { "C" }
             )
 
-            val p = ggplot(data) { x = "l"; y = "d"; color = "l" } +
-                    geom_jitter(size = 3.0, width = .2)
-            p.show()
+            val p = ggplot(data) { x = "l"; y = "d" }
 
-            (p + scale_x_discrete(expand = listOf(0, .1))).show()
+            (p + geom_point(shape = 21, color = "black", fill = "white", size = 3, stroke = 3)).show()
+
+            (p + geom_jitter(shape = 21, fill = "white", size = 3, stroke = 3)).show()
+
+            val geom = geom_jitter(size = 3.0, width = .2) { color = "l" }
+            (p + geom).show()
+
+            (p + geom + scale_x_discrete(expand = listOf(0, .1))).show()
         }
     }
 }

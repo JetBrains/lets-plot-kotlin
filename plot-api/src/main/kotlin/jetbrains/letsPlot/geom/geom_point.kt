@@ -51,12 +51,12 @@ class geom_point(
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
     override val shape: Any? = null,
-    override val size: Double? = null,
-    override val stroke: Double? = null,
+    override val size: Number? = null,
+    override val stroke: Number? = null,
     mapping: PointMapping.() -> Unit = {}
 
 ) : PointAesthetics,
