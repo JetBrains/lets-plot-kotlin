@@ -56,7 +56,7 @@ class geom_point(
     override val fill: Any? = null,
     override val shape: Any? = null,
     override val size: Number? = null,
-    override val stroke: Double? = null,
+    override val stroke: Number? = null,
     mapping: PointMapping.() -> Unit = {}
 
 ) : PointAesthetics,
