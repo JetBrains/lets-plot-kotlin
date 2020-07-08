@@ -54,7 +54,7 @@ class geom_vline(
     override val alpha: Double? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     mapping: VLineMapping.() -> Unit = {}
 
 ) : VLineAesthetics,

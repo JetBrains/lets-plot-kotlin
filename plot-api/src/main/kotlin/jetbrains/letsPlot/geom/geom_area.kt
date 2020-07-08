@@ -56,7 +56,7 @@ class geom_area(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     mapping: AreaMapping.() -> Unit = {}
 
 ) : AreaAesthetics,

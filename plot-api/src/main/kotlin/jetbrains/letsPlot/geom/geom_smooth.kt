@@ -61,7 +61,7 @@ class geom_smooth(
     override val y: Double? = null,
     override val ymin: Double? = null,
     override val ymax: Double? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val linetype: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,

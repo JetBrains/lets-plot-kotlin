@@ -30,7 +30,7 @@ class stat_bin(
     override val alpha: Double? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val weight: Any? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,

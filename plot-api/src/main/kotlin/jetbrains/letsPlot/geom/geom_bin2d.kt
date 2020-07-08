@@ -68,7 +68,7 @@ class geom_bin2d(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val weight: Any? = null,
     override val bins: Pair<Int, Int>? = null,
     override val binWidth: Pair<Number?, Number?>? = null,

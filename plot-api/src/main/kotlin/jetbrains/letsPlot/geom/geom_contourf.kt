@@ -53,7 +53,7 @@ class geom_contourf(
     override val x: Double? = null,
     override val y: Double? = null,
     override val z: Double? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val linetype: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,

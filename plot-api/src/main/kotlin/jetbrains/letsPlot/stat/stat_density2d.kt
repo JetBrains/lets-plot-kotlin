@@ -29,7 +29,7 @@ class stat_density2d(
     override val alpha: Double? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val speed: Double? = null,
     override val flow: Double? = null,
     override val weight: Double? = null,

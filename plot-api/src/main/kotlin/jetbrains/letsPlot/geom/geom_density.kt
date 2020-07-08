@@ -56,7 +56,7 @@ class geom_density(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val weight: Any? = null,
     override val bw: Any? = null,
     override val kernel: String? = null,

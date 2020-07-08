@@ -63,7 +63,7 @@ class geom_pointrange(
     override val fill: Any? = null,
     override val linetype: Any? = null,
     override val shape: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     mapping: PointRangeMapping.() -> Unit = {}
 ) : PointRangeAesthetics,
     LayerBase(

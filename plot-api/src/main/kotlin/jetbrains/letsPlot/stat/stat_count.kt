@@ -30,7 +30,7 @@ class stat_count(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val width: Double? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val weight: Double? = null,
     mapping: BarMapping.() -> Unit = {}
 

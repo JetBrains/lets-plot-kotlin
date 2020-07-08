@@ -54,7 +54,7 @@ class geom_hline(
     override val alpha: Double? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     mapping: HLineMapping.() -> Unit = {}
 
 ) : HLineAesthetics,

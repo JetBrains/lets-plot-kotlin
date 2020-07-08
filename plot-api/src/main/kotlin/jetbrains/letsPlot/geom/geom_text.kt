@@ -61,7 +61,7 @@ class geom_text(
     override val label: String? = null,
     override val alpha: Double? = null,
     override val color: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val family: String? = null,
     override val fontface: String? = null,
     override val hjust: Any? = null,

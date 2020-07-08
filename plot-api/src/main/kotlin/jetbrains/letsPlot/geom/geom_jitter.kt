@@ -62,7 +62,7 @@ class geom_jitter(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val shape: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val stroke: Double? = null,
     override val width: Number? = null,
     override val height: Number? = null,

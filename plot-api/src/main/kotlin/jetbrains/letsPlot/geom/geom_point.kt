@@ -55,7 +55,7 @@ class geom_point(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val shape: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val stroke: Double? = null,
     mapping: PointMapping.() -> Unit = {}
 

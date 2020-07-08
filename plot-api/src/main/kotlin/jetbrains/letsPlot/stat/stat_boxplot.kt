@@ -36,7 +36,7 @@ class stat_boxplot(
     override val alpha: Double? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val size: Double? = null,
+    override val size: Number? = null,
     override val linetype: Any? = null,
     override val shape: Any? = null,
     override val width: Any? = null,
