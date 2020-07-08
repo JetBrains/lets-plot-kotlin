@@ -22,7 +22,7 @@ object Geom {
     class point(
         override val x: Double? = null,
         override val y: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val shape: Any? = null,
@@ -41,7 +41,7 @@ object Geom {
     class path(
         override val x: Double? = null,
         override val y: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
@@ -60,7 +60,7 @@ object Geom {
     class area(
         override val x: Double? = null,
         override val y: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val linetype: Any? = null,
@@ -78,7 +78,7 @@ object Geom {
     class histogram(
         override val x: Double? = null,
         override val y: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val size: Number? = null,
@@ -95,7 +95,7 @@ object Geom {
     class line(
         override val x: Double? = null,
         override val y: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
@@ -112,7 +112,7 @@ object Geom {
     class bar(
         override val x: Double? = null,
         override val y: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val width: Double? = null,
@@ -132,7 +132,7 @@ object Geom {
         override val y: Double? = null,
         override val width: Double? = null,
         override val height: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val linetype: Any? = null,
@@ -150,7 +150,7 @@ object Geom {
     class raster(
         override val x: Double? = null,
         override val y: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val fill: Any? = null,
         mapping: RasterMapping.() -> Unit = {}
     ) : RasterAesthetics,
@@ -165,7 +165,7 @@ object Geom {
     class abline(
         override val slope: Double? = null,
         override val intercept: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
@@ -182,7 +182,7 @@ object Geom {
     class hline(
         @Suppress("SpellCheckingInspection")
         override val yintercept: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
@@ -199,7 +199,7 @@ object Geom {
     class vline(
         @Suppress("SpellCheckingInspection")
         override val xintercept: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
@@ -218,7 +218,7 @@ object Geom {
         override val xmax: Double? = null,
         override val ymin: Double? = null,
         override val ymax: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
@@ -238,7 +238,7 @@ object Geom {
         override val y: Double? = null,
         override val xend: Double? = null,
         override val yend: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
@@ -258,7 +258,7 @@ object Geom {
         override val x: Double? = null,
         override val y: Double? = null,
         override val label: String? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val size: Number? = null,
         override val family: String? = null,
@@ -289,7 +289,7 @@ object Geom {
         override val outlierShape: Any? = null,
         override val outlierSize: Number? = null,
         override val fatten: Number? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val size: Number? = null,
@@ -316,7 +316,7 @@ object Geom {
         override val ymin: Double? = null,
         override val ymax: Double? = null,
         override val width: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
@@ -336,7 +336,7 @@ object Geom {
         override val ymax: Double? = null,
         override val middle: Double? = null,
         override val width: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val linetype: Any? = null,
@@ -357,7 +357,7 @@ object Geom {
         override val y: Double? = null,
         override val ymin: Double? = null,
         override val ymax: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
         override val linetype: Any? = null,
@@ -377,7 +377,7 @@ object Geom {
         override val x: Double? = null,
         override val ymin: Double? = null,
         override val ymax: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
@@ -399,7 +399,7 @@ object Geom {
         override val linetype: Any? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         mapping: RibbonMapping.() -> Unit = {}
     ) : RibbonAesthetics,
         GeomOptions(
@@ -417,7 +417,7 @@ object Geom {
         override val linetype: Any? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         // TODO add map/map_join parameters support
         mapping: PolygonMapping.() -> Unit = {}
     ) : PolygonAesthetics,
@@ -432,7 +432,7 @@ object Geom {
     class step(
         override val x: Double? = null,
         override val y: Double? = null,
-        override val alpha: Double? = null,
+        override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,

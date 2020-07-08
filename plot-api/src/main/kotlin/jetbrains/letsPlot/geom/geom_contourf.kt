@@ -57,7 +57,7 @@ class geom_contourf(
     override val linetype: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,
     mapping: ContourfMapping.() -> Unit = {}

@@ -46,7 +46,7 @@ class geom_raster(
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val fill: Any? = null,
     mapping: RasterMapping.() -> Unit = {}
 

@@ -52,7 +52,7 @@ class geom_density(
     sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
     override val linetype: Any? = null,

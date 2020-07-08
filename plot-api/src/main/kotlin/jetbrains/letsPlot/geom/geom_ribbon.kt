@@ -58,7 +58,7 @@ class geom_ribbon(
     override val linetype: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     mapping: RibbonMapping.() -> Unit = {}
 ) : RibbonAesthetics,
     LayerBase(

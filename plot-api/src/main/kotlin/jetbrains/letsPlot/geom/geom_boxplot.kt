@@ -77,7 +77,7 @@ class geom_boxplot(
     override val upper: Double? = null,
     override val ymin: Double? = null,
     override val ymax: Double? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
     override val size: Number? = null,

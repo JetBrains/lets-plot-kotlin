@@ -65,7 +65,7 @@ class geom_density2df(
     override val linetype: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     override val weight: Double? = null,
     override val bw: Any? = null,
     override val kernel: String? = null,

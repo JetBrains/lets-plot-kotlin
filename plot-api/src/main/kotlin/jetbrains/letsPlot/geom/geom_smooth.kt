@@ -65,7 +65,7 @@ class geom_smooth(
     override val linetype: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val alpha: Any? = null,
+    override val alpha: Number? = null,
     override val method: String? = null,
     override val n: Int? = null,
     override val level: Number? = null,

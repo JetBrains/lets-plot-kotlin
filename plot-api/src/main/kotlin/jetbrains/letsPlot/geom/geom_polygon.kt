@@ -69,7 +69,7 @@ class geom_polygon(
     override val linetype: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val alpha: Double? = null,
+    override val alpha: Number? = null,
     // TODO add map/map_join parameters support
     mapping: PolygonMapping.() -> Unit = {}
 ) : PolygonAesthetics,
