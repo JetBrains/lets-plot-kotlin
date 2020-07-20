@@ -10,6 +10,7 @@ import jetbrains.letsPlot.geom.geom_line
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_x_continuous
+import jetbrains.letsPlot.scale.scale_x_log10
 
 object ScaleTransform {
     @JvmStatic
@@ -25,6 +26,7 @@ object ScaleTransform {
             p.show()
             (p + scale_x_continuous(trans = "reverse") + ggtitle("reverse")).show()
             (p + scale_x_continuous(trans = "log10") + ggtitle("log10")).show()
+            (p + scale_x_log10() + ggtitle("scale_x_log10")).show()
             (p + scale_x_continuous(trans = "sqrt") + ggtitle("sqrt")).show()
         }
     }
