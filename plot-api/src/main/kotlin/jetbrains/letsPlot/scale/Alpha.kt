@@ -24,10 +24,6 @@ import jetbrains.letsPlot.intern.Scale
  *      A vector of labels (on ticks)
  * @param limits pair of numbers
  *      A numeric vector of length two providing limits of the scale.
- * @param expand list of numbers
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *      An aesthetic value which is used when data in not available.
  * @param guide
@@ -43,7 +39,6 @@ fun scale_alpha(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
@@ -53,7 +48,6 @@ fun scale_alpha(
     breaks = breaks,
     labels = labels,
     limits = limits,
-    expand = expand,
     naValue = naValue,
     guide = guide,
     trans = trans,

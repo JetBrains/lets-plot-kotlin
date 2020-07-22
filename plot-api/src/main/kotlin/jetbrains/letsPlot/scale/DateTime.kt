@@ -37,7 +37,7 @@ fun scale_x_datetime(
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: List<Any>? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null
 ): Scale {
     checkScaleExpand(expand)
@@ -81,7 +81,7 @@ fun scale_y_datetime(
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: List<Any>? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null
 ): Scale {
     checkScaleExpand(expand)

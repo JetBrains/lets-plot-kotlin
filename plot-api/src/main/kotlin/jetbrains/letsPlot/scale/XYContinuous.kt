@@ -21,7 +21,8 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ * @param expand list of numbers
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
@@ -34,7 +35,7 @@ fun scale_x_continuous(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: List<Any>? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null,
     trans: String? = null
 ): Scale {
@@ -63,7 +64,8 @@ fun scale_x_continuous(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ * @param expand list of numbers
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
@@ -76,7 +78,7 @@ fun scale_y_continuous(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: List<Any>? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null,
     trans: String? = null
 ): Scale {
@@ -105,7 +107,8 @@ fun scale_y_continuous(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ * @param expand list of numbers
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
@@ -116,7 +119,7 @@ fun scale_x_log10(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: List<Any>? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null
 ) = scale_x_continuous(
     name = name,
@@ -140,7 +143,8 @@ fun scale_x_log10(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ * @param expand list of numbers
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
@@ -151,7 +155,7 @@ fun scale_y_log10(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    expand: List<Any>? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null
 ) = scale_y_continuous(
     name = name,
