@@ -34,7 +34,7 @@ fun scale_x_discrete(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
-    naValue: Any? = null
+    naValue: Number? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -73,7 +73,7 @@ fun scale_y_discrete(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
-    naValue: Any? = null
+    naValue: Number? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(

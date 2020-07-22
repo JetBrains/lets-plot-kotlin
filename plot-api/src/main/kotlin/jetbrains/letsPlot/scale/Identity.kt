@@ -232,7 +232,7 @@ fun scale_alpha_identity(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    naValue: Any? = null,
+    naValue: Number? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.ALPHA,
@@ -278,7 +278,7 @@ fun scale_size_identity(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    naValue: Any? = null,
+    naValue: Number? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.SIZE,

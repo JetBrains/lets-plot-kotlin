@@ -36,7 +36,7 @@ fun scale_x_continuous(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Any? = null,
+    naValue: Number? = null,
     trans: String? = null
 ): Scale {
     checkScaleExpand(expand)
@@ -79,7 +79,7 @@ fun scale_y_continuous(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Any? = null,
+    naValue: Number? = null,
     trans: String? = null
 ): Scale {
     checkScaleExpand(expand)
@@ -120,7 +120,7 @@ fun scale_x_log10(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Any? = null
+    naValue: Number? = null
 ) = scale_x_continuous(
     name = name,
     breaks = breaks,
@@ -156,7 +156,7 @@ fun scale_y_log10(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Any? = null
+    naValue: Number? = null
 ) = scale_y_continuous(
     name = name,
     breaks = breaks,

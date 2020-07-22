@@ -37,7 +37,7 @@ fun scale_size(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    naValue: Any? = null,
+    naValue: Number? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -80,7 +80,7 @@ fun scale_size_area(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    naValue: Any? = null,
+    naValue: Number? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(

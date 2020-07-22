@@ -39,7 +39,7 @@ fun scale_alpha(
     breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
-    naValue: Any? = null,
+    naValue: Number? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
