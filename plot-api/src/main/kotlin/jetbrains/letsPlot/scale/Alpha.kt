@@ -36,7 +36,7 @@ import jetbrains.letsPlot.intern.Scale
 fun scale_alpha(
     range: Pair<Number, Number>? = null,
     name: String? = null,
-    breaks: List<Any>? = null,
+    breaks: List<Number>? = null,
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
