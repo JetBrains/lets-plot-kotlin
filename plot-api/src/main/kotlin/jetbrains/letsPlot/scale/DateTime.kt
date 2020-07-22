@@ -23,7 +23,7 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  *     A numeric vector of positions (of ticks).
  * @param labels list of strings
  *      A vector of labels (on ticks).
- * @param limits list of numerics
+ * @param limits pair
  *      A numeric vector of length two providing limits of the scale.
  * @param expand list of numbers
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -36,8 +36,8 @@ fun scale_x_datetime(
     name: String? = null,
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,
-    limits: Pair<Number?, Number?>? = null,
-    expand: List<Any>? = null,
+    limits: Pair<Any?, Any?>? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null
 ): Scale {
     checkScaleExpand(expand)
@@ -67,7 +67,7 @@ fun scale_x_datetime(
  *     A numeric vector of positions (of ticks).
  * @param labels list of strings
  *      A vector of labels (on ticks).
- * @param limits list of numerics
+ * @param limits pair
  *      A numeric vector of length two providing limits of the scale.
  * @param expand list of numbers
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -80,8 +80,8 @@ fun scale_y_datetime(
     name: String? = null,
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,
-    limits: Pair<Number?, Number?>? = null,
-    expand: List<Any>? = null,
+    limits: Pair<Any?, Any?>? = null,
+    expand: List<Number>? = null,
     naValue: Any? = null
 ): Scale {
     checkScaleExpand(expand)

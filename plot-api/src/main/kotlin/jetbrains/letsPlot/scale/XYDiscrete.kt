@@ -21,7 +21,8 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  * @param limits list of data values
  *      A vector specifying values to display on the axis and their order.
  *      Setting limits will remove data not included in the list.
- * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ * @param expand list of numbers
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
@@ -32,8 +33,8 @@ fun scale_x_discrete(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: List<Any>? = null,
-    naValue: Any? = null
+    expand: List<Number>? = null,
+    naValue: Number? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -59,7 +60,8 @@ fun scale_x_discrete(
  * @param limits list of data values
  *      A vector specifying values to display on the axis and their order.
  *      Setting limits will remove data not included in the list.
- * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ * @param expand list of numbers
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
@@ -70,8 +72,8 @@ fun scale_y_discrete(
     breaks: List<Any>? = null,
     labels: List<String>? = null,
     limits: List<Any>? = null,
-    expand: List<Any>? = null,
-    naValue: Any? = null
+    expand: List<Number>? = null,
+    naValue: Number? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
