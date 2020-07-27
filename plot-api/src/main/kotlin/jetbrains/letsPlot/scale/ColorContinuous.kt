@@ -374,13 +374,8 @@ fun scale_fill_grey(
         trans = trans,
         otherOptions = Options(
             mapOf(
-                // ToDo: scale_xxx_grey
-                // Tmp scale values back to the old range [1,100]
-                // Remove when next Lets-Plot RC is released
-                START to if (start != null) start.toDouble() * 100 else null,
-                END to if (end != null) end.toDouble() * 100 else null,
-//                START to start,
-//                END to end,
+                START to start,
+                END to end,
                 DIRECTION to direction,
                 SCALE_MAPPER_KIND to "color_grey"
             )
@@ -437,13 +432,8 @@ fun scale_color_grey(
         trans = trans,
         otherOptions = Options(
             mapOf(
-                // ToDo: scale_xxx_grey
-                // Tmp scale values back to the old range [1,100]
-                // Remove when next Lets-Plot RC is released
-                START to if (start != null) start.toDouble() * 100 else null,
-                END to if (end != null) end.toDouble() * 100 else null,
-//                START to start,
-//                END to end,
+                START to start,
+                END to end,
                 DIRECTION to direction,
                 SCALE_MAPPER_KIND to "color_grey"
             )

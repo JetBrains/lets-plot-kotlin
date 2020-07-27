@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.23-SNAPSHOT]
+## [0.0.24-SNAPSHOT] - 2020-07-27 (Not released)
+### Added
+- scale_x_log10, scale_y_log10
+- scale_alpha
+
+### Changed
+- Lets-Plot core version upgraded to 1.5.1-SNAPSHOT
+
+### Fixed 
+ - NPE on geom_tile when data contains null-s.
+ - The order of values in the `limits` parameter on discrete scales was ignored.
+
+## [0.0.23-SNAPSHOT] - 2020-07-06 (Bundled with Kotlin Kernel)
 ### Added
 - Parameter `expand` in positional scales.
 - Demo notebooks (GGBunch, Legends & Axis) 
