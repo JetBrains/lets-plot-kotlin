@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.geom.AreaMapping
 
 @Suppress("ClassName")
 /**
- * Display an area.
+ * Display the development of quantitative values over an interval. This is the continuous analog of geom_bar.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].

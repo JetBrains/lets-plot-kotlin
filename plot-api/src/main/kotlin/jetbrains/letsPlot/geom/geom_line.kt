@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.geom.LineMapping
 
 @Suppress("ClassName")
 /**
- * Connect points in order of the variable on the x-axis
+ * Connect points in the order of the variable on the x axis.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].

@@ -16,7 +16,7 @@ import jetbrains.letsPlot.intern.layer.geom.*
 
 @Suppress("ClassName")
 /**
- * Draws rectangles
+ * Display a rectangle defined by the four corners (xmin, xmax, ymin and ymax).
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].

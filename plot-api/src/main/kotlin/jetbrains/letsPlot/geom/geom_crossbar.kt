@@ -18,7 +18,7 @@ import jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
 
 @Suppress("ClassName")
 /**
- * Bar with horizontal median line
+ * Display bars with horizontal median line.
  * @param data dictionary or pandas DataFrame, optional
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to ggplot.

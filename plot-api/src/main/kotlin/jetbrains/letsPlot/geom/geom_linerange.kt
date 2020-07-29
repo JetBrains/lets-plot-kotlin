@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.geom.LineRangeMapping
 
 @Suppress("ClassName")
 /**
- * Line range, defined by an upper and lower value.
+ * Display a line range defined by an upper and lower value.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].

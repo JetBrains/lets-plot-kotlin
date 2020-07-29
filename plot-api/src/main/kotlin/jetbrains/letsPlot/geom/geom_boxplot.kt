@@ -21,7 +21,8 @@ import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 
 @Suppress("ClassName")
 /**
- * Add box plot.
+ * Display the distribution of data based on a five number summary ("minimum", first quartile (Q1), median, third quartile (Q3), and "maximum"),
+ * and "outlying" points individually.
  *
  * @param data dictionary or pandas DataFrame, optional
  *     The data to be displayed in this layer. If None, the default, the data

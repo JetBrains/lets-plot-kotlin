@@ -17,9 +17,7 @@ import jetbrains.letsPlot.intern.layer.geom.PolygonMapping
 
 @Suppress("ClassName")
 /**
- * Display a polygon (filled path).
- *      geom_polygon draws polygons, which are filled paths.
- *      Each vertex of the polygon requires a separate row in the data.
+ * Display a filled closed path defined by the vertex coordinates of individual polygons.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
