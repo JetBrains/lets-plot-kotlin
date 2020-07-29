@@ -19,7 +19,7 @@ import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
 
 @Suppress("ClassName")
 /**
- * Bar chart which makes the height of the bar proportional to the number of observed variable values, mapped to x axis.
+ * Display a bar chart which makes the height of the bar proportional to the number of observed variable values, mapped to x axis.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].

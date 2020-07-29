@@ -19,7 +19,7 @@ import jetbrains.letsPlot.intern.layer.stat.BinStatParameters
 
 @Suppress("ClassName")
 /**
- * Line chart which makes the y value proportional to the number of observed variable values, mapped to x axis.
+ * Display a line chart which makes the y value proportional to the number of observed variable values, mapped to x axis.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].

@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.geom.TileMapping
 
 @Suppress("ClassName")
 /**
- * Rectangles with x, y values mapped to center
+ * Display a rectangle defined by the center of the tile and its size (x, y, width, height).
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].

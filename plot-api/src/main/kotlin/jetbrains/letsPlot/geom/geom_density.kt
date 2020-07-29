@@ -16,7 +16,7 @@ import jetbrains.letsPlot.intern.layer.stat.DensityStatParameters
 
 @Suppress("ClassName")
 /**
- * Display density function.
+ * Display a density estimate, which is a smoothed version of the histogram.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
