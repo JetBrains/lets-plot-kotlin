@@ -39,15 +39,17 @@ import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash"
  * @param method smoothing method: lm (Linear Model) or loess (Locally Estimated Scatterplot Smoothing).
- * @param n number of points to evaluate smoother at.
- * @param se boolean, to display confidence interval around smooth.
- * @param level level of confidence interval to use.
- * @param span number, optional.
+ *      Default is 'lm'.
+ * @param n number of points to evaluate smoother at. Default is 80.
+ * @param se boolean, to display confidence interval around smooth. Default - true.
+ * @param level level of confidence interval to use. Default - 0.95.
+ * @param span number, optional. Default - 0.5.
  *     Only for LOESS method. The fraction of source points closest to the current point
  *     is taken into account for computing a least-squares regression. A sensible value is usually 0.25 to 0.5.
- * @param deg degree of polynomial for linear regression model. (Default = 1)
+ * @param deg degree of polynomial for linear regression model. Default - 1.
  * @param seed random seed for LOESS sampling.
- * @param maxN maximum points in DF for LOESS.
+ * @param maxN maximum number of data-points for LOESS method. Default - 1000.
+ *      If this quantity exceeded random sampling is applied to data.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
