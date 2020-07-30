@@ -46,7 +46,7 @@ import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
  *     Amount of smoothing. A sensible value is usually 0.25 to 0.5.
  * @param deg degree of polynomial for regression.
  * @param seed random seed for LOESS sampling.
- * @param maxn maximum points in DF for LOESS.
+ * @param maxN maximum points in DF for LOESS.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -73,7 +73,7 @@ class geom_smooth(
     override val span: Number? = null,
     override val deg: Int? = null,
     override val seed: Long? = null,
-    override val maxn: Int? = null,
+    override val maxN: Int? = null,
     mapping: SmoothMapping.() -> Unit = {}
 ) : SmoothAesthetics,
     SmoothStatParameters,

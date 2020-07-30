@@ -16,7 +16,7 @@ import jetbrains.letsPlot.intern.layer.OptionsCapsule
  * level (0.95) - level of confidence interval to use
  * deg ( >= 1 ) - degree of polynomial for regression
  * seed  - random seed for LOESS sampling
- * maxn (1000)  - maximum points in DF for LOESS
+ * maxN (1000)  - maximum points in DF for LOESS
  */
 interface SmoothStatParameters : OptionsCapsule {
     val method: String?
@@ -26,7 +26,7 @@ interface SmoothStatParameters : OptionsCapsule {
     val span: Number?
     val deg: Int?
     val seed: Long?
-    val maxn: Int?
+    val maxN: Int?
 
     override fun seal() = Options.of(
         "method" to method,
@@ -36,6 +36,6 @@ interface SmoothStatParameters : OptionsCapsule {
         "span" to span,
         "deg" to deg,
         "seed" to seed,
-        "max_n" to maxn
+        "max_n" to maxN
     )
 }

@@ -153,7 +153,7 @@ object Stat {
         override val span: Number? = null,
         override val deg: Int? = null,
         override val seed: Long? = null,
-        override val maxn: Int? = null,
+        override val maxN: Int? = null,
         mapping: SmoothStatMapping.() -> Unit = {}
     ) : SmoothStatParameters,
         StatOptions(
