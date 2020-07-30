@@ -36,6 +36,15 @@ object ScaleXYContinuous {
             // the same
             (p + scale_y_continuous(trans = "log10") + scale_x_continuous(trans = "log10") +
                     ggtitle("scale_y_continuous(log10) + scale_x_continuous(log10)")).show()
+
+            // reversed
+            (p + scale_x_reverse() + ggtitle("scale_x_reverse")).show()
+            (p + scale_y_reverse() + ggtitle("scale_y_reverse")).show()
+
+            // sqrt
+            (p + scale_x_sqrt() + ggtitle("scale_x_sqrt")).show()
+            (p + scale_y_sqrt() + ggtitle("scale_y_sqrt")).show()
+
         }
     }
 }
