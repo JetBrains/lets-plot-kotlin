@@ -17,6 +17,7 @@ dependencies {
     testCompile "junit:junit:$junit_version"
 
     api "org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version"
+    compileOnly "org.jetbrains.lets-plot:lets-plot-image-export:$lets_plot_version"
 }
 
 
@@ -82,7 +83,39 @@ publishing {
                 }
             }
         }
+
+        letsPlotKotlinApiKernel(MavenPublication) {
+            groupId artifactGroupId
+            artifactId "$artifactBaseName-kernel"
+            version artifactVersion
+
+            artifact jarClasses
+            artifact jarSources
+
+            pom {
+                name = "Lets-Plot Kotlin API (for Jupyter Kotlin Kernel)"
+                description = "Lets-Plot Kotlin API without fixed dependencies."
+                url = "https://github.com/JetBrains/lets-plot-kotlin"
+                licenses {
+                    license {
+                        name = "MIT"
+                        url = "https://opensource.org/licenses/MIT"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "jetbrains"
+                        name = "JetBrains"
+                        email = "lets-plot@jetbrains.com"
+                    }
+                }
+                scm {
+                    url = "https://github.com/JetBrains/lets-plot-kotlin"
+                }
+            }
+        }
     }
+    
     repositories {
         maven {
             url = uri("https://jetbrains.bintray.com/lets-plot-maven")
@@ -103,7 +136,7 @@ if (bintray_user != null && bintray_key != null) {
     bintray {
         user = bintray_user
         key = bintray_key
-        publications = ['letsPlotKotlinApi']
+        publications = ['letsPlotKotlinApi', 'letsPlotKotlinApiKernel']
         publish = true
         override = true
 
