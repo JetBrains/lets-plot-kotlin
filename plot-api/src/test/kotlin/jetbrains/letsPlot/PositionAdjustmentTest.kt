@@ -11,7 +11,7 @@ import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.intern.LayerAssert
 import jetbrains.letsPlot.intern.PosKind
 import jetbrains.letsPlot.intern.toSpec
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class PositionAdjustmentTest {

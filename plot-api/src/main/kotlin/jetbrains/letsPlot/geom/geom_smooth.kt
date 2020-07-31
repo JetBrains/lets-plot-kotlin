@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
 @Suppress("ClassName")
 /**
  * Add a smoothed conditional mean.
- * @param data dictionary or pandas DataFrame, optional.
+ * @param data dictionary, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
  * @param stat string, optional.
@@ -38,15 +38,18 @@ import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
  * @param linetype type of the line of tile's border
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash"
- * @param method smoothing method: lm, glm, gam, loess, rlm.
- * @param n number of points to evaluate smoother at.
- * @param se boolean, to display confidence interval around smooth.
- * @param level level of confidence interval to use.
- * @param span number, optional.
- *     Amount of smoothing. A sensible value is usually 0.25 to 0.5.
- * @param deg degree of polynomial for regression.
+ * @param method smoothing method: lm (Linear Model) or loess (Locally Estimated Scatterplot Smoothing).
+ *      Default is 'lm'.
+ * @param n number of points to evaluate smoother at. Default is 80.
+ * @param se boolean, to display confidence interval around smooth. Default - true.
+ * @param level level of confidence interval to use. Default - 0.95.
+ * @param span number, optional. Default - 0.5.
+ *     Only for LOESS method. The fraction of source points closest to the current point
+ *     is taken into account for computing a least-squares regression. A sensible value is usually 0.25 to 0.5.
+ * @param deg degree of polynomial for linear regression model. Default - 1.
  * @param seed random seed for LOESS sampling.
- * @param maxN maximum points in DF for LOESS.
+ * @param maxN maximum number of data-points for LOESS method. Default - 1000.
+ *      If this quantity exceeded random sampling is applied to data.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
