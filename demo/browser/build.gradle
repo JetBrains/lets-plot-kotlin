@@ -15,8 +15,3 @@ dependencies {
     implementation project(':plot-api')
     implementation "org.jetbrains.lets-plot:lets-plot-image-export:$lets_plot_version"
 }
-
-//// TMP
-//repositories {
-//    mavenLocal()
-//}

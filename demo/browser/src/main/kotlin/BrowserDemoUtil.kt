@@ -8,8 +8,7 @@ import java.io.File
 import java.io.FileWriter
 
 object BrowserDemoUtil {
-    private const val ROOT_PROJECT = "lets-plot-kotlin"
-    private const val DEMO_PROJECT_RELATIVE_PATH = "demo/browser"
+    private const val DEMO_OUTPUT_RELATIVE_PATH = "demo/browser/build/tmp"
 
     fun openInBrowser(html: String) {
         val file = createTemporaryFile()
@@ -25,21 +24,17 @@ object BrowserDemoUtil {
     }
 
     private fun createTemporaryFile(): File {
-        val rootPath = getRootPath()
-        println("Project root: $rootPath")
-        val tmpDir = File(rootPath, "$DEMO_PROJECT_RELATIVE_PATH/build/tmp")
+        val tmpDir = File(getOutputPath())
         val file = File.createTempFile("index", ".html", tmpDir)
         println(file.canonicalFile)
         return file
     }
 
-    private fun getRootPath(): String {
-        // works when launching from IDEA
-        val projectRoot = System.getenv()["PWD"] ?: throw IllegalStateException("'PWD' env variable is not defined")
+    fun getOutputPath(): String {
+        return "${getRootPath()}/$DEMO_OUTPUT_RELATIVE_PATH"
+    }
 
-        if (!projectRoot.contains(ROOT_PROJECT)) {
-            throw IllegalStateException("'PWD' is not pointing to $ROOT_PROJECT : $projectRoot")
-        }
-        return projectRoot
+    private fun getRootPath(): String {
+        return System.getProperty("user.dir")
     }
 }
