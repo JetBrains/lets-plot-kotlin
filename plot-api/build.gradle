@@ -115,7 +115,7 @@ publishing {
             }
         }
     }
-    
+
     repositories {
         maven {
             url = uri("https://jetbrains.bintray.com/lets-plot-maven")
@@ -133,6 +133,12 @@ def bintray_user = project.buildSettings?.bintray?.user
 def bintray_key = project.buildSettings?.bintray?.key
 
 if (bintray_user != null && bintray_key != null) {
+
+    def pkg_name = 'lets-plot-kotlin-api-jars'
+    if (version.contains('SNAPSHOT') || version.contains('rc')) {
+        pkg_name = 'lets-plot-kotlin-api-jars-dev'
+    }
+
     bintray {
         user = bintray_user
         key = bintray_key
@@ -142,7 +148,7 @@ if (bintray_user != null && bintray_key != null) {
 
         pkg {
             repo = 'lets-plot-maven'
-            name = 'lets-plot-kotlin-api-jars'
+            name = pkg_name
             userOrg = 'jetbrains'
             licenses = ['MIT']
             vcsUrl = 'https://github.com/JetBrains/lets-plot-kotlin'

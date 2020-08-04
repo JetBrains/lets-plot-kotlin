@@ -23,12 +23,16 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  * Note: in some configurations raster formats might not be supported.
  *
  * The exported file is created in directory ${user.dir}/lets-plot-images
- * if not specified otherwise.
+ * if not specified otherwise (see the `path` parameter).
  *
  * @param plot Plot or GGBunch to export.
  * @param filename The name of file. It mast end with file extention corresponding
- *      to one of supported formats: svg, html (or htm), png, jpeg (or jpg) or tiff (or tif)
- * @param scale
+ *      to one of the supported formats: svg, html (or htm), png, jpeg (or jpg) or tiff (or tif)
+ * @param scale Scaling factor (only for raster formats). Default: 2.0
+ * @param dpi Dot-per-Inch value to store in the exported file metadata (only for raster formats).
+ *      By default: no metadata is stored.
+ * @param path Path to a directory to save image files in.
+ *      By default it is `${user.dir}/lets-plot-images`
  *
  */
 @Suppress("SpellCheckingInspection")
