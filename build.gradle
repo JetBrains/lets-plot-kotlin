@@ -27,7 +27,7 @@ project.ext.buildSettings = settings
 
 allprojects {
     group 'org.jetbrains.lets-plot'
-    version "0.0.27-SNAPSHOT"
+    version "0.0.28-SNAPSHOT"
 
     sourceCompatibility = 1.8
     compileKotlin {

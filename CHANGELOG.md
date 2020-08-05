@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.27-SNAPSHOT] - 2020-08-05 (Not released)
+## Added
+- sampling_none to disable any sampling on geom layer.  
+
 ## [0.0.26-SNAPSHOT] - 2020-08-04 (Not released)
 ## Added
 - ggsave(): exports a plot to a file. Supported formats: svg, html, png, jpeg, tiff.  
