@@ -8,6 +8,13 @@ package jetbrains.letsPlot.sampling
 import jetbrains.letsPlot.intern.SamplingKind
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 
+//@Suppress("FunctionName")
+//fun sampling_none(): SamplingOptions {
+//    return SamplingOptions(SamplingKind.NONE, emptyMap())
+//}
+//
+val sampling_none = SamplingOptions(SamplingKind.NONE, emptyMap())
+
 @Suppress("FunctionName")
 fun sampling_random(n: Int, seed: Int? = null): SamplingOptions {
     return SamplingOptions(SamplingKind.RANDOM, n, seed)

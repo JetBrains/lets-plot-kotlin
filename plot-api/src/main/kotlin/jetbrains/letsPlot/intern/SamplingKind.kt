@@ -6,6 +6,7 @@
 package jetbrains.letsPlot.intern
 
 enum class SamplingKind {
+    NONE,
     RANDOM,
     RANDOM_STRATIFIED,
     PICK,

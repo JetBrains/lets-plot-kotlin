@@ -10,8 +10,8 @@ import jetbrains.letsPlot.intern.SamplingKind
 import jetbrains.letsPlot.intern.filterNonNullValues
 
 class SamplingOptions internal constructor(
-    kind: SamplingKind,
-    options: Map<String, Any>
+    val kind: SamplingKind,
+    private val options: Map<String, Any>
 ) {
     internal constructor(kind: SamplingKind, n: Int, seed: Int? = null, minSubsample: Int? = null) : this(
         kind,
@@ -22,6 +22,12 @@ class SamplingOptions internal constructor(
         ).filterNonNullValues()
     )
 
-    val mapping: Options = Options(options) +
-            Options(mapOf("name" to kind.optionName()))
+    val isNone: Boolean = (kind == SamplingKind.NONE)
+
+    val mapping: Options
+        get() {
+            check(!isNone) { "Not applicable to `none` sampling." }
+            return Options(options) +
+                    Options(mapOf("name" to kind.optionName()))
+        }
 }

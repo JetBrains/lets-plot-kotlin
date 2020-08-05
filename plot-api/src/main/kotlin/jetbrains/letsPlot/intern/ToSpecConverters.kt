@@ -75,7 +75,9 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     }
 
     sampling?.let {
-        spec[Option.Layer.SAMPLING] = sampling.mapping.map
+        spec[Option.Layer.SAMPLING] =
+            if (it.isNone) "none"
+            else it.mapping.map
     }
 
     val allMappings = (mapping + geom.mapping + stat.mapping).map
@@ -127,7 +129,7 @@ private fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
     val standardisedData = HashMap<String, List<Any?>>()
     for ((rawKey, rawValue) in rawData) {
         val key = rawKey.toString()
-        standardisedData[key] = SeriesStandardizing.toList(key, rawValue!!)
+        standardisedData[key] = toList(key, rawValue!!)
     }
     return standardisedData
 }
