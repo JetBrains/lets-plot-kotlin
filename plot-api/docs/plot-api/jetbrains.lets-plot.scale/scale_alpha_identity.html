@@ -1,0 +1,85 @@
+<!--
+  ~ Copyright (c) 2020. JetBrains s.r.o.
+  ~ Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+  -->
+
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>scale_alpha_identity - plot-api</title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">plot-api</a>&nbsp;/&nbsp;<a href="index.html">jetbrains.letsPlot.scale</a>&nbsp;/&nbsp;<a
+        href="./scale_alpha_identity.html">scale_alpha_identity</a><br/>
+<br/>
+<h1>scale_alpha_identity</h1>
+<a name="jetbrains.letsPlot.scale$scale_alpha_identity(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Number, kotlin.Any)"></a>
+<code><span class="keyword">fun </span><span class="identifier">scale_alpha_identity</span><span class="symbol">(</span><span
+        class="identifier"
+        id="jetbrains.letsPlot.scale$scale_alpha_identity(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Number, kotlin.Any)/name">name</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+        class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_alpha_identity(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Number, kotlin.Any)/breaks">breaks</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+        class="identifier">List</span></a><span class="symbol">&lt;</span><a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_alpha_identity(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Number, kotlin.Any)/labels">labels</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+        class="identifier">List</span></a><span class="symbol">&lt;</span><a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+        class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_alpha_identity(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Number, kotlin.Any)/limits">limits</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+        class="identifier">List</span></a><span class="symbol">&lt;</span><a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_alpha_identity(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Number, kotlin.Any)/naValue">naValue</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+        class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_alpha_identity(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.Number, kotlin.Any)/guide">guide</span><span
+        class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+        class="symbol">)</span><span class="symbol">: </span><a
+        href="../jetbrains.lets-plot.intern/-scale/index.html"><span class="identifier">Scale</span></a></code>
+<p>Use this scale when your data has already been scaled.
+    I.e. it already represents aesthetic values that ggplot2 can handle directly.
+    This will not produce a legend unless you also supply the breaks and labels.</p>
+<p>Input data expected: numetic values in range <code>[0..1</code>]</p>
+<h3>Parameters</h3>
+<p><a name="name"></a>
+    <code>name</code> - string
+    The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+    is taken from the first mapping used for that aesthetic.</p>
+<p><a name="breaks"></a>
+    <code>breaks</code> - list of numbers
+    A numeric vector of positions (of ticks)</p>
+<p><a name="labels"></a>
+    <code>labels</code> - : list of strings
+    A vector of labels (on ticks)</p>
+<p><a name="limits"></a>
+    <code>limits</code> - list
+    Continuous scale: a numeric vector of length two providing limits of the scale.
+    Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
+</p>
+<p><a name="naValue"></a>
+    <code>naValue</code> - an aesthetic value which is used when data in not available.</p>
+<p><a name="guide"></a>
+    <code>guide</code> -
+<pre><code>    Guide to use for this scale.
+    It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+    specifying additional arguments; "none" will hide the guide.</code></pre>
+</p>
+</BODY>
+</HTML>

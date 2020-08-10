@@ -58,6 +58,13 @@
     </tr>
     <tr>
         <td>
+            <h4><a href="-mapping-meta/index.html">MappingMeta</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">MappingMeta</span></code></td>
+    </tr>
+    <tr>
+        <td>
             <h4><a href="-pos/index.html">Pos</a></h4>
         </td>
         <td>
@@ -69,6 +76,17 @@
         </td>
         <td>
             <code><span class="keyword">object </span><span class="identifier">Stat</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="theme/index.html">theme</a></h4>
+        </td>
+        <td>
+            <p>Use theme() to modify individual components of a theme,
+                allowing you to control the appearance of all non-data components of the plot.</p>
+            <code><span class="keyword">class </span><span class="identifier">theme</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="../jetbrains.lets-plot.intern/-options-map/index.html"><span
+                    class="identifier">OptionsMap</span></a></code></td>
     </tr>
     </tbody>
 </table>
@@ -92,14 +110,130 @@
     <tbody>
     <tr>
         <td>
-            <h4><a href="element_blank.html">element_blank</a></h4>
+            <h4><a href="as_discrete.html">as_discrete</a></h4>
         </td>
         <td>
-            <p>Element to draw nothing and assigns no space</p>
-            <code><span class="keyword">fun </span><span class="identifier">element_blank</span><span
-                    class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a
+            <p>Marks a numeric variable as categorical.
+                The plot will use a discrete scale for the aesthetic mapping.
+                It is similar to the factor() function from R but works differently - there is no data
+                transformation.</p>
+            <code><span class="keyword">fun </span><span class="identifier">as_discrete</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot$as_discrete(kotlin.String, kotlin.String)/variable">variable</span><span
+                    class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a></code></td>
+                    class="identifier">String</span></a><span class="symbol">, </span><span class="identifier"
+                                                                                            id="jetbrains.letsPlot$as_discrete(kotlin.String, kotlin.String)/label">label</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">)</span><span class="symbol">: </span><a href="-mapping-meta/index.html"><span
+                    class="identifier">MappingMeta</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="coord_cartesian.html">coord_cartesian</a></h4>
+        </td>
+        <td>
+            <p>The Cartesian coordinate system is the most familiar, and common, type of coordinate system.
+                Setting limits on the coordinate system will zoom the plot (like you're looking at it with a magnifying
+                glass),
+                and will not change the underlying data like setting limits on a scale will.</p>
+            <code><span class="keyword">fun </span><span class="identifier">coord_cartesian</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot$coord_cartesian(kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/xlim">xlim</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
+                    class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span
+                    class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$coord_cartesian(kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/ylim">ylim</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
+                    class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span
+                    class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../jetbrains.lets-plot.intern/-options-map/index.html"><span
+                    class="identifier">OptionsMap</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="coord_fixed.html">coord_fixed</a></h4>
+        </td>
+        <td>
+            <p>A fixed scale coordinate system forces a specified ratio between the physical representation of data
+                units on the axes.</p>
+            <code><span class="keyword">fun </span><span class="identifier">coord_fixed</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot$coord_fixed(kotlin.Double, kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/ratio">ratio</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$coord_fixed(kotlin.Double, kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/xlim">xlim</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
+                    class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span
+                    class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$coord_fixed(kotlin.Double, kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/ylim">ylim</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
+                    class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span
+                    class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../jetbrains.lets-plot.intern/-options-map/index.html"><span
+                    class="identifier">OptionsMap</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="coord_map.html">coord_map</a></h4>
+        </td>
+        <td>
+            <p>Projects a portion of the earth, which is approximately spherical,
+                onto a flat 2D plane using any projection defined by the mapproj package.
+                Map projections do not, in general, preserve straight lines, so this requires considerable
+                computation.</p>
+            <code><span class="keyword">fun </span><span class="identifier">coord_map</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot$coord_map(kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/xlim">xlim</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
+                    class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span
+                    class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot$coord_map(kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/ylim">ylim</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
+                    class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span><span
+                    class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../jetbrains.lets-plot.intern/-options-map/index.html"><span
+                    class="identifier">OptionsMap</span></a></code></td>
     </tr>
     <tr>
         <td>
@@ -142,8 +276,8 @@
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
                     class="symbol">)</span><span class="symbol">: </span><a
-                    href="../jetbrains.lets-plot.intern/-other-plot-feature/index.html"><span class="identifier">OtherPlotFeature</span></a></code>
-        </td>
+                    href="../jetbrains.lets-plot.intern/-options-map/index.html"><span
+                    class="identifier">OptionsMap</span></a></code></td>
     </tr>
     <tr>
         <td>
@@ -248,87 +382,6 @@
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern.layer/-pos-options/index.html"><span class="identifier">PosOptions</span></a></code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <h4><a href="theme.html">theme</a></h4>
-        </td>
-        <td>
-            <p>Use theme() to modify individual components of a theme,
-                allowing you to control the appearance of all non-data components of the plot.</p>
-            <code><span class="keyword">fun </span><span class="identifier">theme</span><span
-                    class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisTitle">axisTitle</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisTitleX">axisTitleX</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisTitleY">axisTitleY</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisText">axisText</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisTextX">axisTextX</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisTextY">axisTextY</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisTicks">axisTicks</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisTicksX">axisTicksX</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisTicksY">axisTicksY</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisLine">axisLine</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisLineX">axisLineX</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/axisLineY">axisLineY</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/legendPosition">legendPosition</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
-                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
-                    class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot$theme(kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, kotlin.String, jetbrains.letsPlot.intern.Options)/otherOptions">otherOptions</span><span
-                    class="symbol">:</span>&nbsp;<a href="../jetbrains.lets-plot.intern/-options/index.html"><span
-                    class="identifier">Options</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Options.empty()<span
-                    class="symbol">)</span><span class="symbol">: </span><a
-                    href="../jetbrains.lets-plot.intern/-other-plot-feature/index.html"><span class="identifier">OtherPlotFeature</span></a></code>
         </td>
     </tr>
     </tbody>

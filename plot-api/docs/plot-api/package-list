@@ -2,6 +2,7 @@ $dokka.format:html
 $dokka.linkExtension:html
 $dokka.location:jetbrains.letsPlot.intern$filterNonNullValues(kotlin.collections.Map((kotlin.String, kotlin.Any)))jetbrains.lets-plot.intern/kotlin.collections.-map/filter-non-null-values.html
 jetbrains.letsPlot
+jetbrains.letsPlot.export
 jetbrains.letsPlot.facet
 jetbrains.letsPlot.frontend
 jetbrains.letsPlot.geom

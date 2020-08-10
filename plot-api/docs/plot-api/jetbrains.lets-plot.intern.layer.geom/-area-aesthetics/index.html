@@ -123,24 +123,58 @@
     </tr>
     <tr>
         <td>
-            <h4>
-                <a href="../../jetbrains.lets-plot.intern.layer.stat/-density-aesthetics/index.html">DensityAesthetics</a>
-            </h4>
+            <h4><a href="../-density-mapping/index.html">DensityMapping</a></h4>
         </td>
         <td>
-            <code><span class="keyword">interface </span><span class="identifier">DensityAesthetics</span>&nbsp;<span
+            <code><span class="keyword">class </span><span class="identifier">DensityMapping</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a href="./index.html"><span
-                    class="identifier">AreaAesthetics</span></a></code></td>
+                    class="identifier">AreaAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-aesthetics/index.html"><span
+                    class="identifier">DensityStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer/-with-group-option/index.html"><span
+                    class="identifier">WithGroupOption</span></a></code></td>
     </tr>
     <tr>
         <td>
             <h4><a href="../../jetbrains.lets-plot.geom/geom_area/index.html">geom_area</a></h4>
         </td>
         <td>
-            <p>Display an area.</p>
+            <p>Display the development of quantitative values over an interval. This is the continuous analog of
+                geom_bar.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_area</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a href="./index.html"><span
                     class="identifier">AreaAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span class="identifier">LayerBase</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_density/index.html">geom_density</a></h4>
+        </td>
+        <td>
+            <p>Display a density estimate, which is a smoothed version of the histogram.</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_density</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
+                    class="identifier">AreaAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-aesthetics/index.html"><span
+                    class="identifier">DensityStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-parameters/index.html"><span
+                    class="identifier">DensityStatParameters</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span class="identifier">LayerBase</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_density/index.html">stat_density</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_density</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
+                    class="identifier">AreaAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-aesthetics/index.html"><span
+                    class="identifier">DensityStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-parameters/index.html"><span
+                    class="identifier">DensityStatParameters</span></a><span class="symbol">, </span><a
                     href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span class="identifier">LayerBase</span></a></code>
         </td>
     </tr>

@@ -1,0 +1,82 @@
+<!--
+  ~ Copyright (c) 2020. JetBrains s.r.o.
+  ~ Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+  -->
+
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>scale_y_discrete - plot-api</title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">plot-api</a>&nbsp;/&nbsp;<a href="index.html">jetbrains.letsPlot.scale</a>&nbsp;/&nbsp;<a
+        href="./scale_y_discrete.html">scale_y_discrete</a><br/>
+<br/>
+<h1>scale_y_discrete</h1>
+<a name="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)"></a>
+<code><span class="keyword">fun </span><span class="identifier">scale_y_discrete</span><span
+        class="symbol">(</span><span class="identifier"
+                                     id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/name">name</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+        class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/breaks">breaks</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+        class="identifier">List</span></a><span class="symbol">&lt;</span><a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/labels">labels</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+        class="identifier">List</span></a><span class="symbol">&lt;</span><a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+        class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/limits">limits</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+        class="identifier">List</span></a><span class="symbol">&lt;</span><a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/expand">expand</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+        class="identifier">List</span></a><span class="symbol">&lt;</span><a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+        class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/naValue">naValue</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+        class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a
+        href="../jetbrains.lets-plot.intern/-scale/index.html"><span class="identifier">Scale</span></a></code>
+<p>Discrete scale for y axis</p>
+<h3>Parameters</h3>
+<p><a name="name"></a>
+    <code>name</code> - The name of the scale - used as the axis label or the legend title.
+    If None, the default, the name of the scale
+    is taken from the first mapping used for that aesthetic.</p>
+<p><a name="breaks"></a>
+    <code>breaks</code> - list of data values.
+    A vector specifying values to display as ticks on axis.</p>
+<p><a name="labels"></a>
+    <code>labels</code> - A vector of labels (on ticks).</p>
+<p><a name="limits"></a>
+    <code>limits</code> - list of data values
+    A vector specifying values to display on the axis and their order.
+    Setting limits will remove data not included in the list.</p>
+<p><a name="expand"></a>
+    <code>expand</code> - list of numbers
+    A numeric vector of length two giving multiplicative and additive expansion constants.
+    The vector size == 1 =&gt; only multiplicative expand (and additive expand by default).
+    Defaults: multiplicative = 0, additive = 0.6.</p>
+<p><a name="naValue"></a>
+    <code>naValue</code> - Missing values will be replaced with this value.</p>
+</BODY>
+</HTML>

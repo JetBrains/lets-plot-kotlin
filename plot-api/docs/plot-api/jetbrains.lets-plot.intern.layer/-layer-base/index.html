@@ -101,7 +101,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_abline/index.html">geom_abline</a></h4>
         </td>
         <td>
-            <p>Add straight lines to a plot specified by slope and intercept.</p>
+            <p>Add a line with specified slope and intercept to a plot.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_abline</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-a-b-line-aesthetics/index.html"><span
@@ -113,7 +113,8 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_area/index.html">geom_area</a></h4>
         </td>
         <td>
-            <p>Display an area.</p>
+            <p>Display the development of quantitative values over an interval. This is the continuous analog of
+                geom_bar.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_area</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-area-aesthetics/index.html"><span
@@ -125,11 +126,30 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_bar/index.html">geom_bar</a></h4>
         </td>
         <td>
-            <p>Bar chart which makes the height of the bar proportional to the number of observed variable values,
-                mapped to x axis.</p>
+            <p>Display a bar chart which makes the height of the bar proportional to the number of observed variable
+                values, mapped to x axis.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_bar</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-bar-aesthetics/index.html"><span
                     class="identifier">BarAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-count-stat-aesthetics/index.html"><span
+                    class="identifier">CountStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_bin2d/index.html">geom_bin2d</a></h4>
+        </td>
+        <td>
+            <p>Displays a 1d distribution by dividing variable mapped to x axis into bins and
+                counting the number of observations in each bin.</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_bin2d</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-tile-aesthetics/index.html"><span
+                    class="identifier">TileAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin2d-stat-aesthetics/index.html"><span
+                    class="identifier">Bin2dStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin2d-stat-parameters/index.html"><span
+                    class="identifier">Bin2dStatParameters</span></a><span class="symbol">, </span><a
                     href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
     </tr>
     <tr>
@@ -137,21 +157,59 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_boxplot/index.html">geom_boxplot</a></h4>
         </td>
         <td>
-            <p>Add box plot.</p>
+            <p>Display the distribution of data based on a five number summary ("minimum", first quartile (Q1), median,
+                third quartile (Q3), and "maximum"),
+                and "outlying" points individually.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_boxplot</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-boxplot-aesthetics/index.html"><span
                     class="identifier">BoxplotAesthetics</span></a><span class="symbol">, </span><a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-boxplot-parameters/index.html"><span
-                    class="identifier">BoxplotParameters</span></a><span class="symbol">, </span><a href="./index.html"><span
-                    class="identifier">LayerBase</span></a></code></td>
+                    class="identifier">BoxplotParameters</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-aesthetics/index.html"><span
+                    class="identifier">BoxplotStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-parameters/index.html"><span
+                    class="identifier">BoxplotStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_contour/index.html">geom_contour</a></h4>
+        </td>
+        <td>
+            <p>Display contours of a 3d surface in 2d.</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_contour</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-path-aesthetics/index.html"><span
+                    class="identifier">PathAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-aesthetics/index.html"><span
+                    class="identifier">ContourStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-parameters/index.html"><span
+                    class="identifier">ContourStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_contourf/index.html">geom_contourf</a></h4>
+        </td>
+        <td>
+            <p>Fill contours of a 3d surface in 2d.</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_contourf</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-polygon-aesthetics/index.html"><span
+                    class="identifier">PolygonAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-aesthetics/index.html"><span
+                    class="identifier">ContourStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-parameters/index.html"><span
+                    class="identifier">ContourStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
     </tr>
     <tr>
         <td>
             <h4><a href="../../jetbrains.lets-plot.geom/geom_crossbar/index.html">geom_crossbar</a></h4>
         </td>
         <td>
-            <p>Bar with horizontal median line</p>
+            <p>Display bars with horizontal median line.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_crossbar</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-cross-bar-aesthetics/index.html"><span
@@ -163,19 +221,57 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_density/index.html">geom_density</a></h4>
         </td>
         <td>
-            <p>Display density function.</p>
+            <p>Display a density estimate, which is a smoothed version of the histogram.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_density</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
-                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-aesthetics/index.html"><span
-                    class="identifier">DensityAesthetics</span></a><span class="symbol">, </span><a href="./index.html"><span
-                    class="identifier">LayerBase</span></a></code></td>
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-area-aesthetics/index.html"><span
+                    class="identifier">AreaAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-aesthetics/index.html"><span
+                    class="identifier">DensityStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-parameters/index.html"><span
+                    class="identifier">DensityStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_density2d/index.html">geom_density2d</a></h4>
+        </td>
+        <td>
+            <p>Display density function contour.</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_density2d</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-path-aesthetics/index.html"><span
+                    class="identifier">PathAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-aesthetics/index.html"><span
+                    class="identifier">ContourStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density2d-stat-aesthetics/index.html"><span
+                    class="identifier">Density2dStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density2d-stat-parameters/index.html"><span
+                    class="identifier">Density2dStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_density2df/index.html">geom_density2df</a></h4>
+        </td>
+        <td>
+            <p>Fill density function contour.</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_density2df</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-polygon-aesthetics/index.html"><span
+                    class="identifier">PolygonAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density2d-stat-aesthetics/index.html"><span
+                    class="identifier">Density2dStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density2d-stat-parameters/index.html"><span
+                    class="identifier">Density2dStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
     </tr>
     <tr>
         <td>
             <h4><a href="../../jetbrains.lets-plot.geom/geom_errorbar/index.html">geom_errorbar</a></h4>
         </td>
         <td>
-            <p>Error bars.</p>
+            <p>Error bars defined by an upper and lower value ymin and ymax.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_errorbar</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-error-bar-aesthetics/index.html"><span
@@ -187,39 +283,39 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_freqpoly/index.html">geom_freqpoly</a></h4>
         </td>
         <td>
-            <p>Line chart which makes the y value proportional to the number of observed variable values, mapped to x
-                axis.</p>
+            <p>Display a line chart which makes the y value proportional to the number of observed variable values,
+                mapped to x axis.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_freqpoly</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-line-aesthetics/index.html"><span
                     class="identifier">LineAesthetics</span></a><span class="symbol">, </span><a
-                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin-parameters/index.html"><span
-                    class="identifier">BinParameters</span></a><span class="symbol">, </span><a
-                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin-stat-parameters/index.html"><span
+                    class="identifier">BinStatParameters</span></a><span class="symbol">, </span><a href="./index.html"><span
+                    class="identifier">LayerBase</span></a></code></td>
     </tr>
     <tr>
         <td>
             <h4><a href="../../jetbrains.lets-plot.geom/geom_histogram/index.html">geom_histogram</a></h4>
         </td>
         <td>
-            <p>Displays a 1d distribution by dividing variable mapped to x axis into bins and counting the number of
+            <p>Display a 1d distribution by dividing variable mapped to x axis into bins and counting the number of
                 observations in each bin.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_histogram</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-histogram-aesthetics/index.html"><span
                     class="identifier">HistogramAesthetics</span></a><span class="symbol">, </span><a
-                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin-aesthetics/index.html"><span
-                    class="identifier">BinAesthetics</span></a><span class="symbol">, </span><a
-                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin-parameters/index.html"><span
-                    class="identifier">BinParameters</span></a><span class="symbol">, </span><a
-                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin-stat-aesthetics/index.html"><span
+                    class="identifier">BinStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin-stat-parameters/index.html"><span
+                    class="identifier">BinStatParameters</span></a><span class="symbol">, </span><a href="./index.html"><span
+                    class="identifier">LayerBase</span></a></code></td>
     </tr>
     <tr>
         <td>
             <h4><a href="../../jetbrains.lets-plot.geom/geom_hline/index.html">geom_hline</a></h4>
         </td>
         <td>
-            <p>Add straight horizontal lines to a plot</p>
+            <p>Add straight horizontal lines to a plot.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_hline</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-h-line-aesthetics/index.html"><span
@@ -239,10 +335,24 @@
     </tr>
     <tr>
         <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_jitter/index.html">geom_jitter</a></h4>
+        </td>
+        <td>
+            <p>Jittered points, especially for discrete plots or dense plots.</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_jitter</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-point-aesthetics/index.html"><span
+                    class="identifier">PointAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-jitter-parameters/index.html"><span
+                    class="identifier">JitterParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
             <h4><a href="../../jetbrains.lets-plot.geom/geom_line/index.html">geom_line</a></h4>
         </td>
         <td>
-            <p>Connect points in order of the variable on the x-axis</p>
+            <p>Connect points in the order of the variable on the x axis.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_line</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-line-aesthetics/index.html"><span
@@ -254,7 +364,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_linerange/index.html">geom_linerange</a></h4>
         </td>
         <td>
-            <p>Line range, defined by an upper and lower value.</p>
+            <p>Display a line range defined by an upper and lower value.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_linerange</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-line-range-aesthetics/index.html"><span
@@ -266,7 +376,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_path/index.html">geom_path</a></h4>
         </td>
         <td>
-            <p>Connects observations in the order, how they appear in the data.</p>
+            <p>Connect observations in the order in which they appear in the data.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_path</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-path-aesthetics/index.html"><span
@@ -278,7 +388,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_point/index.html">geom_point</a></h4>
         </td>
         <td>
-            <p>Points, as for a scatter plot.</p>
+            <p>Draw points defined by an x and y coordinate.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_point</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-point-aesthetics/index.html"><span
@@ -290,7 +400,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_pointrange/index.html">geom_pointrange</a></h4>
         </td>
         <td>
-            <p>Vertical line defined by upper and lower value with mid-point at Y-location.</p>
+            <p>Add a vertical line defined by upper and lower value with midpoint at y location.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_pointrange</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-point-range-aesthetics/index.html"><span
@@ -302,9 +412,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_polygon/index.html">geom_polygon</a></h4>
         </td>
         <td>
-            <p>Display a polygon (filled path).
-                geom_polygon draws polygons, which are filled paths.
-                Each vertex of the polygon requires a separate row in the data.</p>
+            <p>Display a filled closed path defined by the vertex coordinates of individual polygons.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_polygon</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-polygon-aesthetics/index.html"><span
@@ -316,7 +424,8 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_raster/index.html">geom_raster</a></h4>
         </td>
         <td>
-            <p>Rectangles with x, y values mapped to center.
+            <p>Display rectangles defined by the center of the tile (x, y).
+                This is a high performance special function for same-sized tiles.
                 Much faster than geom_tile but doesn't support width/height and color.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_raster</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
@@ -329,7 +438,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_rect/index.html">geom_rect</a></h4>
         </td>
         <td>
-            <p>Draws rectangles</p>
+            <p>Display a rectangle defined by the four corners (xmin, xmax, ymin and ymax).</p>
             <code><span class="keyword">class </span><span class="identifier">geom_rect</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-rect-aesthetics/index.html"><span
@@ -341,7 +450,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_ribbon/index.html">geom_ribbon</a></h4>
         </td>
         <td>
-            <p>Display a ribbon.</p>
+            <p>Display a y interval defined by ymin and ymax.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_ribbon</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-ribbon-aesthetics/index.html"><span
@@ -353,7 +462,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_segment/index.html">geom_segment</a></h4>
         </td>
         <td>
-            <p>Draws segments</p>
+            <p>Draw a straight line segment between points (x, y) and (xend, yend).</p>
             <code><span class="keyword">class </span><span class="identifier">geom_segment</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-segment-aesthetics/index.html"><span
@@ -362,10 +471,24 @@
     </tr>
     <tr>
         <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_smooth/index.html">geom_smooth</a></h4>
+        </td>
+        <td>
+            <p>Add a smoothed conditional mean.</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_smooth</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-smooth-aesthetics/index.html"><span
+                    class="identifier">SmoothAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-smooth-stat-parameters/index.html"><span
+                    class="identifier">SmoothStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
             <h4><a href="../../jetbrains.lets-plot.geom/geom_step/index.html">geom_step</a></h4>
         </td>
         <td>
-            <p>Connects observations in the order, how they appear in the data.</p>
+            <p>Connect observations in the order in which they appear in the data by stairs.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_step</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-line-aesthetics/index.html"><span
@@ -377,7 +500,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_text/index.html">geom_text</a></h4>
         </td>
         <td>
-            <p>Adds text directly to the plot</p>
+            <p>Adds text directly to the plot.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_text</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-text-aesthetics/index.html"><span
@@ -389,7 +512,7 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_tile/index.html">geom_tile</a></h4>
         </td>
         <td>
-            <p>Rectangles with x, y values mapped to center</p>
+            <p>Display a rectangle defined by the center of the tile and its size (x, y, width, height).</p>
             <code><span class="keyword">class </span><span class="identifier">geom_tile</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-tile-aesthetics/index.html"><span
@@ -401,11 +524,40 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_vline/index.html">geom_vline</a></h4>
         </td>
         <td>
-            <p>Add straight horizontal lines to a plot</p>
+            <p>Add a straight horizontal lines to a plot.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_vline</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-v-line-aesthetics/index.html"><span
                     class="identifier">VLineAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_bin/index.html">stat_bin</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_bin</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-histogram-aesthetics/index.html"><span
+                    class="identifier">HistogramAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin-stat-aesthetics/index.html"><span
+                    class="identifier">BinStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin-stat-parameters/index.html"><span
+                    class="identifier">BinStatParameters</span></a><span class="symbol">, </span><a href="./index.html"><span
+                    class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_bin2d/index.html">stat_bin2d</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_bin2d</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-tile-aesthetics/index.html"><span
+                    class="identifier">TileAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin2d-stat-aesthetics/index.html"><span
+                    class="identifier">Bin2dStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-bin2d-stat-parameters/index.html"><span
+                    class="identifier">Bin2dStatParameters</span></a><span class="symbol">, </span><a
                     href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
     </tr>
     <tr>
@@ -415,10 +567,29 @@
         <td>
             <code><span class="keyword">class </span><span class="identifier">stat_boxplot</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
-                    href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-aesthetics/index.html"><span
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-boxplot-aesthetics/index.html"><span
                     class="identifier">BoxplotAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-boxplot-parameters/index.html"><span
+                    class="identifier">BoxplotParameters</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-aesthetics/index.html"><span
+                    class="identifier">BoxplotStatAesthetics</span></a><span class="symbol">, </span><a
                     href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-parameters/index.html"><span
                     class="identifier">BoxplotStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_contour/index.html">stat_contour</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_contour</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-path-aesthetics/index.html"><span
+                    class="identifier">PathAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-aesthetics/index.html"><span
+                    class="identifier">ContourStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-parameters/index.html"><span
+                    class="identifier">ContourStatParameters</span></a><span class="symbol">, </span><a
                     href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
     </tr>
     <tr>
@@ -428,12 +599,10 @@
         <td>
             <code><span class="keyword">class </span><span class="identifier">stat_count</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
-                    href="../../jetbrains.lets-plot.intern.layer.stat/-count-aesthetics/index.html"><span
-                    class="identifier">CountAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-count-stat-aesthetics/index.html"><span
+                    class="identifier">CountStatAesthetics</span></a><span class="symbol">, </span><a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-bar-aesthetics/index.html"><span
                     class="identifier">BarAesthetics</span></a><span class="symbol">, </span><a
-                    href="../../jetbrains.lets-plot.intern.layer.stat/-count-parameters/index.html"><span
-                    class="identifier">CountParameters</span></a><span class="symbol">, </span><a
                     href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
     </tr>
     <tr>
@@ -443,11 +612,43 @@
         <td>
             <code><span class="keyword">class </span><span class="identifier">stat_density</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a
-                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-aesthetics/index.html"><span
-                    class="identifier">DensityAesthetics</span></a><span class="symbol">, </span><a
-                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-parameters/index.html"><span
-                    class="identifier">DensityParameters</span></a><span class="symbol">, </span><a href="./index.html"><span
-                    class="identifier">LayerBase</span></a></code></td>
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-area-aesthetics/index.html"><span
+                    class="identifier">AreaAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-aesthetics/index.html"><span
+                    class="identifier">DensityStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-parameters/index.html"><span
+                    class="identifier">DensityStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_density2d/index.html">stat_density2d</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_density2d</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-path-aesthetics/index.html"><span
+                    class="identifier">PathAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-aesthetics/index.html"><span
+                    class="identifier">ContourStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density2d-stat-aesthetics/index.html"><span
+                    class="identifier">Density2dStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-density2d-stat-parameters/index.html"><span
+                    class="identifier">Density2dStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_smooth/index.html">stat_smooth</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_smooth</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-smooth-aesthetics/index.html"><span
+                    class="identifier">SmoothAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-smooth-stat-parameters/index.html"><span
+                    class="identifier">SmoothStatParameters</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">LayerBase</span></a></code></td>
     </tr>
     </tbody>
 </table>

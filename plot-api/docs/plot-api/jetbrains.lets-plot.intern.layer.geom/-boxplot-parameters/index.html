@@ -15,8 +15,8 @@
 <br/>
 <h1>BoxplotParameters</h1>
 <code><span class="keyword">interface </span><span class="identifier">BoxplotParameters</span>&nbsp;<span
-        class="symbol">:</span>&nbsp;<a
-        href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-parameters/index.html"><span class="identifier">BoxplotStatParameters</span></a></code>
+        class="symbol">:</span>&nbsp;<a href="../../jetbrains.lets-plot.intern.layer/-options-capsule/index.html"><span
+        class="identifier">OptionsCapsule</span></a></code>
 <h3>Properties</h3>
 <table>
     <tbody>
@@ -27,8 +27,8 @@
         <td>
             <code><span class="keyword">abstract</span> <span class="keyword">val </span><span
                     class="identifier">fatten</span><span class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
-                    class="symbol">?</span></code></td>
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span></code></td>
     </tr>
     <tr>
         <td>
@@ -67,8 +67,8 @@
         <td>
             <code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">outlierSize</span><span
                     class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
-                    class="symbol">?</span></code></td>
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span></code></td>
     </tr>
     </tbody>
 </table>
@@ -95,11 +95,33 @@
             <h4><a href="../../jetbrains.lets-plot.geom/geom_boxplot/index.html">geom_boxplot</a></h4>
         </td>
         <td>
-            <p>Add box plot.</p>
+            <p>Display the distribution of data based on a five number summary ("minimum", first quartile (Q1), median,
+                third quartile (Q3), and "maximum"),
+                and "outlying" points individually.</p>
             <code><span class="keyword">class </span><span class="identifier">geom_boxplot</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a href="../-boxplot-aesthetics/index.html"><span class="identifier">BoxplotAesthetics</span></a><span
                     class="symbol">, </span><a href="./index.html"><span class="identifier">BoxplotParameters</span></a><span
                     class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-aesthetics/index.html"><span
+                    class="identifier">BoxplotStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-parameters/index.html"><span
+                    class="identifier">BoxplotStatParameters</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span class="identifier">LayerBase</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_boxplot/index.html">stat_boxplot</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_boxplot</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="../-boxplot-aesthetics/index.html"><span class="identifier">BoxplotAesthetics</span></a><span
+                    class="symbol">, </span><a href="./index.html"><span class="identifier">BoxplotParameters</span></a><span
+                    class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-aesthetics/index.html"><span
+                    class="identifier">BoxplotStatAesthetics</span></a><span class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-parameters/index.html"><span
+                    class="identifier">BoxplotStatParameters</span></a><span class="symbol">, </span><a
                     href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span class="identifier">LayerBase</span></a></code>
         </td>
     </tr>

@@ -1,0 +1,58 @@
+<!--
+  ~ Copyright (c) 2020. JetBrains s.r.o.
+  ~ Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+  -->
+
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>coord_fixed - plot-api</title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">plot-api</a>&nbsp;/&nbsp;<a href="index.html">jetbrains.letsPlot</a>&nbsp;/&nbsp;<a
+        href="./coord_fixed.html">coord_fixed</a><br/>
+<br/>
+<h1>coord_fixed</h1>
+<a name="jetbrains.letsPlot$coord_fixed(kotlin.Double, kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))"></a>
+<code><span class="keyword">fun </span><span class="identifier">coord_fixed</span><span class="symbol">(</span><span
+        class="identifier"
+        id="jetbrains.letsPlot$coord_fixed(kotlin.Double, kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/ratio">ratio</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
+        class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span
+        class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot$coord_fixed(kotlin.Double, kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/xlim">xlim</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span
+        class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+        class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+        class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span
+        class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span
+        class="identifier"
+        id="jetbrains.letsPlot$coord_fixed(kotlin.Double, kotlin.Pair((kotlin.Number, )), kotlin.Pair((kotlin.Number, )))/ylim">ylim</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span
+        class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+        class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+        class="identifier">Number</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span
+        class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span
+        class="symbol">: </span><a href="../jetbrains.lets-plot.intern/-options-map/index.html"><span
+        class="identifier">OptionsMap</span></a></code>
+<p>A fixed scale coordinate system forces a specified ratio between the physical representation of data units on the
+    axes.</p>
+<h3>Parameters</h3>
+<p><a name="xlim"></a>
+    <code>xlim</code> - A pair of numbers</p>
+<p><a name="ylim"></a>
+    <code>ylim</code> - A pair of numbers
+    Limits for the x and y axes.</p>
+<p><a name="ratio"></a>
+    <code>ratio</code> - double
+    The ratio represents the number of units on the y-axis equivalent to one unit on the x-axis.
+    ratio = 1, ensures that one unit on the x-axis is the same length as one unit on the y-axis.
+    Ratios higher than one make units on the y axis longer than units on the x-axis, and vice versa.</p>
+</BODY>
+</HTML>

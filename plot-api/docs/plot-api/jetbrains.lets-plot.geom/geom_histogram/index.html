@@ -17,12 +17,13 @@
 <code><span class="keyword">class </span><span class="identifier">geom_histogram</span>&nbsp;<span
         class="symbol">:</span>&nbsp;<a
         href="../../jetbrains.lets-plot.intern.layer.geom/-histogram-aesthetics/index.html"><span class="identifier">HistogramAesthetics</span></a><span
-        class="symbol">, </span><a href="../../jetbrains.lets-plot.intern.layer.stat/-bin-aesthetics/index.html"><span
-        class="identifier">BinAesthetics</span></a><span class="symbol">, </span><a
-        href="../../jetbrains.lets-plot.intern.layer.stat/-bin-parameters/index.html"><span class="identifier">BinParameters</span></a><span
+        class="symbol">, </span><a
+        href="../../jetbrains.lets-plot.intern.layer.stat/-bin-stat-aesthetics/index.html"><span class="identifier">BinStatAesthetics</span></a><span
+        class="symbol">, </span><a
+        href="../../jetbrains.lets-plot.intern.layer.stat/-bin-stat-parameters/index.html"><span class="identifier">BinStatParameters</span></a><span
         class="symbol">, </span><a href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span
         class="identifier">LayerBase</span></a></code>
-<p>Displays a 1d distribution by dividing variable mapped to x axis into bins and counting the number of observations in
+<p>Display a 1d distribution by dividing variable mapped to x axis into bins and counting the number of observations in
     each bin.</p>
 <h3>Parameters</h3>
 <p><a name="data"></a>
@@ -69,90 +70,90 @@
             <h4><a href="-init-.html">&lt;init&gt;</a></h4>
         </td>
         <td>
-            <p>Displays a 1d distribution by dividing variable mapped to x axis into bins and counting the number of
+            <p>Display a 1d distribution by dividing variable mapped to x axis into bins and counting the number of
                 observations in each bin.</p>
             <code><span class="identifier">geom_histogram</span><span class="symbol">(</span><span class="identifier"
-                                                                                                   id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/data">data</span><span
+                                                                                                   id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/data">data</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
                     class="identifier">Map</span></a><span class="symbol">&lt;</span><span
                     class="identifier">*</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/stat">stat</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/stat">stat</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer/-stat-options/index.html"><span class="identifier">StatOptions</span></a>&nbsp;<span
                     class="symbol">=</span>&nbsp;Stat.bin()<span class="symbol">, </span><span class="identifier"
-                                                                                               id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/position">position</span><span
+                                                                                               id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/position">position</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer/-pos-options/index.html"><span class="identifier">PosOptions</span></a>&nbsp;<span
                     class="symbol">=</span>&nbsp;Pos.stack<span class="symbol">, </span><span class="identifier"
-                                                                                              id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/showLegend">showLegend</span><span
+                                                                                              id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/showLegend">showLegend</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
                     class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/sampling">sampling</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/sampling">sampling</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer/-sampling-options/index.html"><span class="identifier">SamplingOptions</span></a><span
                     class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/x">x</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/x">x</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
                     class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/y">y</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/y">y</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
                     class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/alpha">alpha</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/alpha">alpha</span><span
                     class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/color">color</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/color">color</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/fill">fill</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/fill">fill</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/size">size</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/size">size</span><span
                     class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/weight">weight</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/weight">weight</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/binCount">binCount</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/bins">bins</span><span
                     class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span
-                    class="symbol">=</span>&nbsp;BinParameters.DEF_BIN_COUNT<span class="symbol">, </span><span
-                    class="identifier"
-                    id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/binWidth">binWidth</span><span
-                    class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/center">center</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/binWidth">binWidth</span><span
                     class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/boundary">boundary</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/center">center</span><span
                     class="symbol">:</span>&nbsp;<a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Any, kotlin.Any, kotlin.Double, kotlin.Any, kotlin.Int, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/mapping">mapping</span><span
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/boundary">boundary</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.geom.geom_histogram$<init>(kotlin.collections.Map((kotlin.Any, )), jetbrains.letsPlot.intern.layer.StatOptions, jetbrains.letsPlot.intern.layer.PosOptions, kotlin.Boolean, jetbrains.letsPlot.intern.layer.SamplingOptions, kotlin.Double, kotlin.Double, kotlin.Number, kotlin.Any, kotlin.Any, kotlin.Number, kotlin.Any, kotlin.Int, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Function1((jetbrains.letsPlot.intern.layer.geom.HistogramMapping, kotlin.Unit)))/mapping">mapping</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="../../jetbrains.lets-plot.intern.layer.geom/-histogram-mapping/index.html"><span
                     class="identifier">HistogramMapping</span></a><span class="symbol">.</span><span
@@ -174,18 +175,17 @@
             <p>transparency level of a layer
                 Understands numbers between 0 and 1.</p>
             <code><span class="keyword">val </span><span class="identifier">alpha</span><span class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span></code></td>
     </tr>
     <tr>
         <td>
-            <h4><a href="bin-count.html">binCount</a></h4>
+            <h4><a href="bins.html">bins</a></h4>
         </td>
         <td>
-            <code><span class="keyword">val </span><span class="identifier">binCount</span><span
-                    class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
-        </td>
+            <code><span class="keyword">val </span><span class="identifier">bins</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">?</span></code></td>
     </tr>
     <tr>
         <td>
@@ -194,8 +194,8 @@
         <td>
             <code><span class="keyword">val </span><span class="identifier">binWidth</span><span
                     class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span></code></td>
     </tr>
     <tr>
         <td>
@@ -204,8 +204,8 @@
         <td>
             <code><span class="keyword">val </span><span class="identifier">boundary</span><span
                     class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span></code></td>
     </tr>
     <tr>
         <td>
@@ -214,8 +214,8 @@
         <td>
             <code><span class="keyword">val </span><span class="identifier">center</span><span
                     class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span></code></td>
     </tr>
     <tr>
         <td>
@@ -247,8 +247,8 @@
             <p>line width.
                 Defines bar line width.</p>
             <code><span class="keyword">val </span><span class="identifier">size</span><span class="symbol">: </span><a
-                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span
-                    class="identifier">Double</span></a><span class="symbol">?</span></code></td>
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span></code></td>
     </tr>
     <tr>
         <td>

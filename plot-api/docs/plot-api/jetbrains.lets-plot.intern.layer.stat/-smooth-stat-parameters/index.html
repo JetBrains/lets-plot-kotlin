@@ -1,0 +1,163 @@
+<!--
+  ~ Copyright (c) 2020. JetBrains s.r.o.
+  ~ Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+  -->
+
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>SmoothStatParameters - plot-api</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">plot-api</a>&nbsp;/&nbsp;<a href="../index.html">jetbrains.letsPlot.intern.layer.stat</a>&nbsp;/&nbsp;<a
+        href="./index.html">SmoothStatParameters</a><br/>
+<br/>
+<h1>SmoothStatParameters</h1>
+<code><span class="keyword">interface </span><span class="identifier">SmoothStatParameters</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<a href="../../jetbrains.lets-plot.intern.layer/-options-capsule/index.html"><span
+        class="identifier">OptionsCapsule</span></a></code>
+<p>Params:
+    method - smoothing method: lm, glm, gam, loess, rlm
+    n (80) - number of points to evaluate smoother at
+    se (TRUE ) - display confidence interval around smooth?
+    level (0.95) - level of confidence interval to use
+    deg ( &gt;= 1 ) - degree of polynomial for regression
+    seed - random seed for LOESS sampling
+    maxN (1000) - maximum points in DF for LOESS</p>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="deg.html">deg</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">abstract</span> <span class="keyword">val </span><span
+                    class="identifier">deg</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="level.html">level</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">abstract</span> <span class="keyword">val </span><span
+                    class="identifier">level</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="max-n.html">maxN</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">abstract</span> <span class="keyword">val </span><span
+                    class="identifier">maxN</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="method.html">method</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">abstract</span> <span class="keyword">val </span><span
+                    class="identifier">method</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="n.html">n</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">abstract</span> <span class="keyword">val </span><span
+                    class="identifier">n</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span
+                    class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="se.html">se</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">abstract</span> <span class="keyword">val </span><span
+                    class="identifier">se</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
+                    class="identifier">Boolean</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="seed.html">seed</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">abstract</span> <span class="keyword">val </span><span
+                    class="identifier">seed</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span
+                    class="identifier">Long</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="span.html">span</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">abstract</span> <span class="keyword">val </span><span
+                    class="identifier">span</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
+                    class="identifier">Number</span></a><span class="symbol">?</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="seal.html">seal</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">open</span> <span class="keyword">fun </span><span
+                    class="identifier">seal</span><span class="symbol">(</span><span class="symbol">)</span><span
+                    class="symbol">: </span><a href="../../jetbrains.lets-plot.intern/-options/index.html"><span
+                    class="identifier">Options</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.geom/geom_smooth/index.html">geom_smooth</a></h4>
+        </td>
+        <td>
+            <p>Add a smoothed conditional mean.</p>
+            <code><span class="keyword">class </span><span class="identifier">geom_smooth</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-smooth-aesthetics/index.html"><span
+                    class="identifier">SmoothAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">SmoothStatParameters</span></a><span
+                    class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span class="identifier">LayerBase</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.stat/stat_smooth/index.html">stat_smooth</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">class </span><span class="identifier">stat_smooth</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a
+                    href="../../jetbrains.lets-plot.intern.layer.geom/-smooth-aesthetics/index.html"><span
+                    class="identifier">SmoothAesthetics</span></a><span class="symbol">, </span><a
+                    href="./index.html"><span class="identifier">SmoothStatParameters</span></a><span
+                    class="symbol">, </span><a
+                    href="../../jetbrains.lets-plot.intern.layer/-layer-base/index.html"><span class="identifier">LayerBase</span></a></code>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

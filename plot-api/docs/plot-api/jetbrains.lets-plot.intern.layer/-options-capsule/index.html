@@ -65,19 +65,44 @@
     </tr>
     <tr>
         <td>
-            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-bin-aesthetics/index.html">BinAesthetics</a></h4>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-bin2d-stat-aesthetics/index.html">Bin2dStatAesthetics</a>
+            </h4>
         </td>
         <td>
-            <code><span class="keyword">interface </span><span class="identifier">BinAesthetics</span>&nbsp;<span
+            <p>'bin2d' stat requires x,y (weight is optional)</p>
+            <code><span class="keyword">interface </span><span class="identifier">Bin2dStatAesthetics</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a href="./index.html"><span
                     class="identifier">OptionsCapsule</span></a></code></td>
     </tr>
     <tr>
         <td>
-            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-bin-parameters/index.html">BinParameters</a></h4>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-bin2d-stat-parameters/index.html">Bin2dStatParameters</a>
+            </h4>
         </td>
         <td>
-            <code><span class="keyword">interface </span><span class="identifier">BinParameters</span>&nbsp;<span
+            <code><span class="keyword">interface </span><span class="identifier">Bin2dStatParameters</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
+                    class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4>
+                <a href="../../jetbrains.lets-plot.intern.layer.stat/-bin-stat-aesthetics/index.html">BinStatAesthetics</a>
+            </h4>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span class="identifier">BinStatAesthetics</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
+                    class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4>
+                <a href="../../jetbrains.lets-plot.intern.layer.stat/-bin-stat-parameters/index.html">BinStatParameters</a>
+            </h4>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span class="identifier">BinStatParameters</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a href="./index.html"><span
                     class="identifier">OptionsCapsule</span></a></code></td>
     </tr>
@@ -95,13 +120,24 @@
     <tr>
         <td>
             <h4>
-                <a href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-aesthetics/index.html">BoxplotAesthetics</a>
+                <a href="../../jetbrains.lets-plot.intern.layer.geom/-boxplot-parameters/index.html">BoxplotParameters</a>
             </h4>
         </td>
         <td>
-            <code><span class="keyword">interface </span><span class="identifier">BoxplotAesthetics</span>&nbsp;<span
+            <code><span class="keyword">interface </span><span class="identifier">BoxplotParameters</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a href="./index.html"><span
                     class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-boxplot-stat-aesthetics/index.html">BoxplotStatAesthetics</a>
+            </h4>
+        </td>
+        <td>
+            <p>The "Five Number Summary" requires x,y (weight is optional)</p>
+            <code><span class="keyword">interface </span><span
+                    class="identifier">BoxplotStatAesthetics</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="./index.html"><span class="identifier">OptionsCapsule</span></a></code></td>
     </tr>
     <tr>
         <td>
@@ -115,21 +151,31 @@
     </tr>
     <tr>
         <td>
-            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-count-aesthetics/index.html">CountAesthetics</a>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-aesthetics/index.html">ContourStatAesthetics</a>
             </h4>
         </td>
         <td>
-            <code><span class="keyword">interface </span><span class="identifier">CountAesthetics</span>&nbsp;<span
-                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
-                    class="identifier">OptionsCapsule</span></a></code></td>
+            <code><span class="keyword">interface </span><span
+                    class="identifier">ContourStatAesthetics</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="./index.html"><span class="identifier">OptionsCapsule</span></a></code></td>
     </tr>
     <tr>
         <td>
-            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-count-parameters/index.html">CountParameters</a>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-contour-stat-parameters/index.html">ContourStatParameters</a>
             </h4>
         </td>
         <td>
-            <code><span class="keyword">interface </span><span class="identifier">CountParameters</span>&nbsp;<span
+            <code><span class="keyword">interface </span><span
+                    class="identifier">ContourStatParameters</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="./index.html"><span class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-count-stat-aesthetics/index.html">CountStatAesthetics</a>
+            </h4>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span class="identifier">CountStatAesthetics</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a href="./index.html"><span
                     class="identifier">OptionsCapsule</span></a></code></td>
     </tr>
@@ -145,14 +191,43 @@
     </tr>
     <tr>
         <td>
-            <h4>
-                <a href="../../jetbrains.lets-plot.intern.layer.stat/-density-parameters/index.html">DensityParameters</a>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-density2d-stat-aesthetics/index.html">Density2dStatAesthetics</a>
             </h4>
         </td>
         <td>
-            <code><span class="keyword">interface </span><span class="identifier">DensityParameters</span>&nbsp;<span
-                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
-                    class="identifier">OptionsCapsule</span></a></code></td>
+            <code><span class="keyword">interface </span><span
+                    class="identifier">Density2dStatAesthetics</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="./index.html"><span class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-density2d-stat-parameters/index.html">Density2dStatParameters</a>
+            </h4>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span
+                    class="identifier">Density2dStatParameters</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="./index.html"><span class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-aesthetics/index.html">DensityStatAesthetics</a>
+            </h4>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span
+                    class="identifier">DensityStatAesthetics</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="./index.html"><span class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-density-stat-parameters/index.html">DensityStatParameters</a>
+            </h4>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span
+                    class="identifier">DensityStatParameters</span>&nbsp;<span class="symbol">:</span>&nbsp;<a
+                    href="./index.html"><span class="identifier">OptionsCapsule</span></a></code></td>
     </tr>
     <tr>
         <td>
@@ -202,6 +277,16 @@
         </td>
         <td>
             <code><span class="keyword">interface </span><span class="identifier">ImageAesthetics</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
+                    class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.geom/-jitter-parameters/index.html">JitterParameters</a>
+            </h4>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span class="identifier">JitterParameters</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a href="./index.html"><span
                     class="identifier">OptionsCapsule</span></a></code></td>
     </tr>
@@ -314,6 +399,44 @@
         </td>
         <td>
             <code><span class="keyword">interface </span><span class="identifier">SegmentAesthetics</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
+                    class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.geom/-smooth-aesthetics/index.html">SmoothAesthetics</a>
+            </h4>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span class="identifier">SmoothAesthetics</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
+                    class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-smooth-stat-aesthetics/index.html">SmoothStatAesthetics</a>
+            </h4>
+        </td>
+        <td>
+            <code><span class="keyword">interface </span><span class="identifier">SmoothStatAesthetics</span>&nbsp;<span
+                    class="symbol">:</span>&nbsp;<a href="./index.html"><span
+                    class="identifier">OptionsCapsule</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="../../jetbrains.lets-plot.intern.layer.stat/-smooth-stat-parameters/index.html">SmoothStatParameters</a>
+            </h4>
+        </td>
+        <td>
+            <p>Params:
+                method - smoothing method: lm, glm, gam, loess, rlm
+                n (80) - number of points to evaluate smoother at
+                se (TRUE ) - display confidence interval around smooth?
+                level (0.95) - level of confidence interval to use
+                deg ( &gt;= 1 ) - degree of polynomial for regression
+                seed - random seed for LOESS sampling
+                maxN (1000) - maximum points in DF for LOESS</p>
+            <code><span class="keyword">interface </span><span class="identifier">SmoothStatParameters</span>&nbsp;<span
                     class="symbol">:</span>&nbsp;<a href="./index.html"><span
                     class="identifier">OptionsCapsule</span></a></code></td>
     </tr>
