@@ -26,6 +26,12 @@ Try the following examples to study more features of the `Lets-Plot` library.
 
 `geom_density2d, geom_density2df, geom_bin2d, geom_polygon, geom_point` :
 
+[density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
+
+`geom_tile, geom_contour, geom_polygon (Stat.contour), geom_contourf` :
+
+[contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
+
 
 
 #### Position Adjustment
@@ -44,6 +50,9 @@ Try the following examples to study more features of the `Lets-Plot` library.
 
 `scale_color_gradient` : [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
 
+`scale_fill_hue, scale_fill_grey, scale_color_gradient` : [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
+
+
 #### Facets
 
 `facet_grid`: 
@@ -51,8 +60,26 @@ Try the following examples to study more features of the `Lets-Plot` library.
 
 #### GGBunch
 
+GGBunch allows to show a collection of plots on one figure. Each plot in the collection can have arbitrary location and size. There is no automatic layout inside the bunch.
+
 [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb) 
 
 #### `as_discrete()` function 
 
 [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb) 
+
+#### Theme
+
+Legend layout and axis presentation options : 
+ 
+[legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
+
+#### Data sampling 
+
+Sampling is a special technique of data transformation, which helps dealing with large datasets and overplotting.
+
+[Learn more](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md) about sampling in Lets-Plot. 
+
+Pick sampling on Bar-chart: [sampling_pick.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_pick.ipynb)
+
+Stratified sampling: [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
