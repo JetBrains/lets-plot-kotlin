@@ -31,9 +31,9 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param bins list of 2 numbers, default: [30,30]
+ * @param bins pair of numbers, default: (30,30)
  *     Number of bins in both directions, vertical and horizontal.  Overridden by binwidth.
- * @param binWidth list of 2 numbers, optional
+ * @param binWidth pair of numbers, optional
  *     The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
  *     The default is to use bin widths that cover the entire range of the data.
  * @param drop : bool, optional, default: True
@@ -42,7 +42,7 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
  * @param y y-axis value.
  * @param width width of a tile.
  * @param height height of a tile.
- * @param alpha number in [0..1]
+ * @param alpha number in `[0..1`]
  *     Transparency level of a layer.
  * @param color (colour) color of a geometry lines.
  * @param fill color of geometry filling.

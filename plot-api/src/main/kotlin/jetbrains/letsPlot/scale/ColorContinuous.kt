@@ -330,9 +330,9 @@ fun scale_color_gradient2(
  * The palette is computed using HSV (hue, saturation, value) color model.
  *
  * @param start numeric
- *      Gray value at low end of palette in range [0,1]
+ *      Gray value at low end of palette in range `[0,1`]
  * @param end numeric
- *      Gray value at high end of palette in range [0,1]
+ *      Gray value at high end of palette in range `[0,1`]
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
@@ -388,9 +388,9 @@ fun scale_fill_grey(
  * The palette is computed using HSV (hue, saturation, value) color model.
  *
  * @param start numeric
- *      Gray value at low end of palette in range [0,1]
+ *      Gray value at low end of palette in range `[0,1`]
  * @param end numeric
- *      Gray value at high end of palette in range [0,1]
+ *      Gray value at high end of palette in range `[0,1`]
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
@@ -445,11 +445,11 @@ fun scale_color_grey(
  * Qualitative color scale with evenly spaced hues for fill aesthetic.
  *
  * @param h a pair of numbers
- *      Range of hues, in [0,360].
+ *      Range of hues, in `[0,360`].
  * @param c numeric
  *      Chroma (intensity of color), maximum value varies depending on.
  * @param l numeric
- *      Luminance (lightness), in [0,100].
+ *      Luminance (lightness), in `[0,100`].
  * @param hstart list of two numbers
  *      Hue to start at.
  * @param direction numeric
@@ -510,11 +510,11 @@ fun scale_fill_hue(
  * Qualitative color scale with evenly spaced hues for color aesthetic.
  *
  * @param h a pair of numbers
- *      Range of hues, in [0,360].
+ *      Range of hues, in `[0,360`].
  * @param c numeric
  *      Chroma (intensity of color), maximum value varies depending on.
  * @param l numeric
- *      Luminance (lightness), in [0,100].
+ *      Luminance (lightness), in `[0,100`].
  * @param hstart list of two numbers
  *      Hue to start at.
  * @param direction numeric

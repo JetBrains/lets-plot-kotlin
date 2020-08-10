@@ -208,7 +208,7 @@ fun scale_linetype_identity(
  * I.e. it already represents aesthetic values that ggplot2 can handle directly.
  * This will not produce a legend unless you also supply the breaks and labels.
  *
- * Input data expected: numetic values in range [0..1]
+ * Input data expected: numetic values in range `[0..1`]
  *
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
