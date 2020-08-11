@@ -48,7 +48,7 @@ The following is an example fragment of a Gradle project that uses `lets-plot-ko
 ```groovy
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    api "org.jetbrains.lets-plot:lets-plot-kotlin-api:0.0.10-SNAPSHOT"
+    api "org.jetbrains.lets-plot:lets-plot-kotlin-api:<api version>"
 }
 ```
 
@@ -80,8 +80,8 @@ The following steps describe how to use `Lets-Plot` JVM "backend" in "browser" f
 #### Add dependencies on maven artifacts
 
 ```
-org.jetbrains.lets-plot:lets-plot-common:1.3.1
-org.jetbrains.lets-plot:lets-plot-kotlin-api:0.0.9-SNAPSHOT
+org.jetbrains.lets-plot:lets-plot-common:<lib version>
+org.jetbrains.lets-plot:lets-plot-kotlin-api:<api version>
 ```
 
 #### Implement interface `jetbrains.letsPlot.FrontendContext` like: 

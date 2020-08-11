@@ -1,3 +1,3 @@
 # Fix GitHub mis-classification as HTML project.
 # https://github.com/github/linguist
-plot-api/docs/* linguist-documentation
+docs/api-reference/* linguist-documentation

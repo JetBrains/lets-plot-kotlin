@@ -127,7 +127,7 @@ See [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/RE
 #### User guide and API reference
 The User Guide in the form of Jupyter notebook: [user_guide.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
 
-Lets-Plot Kotlin API [reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/plot-api/docs/plot-api/index.html).
+Lets-Plot Kotlin API [reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/index.html).
 
 <a id="sampling"></a>
 #### Data sampling 
