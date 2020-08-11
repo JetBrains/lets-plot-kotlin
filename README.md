@@ -103,7 +103,7 @@ p + ggsize(500, 250)
 <br/>
 
 <a id="jupyter-examples"></a>
-#### Example notebooks](#jupyter-examples)
+#### Example notebooks
 
 Try the following [examples](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md) to study features of the `Lets-Plot` library.
 
