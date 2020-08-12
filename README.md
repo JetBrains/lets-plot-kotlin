@@ -4,7 +4,7 @@
     <tr>
         <td>Latest API Version</td>
         <td>
-            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/_latestVersion"/>
+            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars-dev/_latestVersion"/>
             <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/images/download.svg"/>
         </td>
     </tr>

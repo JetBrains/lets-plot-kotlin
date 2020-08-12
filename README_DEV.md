@@ -39,7 +39,7 @@ These artifacts are available at [jcenter](https://bintray.com/bintray/jcenter) 
 
 This artifact is not yet released and only available as a SNAPSHOT.
 
-[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars-dev/_latestVersion)
 
 Maven repository: `https://jetbrains.bintray.com/lets-plot-maven`
 
