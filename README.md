@@ -38,7 +38,7 @@
     - [User guide and API reference](#guide)
     - [Data sampling](#sampling)
     - [GGBunch](#ggbunch)
-    - [Export plot to file](#export)
+    - [Saving plot to file](#export)
     
 - [License](#license)    
 
@@ -148,9 +148,30 @@ Examples:
 
 
 <a id="export"></a>
-#### Export plot to file
+#### Saving plot to file
 
-[TBD]
+The `ggsave()` function is a convenient way of saving a plot or a GGBunch object to a file.
+
+For example, the code below will save plot as a PNG image to the file `<user dir>//lets-plot-images/density.png`:
+
+```
+%use lets-plot
+
+val rand = java.util.Random(123)
+val n = 400
+val data = mapOf (
+    "rating" to List(n/2) { rand.nextGaussian() } + List(n/2) { rand.nextGaussian() * 1.5 + 1.5 },
+    "cond" to List(n/2) { "A" } + List(n/2) { "B" }
+)
+
+var p = lets_plot(data) +
+        geom_density { x = "rating"; color = "cond" } + ggsize(500, 250)
+        
+ggsave(p, "density.png")        
+``` 
+<img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/ggsave_demo.png" alt="Couldn't load ggsave_demo.png" width="500" height="250"/>
+<br/>
+
 
 <a id="license"></a>
 ### License
