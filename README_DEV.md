@@ -37,7 +37,7 @@ These artifacts are available at [jcenter](https://bintray.com/bintray/jcenter) 
 
 - `lets-plot-kotlin-api`
 
-[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/_latestVersion)
 
 Maven repository: `https://jetbrains.bintray.com/lets-plot-maven`
 
