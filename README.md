@@ -4,8 +4,8 @@
     <tr>
         <td>Latest Lets-Plot Kotlin API Version</td>
         <td>
-            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars-dev/_latestVersion"/>
-            <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars-dev/images/download.svg"/>
+            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/_latestVersion"/>
+            <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/images/download.svg"/>
         </td>
     </tr>
     <tr>
@@ -40,6 +40,8 @@
     - [GGBunch](#ggbunch)
     - [Saving plot to file](#export)
     
+- [What is new in 1.0.0](#new)
+- [Change log](#change_log)
 - [License](#license)    
 
 
@@ -177,8 +179,28 @@ ggsave(p, "density.png")
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/ggsave_demo.png" alt="Couldn't load ggsave_demo.png" width="500" height="250"/>
 <br/>
 
-See [ggsave reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/jetbrains.lets-plot.export/index.html) 
+See [ggsave documentation](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/jetbrains.lets-plot.export/ggsave.html) 
 for more information about the function arguments and default values.
+
+<a id="new"></a>
+## What is new in 1.0.0
+
+Maven artifact __group id__ has changed in this release.
+
+Now it is: `org.jetbrains.lets-plot-kotlin` (before was: `org.jetbrains.lets-plot`).
+
+So, you include Lets-Plot Kotlin API to your Gradle project for example, like follows: 
+
+```groovy
+dependencies {
+    api "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-api:<api version>"
+}
+``` 
+
+<a id="change_log"></a>
+## Change Log
+
+See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md).
 
 <a id="license"></a>
 ### License

@@ -37,9 +37,7 @@ These artifacts are available at [jcenter](https://bintray.com/bintray/jcenter) 
 
 - `lets-plot-kotlin-api`
 
-This artifact is not yet released and only available as a SNAPSHOT.
-
-[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars-dev/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars-dev/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars/_latestVersion)
 
 Maven repository: `https://jetbrains.bintray.com/lets-plot-maven`
 
@@ -48,7 +46,7 @@ The following is an example fragment of a Gradle project that uses `lets-plot-ko
 ```groovy
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    api "org.jetbrains.lets-plot:lets-plot-kotlin-api:<api version>"
+    api "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-api:<api version>"
 }
 ```
 
@@ -81,7 +79,7 @@ The following steps describe how to use `Lets-Plot` JVM "backend" in "browser" f
 
 ```
 org.jetbrains.lets-plot:lets-plot-common:<lib version>
-org.jetbrains.lets-plot:lets-plot-kotlin-api:<api version>
+org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-api:<api version>
 ```
 
 #### Implement interface `jetbrains.letsPlot.FrontendContext` like: 
