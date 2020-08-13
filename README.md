@@ -2,7 +2,7 @@
 
 <table>
     <tr>
-        <td>Latest API Version</td>
+        <td>Latest Lets-Plot Kotlin API Version</td>
         <td>
             <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars-dev/_latestVersion"/>
             <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-api-jars-dev/images/download.svg"/>
@@ -48,11 +48,14 @@
 
 **Lets-Plot** for Kotlin is a Kotlin API for [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an open-source plotting library for statistical data which is written entirely in the [Kotlin programming language](https://kotlinlang.org/). 
 
-[Here](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb) you can find a documentation with examples in form of Jupyter notebook using Kotlin kernel.
-
 Lets-Plot Kotlin API was built on the principals of layered graphics first described in the Leland Wilkinson work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
 and later implemented in the [ggplot2](https://ggplot2.tidyverse.org/) package for R.
 
+> This grammar [...] is made up of a set of independent components that can be composed in many different ways. This makes [it] very powerful because you are not limited to a set of pre-specified graphics, but you can create new graphics that are precisely tailored for your problem.
+> - Hadley Wickham, "ggplot2: [Elegant Graphics for Data Analysis](https://www.goodreads.com/book/show/6829192-ggplot2)"
+
+Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
+for quick introduction to the Grammar of Graphics and Lets-Plot Kotlin API. 
 
 <a id="jupyter"></a>
 ### Lets-Plot in Jupyter with Kotlin Kernel
