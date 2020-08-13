@@ -152,6 +152,8 @@ Examples:
 
 The `ggsave()` function is a convenient way of saving a plot or a GGBunch object to a file.
 
+The supported export formats are: `SVG, HTML, PNG, JPEG and TIFF`.
+
 For example, the code below will save plot as a PNG image to the file `<user dir>//lets-plot-images/density.png`:
 
 ```
@@ -172,6 +174,8 @@ ggsave(p, "density.png")
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/ggsave_demo.png" alt="Couldn't load ggsave_demo.png" width="500" height="250"/>
 <br/>
 
+See [ggsave reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/jetbrains.lets-plot.export/index.html) 
+for more information about the function arguments and default values.
 
 <a id="license"></a>
 ### License
