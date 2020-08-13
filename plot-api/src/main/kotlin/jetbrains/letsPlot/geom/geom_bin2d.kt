@@ -21,8 +21,8 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
 
 @Suppress("ClassName")
 /**
- *  Displays a 1d distribution by dividing variable mapped to x axis into bins and
- *  counting the number of observations in each bin.
+ * Divide the plane into a grid and color the bins by the count of cases in them.
+ *
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
