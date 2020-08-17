@@ -48,16 +48,16 @@
 <a name="Overview" id="overview"></a>
 ### Overview
 
-**Lets-Plot** for Kotlin is a Kotlin API for [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an open-source plotting library for statistical data which is written entirely in the [Kotlin programming language](https://kotlinlang.org/). 
+**Lets-Plot for Kotlin** is a Kotlin API for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an open-source plotting library for statistical data which is written entirely in the [Kotlin programming language](https://kotlinlang.org/). 
 
-Lets-Plot Kotlin API was built on the principals of layered graphics first described in the Leland Wilkinson work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
+Lets-Plot Kotlin API is built on the principals of layered graphics first described in the Leland Wilkinson work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
 and later implemented in the [ggplot2](https://ggplot2.tidyverse.org/) package for R.
 
 > This grammar [...] is made up of a set of independent components that can be composed in many different ways. This makes [it] very powerful because you are not limited to a set of pre-specified graphics, but you can create new graphics that are precisely tailored for your problem.
 > - Hadley Wickham, "ggplot2: [Elegant Graphics for Data Analysis](https://www.goodreads.com/book/show/6829192-ggplot2)"
 
 Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
-for quick introduction to the Grammar of Graphics and Lets-Plot Kotlin API. 
+for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_. 
 
 <a id="jupyter"></a>
 ### Lets-Plot in Jupyter with Kotlin Kernel
@@ -65,23 +65,20 @@ for quick introduction to the Grammar of Graphics and Lets-Plot Kotlin API.
 <a id="inst"></a>
 #### Installation
 
-in Jupyter notebook with Kotlin Kernel Lets-Plot library is available out-of-the-box. 
- 
-To install Kotlin Kernel and OpenJdk into Conda environment run the following command:
+In Jupyter notebook with a Kotlin Kernel, Lets-Plot library is available out-of-the-box. To install Kotlin Kernel and OpenJDK into a Conda environment, run the following command:
 
 ```shell script
 conda install kotlin-jupyter-kernel -c jetbrains
 ```                                             
 
-To find more information about Jupyter Kotlin kernel check the [Kotlin kernel for Jupyter/iPython](https://github.com/Kotlin/kotlin-jupyter) project.
+For more information about Jupyter Kotlin kernel, see the [Kotlin kernel for Jupyter/iPython](https://github.com/Kotlin/kotlin-jupyter) project.
 
 <a id="start"></a>
 #### Quickstart in Jupyter
 
-In Jupyter create a new notebook and choose the kernel - `kotlin`.
+- In Jupyter create a new notebook and choose the kernel - `kotlin`.
 
-To evaluate the plotting capabilities of Lets-Plot, add the following code to a Jupyter notebook:
-
+- Add the following code to a Jupyter notebook:
 ```
 %use lets-plot
 ```     
@@ -97,6 +94,7 @@ var p = lets_plot(data)
 p += geom_density(color="dark_green", alpha=.3) {x="rating"; fill="cond"}
 p + ggsize(500, 250)
 ```
+- Execute the added code to evaluate the plotting capabilities of Lets-Plot.
 
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/quickstart.png" alt="Couldn't load quickstart.png" width="500" height="270"/>
 <br/>
@@ -108,7 +106,7 @@ p + ggsize(500, 250)
 <br/>
 
 <a id="jupyter-examples"></a>
-#### Example notebooks
+#### Example of notebooks
 
 Try the following [examples](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md) to study features of the `Lets-Plot` library.
 
@@ -121,7 +119,7 @@ Try the following [examples](https://github.com/JetBrains/lets-plot-kotlin/blob/
 <a id="jvm"></a>
 ### Lets-Plot in JVM-based application
 
-Besides Jupyter notebooks, Lets-Plot library and Kotlin API enables embedding plots into a JVM-based application.
+Apart from Jupyter notebooks, Lets-Plot library and Kotlin API enables embedding plots into a JVM-based application.
 
 See [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md) to learn more about creating plots in a JVM environment.
 
@@ -130,14 +128,14 @@ See [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/RE
 
 <a id="guide"></a>
 #### User guide and API reference
-The User Guide in the form of Jupyter notebook: [user_guide.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
+- The User Guide in the form of Jupyter notebook: [user_guide.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
 
-Lets-Plot Kotlin API [reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/index.html).
+- Lets-Plot Kotlin API [reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/index.html).
 
 <a id="sampling"></a>
 #### Data sampling 
 
-Sampling is a special technique of data transformation, which helps dealing with large datasets and overplotting.
+Sampling is a special technique of data transformation, which helps to deal with large datasets and overplotting.
 
 [Learn more](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md) about sampling in Lets-Plot. 
 
@@ -153,7 +151,7 @@ Examples:
 
 
 <a id="export"></a>
-#### Saving plot to file
+#### Saving plot to a file
 
 The `ggsave()` function is a convenient way of saving a plot or a GGBunch object to a file.
 
@@ -189,7 +187,7 @@ Maven artifact __group id__ has changed in this release.
 
 Now it is: `org.jetbrains.lets-plot-kotlin` (before was: `org.jetbrains.lets-plot`).
 
-So, you include Lets-Plot Kotlin API to your Gradle project for example, like follows: 
+To include Lets-Plot Kotlin API to your Gradle project for example, use the following dependency: 
 
 ```groovy
 dependencies {
