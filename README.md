@@ -31,6 +31,8 @@
     - [Quick start with Jupyter](#start)
     - [Example notebooks](#jupyter-examples)
     - [Resources](#resources)
+
+- [Lets-Plot-Kotlin in Datalore notebooks](#datalore)
    
 - [Lets-Plot in JVM-based application](#jvm)   
 
@@ -115,6 +117,16 @@ Try the following [examples](https://github.com/JetBrains/lets-plot-kotlin/blob/
 
 * [Kotlin for Data Science](https://kotlinlang.org/docs/reference/data-science-overview.html) : overview of Kotlin Jupyter kernel etc.
 * [Using Kotlin for Data Science](https://www.youtube.com/watch?v=APnyDVye4JA&list=PLQ176FUIyIUY6SKGl3Cj9yeYibBuRr3Hl&index=39&t=0s) : recording of the talk at KotlinConf-19. 
+
+<a id="datalore"></a>
+### Lets-Plot-Kotlin in Datalore notebooks
+
+[Datalore](https://datalore.jetbrains.com/) is an online data science notebook by JetBrains.
+
+In Datalore notebook you can run Kotlin code directly in your browser. Many popular Kotlin libraries are preinstalled and readily available
+(see the list of [supported Kotlin libraries](https://github.com/Kotlin/kotlin-jupyter#supported-libraries)).
+
+See [Quickstart in Datalore](https://view.datalore.io/notebook/Ybcyrh7ifkvTQVxbTMxaTp) example to learn more about Kotlin support in Datalore.  
 
 <a id="jvm"></a>
 ### Lets-Plot in JVM-based application
