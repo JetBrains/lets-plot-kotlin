@@ -76,7 +76,8 @@ For more information about Jupyter Kotlin kernel, see the [Kotlin kernel for Jup
 <a id="start"></a>
 #### Quickstart in Jupyter
 
-- In Jupyter create a new notebook and choose the kernel - `kotlin`.
+- In [Jupyter](https://jupyter-notebook.readthedocs.io/en/stable/index.html) create a new notebook and [choose the kernel](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html?highlight=new#creating-a-new-notebook-document).
+Choose the Kotlin kernel which should be available in the drop-down list. 
 
 - Add the following code to a Jupyter notebook:
 ```
