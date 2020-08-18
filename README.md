@@ -126,7 +126,9 @@ Try the following [examples](https://github.com/JetBrains/lets-plot-kotlin/blob/
 In Datalore notebook you can run Kotlin code directly in your browser. Many popular Kotlin libraries are preinstalled and readily available
 (see the list of [supported Kotlin libraries](https://github.com/Kotlin/kotlin-jupyter#supported-libraries)).
 
-See [Quickstart in Datalore](https://view.datalore.io/notebook/Ybcyrh7ifkvTQVxbTMxaTp) example to learn more about Kotlin support in Datalore.  
+See [Quickstart in Datalore](https://view.datalore.io/notebook/Ybcyrh7ifkvTQVxbTMxaTp) example notebook to learn more about Kotlin support in Datalore.
+
+Watch the [Datalore Getting Started Tutorial](https://youtu.be/MjvFQxqNSe0) video for a quick introduction to Datalore.   
 
 <a id="jvm"></a>
 ### Lets-Plot in JVM-based application

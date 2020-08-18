@@ -30,25 +30,37 @@ It also offers a choice between [JavaFX](https://en.wikipedia.org/wiki/JavaFX) g
 
 [ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-jars/_latestVersion)
 
-These artifacts are available at [jcenter](https://bintray.com/bintray/jcenter) Maven repository (package `lets-plot-jars`).
 
-
-#### Optional but indispensable Kotlin API artifact (published by this project)
+#### Lets-Plot Kotlin API artifact (published by this project)
 
 - `lets-plot-kotlin-api`
 
 [ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/_latestVersion)
 
-Maven repository: `https://jetbrains.bintray.com/lets-plot-maven`
 
-The following is an example fragment of a Gradle project that uses `lets-plot-kotlin-api` artifact:
+#### Project dependencies
+
+All artifacts are available at [jcenter](https://bintray.com/bintray/jcenter) Maven repository.
+
+The following is an example fragment of a Gradle project that uses Lets-Plot Kotlin API and Apache Batik rendering:
 
 ```groovy
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.lets-plot:lets-plot-batik:<lib version>"
+    api "org.jetbrains.lets-plot:lets-plot-common:<lib version>"
     api "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-api:<api version>"
 }
 ```
+
+```groovy
+repositories {
+    jcenter()
+}
+```
+
+Development artifacts are not linked to [jcenter](https://bintray.com/bintray/jcenter) and can be only used via 
+direct link to the `lets-plot-maven` repository:     
 
 ```groovy
 repositories {
@@ -57,6 +69,24 @@ repositories {
     }
 }
 ```
+
+<table>
+    <tr>
+        <td>Lets-Plot Kotlin API snapshots</td>
+        <td>
+            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars-dev/_latestVersion"/>
+            <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars-dev/images/download.svg"/>
+        </td>
+    </tr>
+    <tr>
+        <td>Lets-Plot library snapshots</td>
+        <td>
+            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-jars-dev/_latestVersion"/>
+            <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-jars-dev/images/download.svg"/>
+        </td>
+    </tr>
+</table>
+
 
 
 #### An example of a **minimal JVM-based** application
