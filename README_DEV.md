@@ -60,7 +60,7 @@ repositories {
 ```
 
 Development artifacts are not linked to [jcenter](https://bintray.com/bintray/jcenter) and can be only used via 
-direct link to the `lets-plot-maven` repository:     
+a direct link to the `lets-plot-maven` repository:     
 
 ```groovy
 repositories {
