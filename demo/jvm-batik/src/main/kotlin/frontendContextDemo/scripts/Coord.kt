@@ -6,14 +6,12 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.coord_cartesian
-import jetbrains.letsPlot.coord_fixed
+import jetbrains.letsPlot.*
 import jetbrains.letsPlot.geom.geom_line
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_smooth
+import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
-import jetbrains.letsPlot.theme
 
 object Coord {
     @JvmStatic
@@ -27,6 +25,8 @@ object Coord {
                 )
 
                 val p = lets_plot(data) { x = "x"; y = "y"; color = "g"; group = "g" } + geom_line()
+
+                println((p + ggtitle("coord_map()") + coord_map()).toSpec())
 
                 (p + ggtitle("coord_fixed()") + coord_fixed()).show()
                 (p + ggtitle("coord_fixed(x_lim)") + coord_fixed(xlim = 7 to 17)).show()

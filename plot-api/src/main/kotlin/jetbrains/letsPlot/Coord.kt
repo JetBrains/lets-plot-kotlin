@@ -12,6 +12,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
  * A fixed scale coordinate system forces a specified ratio between the physical representation of data units on the axes.
+ *
  * @param xlim A pair of numbers
  * @param ylim A pair of numbers
  *      Limits for the x and y axes.
@@ -20,7 +21,6 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  *      ratio = 1, ensures that one unit on the x-axis is the same length as one unit on the y-axis.
  *      Ratios higher than one make units on the y axis longer than units on the x-axis, and vice versa.
  */
-
 @Suppress("FunctionName")
 fun coord_fixed(
     ratio: Double? = null,
@@ -41,6 +41,10 @@ fun coord_fixed(
  * The Cartesian coordinate system is the most familiar, and common, type of coordinate system.
  * Setting limits on the coordinate system will zoom the plot (like you're looking at it with a magnifying glass),
  * and will not change the underlying data like setting limits on a scale will.
+ *
+ * @param xlim A pair of numbers
+ * @param ylim A pair of numbers
+ *      Limits for the x and y axes.
  */
 @Suppress("FunctionName")
 fun coord_cartesian(
@@ -59,8 +63,12 @@ fun coord_cartesian(
 
 /**
  * Projects a portion of the earth, which is approximately spherical,
- * onto a flat 2D plane using any projection defined by the mapproj package.
+ * onto a flat 2D plane.
  * Map projections do not, in general, preserve straight lines, so this requires considerable computation.
+ *
+ * @param xlim A pair of numbers
+ * @param ylim A pair of numbers
+ *      Limits for the x and y axes.
  */
 @Suppress("FunctionName")
 fun coord_map(
