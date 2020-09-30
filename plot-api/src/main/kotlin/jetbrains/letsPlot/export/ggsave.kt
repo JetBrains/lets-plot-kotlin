@@ -34,6 +34,7 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  * @param path Path to a directory to save image files in.
  *      By default it is `${user.dir}/lets-plot-images`
  *
+ * @return Absolute pathname of created file.
  */
 @Suppress("SpellCheckingInspection")
 fun ggsave(
@@ -114,7 +115,7 @@ private fun exportRasterImage(
 
         val image = PlotImageExport.buildImageFromRawSpecs(
             plotSpec = spec,
-            format = PlotImageExport.Format.PNG,
+            format = format,
             scalingFactor = scalingFactor,
             targetDPI = targetDPI
         )
