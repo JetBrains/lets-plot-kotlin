@@ -20,6 +20,8 @@ import jetbrains.datalore.plot.config.Option.Scale.NAME
 import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
 import jetbrains.letsPlot.MappingMeta
 import jetbrains.letsPlot.intern.SeriesStandardizing.toList
+import jetbrains.letsPlot.intern.layer.WithSpatialParameters
+import jetbrains.letsPlot.spatial.GeometryFormat
 
 fun Plot.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
@@ -80,6 +82,23 @@ fun Layer.toSpec(): MutableMap<String, Any> {
             else it.mapping.map
     }
 
+    // parameters 'map', 'mapJoin'
+    if (this is WithSpatialParameters) {
+        map?.run {
+            require(geometryFormat == GeometryFormat.GEOJSON) { "Only GEOJSON geometry format is supported." }
+
+            val (map, geometryKey) = this.toMap()
+            spec[Option.Geom.Choropleth.GEO_POSITIONS] = map
+            spec[Option.Meta.MAP_DATA_META] = mapOf(
+                "geodataframe" to mapOf(
+                    "geometry" to geometryKey
+                )
+            )
+
+            // TODO: 'mapJoin' parameter
+        }
+    }
+
     val allMappings = (mapping + geom.mapping + stat.mapping).map
 
     spec[Option.PlotBase.MAPPING] = asMappingData(allMappings)
@@ -125,7 +144,7 @@ fun OptionsMap.toSpec(includeKind: Boolean = false): MutableMap<String, Any> {
     }
 }
 
-private fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
+internal fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
     val standardisedData = HashMap<String, List<Any?>>()
     for ((rawKey, rawValue) in rawData) {
         val key = rawKey.toString()

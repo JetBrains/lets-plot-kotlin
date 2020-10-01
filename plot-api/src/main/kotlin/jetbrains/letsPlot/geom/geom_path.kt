@@ -8,12 +8,10 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.path
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PathMapping
+import jetbrains.letsPlot.spatial.SpatialDataset
 
 @Suppress("ClassName")
 /**
@@ -29,6 +27,17 @@ import jetbrains.letsPlot.intern.layer.geom.PathMapping
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param map SpatialDataset.
+ *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
+ *     names of States and their boundaries).
+ *
+ *     Supported shapes: LineString and MultiLineString.
+ *     All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
+ *
+ *     Can be used with parameter 'mapJoin' for joining data and map coordinates.
+ * @param mapJoin list of pairs of names.
+ *     Joins the 'data' with the 'map' coordinates.
+ *     Each pair in the list represents the 'data' key (the first) and the corresponding 'map' key (the second).
  * @param x x-axis value.
  * @param y y-axis value.
  * @param alpha transparency level of a point
@@ -53,6 +62,8 @@ class geom_path(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    override val map: SpatialDataset? = null,
+    override val mapJoin: List<Pair<String, String>>? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Number? = null,
@@ -64,6 +75,7 @@ class geom_path(
     mapping: PathMapping.() -> Unit = {}
 
 ) : PathAesthetics,
+    WithSpatialParameters,
     LayerBase(
         mapping = PathMapping().apply(mapping).seal(),
         data = data,

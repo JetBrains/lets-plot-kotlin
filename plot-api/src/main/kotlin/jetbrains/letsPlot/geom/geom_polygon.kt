@@ -8,12 +8,10 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PolygonMapping
+import jetbrains.letsPlot.spatial.SpatialDataset
 
 @Suppress("ClassName")
 /**
@@ -21,24 +19,25 @@ import jetbrains.letsPlot.intern.layer.geom.PolygonMapping
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
- * @param stat string, optional.
+ * @param stat string.
  *     The statistical transformation to use on the data for this layer, as a string. Supported transformations:
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
  *     linear default)
- * @param position string, optional.
+ * @param position string.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param map dictionary, pandas DataFrame or GeoDataFrame (supported shapes Polygon and MultiPolygon)
- *     Data (Dictionary, DataFrame or GeoDataFrame object) contains coordinates of polygon vertices on map.
- *     Can be used with aesthetic parameter 'map_id' for joining data and map coordinates.
- *     Dictionary and DataFrame object must contain keys/columns:
- *       1. 'x' or 'lon' or 'long'
- *       2. 'y' or 'lat'
- * @param map_join str, pair, optional
- *     Pair of names used to join map coordinates with data.
- *     str or first value in pair - column in data
- *     second value in pair - column in map
+ * @param map SpatialDataset.
+ *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
+ *     names of States and their boundaries).
+ *
+ *     Supported shapes: Polygon and MultiPolygon.
+ *     All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
+ *
+ *     Can be used with parameter 'mapJoin' for joining data and map coordinates.
+ * @param mapJoin list of pairs of names.
+ *     Joins the 'data' with the 'map' coordinates.
+ *     Each pair in the list represents the 'data' key (the first) and the corresponding 'map' key (the second).
  * @param x x-axis coordinates of the vertices of the polygon.
  * @param y y-axis coordinates of the vertices of the polygon.
  * @param alpha transparency level of a layer.
@@ -61,6 +60,8 @@ class geom_polygon(
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    override val map: SpatialDataset? = null,
+    override val mapJoin: List<Pair<String, String>>? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val size: Number? = null,
@@ -68,9 +69,9 @@ class geom_polygon(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val alpha: Number? = null,
-    // TODO add map/map_join parameters support
     mapping: PolygonMapping.() -> Unit = {}
 ) : PolygonAesthetics,
+    WithSpatialParameters,
     LayerBase(
         mapping = PolygonMapping().apply(mapping).seal(),
         data = data,
