@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
  - `ggsave()` ignores raster format file extension.
+ - `as_discrete()`: if more than one is used in the same mapping block then all but one of them are ignored. 
 
 ## [1.0.0] - 2020-08-13
 ### Added

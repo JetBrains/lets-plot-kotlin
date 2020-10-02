@@ -14,19 +14,11 @@ class MappingMeta(
     private val parameters: Map<String, Any> = emptyMap()
 ) {
     fun getAnnotatedData(aes: String): Map<String, Any> {
-        return if (aes.isNotEmpty()) {
-            mapOf(
-                MappingAnnotation.TAG to listOf(
-                    mapOf(
-                        MappingAnnotation.AES to aes,
-                        MappingAnnotation.ANNOTATION to annotation,
-                        MappingAnnotation.PARAMETERS to parameters
-                    )
-                )
-            )
-        } else {
-            emptyMap()
-        }
+        return mapOf(
+            MappingAnnotation.AES to aes,
+            MappingAnnotation.ANNOTATION to annotation,
+            MappingAnnotation.PARAMETERS to parameters
+        )
     }
 }
 

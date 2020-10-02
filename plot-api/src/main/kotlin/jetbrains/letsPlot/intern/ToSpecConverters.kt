@@ -34,7 +34,6 @@ fun Plot.toSpec(): MutableMap<String, Any> {
         spec[Option.PlotBase.DATA] = asPlotData(plot.data)
     }
 
-//    spec += asAnnotatedData(plot.mapping.map)
     val dataMeta = createDataMeta(plot.data, plot.mapping.map)
     if (dataMeta.isNotEmpty()) {
         spec[DATA_META] = dataMeta
@@ -167,34 +166,23 @@ private fun asMappingData(rawMapping: Map<String, Any>): Map<String, Any> {
     return mapping
 }
 
-private fun asAnnotatedData(rawMapping: Map<String, Any>): Map<String, Any> {
-    // mapping
-    val dataMeta = mutableMapOf<String, Any>()
-    rawMapping.forEach {
-        if (it.value is MappingMeta) {
-            dataMeta[DATA_META] = (it.value as MappingMeta).getAnnotatedData(it.key)
-        }
-    }
-    return dataMeta
-}
-
 private fun createDataMeta(data: Map<*, *>?, mappings: Map<String, Any>): Map<String, Any> {
-    // parameter 'data' is geo-spatial
-    val dataMetaSpatial: Map<String, Any> = if (data is SpatialDataset) {
+    val spatialDataMeta: Map<String, Any> = if (data is SpatialDataset) {
         createGeoDataframeAnnotation(data.geometryKey)
     } else {
         emptyMap()
     }
 
-    // TODO: this should return values as well
-    val dataMeta = asAnnotatedData(mappings)
-    val dataMetaMapping: Map<String, Any> = if (dataMeta.isEmpty()) {
-        emptyMap()
+    val mappingAnnotations = createMappingAnnotations(mappings)
+    val mappingDataMeta: Map<String, Any> = if (mappingAnnotations.isNotEmpty()) {
+        mapOf(
+            Option.Meta.MappingAnnotation.TAG to mappingAnnotations
+        )
     } else {
-        dataMeta[DATA_META]!! as Map<String, Any>
+        emptyMap()
     }
 
-    return dataMetaSpatial + dataMetaMapping
+    return spatialDataMeta + mappingDataMeta
 }
 
 private fun createGeoDataframeAnnotation(geometryKey: String): Map<String, Any> {
@@ -203,4 +191,10 @@ private fun createGeoDataframeAnnotation(geometryKey: String): Map<String, Any> 
             "geometry" to geometryKey
         )
     )
+}
+
+private fun createMappingAnnotations(mappings: Map<String, Any>): List<Map<String, Any>> {
+    return mappings
+        .filter { it.value is MappingMeta }
+        .map { (it.value as MappingMeta).getAnnotatedData(it.key) }
 }
