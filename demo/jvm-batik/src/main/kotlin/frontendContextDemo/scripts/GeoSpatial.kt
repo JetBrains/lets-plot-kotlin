@@ -65,6 +65,12 @@ object GeoSpatial {
                     ) { color = "cat" } +
                     ggtitle("data = Points")).show()
 
+            (lets_plot(data = SpatialDataset.fromGEOJSON(data = data, geometry = points)) +
+                    geom_point(
+                        size = 10
+                    ) { color = "cat" } +
+                    ggtitle("lets_plot(data = Points) : x,y - not working")).show()
+
             (lets_plot() +
                     geom_polygon(
                         data = SpatialDataset.fromGEOJSON(data = data, geometry = polygons),

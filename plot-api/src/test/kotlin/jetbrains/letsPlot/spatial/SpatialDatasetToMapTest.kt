@@ -11,7 +11,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
 @RunWith(Parameterized::class)
-class SpatialDatasetAsMapTest(
+class SpatialDatasetTest(
     private val dataColumns: List<String>,
     private val expectedGeometryKey: String
 ) {

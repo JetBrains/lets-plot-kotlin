@@ -16,7 +16,32 @@ import org.junit.Test
 class SpatialParamTest {
 
     @Test
-    fun mapParam() {
+    fun plotDataParam() {
+        val points = listOf(
+            """{"type": "Point", "coordinates": [1.0, 2.0]}"""
+        )
+
+        val dat = SpatialDataset.fromGEOJSON(
+            data = mapOf("cat" to listOf("A")),
+            geometry = points
+        )
+
+        val spec = ggplot(data = dat).toSpec()
+        assertEquals(
+            mapOf(
+                "kind" to "plot",
+                "mapping" to emptyMap<Any, Any>(),
+                "layers" to emptyList<Any>(),
+                "scales" to emptyList<Any>(),
+                "data" to HashMap(dat),
+                "data_meta" to mapOf("geodataframe" to mapOf("geometry" to dat.geometryKey))
+            ),
+            spec
+        )
+    }
+
+    @Test
+    fun layerMapParam() {
         // WKT format is not yet supported
 //        val points = listOf("POINT (1 2)")
         val points = listOf(
@@ -27,7 +52,7 @@ class SpatialParamTest {
             data = emptyMap(),
             geometry = points
         )
-        runTest(
+        runLayerTest(
             ggplot() + geom_point(map = dat),
             mapOf(
                 "geom" to "point",
@@ -41,7 +66,7 @@ class SpatialParamTest {
     }
 
     @Test
-    fun dataParam() {
+    fun layerDataParam() {
         val points = listOf(
             """{"type": "Point", "coordinates": [1.0, 2.0]}"""
         )
@@ -51,7 +76,7 @@ class SpatialParamTest {
             geometry = points
         )
 
-        runTest(
+        runLayerTest(
             ggplot() + geom_point(data = dat),
             mapOf(
                 "geom" to "point",
@@ -64,7 +89,7 @@ class SpatialParamTest {
         )
     }
 
-    private fun runTest(
+    private fun runLayerTest(
         p: Plot,
         expectedLayerSpec: Map<String, Any>
     ) {

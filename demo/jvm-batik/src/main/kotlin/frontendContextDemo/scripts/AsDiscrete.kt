@@ -9,6 +9,7 @@ import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.as_discrete
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.scale.scale_color_discrete
 
 object AsDiscrete {
@@ -25,14 +26,16 @@ object AsDiscrete {
             // scale
             run {
                 val p = ggplot(dat) { x = "x"; y = "y" } +
-                        geom_point(size = 9.0) { color = "a" } + scale_color_discrete(name = "custom name")
+                        geom_point(size = 9.0) { color = "a" } + scale_color_discrete(name = "custom name") +
+                        ggtitle("scale_color_discrete()")
                 p.show()
             }
 
             // as_discrete, no scale
             run {
                 val p = ggplot(dat) { x = "x"; y = "y" } +
-                        geom_point(size = 9.0) { color = as_discrete(variable = "a", label = "custom name") }
+                        geom_point(size = 9.0) { color = as_discrete(variable = "a", label = "custom name") } +
+                        ggtitle("color as_discrete()")
                 p.show()
             }
 
@@ -40,7 +43,8 @@ object AsDiscrete {
             run {
                 val p = ggplot(dat) { x = "x"; y = "y" } +
                         geom_point(shape = 21, size = 9.0, stroke = 5.0) { color = "a"; fill = as_discrete("b") } +
-                        scale_color_discrete()
+                        scale_color_discrete() +
+                        ggtitle("scale_color_discrete(), fill as_discrete()")
                 p.show()
             }
 
@@ -52,14 +56,16 @@ object AsDiscrete {
                             y = listOf(0, 5, 10)
                             color = listOf(1, 2, 4)
                         } +
-                        scale_color_discrete()
+                        scale_color_discrete() +
+                        ggtitle("scale_color_discrete()")
                 p.show()
             }
 
             // as_discrete should work when it is used in "ggplot()" mapping
             run {
                 val p = ggplot(dat) { x = "x"; y = "y"; color = as_discrete(variable = "a") } +
-                        geom_point(size = 9.0)
+                        geom_point(size = 9.0) +
+                        ggtitle("color as_discrete()")
                 p.show()
             }
         }

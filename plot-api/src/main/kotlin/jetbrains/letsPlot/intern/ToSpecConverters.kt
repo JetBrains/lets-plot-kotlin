@@ -34,11 +34,15 @@ fun Plot.toSpec(): MutableMap<String, Any> {
         spec[Option.PlotBase.DATA] = asPlotData(plot.data)
     }
 
+//    spec += asAnnotatedData(plot.mapping.map)
+    val dataMeta = createDataMeta(plot.data, plot.mapping.map)
+    if (dataMeta.isNotEmpty()) {
+        spec[DATA_META] = dataMeta
+    }
+
     spec[Option.PlotBase.MAPPING] = asMappingData(plot.mapping.map)
     spec[Option.Plot.LAYERS] = plot.layers().map { it.toSpec() }
     spec[Option.Plot.SCALES] = plot.scales().map { it.toSpec() }
-
-    spec += asAnnotatedData(plot.mapping.map)
 
     // Width of plot in percents of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
@@ -65,6 +69,14 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         spec[Option.PlotBase.DATA] = asPlotData(data)
     }
 
+    val allMappings = (mapping + geom.mapping + stat.mapping).map
+    spec[Option.PlotBase.MAPPING] = asMappingData(allMappings)
+
+    val dataMeta = createDataMeta(data, allMappings)
+    if (dataMeta.isNotEmpty()) {
+        spec[DATA_META] = dataMeta
+    }
+
     spec[Option.Layer.GEOM] = geom.kind.optionName()
     spec[Option.Layer.STAT] = stat.kind.optionName()
 
@@ -89,47 +101,13 @@ fun Layer.toSpec(): MutableMap<String, Any> {
             require(geometryFormat == GeometryFormat.GEOJSON) { "Only GEOJSON geometry format is supported." }
 
             spec[Option.Geom.Choropleth.GEO_POSITIONS] = this
-            spec[Option.Meta.MAP_DATA_META] = mapOf(
-                "geodataframe" to mapOf(
-                    "geometry" to geometryKey
-                )
-            )
+            spec[Option.Meta.MAP_DATA_META] = createGeoDataframeAnnotation(geometryKey)
 
             // TODO: 'mapJoin' parameter
         }
     }
 
-    val allMappings = (mapping + geom.mapping + stat.mapping).map
-    spec[Option.PlotBase.MAPPING] = asMappingData(allMappings)
-
-    // parameter 'data' is geo-spatial
-    val dataMetaSpatial: Map<String, Any> = if (data is SpatialDataset) {
-        mapOf(
-            "geodataframe" to mapOf(
-                "geometry" to data.geometryKey
-            )
-        )
-    } else {
-        emptyMap()
-    }
-
-    // TODO: this should return values as well
-    val dataMeta = asAnnotatedData(allMappings)
-    val dataMetaMapping: Map<String, Any> = if (dataMeta.isEmpty()) {
-        emptyMap()
-    } else {
-        dataMeta[DATA_META]!! as Map<String, Any>
-    }
-
-    val dataMetaNew = if (dataMetaSpatial.isNotEmpty() || dataMetaMapping.isNotEmpty()) {
-        mapOf(DATA_META to (dataMetaSpatial + dataMetaMapping))
-    } else {
-        emptyMap()
-    }
-
-
-//    val allParameters = parameters + geom.parameters + stat.parameters + Options(dataMeta)
-    val allParameters = parameters + geom.parameters + stat.parameters + Options(dataMetaNew)
+    val allParameters = parameters + geom.parameters + stat.parameters
     spec.putAll(allParameters.map)
     if (!showLegend) {
         spec[Option.Layer.SHOW_LEGEND] = false
@@ -198,4 +176,31 @@ private fun asAnnotatedData(rawMapping: Map<String, Any>): Map<String, Any> {
         }
     }
     return dataMeta
+}
+
+private fun createDataMeta(data: Map<*, *>?, mappings: Map<String, Any>): Map<String, Any> {
+    // parameter 'data' is geo-spatial
+    val dataMetaSpatial: Map<String, Any> = if (data is SpatialDataset) {
+        createGeoDataframeAnnotation(data.geometryKey)
+    } else {
+        emptyMap()
+    }
+
+    // TODO: this should return values as well
+    val dataMeta = asAnnotatedData(mappings)
+    val dataMetaMapping: Map<String, Any> = if (dataMeta.isEmpty()) {
+        emptyMap()
+    } else {
+        dataMeta[DATA_META]!! as Map<String, Any>
+    }
+
+    return dataMetaSpatial + dataMetaMapping
+}
+
+private fun createGeoDataframeAnnotation(geometryKey: String): Map<String, Any> {
+    return mapOf(
+        "geodataframe" to mapOf(
+            "geometry" to geometryKey
+        )
+    )
 }
