@@ -87,8 +87,8 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         map?.run {
             require(geometryFormat == GeometryFormat.GEOJSON) { "Only GEOJSON geometry format is supported." }
 
-            val (map, geometryKey) = this.toMap()
-            spec[Option.Geom.Choropleth.GEO_POSITIONS] = map
+//            val (map, geometryKey) = this.toMap()
+            spec[Option.Geom.Choropleth.GEO_POSITIONS] = this
             spec[Option.Meta.MAP_DATA_META] = mapOf(
                 "geodataframe" to mapOf(
                     "geometry" to geometryKey

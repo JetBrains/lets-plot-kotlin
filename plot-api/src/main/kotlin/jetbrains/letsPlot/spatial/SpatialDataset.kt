@@ -8,26 +8,63 @@ package jetbrains.letsPlot.spatial
 import jetbrains.letsPlot.intern.asPlotData
 
 class SpatialDataset private constructor(
-    val data: Map<String, List<Any?>>,
-    val geometry: List<String>,
+    map: Map<String, List<Any?>>,
+    val geometryKey: String,
     val geometryFormat: GeometryFormat
-) {
-
-    /**
-     * @return Pair - Map<String, List> and the 'geometry key'
-     */
-    fun toMap(): Pair<Map<String, List<Any?>>, String> {
-        val geometryKey = chooseGeometryColName(data.keys)
-        return Pair(
-            data + mapOf(geometryKey to geometry),
-            geometryKey
-        )
-    }
+) : Map<String, List<Any?>> by map {
 
     companion object {
         private val GEO_COL_NAMES = listOf(
             "geometry", "shape", "coord", "coordinates"
         )
+
+        fun fromGEOJSON(
+            data: Map<String, Any>,
+            geometry: List<String>
+        ): SpatialDataset {
+            return create(data, geometry, GeometryFormat.GEOJSON)
+        }
+
+        /**
+         * WKT is not yet supported by Lets-plot
+         */
+        fun fromWKT(
+            data: Map<String, Any>,
+            geometry: List<String>
+        ): SpatialDataset {
+            return create(data, geometry, GeometryFormat.WKT)
+        }
+
+        /**
+         * WKB is not yet supported by Lets-plot
+         */
+        fun fromWKB(
+            data: Map<String, Any>,
+            geometry: List<String>
+        ): SpatialDataset {
+            return create(data, geometry, GeometryFormat.WKB)
+        }
+
+        private fun create(
+            data: Map<String, Any>,
+            geometry: List<String>,
+            geometryFormat: GeometryFormat
+        ): SpatialDataset {
+            @Suppress("NAME_SHADOWING")
+            val data: Map<String, List<Any?>> = asPlotData(data)
+
+            data.entries.forEach {
+                require(it.value.size == geometry.size) {
+                    "The size of data series '${it.key}' (${it.value.size}) must be equal to the size geometry collection: ${geometry.size}."
+                }
+            }
+
+            // ToDo: check the geometry format
+
+            val geometryKey = chooseGeometryColName(data.keys)
+            val map = data + mapOf(geometryKey to geometry)
+            return SpatialDataset(map, geometryKey, geometryFormat)
+        }
 
         private fun chooseGeometryColName(usedNames: Set<String>): String {
             var i = 0
@@ -38,52 +75,6 @@ class SpatialDataset private constructor(
                 }
                 i++
             }
-        }
-
-        fun fromGEOJSON(
-            data: Map<String, *>? = null,
-            geometry: List<String>
-        ): SpatialDataset {
-            return create(data, geometry, GeometryFormat.GEOJSON)
-        }
-
-        /**
-         * Not yet supported
-         */
-        fun fromWKT(
-            data: Map<String, *>? = null,
-            geometry: List<String>
-        ): SpatialDataset {
-            return create(data, geometry, GeometryFormat.WKT)
-        }
-
-        /**
-         * Not yet supported
-         */
-        fun fromWKB(
-            data: Map<String, *>? = null,
-            geometry: List<String>
-        ): SpatialDataset {
-            return create(data, geometry, GeometryFormat.WKB)
-        }
-
-        private fun create(
-            rawData: Map<String, *>? = null,
-            geometry: List<String>,
-            geometryFormat: GeometryFormat
-        ): SpatialDataset {
-
-            val data: Map<String, List<Any?>> = rawData?.let { asPlotData(rawData) } ?: emptyMap()
-
-            data.entries.forEach {
-                require(it.value.size == geometry.size) {
-                    "The size of data series '${it.key}' (${it.value.size}) must be equal to the size geometry collection: ${geometry.size}."
-                }
-            }
-
-            // ToDo: check the geometry format
-
-            return SpatialDataset(data, geometry, geometryFormat)
         }
     }
 }

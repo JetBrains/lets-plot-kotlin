@@ -16,8 +16,14 @@ class MapParamTest {
 
     @Test
     fun `only map`() {
-        val points = listOf("POINT (1 2)")
-        val sds = SpatialDataset.fromWKT(
+        // WKT format is not yet supported
+//        val points = listOf("POINT (1 2)")
+        val points = listOf(
+            """{"type": "Point", "coordinates": [1.0, 2.0]}"""
+        )
+
+        val sds = SpatialDataset.fromGEOJSON(
+            data = emptyMap(),
             geometry = points
         )
         val p = ggplot() + geom_point(map = sds)
@@ -25,7 +31,8 @@ class MapParamTest {
 
         val spec = p.toSpec()
 
-        val (expectedMap, expectedGeometryKey) = sds.toMap()
+        val expectedMap = sds
+        val expectedGeometryKey = sds.geometryKey
         assertEquals(
             mapOf(
                 "kind" to "plot",

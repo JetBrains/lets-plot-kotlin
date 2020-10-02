@@ -34,21 +34,21 @@ object GeoSpatial {
 
             (lets_plot() +
                     geom_point(
-                        map = SpatialDataset.fromGEOJSON(geometry = points),
+                        map = SpatialDataset.fromGEOJSON(data = emptyMap(), geometry = points),
                         size = 10, color = "magenta"
                     ) +
                     ggtitle("Points")).show()
 
             (lets_plot() +
                     geom_polygon(
-                        map = SpatialDataset.fromGEOJSON(geometry = polygons),
+                        map = SpatialDataset.fromGEOJSON(data = emptyMap(), geometry = polygons),
                         fill = "light-gray", color = "black"
                     ) +
                     ggtitle("Polygons")).show()
 
             (lets_plot() +
                     geom_path(
-                        map = SpatialDataset.fromGEOJSON(geometry = lines),
+                        map = SpatialDataset.fromGEOJSON(data = emptyMap(), geometry = lines),
                         color = "light-gray"
                     ) +
                     ggtitle("Lines")).show()

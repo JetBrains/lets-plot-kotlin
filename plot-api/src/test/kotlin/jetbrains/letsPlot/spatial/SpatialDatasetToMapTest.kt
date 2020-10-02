@@ -11,34 +11,31 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
 @RunWith(Parameterized::class)
-class SpatialDatasetToMapTest(
+class SpatialDatasetAsMapTest(
     private val dataColumns: List<String>,
     private val expectedGeometryKey: String
 ) {
 
     @Test
-    fun toMap() {
+    fun asMap() {
         val points = listOf("POINT (1 2)", "POINT (1 3)")
         val dataSerie = listOf(0.0, 0.0)
-        val data = if (dataColumns.isEmpty()) null else HashMap<String, Any>()
-        data?.let {
-            for (columnName in dataColumns) {
-                it[columnName] = dataSerie
-            }
+        val data = HashMap<String, Any>()
+        for (columnName in dataColumns) {
+            data[columnName] = dataSerie
         }
         val sds = SpatialDataset.fromWKT(
             data = data,
             geometry = points
         )
 
-        val (map, geometryKey) = sds.toMap()
-        assertEquals(expectedGeometryKey, geometryKey)
-        assertEquals(map[geometryKey], points)
+        assertEquals(expectedGeometryKey, sds.geometryKey)
+        assertEquals(sds[expectedGeometryKey], points)
 
         val expectedGeometryColumn = mapOf(expectedGeometryKey to points)
         assertEquals(
-            data?.let { it + expectedGeometryColumn } ?: expectedGeometryColumn,
-            map
+            data + expectedGeometryColumn,
+            sds
         )
     }
 
