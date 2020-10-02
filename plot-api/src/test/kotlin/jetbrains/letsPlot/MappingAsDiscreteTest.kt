@@ -28,7 +28,7 @@ class MappingAsDiscreteTest {
                 "mapping" to mapOf("x" to "x"),
                 "layers" to emptyList<Any>(),
                 "scales" to emptyList<Any>(),
-                DATA_META to EXP_DATA_META
+                DATA_META to mappingDataMeta(asDiscreteAnnotation(Aes.X, "x"))
             ),
             spec
         )
@@ -52,7 +52,39 @@ class MappingAsDiscreteTest {
                         "stat" to "identity",
                         "position" to "identity",
                         "mapping" to mapOf("x" to "x"),
-                        DATA_META to EXP_DATA_META
+                        DATA_META to mappingDataMeta(asDiscreteAnnotation(Aes.X, "x"))
+                    )
+                )
+            ),
+            spec
+        )
+    }
+
+    @Test
+    fun `check layer mapping with 2 vars`() {
+        val data = mapOf(
+            "x" to listOf(1.0),
+            "y" to listOf(1.0)
+        )
+        val p = ggplot(data) + geom_point { x = as_discrete("x"); y = as_discrete("y") }
+
+        val spec = p.toSpec()
+        assertEquals(
+            mapOf(
+                "kind" to "plot",
+                "data" to data,
+                "mapping" to emptyMap<String, Any>(),
+                "scales" to emptyList<Any>(),
+                "layers" to listOf(
+                    mapOf(
+                        "geom" to "point",
+                        "stat" to "identity",
+                        "position" to "identity",
+                        "mapping" to mapOf("x" to "x", "y" to "y"),
+                        DATA_META to mappingDataMeta(
+                            asDiscreteAnnotation(Aes.X, "x"),
+                            asDiscreteAnnotation(Aes.Y, "y")
+                        )
                     )
                 )
             ),
@@ -61,17 +93,20 @@ class MappingAsDiscreteTest {
     }
 
     companion object {
-        private val EXP_DATA_META = mapOf(
-            MappingAnnotation.TAG to listOf(
-                mapOf(
-                    MappingAnnotation.AES to Aes.X.name,
-                    MappingAnnotation.ANNOTATION to MappingAnnotation.AS_DISCRETE,
-                    MappingAnnotation.PARAMETERS to mapOf(
-                        MappingAnnotation.LABEL to "x"
-                    )
+        private fun mappingDataMeta(vararg mappingAnnotations: Map<String, *>): Map<String, Any> {
+            return mapOf(
+                MappingAnnotation.TAG to mappingAnnotations.asList()
+            )
+        }
+
+        private fun asDiscreteAnnotation(aes: Aes<*>, label: String): Map<String, Any> {
+            return mapOf(
+                MappingAnnotation.AES to aes.name,
+                MappingAnnotation.ANNOTATION to MappingAnnotation.AS_DISCRETE,
+                MappingAnnotation.PARAMETERS to mapOf(
+                    MappingAnnotation.LABEL to label
                 )
             )
-        )
-
+        }
     }
 }
