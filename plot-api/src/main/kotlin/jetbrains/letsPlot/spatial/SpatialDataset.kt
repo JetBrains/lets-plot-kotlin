@@ -8,10 +8,14 @@ package jetbrains.letsPlot.spatial
 import jetbrains.letsPlot.intern.asPlotData
 
 class SpatialDataset private constructor(
-    map: Map<String, List<Any?>>,
+    private val map: Map<String, List<Any?>>,
     val geometryKey: String,
     val geometryFormat: GeometryFormat
 ) : Map<String, List<Any?>> by map {
+
+    override fun toString(): String {
+        return "$geometryFormat key='$geometryKey', map=${this.map})"
+    }
 
     companion object {
         private val GEO_COL_NAMES = listOf(

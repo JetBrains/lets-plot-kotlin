@@ -22,6 +22,7 @@ import jetbrains.letsPlot.MappingMeta
 import jetbrains.letsPlot.intern.SeriesStandardizing.toList
 import jetbrains.letsPlot.intern.layer.WithSpatialParameters
 import jetbrains.letsPlot.spatial.GeometryFormat
+import jetbrains.letsPlot.spatial.SpatialDataset
 
 fun Plot.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
@@ -87,7 +88,6 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         map?.run {
             require(geometryFormat == GeometryFormat.GEOJSON) { "Only GEOJSON geometry format is supported." }
 
-//            val (map, geometryKey) = this.toMap()
             spec[Option.Geom.Choropleth.GEO_POSITIONS] = this
             spec[Option.Meta.MAP_DATA_META] = mapOf(
                 "geodataframe" to mapOf(
@@ -100,11 +100,36 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     }
 
     val allMappings = (mapping + geom.mapping + stat.mapping).map
-
     spec[Option.PlotBase.MAPPING] = asMappingData(allMappings)
 
+    // parameter 'data' is geo-spatial
+    val dataMetaSpatial: Map<String, Any> = if (data is SpatialDataset) {
+        mapOf(
+            "geodataframe" to mapOf(
+                "geometry" to data.geometryKey
+            )
+        )
+    } else {
+        emptyMap()
+    }
+
+    // TODO: this should return values as well
     val dataMeta = asAnnotatedData(allMappings)
-    val allParameters = parameters + geom.parameters + stat.parameters + Options(dataMeta)
+    val dataMetaMapping: Map<String, Any> = if (dataMeta.isEmpty()) {
+        emptyMap()
+    } else {
+        dataMeta[DATA_META]!! as Map<String, Any>
+    }
+
+    val dataMetaNew = if (dataMetaSpatial.isNotEmpty() || dataMetaMapping.isNotEmpty()) {
+        mapOf(DATA_META to (dataMetaSpatial + dataMetaMapping))
+    } else {
+        emptyMap()
+    }
+
+
+//    val allParameters = parameters + geom.parameters + stat.parameters + Options(dataMeta)
+    val allParameters = parameters + geom.parameters + stat.parameters + Options(dataMetaNew)
     spec.putAll(allParameters.map)
     if (!showLegend) {
         spec[Option.Layer.SHOW_LEGEND] = false
