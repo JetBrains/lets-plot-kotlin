@@ -9,11 +9,16 @@ include 'plot-api',
         'demo-common',
         'jvm-javafx',
         'jvm-batik',
-        'browser'
+        'browser',
+        'geotools',
+        'geotools-batik'
 
 project(':demo-common').projectDir = new File('./demo/demo-common')
 project(':jvm-javafx').projectDir = new File('./demo/jvm-javafx')
 project(':jvm-batik').projectDir = new File('./demo/jvm-batik')
 project(':browser').projectDir = new File('./demo/browser')
+
+project(':geotools').projectDir = new File('./toolkit/geotools')
+project(':geotools-batik').projectDir = new File('./demo/geotools-batik')
 
 enableFeaturePreview('GRADLE_METADATA')
