@@ -8,12 +8,10 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.text
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.TextAesthetics
 import jetbrains.letsPlot.intern.layer.geom.TextMapping
+import jetbrains.letsPlot.spatial.SpatialDataset
 
 @Suppress("ClassName")
 /**
@@ -29,6 +27,18 @@ import jetbrains.letsPlot.intern.layer.geom.TextMapping
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param map SpatialDataset.
+ *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
+ *     names of States and their boundaries).
+ *
+ *     Supported shapes: Point and MultiPoint.
+ *     All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
+ *
+ *     Can be used with parameter 'mapJoin' for joining data and map coordinates.
+ * @param mapJoin pair of names or pair of lists of names
+ *     Specifies column names to join the 'data' and the 'map' coordinates on.
+ *     Pair.first: column name or list of column names in the 'data' dataframe.
+ *     Pair.second: column name or list of column names in the 'map' dataframe.
  * @param x x-axis value.
  * @param y y-axis value.
  * @param label text to add to plot.
@@ -56,6 +66,8 @@ class geom_text(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    override val map: SpatialDataset? = null,
+    override val mapJoin: Pair<Any, Any>? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val label: String? = null,
@@ -70,6 +82,7 @@ class geom_text(
     mapping: TextMapping.() -> Unit = {}
 
 ) : TextAesthetics,
+    WithSpatialParameters,
     LayerBase(
         mapping = TextMapping().apply(mapping).seal(),
         data = data,

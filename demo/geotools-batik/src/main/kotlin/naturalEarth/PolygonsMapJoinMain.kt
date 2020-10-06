@@ -27,7 +27,8 @@ fun main() {
     val p = lets_plot() + geom_polygon(
         data = climateData,
         map = spatialDataset,
-        mapJoin = "region" to "continent"
+        mapJoin = "region" to "continent",
+        color = "white"
     ) {
         fill = "avg_temp"
     } + ggtitle("'naturalearth' choropleth, MapJoin: 'avg_temp' -> 'continent'.")

@@ -8,11 +8,9 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.*
+import jetbrains.letsPlot.spatial.SpatialDataset
 
 @Suppress("ClassName")
 /**
@@ -28,6 +26,18 @@ import jetbrains.letsPlot.intern.layer.geom.*
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param map SpatialDataset.
+ *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
+ *     names of States and their boundaries).
+ *
+ *    `geom_rect` will draw rectangles using bounding boxes of shapes.
+ *     All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
+ *
+ *     Can be used with parameter 'mapJoin' for joining data and map coordinates.
+ * @param mapJoin pair of names or pair of lists of names
+ *     Specifies column names to join the 'data' and the 'map' coordinates on.
+ *     Pair.first: column name or list of column names in the 'data' dataframe.
+ *     Pair.second: column name or list of column names in the 'map' dataframe.
  * @param xmin x-axis value.
  * @param xmax x-axis value.
  * @param ymin y-axis value.
@@ -51,6 +61,8 @@ class geom_rect(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    override val map: SpatialDataset? = null,
+    override val mapJoin: Pair<Any, Any>? = null,
     override val xmin: Double? = null,
     override val xmax: Double? = null,
     override val ymin: Double? = null,
@@ -63,6 +75,7 @@ class geom_rect(
     mapping: RectMapping.() -> Unit = {}
 
 ) : RectAesthetics,
+    WithSpatialParameters,
     LayerBase(
         mapping = RectMapping().apply(mapping).seal(),
         data = data,

@@ -103,7 +103,17 @@ fun Layer.toSpec(): MutableMap<String, Any> {
             spec[Option.Meta.MAP_DATA_META] = createGeoDataframeAnnotation(geometryKey)
 
             mapJoin?.run {
-                spec[Option.Layer.MAP_JOIN] = mapJoin!!.toList()
+                val v = mapJoin!!
+                val (first, second) = v
+                when (first) {
+                    is String -> require(second is String) { "'mapJoin': both members must be either Strings or Lists." }
+                    is List<*> -> {
+                        require(second is List<*>) { "'mapJoin': both members must be either Strings or Lists." }
+                        require(first.isNotEmpty()) { "'mapJoin': 'first' should not be empty." }
+                        require(first.size == second.size) { "'mapJoin': members must have equal size." }
+                    }
+                }
+                spec[Option.Layer.MAP_JOIN] = v.toList()
             }
         }
     }
