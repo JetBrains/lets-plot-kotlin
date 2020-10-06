@@ -35,7 +35,7 @@ private val AWT_EDT_EXECUTOR = { runnable: () -> Unit ->
     runnable.invoke()
 }
 
-object SimpleBatikDemo {
+object SimpleBatikView {
     fun show(plotSpec: MutableMap<String, Any>, plotSize: DoubleVector) {
 
         SwingUtilities.invokeLater {
