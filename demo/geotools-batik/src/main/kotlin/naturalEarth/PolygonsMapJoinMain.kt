@@ -14,7 +14,7 @@ import jetbrains.letsPlot.toolkit.geotools.toSpatialDatasetGEOJSON
 
 fun main() {
     // GeoTools
-    val features = NaturalEarthShp.load()
+    val features = NaturalEarthShp.loadPolygon()
 
     // Lets-Plot
     val spatialDataset = features.toSpatialDatasetGEOJSON(10)
@@ -31,7 +31,7 @@ fun main() {
         color = "white"
     ) {
         fill = "avg_temp"
-    } + ggtitle("'naturalearth' choropleth, MapJoin: 'avg_temp' -> 'continent'.")
+    } + ggtitle("geom_polygon: 'data', 'map', 'mapJoin': 'avg_temp' -> 'continent'.")
 
     SimpleBatikView.show(
         p.toSpec(),

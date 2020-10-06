@@ -14,13 +14,13 @@ import jetbrains.letsPlot.toolkit.geotools.toSpatialDatasetGEOJSON
 
 fun main() {
     // GeoTools
-    val features = NaturalEarthShp.load()
+    val features = NaturalEarthShp.loadPolygon()
 
     // Lets-Plot
     val spatialDataset = features.toSpatialDatasetGEOJSON(10)
     val p = lets_plot() + geom_polygon(data = spatialDataset, alpha = 0.2, color = "black") {
         fill = "continent"
-    } + ggtitle("'naturalearth' shp as the polygon's 'data' param.")
+    } + ggtitle("geom_polygon: 'data'")
 
     SimpleBatikView.show(
         p.toSpec(),

@@ -6,6 +6,7 @@
 package naturalEarth
 
 import jetbrains.datalore.base.geometry.DoubleVector
+import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_polygon
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
@@ -14,12 +15,16 @@ import jetbrains.letsPlot.toolkit.geotools.toSpatialDatasetGEOJSON
 
 fun main() {
     // GeoTools
-    val features = NaturalEarthShp.loadPolygon()
+    val polygons = NaturalEarthShp.loadPolygon()
+    val cities = NaturalEarthShp.loadCities()
 
     // Lets-Plot
-    val spatialDataset = features.toSpatialDatasetGEOJSON(10)
-    val p = lets_plot() + geom_polygon(map = spatialDataset, alpha = 0.2, color = "black") +
-            ggtitle("geom_polygon: 'map'")
+    val polygonsSD = polygons.toSpatialDatasetGEOJSON(10)
+    val citiesSD = cities.toSpatialDatasetGEOJSON()
+    val p = lets_plot() +
+            geom_polygon(map = polygonsSD, fill = "white", color = "gray") +
+            geom_point(map = citiesSD, color = "red") +
+            ggtitle("geom_polygon, geom_point: 'map'")
 
     SimpleBatikView.show(
         p.toSpec(),

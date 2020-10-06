@@ -13,12 +13,18 @@ import java.nio.file.Paths
  * Loads the world boundaries from naturalearth_lowres.shp
  */
 object NaturalEarthShp {
-    fun load(): SimpleFeatureCollection {
+    fun loadPolygon(): SimpleFeatureCollection {
+        return loadResource("demo/geotools-batik/src/main/resources/naturalearth_lowres/naturalearth_lowres.shp")
+    }
+
+    fun loadCities(): SimpleFeatureCollection {
+        return loadResource("demo/geotools-batik/src/main/resources/naturalearth_cities/naturalearth_cities.shp")
+    }
+
+    private fun loadResource(relativePathname: String): SimpleFeatureCollection {
         // GeoTools
         val factory = ShapefileDataStoreFactory()
-        val shapefileUrl =
-            Paths.get("demo/geotools-batik/src/main/resources/naturalearth_lowres/naturalearth_lowres.shp")
-                .toAbsolutePath().normalize().toUri().toURL()
+        val shapefileUrl = Paths.get(relativePathname).toAbsolutePath().normalize().toUri().toURL()
         val dataStore = factory.createDataStore(shapefileUrl)
         return dataStore.featureSource.features
     }
