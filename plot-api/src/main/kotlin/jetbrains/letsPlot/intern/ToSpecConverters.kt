@@ -31,12 +31,15 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     spec[KIND] = PLOT
 
     plot.data?.let {
-        spec[Option.PlotBase.DATA] = asPlotData(plot.data)
-    }
+        require(data !is SpatialDataset) {
+            "SpatialDataset is not allowed in 'ggplot(data=..)' or 'lets_plot(data=..)'"
+        }
 
-    val dataMeta = createDataMeta(plot.data, plot.mapping.map)
-    if (dataMeta.isNotEmpty()) {
-        spec[DATA_META] = dataMeta
+        spec[Option.PlotBase.DATA] = asPlotData(plot.data)
+        val dataMeta = createDataMeta(plot.data, plot.mapping.map)
+        if (dataMeta.isNotEmpty()) {
+            spec[DATA_META] = dataMeta
+        }
     }
 
     spec[Option.PlotBase.MAPPING] = asMappingData(plot.mapping.map)

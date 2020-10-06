@@ -15,30 +15,31 @@ import org.junit.Test
 
 class SpatialParamTest {
 
-    @Test
-    fun plotDataParam() {
-        val points = listOf(
-            """{"type": "Point", "coordinates": [1.0, 2.0]}"""
-        )
-
-        val dat = SpatialDataset.fromGEOJSON(
-            data = mapOf("cat" to listOf("A")),
-            geometry = points
-        )
-
-        val spec = ggplot(data = dat).toSpec()
-        assertEquals(
-            mapOf(
-                "kind" to "plot",
-                "mapping" to emptyMap<Any, Any>(),
-                "layers" to emptyList<Any>(),
-                "scales" to emptyList<Any>(),
-                "data" to HashMap(dat),
-                "data_meta" to mapOf("geodataframe" to mapOf("geometry" to dat.geometryKey))
-            ),
-            spec
-        )
-    }
+// SpatialDataset is not allowed in 'ggplot(data=..)' or 'lets_plot(data=..)'
+//    @Test
+//    fun plotDataParam() {
+//        val points = listOf(
+//            """{"type": "Point", "coordinates": [1.0, 2.0]}"""
+//        )
+//
+//        val dat = SpatialDataset.fromGEOJSON(
+//            data = mapOf("cat" to listOf("A")),
+//            geometry = points
+//        )
+//
+//        val spec = ggplot(data = dat).toSpec()
+//        assertEquals(
+//            mapOf(
+//                "kind" to "plot",
+//                "mapping" to emptyMap<Any, Any>(),
+//                "layers" to emptyList<Any>(),
+//                "scales" to emptyList<Any>(),
+//                "data" to HashMap(dat),
+//                "data_meta" to mapOf("geodataframe" to mapOf("geometry" to dat.geometryKey))
+//            ),
+//            spec
+//        )
+//    }
 
     @Test
     fun layerMapParam() {
