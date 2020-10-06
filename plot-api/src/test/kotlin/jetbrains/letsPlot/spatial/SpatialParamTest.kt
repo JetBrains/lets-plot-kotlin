@@ -89,6 +89,55 @@ class SpatialParamTest {
         )
     }
 
+    @Test
+    fun layerMapAndMapJoinParam() {
+        val points = listOf(
+            """{"type": "Point", "coordinates": [1.0, 2.0]}"""
+        )
+
+        val dat = SpatialDataset.fromGEOJSON(
+            data = emptyMap(),
+            geometry = points
+        )
+        runLayerTest(
+            ggplot() + geom_point(map = dat, mapJoin = "left" to "right"),
+            mapOf(
+                "geom" to "point",
+                "stat" to "identity",
+                "position" to "identity",
+                "mapping" to emptyMap<Any, Any>(),
+                "map" to dat,
+                "map_join" to listOf("left", "right"),
+                "map_data_meta" to mapOf("geodataframe" to mapOf("geometry" to dat.geometryKey))
+            )
+        )
+    }
+
+    @Test
+    fun layerMapAndMapJoinMultParam() {
+        val points = listOf(
+            """{"type": "Point", "coordinates": [1.0, 2.0]}"""
+        )
+
+        val dat = SpatialDataset.fromGEOJSON(
+            data = emptyMap(),
+            geometry = points
+        )
+        runLayerTest(
+            ggplot() + geom_point(map = dat, mapJoin = listOf("leftA", "leftB") to listOf("rightA", "rightB")),
+            mapOf(
+                "geom" to "point",
+                "stat" to "identity",
+                "position" to "identity",
+                "mapping" to emptyMap<Any, Any>(),
+                "map" to dat,
+                "map_join" to listOf(listOf("leftA", "leftB"), listOf("rightA", "rightB")),
+                "map_data_meta" to mapOf("geodataframe" to mapOf("geometry" to dat.geometryKey))
+            )
+        )
+    }
+
+
     private fun runLayerTest(
         p: Plot,
         expectedLayerSpec: Map<String, Any>

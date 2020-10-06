@@ -14,7 +14,7 @@ class SpatialDataset private constructor(
 ) : Map<String, List<Any?>> by map {
 
     override fun toString(): String {
-        return "$geometryFormat key='$geometryKey', map=${this.map})"
+        return "SpatialDataset($geometryFormat, key='$geometryKey', map=${this.map})"
     }
 
     companion object {

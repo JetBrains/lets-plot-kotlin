@@ -35,9 +35,10 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  *     All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
  *
  *     Can be used with parameter 'mapJoin' for joining data and map coordinates.
- * @param mapJoin list of pairs of names.
- *     Joins the 'data' with the 'map' coordinates.
- *     Each pair in the list represents the 'data' key (the first) and the corresponding 'map' key (the second).
+ * @param mapJoin pair of names or pair of lists of names
+ *     Specifies column names to join the 'data' and the 'map' coordinates on.
+ *     Pair.first: column name or list of column names in the 'data' dataframe.
+ *     Pair.second: column name or list of column names in the 'map' dataframe.
  * @param x x-axis coordinates of the vertices of the polygon.
  * @param y y-axis coordinates of the vertices of the polygon.
  * @param alpha transparency level of a layer.
@@ -61,7 +62,7 @@ class geom_polygon(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val map: SpatialDataset? = null,
-    override val mapJoin: List<Pair<String, String>>? = null,
+    override val mapJoin: Pair<Any, Any>? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val size: Number? = null,

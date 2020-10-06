@@ -102,7 +102,9 @@ fun Layer.toSpec(): MutableMap<String, Any> {
             spec[Option.Geom.Choropleth.GEO_POSITIONS] = this
             spec[Option.Meta.MAP_DATA_META] = createGeoDataframeAnnotation(geometryKey)
 
-            // TODO: 'mapJoin' parameter
+            mapJoin?.run {
+                spec[Option.Layer.MAP_JOIN] = mapJoin!!.toList()
+            }
         }
     }
 

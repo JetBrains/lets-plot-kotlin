@@ -9,5 +9,5 @@ import jetbrains.letsPlot.spatial.SpatialDataset
 
 interface WithSpatialParameters {
     val map: SpatialDataset?
-    val mapJoin: List<Pair<String, String>>?
+    val mapJoin: Pair<Any, Any>?
 }
