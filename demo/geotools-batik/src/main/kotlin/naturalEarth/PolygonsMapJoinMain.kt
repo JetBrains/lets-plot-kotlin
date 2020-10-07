@@ -10,14 +10,14 @@ import jetbrains.letsPlot.geom.geom_polygon
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
-import jetbrains.letsPlot.toolkit.geotools.toSpatialDatasetGEOJSON
+import jetbrains.letsPlot.toolkit.geotools.toSpatialDataset
 
 fun main() {
     // GeoTools
     val features = NaturalEarthShp.loadPolygon()
 
     // Lets-Plot
-    val spatialDataset = features.toSpatialDatasetGEOJSON(10)
+    val spatialDataset = features.toSpatialDataset(10)
 
     // Average temperatures
     val climateData = mapOf(

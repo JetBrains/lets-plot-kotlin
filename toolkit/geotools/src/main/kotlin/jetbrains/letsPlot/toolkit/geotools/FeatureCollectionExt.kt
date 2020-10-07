@@ -16,7 +16,7 @@ import org.opengis.feature.type.GeometryDescriptor
  * 
  * @param decimals the number of decimals to use when encoding floating point numbers.
  */
-fun SimpleFeatureCollection.toSpatialDatasetGEOJSON(decimals:Int = 10): SpatialDataset {
+fun SimpleFeatureCollection.toSpatialDataset(decimals:Int = 10): SpatialDataset {
     val geojson = GeometryJSON(decimals)
     val (data, geometries) = getDataAndGeometries(this) {
         geojson.toString(it)

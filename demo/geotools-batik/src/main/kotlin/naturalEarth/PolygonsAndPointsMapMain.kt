@@ -11,7 +11,7 @@ import jetbrains.letsPlot.geom.geom_polygon
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
-import jetbrains.letsPlot.toolkit.geotools.toSpatialDatasetGEOJSON
+import jetbrains.letsPlot.toolkit.geotools.toSpatialDataset
 
 fun main() {
     // GeoTools
@@ -19,8 +19,8 @@ fun main() {
     val cities = NaturalEarthShp.loadCities()
 
     // Lets-Plot
-    val polygonsSD = polygons.toSpatialDatasetGEOJSON(10)
-    val citiesSD = cities.toSpatialDatasetGEOJSON()
+    val polygonsSD = polygons.toSpatialDataset(10)
+    val citiesSD = cities.toSpatialDataset()
     val p = lets_plot() +
             geom_polygon(map = polygonsSD, fill = "white", color = "gray") +
             geom_point(map = citiesSD, color = "red") +
