@@ -6,13 +6,133 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
+    id 'maven-publish'
+    id "com.jfrog.bintray"
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
     implementation project(':plot-api')
-    api "org.geotools:gt-geojson:23.2"
-    api "org.geotools:gt-main:23.2"
+    api "org.geotools:gt-shapefile:$geotools_version"
+    api "org.geotools:gt-geojson:$geotools_version"
+    api "org.geotools:gt-main:$geotools_version"
 }
 
+// Due to this issue: https://stackoverflow.com/questions/26993105/i-get-an-error-downloading-javax-media-jai-core1-1-3-from-maven-central/26993223#26993223
+// `osgeo` repo must precede Maven Central.
+// Wherefore the declaration was moved to the root 'build.gradle'.
+//repositories {
+//    maven {
+//        url "https://repo.osgeo.org/repository/release"
+//    }
+//}
+
+def artifactBaseName = 'lets-plot-kotlin-geotools'
+def artifactGroupId = project.group
+def artifactVersion = project.version
+
+def task_group = 'lets plot'
+
+task jarClasses(type: Jar, dependsOn: classes) {
+    group task_group
+    baseName artifactBaseName
+    version artifactVersion
+    from sourceSets.main.output
+}
+
+task jarSources(type: Jar) {
+    classifier 'sources'
+    group task_group
+    baseName artifactBaseName
+    version artifactVersion
+    from sourceSets.main.allSource
+}
+
+publishing {
+    publications {
+        letsPlotKotlinGeoTools(MavenPublication) {
+            groupId artifactGroupId
+            artifactId artifactBaseName
+            version artifactVersion
+
+            artifact jarClasses
+            artifact jarSources
+
+            pom {
+                name = "Lets-Plot Kotlin GeoTools Bridge"
+                description = "Lets-Plot Kotlin GeoTools Bridge"
+                url = "https://github.com/JetBrains/lets-plot-kotlin"
+                licenses {
+                    license {
+                        name = "MIT"
+                        url = "https://opensource.org/licenses/MIT"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "jetbrains"
+                        name = "JetBrains"
+                        email = "lets-plot@jetbrains.com"
+                    }
+                }
+                scm {
+                    url = "https://github.com/JetBrains/lets-plot-kotlin"
+                }
+                // Add dependency on 'geotools': gt-shapefile, gt-geojson, gt-main
+                withXml {
+                    def deps = asNode().appendNode('dependencies')
+                    def dep = deps.appendNode('dependency')
+                    dep.appendNode('groupId', 'org.geotools')
+                    dep.appendNode('artifactId', 'gt-shapefile')
+                    dep.appendNode('version', geotools_version)
+                    dep = deps.appendNode('dependency')
+                    dep.appendNode('groupId', 'org.geotools')
+                    dep.appendNode('artifactId', 'gt-geojson')
+                    dep.appendNode('version', geotools_version)
+                    dep = deps.appendNode('dependency')
+                    dep.appendNode('groupId', 'org.geotools')
+                    dep.appendNode('artifactId', 'gt-main')
+                    dep.appendNode('version', geotools_version)
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url = uri("https://jetbrains.bintray.com/lets-plot-maven")
+        }
+    }
+}
+
+// Provide Bintray-specific Information
+def bintray_user = project.buildSettings?.bintray?.user
+def bintray_key = project.buildSettings?.bintray?.key
+
+if (bintray_user != null && bintray_key != null) {
+
+    def pkg_name = 'lets-plot-kotlin-jars'
+    if (version.contains('SNAPSHOT') || version.contains('rc') || version.contains('dev')) {
+        pkg_name = 'lets-plot-kotlin-jars-dev'
+    }
+
+    bintray {
+        user = bintray_user
+        key = bintray_key
+        publications = ['letsPlotKotlinGeoTools']
+        publish = true
+        override = true
+
+        pkg {
+            repo = 'lets-plot-maven'
+            name = pkg_name
+            userOrg = 'jetbrains'
+            licenses = ['MIT']
+            vcsUrl = 'https://github.com/JetBrains/lets-plot-kotlin'
+            version {
+                name = artifactVersion
+            }
+        }
+    }
+}

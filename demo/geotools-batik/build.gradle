@@ -13,17 +13,7 @@ dependencies {
 
     implementation "org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_version"
 
-    implementation "org.geotools:gt-shapefile:23.2"
-//    implementation "org.geotools:gt-geojson:23.2"
-    implementation "org.geotools:gt-main:23.2"
-
     implementation project(':plot-api')
     implementation project(':geotools')
     implementation project(':demo-common')
 }
-
-//repositories {
-//    maven {
-//        url "https://repo.osgeo.org/repository/release"
-//    }
-//}
