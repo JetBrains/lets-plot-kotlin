@@ -14,11 +14,11 @@ import java.nio.file.Paths
  */
 object NaturalEarthShp {
     fun loadPolygon(): SimpleFeatureCollection {
-        return loadResource("demo/geotools-batik/src/main/resources/naturalearth_lowres/naturalearth_lowres.shp")
+        return loadResource("docs/examples/shp/naturalearth_lowres/naturalearth_lowres.shp")
     }
 
     fun loadCities(): SimpleFeatureCollection {
-        return loadResource("demo/geotools-batik/src/main/resources/naturalearth_cities/naturalearth_cities.shp")
+        return loadResource("docs/examples/shp/naturalearth_cities/naturalearth_cities.shp")
     }
 
     private fun loadResource(relativePathname: String): SimpleFeatureCollection {
