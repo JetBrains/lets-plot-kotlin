@@ -16,4 +16,6 @@ dependencies {
     implementation project(':plot-api')
     implementation project(':geotools')
     implementation project(':demo-common')
+
+    implementation "org.geotools:gt-shapefile:$geotools_version"
 }

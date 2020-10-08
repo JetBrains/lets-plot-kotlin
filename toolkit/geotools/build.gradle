@@ -14,7 +14,6 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
     implementation project(':plot-api')
-    api "org.geotools:gt-shapefile:$geotools_version"
     api "org.geotools:gt-geojson:$geotools_version"
     api "org.geotools:gt-main:$geotools_version"
 }
@@ -79,14 +78,10 @@ publishing {
                 scm {
                     url = "https://github.com/JetBrains/lets-plot-kotlin"
                 }
-                // Add dependency on 'geotools': gt-shapefile, gt-geojson, gt-main
+                // Add dependency on 'geotools': gt-geojson, gt-main
                 withXml {
                     def deps = asNode().appendNode('dependencies')
                     def dep = deps.appendNode('dependency')
-                    dep.appendNode('groupId', 'org.geotools')
-                    dep.appendNode('artifactId', 'gt-shapefile')
-                    dep.appendNode('version', geotools_version)
-                    dep = deps.appendNode('dependency')
                     dep.appendNode('groupId', 'org.geotools')
                     dep.appendNode('artifactId', 'gt-geojson')
                     dep.appendNode('version', geotools_version)

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1-dev-1] - 2020-10-07
+### Added
+ - Parameters `map`, `mapJoin` in `geom_polygon, geom_path, geom_point, geom_text`
+ - Converter from `org.geotools.data.simple.SimpleFeatureCollection` to `jetbrains.letsPlot.spatial.SpatialDataset`
+ 
 ### Fixed
  - `ggsave()` ignores raster format file extension.
  - `as_discrete()`: if more than one is used in the same mapping block then all but one of them are ignored. 
