@@ -22,7 +22,7 @@ class SpatialDataset private constructor(
             "geometry", "shape", "coord", "coordinates"
         )
 
-        fun forGEOJSON(
+        fun withGEOJSON(
             data: Map<String, Any>,
             geometry: List<String>
         ): SpatialDataset {
@@ -32,7 +32,7 @@ class SpatialDataset private constructor(
         /**
          * WKT is not yet supported by Lets-plot
          */
-        fun forWKT(
+        fun withWKT(
             data: Map<String, Any>,
             geometry: List<String>
         ): SpatialDataset {
@@ -42,7 +42,7 @@ class SpatialDataset private constructor(
         /**
          * WKB is not yet supported by Lets-plot
          */
-        fun forWKB(
+        fun withWKB(
             data: Map<String, Any>,
             geometry: List<String>
         ): SpatialDataset {

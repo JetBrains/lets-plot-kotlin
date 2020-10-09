@@ -49,7 +49,7 @@ class SpatialParamTest {
             """{"type": "Point", "coordinates": [1.0, 2.0]}"""
         )
 
-        val dat = SpatialDataset.forGEOJSON(
+        val dat = SpatialDataset.withGEOJSON(
             data = emptyMap(),
             geometry = points
         )
@@ -72,7 +72,7 @@ class SpatialParamTest {
             """{"type": "Point", "coordinates": [1.0, 2.0]}"""
         )
 
-        val dat = SpatialDataset.forGEOJSON(
+        val dat = SpatialDataset.withGEOJSON(
             data = mapOf("cat" to listOf("A")),
             geometry = points
         )
@@ -96,7 +96,7 @@ class SpatialParamTest {
             """{"type": "Point", "coordinates": [1.0, 2.0]}"""
         )
 
-        val dat = SpatialDataset.forGEOJSON(
+        val dat = SpatialDataset.withGEOJSON(
             data = emptyMap(),
             geometry = points
         )
@@ -120,7 +120,7 @@ class SpatialParamTest {
             """{"type": "Point", "coordinates": [1.0, 2.0]}"""
         )
 
-        val dat = SpatialDataset.forGEOJSON(
+        val dat = SpatialDataset.withGEOJSON(
             data = emptyMap(),
             geometry = points
         )
