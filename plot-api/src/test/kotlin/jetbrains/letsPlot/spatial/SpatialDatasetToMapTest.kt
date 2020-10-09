@@ -24,7 +24,7 @@ class SpatialDatasetTest(
         for (columnName in dataColumns) {
             data[columnName] = dataSerie
         }
-        val sds = SpatialDataset.fromWKT(
+        val sds = SpatialDataset.forWKT(
             data = data,
             geometry = points
         )

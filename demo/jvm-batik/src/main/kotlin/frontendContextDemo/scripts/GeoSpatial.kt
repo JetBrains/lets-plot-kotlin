@@ -34,21 +34,21 @@ object GeoSpatial {
 
             (lets_plot() +
                     geom_point(
-                        map = SpatialDataset.fromGEOJSON(data = emptyMap(), geometry = points),
+                        map = SpatialDataset.forGEOJSON(data = emptyMap(), geometry = points),
                         size = 10, color = "magenta"
                     ) +
                     ggtitle("map = Points")).show()
 
             (lets_plot() +
                     geom_polygon(
-                        map = SpatialDataset.fromGEOJSON(data = emptyMap(), geometry = polygons),
+                        map = SpatialDataset.forGEOJSON(data = emptyMap(), geometry = polygons),
                         fill = "light-gray", color = "black"
                     ) +
                     ggtitle("map = Polygons")).show()
 
             (lets_plot() +
                     geom_path(
-                        map = SpatialDataset.fromGEOJSON(data = emptyMap(), geometry = lines),
+                        map = SpatialDataset.forGEOJSON(data = emptyMap(), geometry = lines),
                         color = "light-gray"
                     ) +
                     ggtitle("map = Lines")).show()
@@ -60,12 +60,12 @@ object GeoSpatial {
 
             (lets_plot() +
                     geom_point(
-                        data = SpatialDataset.fromGEOJSON(data = data, geometry = points),
+                        data = SpatialDataset.forGEOJSON(data = data, geometry = points),
                         size = 10
                     ) { color = "cat" } +
                     ggtitle("data = Points")).show()
 
-            (lets_plot(data = SpatialDataset.fromGEOJSON(data = data, geometry = points)) +
+            (lets_plot(data = SpatialDataset.forGEOJSON(data = data, geometry = points)) +
                     geom_point(
                         size = 10
                     ) { color = "cat" } +
@@ -73,14 +73,14 @@ object GeoSpatial {
 
             (lets_plot() +
                     geom_polygon(
-                        data = SpatialDataset.fromGEOJSON(data = data, geometry = polygons),
+                        data = SpatialDataset.forGEOJSON(data = data, geometry = polygons),
                         color = "black"
                     ) { fill = "cat" } +
                     ggtitle("data = Polygons")).show()
 
             (lets_plot() +
                     geom_path(
-                        data = SpatialDataset.fromGEOJSON(data = data, geometry = lines)
+                        data = SpatialDataset.forGEOJSON(data = data, geometry = lines)
                     ) { color = "cat" } +
                     ggtitle("data = Lines")).show()
         }

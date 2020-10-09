@@ -21,7 +21,7 @@ fun SimpleFeatureCollection.toSpatialDataset(decimals:Int = 10): SpatialDataset 
     val (data, geometries) = getDataAndGeometries(this) {
         geojson.toString(it)
     }
-    return SpatialDataset.fromGEOJSON(data, geometries)
+    return SpatialDataset.forGEOJSON(data, geometries)
 }
 
 private fun getDataAndGeometries(
