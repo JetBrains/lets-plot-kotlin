@@ -13,6 +13,7 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.JitterParameters
 import jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PointMapping
@@ -32,6 +33,8 @@ import jetbrains.letsPlot.position_jitter
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param width double, optional.
  *     width for jitter, default=0.4
  * @param height double, optional.
@@ -56,6 +59,7 @@ class geom_jitter(
     position: PosOptions = Pos.jitter,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Number? = null,
@@ -80,7 +84,8 @@ class geom_jitter(
             else -> position
         },
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     ) {
     override fun seal(): Options {
         return super<PointAesthetics>.seal() +

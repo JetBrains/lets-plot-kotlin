@@ -12,6 +12,7 @@ import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import jetbrains.letsPlot.intern.layer.geom.AreaMapping
 
@@ -29,6 +30,8 @@ import jetbrains.letsPlot.intern.layer.geom.AreaMapping
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param x x-axis coordinates.
  * @param y y-axis coordinates.
  * @param alpha transparency level of a layer
@@ -50,6 +53,7 @@ class geom_area(
     position: PosOptions = Pos.stack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Number? = null,
@@ -67,7 +71,8 @@ class geom_area(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     )
 
 

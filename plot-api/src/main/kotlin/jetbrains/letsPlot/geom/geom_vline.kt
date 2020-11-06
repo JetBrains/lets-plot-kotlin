@@ -8,10 +8,11 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.vline
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.VLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.VLineMapping
 
@@ -29,6 +30,8 @@ import jetbrains.letsPlot.intern.layer.geom.VLineMapping
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param xintercept line x-intercept.
  *     The value of x at the point where the line crosses the x axis.
  * @param alpha transparency level of a layer
@@ -49,6 +52,7 @@ class geom_vline(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     @Suppress("SpellCheckingInspection")
     override val xintercept: Number? = null,
     override val alpha: Number? = null,
@@ -65,6 +69,7 @@ class geom_vline(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     )
 

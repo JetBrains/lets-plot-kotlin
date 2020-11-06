@@ -12,6 +12,7 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.HLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.HLineMapping
 
@@ -29,6 +30,8 @@ import jetbrains.letsPlot.intern.layer.geom.HLineMapping
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param yintercept line y-intercept
  *     The value of y at the point where the line crosses the y axis.
  * @param alpha transparency level of a layer
@@ -49,6 +52,7 @@ class geom_hline(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     @Suppress("SpellCheckingInspection")
     override val yintercept: Number? = null,
     override val alpha: Number? = null,
@@ -65,6 +69,7 @@ class geom_hline(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     )
 

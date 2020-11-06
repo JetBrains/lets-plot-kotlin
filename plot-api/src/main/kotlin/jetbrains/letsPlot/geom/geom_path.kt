@@ -8,7 +8,12 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.path
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.*
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
+import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.WithSpatialParameters
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PathMapping
 import jetbrains.letsPlot.spatial.SpatialDataset
@@ -27,6 +32,8 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param map SpatialDataset.
  *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
  *     names of States and their boundaries).
@@ -63,6 +70,7 @@ class geom_path(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val map: SpatialDataset? = null,
     override val mapJoin: Pair<Any, Any>? = null,
     override val x: Double? = null,
@@ -84,7 +92,8 @@ class geom_path(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     )
 
 

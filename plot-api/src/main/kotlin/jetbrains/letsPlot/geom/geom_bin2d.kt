@@ -13,6 +13,7 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
@@ -31,6 +32,8 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param bins pair of numbers, default: (30,30)
  *     Number of bins in both directions, vertical and horizontal.  Overridden by binwidth.
  * @param binWidth pair of numbers, optional
@@ -60,6 +63,7 @@ class geom_bin2d(
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val width: Double? = null,
@@ -84,7 +88,8 @@ class geom_bin2d(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     ) {
     override fun seal(): Options {
         return super<TileAesthetics>.seal() +

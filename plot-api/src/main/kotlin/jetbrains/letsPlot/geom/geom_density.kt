@@ -8,7 +8,12 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
-import jetbrains.letsPlot.intern.layer.*
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
+import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import jetbrains.letsPlot.intern.layer.geom.DensityMapping
 import jetbrains.letsPlot.intern.layer.stat.DensityStatAesthetics
@@ -28,6 +33,8 @@ import jetbrains.letsPlot.intern.layer.stat.DensityStatParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param x x-axis coordinates.
  * @param alpha transparency level of a layer
  *     Understands numbers between 0 and 1.
@@ -50,6 +57,7 @@ class geom_density(
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Number? = null,
@@ -75,7 +83,8 @@ class geom_density(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     ) {
 
     override fun seal() = super<AreaAesthetics>.seal() +

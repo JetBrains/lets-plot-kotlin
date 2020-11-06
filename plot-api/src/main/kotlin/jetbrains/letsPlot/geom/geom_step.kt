@@ -13,6 +13,7 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.LineMapping
 
@@ -32,6 +33,8 @@ import jetbrains.letsPlot.intern.layer.geom.LineMapping
  *     position adjustment function.
  * @param direction string, optional.
  *     "hv" or "HV" stands for horizontal then vertical (default); "vh" or "VH" stands for vertical then horizontal
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param x x-axis value.
  * @param y y-axis value.
  * @param alpha transparency level of a point
@@ -52,6 +55,7 @@ class geom_step(
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     private val direction: String? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -68,7 +72,8 @@ class geom_step(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     ) {
     override fun seal(): Options {
         return super.seal() + Options.of("direction" to direction)

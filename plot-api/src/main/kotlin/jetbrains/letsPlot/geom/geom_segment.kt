@@ -8,10 +8,11 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.segment
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.SegmentAesthetics
 import jetbrains.letsPlot.intern.layer.geom.SegmentMapping
 
@@ -29,6 +30,8 @@ import jetbrains.letsPlot.intern.layer.geom.SegmentMapping
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param x x-axis value.
  * @param y y-axis value.
  * @param xend x-axis value.
@@ -55,6 +58,7 @@ class geom_segment(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val xend: Double? = null,
@@ -75,5 +79,6 @@ class geom_segment(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     )

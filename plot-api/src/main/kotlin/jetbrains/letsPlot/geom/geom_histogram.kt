@@ -12,6 +12,7 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.HistogramAesthetics
 import jetbrains.letsPlot.intern.layer.geom.HistogramMapping
 import jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
@@ -31,6 +32,8 @@ import jetbrains.letsPlot.intern.layer.stat.BinStatParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param x x-axis value (this values will produce cases or bins for bars).
  * @param y y-axis value (this value will be used to multiply the bar heights), setting y to '..density..' produces
  *     normalized (density) histogram.
@@ -51,6 +54,7 @@ class geom_histogram(
     position: PosOptions = Pos.stack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Number? = null,
@@ -74,7 +78,8 @@ class geom_histogram(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     ) {
     override fun seal() = super<HistogramAesthetics>.seal() +
             super<BinStatAesthetics>.seal() +

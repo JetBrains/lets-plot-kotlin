@@ -8,10 +8,11 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat.identity
-import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import jetbrains.letsPlot.intern.layer.geom.TileMapping
 
@@ -29,6 +30,8 @@ import jetbrains.letsPlot.intern.layer.geom.TileMapping
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param x x-axis coordinates of the center of rectangles.
  * @param y y-axis coordinates of the center of rectangles.
  * @param width width of a tile.
@@ -50,6 +53,7 @@ class geom_tile(
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val width: Double? = null,
@@ -69,7 +73,8 @@ class geom_tile(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     )
 
 

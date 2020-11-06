@@ -13,6 +13,7 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.CrossBarAesthetics
 import jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
 
@@ -27,6 +28,8 @@ import jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
  * @param position string, optional
  *     Position adjustment, either as a string ("identity", "stack", "dodge",...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param fatten : number, default: 2.5
  *     A multiplicative factor applied to size of the middle bar
  * @param x x-axis coordinates
@@ -54,6 +57,7 @@ class geom_crossbar(
     position: PosOptions = Pos.dodge,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     val fatten: Double? = null,
     override val x: Double? = null,
     override val ymin: Double? = null,
@@ -75,7 +79,8 @@ class geom_crossbar(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     ) {
     override fun seal(): Options {
         return super.seal() + Options.of("fatten" to fatten)

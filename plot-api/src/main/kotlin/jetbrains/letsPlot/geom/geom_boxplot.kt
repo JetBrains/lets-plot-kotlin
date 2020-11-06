@@ -13,6 +13,7 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
@@ -36,6 +37,8 @@ import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
  * @param position string, optional
  *     Position adjustment, either as a string ("identity", "stack", "dodge",...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param outlierColor
  * @param outlierFill
  * @param outlierShape
@@ -71,6 +74,7 @@ class geom_boxplot(
     position: PosOptions = Pos.dodge,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val lower: Double? = null,
@@ -107,7 +111,8 @@ class geom_boxplot(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     ) {
     override fun seal(): Options {
         return super<BoxplotAesthetics>.seal() +
