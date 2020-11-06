@@ -32,6 +32,8 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param map SpatialDataset.
  *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
  *     names of States and their boundaries).

@@ -30,6 +30,8 @@ import jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param x x-axis coordinates.
  * @param ymin lower bound for error bar.
  * @param ymax upper bound for error bar.

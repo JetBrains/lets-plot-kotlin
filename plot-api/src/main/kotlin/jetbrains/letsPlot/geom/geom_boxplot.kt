@@ -37,6 +37,8 @@ import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
  * @param position string, optional
  *     Position adjustment, either as a string ("identity", "stack", "dodge",...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param outlierColor
  * @param outlierFill
  * @param outlierShape

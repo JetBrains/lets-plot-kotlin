@@ -33,6 +33,8 @@ import jetbrains.letsPlot.intern.layer.geom.LineMapping
  *     position adjustment function.
  * @param direction string, optional.
  *     "hv" or "HV" stands for horizontal then vertical (default); "vh" or "VH" stands for vertical then horizontal
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param x x-axis value.
  * @param y y-axis value.
  * @param alpha transparency level of a point

@@ -32,6 +32,8 @@ import jetbrains.letsPlot.intern.layer.stat.BinStatParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
+ * @param tooltips result of the call to the layer_tooltips() function.
+ *     Specifies appearance, style and content.
  * @param x x-axis value (this values will produce cases or bins for bars).
  * @param y y-axis value (this value will be used to multiply the bar heights), setting y to '..density..' produces
  *     normalized (density) histogram.
