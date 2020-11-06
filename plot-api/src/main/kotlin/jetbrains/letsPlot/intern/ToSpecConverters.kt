@@ -97,6 +97,10 @@ fun Layer.toSpec(): MutableMap<String, Any> {
             else it.mapping.map
     }
 
+    tooltips?.let {
+        spec[Option.Layer.TOOLTIPS] = it
+    }
+
     // parameters 'map', 'mapJoin'
     if (this is WithSpatialParameters) {
         map?.run {

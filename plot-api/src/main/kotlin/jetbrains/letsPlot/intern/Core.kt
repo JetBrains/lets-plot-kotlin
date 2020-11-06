@@ -8,10 +8,7 @@ package jetbrains.letsPlot.intern
 import jetbrains.datalore.plot.base.Aes
 import jetbrains.letsPlot.Figure
 import jetbrains.letsPlot.LetsPlot
-import jetbrains.letsPlot.intern.layer.GeomOptions
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 
 
 class Plot internal constructor(
@@ -103,7 +100,8 @@ abstract class Layer(
     val stat: StatOptions,
     val position: PosOptions,
     val showLegend: Boolean,
-    val sampling: SamplingOptions?
+    val sampling: SamplingOptions?,
+    val tooltips: TooltipOptions?
 ) : Feature() {
 
     // layer mapping has precedence over geom and stat

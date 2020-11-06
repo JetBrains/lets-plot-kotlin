@@ -8,10 +8,7 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.vline
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.VLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.VLineMapping
 
@@ -49,6 +46,7 @@ class geom_vline(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     @Suppress("SpellCheckingInspection")
     override val xintercept: Number? = null,
     override val alpha: Number? = null,
@@ -65,6 +63,7 @@ class geom_vline(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     )
 

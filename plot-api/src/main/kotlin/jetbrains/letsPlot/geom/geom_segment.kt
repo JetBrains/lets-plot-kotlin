@@ -8,10 +8,7 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.segment
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.SegmentAesthetics
 import jetbrains.letsPlot.intern.layer.geom.SegmentMapping
 
@@ -55,6 +52,7 @@ class geom_segment(
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val xend: Double? = null,
@@ -75,5 +73,6 @@ class geom_segment(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     )
