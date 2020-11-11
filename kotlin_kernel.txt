@@ -1,0 +1,41 @@
+Install:
+--------
+pip install kotlin-jupyter-kernel
+
+Install dev:
+------------
+pip install -i https://test.pypi.org/simple/ kotlin-jupyter-kernel
+
+Build and install Kernel from sources:
+--------------------------------------
+Github: https://github.com/Kotlin/kotlin-jupyter
+
+./gradlew install
+
+If built successfully it will install the kernel to: ~/.ipython/kernels/kotlin
+Normally the kernel is installed to conda env.
+
+--------
+
+~/.jupyter_kotlin/cache/libraries
+
+Contains descriptors (json) of libraries integrated with the Kotlin kernel.
+ - edit descriptor (i.e. lets-plot.json) locally for experiments.
+ - remove descriptor to force the kernel to pull current published version of descriptor from 'master' at https://github.com/Kotlin/kotlin-jupyte.
+ - create a PR to publish a new version of the library (no kernel re-deploy needed).
+ - upgrade the Kotlin kernel to refresh all library descriptors.
+
+
+--------
+In notebook
+
+:classpath - shows all resolved jars.
+
+%use lets-plot(api=1.1.0, lib=1.5.3, js=1.5.3, isolatedFrame=false)
+
+--------
+cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot.json ~/.jupyter_kotlin/cache/libraries
+cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot-gt.json ~/.jupyter_kotlin/cache/libraries
+
+??
+cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot-gt.json /opt/anaconda3/envs/dev-kotlin-jupyter/lib/python3.7/site-packages/run_kotlin_kernel/libraries

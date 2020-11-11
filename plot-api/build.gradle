@@ -135,7 +135,7 @@ def bintray_key = project.buildSettings?.bintray?.key
 if (bintray_user != null && bintray_key != null) {
 
     def pkg_name = 'lets-plot-kotlin-jars'
-    if (version.contains('SNAPSHOT') || version.contains('rc') || version.contains('dev')) {
+    if (ext.versionIsDev) {
         pkg_name = 'lets-plot-kotlin-jars-dev'
     }
 

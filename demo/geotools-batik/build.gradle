@@ -17,5 +17,8 @@ dependencies {
     implementation project(':geotools')
     implementation project(':demo-common')
 
+    implementation "org.geotools:gt-main:$geotools_version"
+    implementation "org.geotools:gt-geojson:$geotools_version"
+
     implementation "org.geotools:gt-shapefile:$geotools_version"
 }
