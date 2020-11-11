@@ -47,10 +47,10 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
     fun legendPosition_right() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_RIGHT)
     fun legendPosition_bottom() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_BOTTOM)
     fun legendPosition_top() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_TOP)
-    fun tooltip_anchor_top_right() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_TOP_RIGHT)
-    fun tooltip_anchor_top_left() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_TOP_LEFT)
-    fun tooltip_anchor_bottom_right() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_BOTTOM_RIGHT)
-    fun tooltip_anchor_bottom_left() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_BOTTOM_LEFT)
+    fun tooltipAnchor_topRight() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_TOP_RIGHT)
+    fun tooltipAnchor_topLeft() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_TOP_LEFT)
+    fun tooltipAnchor_bottomRight() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_BOTTOM_RIGHT)
+    fun tooltipAnchor_bottomLeft() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_BOTTOM_LEFT)
 
     /**
      * Specifies the legend position relative to the plot drawing area.

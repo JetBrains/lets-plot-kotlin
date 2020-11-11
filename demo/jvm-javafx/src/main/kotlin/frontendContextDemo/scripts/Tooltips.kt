@@ -50,7 +50,7 @@ object Tooltips {
                 (plot + geom + theme().legendPosition_none()).show()
 
                 // Move tooltip to the corner
-                (plot + geom + theme().legendPosition_none().tooltip_anchor_top_left()).show()
+                (plot + geom + theme().legendPosition_none().tooltipAnchor_topLeft()).show()
             }
 
             // "Outlier" tooltips
