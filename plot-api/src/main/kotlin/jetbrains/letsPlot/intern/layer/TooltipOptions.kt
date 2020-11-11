@@ -10,14 +10,24 @@ import jetbrains.datalore.plot.config.Option
 @Suppress("FunctionName")
 fun layer_tooltips() = TooltipOptions()
 
-class TooltipOptions() : HashMap<String, List<Any>>() {
+class TooltipOptions() {
+    private val parameters = HashMap<String, List<Any>>()
+    private var isNone = false
+
+    val options: Any
+        get() = if (isNone) {
+            NO_TOOLTIPS
+        } else {
+            parameters
+        }
+
     private constructor(other: TooltipOptions) : this() {
-        this.putAll(other)
+        this.parameters.putAll(other.parameters)
     }
 
     private fun addOption(key: String, value: Any): TooltipOptions {
         val newTooltips = TooltipOptions(this)
-        val newOptions = newTooltips.getOrPut(key, { mutableListOf() })
+        val newOptions = newTooltips.parameters.getOrPut(key, { mutableListOf() })
         (newOptions as MutableList<Any>).add(value)
         return newTooltips
     }
@@ -43,11 +53,21 @@ class TooltipOptions() : HashMap<String, List<Any>>() {
         return addOption(TOOLTIP_LINES, template)
     }
 
+    /**
+     * Hide tooltips.
+     */
+    fun none(): TooltipOptions {
+        isNone = true
+        return this
+    }
+
     companion object {
         private const val TOOLTIP_FORMATS = Option.Layer.TOOLTIP_FORMATS
         private const val FIELD = Option.TooltipFormat.FIELD
         private const val FORMAT = Option.TooltipFormat.FORMAT
 
         private const val TOOLTIP_LINES = Option.Layer.TOOLTIP_LINES
+
+        private const val NO_TOOLTIPS = Option.Layer.NONE
     }
 }
