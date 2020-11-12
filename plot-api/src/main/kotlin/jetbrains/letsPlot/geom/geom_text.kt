@@ -8,14 +8,16 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.text
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.WithSpatialParameters
 import jetbrains.letsPlot.intern.layer.TooltipOptions
-import jetbrains.letsPlot.intern.layer.geom.TextAesthetics
-import jetbrains.letsPlot.intern.layer.geom.TextMapping
+import jetbrains.letsPlot.intern.layer.geom.*
+import jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
+import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 import jetbrains.letsPlot.spatial.SpatialDataset
 
 @Suppress("ClassName")
@@ -63,6 +65,13 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  * @param vjust ('bottom', 'center', 'top') or number between 0 ('bottom') and 1 ('top').
  *     Vertical text alignment.
  * @param angle text rotation angle in degrees.
+ * @param labelFormat string.
+ *     Format used to transform label mapping values to a string.
+ *     Examples:
+ *     ".2f" -> "12.45"
+ *     "Num {}" -> "Num 12.456789"
+ *     "TTL: \${.2f}" -> "TTL: $12.45"
+ *     Note, the "$" must be escaped as "\$"
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -87,9 +96,11 @@ class geom_text(
     override val hjust: Any? = null,
     override val vjust: Any? = null,
     override val angle: Double? = null,
+    override val labelFormat: String? = null,
     mapping: TextMapping.() -> Unit = {}
 
 ) : TextAesthetics,
+    TextParameters,
     WithSpatialParameters,
     LayerBase(
         mapping = TextMapping().apply(mapping).seal(),
@@ -100,4 +111,9 @@ class geom_text(
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips
-    )
+    ) {
+    override fun seal(): Options {
+        return super<TextAesthetics>.seal() +
+                super<TextParameters>.seal()
+    }
+}

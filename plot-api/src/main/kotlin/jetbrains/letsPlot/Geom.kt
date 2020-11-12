@@ -266,13 +266,18 @@ object Geom {
         override val hjust: Any? = null,
         override val vjust: Any? = null,
         override val angle: Double? = null,
+        override val labelFormat: String? = null,
         mapping: TextMapping.() -> Unit = {}
     ) : TextAesthetics,
+        TextParameters,
         GeomOptions(
             GeomKind.TEXT,
             TextMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<TextAesthetics>.seal() +
+                super<TextParameters>.seal()
     }
 
     @Suppress("ClassName")
