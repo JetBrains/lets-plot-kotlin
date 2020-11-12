@@ -98,7 +98,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     }
 
     tooltips?.let {
-        spec[Option.Layer.TOOLTIPS] = it
+        spec[Option.Layer.TOOLTIPS] = it.options
     }
 
     // parameters 'map', 'mapJoin'

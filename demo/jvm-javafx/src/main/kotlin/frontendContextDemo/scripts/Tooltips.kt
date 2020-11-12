@@ -48,6 +48,25 @@ object Tooltips {
                         }
 
                 (plot + geom + theme().legendPosition_none()).show()
+
+                // Move tooltip to the corner.
+                (plot + geom + theme().legendPosition_none().tooltipAnchor_topLeft()).show()
+
+                // Hide tooltips.
+                (plot + geom_bar(
+                    position = Pos.dodge,
+                    color = "black",
+                    stat = Stat.identity,
+                    tooltips = layer_tooltips().none()
+                ) { fill = "supp" } +
+                        geom_errorbar(
+                            position = position_dodge(width = 0.9),
+                            color = "black",
+                            width = 0.1
+                        ) {
+                            ymin = "min"; ymax = "max"; group = "supp"
+                        }
+                ).show()
             }
 
             // "Outlier" tooltips

@@ -47,6 +47,10 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
     fun legendPosition_right() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_RIGHT)
     fun legendPosition_bottom() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_BOTTOM)
     fun legendPosition_top() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_TOP)
+    fun tooltipAnchor_topRight() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_TOP_RIGHT)
+    fun tooltipAnchor_topLeft() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_TOP_LEFT)
+    fun tooltipAnchor_bottomRight() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_BOTTOM_RIGHT)
+    fun tooltipAnchor_bottomLeft() = withOption(TOOLTIP_ANCHOR, VAL_TOOLTIP_ANCHOR_BOTTOM_LEFT)
 
     /**
      * Specifies the legend position relative to the plot drawing area.
@@ -97,6 +101,7 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
         private const val LEGEND_POSITION = Option.Theme.LEGEND_POSITION
         private const val LEGEND_JUSTIFICATION = Option.Theme.LEGEND_JUSTIFICATION
         private const val LEGEND_DIRECTION = Option.Theme.LEGEND_DIRECTION
+        private const val TOOLTIP_ANCHOR = Option.Theme.TOOLTIP_ANCHOR
 
         // values
         private const val VAL_ELEMENT_BLANK = "blank"
@@ -108,5 +113,9 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
         private const val VAL_LEGEND_JUSTIFICATION_CENTER = "center"
         private const val VAL_LEGEND_DIRECTION_HORIZONTAL = "horizontal"
         private const val VAL_LEGEND_DIRECTION_VERTICAL = "vertical"
+        private const val VAL_TOOLTIP_ANCHOR_TOP_LEFT = "top_left"
+        private const val VAL_TOOLTIP_ANCHOR_TOP_RIGHT = "top_right"
+        private const val VAL_TOOLTIP_ANCHOR_BOTTOM_RIGHT = "bottom_right"
+        private const val VAL_TOOLTIP_ANCHOR_BOTTOM_LEFT = "bottom_left"
     }
 }
