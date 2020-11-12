@@ -418,11 +418,28 @@ object Geom {
         override val color: Any? = null,
         override val fill: Any? = null,
         override val alpha: Number? = null,
-        // TODO add map/map_join parameters support
         mapping: PolygonMapping.() -> Unit = {}
     ) : PolygonAesthetics,
         GeomOptions(
             GeomKind.POLYGON,
+            PolygonMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class map(
+        override val x: Double? = null,
+        override val y: Double? = null,
+        override val size: Number? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Number? = null,
+        mapping: PolygonMapping.() -> Unit = {}
+    ) : PolygonAesthetics,
+        GeomOptions(
+            GeomKind.MAP,
             PolygonMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
