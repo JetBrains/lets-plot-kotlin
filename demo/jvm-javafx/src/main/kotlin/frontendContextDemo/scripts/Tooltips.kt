@@ -7,8 +7,11 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.*
-import jetbrains.letsPlot.geom.*
-import jetbrains.letsPlot.intern.layer.layer_tooltips
+import jetbrains.letsPlot.geom.geom_bar
+import jetbrains.letsPlot.geom.geom_boxplot
+import jetbrains.letsPlot.geom.geom_errorbar
+import jetbrains.letsPlot.tooltips.layer_tooltips
+import jetbrains.letsPlot.tooltips.layer_tooltips_none
 
 object Tooltips {
     @JvmStatic
@@ -57,7 +60,7 @@ object Tooltips {
                     position = Pos.dodge,
                     color = "black",
                     stat = Stat.identity,
-                    tooltips = layer_tooltips().none()
+                    tooltips = layer_tooltips_none
                 ) { fill = "supp" } +
                         geom_errorbar(
                             position = position_dodge(width = 0.9),
@@ -66,7 +69,7 @@ object Tooltips {
                         ) {
                             ymin = "min"; ymax = "max"; group = "supp"
                         }
-                ).show()
+                        ).show()
             }
 
             // "Outlier" tooltips

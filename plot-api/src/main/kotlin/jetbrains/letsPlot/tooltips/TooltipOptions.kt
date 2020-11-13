@@ -3,9 +3,14 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package jetbrains.letsPlot.intern.layer
+package jetbrains.letsPlot.tooltips
 
 import jetbrains.datalore.plot.config.Option
+
+/**
+ * Hide tooltips.
+ */
+val layer_tooltips_none = TooltipOptions().none()
 
 @Suppress("FunctionName")
 fun layer_tooltips() = TooltipOptions()
@@ -56,7 +61,7 @@ class TooltipOptions() {
     /**
      * Hide tooltips.
      */
-    fun none(): TooltipOptions {
+    internal fun none(): TooltipOptions {
         isNone = true
         return this
     }

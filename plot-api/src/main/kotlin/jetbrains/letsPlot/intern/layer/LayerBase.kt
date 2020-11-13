@@ -7,6 +7,7 @@ package jetbrains.letsPlot.intern.layer
 
 import jetbrains.letsPlot.intern.Layer
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.tooltips.TooltipOptions
 
 abstract class LayerBase(
     mapping: Options,

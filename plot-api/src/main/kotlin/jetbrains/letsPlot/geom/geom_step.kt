@@ -13,7 +13,7 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.TooltipOptions
+import jetbrains.letsPlot.tooltips.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.LineMapping
 

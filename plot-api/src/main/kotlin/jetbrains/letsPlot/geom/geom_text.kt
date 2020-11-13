@@ -14,10 +14,8 @@ import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.WithSpatialParameters
-import jetbrains.letsPlot.intern.layer.TooltipOptions
+import jetbrains.letsPlot.tooltips.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.*
-import jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
-import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 import jetbrains.letsPlot.spatial.SpatialDataset
 
 @Suppress("ClassName")

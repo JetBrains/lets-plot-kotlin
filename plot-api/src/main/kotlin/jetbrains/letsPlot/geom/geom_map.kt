@@ -12,6 +12,7 @@ import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PolygonMapping
 import jetbrains.letsPlot.spatial.SpatialDataset
+import jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
