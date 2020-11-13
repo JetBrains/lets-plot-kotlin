@@ -45,7 +45,9 @@ import jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
@@ -97,7 +99,9 @@ fun scale_fill_continuous(
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
@@ -148,7 +152,9 @@ fun scale_color_continuous(
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
@@ -192,7 +198,9 @@ fun scale_fill_gradient(
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
@@ -236,7 +244,9 @@ fun scale_color_gradient(
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
@@ -290,7 +300,9 @@ fun scale_fill_gradient2(
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
@@ -345,7 +357,9 @@ fun scale_color_gradient2(
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
@@ -403,7 +417,9 @@ fun scale_fill_grey(
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
@@ -466,7 +482,9 @@ fun scale_color_grey(
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
@@ -531,7 +549,9 @@ fun scale_fill_hue(
  * @param naValue
  *      Missing values will be replaced with this value.
  * @param guide
- *      A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').

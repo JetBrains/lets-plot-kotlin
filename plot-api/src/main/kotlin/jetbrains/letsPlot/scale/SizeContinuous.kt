@@ -26,8 +26,7 @@ import jetbrains.letsPlot.intern.Scale
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  * @param naValue Missing values will be replaced with this value.
- * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
- *      "none" will hide the guide.
+ * @param guide A result returned by guide_legend() function or "none" to hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
@@ -69,8 +68,7 @@ fun scale_size(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  * @param naValue Missing values will be replaced with this value.
- * @param guide A function used to create a guide (guide_colorbar(), guide_legend()) or its name ("colorbar", "legend");
- *      "none" will hide the guide.
+ * @param guide A result returned by guide_legend() function or "none" to hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */

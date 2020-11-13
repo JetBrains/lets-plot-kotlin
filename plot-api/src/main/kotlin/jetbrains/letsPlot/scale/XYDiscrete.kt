@@ -6,6 +6,8 @@
 package jetbrains.letsPlot.scale
 
 import jetbrains.datalore.plot.base.Aes
+import jetbrains.datalore.plot.config.Option
+import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.Scale
 import jetbrains.letsPlot.intern.checkScaleExpand
 
@@ -26,6 +28,8 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
+ * @param reverse: boolean
+ *      When True the scale reversed.
  */
 @Suppress("FunctionName")
 fun scale_x_discrete(
@@ -34,7 +38,8 @@ fun scale_x_discrete(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    reverse: Boolean? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -44,7 +49,12 @@ fun scale_x_discrete(
         labels = labels,
         limits = limits,
         expand = expand,
-        naValue = naValue
+        naValue = naValue,
+        otherOptions = Options(
+            mapOf(
+                Option.Guide.REVERSE to reverse
+            )
+        )
     )
 }
 
@@ -65,6 +75,8 @@ fun scale_x_discrete(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
+ * @param reverse: boolean
+ *      When True the scale reversed.
  */
 @Suppress("FunctionName")
 fun scale_y_discrete(
@@ -73,7 +85,8 @@ fun scale_y_discrete(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    reverse: Boolean? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -83,6 +96,87 @@ fun scale_y_discrete(
         labels = labels,
         limits = limits,
         expand = expand,
-        naValue = naValue
+        naValue = naValue,
+        otherOptions = Options(
+            mapOf(
+                Option.Guide.REVERSE to reverse
+            )
+        )
+    )
+}
+
+/**
+ * Reversed discrete scale for x axis
+ *
+ * @param name  The name of the scale - used as the axis label or the legend title.
+ *              If None, the default, the name of the scale
+ *              is taken from the first mapping used for that aesthetic.
+ * @param breaks list of data values.
+ *      A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits list of data values
+ *      A vector specifying values to display on the axis and their order.
+ *      Setting limits will remove data not included in the list.
+ * @param expand list of numbers
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
+ *      The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *      Defaults: multiplicative = 0, additive = 0.6.
+ * @param naValue Missing values will be replaced with this value.
+ */
+@Suppress("FunctionName")
+fun scale_x_discrete_reversed(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    expand: List<Number>? = null,
+    naValue: Number? = null
+): Scale {
+    return scale_x_discrete(
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits,
+        expand = expand,
+        naValue = naValue,
+        reverse = true
+    )
+}
+
+/**
+ * Reversed discrete scale for y axis
+ *
+ * @param name  The name of the scale - used as the axis label or the legend title.
+ *              If None, the default, the name of the scale
+ *              is taken from the first mapping used for that aesthetic.
+ * @param breaks list of data values.
+ *      A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits list of data values
+ *      A vector specifying values to display on the axis and their order.
+ *      Setting limits will remove data not included in the list.
+ * @param expand list of numbers
+ *      A numeric vector of length two giving multiplicative and additive expansion constants.
+ *      The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *      Defaults: multiplicative = 0, additive = 0.6.
+ * @param naValue Missing values will be replaced with this value.
+ */
+@Suppress("FunctionName")
+fun scale_y_discrete_reversed(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    expand: List<Number>? = null,
+    naValue: Number? = null
+): Scale {
+    return scale_y_discrete(
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits,
+        expand = expand,
+        naValue = naValue,
+        reverse = true
     )
 }
