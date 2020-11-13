@@ -38,4 +38,5 @@ cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot.json ~/.jupyter_kotlin/cache
 cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot-gt.json ~/.jupyter_kotlin/cache/libraries
 
 ??
+cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot.json /opt/anaconda3/envs/dev-kotlin-jupyter/lib/python3.7/site-packages/run_kotlin_kernel/libraries
 cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot-gt.json /opt/anaconda3/envs/dev-kotlin-jupyter/lib/python3.7/site-packages/run_kotlin_kernel/libraries
