@@ -13,10 +13,10 @@ import org.opengis.feature.type.GeometryDescriptor
 
 /**
  * Transforms SimpleFeatureCollection to SpatialDataset with feature geometries encoded in GEOJSON format.
- * 
+ *
  * @param decimals the number of decimals to use when encoding floating point numbers.
  */
-fun SimpleFeatureCollection.toSpatialDataset(decimals:Int = 10): SpatialDataset {
+fun SimpleFeatureCollection.toSpatialDataset(decimals: Int = 10): SpatialDataset {
     val geojson = GeometryJSON(decimals)
     val (data, geometries) = getDataAndGeometries(this) {
         geojson.toString(it)
@@ -34,8 +34,10 @@ private fun getDataAndGeometries(
     val geometryAttribute = attributeDescriptors?.find { it is GeometryDescriptor }
         ?: throw IllegalArgumentException("No geometry attribute")
 
-    require((geometryAttribute as GeometryDescriptor).coordinateReferenceSystem.coordinateSystem.name.code == "GCS_WGS_1984") {
-        "Geometry must use WGS84 coordinate system."
+
+    val crs = (geometryAttribute as GeometryDescriptor).coordinateReferenceSystem
+    require(CRSUtil.isWGS84_2D(crs)) {
+        "Geometry must use WGS84 coordinate reference system but was: ${crs.name} ."
     }
 
     val data = dataAttributes.map { it.localName to ArrayList<Any?>() }.toMap()

@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) 2020. JetBrains s.r.o.
+ * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+ */
+
+package naturalEarth
+
+import jetbrains.datalore.base.geometry.DoubleVector
+import jetbrains.letsPlot.geom.geom_polygon
+import jetbrains.letsPlot.geom.geom_rect
+import jetbrains.letsPlot.intern.toSpec
+import jetbrains.letsPlot.label.ggtitle
+import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.toolkit.geotools.toSpatialDataset
+import org.geotools.geometry.jts.ReferencedEnvelope
+import org.geotools.referencing.crs.DefaultGeographicCRS
+
+fun main() {
+    // GeoTools
+    // World boundaries
+    val features = NaturalEarthShp.loadPolygon()
+
+    // South America bounding box
+    val envelope = ReferencedEnvelope(
+        -85.41094255239946, -30.729993455533034,  // longitudes
+        -59.61183, 16.43730316817731,             // latitudes
+        DefaultGeographicCRS.WGS84
+    )
+
+    // Lets-Plot
+    val boundaries = features.toSpatialDataset(10)
+    val box = envelope.toSpatialDataset()
+    val p = lets_plot() +
+            geom_polygon(map = boundaries, alpha = 0.2, color = "black") +
+            geom_rect(map = box, size = 4, color = "orange", alpha = 0) +
+            ggtitle("geom_polygon: 'map'")
+
+    SimpleBatikView.show(
+        p.toSpec(),
+        DoubleVector(800.0, 500.0)
+    )
+}
