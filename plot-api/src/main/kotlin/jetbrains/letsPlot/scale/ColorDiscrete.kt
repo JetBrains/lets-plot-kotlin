@@ -14,13 +14,8 @@ import jetbrains.letsPlot.intern.Scale
 
 /**
  * Qualitative color scale with evenly spaced hues for fill aesthetic.
+ * Defaults to the Brewer 'Set2' palette (or 'Set3' if the categories count > 8)
  *
- * @param h pair of two numbers
- *      Range of hues, from 0 to 360
- * @param c numeric in range (0,99)
- *      Chroma (intensity of color), 0 is grey, default - 50
- * @param l numeric in range (0,99)
- *      Luminance (lightness), 0 - black, 99 - white, default - 90
  * @param direction numeric
  *      Direction to travel around the color wheel, 1 = clockwise (default), -1=counter-clockwise
  * @param name string
@@ -34,11 +29,6 @@ import jetbrains.letsPlot.intern.Scale
  *      A vector specifying values to display with the scale and their order in guides (axis).
  */
 fun scale_fill_discrete(
-    h: Pair<Int, Int>? = null,
-    c: Int? = null,
-    l: Int? = null,
-    @Suppress("SpellCheckingInspection")
-    hstart: Int? = null,
     direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
@@ -56,12 +46,7 @@ fun scale_fill_discrete(
     guide = guide,
     otherOptions = Options(
         mapOf(
-            Option.Scale.HUE_RANGE to h,
-            Option.Scale.CHROMA to c,
-            Option.Scale.LUMINANCE to l,
-            Option.Scale.START_HUE to hstart,
             Option.Scale.DIRECTION to direction,
-            Option.Scale.SCALE_MAPPER_KIND to "color_hue",
             Option.Scale.DISCRETE_DOMAIN to true
         )
     )
@@ -69,13 +54,8 @@ fun scale_fill_discrete(
 
 /**
  * Qualitative color scale with evenly spaced hues for color aesthetic.
+ * Defaults to the Brewer 'Set2' palette (or 'Set3' if the categories count > 8)
  *
- * @param h pair of two numbers
- *      Range of hues, from 0 to 360
- * @param c numeric in range (0,99)
- *      Chroma (intensity of color), 0 is grey, default - 50
- * @param l numeric in range (0,99)
- *      Luminance (lightness), 0 - black, 99 - white, default - 90
  * @param direction numeric
  *      Direction to travel around the color wheel, 1 = clockwise (default), -1=counter-clockwise
  * @param name string
@@ -89,11 +69,6 @@ fun scale_fill_discrete(
  *      A vector specifying values to display with the scale and their order in guides (axis).
  */
 fun scale_color_discrete(
-    h: Pair<Int, Int>? = null,
-    c: Int? = null,
-    l: Int? = null,
-    @Suppress("SpellCheckingInspection")
-    hstart: Int? = null,
     direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,
@@ -111,12 +86,7 @@ fun scale_color_discrete(
     guide = guide,
     otherOptions = Options(
         mapOf(
-            Option.Scale.HUE_RANGE to h,
-            Option.Scale.CHROMA to c,
-            Option.Scale.LUMINANCE to l,
-            Option.Scale.START_HUE to hstart,
             Option.Scale.DIRECTION to direction,
-            Option.Scale.SCALE_MAPPER_KIND to "color_hue",
             Option.Scale.DISCRETE_DOMAIN to true
         )
     )
