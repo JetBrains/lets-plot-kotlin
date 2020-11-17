@@ -27,12 +27,16 @@ fun main() {
         DefaultGeographicCRS.WGS84
     )
 
+    val anotherEnvelope = ReferencedEnvelope(envelope)
+    anotherEnvelope.translate(60.0, 25.0)
+
     // Lets-Plot
     val boundaries = features.toSpatialDataset(10)
     val box = envelope.toSpatialDataset()
     val p = lets_plot() +
             geom_polygon(map = boundaries, alpha = 0.2, color = "black") +
             geom_rect(map = box, size = 4, color = "orange", alpha = 0) +
+            geom_rect(map = anotherEnvelope.toSpatialDataset(), size = 4, color = "light-blue", alpha = 0) +
             ggtitle("geom_polygon: 'map'")
 
     SimpleBatikView.show(

@@ -70,7 +70,7 @@ fun coord_cartesian(
  * @param ylim A pair of numbers
  *      Limits for the x and y axes.
  */
-@Suppress("FunctionName")
+@Suppress("FunctionName", "SpellCheckingInspection")
 fun coord_map(
     xlim: Pair<Number?, Number?>? = null,
     ylim: Pair<Number?, Number?>? = null
