@@ -12,6 +12,7 @@ plugins {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     implementation project(':plot-api')
     compileOnly "org.geotools:gt-main:$geotools_version"
