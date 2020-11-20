@@ -7,14 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.1-dev-1] - 2020-10-07
+## [1.1.0] - 2020-11-xx
 ### Added
- - Parameters `map`, `mapJoin` in `geom_polygon, geom_path, geom_point, geom_text`
- - Converter from `org.geotools.data.simple.SimpleFeatureCollection` to `jetbrains.letsPlot.spatial.SpatialDataset`
+ - GeoTools support (see [geotools.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md)).
+ - API for tooltip customization (see [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md)).
+ - `geom_map()`.
+ - `labelFormat` parameter in `geom_text()`.
+ - `reverse` parameter in `scale_x/y_discrete()`.
+ - `scale_x_discrete_reversed()`, `scale_y_discrete_reversed()`
+
+### Changed
+ - Built with Lets-Plot v1.5.4 (was v1.5.2).
+  
+    See Lets-Plot [CHANGELOG.md](https://github.com/JetBrains/lets-plot/blob/master/CHANGELOG.md) for changes and fixes in 1.5.3, 1.5.4.
  
 ### Fixed
  - `ggsave()` ignores raster format file extension.
- - `as_discrete()`: if more than one is used in the same mapping block then all but one of them are ignored. 
+ - `as_discrete()`: if more than one is used in the same mapping block, then all but one of them are ignored. 
 
 ## [1.0.0] - 2020-08-13
 ### Added

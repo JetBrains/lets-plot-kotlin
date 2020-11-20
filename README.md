@@ -41,8 +41,10 @@
     - [Data sampling](#sampling)
     - [GGBunch](#ggbunch)
     - [Saving plot to file](#export)
-    
-- [What is new in 1.0.0](#new)
+    - [Tooltip customization](#tooltip-customization)
+    - [GeoTools support](#geotools)
+        
+- [What is new in 1.1.0](#new)
 - [Change log](#change_log)
 - [License](#license)    
 
@@ -151,7 +153,7 @@ See [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/RE
 
 Sampling is a special technique of data transformation, which helps to deal with large datasets and overplotting.
 
-[Learn more](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md) about sampling in Lets-Plot. 
+Learn more: [Data Sampling](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md). 
 
 <a id="ggbunch"></a>
 #### GGBunch
@@ -191,23 +193,45 @@ ggsave(p, "density.png")
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/ggsave_demo.png" alt="Couldn't load ggsave_demo.png" width="500" height="250"/>
 <br/>
 
-See [ggsave documentation](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/jetbrains.lets-plot.export/ggsave.html) 
+See `ggsave()` [documentation](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/jetbrains.lets-plot.export/ggsave.html) 
 for more information about the function arguments and default values.
 
+<a id="tooltip-customization"></a>
+#### Tooltip customization
+
+You can customize the content of tooltips for the layer by using the parameter `tooltips` of `geom` functions.
+
+Learn more: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md). 
+
+<a id="geotools"></a>
+#### GeoTools support
+
+[GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
+
+Lets-Plot supports visualization of a set of `SimpleFeature`-s stored in `SimpleFeatureCollection`, as well as 
+individual `Geometry` and `ReferencedEnvelope` objects. 
+
+Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
+ 
+
 <a id="new"></a>
-## What is new in 1.0.0
+## What is new in 1.1.0
 
-Maven artifact __group id__ has changed in this release.
+- Tooltip Customization
 
-Now it is: `org.jetbrains.lets-plot-kotlin` (before was: `org.jetbrains.lets-plot`).
+    New API for customization of tooltip contents. See [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md)) for details.
+ 
+- Formatting labels in `geom_text()`
 
-To include Lets-Plot Kotlin API to your Gradle project for example, use the following dependency: 
+    New parameter, 'labelFormat' to define a formatting pattern.
 
-```groovy
-dependencies {
-    api "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-api:<api version>"
-}
-``` 
+    See demo: [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
+    
+- GeoTools support
+
+    Visualization of GeoTools's `SimpleFeature`-s and other objects. See [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md)) for details.
+
+- Other changes and fixes - see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md) for details.       
 
 <a id="change_log"></a>
 ## Change Log
