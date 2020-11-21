@@ -1,0 +1,146 @@
+<!--
+  ~ Copyright (c) 2020. JetBrains s.r.o.
+  ~ Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+  -->
+
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>SpatialDataset - plot-api</title>
+    <link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">plot-api</a>&nbsp;/&nbsp;<a
+        href="../index.html">jetbrains.letsPlot.spatial</a>&nbsp;/&nbsp;<a href="./index.html">SpatialDataset</a><br/>
+<br/>
+<h1>SpatialDataset</h1>
+<code><span class="keyword">class </span><span class="identifier">SpatialDataset</span>&nbsp;<span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span
+        class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+        class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+        class="identifier">List</span></a><span class="symbol">&lt;</span><a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">&gt;</span><span
+        class="symbol">&gt;</span></code>
+<h3>Properties</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="geometry-format.html">geometryFormat</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">geometryFormat</span><span
+                    class="symbol">: </span><a href="../-geometry-format/index.html"><span class="identifier">GeometryFormat</span></a></code>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="geometry-key.html">geometryKey</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">val </span><span class="identifier">geometryKey</span><span
+                    class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="to-string.html">toString</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <h4><a href="with-g-e-o-j-s-o-n.html">withGEOJSON</a></h4>
+        </td>
+        <td>
+            <code><span class="keyword">fun </span><span class="identifier">withGEOJSON</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot.spatial.SpatialDataset.Companion$withGEOJSON(kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.collections.List((kotlin.String)))/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
+                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier"
+                                                                                  id="jetbrains.letsPlot.spatial.SpatialDataset.Companion$withGEOJSON(kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.collections.List((kotlin.String)))/geometry">geometry</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+                    class="identifier">List</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">&gt;</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span
+                    class="identifier">SpatialDataset</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="with-w-k-b.html">withWKB</a></h4>
+        </td>
+        <td>
+            <p>WKB is not yet supported by Lets-plot</p>
+            <code><span class="keyword">fun </span><span class="identifier">withWKB</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot.spatial.SpatialDataset.Companion$withWKB(kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.collections.List((kotlin.String)))/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
+                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier"
+                                                                                  id="jetbrains.letsPlot.spatial.SpatialDataset.Companion$withWKB(kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.collections.List((kotlin.String)))/geometry">geometry</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+                    class="identifier">List</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">&gt;</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span
+                    class="identifier">SpatialDataset</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
+            <h4><a href="with-w-k-t.html">withWKT</a></h4>
+        </td>
+        <td>
+            <p>WKT is not yet supported by Lets-plot</p>
+            <code><span class="keyword">fun </span><span class="identifier">withWKT</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot.spatial.SpatialDataset.Companion$withWKT(kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.collections.List((kotlin.String)))/data">data</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span
+                    class="identifier">Map</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier"
+                                                                                  id="jetbrains.letsPlot.spatial.SpatialDataset.Companion$withWKT(kotlin.collections.Map((kotlin.String, kotlin.Any)), kotlin.collections.List((kotlin.String)))/geometry">geometry</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
+                    class="identifier">List</span></a><span class="symbol">&lt;</span><a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">&gt;</span><span
+                    class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span
+                    class="identifier">SpatialDataset</span></a></code></td>
+    </tr>
+    </tbody>
+</table>
+</BODY>
+</HTML>

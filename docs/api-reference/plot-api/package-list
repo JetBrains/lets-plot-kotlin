@@ -13,4 +13,6 @@ jetbrains.letsPlot.intern.layer.stat
 jetbrains.letsPlot.label
 jetbrains.letsPlot.sampling
 jetbrains.letsPlot.scale
+jetbrains.letsPlot.spatial
 jetbrains.letsPlot.stat
+jetbrains.letsPlot.tooltips

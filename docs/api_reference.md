@@ -5,4 +5,4 @@
 ### How to generate
 
 1. Run Tasks > build > documentation > dokka.
-2. Set Reformat code and Update copyright flags during commit.
+2. Set Reformat code and Update copyright flags during the commit.
