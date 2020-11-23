@@ -28,6 +28,7 @@
 - [Overview](#overview)
 - [Lets-Plot in Jupyter with Kotlin Kernel](#jupyter)
     - [Installation](#inst)
+    - ["Line Magics"](#line-magics)
     - [Quick start with Jupyter](#start)
     - [Example notebooks](#jupyter-examples)
     - [Resources](#resources)
@@ -76,6 +77,32 @@ conda install kotlin-jupyter-kernel -c jetbrains
 ```                                             
 
 For more information about Jupyter Kotlin kernel, see the [Kotlin kernel for Jupyter/iPython](https://github.com/Kotlin/kotlin-jupyter) project.
+
+<a id="line-magics"></a>
+#### "Line Magics" 
+
+You can include all the necessary Lets-Plot boilerplate code to a notebook using the following "line magic":
+```
+%use lets-plot
+```  
+This will apply the lets-plot `library descriptor` bundled with the Kotlin Jupyter Kernel installed in your environment.
+
+The `%useLatestDescriptors` line magic will force Kotlin Kernel to pull and apply the latest 
+repository version of all `library descriptors`.
+
+You can override lets-plot `library descriptor` settings using the lets-plot line magic parameters, like:
+```
+%use lets-plot(api=1.1.0, lib=1.5.4, js=1.5.4, isolatedFrame=false)
+```                                                                 
+Where: 
+- `api` - version of Lets-Plot Kotlin API.
+- `lib` - version of Lets-Plot library (JAR-s).
+- `js`  - version of Lets-PLot JavaScript bundle.
+- `isolatedFrame` - If `false`: load JS just once per notebook (default in Jupyter).
+                    If `true`: include Lets-Plot JS in each output (default in [Datalore notebooks](#datalore))    
+                    
+See: [Line Magics](https://github.com/Kotlin/kotlin-jupyter#line-magics) documentation in the Kotlin Jupyter project for more details.                    
+
 
 <a id="start"></a>
 #### Quickstart in Jupyter
