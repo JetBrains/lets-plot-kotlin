@@ -18,6 +18,8 @@ Normally the kernel is installed to conda env.
 --------
 
 ~/.jupyter_kotlin/cache/libraries
+or
+/opt/anaconda3/envs/<env name>/lib/python3.7/site-packages/run_kotlin_kernel/libraries
 
 Contains descriptors (json) of libraries integrated with the Kotlin kernel.
  - edit descriptor (i.e. lets-plot.json) locally for experiments.
@@ -31,7 +33,12 @@ In notebook
 
 :classpath - shows all resolved jars.
 
-%use lets-plot(api=1.1.0, lib=1.5.3, js=1.5.3, isolatedFrame=false)
+%useLatestDescriptors - will force Kotlin Kernel to pull and apply the latest repository version of all library descriptors.
+Descriptors location:
+~/.jupyter_kotlin/cache/libraries
+
+Otherwise, Kotlin Kernel uses 'bundled' descriptors installed to:
+/opt/anaconda3/envs/<env name>/lib/python3.7/site-packages/run_kotlin_kernel/libraries
 
 --------
 cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot.json ~/.jupyter_kotlin/cache/libraries
