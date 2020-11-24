@@ -16,7 +16,7 @@ individual `Geometry`  (`org.locationtech.jts.geom`) and `ReferencedEnvelope` (`
 Lets-Plot API includes the `SpatialDataset` (`jetbrains.letsPlot.spatial`) class serving as a bridge between external
 spatial data-types and Lets-Plot geometry layers. 
 
-A set of Kotlin extension methods with signature the`toSpatialDataset(decimals: Int = 10): SpatialDataset` is provided
+A set of Kotlin extension methods with the signature `toSpatialDataset(decimals: Int = 10): SpatialDataset` is provided
 to facilitate converting `GeoTools` objects to an instance of the `SpatialDataset` class. 
 
 ```
