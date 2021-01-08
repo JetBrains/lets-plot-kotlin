@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -68,6 +68,7 @@ class TooltipOptions() {
 
     companion object {
         private const val TOOLTIP_FORMATS = Option.Layer.TOOLTIP_FORMATS
+        private const val TOOLTIP_ANCHOR = Option.Layer.TOOLTIP_ANCHOR
         private const val FIELD = Option.TooltipFormat.FIELD
         private const val FORMAT = Option.TooltipFormat.FORMAT
 

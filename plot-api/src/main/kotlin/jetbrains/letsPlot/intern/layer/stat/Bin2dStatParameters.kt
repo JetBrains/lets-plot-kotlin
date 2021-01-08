@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
 package jetbrains.letsPlot.intern.layer.stat
 
-import jetbrains.datalore.plot.base.stat.Bin2dStat
+import jetbrains.datalore.plot.config.Option.Stat
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.OptionsCapsule
 
@@ -15,8 +15,8 @@ interface Bin2dStatParameters : OptionsCapsule {
     val drop: Boolean?
 
     override fun seal() = Options.of(
-        Bin2dStat.P_BINS to bins?.toList(),
-        Bin2dStat.P_BINWIDTH to binWidth?.toList(),
-        Bin2dStat.P_DROP to drop
+        Stat.Bin2d.BINS to bins?.toList(),
+        Stat.Bin2d.BINWIDTH to binWidth?.toList(),
+        Stat.Bin2d.DROP to drop
     )
 }

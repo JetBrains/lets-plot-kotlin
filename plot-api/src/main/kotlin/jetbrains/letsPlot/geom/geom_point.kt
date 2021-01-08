@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -8,15 +8,11 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.point
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.WithSpatialParameters
-import jetbrains.letsPlot.tooltips.TooltipOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PointMapping
 import jetbrains.letsPlot.spatial.SpatialDataset
+import jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
@@ -77,9 +73,11 @@ class geom_point(
     override val shape: Any? = null,
     override val size: Number? = null,
     override val stroke: Number? = null,
+    override val sizeUnit: String? = null,
     mapping: PointMapping.() -> Unit = {}
 
 ) : PointAesthetics,
+    WithSizeUnitOption,
     WithSpatialParameters,
     LayerBase(
         mapping = PointMapping().apply(mapping).seal(),
@@ -90,6 +88,8 @@ class geom_point(
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips
-    )
+    ) {
+    override fun seal() = super<PointAesthetics>.seal() + super<WithSizeUnitOption>.seal()
+}
 
 

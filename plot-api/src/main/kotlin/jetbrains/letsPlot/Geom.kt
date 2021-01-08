@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -7,6 +7,7 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.WithSizeUnitOption
 import jetbrains.letsPlot.intern.layer.geom.*
 
 /**
@@ -28,13 +29,17 @@ object Geom {
         override val shape: Any? = null,
         override val size: Number? = null,
         override val stroke: Number? = null,
+        override val sizeUnit: String? = null,
         mapping: PointMapping.() -> Unit = {}
     ) : PointAesthetics,
+        WithSizeUnitOption,
         GeomOptions(
             GeomKind.POINT,
             PointMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<PointAesthetics>.seal() + super<WithSizeUnitOption>.seal()
     }
 
     @Suppress("ClassName")
