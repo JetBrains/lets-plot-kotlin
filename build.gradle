@@ -11,7 +11,7 @@ plugins {
 }
 
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -27,7 +27,7 @@ project.ext.buildSettings = settings
 
 allprojects {
     group 'org.jetbrains.lets-plot-kotlin'
-    version "1.1.1-alpha1"
+    version "1.1.1-alpha2"
 
     ext.versionIsDev = (version.contains('SNAPSHOT')
             || version.contains('rc')
