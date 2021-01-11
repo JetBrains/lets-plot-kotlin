@@ -14,10 +14,10 @@ internal object OptionsConfigurator {
         points: LayerParams,
         labels: LayerParams,
         flipY: Boolean
-    ): Boolean {
+    ) {
         adjustTypeColorSize(tiles, points, labels)
         flipType(tiles, points, labels, flipY)
-        return adjustDiag(tiles, points, labels);
+        adjustDiag(tiles, points, labels);
     }
 
     private fun adjustTypeColorSize(
@@ -108,7 +108,7 @@ internal object OptionsConfigurator {
     }
 
     /**
-     * @return true if at least one layer fills diagonal
+     * Set all 'diag' values (if were null)
      */
     private fun adjustDiag(
         tiles: LayerParams,
@@ -155,5 +155,44 @@ internal object OptionsConfigurator {
         if (type0 == null || type1 == null) return false
         if (type0 == "full" || type1 == "full") return true
         return type0 == type1
+    }
+
+    fun getCombinedMatrixType(
+        tiles: LayerParams,
+        points: LayerParams,
+        labels: LayerParams,
+    ): String {
+        fun combined(type: String?, otherType: String): String {
+            return if (type == null || otherType == "full") {
+                otherType
+            } else if (type == "full") {
+                type
+            } else if (overlap(type, otherType)) {
+                type
+            } else {
+                "full"
+            }
+        }
+
+
+        var type: String? = if (tiles.added) tiles.type!! else null
+        if (points.added) {
+            type = combined(type, points.type!!)
+        }
+        if (labels.added) {
+            type = combined(type, labels.type!!)
+        }
+        return type!!
+    }
+
+    fun getKeepMatrixDiag(
+        tiles: LayerParams,
+        points: LayerParams,
+        labels: LayerParams
+    ): Boolean {
+        val tilesDiag = if (tiles.added) tiles.diag!! else false
+        val pointsDiag = if (points.added) points.diag!! else false
+        val labelsDiag = if (labels.added) labels.diag!! else false
+        return tilesDiag || pointsDiag || labelsDiag
     }
 }

@@ -62,18 +62,50 @@ internal object CorrUtil {
         return corrFun(xs, ys)
     }
 
+
+    fun matrixXYSeries(
+        correlations: Map<Pair<String, String>, Double>,
+        variablesInOrder: List<String>,
+        type: String,
+        dropDiag: Boolean,
+        threshold: Double
+    ): Pair<List<String>, List<String>> {
+
+        val xs = ArrayList<String>()
+        val ys = ArrayList<String>()
+        for ((ix, vx) in variablesInOrder.withIndex()) {
+            val iterY = if (type == "upper") {
+                variablesInOrder.subList(ix, variablesInOrder.size)
+            } else if (type == "lower") {
+                variablesInOrder.subList(0, ix + 1)
+            } else {
+                variablesInOrder
+            }
+            for (vy in iterY) {
+                if (vx == vy && dropDiag) continue
+
+                // ToDo: threshold
+
+                xs.add(vx)
+                ys.add(vy)
+            }
+        }
+
+        return Pair(xs, ys)
+    }
+
     fun correlationsToDataframe(
         params: LayerParams,
         correlations: Map<Pair<String, String>, Double>,
         variablesInOrder: List<String>,
+        dropDiag: Boolean,
         threshold: Double,
-        canDropDiag: Boolean
     ): Map<String, List<Any?>> {
 
-        val dropDiag = canDropDiag && params.type in listOf("lower", "upper")
+        val (xs, ys) = matrixXYSeries(
+            correlations, variablesInOrder, params.type!!, dropDiag, threshold
+        )
 
-        val xs = ArrayList<String>()
-        val ys = ArrayList<String>()
         val corr = ArrayList<Double?>()
         val corrAbs = ArrayList<Double?>()
 
@@ -88,29 +120,15 @@ internal object CorrUtil {
         fun toKey(pair: Pair<String, String>): Pair<String, String> = toKey(pair.first, pair.second)
 
         val correlations1 = correlations.mapKeys { toKey(it.key) }
-        for ((ix, vx) in variablesInOrder.withIndex()) {
-            val iterY = if (params.type == "upper") {
-                variablesInOrder.subList(ix, variablesInOrder.size)
-            } else if (params.type == "lower") {
-                variablesInOrder.subList(0, ix + 1)
+        for ((x, y) in xs.zip(ys)) {
+            val v = if (params.diag != true && x == y) {
+                null
             } else {
-                variablesInOrder
+                correlations1[toKey(x, y)]
             }
-            for (vy in iterY) {
-                if (vx == vy && dropDiag) continue
 
-                xs.add(vx)
-                ys.add(vy)
-
-                val v = if (params.diag != true && vx == vy) {
-                    null
-                } else {
-                    correlations1[toKey(vx, vy)]
-                }
-
-                corr.add(v)
-                corrAbs.add(v?.absoluteValue)
-            }
+            corr.add(v)
+            corrAbs.add(v?.absoluteValue)
         }
 
         return linkedMapOf<String, List<Any?>>(

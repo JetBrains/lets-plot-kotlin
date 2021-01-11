@@ -27,30 +27,37 @@ object CorrPlotDemo {
                 .points(diag = false)
                 .build().show()
 
-            CorrPlot(data, "Upper", showLegend = false)
+            CorrPlot(data, "Upper", showLegend = true)
                 .points(type = "upper")
+                .build().show()
+
+            CorrPlot(data, "Upper and diag", showLegend = false)
+                .points(type = "upper", diag = true)
                 .build().show()
 
             CorrPlot(data, "Lower", showLegend = false)
                 .points(type = "lower")
                 .build().show()
+            CorrPlot(data, "Lower and diag", showLegend = false)
+                .points(type = "lower", diag = true)
+                .build().show()
 
-//            CorrPlot(data, "Cars MPG", showLegend = false)
-//                .points()
-//                .build().show()
-//
-//            val dataShortened = data.mapKeys { it.key.subSequence(0, 4) }
-//            CorrPlot(dataShortened)
-//                .points()
-//                .build().show()
-//
-//            CorrPlot(dataShortened, showLegend = false)
-//                .points()
-//                .build().show()
-//
-//            CorrPlot(dataShortened, "Cars MPG", showLegend = false)
-//                .points()
-//                .build().show()
+            CorrPlot(data, "Cars MPG", showLegend = false)
+                .points()
+                .build().show()
+
+            val dataShortened = data.mapKeys { it.key.subSequence(0, 4) }
+            CorrPlot(dataShortened)
+                .points()
+                .build().show()
+
+            CorrPlot(dataShortened, showLegend = false)
+                .points()
+                .build().show()
+
+            CorrPlot(dataShortened, "Cars MPG", showLegend = false)
+                .points()
+                .build().show()
 
         }
     }

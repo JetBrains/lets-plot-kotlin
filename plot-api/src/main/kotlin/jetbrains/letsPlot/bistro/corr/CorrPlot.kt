@@ -7,7 +7,10 @@ package jetbrains.letsPlot.bistro.corr
 
 import jetbrains.letsPlot.bistro.corr.CorrUtil.correlations
 import jetbrains.letsPlot.bistro.corr.CorrUtil.correlationsToDataframe
+import jetbrains.letsPlot.bistro.corr.CorrUtil.matrixXYSeries
 import jetbrains.letsPlot.bistro.corr.Method.correlationPearson
+import jetbrains.letsPlot.bistro.corr.OptionsConfigurator.getKeepMatrixDiag
+import jetbrains.letsPlot.coord_fixed
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.intern.Plot
@@ -17,6 +20,7 @@ import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.*
 import jetbrains.letsPlot.theme
+import jetbrains.letsPlot.tooltips.layer_tooltips
 import kotlin.math.max
 import kotlin.math.min
 
@@ -38,7 +42,6 @@ class CorrPlot(
     private val flip: Boolean = true,
     private val threshold: Double = DEF_THRESHOLD
 ) {
-    private var format = ".2f"
     private var colorScale = colorGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
     private var fillScale = fillGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
     private val points = LayerParams()
@@ -66,11 +69,11 @@ class CorrPlot(
     }
 
     fun build(): Plot {
-        if (!(points.added || tiles.added || labels.added)) {
+        if (!(tiles.added || points.added || labels.added)) {
             return lets_plot()
         }
 
-        val canDropDiag = !OptionsConfigurator.configure(tiles, points, labels, flip)
+        OptionsConfigurator.configure(tiles, points, labels, flip)
 
         val originalVariables = data.keys.map { it.toString() }.toList()
 
@@ -82,29 +85,43 @@ class CorrPlot(
         val varsInMatrix = correlations.keys.map { it.first }.toSet()
         val varsInOrder = originalVariables.filter { varsInMatrix.contains(it) }
 
+        val keepDiag = getKeepMatrixDiag(tiles, points, labels)
+        val combinedType = OptionsConfigurator.getCombinedMatrixType(tiles, points, labels)
+        val dropDiag = !(keepDiag || combinedType == "full")
+
         var plot = lets_plot() + colorScale + fillScale
+
+        // Add layers
+        val tooltips = (layer_tooltips()
+            .format(field = "@${CorrVar.CORR}", format = VALUE_FORMAT)
+            .line("@${CorrVar.CORR}"))
 
         if (points.added) {
             val dataframe = correlationsToDataframe(
                 points,
                 correlations,
                 varsInOrder,
-                threshold,
-                canDropDiag
+                dropDiag,
+                threshold
             )
             plot += geom_point(
                 data = dataframe,
                 showLegend = showLegend,
                 sizeUnit = "x",
+                tooltips = tooltips
             ) {
                 x = CorrVar.X
                 y = CorrVar.Y
                 size = CorrVar.CORR_ABS
                 color = CorrVar.CORR
             }
+            plot += coord_fixed(ratio = 1.0)
         }
 
-        val plotSize = plotSize(varsInOrder, title != null, showLegend)
+        val (xs, ys) = matrixXYSeries(
+            correlations, varsInOrder, combinedType, dropDiag, threshold
+        )
+        val plotSize = plotSize(xs, ys, title != null, showLegend)
         plot += ggsize(plotSize.first, plotSize.second)
 
         title?.run { plot += ggtitle(title) }
@@ -112,15 +129,17 @@ class CorrPlot(
     }
 
     companion object {
+        private const val VALUE_FORMAT = ".2f"
+
         private const val LEGEND_NAME = "Corr"
         private val SCALE_BREAKS = listOf(-1.0, -0.5, 0.0, 0.5, 1.0)
         private val SCALE_LABELS = listOf("-1", "-0.5", "0", "0.5", "1")
         private val SCALE_LIMITS = -1.0 to 1.0
 
         private const val DEF_THRESHOLD = 0.0
-        private const val DEF_LOW_COLOR = "red"
-        private const val DEF_MID_COLOR = "light_gray"
-        private const val DEF_HIGH_COLOR = "blue"
+        private const val DEF_LOW_COLOR = "#B3412C" //"red"
+        private const val DEF_MID_COLOR = "#EDEDED" //"light_gray"
+        private const val DEF_HIGH_COLOR = "#326C81" // "blue"
 
         private const val COLUMN_WIDTH = 60
         private const val MIN_PLOT_WIDTH = 400
@@ -169,19 +188,31 @@ class CorrPlot(
             return plot
         }
 
-        private fun plotSize(variables: List<String>, hasTitle: Boolean, hasLegend: Boolean): Pair<Int, Int> {
-            val colCount = variables.size
+        private fun plotSize(
+            xs: List<String>,
+            ys: List<String>,
+            hasTitle: Boolean,
+            hasLegend: Boolean
+        ): Pair<Int, Int> {
+            val colCount = xs.distinct().size
+
             // magic values
-            val labelLen = variables.maxByOrNull { it.length }?.length ?: 0
-            val labelWidth = (labelLen * 5.7).toInt()
             val titleHeight = if (hasTitle) 20 else 0
             val legendWidth = if (hasLegend) 70 else 0
-
             val geomWidth = min(MAX_PLOT_WIDTH, max(MIN_PLOT_WIDTH, colCount * COLUMN_WIDTH))
-            val labelHeight = if (geomWidth / colCount < labelWidth * 1.5) labelWidth / 2 else 20
 
-            val width = geomWidth + labelWidth + legendWidth
-            val height = geomWidth + titleHeight + labelHeight
+            fun axisLabelWidth(labs: List<String>): Int {
+                val labelLen = labs.maxByOrNull { it.length }?.length ?: 0
+                return (labelLen * 5.7).toInt()
+            }
+
+            val labelWidthX = axisLabelWidth(xs)
+            val labelWidthY = axisLabelWidth(ys)
+            val colWidth = geomWidth / colCount
+            val labelHeightY = if (labelWidthY * 1.0 > colWidth) labelWidthY / 2 else 20
+
+            val width = geomWidth + labelWidthX + legendWidth
+            val height = geomWidth + titleHeight + labelHeightY
 
             return width to height
         }
