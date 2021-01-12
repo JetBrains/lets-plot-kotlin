@@ -73,7 +73,6 @@ internal object CorrUtil {
         dropOtherNA: Boolean
     ): Pair<List<String>, List<String>> {
 
-
         val xs = ArrayList<String>()
         val ys = ArrayList<String>()
         val cm = CorrMatrix(
@@ -96,7 +95,6 @@ internal object CorrUtil {
                     if (dropDiagNA && x == y) continue
                     if (dropOtherNA && x != y) continue
                 }
-//                if (v != null && v.absoluteValue < threshold) continue
 
                 xs.add(x)
                 ys.add(y)
@@ -107,32 +105,18 @@ internal object CorrUtil {
     }
 
     fun correlationsToDataframe(
-        params: LayerParams,
-        correlations: Map<Pair<String, String>, Double>,
-        variablesInOrder: List<String>,
-        dropDiag: Boolean,
-        threshold: Double,
+        cm: CorrMatrix,
+        xSeries: List<String>,
+        ySeries: List<String>,
     ): Map<String, List<Any?>> {
-
-        val (xs, ys) = matrixXYSeries(
-            correlations, variablesInOrder, params.type!!, dropDiag, threshold,
-            dropDiagNA = false,
-            dropOtherNA = false
-        )
 
         val corrX = ArrayList<String>()
         val corrY = ArrayList<String>()
         val corr = ArrayList<Double?>()
         val corrAbs = ArrayList<Double?>()
 
-        val cm = CorrMatrix(
-            correlations,
-            nullDiag = !params.diag!!,
-            threshold
-        )
-        for ((x, y) in xs.zip(ys)) {
-//            if (v == null || v.absoluteValue < threshold) continue
-            // don't add nulls to df.
+        for ((x, y) in xSeries.zip(ySeries)) {
+            // drop all n/a
             val v = cm.value(x, y) ?: continue
 
             corrX.add(x)
@@ -183,7 +167,7 @@ internal object CorrUtil {
         }
     }
 
-    private class CorrMatrix(
+    internal class CorrMatrix(
         correlations: Map<Pair<String, String>, Double>,
         val nullDiag: Boolean,
         val threshold: Double

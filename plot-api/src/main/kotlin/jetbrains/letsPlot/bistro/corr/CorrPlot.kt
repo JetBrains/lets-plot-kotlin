@@ -88,7 +88,6 @@ class CorrPlot(
 
         val keepDiag = getKeepMatrixDiag(tiles, points, labels)
         val combinedType = OptionsConfigurator.getCombinedMatrixType(tiles, points, labels)
-        val dropDiag = !(keepDiag || combinedType == "full")
 
         var plot = lets_plot() + colorScale + fillScale
 
@@ -98,12 +97,26 @@ class CorrPlot(
             .line("@${CorrVar.CORR}"))
 
         if (points.added) {
-            val dataframe = correlationsToDataframe(
-                points,
+            val diag = points.diag!!
+            val type = points.type!!
+
+            val (xs, ys) = matrixXYSeries(
+                correlations, varsInOrder, type,
+                nullDiag = !(keepDiag || combinedType == "full"),
+                threshold,
+                dropDiagNA = false,
+                dropOtherNA = false
+            )
+
+            val matrix = CorrUtil.CorrMatrix(
                 correlations,
-                varsInOrder,
-                dropDiag = !(keepDiag || combinedType == "full"),
+                nullDiag = !diag,
                 threshold
+            )
+
+            val dataframe = correlationsToDataframe(
+                matrix,
+                xs, ys
             )
             plot += geom_point(
                 data = dataframe,
