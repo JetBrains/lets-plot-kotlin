@@ -42,8 +42,24 @@ object CorrPlotDemo {
                 .points(type = "lower", diag = true)
                 .build().show()
 
-            CorrPlot(data, "Cars MPG", showLegend = false)
-                .points()
+            CorrPlot(data, "threshold = 0.5, no diag", threshold = 0.5)
+                .points(diag = false)
+                .build().show()
+
+            CorrPlot(data, "threshold = 0.6, with diag", threshold = 0.6)
+                .points(diag = true)
+                .build().show()
+
+            CorrPlot(data, "threshold = 0.6, no diag", threshold = 0.6)
+                .points(diag = false)
+                .build().show()
+
+            CorrPlot(data, "threshold = 0.6, upper", threshold = 0.6)
+                .points(type = "upper")
+                .build().show()
+
+            CorrPlot(data, "threshold = 0.6, upper, diag", threshold = 0.6)
+                .points(type = "upper", diag = true)
                 .build().show()
 
             val dataShortened = data.mapKeys { it.key.subSequence(0, 4) }

@@ -67,13 +67,21 @@ internal object CorrUtil {
         correlations: Map<Pair<String, String>, Double>,
         variablesInOrder: List<String>,
         type: String,
-        dropDiag: Boolean,
-        threshold: Double
+        nullDiag: Boolean,
+        threshold: Double,
+        dropDiagNA: Boolean,
+        dropOtherNA: Boolean
     ): Pair<List<String>, List<String>> {
+
 
         val xs = ArrayList<String>()
         val ys = ArrayList<String>()
-        for ((ix, vx) in variablesInOrder.withIndex()) {
+        val cm = CorrMatrix(
+            correlations,
+            nullDiag = nullDiag,
+            threshold
+        )
+        for ((ix, x) in variablesInOrder.withIndex()) {
             val iterY = if (type == "upper") {
                 variablesInOrder.subList(ix, variablesInOrder.size)
             } else if (type == "lower") {
@@ -81,13 +89,17 @@ internal object CorrUtil {
             } else {
                 variablesInOrder
             }
-            for (vy in iterY) {
-                if (vx == vy && dropDiag) continue
+            for (y in iterY) {
+                val v = cm.value(x, y)
 
-                // ToDo: threshold
+                if (v == null) {
+                    if (dropDiagNA && x == y) continue
+                    if (dropOtherNA && x != y) continue
+                }
+//                if (v != null && v.absoluteValue < threshold) continue
 
-                xs.add(vx)
-                ys.add(vy)
+                xs.add(x)
+                ys.add(y)
             }
         }
 
@@ -103,42 +115,39 @@ internal object CorrUtil {
     ): Map<String, List<Any?>> {
 
         val (xs, ys) = matrixXYSeries(
-            correlations, variablesInOrder, params.type!!, dropDiag, threshold
+            correlations, variablesInOrder, params.type!!, dropDiag, threshold,
+            dropDiagNA = false,
+            dropOtherNA = false
         )
 
+        val corrX = ArrayList<String>()
+        val corrY = ArrayList<String>()
         val corr = ArrayList<Double?>()
         val corrAbs = ArrayList<Double?>()
 
-        fun toKey(s0: String, s1: String): Pair<String, String> {
-            return if (s0 < s1) {
-                s0 to s1
-            } else {
-                s1 to s0
-            }
-        }
-
-        fun toKey(pair: Pair<String, String>): Pair<String, String> = toKey(pair.first, pair.second)
-
-        val correlations1 = correlations.mapKeys { toKey(it.key) }
+        val cm = CorrMatrix(
+            correlations,
+            nullDiag = !params.diag!!,
+            threshold
+        )
         for ((x, y) in xs.zip(ys)) {
-            val v = if (params.diag != true && x == y) {
-                null
-            } else {
-                correlations1[toKey(x, y)]
-            }
+//            if (v == null || v.absoluteValue < threshold) continue
+            // don't add nulls to df.
+            val v = cm.value(x, y) ?: continue
 
+            corrX.add(x)
+            corrY.add(y)
             corr.add(v)
-            corrAbs.add(v?.absoluteValue)
+            corrAbs.add(v.absoluteValue)
         }
 
         return linkedMapOf<String, List<Any?>>(
-            CorrVar.X to xs,
-            CorrVar.Y to ys,
+            CorrVar.X to corrX,
+            CorrVar.Y to corrY,
             CorrVar.CORR to corr,
             CorrVar.CORR_ABS to corrAbs
         )
     }
-
 
     // ToDo: this fun is in 'SeriesUtil' since 1.6.0
     private fun filterFinite(l0: List<Double?>, l1: List<Double?>): List<List<Double>> {
@@ -171,6 +180,37 @@ internal object CorrUtil {
         return when (copy) {
             true -> listOf(l0Copy, l1Copy)
             false -> listOf(l0 as List<Double>, l1 as List<Double>)
+        }
+    }
+
+    private class CorrMatrix(
+        correlations: Map<Pair<String, String>, Double>,
+        val nullDiag: Boolean,
+        val threshold: Double
+    ) {
+        private val correlations = correlations.mapKeys { toKey(it.key) }
+
+        private fun toKey(s0: String, s1: String): Pair<String, String> {
+            return if (s0 < s1) {
+                s0 to s1
+            } else {
+                s1 to s0
+            }
+        }
+
+        private fun toKey(pair: Pair<String, String>): Pair<String, String> = toKey(pair.first, pair.second)
+
+        fun value(x: String, y: String): Double? {
+            return if (x == y && nullDiag) {
+                null
+            } else {
+                val v = correlations[toKey(x, y)]
+                when {
+                    v == null -> null
+                    v.absoluteValue < threshold -> null
+                    else -> v
+                }
+            }
         }
     }
 }

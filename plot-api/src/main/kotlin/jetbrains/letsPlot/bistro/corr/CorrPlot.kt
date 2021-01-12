@@ -40,7 +40,8 @@ class CorrPlot(
     private val title: String? = null,
     private val showLegend: Boolean = true,
     private val flip: Boolean = true,
-    private val threshold: Double = DEF_THRESHOLD
+    private val threshold: Double = DEF_THRESHOLD,
+    private val adjustSize: Double = 1.0
 ) {
     private var colorScale = colorGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
     private var fillScale = fillGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
@@ -101,7 +102,7 @@ class CorrPlot(
                 points,
                 correlations,
                 varsInOrder,
-                dropDiag,
+                dropDiag = !(keepDiag || combinedType == "full"),
                 threshold
             )
             plot += geom_point(
@@ -118,14 +119,24 @@ class CorrPlot(
             plot += coord_fixed(ratio = 1.0)
         }
 
+        // Actual labels on axis.
         val (xs, ys) = matrixXYSeries(
-            correlations, varsInOrder, combinedType, dropDiag, threshold
+            correlations, varsInOrder, combinedType, !keepDiag, threshold,
+            dropDiagNA = !keepDiag,
+            dropOtherNA = combinedType == "full"
         )
-        val plotSize = plotSize(xs, ys, title != null, showLegend)
+        val plotSize = plotSize(xs, ys, title != null, showLegend, adjustSize)
         plot += ggsize(plotSize.first, plotSize.second)
 
         title?.run { plot += ggtitle(title) }
-        return addCommonParams(plot, tiles.added, flip)
+
+        // preserve the original order on x/y scales
+        val xsSet = xs.distinct().toSet()
+        val ysSet = ys.distinct().toSet()
+        val plotX = varsInOrder.filter { it in xsSet }
+        val plotY = varsInOrder.filter { it in ysSet }
+
+        return addCommonParams(plot, plotX, plotY, tiles.added, flip)
     }
 
     companion object {
@@ -141,10 +152,10 @@ class CorrPlot(
         private const val DEF_MID_COLOR = "#EDEDED" //"light_gray"
         private const val DEF_HIGH_COLOR = "#326C81" // "blue"
 
-        private const val COLUMN_WIDTH = 60
+        private const val COLUMN_WIDTH = 40
         private const val MIN_PLOT_WIDTH = 400
         private const val MAX_PLOT_WIDTH = 900
-        private const val PLOT_PROPORTION = 3.0 / 4.0
+//        private const val PLOT_PROPORTION = 3.0 / 4.0
 
         private fun colorGradient(low: String, mid: String, high: String): Scale {
             return scale_color_gradient2(
@@ -170,6 +181,8 @@ class CorrPlot(
 
         private fun addCommonParams(
             plot: Plot,
+            xValues: List<String>,
+            yValues: List<String>,
             hasTiles: Boolean,
             flipY: Boolean
         ): Plot {
@@ -183,8 +196,18 @@ class CorrPlot(
 
             // Smaller 'additive' expand for tiles (normally: 0.6)
             val scaleXYExpand = if (hasTiles) listOf(0.0, 0.1) else null
-            plot += scale_x_discrete(expand = scaleXYExpand)
-            plot += scale_y_discrete(expand = scaleXYExpand, reverse = flipY)
+//            plot += scale_x_discrete(limits = xValues, expand = scaleXYExpand)
+            plot += scale_x_discrete(breaks = xValues, limits = xValues, expand = scaleXYExpand)
+
+            // ToDo: 'reverse' doesn't work if 'limits' are set. Should be fixed in 1.6.0
+//            plot += scale_y_discrete(limits = yValues, expand = scaleXYExpand, reverse = flipY)
+            plot += scale_y_discrete(
+                breaks = yValues,
+                limits = if (flipY) yValues.asReversed() else yValues,
+                expand = scaleXYExpand
+            )
+//            val yValuesFlipped = if (flipY) yValues.asReversed() else yValues
+//            plot += scale_y_discrete(breaks = yValuesFlipped, limits = yValuesFlipped, expand = scaleXYExpand)
             return plot
         }
 
@@ -192,14 +215,15 @@ class CorrPlot(
             xs: List<String>,
             ys: List<String>,
             hasTitle: Boolean,
-            hasLegend: Boolean
+            hasLegend: Boolean,
+            adjustSize: Double
         ): Pair<Int, Int> {
             val colCount = xs.distinct().size
 
             // magic values
             val titleHeight = if (hasTitle) 20 else 0
             val legendWidth = if (hasLegend) 70 else 0
-            val geomWidth = min(MAX_PLOT_WIDTH, max(MIN_PLOT_WIDTH, colCount * COLUMN_WIDTH))
+            val geomWidth = min(MAX_PLOT_WIDTH, max(MIN_PLOT_WIDTH, (colCount * COLUMN_WIDTH * adjustSize).toInt()))
 
             fun axisLabelWidth(labs: List<String>): Int {
                 val labelLen = labs.maxByOrNull { it.length }?.length ?: 0
