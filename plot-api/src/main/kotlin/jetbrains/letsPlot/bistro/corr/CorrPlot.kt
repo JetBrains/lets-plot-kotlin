@@ -97,29 +97,36 @@ class CorrPlot(
             .line("@${CorrVar.CORR}"))
 
         if (points.added) {
-            val diag = points.diag!!
-            val type = points.type!!
-
-            val (xs, ys) = matrixXYSeries(
-                correlations, varsInOrder, type,
-                nullDiag = !(keepDiag || combinedType == "full"),
-                threshold,
-                dropDiagNA = false,
-                dropOtherNA = false
-            )
-
-            val matrix = CorrUtil.CorrMatrix(
+//            val diag = points.diag!!
+//            val type = points.type!!
+//
+//            val (xs, ys) = matrixXYSeries(
+//                correlations, varsInOrder, type,
+//                nullDiag = !(keepDiag || combinedType == "full"),
+//                threshold,
+//                dropDiagNA = false,
+//                dropOtherNA = false
+//            )
+//
+//            val matrix = CorrUtil.CorrMatrix(
+//                correlations,
+//                nullDiag = !diag,
+//                threshold
+//            )
+//
+//            val dataframe = correlationsToDataframe(
+//                matrix,
+//                xs, ys
+//            )
+            val layerData = layerData(
+                points,
                 correlations,
-                nullDiag = !diag,
+                varsInOrder,
+                keepDiag = keepDiag || combinedType == "full",
                 threshold
             )
-
-            val dataframe = correlationsToDataframe(
-                matrix,
-                xs, ys
-            )
             plot += geom_point(
-                data = dataframe,
+                data = layerData,
                 showLegend = showLegend,
                 sizeUnit = "x",
                 tooltips = tooltips
@@ -209,7 +216,6 @@ class CorrPlot(
 
             // Smaller 'additive' expand for tiles (normally: 0.6)
             val scaleXYExpand = if (hasTiles) listOf(0.0, 0.1) else null
-//            plot += scale_x_discrete(limits = xValues, expand = scaleXYExpand)
             plot += scale_x_discrete(breaks = xValues, limits = xValues, expand = scaleXYExpand)
 
             // ToDo: 'reverse' doesn't work if 'limits' are set. Should be fixed in 1.6.0
@@ -219,8 +225,6 @@ class CorrPlot(
                 limits = if (flipY) yValues.asReversed() else yValues,
                 expand = scaleXYExpand
             )
-//            val yValuesFlipped = if (flipY) yValues.asReversed() else yValues
-//            plot += scale_y_discrete(breaks = yValuesFlipped, limits = yValuesFlipped, expand = scaleXYExpand)
             return plot
         }
 
@@ -252,6 +256,36 @@ class CorrPlot(
             val height = geomWidth + titleHeight + labelHeightY
 
             return width to height
+        }
+
+        private fun layerData(
+            params: LayerParams,
+            correlations: Map<Pair<String, String>, Double>,
+            varsInOrder: List<String>,
+            keepDiag: Boolean,
+            threshold: Double
+        ): Map<String, List<Any?>> {
+            val diag = params.diag!!
+            val type = params.type!!
+
+            val (xs, ys) = matrixXYSeries(
+                correlations, varsInOrder, type,
+                nullDiag = !(keepDiag),
+                threshold,
+                dropDiagNA = false,
+                dropOtherNA = false
+            )
+
+            val matrix = CorrUtil.CorrMatrix(
+                correlations,
+                nullDiag = !diag,
+                threshold
+            )
+
+            return correlationsToDataframe(
+                matrix,
+                xs, ys
+            )
         }
     }
 }
