@@ -77,18 +77,32 @@ object CorrPlotDemo {
                 .labels()
                 .build().show()
 
-            val dataShortened = data.mapKeys { it.key.subSequence(0, 4) }
-            CorrPlot(dataShortened)
+            CorrPlot(data, "palette: BrBG")
                 .points()
+                .tiles()
+                .labels()
+                .paletteBrBG()
                 .build().show()
 
-            CorrPlot(dataShortened, showLegend = false)
+            CorrPlot(data, "palette: Spectral")
                 .points()
+                .tiles()
+                .labels()
+                .paletteSpectral()
                 .build().show()
 
-            CorrPlot(dataShortened, "Cars MPG", showLegend = false)
-                .points()
-                .build().show()
+//            val dataShortened = data.mapKeys { it.key.subSequence(0, 4) }
+//            CorrPlot(dataShortened)
+//                .points()
+//                .build().show()
+//
+//            CorrPlot(dataShortened, showLegend = false)
+//                .points()
+//                .build().show()
+//
+//            CorrPlot(dataShortened, "Cars MPG", showLegend = false)
+//                .points()
+//                .build().show()
 
         }
     }

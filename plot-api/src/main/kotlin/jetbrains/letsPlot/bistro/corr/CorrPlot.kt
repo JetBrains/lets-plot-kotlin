@@ -108,6 +108,70 @@ class CorrPlot(
         return this
     }
 
+    /**
+     * Use gradient colors
+     */
+    fun paletteGradient(low: String, mid: String, high: String): CorrPlot {
+        colorScale = colorGradient(low, mid, high)
+        fillScale = fillGradient(low, mid, high)
+        return this
+    }
+
+    /**
+     * Use Brewer 'BrBG' colors
+     */
+    fun paletteBrBG(): CorrPlot {
+        setBrewerPalette("BrBG")
+        return this
+    }
+
+    /**
+     * Use Brewer 'PiYG' colors
+     */
+    fun palettePiYG() = setBrewerPalette("PiYG")
+
+    /**
+     * Use Brewer 'PRGn' colors
+     */
+    fun palettePRGn() = setBrewerPalette("PRGn")
+
+    /**
+     * Use Brewer 'PuOr' colors
+     */
+    fun palettePuOr() = setBrewerPalette("PuOr")
+
+    /**
+     * Use Brewer 'RdBu' colors
+     */
+    fun paletteRdBu() = setBrewerPalette("RdBu")
+
+    /**
+     * Use Brewer 'RdGy' colors
+     */
+    fun paletteRdGy() = setBrewerPalette("RdGy")
+
+    /**
+     * Use Brewer 'RdYlBu' colors
+     */
+    fun paletteRdYlBu() = setBrewerPalette("RdYlBu")
+
+    /**
+     * Use Brewer 'RdYlGn' colors
+     */
+    fun paletteRdYlGn() = setBrewerPalette("RdYlGn")
+
+    /**
+     * Use Brewer 'Spectral' colors
+     */
+    fun paletteSpectral() = setBrewerPalette("Spectral")
+
+
+    private fun setBrewerPalette(palette: String): CorrPlot {
+        colorScale = colorBrewer(palette)
+        fillScale = fillBrewer(palette)
+        return this
+    }
+
     fun build(): Plot {
         if (!(tiles.added || points.added || labels.added)) {
             return lets_plot()
@@ -267,6 +331,28 @@ class CorrPlot(
             return scale_fill_gradient2(
                 name = LEGEND_NAME,
                 low = low, mid = mid, high = high,
+                breaks = SCALE_BREAKS,
+                labels = SCALE_LABELS,
+                limits = SCALE_LIMITS,
+                naValue = "rgba(0,0,0,0)"
+            )
+        }
+
+        private fun colorBrewer(palette: String): Scale {
+            return scale_color_brewer(
+                name = LEGEND_NAME,
+                palette = palette,
+                breaks = SCALE_BREAKS,
+                labels = SCALE_LABELS,
+                limits = SCALE_LIMITS,
+                naValue = "rgba(0,0,0,0)"
+            )
+        }
+
+        private fun fillBrewer(palette: String): Scale {
+            return scale_fill_brewer(
+                name = LEGEND_NAME,
+                palette = palette,
                 breaks = SCALE_BREAKS,
                 labels = SCALE_LABELS,
                 limits = SCALE_LIMITS,
