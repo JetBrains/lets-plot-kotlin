@@ -6,6 +6,7 @@
    - options: `center` and `middle` (anchor).
    - option 'minWidth'.
 
-  See: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
+See: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
 
-- 'naText' parameter in 'geom_text'
+- `gggrid()` - arranges plots in cells of a regular grid.
+- `naText` parameter in 'geom_text'
