@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -18,7 +18,8 @@ object Text_LabelFormat {
             val df = mapOf<String, Any?>(
                 "y" to (0 until 5),
                 "z" to listOf(1.0 / 3, 12.5 / 7, -22.5 / 11, 2.5 / 7, 31.67 / 1.77),
-                "s" to listOf("one", "two", "three", "four", "five")
+                "s" to listOf("one", "two", "three", "four", "five"),
+                "nans" to listOf(null, Double.NaN, Float.NaN, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY)
             )
 
             // Floating point numbers without formatting.
@@ -29,6 +30,9 @@ object Text_LabelFormat {
             (lets_plot(df) + geom_text(labelFormat = "Ttl: \${.2f} (B)") { y = "y"; label = "z" }).show()
             // String pattern without value formatting.
             (lets_plot(df) + geom_text(labelFormat = "- {} -") { y = "y"; label = "z" }).show()
+
+            // na-value
+            (lets_plot(df) + geom_text(naText = "Nothing") { y = "y"; label = "nans" }).show()
         }
     }
 }

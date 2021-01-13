@@ -272,6 +272,7 @@ object Geom {
         override val vjust: Any? = null,
         override val angle: Double? = null,
         override val labelFormat: String? = null,
+        override val naText: String? = null,
         override val sizeUnit: String? = null,
         mapping: TextMapping.() -> Unit = {}
     ) : TextAesthetics,

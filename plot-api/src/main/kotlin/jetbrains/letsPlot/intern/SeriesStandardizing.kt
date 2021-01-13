@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -53,7 +53,9 @@ object SeriesStandardizing {
 
     private fun needToStandardizeValues(series: Iterable<*>): Boolean {
         return series.any {
-            it != null && !(it is String || it is Double)
+            it != null &&
+                    (!(it is String || it is Double) ||
+                            it is Double && !it.isFinite())
         }
     }
 
@@ -68,12 +70,20 @@ object SeriesStandardizing {
                 "Can't convert ${time::class.qualifiedName} to the number of milliseconds from the epoch of 1970-01-01T00:00:00Z."
             )
         }
+
+        fun toDouble(n: Number): Double? {
+            return when (n) {
+                is Float -> if (n.isFinite()) n.toDouble() else null
+                is Double -> if (n.isFinite()) n else null
+                else -> n.toDouble()
+            }
+        }
         return if (needToStandardizeValues(series)) {
             series.map {
                 when (it) {
                     null -> it
                     is String -> it
-                    is Number -> it.toDouble()
+                    is Number -> toDouble(it)
                     is Char -> it.toString()
                     is Date -> it.time
                     is Instant -> it.toEpochMilli()

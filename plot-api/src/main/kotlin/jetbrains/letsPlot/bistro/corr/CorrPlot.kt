@@ -189,8 +189,7 @@ class CorrPlot(
             plot += geom_text(
                 data = layerData,
                 showLegend = showLegend,
-// ToDo: naText
-//                naText =
+                naText = "",
                 labelFormat = VALUE_FORMAT,
                 sizeUnit = "x",
                 tooltips = tooltips,
