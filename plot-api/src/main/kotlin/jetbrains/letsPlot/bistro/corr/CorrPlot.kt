@@ -5,21 +5,19 @@
 
 package jetbrains.letsPlot.bistro.corr
 
+import jetbrains.letsPlot.*
 import jetbrains.letsPlot.bistro.corr.CorrUtil.correlations
 import jetbrains.letsPlot.bistro.corr.CorrUtil.correlationsToDataframe
 import jetbrains.letsPlot.bistro.corr.CorrUtil.matrixXYSeries
 import jetbrains.letsPlot.bistro.corr.Method.correlationPearson
 import jetbrains.letsPlot.bistro.corr.OptionsConfigurator.getKeepMatrixDiag
-import jetbrains.letsPlot.coord_fixed
 import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.ggsize
+import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.Scale
 import jetbrains.letsPlot.intern.asPlotData
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.*
-import jetbrains.letsPlot.theme
 import jetbrains.letsPlot.tooltips.layer_tooltips
 import kotlin.math.max
 import kotlin.math.min
@@ -51,6 +49,21 @@ class CorrPlot(
 //        var labels_map_size = None
 
     /**
+     * Add tiles layer to corr plot.
+     *
+     * @param type Type of the matrix: "upper", "lower" or "full".
+     *             Default - contextual.
+     * @param diag Whether to fill the main diagonal with values or not.
+     *             Default - contextual.
+     */
+    fun tiles(type: String? = null, diag: Boolean? = null): CorrPlot {
+        checkTypeArg(type)
+        tiles.type = type
+        tiles.diag = diag
+        return this
+    }
+
+    /**
      * Add points layer to corr plot.
      *
      * @param type Type of the matrix: "upper", "lower" or "full".
@@ -59,11 +72,7 @@ class CorrPlot(
      *             Default - contextual.
      */
     fun points(type: String? = null, diag: Boolean? = null): CorrPlot {
-        type?.run {
-            require(type in listOf("upper", "lower", "full")) {
-                """The option 'type' must be "upper", "lower" or "full" but was: "$type""""
-            }
-        }
+        checkTypeArg(type)
         points.type = type
         points.diag = diag
         return this
@@ -96,28 +105,27 @@ class CorrPlot(
             .format(field = "@${CorrVar.CORR}", format = VALUE_FORMAT)
             .line("@${CorrVar.CORR}"))
 
+        if (tiles.added) {
+            val layerData = layerData(
+                tiles,
+                correlations,
+                varsInOrder,
+                keepDiag = keepDiag || combinedType == "full",
+                threshold
+            )
+            plot += geom_tile(
+                data = layerData,
+                showLegend = showLegend,
+                tooltips = tooltips,
+                size = 0.0, width = 1.002, height = 1.002
+            ) {
+                x = CorrVar.X
+                y = CorrVar.Y
+                fill = CorrVar.CORR
+            }
+        }
+
         if (points.added) {
-//            val diag = points.diag!!
-//            val type = points.type!!
-//
-//            val (xs, ys) = matrixXYSeries(
-//                correlations, varsInOrder, type,
-//                nullDiag = !(keepDiag || combinedType == "full"),
-//                threshold,
-//                dropDiagNA = false,
-//                dropOtherNA = false
-//            )
-//
-//            val matrix = CorrUtil.CorrMatrix(
-//                correlations,
-//                nullDiag = !diag,
-//                threshold
-//            )
-//
-//            val dataframe = correlationsToDataframe(
-//                matrix,
-//                xs, ys
-//            )
             val layerData = layerData(
                 points,
                 correlations,
@@ -136,7 +144,6 @@ class CorrPlot(
                 size = CorrVar.CORR_ABS
                 color = CorrVar.CORR
             }
-            plot += coord_fixed(ratio = 1.0)
         }
 
         // Actual labels on axis.
@@ -156,7 +163,8 @@ class CorrPlot(
         val plotX = varsInOrder.filter { it in xsSet }
         val plotY = varsInOrder.filter { it in ysSet }
 
-        return addCommonParams(plot, plotX, plotY, tiles.added, flip)
+        val onlyTiles = tiles.added && !(points.added || labels.added)
+        return addCommonParams(plot, plotX, plotY, onlyTiles, flip)
     }
 
     companion object {
@@ -176,6 +184,14 @@ class CorrPlot(
         private const val MIN_PLOT_WIDTH = 400
         private const val MAX_PLOT_WIDTH = 900
 //        private const val PLOT_PROPORTION = 3.0 / 4.0
+
+        private fun checkTypeArg(type: String?) {
+            type?.run {
+                require(type in listOf("upper", "lower", "full")) {
+                    """The option 'type' must be "upper", "lower" or "full" but was: "$type""""
+                }
+            }
+        }
 
         private fun colorGradient(low: String, mid: String, high: String): Scale {
             return scale_color_gradient2(
@@ -203,7 +219,7 @@ class CorrPlot(
             plot: Plot,
             xValues: List<String>,
             yValues: List<String>,
-            hasTiles: Boolean,
+            onlyTiles: Boolean,
             flipY: Boolean
         ): Plot {
             @Suppress("NAME_SHADOWING")
@@ -215,16 +231,23 @@ class CorrPlot(
             plot += scale_size_identity(naValue = 0, guide = "none")
 
             // Smaller 'additive' expand for tiles (normally: 0.6)
-            val scaleXYExpand = if (hasTiles) listOf(0.0, 0.1) else null
-            plot += scale_x_discrete(breaks = xValues, limits = xValues, expand = scaleXYExpand)
+            val expand = if (onlyTiles) listOf(0.0, 0.1) else null
+
+            plot += scale_x_discrete(breaks = xValues, limits = xValues, expand = expand)
 
             // ToDo: 'reverse' doesn't work if 'limits' are set. Should be fixed in 1.6.0
 //            plot += scale_y_discrete(limits = yValues, expand = scaleXYExpand, reverse = flipY)
             plot += scale_y_discrete(
                 breaks = yValues,
                 limits = if (flipY) yValues.asReversed() else yValues,
-                expand = scaleXYExpand
+                expand = expand
             )
+
+            if (onlyTiles) {
+                plot += coord_cartesian()
+            } else {
+                plot += coord_fixed()
+            }
             return plot
         }
 
