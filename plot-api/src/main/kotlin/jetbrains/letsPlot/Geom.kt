@@ -272,9 +272,11 @@ object Geom {
         override val vjust: Any? = null,
         override val angle: Double? = null,
         override val labelFormat: String? = null,
+        override val sizeUnit: String? = null,
         mapping: TextMapping.() -> Unit = {}
     ) : TextAesthetics,
         TextParameters,
+        WithSizeUnitOption,
         GeomOptions(
             GeomKind.TEXT,
             TextMapping().apply(mapping).seal()
@@ -282,7 +284,7 @@ object Geom {
         override val parameters = this.seal()
 
         override fun seal() = super<TextAesthetics>.seal() +
-                super<TextParameters>.seal()
+                super<TextParameters>.seal() + super<WithSizeUnitOption>.seal()
     }
 
     @Suppress("ClassName")

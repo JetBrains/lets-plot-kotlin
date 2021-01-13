@@ -12,11 +12,13 @@ import jetbrains.letsPlot.bistro.corr.CorrUtil.matrixXYSeries
 import jetbrains.letsPlot.bistro.corr.Method.correlationPearson
 import jetbrains.letsPlot.bistro.corr.OptionsConfigurator.getKeepMatrixDiag
 import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geom_text
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.Scale
 import jetbrains.letsPlot.intern.asPlotData
 import jetbrains.letsPlot.label.ggtitle
+import jetbrains.letsPlot.sampling.sampling_none
 import jetbrains.letsPlot.scale.*
 import jetbrains.letsPlot.tooltips.layer_tooltips
 import kotlin.math.max
@@ -78,6 +80,34 @@ class CorrPlot(
         return this
     }
 
+    /**
+     * Add labels layer to corr plot.
+     *
+     * @param type Type of the matrix: "upper", "lower" or "full".
+     *             Default - contextual.
+     * @param diag Whether to fill the main diagonal with values or not.
+     *             Default - contextual.
+     * @param mapSize If True, then absolute value of correlation is mapped to text size.
+     *                If False - the text size is constant.
+     *                Default - contextual.
+     * @param mapSize If True, then absolute value of correlation is mapped to text size.
+     *                If False - the text size is constant.
+     *                Default - contextual.
+     * @param color Set text color.
+     *              Default - contextual.
+     */
+    fun labels(
+        type: String? = null, diag: Boolean? = null,
+        mapSize: Boolean? = null, color: String? = null
+    ): CorrPlot {
+        checkTypeArg(type)
+        labels.type = type
+        labels.diag = diag
+        labels.mapSize = mapSize
+        labels.color = color
+        return this
+    }
+
     fun build(): Plot {
         if (!(tiles.added || points.added || labels.added)) {
             return lets_plot()
@@ -117,6 +147,7 @@ class CorrPlot(
                 data = layerData,
                 showLegend = showLegend,
                 tooltips = tooltips,
+                sampling = sampling_none,
                 size = 0.0, width = 1.002, height = 1.002
             ) {
                 x = CorrVar.X
@@ -137,10 +168,39 @@ class CorrPlot(
                 data = layerData,
                 showLegend = showLegend,
                 sizeUnit = "x",
-                tooltips = tooltips
+                tooltips = tooltips,
+                sampling = sampling_none
             ) {
                 x = CorrVar.X
                 y = CorrVar.Y
+                size = CorrVar.CORR_ABS
+                color = CorrVar.CORR
+            }
+        }
+
+        if (labels.added) {
+            val layerData = layerData(
+                labels,
+                correlations,
+                varsInOrder,
+                keepDiag = keepDiag || combinedType == "full",
+                threshold
+            )
+            plot += geom_text(
+                data = layerData,
+                showLegend = showLegend,
+// ToDo: naText
+//                naText =
+                labelFormat = VALUE_FORMAT,
+                sizeUnit = "x",
+                tooltips = tooltips,
+                sampling = sampling_none,
+                size = if (labels.mapSize == true) null else 1.0,
+                color = labels.color
+            ) {
+                x = CorrVar.X
+                y = CorrVar.Y
+                label = CorrVar.CORR
                 size = CorrVar.CORR_ABS
                 color = CorrVar.CORR
             }

@@ -125,7 +125,7 @@ internal object CorrUtil {
             corrAbs.add(v.absoluteValue)
         }
 
-        return linkedMapOf<String, List<Any?>>(
+        return mapOf<String, List<Any?>>(
             CorrVar.X to corrX,
             CorrVar.Y to corrY,
             CorrVar.CORR to corr,
@@ -169,8 +169,8 @@ internal object CorrUtil {
 
     internal class CorrMatrix(
         correlations: Map<Pair<String, String>, Double>,
-        val nullDiag: Boolean,
-        val threshold: Double
+        private val nullDiag: Boolean,
+        private val threshold: Double
     ) {
         private val correlations = correlations.mapKeys { toKey(it.key) }
 

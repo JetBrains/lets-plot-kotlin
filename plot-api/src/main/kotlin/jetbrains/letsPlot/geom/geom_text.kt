@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -9,14 +9,12 @@ import jetbrains.letsPlot.Geom.text
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.LayerBase
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.SamplingOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.WithSpatialParameters
-import jetbrains.letsPlot.tooltips.TooltipOptions
-import jetbrains.letsPlot.intern.layer.geom.*
+import jetbrains.letsPlot.intern.layer.*
+import jetbrains.letsPlot.intern.layer.geom.TextAesthetics
+import jetbrains.letsPlot.intern.layer.geom.TextMapping
+import jetbrains.letsPlot.intern.layer.geom.TextParameters
 import jetbrains.letsPlot.spatial.SpatialDataset
+import jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
@@ -95,10 +93,12 @@ class geom_text(
     override val vjust: Any? = null,
     override val angle: Double? = null,
     override val labelFormat: String? = null,
+    override val sizeUnit: String? = null,
     mapping: TextMapping.() -> Unit = {}
 
 ) : TextAesthetics,
     TextParameters,
+    WithSizeUnitOption,
     WithSpatialParameters,
     LayerBase(
         mapping = TextMapping().apply(mapping).seal(),
@@ -112,6 +112,6 @@ class geom_text(
     ) {
     override fun seal(): Options {
         return super<TextAesthetics>.seal() +
-                super<TextParameters>.seal()
+                super<TextParameters>.seal() + super<WithSizeUnitOption>.seal()
     }
 }

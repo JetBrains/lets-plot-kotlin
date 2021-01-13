@@ -71,6 +71,11 @@ object CorrPlotDemo {
                 .tiles()
                 .build().show()
 
+            CorrPlot(data)
+                .points()
+                .tiles()
+                .labels()
+                .build().show()
 
             val dataShortened = data.mapKeys { it.key.subSequence(0, 4) }
             CorrPlot(dataShortened)
