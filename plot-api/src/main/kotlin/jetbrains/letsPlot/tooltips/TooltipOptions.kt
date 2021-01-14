@@ -75,8 +75,7 @@ class TooltipOptions() {
     /**
      * Specifies a minimum width of the general tooltip.
      */
-    @Suppress("FunctionName")
-    fun min_width(value: Number): TooltipOptions {
+    fun minWidth(value: Number): TooltipOptions {
         return setOption(TOOLTIP_MIN_WIDTH, value)
     }
 

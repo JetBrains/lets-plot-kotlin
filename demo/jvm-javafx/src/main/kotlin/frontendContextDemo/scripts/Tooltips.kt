@@ -68,7 +68,7 @@ object Tooltips {
                     position = Pos.dodge,
                     color = "black",
                     stat = Stat.identity,
-                    tooltips = tooltipsOpts.anchor("top_left").min_width(150)
+                    tooltips = tooltipsOpts.anchor("top_left").minWidth(150)
                 ) { fill = "supp" }
                         ).show()
 
