@@ -29,6 +29,17 @@ internal class LayerParams {
             field = v
         }
 
+    fun copy(): LayerParams {
+        return LayerParams().apply {
+            val wasAdded = this@LayerParams.added
+            type = this@LayerParams.type
+            diag = this@LayerParams.diag
+            color = this@LayerParams.color
+            mapSize = this@LayerParams.mapSize
+            added = wasAdded
+        }
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

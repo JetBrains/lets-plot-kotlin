@@ -35,20 +35,67 @@ import kotlin.math.min
  * @param flip Whether to flip the y axis.
  * @param threshold Minimal correlation abs value to be included in result. Must be in interval [0.0, 1.0]
  */
-class CorrPlot(
+class CorrPlot private constructor(
     private val data: Map<*, *>,
     private val title: String? = null,
     private val showLegend: Boolean = true,
     private val flip: Boolean = true,
     private val threshold: Double = DEF_THRESHOLD,
-    private val adjustSize: Double = 1.0
+    private val adjustSize: Double = 1.0,
+    private val tiles: LayerParams,
+    private val points: LayerParams,
+    private val labels: LayerParams,
+    private val colorScale: Scale,
+    private val fillScale: Scale
 ) {
-    private var colorScale = colorGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
-    private var fillScale = fillGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
-    private val points = LayerParams()
-    private val tiles = LayerParams()
-    private val labels = LayerParams()
-//        var labels_map_size = None
+    constructor(
+        data: Map<*, *>,
+        title: String? = null,
+        showLegend: Boolean = true,
+        flip: Boolean = true,
+        threshold: Double = DEF_THRESHOLD,
+        adjustSize: Double = 1.0,
+    ) : this(
+        data,
+        title,
+        showLegend,
+        flip,
+        threshold,
+        adjustSize,
+        tiles = LayerParams(),
+        points = LayerParams(),
+        labels = LayerParams(),
+        colorScale = colorGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR),
+        fillScale = fillGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
+    )
+
+//    private var colorScale = colorGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
+//    private var fillScale = fillGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
+
+    private fun copy(): CorrPlot {
+        return CorrPlot(
+            data, title, showLegend, flip, threshold, adjustSize,
+            tiles.copy(),
+            points.copy(),
+            labels.copy(),
+            colorScale,
+            fillScale
+        )
+    }
+
+    private fun copyUpdateColors(
+        colorScale: Scale,
+        fillScale: Scale
+    ): CorrPlot {
+        return CorrPlot(
+            data, title, showLegend, flip, threshold, adjustSize,
+            tiles.copy(),
+            points.copy(),
+            labels.copy(),
+            colorScale,
+            fillScale
+        )
+    }
 
     /**
      * Add tiles layer to corr plot.
@@ -60,9 +107,10 @@ class CorrPlot(
      */
     fun tiles(type: String? = null, diag: Boolean? = null): CorrPlot {
         checkTypeArg(type)
-        tiles.type = type
-        tiles.diag = diag
-        return this
+        return this.copy().apply {
+            tiles.type = type
+            tiles.diag = diag
+        }
     }
 
     /**
@@ -75,9 +123,10 @@ class CorrPlot(
      */
     fun points(type: String? = null, diag: Boolean? = null): CorrPlot {
         checkTypeArg(type)
-        points.type = type
-        points.diag = diag
-        return this
+        return this.copy().apply {
+            points.type = type
+            points.diag = diag
+        }
     }
 
     /**
@@ -101,29 +150,28 @@ class CorrPlot(
         mapSize: Boolean? = null, color: String? = null
     ): CorrPlot {
         checkTypeArg(type)
-        labels.type = type
-        labels.diag = diag
-        labels.mapSize = mapSize
-        labels.color = color
-        return this
+        return this.copy().apply {
+            labels.type = type
+            labels.diag = diag
+            labels.mapSize = mapSize
+            labels.color = color
+        }
     }
 
     /**
      * Use gradient colors
      */
     fun paletteGradient(low: String, mid: String, high: String): CorrPlot {
-        colorScale = colorGradient(low, mid, high)
-        fillScale = fillGradient(low, mid, high)
-        return this
+        return this.copyUpdateColors(
+            colorScale = colorGradient(low, mid, high),
+            fillScale = fillGradient(low, mid, high)
+        )
     }
 
     /**
      * Use Brewer 'BrBG' colors
      */
-    fun paletteBrBG(): CorrPlot {
-        setBrewerPalette("BrBG")
-        return this
-    }
+    fun paletteBrBG() = setBrewerPalette("BrBG")
 
     /**
      * Use Brewer 'PiYG' colors
@@ -167,9 +215,10 @@ class CorrPlot(
 
 
     private fun setBrewerPalette(palette: String): CorrPlot {
-        colorScale = colorBrewer(palette)
-        fillScale = fillBrewer(palette)
-        return this
+        return this.copyUpdateColors(
+            colorScale = colorBrewer(palette),
+            fillScale = fillBrewer(palette)
+        )
     }
 
     fun build(): Plot {
@@ -379,9 +428,6 @@ class CorrPlot(
 //            val expand = if (onlyTiles) listOf(0.0, 0.1) else null
             val expand = listOf(0.0, 0.0)
 
-            val xLim = Pair(-0.6, xValues.size + 0.6)
-            val yLim = Pair(-0.6, yValues.size + 0.6)
-
             plot += scale_x_discrete(breaks = xValues, limits = xValues, expand = expand)
 
 
@@ -393,6 +439,8 @@ class CorrPlot(
                 expand = expand
             )
 
+            val xLim = Pair(-0.6, xValues.size - 1 + 0.6)
+            val yLim = Pair(-0.6, yValues.size - 1 + 0.6)
             if (onlyTiles) {
                 plot += coord_cartesian(xlim = xLim, ylim = yLim)
             } else {
