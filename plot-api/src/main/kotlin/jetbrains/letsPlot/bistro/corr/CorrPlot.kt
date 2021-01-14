@@ -376,9 +376,14 @@ class CorrPlot(
             plot += scale_size_identity(naValue = 0, guide = "none")
 
             // Smaller 'additive' expand for tiles (normally: 0.6)
-            val expand = if (onlyTiles) listOf(0.0, 0.1) else null
+//            val expand = if (onlyTiles) listOf(0.0, 0.1) else null
+            val expand = listOf(0.0, 0.0)
+
+            val xLim = Pair(-0.6, xValues.size + 0.6)
+            val yLim = Pair(-0.6, yValues.size + 0.6)
 
             plot += scale_x_discrete(breaks = xValues, limits = xValues, expand = expand)
+
 
             // ToDo: 'reverse' doesn't work if 'limits' are set. Should be fixed in 1.6.0
 //            plot += scale_y_discrete(limits = yValues, expand = scaleXYExpand, reverse = flipY)
@@ -389,9 +394,9 @@ class CorrPlot(
             )
 
             if (onlyTiles) {
-                plot += coord_cartesian()
+                plot += coord_cartesian(xlim = xLim, ylim = yLim)
             } else {
-                plot += coord_fixed()
+                plot += coord_fixed(xlim = xLim, ylim = yLim)
             }
             return plot
         }

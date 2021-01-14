@@ -27,7 +27,7 @@ project.ext.buildSettings = settings
 
 allprojects {
     group 'org.jetbrains.lets-plot-kotlin'
-    version "1.1.1-alpha7"
+    version "1.1.1-alpha8"
 
     ext.versionIsDev = (version.contains('SNAPSHOT')
             || version.contains('rc')
