@@ -16,7 +16,7 @@ val tooltips_none = TooltipOptions().none()
 fun layer_tooltips() = TooltipOptions()
 
 class TooltipOptions() {
-    private val parameters = HashMap<String, List<Any>>()
+    private val parameters = HashMap<String, Any>()
     private var isNone = false
 
     val options: Any
@@ -30,10 +30,17 @@ class TooltipOptions() {
         this.parameters.putAll(other.parameters)
     }
 
-    private fun addOption(key: String, value: Any): TooltipOptions {
+    private fun addListOption(key: String, value: Any): TooltipOptions {
         val newTooltips = TooltipOptions(this)
-        val newOptions = newTooltips.parameters.getOrPut(key, { mutableListOf() })
+        val newOptions = newTooltips.parameters.getOrPut(key, { mutableListOf<Any>() })
+        @Suppress("UNCHECKED_CAST")
         (newOptions as MutableList<Any>).add(value)
+        return newTooltips
+    }
+
+    private fun setOption(key: String, value: Any): TooltipOptions {
+        val newTooltips = TooltipOptions(this)
+        newTooltips.parameters[key] = value
         return newTooltips
     }
 
@@ -43,7 +50,7 @@ class TooltipOptions() {
      * or to the corresponding value specified in the line template.
      */
     fun format(field: String, format: String): TooltipOptions {
-        return addOption(
+        return addListOption(
             TOOLTIP_FORMATS, mapOf(
                 FIELD to field,
                 FORMAT to format
@@ -55,7 +62,21 @@ class TooltipOptions() {
      * Specifies the string template to use in the multi-line tooltip.
      */
     fun line(template: String): TooltipOptions {
-        return addOption(TOOLTIP_LINES, template)
+        return addListOption(TOOLTIP_LINES, template)
+    }
+
+    /**
+     * Specifies a fixed position for the general tooltip.
+     */
+    fun anchor(position: String): TooltipOptions {
+        return setOption(TOOLTIP_ANCHOR, position)
+    }
+
+    /**
+     * Specifies a minimum width of the general tooltip.
+     */
+    fun minWidth(value: Number): TooltipOptions {
+        return setOption(TOOLTIP_MIN_WIDTH, value)
     }
 
     /**
@@ -73,6 +94,7 @@ class TooltipOptions() {
         private const val FORMAT = Option.TooltipFormat.FORMAT
 
         private const val TOOLTIP_LINES = Option.Layer.TOOLTIP_LINES
+        private const val TOOLTIP_MIN_WIDTH = Option.Layer.TOOLTIP_MIN_WIDTH
 
         private const val NO_TOOLTIPS = Option.Layer.NONE
     }
