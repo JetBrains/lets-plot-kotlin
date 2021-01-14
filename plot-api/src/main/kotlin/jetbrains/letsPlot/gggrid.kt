@@ -14,19 +14,30 @@ import jetbrains.letsPlot.intern.Plot
  *  @param ncol Number of columns in grid.
  *  @param cellWidth Width of cell in px.
  *  @param cellHeight Height of cell in px.
+ *  @param hGap Horizontal gap between the grid cells in px. Default: 0
+ *  @param vGap Vertical gap between the grid cells in px. Default: 10
+ *  @param cellHeight Height of cell in px.
  *  @param fit Whether to set size of each plot to the size of grid cell. Default: false.
  *  @return GGBunch object.
  */
 @Suppress("SpellCheckingInspection")
-fun gggrid(plots: Iterable<Plot>, ncol: Int, cellWidth: Int, cellHeight: Int, fit: Boolean = false): GGBunch {
+fun gggrid(
+    plots: Iterable<Plot>,
+    ncol: Int,
+    cellWidth: Int, cellHeight: Int,
+    hGap: Int = 0, vGap: Int = 10,
+    fit: Boolean = false
+): GGBunch {
     val bunch = GGBunch()
     for ((i, p) in plots.withIndex()) {
         val col = i % ncol
         val row = i / ncol
+        val x = col * (cellWidth + hGap)
+        val y = row * (cellHeight + vGap)
         if (fit) {
-            bunch.addPlot(p, col * cellWidth, row * cellHeight, cellWidth, cellHeight)
+            bunch.addPlot(p, x, y, cellWidth, cellHeight)
         } else {
-            bunch.addPlot(p, col * cellWidth, row * cellHeight)
+            bunch.addPlot(p, x, y)
         }
     }
     return bunch
