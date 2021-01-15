@@ -34,6 +34,7 @@ import kotlin.math.min
  * @param showLegend Whether to show a legend.
  * @param flip Whether to flip the y axis.
  * @param threshold Minimal correlation abs value to be included in result. Must be in interval [0.0, 1.0]
+ * @param adjustSize A scaler to adjust the plot size which was computed by `CorrPlot` automatically.
  */
 class CorrPlot private constructor(
     private val data: Map<*, *>,
@@ -461,7 +462,7 @@ class CorrPlot private constructor(
             // magic values
             val titleHeight = if (hasTitle) 20 else 0
             val legendWidth = if (hasLegend) 70 else 0
-            val geomWidth = min(MAX_PLOT_WIDTH, max(MIN_PLOT_WIDTH, (colCount * COLUMN_WIDTH * adjustSize).toInt()))
+            val geomWidth = (min(MAX_PLOT_WIDTH, max(MIN_PLOT_WIDTH, (colCount * COLUMN_WIDTH))) * adjustSize).toInt()
 
             fun axisLabelWidth(labs: List<String>): Int {
                 val labelLen = labs.maxByOrNull { it.length }?.length ?: 0
