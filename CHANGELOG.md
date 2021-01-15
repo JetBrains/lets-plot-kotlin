@@ -2,17 +2,47 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
+to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.2.0] - 2021-01-15
+
+### Added
+
+- Correlation plot builder.
+
+  Example: [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+
+- The `gggrid()` plot layout utility
+
+  Example: [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+
+- In tooltip customization API:
+    - options: `center` and `middle` (anchor).
+    - option 'minWidth'.
+
+  Example: [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
+
+- The `naText` parameter in `geom_text()`
+
+### Changed
+
+- Built with Lets-Plot v1.5.6 (was v1.5.4).
+
+  See Lets-Plot [CHANGELOG.md](https://github.com/JetBrains/lets-plot/blob/master/CHANGELOG.md) for changes and fixes in
+  1.5.5, 1.5.6.
 
 ## [1.1.0] - 2020-11-20
+
 ### Added
- - GeoTools support (see [geotools.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md)).
- - API for tooltip customization (see [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md)).
- - `geom_map()`.
- - `labelFormat` parameter in `geom_text()`.
- - `reverse` parameter in `scale_x/y_discrete()`.
- - `scale_x_discrete_reversed()`, `scale_y_discrete_reversed()`
+
+- GeoTools support (see [geotools.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md)).
+- API for tooltip customization (
+  see [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md)).
+- `geom_map()`.
+- `labelFormat` parameter in `geom_text()`.
+- `reverse` parameter in `scale_x/y_discrete()`.
+- `scale_x_discrete_reversed()`, `scale_y_discrete_reversed()`
 
 ### Changed
  - Built with Lets-Plot v1.5.4 (was v1.5.2).

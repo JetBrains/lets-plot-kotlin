@@ -9,10 +9,12 @@ Try the following tutorials and examples to learn and evaluate various features 
 - [Facets](#facets)
 - [GGBunch](#ggbunch)
 - [`as_discrete()` function](#as_discrete)
+- [gggrid()](#gggrig)
 - [Export to File](#export)
 - [Theme](#theme)
 - [Data Sampling](#sampling)
 - [Tooltip Customization](#tooltip)
+- [Correlation Plot](#corrplot)
 - [GeoTools Support](#geotools)
 
 <a id="quickstart"></a>
@@ -75,23 +77,32 @@ Try the following tutorials and examples to learn and evaluate various features 
 * `facet_grid`: 
 [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
 
-
 <a id="ggbunch"></a>
+
 #### GGBunch
 
-GGBunch allows to show a collection of plots on one figure. Each plot in the collection can have arbitrary location and size. There is no automatic layout inside the bunch.
+GGBunch allows to show a collection of plots on one figure. Each plot in the collection can have arbitrary location and
+size. There is no automatic layout inside the bunch.
 
-* [ggbunch.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ggbunch.ipynb) 
-* [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb) 
+* [ggbunch.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ggbunch.ipynb)
+* [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
+<a id="gggrid"></a>
+
+#### gggrid()
+
+A simple utility which you can use to arrange plots in a regular grid.
+
+* [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
 
 <a id="as_discrete"></a>
-#### `as_discrete()` function 
 
-* [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb) 
+#### `as_discrete()` function
 
+* [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
 <a id="export"></a>
+
 #### Export to File
 
 The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or raster formats.
@@ -113,16 +124,25 @@ Sampling is a special technique of data transformation, which helps dealing with
 
 See: [Sampling in Lets-Plot](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
 
-* Pick sampling on Bar-chart: [sampling_pick.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_pick.ipynb)
-* Stratified sampling: [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
+* Pick sampling on
+  Bar-chart: [sampling_pick.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_pick.ipynb)
+* Stratified
+  sampling: [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
 
 <a id="tooltip"></a>
+
 #### Tooltip Customization
 
 * [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
 
+<a id="corrplot"></a>
+
+#### Correlation Plot
+
+* [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
 
 <a id="geotools"></a>
+
 #### GeoTools Support
 
 See [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).

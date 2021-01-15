@@ -38,14 +38,14 @@
 - [Lets-Plot in JVM-based application](#jvm)   
 
 - [Lets-Plot Kotlin API](#api)
-    - [User guide and API reference](#guide)
-    - [Data sampling](#sampling)
-    - [GGBunch](#ggbunch)
-    - [Saving plot to file](#export)
-    - [Tooltip customization](#tooltip-customization)
-    - [GeoTools support](#geotools)
-        
-- [What is new in 1.1.0](#new)
+  - [User guide and API reference](#guide)
+  - [Data sampling](#sampling)
+  - [GGBunch](#ggbunch)
+  - [Saving plot to file](#export)
+  - [Tooltip customization](#tooltip-customization)
+  - [GeoTools support](#geotools)
+
+- [What is new in 1.2.0](#new)
 - [Change log](#change_log)
 - [License](#license)    
 
@@ -235,32 +235,50 @@ Learn more: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotli
 
 [GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
 
-Lets-Plot supports visualization of a set of `SimpleFeature`-s stored in `SimpleFeatureCollection`, as well as 
-individual `Geometry` and `ReferencedEnvelope` objects. 
+Lets-Plot supports visualization of a set of `SimpleFeature`-s stored in `SimpleFeatureCollection`, as well as
+individual `Geometry` and `ReferencedEnvelope` objects.
 
 Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
- 
 
 <a id="new"></a>
-## What is new in 1.1.0
 
-- Tooltip Customization
+## What is new in 1.2.0
 
-    New API for customization of tooltip contents. See [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md)) for details.
- 
-- Formatting labels in `geom_text()`
+- Correlation plot builder.
 
-    New parameter, 'labelFormat' to define a formatting pattern.
+  Usage:
+  ```kotlin
+  import jetbrains.letsPlot.bistro.corr.CorrPlot
+  
+  val plot = CorrPlot(data, title = "threshold = 0.5, no diag", threshold = 0.5) // data and optional parameters
+      .points(type = "upper", diag = true) // Add one or more layers
+      .build()  // Finally, build the plot
+  ```
 
-    See demo: [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
-    
-- GeoTools support
+  Example: [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
 
-    Visualization of GeoTools's `SimpleFeature`-s and other objects. See [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md)) for details.
 
-- Other changes and fixes - see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md) for details.       
+- The `gggrid()` plot layout utility
+
+  Arranges plots in cells of a regular grid.
+
+  Example: [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+
+
+- Tooltip Customization API
+  - new options: `center` and `middle` (anchor).
+  - new option `minWidth`.
+
+  See [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md) for details.
+
+  Example: [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
+
+
+- Other changes and fixes - see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)
+  for details.
 
 <a id="change_log"></a>
+
 ## Change Log
 
 See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md).
