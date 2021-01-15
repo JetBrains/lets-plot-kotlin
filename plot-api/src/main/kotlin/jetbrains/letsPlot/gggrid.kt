@@ -5,7 +5,12 @@
 
 package jetbrains.letsPlot
 
+import jetbrains.datalore.plot.PlotSizeHelper
+import jetbrains.datalore.plot.config.PlotConfig
 import jetbrains.letsPlot.intern.Plot
+import jetbrains.letsPlot.intern.toSpec
+import kotlin.math.ceil
+import kotlin.math.floor
 
 /**
  *  Arrange plots in cells of a regular grid.
@@ -30,6 +35,8 @@ fun gggrid(
 ): GGBunch {
     val bunch = GGBunch()
     for ((i, p) in plots.withIndex()) {
+        val figureSize = preferredFigureSize(p.toSpec(), cellWidth, cellHeight)
+
         val col = i % ncol
         val row = i / ncol
         val x = col * (cellWidth + hGap)
@@ -37,8 +44,35 @@ fun gggrid(
         if (fit) {
             bunch.addPlot(p, x, y, cellWidth, cellHeight)
         } else {
-            bunch.addPlot(p, x, y)
+            bunch.addPlot(p, x, y, figureSize.first, figureSize.second)
         }
     }
     return bunch
+}
+
+// ToDo: move to the main lib.
+private fun preferredFigureSize(figureSpec: Map<String, Any>, width: Int, height: Int): Pair<Int, Int> {
+    return when {
+        PlotConfig.isGGBunchSpec(figureSpec) -> {
+            // don't scale GGBunch size
+            val bunchSize = PlotSizeHelper.plotBunchSize(figureSpec)
+            Pair(ceil(bunchSize.x).toInt(), ceil(bunchSize.y).toInt())
+        }
+        PlotConfig.isPlotSpec(figureSpec) -> {
+            // for single plot: scale component to fit in requested size
+            val aspectRatio = PlotSizeHelper.figureAspectRatio(figureSpec)
+            if (aspectRatio >= 1.0) {
+                val plotHeight = width / aspectRatio
+                val scaling = if (plotHeight > height) height / plotHeight else 1.0
+                Pair(floor(width * scaling).toInt(), floor(plotHeight * scaling).toInt())
+            } else {
+                val plotWidth = height * aspectRatio
+                val scaling = if (plotWidth > width) width / plotWidth else 1.0
+                Pair(floor(plotWidth * scaling).toInt(), floor(height * scaling).toInt())
+            }
+        }
+        else ->
+            // was failure - just keep given size
+            Pair(width, height)
+    }
 }

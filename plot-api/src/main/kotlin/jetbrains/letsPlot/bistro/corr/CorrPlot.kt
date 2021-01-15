@@ -353,8 +353,8 @@ class CorrPlot private constructor(
         private const val DEF_HIGH_COLOR = "#326C81" // "blue"
 
         private const val COLUMN_WIDTH = 40
-        private const val MIN_PLOT_WIDTH = 400
-        private const val MAX_PLOT_WIDTH = 900
+        private const val MIN_PLOT_WIDTH = 150
+        private const val MAX_PLOT_WIDTH = 700
 //        private const val PLOT_PROPORTION = 3.0 / 4.0
 
         private fun checkTypeArg(type: String?) {
