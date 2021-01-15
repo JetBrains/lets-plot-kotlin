@@ -24,7 +24,7 @@ Any 'alpha' version will be uploaded to the `lets-plot-kotlin-jars-dev` package.
 
 ##### 5. Re-generate the API Reference (HTML)
 
-- `./gradlew :dokka`
+- `./gradlew dokka`
 - push the new version to GitHub with the "Reformat code" and "Update copyright" flags **ON** during the commit.
 
 See also: [api_reference.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/api_reference.md) 

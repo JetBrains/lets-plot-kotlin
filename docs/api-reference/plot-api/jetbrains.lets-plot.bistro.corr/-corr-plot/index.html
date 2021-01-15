@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CorrPlot - plot-api</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">plot-api</a>&nbsp;/&nbsp;<a href="../index.html">jetbrains.letsPlot.bistro.corr</a>&nbsp;/&nbsp;<a href="./index.html">CorrPlot</a><br/>
+<br/>
+<h1>CorrPlot</h1>
+<code><span class="keyword">class </span><span class="identifier">CorrPlot</span></code>
+<p>Correlation plot builder.</p>
+<p>The terminal 'build()' method will create a fully configured 'Plot' (i.e. Figure) object.</p>
+<h3>Parameters</h3>
+<p><a name="data"></a>
+<code>data</code> - Dataframe to compute correlations on.</p>
+<p><a name="title"></a>
+<code>title</code> - Plot title.</p>
+<p><a name="showLegend"></a>
+<code>showLegend</code> - Whether to show a legend.</p>
+<p><a name="flip"></a>
+<code>flip</code> - Whether to flip the y axis.</p>
+<p><a name="threshold"></a>
+<code>threshold</code> - Minimal correlation abs value to be included in result. Must be in interval <a href="#">0.0,1.0</a></p>
+<p><a name="adjustSize"></a>
+<code>adjustSize</code> - A scaler to adjust the plot size which was computed by <code>CorrPlot</code> automatically.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">CorrPlot</span><span class="symbol">(</span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$<init>(kotlin.collections.Map((kotlin.Any, )), kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Double, kotlin.Double)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">,</span>&nbsp;<span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$<init>(kotlin.collections.Map((kotlin.Any, )), kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Double, kotlin.Double)/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$<init>(kotlin.collections.Map((kotlin.Any, )), kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Double, kotlin.Double)/showLegend">showLegend</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$<init>(kotlin.collections.Map((kotlin.Any, )), kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Double, kotlin.Double)/flip">flip</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$<init>(kotlin.collections.Map((kotlin.Any, )), kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Double, kotlin.Double)/threshold">threshold</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEF_THRESHOLD<span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$<init>(kotlin.collections.Map((kotlin.Any, )), kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.Double, kotlin.Double)/adjustSize">adjustSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="build.html">build</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../jetbrains.lets-plot.intern/-plot/index.html"><span class="identifier">Plot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="labels.html">labels</a></h4>
+</td>
+<td>
+<p>Add labels layer to corr plot.</p>
+<code><span class="keyword">fun </span><span class="identifier">labels</span><span class="symbol">(</span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$labels(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.String)/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$labels(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.String)/diag">diag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$labels(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.String)/mapSize">mapSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$labels(kotlin.String, kotlin.Boolean, kotlin.Boolean, kotlin.String)/color">color</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-br-b-g.html">paletteBrBG</a></h4>
+</td>
+<td>
+<p>Use Brewer 'BrBG' colors</p>
+<code><span class="keyword">fun </span><span class="identifier">paletteBrBG</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-gradient.html">paletteGradient</a></h4>
+</td>
+<td>
+<p>Use gradient colors</p>
+<code><span class="keyword">fun </span><span class="identifier">paletteGradient</span><span class="symbol">(</span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$paletteGradient(kotlin.String, kotlin.String, kotlin.String)/low">low</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$paletteGradient(kotlin.String, kotlin.String, kotlin.String)/mid">mid</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$paletteGradient(kotlin.String, kotlin.String, kotlin.String)/high">high</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-pi-y-g.html">palettePiYG</a></h4>
+</td>
+<td>
+<p>Use Brewer 'PiYG' colors</p>
+<code><span class="keyword">fun </span><span class="identifier">palettePiYG</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-p-r-gn.html">palettePRGn</a></h4>
+</td>
+<td>
+<p>Use Brewer 'PRGn' colors</p>
+<code><span class="keyword">fun </span><span class="identifier">palettePRGn</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-pu-or.html">palettePuOr</a></h4>
+</td>
+<td>
+<p>Use Brewer 'PuOr' colors</p>
+<code><span class="keyword">fun </span><span class="identifier">palettePuOr</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-rd-bu.html">paletteRdBu</a></h4>
+</td>
+<td>
+<p>Use Brewer 'RdBu' colors</p>
+<code><span class="keyword">fun </span><span class="identifier">paletteRdBu</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-rd-gy.html">paletteRdGy</a></h4>
+</td>
+<td>
+<p>Use Brewer 'RdGy' colors</p>
+<code><span class="keyword">fun </span><span class="identifier">paletteRdGy</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-rd-yl-bu.html">paletteRdYlBu</a></h4>
+</td>
+<td>
+<p>Use Brewer 'RdYlBu' colors</p>
+<code><span class="keyword">fun </span><span class="identifier">paletteRdYlBu</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-rd-yl-gn.html">paletteRdYlGn</a></h4>
+</td>
+<td>
+<p>Use Brewer 'RdYlGn' colors</p>
+<code><span class="keyword">fun </span><span class="identifier">paletteRdYlGn</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="palette-spectral.html">paletteSpectral</a></h4>
+</td>
+<td>
+<p>Use Brewer 'Spectral' colors</p>
+<code><span class="keyword">fun </span><span class="identifier">paletteSpectral</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="points.html">points</a></h4>
+</td>
+<td>
+<p>Add points layer to corr plot.</p>
+<code><span class="keyword">fun </span><span class="identifier">points</span><span class="symbol">(</span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$points(kotlin.String, kotlin.Boolean)/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$points(kotlin.String, kotlin.Boolean)/diag">diag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="tiles.html">tiles</a></h4>
+</td>
+<td>
+<p>Add tiles layer to corr plot.</p>
+<code><span class="keyword">fun </span><span class="identifier">tiles</span><span class="symbol">(</span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$tiles(kotlin.String, kotlin.Boolean)/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="jetbrains.letsPlot.bistro.corr.CorrPlot$tiles(kotlin.String, kotlin.Boolean)/diag">diag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">CorrPlot</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
