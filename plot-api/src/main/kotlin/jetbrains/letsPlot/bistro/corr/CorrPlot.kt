@@ -433,7 +433,7 @@ class CorrPlot private constructor(
 
 
             // ToDo: 'reverse' doesn't work if 'limits' are set. Should be fixed in 1.6.0
-//            plot += scale_y_discrete(limits = yValues, expand = scaleXYExpand, reverse = flipY)
+//            plot += scale_y_discree(limits = yValues, expand = scaleXYExpand, reverse = flipY)
             plot += scale_y_discrete(
                 breaks = yValues,
                 limits = if (flipY) yValues.asReversed() else yValues,
