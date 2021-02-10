@@ -45,7 +45,9 @@ class NotebookFrontendContext(
         return getDisplayHtml(plotBunch.toSpec())
     }
 
-    private fun getDisplayHtml(rawSpec: MutableMap<String, Any>): String {
+    // Used by alternative kotlin lets-plot API
+    // https://github.com/nikitinas/lets-plot-dsl.git
+    fun getDisplayHtml(rawSpec: MutableMap<String, Any>): String {
         return if (isolatedFrame) {
             """
             ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl(jsVersion))}    
