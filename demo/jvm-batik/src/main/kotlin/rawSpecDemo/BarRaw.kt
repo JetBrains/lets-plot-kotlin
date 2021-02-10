@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -65,6 +65,7 @@ object BarRaw {
         val component = MonolithicAwt.buildPlotFromRawSpecs(
             plotSpec = spec as MutableMap<String, Any>,
             plotSize = DoubleVector(600.0, 300.0),
+            plotMaxWidth = null,
             svgComponentFactory = SVG_COMPONENT_FACTORY_BATIK,
             executor = AWT_EDT_EXECUTOR
         ) {

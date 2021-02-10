@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -40,7 +40,12 @@ object SimpleBatikView {
 
         SwingUtilities.invokeLater {
             val component =
-                MonolithicAwt.buildPlotFromRawSpecs(plotSpec, plotSize, SVG_COMPONENT_FACTORY_BATIK, AWT_EDT_EXECUTOR) {
+                MonolithicAwt.buildPlotFromRawSpecs(
+                    plotSpec,
+                    plotSize,
+                    plotMaxWidth = null,
+                    SVG_COMPONENT_FACTORY_BATIK, AWT_EDT_EXECUTOR
+                ) {
                     for (message in it) {
                         println("PLOT MESSAGE: $message")
                     }

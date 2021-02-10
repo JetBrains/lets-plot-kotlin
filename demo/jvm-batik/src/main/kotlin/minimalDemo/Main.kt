@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -12,8 +12,8 @@ import jetbrains.datalore.vis.swing.BatikMapperComponent
 import jetbrains.datalore.vis.swing.BatikMessageCallback
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.intern.toSpec
+import jetbrains.letsPlot.label.ggtitle
 import java.util.*
 import javax.swing.JFrame
 import javax.swing.SwingUtilities
@@ -62,7 +62,12 @@ fun main() {
         val plotSize = DoubleVector(600.0, 300.0)
 
         val component =
-            MonolithicAwt.buildPlotFromRawSpecs(plotSpec, plotSize, SVG_COMPONENT_FACTORY_BATIK, AWT_EDT_EXECUTOR) {
+            MonolithicAwt.buildPlotFromRawSpecs(
+                plotSpec,
+                plotSize,
+                plotMaxWidth = null,
+                SVG_COMPONENT_FACTORY_BATIK, AWT_EDT_EXECUTOR
+            ) {
                 for (message in it) {
                     println("PLOT MESSAGE: $message")
                 }
