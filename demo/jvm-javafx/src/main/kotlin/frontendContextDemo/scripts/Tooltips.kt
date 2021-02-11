@@ -5,11 +5,10 @@
 
 package frontendContextDemo.scripts
 
+import demoData.AutoMpg
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.*
-import jetbrains.letsPlot.geom.geom_bar
-import jetbrains.letsPlot.geom.geom_boxplot
-import jetbrains.letsPlot.geom.geom_errorbar
+import jetbrains.letsPlot.geom.*
 import jetbrains.letsPlot.tooltips.layer_tooltips
 import jetbrains.letsPlot.tooltips.tooltips_none
 
@@ -106,7 +105,30 @@ object Tooltips {
                         .line("min/max|^ymin/^ymax")
                         .line("lower/upper|^lower/^upper")
                         .line("@|^middle")
+                        .color("red")
                 )).show()
+            }
+
+            // Anchor + Color
+            run {
+                val mpgData = AutoMpg.map()
+                val plot = ggplot(mpgData) +
+                        theme().legendPosition_none() +
+                        geom_point(
+                            tooltips = layer_tooltips()
+                                .line("^color (mpg)")
+                                .line("@{vehicle name} (@{model year})")
+                                .format(field = "model year", format = "19{d}")
+                                .color("black")
+                                .minWidth(240)
+                                .anchor("top_left")
+                        ) {
+                            x = "engine displacement (cu. inches)"
+                            y = "engine horsepower"
+                            color = "miles per gallon"
+                        }
+
+                plot.show()
             }
         }
     }

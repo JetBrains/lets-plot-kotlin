@@ -73,10 +73,17 @@ class TooltipOptions() {
     }
 
     /**
-     * Specifies a minimum width of the general tooltip.
+     * Specifies a minimum width of a general tooltip in pixels.
      */
     fun minWidth(value: Number): TooltipOptions {
         return setOption(TOOLTIP_MIN_WIDTH, value)
+    }
+
+    /**
+     * Specifies a color of a general tooltip.
+     */
+    fun color(value: String): TooltipOptions {
+        return setOption(TOOLTIP_COLOR, value)
     }
 
     /**
@@ -95,6 +102,7 @@ class TooltipOptions() {
 
         private const val TOOLTIP_LINES = Option.Layer.TOOLTIP_LINES
         private const val TOOLTIP_MIN_WIDTH = Option.Layer.TOOLTIP_MIN_WIDTH
+        private const val TOOLTIP_COLOR = Option.Layer.TOOLTIP_COLOR
 
         private const val NO_TOOLTIPS = Option.Layer.NONE
     }
