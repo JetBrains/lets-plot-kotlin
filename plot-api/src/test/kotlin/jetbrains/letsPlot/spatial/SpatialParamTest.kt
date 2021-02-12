@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -108,7 +108,7 @@ class SpatialParamTest {
                 "position" to "identity",
                 "mapping" to emptyMap<Any, Any>(),
                 "map" to dat,
-                "map_join" to listOf("left", "right"),
+                "map_join" to listOf(listOf("left"), listOf("right")),
                 "map_data_meta" to mapOf("geodataframe" to mapOf("geometry" to dat.geometryKey))
             )
         )

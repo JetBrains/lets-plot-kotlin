@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -109,9 +109,8 @@ fun Layer.toSpec(): MutableMap<String, Any> {
             spec[Option.Geom.Choropleth.GEO_POSITIONS] = this
             spec[Option.Meta.MAP_DATA_META] = createGeoDataframeAnnotation(geometryKey)
 
-            mapJoin?.run {
-                val v = mapJoin!!
-                val (first, second) = v
+            mapJoin?.let {
+                val (first, second) = it
                 when (first) {
                     is String -> require(second is String) { "'mapJoin': both members must be either Strings or Lists." }
                     is List<*> -> {
@@ -120,7 +119,16 @@ fun Layer.toSpec(): MutableMap<String, Any> {
                         require(first.size == second.size) { "'mapJoin': members must have equal size." }
                     }
                 }
-                spec[Option.Layer.MAP_JOIN] = v.toList()
+                spec[Option.Layer.MAP_JOIN] = listOf(
+                    when (first) {
+                        is String -> listOf(first)
+                        else -> first
+                    },
+                    when (second) {
+                        is String -> listOf(second)
+                        else -> second
+                    }
+                )
             }
         }
     }
