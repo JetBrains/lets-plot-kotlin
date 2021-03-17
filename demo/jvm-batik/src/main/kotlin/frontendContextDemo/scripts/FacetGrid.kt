@@ -1,42 +1,65 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
 package frontendContextDemo.scripts
 
+import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.facet.facet_grid
-import jetbrains.letsPlot.geom.geom_histogram
-import jetbrains.letsPlot.label.ggtitle
+import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.lets_plot
+import java.awt.Dimension
 
 object FacetGrid {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Density plot") {
-            val rand = java.util.Random(123)
-            val n = 200
-            val data = mapOf<String, Any>(
-                "cond" to List(n) { "A" } + List(n) { "B" },
-                "rating" to List(n) { rand.nextGaussian() } + List(n) { rand.nextGaussian() * 1.5 + 1.5 }
-            )
+        ScriptInBatikContext.eval(
+            "Facet grid",
+            2,
+            Dimension(600, 400)
+        ) {
+            val data = AutoMpg.map()
 
-            // Horizontal grid
-            run {
-                val p = lets_plot(data) { x = "rating" } +
-                        geom_histogram(binWidth = .5, color = "black", fill = "white") +
-                        facet_grid("cond") + ggtitle("Horizontal grid")
-                p.show()
+            val p = lets_plot(data) + geom_point {
+                x = "engine horsepower"
+                y = "miles per gallon"
+                color = "origin of car"
             }
 
-            // Vertical grid
-            run {
-                val p = lets_plot(data) { x = "rating" } +
-                        geom_histogram(binWidth = .5, color = "black", fill = "white") +
-                        facet_grid(y = "cond") + ggtitle("Vertical grid")
-                p.show()
-            }
+            // cols
+            (p + facet_grid(
+                x = "number of cylinders",
+                xFormat = "{d} cyl"
+            )).show()
+
+            // rows
+            (p + facet_grid(
+                y = "origin of car"
+            )).show()
+
+            // both
+            (p + facet_grid(
+                x = "number of cylinders",
+                y = "origin of car",
+                xFormat = "{d} cyl"
+            )).show()
+
+            // both flipped
+            (p + facet_grid(
+                x = "origin of car",
+                y = "number of cylinders",
+                yFormat = "{d} cyl"
+            )).show()
+
+            // both, Y-order - desc.
+            (p + facet_grid(
+                x = "number of cylinders",
+                y = "origin of car",
+                yOrder = -1,
+                xFormat = "{d} cyl"
+            )).show()
         }
     }
 }
