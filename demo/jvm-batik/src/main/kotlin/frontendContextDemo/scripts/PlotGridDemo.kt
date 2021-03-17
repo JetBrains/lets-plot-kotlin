@@ -16,7 +16,10 @@ import kotlin.math.abs
 object PlotGridDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("gggrid()") {
+        ScriptInBatikContext.eval(
+            "gggrid()",
+            maxCol = 1
+        ) {
             val density = lets_plot(densityData()) + geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
             val boxplot = lets_plot(boxplotData()) { x = "cat"; y = "val" } + geom_boxplot(outlierColor = "red")
 

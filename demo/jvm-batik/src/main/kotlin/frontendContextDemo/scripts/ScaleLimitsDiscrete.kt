@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -19,7 +19,7 @@ import jetbrains.letsPlot.theme
 object ScaleLimitsDiscrete {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Scale limits (discrete)") {
+        ScriptInBatikContext.eval("Scale limits (discrete)", maxCol = 1) {
 
             val dat = mapOf(
                 "x" to ('a'..'h')

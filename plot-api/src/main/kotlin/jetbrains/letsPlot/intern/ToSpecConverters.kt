@@ -31,12 +31,14 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     spec[KIND] = PLOT
 
     plot.data?.let {
-        require(data !is SpatialDataset) {
-            "SpatialDataset is not allowed in 'ggplot(data=..)' or 'lets_plot(data=..)'"
+        // SpatialDataset is not allowed in 'ggplot(data=..)' or 'lets_plot(data=..)'
+        val data = if (plot.data is SpatialDataset) {
+            HashMap<Any?, Any?>(plot.data) // convert to a regular Map.
+        } else {
+            plot.data
         }
-
-        spec[Option.PlotBase.DATA] = asPlotData(plot.data)
-        val dataMeta = createDataMeta(plot.data, plot.mapping.map)
+        spec[Option.PlotBase.DATA] = asPlotData(data)
+        val dataMeta = createDataMeta(data, plot.mapping.map)
         if (dataMeta.isNotEmpty()) {
             spec[DATA_META] = dataMeta
         }
@@ -68,6 +70,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
 
     data?.let {
+        val data = beforeAsPlotData(data)
         spec[Option.PlotBase.DATA] = asPlotData(data)
     }
 
@@ -104,10 +107,8 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     // parameters 'map', 'mapJoin'
     if (this is WithSpatialParameters) {
         map?.run {
-            require(geometryFormat == GeometryFormat.GEOJSON) { "Only GEOJSON geometry format is supported." }
-
             spec[Option.Geom.Choropleth.GEO_POSITIONS] = this
-            spec[Option.Meta.MAP_DATA_META] = createGeoDataframeAnnotation(geometryKey)
+            spec[Option.Meta.MAP_DATA_META] = createGeoDataframeAnnotation(this)
 
             mapJoin?.let {
                 val (first, second) = it
@@ -141,6 +142,23 @@ fun Layer.toSpec(): MutableMap<String, Any> {
 
     return spec
 }
+
+private fun Layer.beforeAsPlotData(rawData: Map<*, *>): Map<*, *> {
+    if (rawData is SpatialDataset) {
+        return when (this) {
+            is WithSpatialParameters -> if (this.map == null) {
+                // No "map" parameter -> keep the Spatial dataset.
+                rawData
+            } else {
+                // Has "map" parameter -> convert "data" to a regular Map.
+                HashMap<Any?, Any?>(rawData)
+            }
+            else -> HashMap<Any?, Any?>(rawData) // convert "data" to a regular Map.
+        }
+    }
+    return rawData
+}
+
 
 @Suppress("UNCHECKED_CAST")
 fun Map<String, Any?>.filterNonNullValues(): Map<String, Any> {
@@ -195,7 +213,7 @@ private fun asMappingData(rawMapping: Map<String, Any>): Map<String, Any> {
 
 private fun createDataMeta(data: Map<*, *>?, mappings: Map<String, Any>): Map<String, Any> {
     val spatialDataMeta: Map<String, Any> = if (data is SpatialDataset) {
-        createGeoDataframeAnnotation(data.geometryKey)
+        createGeoDataframeAnnotation(data)
     } else {
         emptyMap()
     }
@@ -212,10 +230,11 @@ private fun createDataMeta(data: Map<*, *>?, mappings: Map<String, Any>): Map<St
     return spatialDataMeta + mappingDataMeta
 }
 
-private fun createGeoDataframeAnnotation(geometryKey: String): Map<String, Any> {
+private fun createGeoDataframeAnnotation(data: SpatialDataset): Map<String, Any> {
+    require(data.geometryFormat == GeometryFormat.GEOJSON) { "Only GEOJSON geometry format is supported." }
     return mapOf(
         "geodataframe" to mapOf(
-            "geometry" to geometryKey
+            "geometry" to data.geometryKey
         )
     )
 }

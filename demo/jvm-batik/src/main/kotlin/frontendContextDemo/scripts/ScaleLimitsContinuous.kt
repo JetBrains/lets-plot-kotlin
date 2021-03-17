@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -18,7 +18,7 @@ import jetbrains.letsPlot.theme
 object ScaleLimitsContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Scale limits (continuous)") {
+        ScriptInBatikContext.eval("Scale limits (continuous)", maxCol = 1) {
             val dat0 = mapOf<String, Any>(
                 "x" to (0..4).map { it }
             )

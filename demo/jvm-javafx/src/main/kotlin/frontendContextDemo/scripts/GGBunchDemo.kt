@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -16,7 +16,7 @@ import kotlin.math.abs
 object GGBunchDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("GGBunch: Density + Boxplot") {
+        ScriptInJfxContext.eval("GGBunch: Density + Boxplot", maxCol = 2) {
             val density = lets_plot(densityData()) + geom_density(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
             val boxplot = lets_plot(boxplotData()) { x = "cat"; y = "val" } + geom_boxplot(outlierColor = "red")
 

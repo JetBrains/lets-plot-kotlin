@@ -50,14 +50,12 @@ allprojects {
             url "https://repo.osgeo.org/repository/release"
         }
 
+//        maven {
+//            url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
+//        }
+
         mavenCentral()
         jcenter()
-
-//        mavenLocal()
-
-//        maven {
-//            url "file:///Users/Igor/Work/lets-plot/.maven-publish-dev-repo"
-//        }
 
         maven {
             // Required when working with SNAPSHOT-s

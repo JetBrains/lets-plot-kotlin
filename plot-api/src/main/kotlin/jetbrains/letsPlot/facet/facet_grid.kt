@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -20,6 +20,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
 fun facet_grid(x: String? = null, y: String? = null): OptionsMap {
     return OptionsMap(
         Option.Plot.FACET,
+        Option.Facet.NAME_GRID,
         mapOf(
             "x" to x,
             "y" to y

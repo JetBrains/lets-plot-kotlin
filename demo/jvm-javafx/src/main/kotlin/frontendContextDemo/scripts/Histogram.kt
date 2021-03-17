@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -20,7 +20,7 @@ object Histogram {
                 "c" to List(500) { "A" } + List(500) { "B" }
             )
 
-            val geom = geom_histogram(stat = Stat.bin(binWidth = 0.5, boundary = 0.0), alpha = 0.3, size = 0.0) {
+            val geom = geom_histogram(stat = Stat.bin(binWidth = 0.5, boundary = 0.0)) {
                 x = "x"; fill = "c"
             }
             val p = ggplot(data) + geom

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -15,7 +15,9 @@ import jetbrains.letsPlot.scale.scale_fill_brewer
 object ScaleColorBrewer {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Color Brewer Scale") {
+        ScriptInBatikContext.eval(
+            "Color Brewer Scale", maxCol = 2
+        ) {
             val data = mapOf("x" to (-64..64))
 
             val p = ggplot(data) + ggsize(600, 200) +

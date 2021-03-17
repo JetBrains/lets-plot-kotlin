@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -22,7 +22,7 @@ object Histogram {
             )
 
             run {
-                val geom = geom_histogram(stat = Stat.bin(binWidth = 1.0, boundary = 0.0), alpha = 0.3, size = 0.0) {
+                val geom = geom_histogram(stat = Stat.bin(binWidth = 1.0, boundary = 0.0), size = 0.0) {
                     x = "x"; fill = "c"
                 }
                 val p = ggplot(data) + geom
@@ -30,14 +30,14 @@ object Histogram {
             }
 
             run {
-                val geom = geom_histogram(bins = 3, alpha = 0.3, size = 0.0) {
+                val geom = geom_histogram(bins = 3, size = 0.0) {
                     x = "x"; fill = "c"
                 }
                 (ggplot(data) + geom).show()
             }
 
             run {
-                val geom = geom_histogram(alpha = 0.3, size = 0.0, binWidth = 1.0, boundary = 0.0) {
+                val geom = geom_histogram(size = 0.0, binWidth = 1.0, boundary = 0.0) {
                     x = "x"; fill = "c"
                 }
                 val p = ggplot(data) + geom
@@ -45,7 +45,7 @@ object Histogram {
             }
 
             run {
-                val geom = stat_bin(alpha = 0.3, size = 0.0, binWidth = 1.0, boundary = 0.0) {
+                val geom = stat_bin(size = 0.0, binWidth = 1.0, boundary = 0.0) {
                     x = "x"; fill = "c"
                 }
                 val p = ggplot(data) + geom

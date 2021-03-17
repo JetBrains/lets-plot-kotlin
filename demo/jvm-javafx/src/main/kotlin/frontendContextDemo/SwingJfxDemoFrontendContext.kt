@@ -5,18 +5,16 @@
 
 package frontendContextDemo
 
-import javafx.application.Platform
-import jetbrains.datalore.plot.MonolithicAwt
-import jetbrains.datalore.plot.builder.presentation.Style
-import jetbrains.datalore.vis.svg.SvgSvgElement
-import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
+import jetbrains.datalore.vis.demoUtils.PlotSpecsDemoWindowJfx
 import jetbrains.letsPlot.FrontendContext
-import java.awt.Color
 import java.awt.Dimension
-import java.awt.FlowLayout
-import javax.swing.*
 
-class SwingJfxDemoFrontendContext(private val title: String) : FrontendContext {
+class SwingJfxDemoFrontendContext(
+    private val title: String,
+    private val maxCol: Int = 3,
+    private val plotSize: Dimension? = null,
+) : FrontendContext {
+
     private val plotSpecs = ArrayList<MutableMap<String, Any>>()
 
     override fun display(plotSpecRaw: MutableMap<String, Any>) {
@@ -24,64 +22,11 @@ class SwingJfxDemoFrontendContext(private val title: String) : FrontendContext {
     }
 
     fun showAll() {
-        SwingUtilities.invokeLater {
-            val frame = JFrame(title)
-
-            val panel = JPanel()
-            panel.layout = BoxLayout(panel, BoxLayout.Y_AXIS)
-
-            // build plots
-            for (plotSpec in plotSpecs) {
-                val component =
-                    MonolithicAwt.buildPlotFromRawSpecs(
-                        plotSpec,
-                        plotSize = null,
-                        plotMaxWidth = null,
-                        SVG_COMPONENT_FACTORY_JFX,
-                        JFX_EDT_EXECUTOR,
-                        COMPUTATION_MESSAGES_HANDLER
-                    )
-
-                val decorated = object : JPanel(FlowLayout(0, 0, 0)) {
-                    override fun getMinimumSize(): Dimension {
-                        return preferredSize
-                    }
-
-                    override fun getMaximumSize(): Dimension {
-                        return preferredSize
-                    }
-                }
-
-                decorated.border = BorderFactory.createLineBorder(Color.blue, 1)
-                decorated.add(component)
-                panel.add(Box.createRigidArea(Dimension(0, 5)))
-                panel.add(decorated)
-            }
-
-            frame.contentPane.add(JScrollPane(panel))
-            frame.defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
-            frame.size = FRAME_SIZE
-            frame.isVisible = true
-        }
-    }
-
-    companion object {
-        private val SVG_COMPONENT_FACTORY_JFX =
-            { svg: SvgSvgElement -> SceneMapperJfxPanel(svg, listOf(Style.JFX_PLOT_STYLESHEET)) }
-
-        private val JFX_EDT_EXECUTOR = { runnable: () -> Unit ->
-            if (Platform.isFxApplicationThread()) {
-                runnable.invoke()
-            } else {
-                Platform.runLater(runnable)
-            }
-        }
-        private val COMPUTATION_MESSAGES_HANDLER: (List<String>) -> Unit = {
-            for (message in it) {
-                println("PLOT MESSAGE: $message")
-            }
-        }
-
-        private val FRAME_SIZE = Dimension(700, 700)
+        PlotSpecsDemoWindowJfx(
+            title,
+            specList = plotSpecs,
+            maxCol = maxCol,
+            plotSize = plotSize
+        ).open()
     }
 }

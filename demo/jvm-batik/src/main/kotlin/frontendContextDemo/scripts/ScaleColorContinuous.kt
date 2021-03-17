@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -14,7 +14,9 @@ import jetbrains.letsPlot.scale.*
 object ScaleColorContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Color scale (continuous)") {
+        ScriptInBatikContext.eval(
+            "Color scale (continuous)", maxCol = 2
+        ) {
             val xs = (-64..64).toList()
             val data = mapOf("x" to xs)
 

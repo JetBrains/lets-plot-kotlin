@@ -8,11 +8,16 @@ package frontendContextDemo.scripts
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.bistro.corr.CorrPlot
+import java.awt.Dimension
 
 object CorrPlotDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Corr plot") {
+        ScriptInBatikContext.eval(
+            "Corr plot",
+            maxCol = 2,
+            plotSize = Dimension(700, 500)
+        ) {
             val data = AutoMpg.map()
 
             CorrPlot(data)

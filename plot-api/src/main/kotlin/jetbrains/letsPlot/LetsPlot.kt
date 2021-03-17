@@ -1,21 +1,19 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
 package jetbrains.letsPlot
 
+import jetbrains.letsPlot.frontend.DefaultSwingBatikFrontendContext
+import jetbrains.letsPlot.frontend.DefaultSwingJfxFrontendContext
 import jetbrains.letsPlot.frontend.NotebookFrontendContext
 
 // Environment variables
 const val ENV_HTML_ISOLATED_FRAME = "LETS_PLOT_HTML_ISOLATED_FRAME"
 
 object LetsPlot {
-    var frontendContext: FrontendContext = object : FrontendContext {
-        override fun display(plotSpecRaw: MutableMap<String, Any>) {
-            throw IllegalStateException("Frontend context is not defined")
-        }
-    }
+    var frontendContext: FrontendContext = initDefaultFrontendContext()
 
     @Suppress("MemberVisibilityCanBePrivate")
     var apiVersion: String = "Unknown"
@@ -45,5 +43,25 @@ object LetsPlot {
                 throw IllegalArgumentException("Can't convert str to boolean : [$name] : $value")
             }
         }
+    }
+
+    private fun initDefaultFrontendContext(): FrontendContext {
+        return DefaultSwingBatikFrontendContext.tryCreate()
+            ?: DefaultSwingJfxFrontendContext.tryCreate()
+            ?: object : FrontendContext {
+                override fun display(plotSpecRaw: MutableMap<String, Any>) {
+                    throw IllegalStateException(
+                        """
+                            
+                            The frontend context is not defined.
+                            To define the frontend context please select one of the following options:
+                            a. Add "lets-plot-batik-<version>.jar" to your classpath.   
+                            b. Add "lets-plot-jfx-<version>.jar" to your classpath.   
+                            c. Specify the frontend context explicitly: "LetsPlot.frontendContext = ..."
+                               
+                            """.trimIndent()
+                    )
+                }
+            }
     }
 }
