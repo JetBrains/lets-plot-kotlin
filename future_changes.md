@@ -19,6 +19,7 @@
 
 ### Fixed
 
+- `show()` should actually show a plot [[#51](https://github.com/JetBrains/lets-plot-kotlin/issues/51)]
 - Facet grid truncated in jupyter [[#28](https://github.com/JetBrains/lets-plot-kotlin/issues/28)].
 
 The majority of fixes in the core Lets-Plot vv 2.0.0, 2.0.1 are also applicable to this release.
