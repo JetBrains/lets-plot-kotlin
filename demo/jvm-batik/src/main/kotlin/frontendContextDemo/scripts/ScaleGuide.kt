@@ -13,6 +13,7 @@ import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.guide_colorbar
 import jetbrains.letsPlot.scale.guide_legend
+import jetbrains.letsPlot.scale.guides
 import jetbrains.letsPlot.scale.scale_color_gradient
 import jetbrains.letsPlot.scale.scale_fill_identity
 import jetbrains.letsPlot.theme
@@ -36,6 +37,15 @@ object ScaleGuide {
                 (p + scale_fill_identity(guide = guide_legend(ncol = 2))).show()
                 (p + scale_fill_identity(guide = guide_legend(nrow = 2, byRow = true))).show()
                 (p + scale_fill_identity(guide = guide_legend(nrow = 2, byRow = false))).show()
+
+                // Use 'guides' function
+                (lets_plot(data) + ggsize(600, 200) +
+                        geom_tile {
+                            x = "x"
+                            fill = colors
+                            alpha = "x"
+                        } +
+                        guides(alpha = "none", fill = guide_legend(nrow = 2))).show()
             }
 
             run {
