@@ -11,6 +11,7 @@ Try the following tutorials and examples to learn and evaluate various features 
 - [`as_discrete()` function](#as_discrete)
 - [gggrid()](#gggrig)
 - [Export to File](#export)
+- [Formatting](#formatting)
 - [Theme](#theme)
 - [Data Sampling](#sampling)
 - [Tooltip Customization](#tooltip)
@@ -74,11 +75,10 @@ Try the following tutorials and examples to learn and evaluate various features 
 <a id="facets"></a>
 #### Facets
 
-* `facet_grid`: 
-[distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
+* `facet_grid(), facet_wrap()`:
+  [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
 
 <a id="ggbunch"></a>
-
 #### GGBunch
 
 GGBunch allows to show a collection of plots on one figure. Each plot in the collection can have arbitrary location and
@@ -88,7 +88,6 @@ size. There is no automatic layout inside the bunch.
 * [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
 <a id="gggrid"></a>
-
 #### gggrid()
 
 A simple utility which you can use to arrange plots in a regular grid.
@@ -96,7 +95,6 @@ A simple utility which you can use to arrange plots in a regular grid.
 * [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
 
 <a id="as_discrete"></a>
-
 #### `as_discrete()` function
 
 * [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
@@ -109,16 +107,24 @@ The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or 
 
 * [export_to_file.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/export_to_file.ipynb)
 
+<a id="formatting"></a>
+
+#### Formatting
+
+* [formatting_axes_etc](ToDo)
+* [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
 
 <a id="theme"></a>
+
 #### Theme
 
-Legend layout and axis presentation options : 
- 
+Legend layout and axis presentation options :
+
 * [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
 
 <a id="sampling"></a>
-#### Data sampling 
+
+#### Data sampling
 
 Sampling is a special technique of data transformation, which helps dealing with large datasets and overplotting.
 

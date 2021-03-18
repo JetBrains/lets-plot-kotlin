@@ -11,13 +11,21 @@
 
 - The `guides()` function [[#52](https://github.com/JetBrains/lets-plot/issues/52)].
 
+- In tooltip customization API:
+  - option `color` overrides the default tooltip color:
+      ```python
+      geom_xxx(tooltips=layer_tooltips().color('red'))
+      ```
+
+  See: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
+
 ### Changed
 
 - Built with Lets-Plot v2.0.1 (was v1.5.6).
 - All Java Swing demos were updated to use new `plot components` (new in Lets-Plot v2.0.1).
 - The "Minimal demo" was updated:
-    - [`Main.kt` (Batik)](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/jvm-batik/src/main/kotlin/minimalDemo)
-    - [`Main.kt` (JavaFX)](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/jvm-javafx/src/main/kotlin/minimalDemo)
+  - [`Main.kt` (Batik)](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/jvm-batik/src/main/kotlin/minimalDemo)
+  - [`Main.kt` (JavaFX)](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/jvm-javafx/src/main/kotlin/minimalDemo)
 
 ### Fixed
 

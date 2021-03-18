@@ -2,17 +2,20 @@
 
 - [Formatting tooltip fields](#formatting)
 - [Customizing tooltip lines](#lines)
-    - [Labels configuration](#labels-configuration)
+  - [Labels configuration](#labels-configuration)
+- [Tooltip anchor](#tooltip-anchor)
+- [Minimum width of a general tooltip](#minwidth)
+- [Tooltip color](#color)
 - [Examples](#examples)
 - [Outlier tooltips configuration](#outliers)
-    - [Examples](#example-outliers)    
+  - [Examples](#example-outliers)
 - [Hiding tooltips](#hiding-tooltips)
-- [Example Notebooks](#example-notebooks)    
-    
+- [Example Notebooks](#example-notebooks)
+
 ------
 You can customize the content of tooltips for the layer by using the parameter `tooltips` of `geom` functions.
 
-The following functions set lines and define formatting of the tooltip:
+The following functions set lines, define formatting of the tooltip, its location and width:
 
 `tooltips=layer_tooltips().format(field, format).line(template)`
 
@@ -52,7 +55,7 @@ Variable's and aesthetic's formats are not interchangeable, for example, `var` f
 <a id="lines"></a>
 ### Customizing tooltip lines: `layer_tooltips().line(template)`
 
-Specifies the string template to use in a multi-line tooltip. If you add `line()`, it overrides the default tooltip.
+Specifies the string template to use in a general tooltip. If you add `line()`, it overrides the default tooltip.
 
 Variables and aesthetics can be accessed via a special syntax:
 - `^color` for aesthetic;
@@ -71,19 +74,49 @@ A '^' symbol can be escaped with a backslash; a brace character in the literal t
 #### Labels configuration
 The default tooltip has a label before the value usually containing the name of the mapped variable.
 It has its own behaviour similar to a blank label for an axis aesthetics. 
-This default label can be set in the template by using a pair of symbols `@|`.
-You can override the label by specifying a string value before `|` symbol.
+This default label can be set in the template by using a pair of symbols `@|`. You can override the label by specifying
+a string value before `|` symbol.
 
-Within the tooltip line, ou can align a label to left. The string formed by a template can be aligned to right.
-If you do not specify a label, the string will be centered in the tooltip. For example:
+Within the tooltip line, ou can align a label to left. The string formed by a template can be aligned to right. If you
+do not specify a label, the string will be centered in the tooltip. For example:
 
 - `line('^color')`: no label, value is centered;
 - `line('|^color')`: label is empty, value is right-aligned;
 - `line('@|^color')`: default label is used, value is right-aligned;
 - `line('my label|^color')`: label is specified, value is right-aligned.
 
+<a id="tooltip-anchor"></a>
+
+### Tooltip anchor: `layer_tooltips().anchor(position)`
+
+Specifies a fixed position for a general tooltip.
+
+The `anchor()` function accepts the following values:
+
+- 'top_right'
+- 'top_center'
+- 'top_left'
+- 'bottom_right'
+- 'bottom_center'
+- 'bottom_left'
+- 'middle_right'
+- 'middle_center'
+- 'middle_left'
+
+<a id="minwidth"></a>
+
+### Minimum width of a general tooltip: `layer_tooltips().min_width(value)`
+
+Specifies a minimum width of a general tooltip in pixels.
+
+<a id="Color"></a>
+
+### Tooltip color: `layer_tooltips().color(value)`
+
+Specifies a color of a general tooltip.
 
 <a id="examples"></a>
+
 ### Examples
 
 ```
@@ -111,17 +144,54 @@ lets_plot(mpg) {x = "displ"; y = "cty"} +
                color = "black",
                tooltips = layer_tooltips().format("^size", "{.0f} mpg")) {fill="drv"; size="hwy"}
 ```
+
 ![](examples/images/tooltips_2.png)
 
+Place a general tooltip at the top center and define its minimum width:
 
+```
+lets_plot(mpg) +
+    geom_point(
+        shape=21, color="black",
+        tooltips=layer_tooltips()
+                   .format('cty', '.1f')
+                   .format('hwy', '.1f')
+                   .format('drv', '{}wd')
+                   .line('@manufacturer @model')
+                   .line('cty/hwy|@cty/@hwy')
+                   .line('@|@class')
+                   .line('drive train|@drv')
+                   .line('@|@year')
+                   .anchor('top_center')
+                   .min_width(200) 
+    ) {x = "displ"; y = "cty"; fill="drv"; size="hwy"}
+```
 
+![](examples/images/tooltips_6.png)
+
+Move the tooltips to the top right corner:
+
+```
+lets_plot(iris_df) + theme().legendPosition_none() +
+    geom_area(
+        stat='density',
+        tooltips=layer_tooltips()
+                   .anchor('top_right')
+                   .line('^fill')
+                   .line('length|^x')
+                   .line('density|^y')
+    ) {x="sepal_length"; color="sepal_width"; fill="species"}
+```                 
+
+![](examples/images/tooltips_5.png)
 
 <a id="outliers"></a>
+
 ## Outlier tooltips configuration
 
-The default an outlier's tooltip contains a string like `'name: value'`: there is no label and no alignment.
-It's possible to change formatting of it with the `format` function. The number format (`'1.f'` ) leaves 
-the string as is (`'name: value'`) and formats the value. The string template replaces the default string:
+The default an outlier's tooltip contains a string like `'name: value'`: there is no label and no alignment. It's
+possible to change formatting of it with the `format` function. The number format (`'1.f'` ) leaves the string as
+is (`'name: value'`) and formats the value. The string template replaces the default string:
 `‘{.1f}` - with `'value'`, `‘format text {.1f}’` - with `“format text value”`.
 
 The specified `line` for an outlier will move it to a general multi-line tooltip.
@@ -153,16 +223,37 @@ p + geom_boxplot(tooltips = layer_tooltips()
                     .line("lower/upper|^lower/^upper")
                     .line("@|^middle"))
 ```
+
 ![](examples/images/tooltips_4.png)
-                 
 
+Place tooltip at the top center and change its color:
 
-<a id="hiding-tooltips"></a> 
-## Hiding tooltips     
+``` 
+p2 + geom_boxplot(tooltips=layer_tooltips()
+                   .anchor("top_center")
+                   .color("cyan")
+                   .format("^Y", ".0f")
+                   .format("^middle", ".2f")
+                   .line("@|^middle")
+                   .line("lower/upper|^lower/^upper")
+                   .line("min/max|^ymin/^ymax"))
+``` 
+
+![](examples/images/tooltips_7.png)
+
+<a id="hiding-tooltips"></a>
+
+## Hiding tooltips
+
 Set `tooltips = tooltips_none` to hide tooltips from the layer.
-          
-          
-<a id="example-notebooks"></a> 
+
+<a id="example-notebooks"></a>
+
 ## Example Notebooks
- 
-* [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks-dev/tooltip_config.ipynb)
+
+* [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
+* Visualization of Airport Data on
+  Map: <a href="https://www.kaggle.com/alshan/visualization-of-airport-data-on-map" title="View at Kaggle">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/examples/images/logo_kaggle.svg" width="20" height="20">
+  </a>
+  <br>
