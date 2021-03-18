@@ -6,6 +6,7 @@
 package jetbrains.letsPlot.scale
 
 import jetbrains.datalore.plot.config.Option
+import jetbrains.letsPlot.intern.OptionsMap
 import jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
@@ -53,4 +54,30 @@ fun guide_colorbar(
         Option.Guide.ColorBar.HEIGHT to barHeight,
         Option.Guide.ColorBar.BIN_COUNT to nbin
     ).filterNonNullValues()
+}
+
+/**
+ * Function to set guides for scales.
+ * Sets the mapping between scale and guide.
+ * The guide can either be a string ("colorbar"/"legend", "none)
+ * or a call to a guide function (guide_colorbar()/guide_legend()) specifying additional arguments.
+ */
+fun guides(
+    alpha: Any? = null,
+    color: Any? = null,
+    fill: Any? = null,
+    shape: Any? = null,
+    size: Any? = null,
+    linetype: Any? = null
+): OptionsMap {
+    val options = HashMap<String, Any>()
+
+    alpha?.let { options.put("alpha", it) }
+    color?.let { options.put("color", it) }
+    fill?.let { options.put("fill", it) }
+    shape?.let { options.put("shape", it) }
+    size?.let { options.put("size", it) }
+    linetype?.let { options.put("linetype", it) }
+
+    return OptionsMap(Option.Plot.GUIDES, options)
 }
