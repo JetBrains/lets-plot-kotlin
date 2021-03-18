@@ -6,14 +6,13 @@
 package frontendContextDemo.scripts
 
 import jetbrains.datalore.base.values.Color
+import jetbrains.letsPlot.geom.geom_abline
 import jetbrains.letsPlot.geom.geom_hline
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_vline
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
-import jetbrains.letsPlot.scale.scale_color_continuous
-import jetbrains.letsPlot.scale.scale_size_area
 
 object HLineVLineScripts {
     fun script0() {
@@ -80,4 +79,13 @@ object HLineVLineScripts {
         p.show()
     }
 
+    fun script3() {
+        // use 'alpha' parameter
+        val p = ggplot() +
+                geom_vline(xintercept=0, color="red", size=2, alpha=0.1) +
+                geom_hline(yintercept=0, color="red", size=2, alpha=0.5) +
+                geom_abline(intercept=0, slope=1.0, color="red", size=2, alpha=1) +
+                geom_abline(intercept=0, slope=-1.0, color="red", size=2, alpha=0)
+        p.show()
+    }
 }

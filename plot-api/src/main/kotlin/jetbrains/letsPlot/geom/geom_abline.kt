@@ -52,7 +52,7 @@ class geom_abline(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val slope: Double? = null,
-    override val intercept: Double? = null,
+    override val intercept: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,

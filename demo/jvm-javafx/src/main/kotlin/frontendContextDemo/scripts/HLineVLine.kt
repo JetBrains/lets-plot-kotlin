@@ -14,6 +14,7 @@ object HLineVLine {
             HLineVLineScripts.script0()
             HLineVLineScripts.script1()
             HLineVLineScripts.script2()
+            HLineVLineScripts.script3()
         }
     }
 }
