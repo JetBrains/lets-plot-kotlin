@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -82,7 +82,8 @@ object HLineVLineScripts {
     fun script3() {
         // use 'alpha' parameter
         val p = ggplot() +
-                geom_vline(xintercept=0, color="red", size=2, alpha=0.1) +
+                ggtitle("Use 'alpha' parameter") +
+                geom_vline(xintercept = 0, color = "red", size = 2, alpha = 0.1) +
                 geom_hline(yintercept=0, color="red", size=2, alpha=0.5) +
                 geom_abline(intercept=0, slope=1.0, color="red", size=2, alpha=1) +
                 geom_abline(intercept=0, slope=-1.0, color="red", size=2, alpha=0)

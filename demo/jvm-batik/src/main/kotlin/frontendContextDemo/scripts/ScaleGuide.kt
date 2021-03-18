@@ -10,12 +10,9 @@ import jetbrains.letsPlot.geom.geom_density2d
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggsize
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.lets_plot
-import jetbrains.letsPlot.scale.guide_colorbar
-import jetbrains.letsPlot.scale.guide_legend
-import jetbrains.letsPlot.scale.guides
-import jetbrains.letsPlot.scale.scale_color_gradient
-import jetbrains.letsPlot.scale.scale_fill_identity
+import jetbrains.letsPlot.scale.*
 import jetbrains.letsPlot.theme
 
 object ScaleGuide {
@@ -40,6 +37,7 @@ object ScaleGuide {
 
                 // Use 'guides' function
                 (lets_plot(data) + ggsize(600, 200) +
+                        ggtitle("Use 'guides' function.") +
                         geom_tile {
                             x = "x"
                             fill = colors

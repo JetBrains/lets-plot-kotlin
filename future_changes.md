@@ -4,10 +4,12 @@
 
 - `facet_wrap()` function.
 - in `facet_grid()` function:
-    - Ascending/descending ordering of faceting values.
-    - Formatting of faceting values.
+  - Ascending/descending ordering of faceting values.
+  - Formatting of faceting values.
 
   See: [Facets demo](ToDo)
+
+- The `guides()` function [[#52](https://github.com/JetBrains/lets-plot/issues/52)].
 
 ### Changed
 
