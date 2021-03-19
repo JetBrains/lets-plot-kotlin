@@ -221,7 +221,13 @@ p + geom_boxplot(tooltips = layer_tooltips()
 
 Move outliers to a general tooltip:
 
-`p + geom_boxplot(tooltips=layer_tooltips().line("lower/upper|^lower, ^upper"))`
+```
+p + geom_boxplot(tooltips=layer_tooltips()
+                   .format("^Y", ".1f")
+                   .line("y min/max|^ymin/^ymax")
+                   .line("lower/upper|^lower/^upper")
+                   .line("@|^middle"))
+```
 
 
 ![](examples/images/tooltips_4.png)
