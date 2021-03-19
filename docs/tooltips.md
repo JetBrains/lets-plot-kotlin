@@ -126,7 +126,7 @@ Specifies a color of a general tooltip.
 ### Examples
 
 ```
-lets_plot(mpg) {x = "displ"; y = "cty"} + 
+lets_plot(mpg) {x = "displ"; y = "cty"} + theme().legendPosition_none() +
     geom_point(shape = 21, 
                color = "black",
                tooltips = layer_tooltips()
