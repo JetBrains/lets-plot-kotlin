@@ -148,7 +148,7 @@ Change format for the default tooltip:
 lets_plot(mpg) {x = "displ"; y = "cty"} + 
     geom_point(shape = 21,
                color = "black",
-               tooltips = layer_tooltips().format("^fill", "{.2f} (mpg)")) {fill="drv"; size="hwy"}
+               tooltips = layer_tooltips().format("^size", "{.2f} (mpg)")) {fill="drv"; size="hwy"}
 ```
 
 ![](examples/images/tooltips_2.png)
@@ -228,7 +228,6 @@ p + geom_boxplot(tooltips=layer_tooltips()
                    .line("lower/upper|^lower/^upper")
                    .line("@|^middle"))
 ```
-
 
 ![](examples/images/tooltips_4.png)
 
