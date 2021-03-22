@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -26,8 +26,21 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_x_continuous(
@@ -37,7 +50,8 @@ fun scale_x_continuous(
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
-    trans: String? = null
+    format: String? = null,
+    trans: String? = null,
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -48,6 +62,7 @@ fun scale_x_continuous(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        format = format,
         trans = trans
     )
 }
@@ -69,8 +84,21 @@ fun scale_x_continuous(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_y_continuous(
@@ -80,7 +108,8 @@ fun scale_y_continuous(
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
-    trans: String? = null
+    format: String? = null,
+    trans: String? = null,
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -91,7 +120,8 @@ fun scale_y_continuous(
         limits = limits,
         expand = expand,
         naValue = naValue,
-        trans = trans
+        format = format,
+        trans = trans,
     )
 }
 
@@ -112,6 +142,19 @@ fun scale_y_continuous(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_x_log10(
@@ -120,7 +163,8 @@ fun scale_x_log10(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    format: String? = null,
 ) = scale_x_continuous(
     name = name,
     breaks = breaks,
@@ -128,7 +172,8 @@ fun scale_x_log10(
     limits = limits,
     expand = expand,
     naValue = naValue,
-    trans = "log10"
+    format = format,
+    trans = "log10",
 )
 
 /**
@@ -148,6 +193,19 @@ fun scale_x_log10(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_y_log10(
@@ -156,7 +214,8 @@ fun scale_y_log10(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    format: String? = null,
 ) = scale_y_continuous(
     name = name,
     breaks = breaks,
@@ -164,7 +223,8 @@ fun scale_y_log10(
     limits = limits,
     expand = expand,
     naValue = naValue,
-    trans = "log10"
+    format = format,
+    trans = "log10",
 )
 
 /**
@@ -184,6 +244,19 @@ fun scale_y_log10(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_x_reverse(
@@ -192,7 +265,8 @@ fun scale_x_reverse(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    format: String? = null,
 ) = scale_x_continuous(
     name = name,
     breaks = breaks,
@@ -200,7 +274,8 @@ fun scale_x_reverse(
     limits = limits,
     expand = expand,
     naValue = naValue,
-    trans = "reverse"
+    format = format,
+    trans = "reverse",
 )
 
 /**
@@ -220,6 +295,19 @@ fun scale_x_reverse(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_y_reverse(
@@ -228,7 +316,8 @@ fun scale_y_reverse(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    format: String? = null,
 ) = scale_y_continuous(
     name = name,
     breaks = breaks,
@@ -236,7 +325,8 @@ fun scale_y_reverse(
     limits = limits,
     expand = expand,
     naValue = naValue,
-    trans = "reverse"
+    format = format,
+    trans = "reverse",
 )
 
 /**
@@ -256,6 +346,19 @@ fun scale_y_reverse(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_x_sqrt(
@@ -264,7 +367,8 @@ fun scale_x_sqrt(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    format: String? = null,
 ) = scale_x_continuous(
     name = name,
     breaks = breaks,
@@ -272,7 +376,8 @@ fun scale_x_sqrt(
     limits = limits,
     expand = expand,
     naValue = naValue,
-    trans = "sqrt"
+    format = format,
+    trans = "sqrt",
 )
 
 /**
@@ -292,6 +397,19 @@ fun scale_x_sqrt(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_y_sqrt(
@@ -300,7 +418,8 @@ fun scale_y_sqrt(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    format: String? = null,
 ) = scale_y_continuous(
     name = name,
     breaks = breaks,
@@ -308,5 +427,6 @@ fun scale_y_sqrt(
     limits = limits,
     expand = expand,
     naValue = naValue,
-    trans = "sqrt"
+    format = format,
+    trans = "sqrt",
 )

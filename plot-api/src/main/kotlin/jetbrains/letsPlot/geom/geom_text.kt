@@ -62,15 +62,22 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     Vertical text alignment.
  * @param angle text rotation angle in degrees.
  * @param labelFormat string.
- *     Format used to transform label mapping values to a string.
- *     Examples:
- *     ".2f" -> "12.45"
- *     "Num {}" -> "Num 12.456789"
- *     "TTL: \${.2f}" -> "TTL: $12.45"
- *     Note, the "$" must be escaped as "\$"
+ *     Specifies the format pattern for displaying mapped values.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
+ *
+ *
+ * Format patterns in the `labelFormat` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$"
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 class geom_text(
     data: Map<*, *>? = null,

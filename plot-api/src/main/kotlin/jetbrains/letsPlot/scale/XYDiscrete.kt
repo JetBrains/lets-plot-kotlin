@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -28,8 +28,20 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
- * @param reverse: boolean
- *      When True the scale reversed.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param reverse When True the scale reversed.
+ *
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_x_discrete(
@@ -39,6 +51,7 @@ fun scale_x_discrete(
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
+    format: String? = null,
     reverse: Boolean? = null
 ): Scale {
     checkScaleExpand(expand)
@@ -50,6 +63,7 @@ fun scale_x_discrete(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        format = format,
         otherOptions = Options(
             mapOf(
                 Option.Guide.REVERSE to reverse
@@ -75,8 +89,20 @@ fun scale_x_discrete(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
- * @param reverse: boolean
- *      When True the scale reversed.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param reverse When True the scale reversed.
+ *
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_y_discrete(
@@ -86,6 +112,7 @@ fun scale_y_discrete(
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
+    format: String? = null,
     reverse: Boolean? = null
 ): Scale {
     checkScaleExpand(expand)
@@ -97,6 +124,7 @@ fun scale_y_discrete(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        format = format,
         otherOptions = Options(
             mapOf(
                 Option.Guide.REVERSE to reverse
@@ -122,6 +150,19 @@ fun scale_y_discrete(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
+ * @param format Specifies the format pattern for labels on the scale.
+ *
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_x_discrete_reversed(
@@ -130,7 +171,8 @@ fun scale_x_discrete_reversed(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    format: String? = null,
 ): Scale {
     return scale_x_discrete(
         name = name,
@@ -139,6 +181,7 @@ fun scale_x_discrete_reversed(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        format = format,
         reverse = true
     )
 }
@@ -160,6 +203,19 @@ fun scale_x_discrete_reversed(
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
  * @param naValue Missing values will be replaced with this value.
+ * @param format Specifies the format pattern for labels on the scale.
+ *
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("FunctionName")
 fun scale_y_discrete_reversed(
@@ -168,7 +224,8 @@ fun scale_y_discrete_reversed(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
-    naValue: Number? = null
+    naValue: Number? = null,
+    format: String? = null,
 ): Scale {
     return scale_y_discrete(
         name = name,
@@ -177,6 +234,7 @@ fun scale_y_discrete_reversed(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        format = format,
         reverse = true
     )
 }

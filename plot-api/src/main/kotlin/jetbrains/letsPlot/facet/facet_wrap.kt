@@ -26,13 +26,13 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
  *
  * Examples:
  * ".2f" -> "12.45"
  * "Score: {.2f}" -> "Score: 12.45"
  * "Score: {}" -> "Score: 12.454789"
- *
- * For more info see the formatting reference: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
  *
  */
 @Suppress("FunctionName")

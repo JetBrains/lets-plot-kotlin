@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -31,6 +31,19 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
+ * @param format Specifies the format pattern for labels on the scale.
+ *
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * "%d.%m.%y" -> "06.08.19"
+ * "%B %Y" -> "August 2019"
+ * "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
+ *
  */
 fun scale_x_datetime(
     name: String? = null,
@@ -38,7 +51,8 @@ fun scale_x_datetime(
     labels: List<String>? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
-    naValue: Any? = null
+    naValue: Any? = null,
+    format: String? = null,
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -49,6 +63,7 @@ fun scale_x_datetime(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        format = format,
         otherOptions = Options(
             mapOf(
                 DATE_TIME to true
@@ -75,6 +90,19 @@ fun scale_x_datetime(
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
+ * @param format Specifies the format pattern for labels on the scale.
+ *
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * "%d.%m.%y" -> "06.08.19"
+ * "%B %Y" -> "August 2019"
+ * "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
+ *
  */
 fun scale_y_datetime(
     name: String? = null,
@@ -82,7 +110,8 @@ fun scale_y_datetime(
     labels: List<String>? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
-    naValue: Any? = null
+    naValue: Any? = null,
+    format: String? = null,
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -93,6 +122,7 @@ fun scale_y_datetime(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        format = format,
         otherOptions = Options(
             mapOf(
                 DATE_TIME to true

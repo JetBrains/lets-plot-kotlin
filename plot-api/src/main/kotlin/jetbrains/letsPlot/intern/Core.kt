@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -123,6 +123,7 @@ class Scale(
     val limits: Any? = null,            // Any type convertable to list.
     val expand: Any? = null,
     val naValue: Any? = null,
+    val format: String? = null,
     val guide: Any? = null,
     val trans: String? = null,
     val otherOptions: Options = Options.empty()

@@ -13,6 +13,7 @@ import jetbrains.datalore.plot.config.Option.Scale.AES
 import jetbrains.datalore.plot.config.Option.Scale.BREAKS
 import jetbrains.datalore.plot.config.Option.Scale.CONTINUOUS_TRANSFORM
 import jetbrains.datalore.plot.config.Option.Scale.EXPAND
+import jetbrains.datalore.plot.config.Option.Scale.FORMAT
 import jetbrains.datalore.plot.config.Option.Scale.GUIDE
 import jetbrains.datalore.plot.config.Option.Scale.LABELS
 import jetbrains.datalore.plot.config.Option.Scale.LIMITS
@@ -178,6 +179,7 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     naValue?.let { spec[NA_VALUE] = naValue }
     guide?.let { spec[GUIDE] = guide }
     trans?.let { spec[CONTINUOUS_TRANSFORM] = trans }
+    format?.let { spec[FORMAT] = format }
 
     spec.putAll(otherOptions.map)
     return spec
