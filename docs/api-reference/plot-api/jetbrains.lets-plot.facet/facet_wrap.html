@@ -1,0 +1,80 @@
+<!--
+  ~ Copyright (c) 2021. JetBrains s.r.o.
+  ~ Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+  -->
+
+<HTML>
+<HEAD>
+    <meta charset="UTF-8">
+    <title>facet_wrap - plot-api</title>
+    <link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">plot-api</a>&nbsp;/&nbsp;<a href="index.html">jetbrains.letsPlot.facet</a>&nbsp;/&nbsp;<a
+        href="./facet_wrap.html">facet_wrap</a><br/>
+<br/>
+<h1>facet_wrap</h1>
+<a name="jetbrains.letsPlot.facet$facet_wrap(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.String)"></a>
+<code><span class="keyword">fun </span><span class="identifier">facet_wrap</span><span class="symbol">(</span><span
+        class="identifier"
+        id="jetbrains.letsPlot.facet$facet_wrap(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.String)/facets">facets</span><span
+        class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier"
+                                                                             id="jetbrains.letsPlot.facet$facet_wrap(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.String)/ncol">ncol</span><span
+        class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+        class="symbol">, </span><span class="identifier"
+                                      id="jetbrains.letsPlot.facet$facet_wrap(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.String)/nrow">nrow</span><span
+        class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+        class="symbol">, </span><span class="identifier"
+                                      id="jetbrains.letsPlot.facet$facet_wrap(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.String)/order">order</span><span
+        class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+        class="symbol">, </span><span class="identifier"
+                                      id="jetbrains.letsPlot.facet$facet_wrap(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.String)/format">format</span><span
+        class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span
+        class="identifier">Any</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+        class="symbol">, </span><span class="identifier"
+                                      id="jetbrains.letsPlot.facet$facet_wrap(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.String)/dir">dir</span><span
+        class="symbol">:</span>&nbsp;<a
+        href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+        class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;"h"<span
+        class="symbol">)</span><span class="symbol">: </span><a
+        href="../jetbrains.lets-plot.intern/-options-map/index.html"><span
+        class="identifier">OptionsMap</span></a></code>
+<p>Splits data by one or more faceting variables.
+    For each data subset creates a plot panel and lays out panels according to the <code>ncol</code>, <code>nrow</code>
+    and <code>dir</code> settings.</p>
+<h3>Parameters</h3>
+<p><a name="facets"></a>
+    <code>facets</code> - <a href="#">string|list</a>, one or more faceting variable names.</p>
+<p><a name="ncol"></a>
+    <code>ncol</code> - Number of columns.</p>
+<p><a name="nrow"></a>
+    <code>nrow</code> - Number of rows.</p>
+<p><a name="order"></a>
+    <code>order</code> - <a href="#">int|list</a>, specifies ordering direction panels.
+    1 - ascending, -1 - descending, None - default (ascending).
+    The <code>order</code> values are positionally matched to variables in <code>facets</code>.</p>
+<p><a name="format"></a>
+    <code>format</code> - <a href="#">string|list</a>, specifies the format pattern for displaying faceting values.
+    The <code>format</code> values are positionally matched to variables in <code>facets</code>.</p>
+<p><a name="dir"></a>
+    <code>dir</code> -
+<p>Direction: either "h" for horizontal, the default, or "v", for vertical.</p>
+
+
+<p>Format patterns in the <code>format</code> parameter can be just a number format (like "d") or
+    a string template where number format is surrounded by curly braces: "{d} cylinders".
+    Note: the "$" must be escaped as "\$"
+    For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md</p>
+
+
+<p>Examples:
+    ".2f" -&gt; "12.45"
+    "Score: {.2f}" -&gt; "Score: 12.45"
+    "Score: {}" -&gt; "Score: 12.454789"</p>
+</p>
+</BODY>
+</HTML>
