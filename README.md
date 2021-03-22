@@ -45,7 +45,7 @@
   - [Tooltip customization](#tooltip-customization)
   - [GeoTools support](#geotools)
 
-- [What is new in 1.2.0](#new)
+- [What is new in 1.3.0](#new)
 - [Change log](#change_log)
 - [License](#license)    
 
@@ -242,39 +242,33 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 
 <a id="new"></a>
 
-## What is new in 1.2.0
+## What is new in 1.3.0
 
-- Correlation plot builder.
+- Improved faceting:
+  - New `facet_wrap()` function.
+  - Formatting and ordering options.
 
-  Usage:
-  ```kotlin
-  import jetbrains.letsPlot.bistro.corr.CorrPlot
-  
-  val plot = CorrPlot(data, title = "threshold = 0.5, no diag", threshold = 0.5) // data and optional parameters
-      .points(type = "upper", diag = true) // Add one or more layers
-      .build()  // Finally, build the plot
-  ```
+  See: [Facets demo](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
+  .
 
-  Example: [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+- Formatting tick labels on X/Y axis.
 
+  Example:
+   ```Kotlin
+   scale_x_datetime(format="%b %Y")
+   scale_x_continuous(format="is {.2f}")
+   ```
 
-- The `gggrid()` plot layout utility
+  Demo: [Formatting demo](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
 
-  Arranges plots in cells of a regular grid.
+  See also: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
 
-  Example: [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
-
-
-- Tooltip Customization API
-  - new options: `center` and `middle` (anchor).
-  - new option `minWidth`.
-
-  See [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md) for details.
-
-  Example: [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
+- The`show()` method, by default, now opens a Swing frame showing the
+  plot. [[#51](https://github.com/JetBrains/lets-plot-kotlin/issues/51)]
 
 
-- Other changes and fixes - see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)
+- Other improvements and fixes -
+  see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)
   for details.
 
 <a id="change_log"></a>

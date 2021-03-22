@@ -111,7 +111,7 @@ The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or 
 
 #### Formatting
 
-* [formatting_axes_etc](ToDo)
+* [formatting_axes_etc](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
 * [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
 
 <a id="theme"></a>

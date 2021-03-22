@@ -5,6 +5,58 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2021-03-22
+
+### Added
+
+- `facet_wrap()` function.
+- in `facet_grid()` function:
+  - Ascending/descending ordering of faceting values.
+  - Formatting of faceting values.
+
+  See: [Facets demo](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
+
+- The `format` parameter in positional scales: formatting tick labels on X/Y axis. Supported types are `number`
+  and `date/time`.
+
+  Example:
+   ```
+   scale_x_datetime(format="%b %Y")
+   scale_x_continuous(format="is {.2f}")
+   ```
+
+  Demo: [Formatting demo](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+
+  See also: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+
+
+- The `guides()` function [[#52](https://github.com/JetBrains/lets-plot/issues/52)].
+
+- In tooltip customization API:
+  - option `color` overrides the default tooltip color:
+      ```
+      geom_xxx(tooltips=layer_tooltips().color("red"))
+      ```
+
+  See: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
+
+### Changed
+
+- Built with Lets-Plot v2.0.1 (was v1.5.6).
+- All Java Swing demos were updated to use new `plot components` (new in Lets-Plot v2.0.1).
+- The "Minimal demo" was updated:
+  - [`Main.kt` (Batik)](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/jvm-batik/src/main/kotlin/minimalDemo)
+  - [`Main.kt` (JavaFX)](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/jvm-javafx/src/main/kotlin/minimalDemo)
+
+### Fixed
+
+- `show()` should actually show a plot [[#51](https://github.com/JetBrains/lets-plot-kotlin/issues/51)]
+- Facet grid truncated in jupyter [[#28](https://github.com/JetBrains/lets-plot-kotlin/issues/28)].
+
+The majority of fixes in the core Lets-Plot vv 2.0.0, 2.0.1 are also applicable to this release.
+
+See the Lets-Plot [CHANGELOG.md](https://github.com/JetBrains/lets-plot/blob/master/CHANGELOG.md).
+
 ## [1.2.0] - 2021-01-15
 
 ### Added
