@@ -59,8 +59,20 @@ fun guide_colorbar(
 /**
  * Function to set guides for scales.
  * Sets the mapping between scale and guide.
- * The guide can either be a string ("colorbar"/"legend", "none)
+ * The guide can either be a string ("colorbar"/"legend" or "none" to hide the guide)
  * or a call to a guide function (guide_colorbar()/guide_legend()) specifying additional arguments.
+ * @param alpha String or guide function.
+ *     The guide for alpha scale.
+ * @param color String or guide function.
+ *     The guide for color scale.
+ * @param fill String or guide function.
+ *     The guide for fill scale.
+ * @param shape String or guide function.
+ *     The guide for shape scale.
+ * @param size String or guide function.
+ *     The guide for size scale.
+ * @param linetype String or guide function.
+ *     The guide for linetype scale.
  */
 fun guides(
     alpha: Any? = null,
