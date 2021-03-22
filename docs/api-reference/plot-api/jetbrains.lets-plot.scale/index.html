@@ -81,6 +81,50 @@
     </tr>
     <tr>
         <td>
+            <h4><a href="guides.html">guides</a></h4>
+        </td>
+        <td>
+            <p>Function to set guides for scales.
+                Sets the mapping between scale and guide.
+                The guide can either be a string ("colorbar"/"legend" or "none" to hide the guide)
+                or a call to a guide function (guide_colorbar()/guide_legend()) specifying additional arguments.</p>
+            <code><span class="keyword">fun </span><span class="identifier">guides</span><span
+                    class="symbol">(</span><span class="identifier"
+                                                 id="jetbrains.letsPlot.scale$guides(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/alpha">alpha</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$guides(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/color">color</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$guides(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/fill">fill</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$guides(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/shape">shape</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$guides(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/size">size</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$guides(kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any, kotlin.Any)/linetype">linetype</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
+                    class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">)</span><span class="symbol">: </span><a
+                    href="../jetbrains.lets-plot.intern/-options-map/index.html"><span
+                    class="identifier">OptionsMap</span></a></code></td>
+    </tr>
+    <tr>
+        <td>
             <h4><a href="lims.html">lims</a></h4>
         </td>
         <td>
@@ -1914,26 +1958,26 @@
             <p>Continuous scale for x axis</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_x_continuous</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -1943,19 +1987,24 @@
                     class="identifier">Number</span></a><span class="symbol">?</span><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/trans">trans</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_x_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/trans">trans</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
@@ -1971,26 +2020,26 @@
             <p>Continuous position scale (x).</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_x_datetime</span><span class="symbol">(</span><span
                     class="identifier"
-                    id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/name">name</span><span
+                    id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/labels">labels</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -1999,17 +2048,22 @@
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/expand">expand</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_x_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>
@@ -2022,45 +2076,50 @@
             <p>Discrete scale for x axis</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_x_discrete</span><span class="symbol">(</span><span
                     class="identifier"
-                    id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/name">name</span><span
+                    id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/labels">labels</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/reverse">reverse</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_x_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/reverse">reverse</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
                     class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span
@@ -2076,43 +2135,48 @@
             <p>Reversed discrete scale for x axis</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_x_discrete_reversed</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/labels">labels</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_x_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>
@@ -2125,26 +2189,26 @@
             <p>Continuous position scale (x) where trans='log10'</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_x_log10</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/labels">labels</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -2154,17 +2218,22 @@
                     class="identifier">Number</span></a><span class="symbol">?</span><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_x_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>
@@ -2177,26 +2246,26 @@
             <p>Continuous position scales (x) where trans='reverse'</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_x_reverse</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/labels">labels</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -2206,17 +2275,22 @@
                     class="identifier">Number</span></a><span class="symbol">?</span><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_x_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>
@@ -2229,26 +2303,26 @@
             <p>Continuous position scales (x) where trans='sqrt'</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_x_sqrt</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/labels">labels</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -2258,17 +2332,22 @@
                     class="identifier">Number</span></a><span class="symbol">?</span><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_x_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>
@@ -2281,26 +2360,26 @@
             <p>Continuous scale for y axis</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_y_continuous</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -2310,19 +2389,24 @@
                     class="identifier">Number</span></a><span class="symbol">?</span><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/trans">trans</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_y_continuous(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.String)/trans">trans</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
@@ -2338,26 +2422,26 @@
             <p>Continuous position scale (y).</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_y_datetime</span><span class="symbol">(</span><span
                     class="identifier"
-                    id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/name">name</span><span
+                    id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/labels">labels</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -2366,17 +2450,22 @@
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">?</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/expand">expand</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_y_datetime(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Any, )), kotlin.collections.List((kotlin.Number)), kotlin.Any, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>
@@ -2389,45 +2478,50 @@
             <p>Discrete scale for y axis</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_y_discrete</span><span class="symbol">(</span><span
                     class="identifier"
-                    id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/name">name</span><span
+                    id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/labels">labels</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.Boolean)/reverse">reverse</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_y_discrete(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String, kotlin.Boolean)/reverse">reverse</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span
                     class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span
@@ -2443,43 +2537,48 @@
             <p>Reversed discrete scale for y axis</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_y_discrete_reversed</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/labels">labels</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_y_discrete_reversed(kotlin.String, kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.String)), kotlin.collections.List((kotlin.Any)), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>
@@ -2492,26 +2591,26 @@
             <p>Continuous position scale (y) where trans='log10'</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_y_log10</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/labels">labels</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -2521,17 +2620,22 @@
                     class="identifier">Number</span></a><span class="symbol">?</span><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_y_log10(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>
@@ -2544,26 +2648,26 @@
             <p>Continuous position scales (y) where trans='reverse'</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_y_reverse</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/labels">labels</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -2573,17 +2677,22 @@
                     class="identifier">Number</span></a><span class="symbol">?</span><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_y_reverse(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>
@@ -2596,26 +2705,26 @@
             <p>Continuous position scales (y) where trans='sqrt'</p>
             <code><span class="keyword">fun </span><span class="identifier">scale_y_sqrt</span><span
                     class="symbol">(</span><span class="identifier"
-                                                 id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/name">name</span><span
+                                                 id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/name">name</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/breaks">breaks</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/breaks">breaks</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/labels">labels</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/labels">labels</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
                     class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/limits">limits</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/limits">limits</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span
                     class="identifier">Pair</span></a><span class="symbol">&lt;</span><a
@@ -2625,17 +2734,22 @@
                     class="identifier">Number</span></a><span class="symbol">?</span><span
                     class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">, </span><span class="identifier"
-                                                  id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/expand">expand</span><span
+                                                  id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/expand">expand</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span
                     class="identifier">List</span></a><span class="symbol">&lt;</span><a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span
                     class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier"
-                                                                                         id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number)/naValue">naValue</span><span
+                                                                                         id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/naValue">naValue</span><span
                     class="symbol">:</span>&nbsp;<a
                     href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span
                     class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
+                    class="symbol">, </span><span class="identifier"
+                                                  id="jetbrains.letsPlot.scale$scale_y_sqrt(kotlin.String, kotlin.collections.List((kotlin.Number)), kotlin.collections.List((kotlin.String)), kotlin.Pair((kotlin.Number, )), kotlin.collections.List((kotlin.Number)), kotlin.Number, kotlin.String)/format">format</span><span
+                    class="symbol">:</span>&nbsp;<a
+                    href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span
+                    class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span
                     class="symbol">)</span><span class="symbol">: </span><a
                     href="../jetbrains.lets-plot.intern/-scale/index.html"><span
                     class="identifier">Scale</span></a></code></td>

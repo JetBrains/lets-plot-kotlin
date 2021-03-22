@@ -28,5 +28,23 @@
 <p>Defines the format for displaying the value.
     The format will be applied to the mapped value in the default tooltip
     or to the corresponding value specified in the line template.</p>
+<h3>Parameters</h3>
+<p><a name="field"></a>
+    <code>field</code> - Aesthetic or variable name to apply the format to.
+    The field name starts with a '^' prefix for aesthetics, variable names are specified without prefix or with a '@'
+    prefix.
+    It's possible to set the format for all positional aesthetics:
+    field = "^X" - for all positional x;
+    field = "^Y" - for all positional y.</p>
+<p><a name="format"></a>
+    <code>format</code> - A number format ('1.f') or a string template ('{.1f}').
+    The numeric format for non-numeric value will be ignored.
+    If you need to include a brace character in the literal text, it can be escaped by doubling: {{ and }}, e.g.,
+    .format('^color', '{{ {.1f} }}') -&gt; "{ 17.0 }"
+    .format('model', '{} {{text}}') -&gt; "mustang {text}"
+    The string template in format will allow to change lines for the default tooltip without 'line' specifying.
+    Also the template will change the line for outliers.
+    Aes and var formats are not interchangeable, i.e. var format will not be applied to aes, mapped to this variable.
+</p>
 </BODY>
 </HTML>
