@@ -7,7 +7,8 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
     id 'maven-publish'
-    id "com.jfrog.bintray"
+//    id "com.jfrog.bintray"
+    id "signing"
     id 'org.jetbrains.dokka' version '0.10.0'
 }
 
@@ -50,6 +51,14 @@ task jarSources(type: Jar) {
     from sourceSets.main.allSource
 }
 
+task jarJavaDocs(type: Jar) {
+    classifier 'javadoc'
+    group task_group
+    baseName artifactBaseName
+    version artifactVersion
+    from("$rootDir/README.md")
+}
+
 
 publishing {
     publications {
@@ -60,6 +69,7 @@ publishing {
 
             artifact jarClasses
             artifact jarSources
+            artifact jarJavaDocs
 
             pom {
                 name = "Lets-Plot Kotlin API"
@@ -99,6 +109,7 @@ publishing {
 
             artifact jarClasses
             artifact jarSources
+            artifact jarJavaDocs
 
             pom {
                 name = "Lets-Plot Kotlin API (for Jupyter Kotlin Kernel)"
@@ -126,38 +137,52 @@ publishing {
 
     repositories {
         maven {
-            url = uri("https://jetbrains.bintray.com/lets-plot-maven")
-        }
-    }
-}
-
-// Provide Bintray-specific Information
-def bintray_user = project.buildSettings?.bintray?.user
-def bintray_key = project.buildSettings?.bintray?.key
-
-if (bintray_user != null && bintray_key != null) {
-
-    def pkg_name = 'lets-plot-kotlin-jars'
-    if (ext.versionIsDev) {
-        pkg_name = 'lets-plot-kotlin-jars-dev'
-    }
-
-    bintray {
-        user = bintray_user
-        key = bintray_key
-        publications = ['letsPlotKotlinApi', 'letsPlotKotlinApiKernel']
-        publish = true
-        override = true
-
-        pkg {
-            repo = 'lets-plot-maven'
-            name = pkg_name
-            userOrg = 'jetbrains'
-            licenses = ['MIT']
-            vcsUrl = 'https://github.com/JetBrains/lets-plot-kotlin'
-            version {
-                name = artifactVersion
+//            url = uri("https://jetbrains.bintray.com/lets-plot-maven")
+            url = project.sonatypeUrl
+            credentials {
+                username = project.buildSettings?.sonatype?.username
+                password = project.buildSettings?.sonatype?.password
             }
         }
+        mavenLocal {
+            url = uri(project.localMavenRepository)
+        }
     }
 }
+
+signing {
+    sign publishing.publications.letsPlotKotlinApi
+    sign publishing.publications.letsPlotKotlinApiKernel
+}
+
+
+//// Provide Bintray-specific Information
+//def bintray_user = project.buildSettings?.bintray?.user
+//def bintray_key = project.buildSettings?.bintray?.key
+//
+//if (bintray_user != null && bintray_key != null) {
+//
+//    def pkg_name = 'lets-plot-kotlin-jars'
+//    if (ext.versionIsDev) {
+//        pkg_name = 'lets-plot-kotlin-jars-dev'
+//    }
+//
+//    bintray {
+//        user = bintray_user
+//        key = bintray_key
+//        publications = ['letsPlotKotlinApi', 'letsPlotKotlinApiKernel']
+//        publish = true
+//        override = true
+//
+//        pkg {
+//            repo = 'lets-plot-maven'
+//            name = pkg_name
+//            userOrg = 'jetbrains'
+//            licenses = ['MIT']
+//            vcsUrl = 'https://github.com/JetBrains/lets-plot-kotlin'
+//            version {
+//                name = artifactVersion
+//            }
+//        }
+//    }
+//}

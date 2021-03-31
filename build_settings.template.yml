@@ -1,8 +1,16 @@
 ---
 
 # -------------------------------------------------------------------
-# Bintray settings
+# Sonatype settings
+#
+# User with deployment permission to Sonatype Nexus repository.
+#
+# In addition, each publication must be signed using a PGP key.
+# Create file "~/.gradle/gradle.properties":
+#   signing.keyId=your_keyid_here (short)
+#   signing.password=your_password_here
+#   signing.secretKeyRingFile=/Users/you/.gnupg/secring.kbx
 # -------------------------------------------------------------------
-bintray:
-  user:
-  key:
+sonatype:
+  username:
+  password:
