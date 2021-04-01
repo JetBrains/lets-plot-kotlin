@@ -35,7 +35,6 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
 fun facetWrap(
     facets: Any,
     ncol: Any? = null,

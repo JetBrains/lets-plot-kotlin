@@ -11,11 +11,11 @@ import jetbrains.letsPlot.facet.facetGrid
 import jetbrains.letsPlot.facet.facetWrap
 import jetbrains.letsPlot.geom.*
 import jetbrains.letsPlot.intern.GenericAesMapping
-import jetbrains.letsPlot.intern.OptionsMap
-import jetbrains.letsPlot.intern.Plot
+
 
 @Deprecated("", replaceWith = ReplaceWith("letsPlot(data, mapping)"))
-fun lets_plot(data: Map<*, *>? = null, mapping: GenericAesMapping.() -> Unit = {}): Plot = letsPlot(data, mapping)
+fun lets_plot(data: Map<*, *>? = null, mapping: GenericAesMapping.() -> Unit = {}) = letsPlot(data, mapping)
+
 
 // Geometries
 
@@ -118,6 +118,7 @@ typealias geom_tile = geomTile
 @Deprecated("", ReplaceWith("geomVline"))
 typealias geom_vline = geomVline
 
+
 // Facets
 
 @Deprecated("", ReplaceWith("facetGrid(x, y, xOrder, yOrder, xFormat, yFormat)"))
@@ -128,7 +129,7 @@ fun facet_grid(
     yOrder: Int = 1,
     xFormat: String? = null,
     yFormat: String? = null
-): OptionsMap = facetGrid(x, y, xOrder, yOrder, xFormat, yFormat)
+) = facetGrid(x, y, xOrder, yOrder, xFormat, yFormat)
 
 @Deprecated("", ReplaceWith("facetWrap(facets, ncol, nrow, order, format, dir)"))
 fun facet_wrap(
@@ -138,10 +139,29 @@ fun facet_wrap(
     order: Any? = null,
     format: Any? = null,
     dir: String = "h"
-): OptionsMap = facetWrap(facets, ncol, nrow, order, format, dir)
+) = facetWrap(facets, ncol, nrow, order, format, dir)
+
+
+// Positions
+
+@Deprecated("", ReplaceWith("positionDodge(width)"))
+fun position_dodge(width: Number? = null) = positionDodge(width)
+
+@Deprecated("", ReplaceWith("positionJitter(width, height)"))
+fun position_jitter(width: Number? = null, height: Number? = null) = positionJitter(width, height)
+
+@Deprecated("", ReplaceWith("positionNudge(x, y)"))
+fun position_nudge(x: Number? = null, y: Number? = null) = positionNudge(x, y)
+
+@Deprecated("", ReplaceWith("positionJitterDodge(dodgeWidth, jitterWidth, jitterHeight)"))
+fun position_jitterdodge(
+    dodgeWidth: Number? = null,
+    jitterWidth: Number? = null,
+    jitterHeight: Number? = null
+) = positionJitterDodge(dodgeWidth, jitterWidth, jitterHeight)
+
 
 // Scales
-// Positions
 // Coordinates
 // Theme functions
 // Sampling
