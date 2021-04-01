@@ -224,7 +224,7 @@ class CorrPlot private constructor(
 
     fun build(): Plot {
         if (!(tiles.added || points.added || labels.added)) {
-            return lets_plot()
+            return letsPlot()
         }
 
         OptionsConfigurator.configure(tiles, points, labels, flip)
@@ -242,7 +242,7 @@ class CorrPlot private constructor(
         val keepDiag = getKeepMatrixDiag(tiles, points, labels)
         val combinedType = OptionsConfigurator.getCombinedMatrixType(tiles, points, labels)
 
-        var plot = lets_plot() + colorScale + fillScale
+        var plot = letsPlot() + colorScale + fillScale
 
         // Add layers
         val tooltips = (layer_tooltips()

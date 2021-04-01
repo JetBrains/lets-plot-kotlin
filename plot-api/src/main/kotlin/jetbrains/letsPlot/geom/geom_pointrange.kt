@@ -22,7 +22,7 @@ import jetbrains.letsPlot.intern.layer.geom.PointRangeMapping
  * Add a vertical line defined by upper and lower value with midpoint at y location.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
+ *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat string, optional.
  *      The statistical transformation to use on the data for this layer.
  * @param position string, optional.
