@@ -36,7 +36,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  *
  */
 @Suppress("FunctionName")
-fun facet_wrap(
+fun facetWrap(
     facets: Any,
     ncol: Any? = null,
     nrow: Any? = null,

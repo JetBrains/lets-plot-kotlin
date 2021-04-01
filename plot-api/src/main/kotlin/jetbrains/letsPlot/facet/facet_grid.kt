@@ -33,8 +33,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * "'Score: {}' "-> "Score: 12.454789"
  **
  */
-@Suppress("FunctionName")
-fun facet_grid(
+fun facetGrid(
     x: String? = null,
     y: String? = null,
     xOrder: Int = 1,

@@ -7,14 +7,17 @@
 
 package jetbrains.letsPlot
 
+import jetbrains.letsPlot.facet.facetGrid
+import jetbrains.letsPlot.facet.facetWrap
 import jetbrains.letsPlot.geom.*
 import jetbrains.letsPlot.intern.GenericAesMapping
+import jetbrains.letsPlot.intern.OptionsMap
 import jetbrains.letsPlot.intern.Plot
 
 @Deprecated("", replaceWith = ReplaceWith("letsPlot(data, mapping)"))
 fun lets_plot(data: Map<*, *>? = null, mapping: GenericAesMapping.() -> Unit = {}): Plot = letsPlot(data, mapping)
 
-// geoms
+// Geometries
 
 @Deprecated("", ReplaceWith("geomAbline"))
 typealias geom_abline = geomAbline
@@ -114,3 +117,31 @@ typealias geom_tile = geomTile
 
 @Deprecated("", ReplaceWith("geomVline"))
 typealias geom_vline = geomVline
+
+// Facets
+
+@Deprecated("", ReplaceWith("facetGrid(x, y, xOrder, yOrder, xFormat, yFormat)"))
+fun facet_grid(
+    x: String? = null,
+    y: String? = null,
+    xOrder: Int = 1,
+    yOrder: Int = 1,
+    xFormat: String? = null,
+    yFormat: String? = null
+): OptionsMap = facetGrid(x, y, xOrder, yOrder, xFormat, yFormat)
+
+@Deprecated("", ReplaceWith("facetWrap(facets, ncol, nrow, order, format, dir)"))
+fun facet_wrap(
+    facets: Any,
+    ncol: Any? = null,
+    nrow: Any? = null,
+    order: Any? = null,
+    format: Any? = null,
+    dir: String = "h"
+): OptionsMap = facetWrap(facets, ncol, nrow, order, format, dir)
+
+// Scales
+// Positions
+// Coordinates
+// Theme functions
+// Sampling
