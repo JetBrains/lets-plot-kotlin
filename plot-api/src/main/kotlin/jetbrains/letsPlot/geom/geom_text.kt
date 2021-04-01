@@ -79,7 +79,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-class geom_text(
+class geomText(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,

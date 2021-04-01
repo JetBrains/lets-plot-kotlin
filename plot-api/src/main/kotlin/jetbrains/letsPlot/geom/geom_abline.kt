@@ -45,7 +45,7 @@ import jetbrains.letsPlot.intern.layer.geom.ABLineMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_abline(
+class geomAbline(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,

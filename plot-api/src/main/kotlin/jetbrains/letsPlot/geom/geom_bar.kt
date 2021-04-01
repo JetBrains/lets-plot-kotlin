@@ -47,7 +47,7 @@ import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_bar(
+class geomBar(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.count(),
     position: PosOptions = Pos.stack,

@@ -63,7 +63,7 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_rect(
+class geomRect(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,

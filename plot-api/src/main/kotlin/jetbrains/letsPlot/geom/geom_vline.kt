@@ -16,7 +16,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.VLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.VLineMapping
 
-@Suppress("ClassName")
+@Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Add a straight vertical line to the plot.
  * @param data dictionary or pandas DataFrame, optional.
@@ -46,7 +46,7 @@ import jetbrains.letsPlot.intern.layer.geom.VLineMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_vline(
+class geomVline(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,

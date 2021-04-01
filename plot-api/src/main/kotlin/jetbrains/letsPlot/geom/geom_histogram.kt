@@ -48,7 +48,7 @@ import jetbrains.letsPlot.intern.layer.stat.BinStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_histogram(
+class geomHistogram(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin(),
     position: PosOptions = Pos.stack,

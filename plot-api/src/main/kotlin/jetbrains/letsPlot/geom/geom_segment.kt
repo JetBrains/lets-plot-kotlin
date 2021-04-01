@@ -52,7 +52,7 @@ import jetbrains.letsPlot.intern.layer.geom.SegmentMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_segment(
+class geomSegment(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,

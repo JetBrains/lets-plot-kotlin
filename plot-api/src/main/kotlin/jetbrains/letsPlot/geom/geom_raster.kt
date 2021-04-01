@@ -39,7 +39,7 @@ import jetbrains.letsPlot.intern.layer.geom.RasterMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_raster(
+class geomRaster(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,

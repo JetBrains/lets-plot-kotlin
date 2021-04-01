@@ -16,7 +16,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.LineRangeAesthetics
 import jetbrains.letsPlot.intern.layer.geom.LineRangeMapping
 
-@Suppress("ClassName")
+@Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Display a line range defined by an upper and lower value.
  * @param data dictionary or pandas DataFrame, optional.
@@ -45,7 +45,7 @@ import jetbrains.letsPlot.intern.layer.geom.LineRangeMapping
  *     mapped to plot "aesthetics".
  */
 
-class geom_linerange(
+class geomLinerange(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,

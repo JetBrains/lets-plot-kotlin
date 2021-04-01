@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.geom.ImageAesthetics
 import jetbrains.letsPlot.intern.layer.geom.ImageMapping
 
 @Suppress("ClassName")
-class geom_image(
+class geomImage(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,

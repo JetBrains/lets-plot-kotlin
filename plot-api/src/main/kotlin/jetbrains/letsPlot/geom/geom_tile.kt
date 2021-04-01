@@ -47,7 +47,7 @@ import jetbrains.letsPlot.intern.layer.geom.TileMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_tile(
+class geomTile(
     data: Map<*, *>? = null,
     stat: StatOptions = identity,
     position: PosOptions = Pos.identity,

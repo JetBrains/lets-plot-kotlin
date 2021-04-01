@@ -51,7 +51,7 @@ import jetbrains.letsPlot.intern.layer.stat.DensityStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_density(
+class geomDensity(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.density(),
     position: PosOptions = Pos.identity,

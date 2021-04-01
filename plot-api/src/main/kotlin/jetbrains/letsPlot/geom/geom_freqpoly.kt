@@ -18,7 +18,7 @@ import jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.LineMapping
 import jetbrains.letsPlot.intern.layer.stat.BinStatParameters
 
-@Suppress("ClassName")
+@Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Display a line chart which makes the y value proportional to the number of observed variable values, mapped to x axis.
  * @param data dictionary or pandas DataFrame, optional.
@@ -48,7 +48,7 @@ import jetbrains.letsPlot.intern.layer.stat.BinStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_freqpoly(
+class geomFreqpoly(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin(),
     position: PosOptions = Pos.identity,

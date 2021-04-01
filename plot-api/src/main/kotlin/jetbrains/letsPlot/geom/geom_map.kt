@@ -60,7 +60,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_map(
+class geomMap(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,

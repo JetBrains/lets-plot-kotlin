@@ -68,7 +68,7 @@ import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_boxplot(
+class geomBoxplot(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.boxplot(),
     position: PosOptions = Pos.dodge,

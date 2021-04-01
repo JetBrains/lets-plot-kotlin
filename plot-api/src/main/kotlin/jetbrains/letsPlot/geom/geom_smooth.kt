@@ -61,7 +61,7 @@ import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_smooth(
+class geomSmooth(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.smooth(),
     position: PosOptions = Pos.identity,

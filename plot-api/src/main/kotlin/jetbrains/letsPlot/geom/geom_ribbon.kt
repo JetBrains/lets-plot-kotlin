@@ -48,7 +48,7 @@ import jetbrains.letsPlot.intern.layer.geom.RibbonMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_ribbon(
+class geomRibbon(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,

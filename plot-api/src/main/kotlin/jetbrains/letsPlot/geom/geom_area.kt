@@ -18,7 +18,7 @@ import jetbrains.letsPlot.intern.layer.geom.AreaMapping
 
 @Suppress("ClassName")
 /**
- * Display the development of quantitative values over an interval. This is the continuous analog of geom_bar.
+ * Display the development of quantitative values over an interval. This is the continuous analog of geomBar.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
@@ -47,7 +47,7 @@ import jetbrains.letsPlot.intern.layer.geom.AreaMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_area(
+class geomArea(
     data: Map<*, *>? = null,
     stat: StatOptions = identity,
     position: PosOptions = Pos.stack,

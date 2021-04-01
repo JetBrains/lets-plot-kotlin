@@ -62,7 +62,7 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_polygon(
+class geomPolygon(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,

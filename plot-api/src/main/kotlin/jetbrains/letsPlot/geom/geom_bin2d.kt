@@ -57,7 +57,7 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_bin2d(
+class geomBin2d(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin2d(),
     position: PosOptions = Pos.identity,

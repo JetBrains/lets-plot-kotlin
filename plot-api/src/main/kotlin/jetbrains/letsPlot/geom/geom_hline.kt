@@ -16,7 +16,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.HLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.HLineMapping
 
-@Suppress("ClassName")
+@Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Add a straight horizontal line to the plot.
  * @param data dictionary or pandas DataFrame, optional.
@@ -46,7 +46,7 @@ import jetbrains.letsPlot.intern.layer.geom.HLineMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_hline(
+class geomHline(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
