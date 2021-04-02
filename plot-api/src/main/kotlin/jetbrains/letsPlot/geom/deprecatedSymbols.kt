@@ -5,19 +5,7 @@
 
 @file:Suppress("FunctionName", "SpellCheckingInspection")
 
-package jetbrains.letsPlot
-
-import jetbrains.letsPlot.facet.facetGrid
-import jetbrains.letsPlot.facet.facetWrap
-import jetbrains.letsPlot.geom.*
-import jetbrains.letsPlot.intern.GenericAesMapping
-
-
-@Deprecated("", replaceWith = ReplaceWith("letsPlot(data, mapping)"))
-fun lets_plot(data: Map<*, *>? = null, mapping: GenericAesMapping.() -> Unit = {}) = letsPlot(data, mapping)
-
-
-// Geometries
+package jetbrains.letsPlot.geom
 
 @Deprecated("", ReplaceWith("geomAbline"))
 typealias geom_abline = geomAbline
@@ -117,51 +105,3 @@ typealias geom_tile = geomTile
 
 @Deprecated("", ReplaceWith("geomVline"))
 typealias geom_vline = geomVline
-
-
-// Facets
-
-@Deprecated("", ReplaceWith("facetGrid(x, y, xOrder, yOrder, xFormat, yFormat)"))
-fun facet_grid(
-    x: String? = null,
-    y: String? = null,
-    xOrder: Int = 1,
-    yOrder: Int = 1,
-    xFormat: String? = null,
-    yFormat: String? = null
-) = facetGrid(x, y, xOrder, yOrder, xFormat, yFormat)
-
-@Deprecated("", ReplaceWith("facetWrap(facets, ncol, nrow, order, format, dir)"))
-fun facet_wrap(
-    facets: Any,
-    ncol: Any? = null,
-    nrow: Any? = null,
-    order: Any? = null,
-    format: Any? = null,
-    dir: String = "h"
-) = facetWrap(facets, ncol, nrow, order, format, dir)
-
-
-// Positions
-
-@Deprecated("", ReplaceWith("positionDodge(width)"))
-fun position_dodge(width: Number? = null) = positionDodge(width)
-
-@Deprecated("", ReplaceWith("positionJitter(width, height)"))
-fun position_jitter(width: Number? = null, height: Number? = null) = positionJitter(width, height)
-
-@Deprecated("", ReplaceWith("positionNudge(x, y)"))
-fun position_nudge(x: Number? = null, y: Number? = null) = positionNudge(x, y)
-
-@Deprecated("", ReplaceWith("positionJitterDodge(dodgeWidth, jitterWidth, jitterHeight)"))
-fun position_jitterdodge(
-    dodgeWidth: Number? = null,
-    jitterWidth: Number? = null,
-    jitterHeight: Number? = null
-) = positionJitterDodge(dodgeWidth, jitterWidth, jitterHeight)
-
-
-// Scales
-// Coordinates
-// Theme functions
-// Sampling

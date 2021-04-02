@@ -21,8 +21,8 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  *      ratio = 1, ensures that one unit on the x-axis is the same length as one unit on the y-axis.
  *      Ratios higher than one make units on the y axis longer than units on the x-axis, and vice versa.
  */
-@Suppress("FunctionName")
-fun coord_fixed(
+@Suppress("SpellCheckingInspection")
+fun coordFixed(
     ratio: Double? = null,
     xlim: Pair<Number?, Number?>? = null,
     ylim: Pair<Number?, Number?>? = null
@@ -46,8 +46,8 @@ fun coord_fixed(
  * @param ylim A pair of numbers
  *      Limits for the x and y axes.
  */
-@Suppress("FunctionName")
-fun coord_cartesian(
+@Suppress("SpellCheckingInspection")
+fun coordCartesian(
     xlim: Pair<Number?, Number?>? = null,
     ylim: Pair<Number?, Number?>? = null
 ): OptionsMap {
@@ -70,8 +70,8 @@ fun coord_cartesian(
  * @param ylim A pair of numbers
  *      Limits for the x and y axes.
  */
-@Suppress("FunctionName", "SpellCheckingInspection")
-fun coord_map(
+@Suppress("SpellCheckingInspection")
+fun coordMap(
     xlim: Pair<Number?, Number?>? = null,
     ylim: Pair<Number?, Number?>? = null
 ): OptionsMap {
