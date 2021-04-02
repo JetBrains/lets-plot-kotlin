@@ -20,7 +20,7 @@ import jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
 import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 
 @Suppress("ClassName")
-class stat_boxplot(
+class statBoxplot(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.boxplot(),
     position: PosOptions = dodge,

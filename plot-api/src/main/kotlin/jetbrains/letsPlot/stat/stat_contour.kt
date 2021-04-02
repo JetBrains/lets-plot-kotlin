@@ -16,7 +16,7 @@ import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
 import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
 
 @Suppress("ClassName")
-class stat_contour(
+class statContour(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.CONTOUR),
     position: PosOptions = Pos.identity,

@@ -19,7 +19,7 @@ import jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
 import jetbrains.letsPlot.intern.layer.stat.BinStatParameters
 
 @Suppress("ClassName")
-class stat_bin(
+class statBin(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.histogram(),
     position: PosOptions = Pos.stack,

@@ -15,7 +15,7 @@ import jetbrains.letsPlot.intern.layer.geom.SmoothMapping
 import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
 
 @Suppress("ClassName")
-class stat_smooth(
+class statSmooth(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.SMOOTH),
     position: PosOptions = Pos.identity,

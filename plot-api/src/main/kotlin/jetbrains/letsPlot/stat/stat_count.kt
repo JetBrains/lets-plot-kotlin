@@ -18,7 +18,7 @@ import jetbrains.letsPlot.intern.layer.geom.BarMapping
 import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
 
 @Suppress("ClassName")
-class stat_count(
+class statCount(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.bar(),
     position: PosOptions = stack,

@@ -16,7 +16,7 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
 import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
 
 @Suppress("ClassName")
-class stat_bin2d(
+class statBin2d(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.tile(),
     position: PosOptions = Pos.identity,

@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.stat.Density2dStatAesthetics
 import jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
 
 @Suppress("ClassName")
-class stat_density2d(
+class statDensity2d(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.DENSITY2D),
     position: PosOptions = Pos.identity,
