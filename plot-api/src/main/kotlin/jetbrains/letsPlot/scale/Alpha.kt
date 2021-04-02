@@ -26,7 +26,7 @@ import jetbrains.letsPlot.intern.Scale
  *      A numeric vector of length two providing limits of the scale.
  * @param naValue
  *      An aesthetic value which is used when data in not available.
- * @param guide A result returned by guide_legend() function or "none" to hide the guide.
+ * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */

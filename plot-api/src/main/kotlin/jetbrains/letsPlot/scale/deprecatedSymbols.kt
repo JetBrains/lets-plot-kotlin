@@ -275,3 +275,16 @@ fun scale_color_brewer(
 // Datetime scales
 
 // Scale guides
+@Deprecated("", ReplaceWith("guideLegend(nrow, ncol, byRow)"))
+fun guide_legend(
+    nrow: Int? = null,
+    ncol: Int? = null,
+    byRow: Boolean? = null
+) = guideLegend(nrow, ncol, byRow)
+
+@Deprecated("", ReplaceWith("guideColorbar(barWidth, barHeight, nbin)"))
+fun guide_colorbar(
+    barWidth: Number? = null,
+    barHeight: Number? = null,
+    nbin: Int? = null
+) = guideColorbar(barWidth, barHeight, nbin)

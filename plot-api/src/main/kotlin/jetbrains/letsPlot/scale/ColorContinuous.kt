@@ -46,7 +46,7 @@ import jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
@@ -100,7 +100,7 @@ fun scale_fill_continuous(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
@@ -153,7 +153,7 @@ fun scaleColorContinuous(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
@@ -199,7 +199,7 @@ fun scale_fill_gradient(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
@@ -245,7 +245,7 @@ fun scaleColorGradient(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
@@ -301,7 +301,7 @@ fun scale_fill_gradient2(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
@@ -358,7 +358,7 @@ fun scaleColorGradient2(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
@@ -418,7 +418,7 @@ fun scale_fill_grey(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
@@ -483,7 +483,7 @@ fun scaleColorGrey(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
@@ -550,7 +550,7 @@ fun scale_fill_hue(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
