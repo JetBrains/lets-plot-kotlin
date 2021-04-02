@@ -86,8 +86,7 @@ fun scaleColorIdentity(
  *      specifying additional arguments.
  *      "none" will hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_fill_identity(
+fun scaleFillIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -129,8 +128,7 @@ fun scale_fill_identity(
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_shape_identity(
+fun scaleShapeIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -174,8 +172,8 @@ fun scale_shape_identity(
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_linetype_identity(
+@Suppress("SpellCheckingInspection")
+fun scaleLinetypeIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -218,8 +216,7 @@ fun scale_linetype_identity(
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_alpha_identity(
+fun scaleAlphaIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -261,8 +258,7 @@ fun scale_alpha_identity(
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_size_identity(
+fun scaleSizeIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,

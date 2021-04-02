@@ -157,6 +157,56 @@ fun scale_color_identity(
     guide: Any? = null
 ) = scaleColorIdentity(name, breaks, labels, limits, naValue, guide)
 
+@Deprecated("", ReplaceWith("scaleFillIdentity(name, breaks, labels, limits, naValue, guide)"))
+fun scale_fill_identity(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    guide: Any? = null
+) = scaleFillIdentity(name, breaks, labels, limits, naValue, guide)
+
+@Deprecated("", ReplaceWith("scaleShapeIdentity(name, breaks, labels, limits, naValue, guide)"))
+fun scale_shape_identity(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    guide: Any? = null
+) = scaleShapeIdentity(name, breaks, labels, limits, naValue, guide)
+
+@Deprecated("", ReplaceWith("scaleLinetypeIdentity(name, breaks, labels, limits, naValue, guide)"))
+fun scale_linetype_identity(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    guide: Any? = null
+) = scaleLinetypeIdentity(name, breaks, labels, limits, naValue, guide)
+
+@Deprecated("", ReplaceWith("scaleAlphaIdentity(name, breaks, labels, limits, naValue, guide)"))
+fun scale_alpha_identity(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Number? = null,
+    guide: Any? = null
+) = scaleAlphaIdentity(name, breaks, labels, limits, naValue, guide)
+
+@Deprecated("", ReplaceWith("scaleSizeIdentity(name, breaks, labels, limits, naValue, guide)"))
+fun scale_size_identity(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Number? = null,
+    guide: Any? = null
+) = scaleSizeIdentity(name, breaks, labels, limits, naValue, guide)
+
 // Color scales
 
 @Deprecated("", ReplaceWith("scaleColorManual(values, name, breaks, labels, limits, naValue, guide)"))
