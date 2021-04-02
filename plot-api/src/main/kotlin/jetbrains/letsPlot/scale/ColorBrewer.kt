@@ -91,8 +91,7 @@ fun scale_fill_brewer(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-@Suppress("FunctionName")
-fun scale_color_brewer(
+fun scaleColorBrewer(
     type: String? = null,
     palette: Any? = null,
     direction: Number? = null,

@@ -68,7 +68,7 @@ fun scale_fill_discrete(
  * @param limits list of data values
  *      A vector specifying values to display with the scale and their order in guides (axis).
  */
-fun scale_color_discrete(
+fun scaleColorDiscrete(
     direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,

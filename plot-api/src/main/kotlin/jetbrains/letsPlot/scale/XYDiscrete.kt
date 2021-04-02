@@ -43,8 +43,7 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_x_discrete(
+fun scaleXDiscrete(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -104,8 +103,7 @@ fun scale_x_discrete(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_y_discrete(
+fun scaleYDiscrete(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -164,8 +162,7 @@ fun scale_y_discrete(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_x_discrete_reversed(
+fun scaleXDiscreteReversed(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -174,7 +171,7 @@ fun scale_x_discrete_reversed(
     naValue: Number? = null,
     format: String? = null,
 ): Scale {
-    return scale_x_discrete(
+    return scaleXDiscrete(
         name = name,
         breaks = breaks,
         labels = labels,
@@ -217,8 +214,7 @@ fun scale_x_discrete_reversed(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_y_discrete_reversed(
+fun scaleYDiscreteReversed(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -227,7 +223,7 @@ fun scale_y_discrete_reversed(
     naValue: Number? = null,
     format: String? = null,
 ): Scale {
-    return scale_y_discrete(
+    return scaleYDiscrete(
         name = name,
         breaks = breaks,
         labels = labels,

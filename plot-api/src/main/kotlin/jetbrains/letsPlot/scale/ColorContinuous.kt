@@ -106,7 +106,7 @@ fun scale_fill_continuous(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_continuous(
+fun scaleColorContinuous(
     low: String? = null, high: String? = null,           // ToDo: string or Color
     name: String? = null,
     breaks: List<Number>? = null,
@@ -205,7 +205,7 @@ fun scale_fill_gradient(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_gradient(
+fun scaleColorGradient(
     low: String, high: String,
     name: String? = null,
     breaks: List<Number>? = null,
@@ -214,7 +214,7 @@ fun scale_color_gradient(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scale_color_continuous(
+) = scaleColorContinuous(
     low, high,
     name = name,
     breaks = breaks,
@@ -307,7 +307,7 @@ fun scale_fill_gradient2(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_gradient2(
+fun scaleColorGradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
     name: String? = null,
@@ -424,7 +424,7 @@ fun scale_fill_grey(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_grey(
+fun scaleColorGrey(
     start: Number? = null,
     end: Number? = null,
     direction: Int? = null,         // direction < 0 - reversed
@@ -556,7 +556,7 @@ fun scale_fill_hue(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_hue(
+fun scaleColorHue(
     h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,

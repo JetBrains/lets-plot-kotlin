@@ -37,8 +37,7 @@ import jetbrains.letsPlot.intern.Scale
  *      specifying additional arguments.
  *      "none" will hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_color_identity(
+fun scaleColorIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,

@@ -29,8 +29,7 @@ import jetbrains.letsPlot.intern.Scale
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
  */
-@Suppress("FunctionName")
-fun scale_color_manual(
+fun scaleColorManual(
     values: List<Any>,
     name: String? = null,
     breaks: List<Any>? = null,
