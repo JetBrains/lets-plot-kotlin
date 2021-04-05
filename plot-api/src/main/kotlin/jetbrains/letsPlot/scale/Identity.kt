@@ -33,12 +33,11 @@ import jetbrains.letsPlot.intern.Scale
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_color_identity(
+fun scaleColorIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -83,12 +82,11 @@ fun scale_color_identity(
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_fill_identity(
+fun scaleFillIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -128,10 +126,9 @@ fun scale_fill_identity(
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param guide A result returned by guide_legend() function or "none" to hide the guide.
+ * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_shape_identity(
+fun scaleShapeIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -173,10 +170,10 @@ fun scale_shape_identity(
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param guide A result returned by guide_legend() function or "none" to hide the guide.
+ * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_linetype_identity(
+@Suppress("SpellCheckingInspection")
+fun scaleLinetypeIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -217,10 +214,9 @@ fun scale_linetype_identity(
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param guide A result returned by guide_legend() function or "none" to hide the guide.
+ * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_alpha_identity(
+fun scaleAlphaIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -260,10 +256,9 @@ fun scale_alpha_identity(
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param guide A result returned by guide_legend() function or "none" to hide the guide.
+ * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_size_identity(
+fun scaleSizeIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,

@@ -33,8 +33,7 @@ class MappingMeta(
  *    The name of the scale - used as the axis label or the legend title
  *
  */
-@Suppress("FunctionName")
-fun as_discrete(
+fun asDiscrete(
     variable: String,
     label: String? = null
 ): MappingMeta {

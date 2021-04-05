@@ -35,8 +35,7 @@ import jetbrains.letsPlot.intern.Scale
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-@Suppress("FunctionName")
-fun scale_fill_brewer(
+fun scaleFillBrewer(
     type: String? = null,
     palette: Any? = null,
     direction: Number? = null,
@@ -91,8 +90,7 @@ fun scale_fill_brewer(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-@Suppress("FunctionName")
-fun scale_color_brewer(
+fun scaleColorBrewer(
     type: String? = null,
     palette: Any? = null,
     direction: Number? = null,

@@ -10,10 +10,9 @@ import jetbrains.datalore.plot.config.Option
 /**
  * Hide tooltips.
  */
-val tooltips_none = TooltipOptions().none()
+val tooltipsNone = TooltipOptions().none()
 
-@Suppress("FunctionName")
-fun layer_tooltips() = TooltipOptions()
+fun layerTooltips() = TooltipOptions()
 
 class TooltipOptions() {
     private val parameters = HashMap<String, Any>()

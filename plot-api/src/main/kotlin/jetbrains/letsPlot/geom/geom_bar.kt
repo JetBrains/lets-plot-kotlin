@@ -23,7 +23,7 @@ import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
  * Display a bar chart which makes the height of the bar proportional to the number of observed variable values, mapped to x axis.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
+ *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat string, optional.
  *     The statistical transformation to use on the data for this layer, as a string. Supported transformations:
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
@@ -32,7 +32,7 @@ import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param tooltips result of the call to the layer_tooltips() function.
+ * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param x x-axis value (this values will produce cases or bins for bars).
  * @param y y-axis value (this value will be used to multiply the case's or bin's counts).
@@ -47,7 +47,7 @@ import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_bar(
+class geomBar(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.count(),
     position: PosOptions = Pos.stack,

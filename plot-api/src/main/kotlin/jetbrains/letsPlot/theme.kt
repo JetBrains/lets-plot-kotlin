@@ -30,23 +30,23 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
         return newTheme
     }
 
-    fun axisTitle_blank() = withOption(AXIS_TITLE, VAL_ELEMENT_BLANK)
-    fun axisTitleX_blank() = withOption(AXIS_TITLE_X, VAL_ELEMENT_BLANK)
-    fun axisTitleY_blank() = withOption(AXIS_TITLE_Y, VAL_ELEMENT_BLANK)
-    fun axisText_blank() = withOption(AXIS_TEXT, VAL_ELEMENT_BLANK)
-    fun axisTextX_blank() = withOption(AXIS_TEXT_X, VAL_ELEMENT_BLANK)
-    fun axisTextY_blank() = withOption(AXIS_TEXT_Y, VAL_ELEMENT_BLANK)
-    fun axisTicks_blank() = withOption(AXIS_TICKS, VAL_ELEMENT_BLANK)
-    fun axisTicksX_blank() = withOption(AXIS_TICKS_X, VAL_ELEMENT_BLANK)
-    fun axisTicksY_blank() = withOption(AXIS_TICKS_Y, VAL_ELEMENT_BLANK)
-    fun axisLine_blank() = withOption(AXIS_LINE, VAL_ELEMENT_BLANK)
-    fun axisLineX_blank() = withOption(AXIS_LINE_X, VAL_ELEMENT_BLANK)
-    fun axisLineY_blank() = withOption(AXIS_LINE_Y, VAL_ELEMENT_BLANK)
-    fun legendPosition_none() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_NONE)
-    fun legendPosition_left() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_LEFT)
-    fun legendPosition_right() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_RIGHT)
-    fun legendPosition_bottom() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_BOTTOM)
-    fun legendPosition_top() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_TOP)
+    fun axisTitleBlank() = withOption(AXIS_TITLE, VAL_ELEMENT_BLANK)
+    fun axisTitleXBlank() = withOption(AXIS_TITLE_X, VAL_ELEMENT_BLANK)
+    fun axisTitleYBlank() = withOption(AXIS_TITLE_Y, VAL_ELEMENT_BLANK)
+    fun axisTextBlank() = withOption(AXIS_TEXT, VAL_ELEMENT_BLANK)
+    fun axisTextXBlank() = withOption(AXIS_TEXT_X, VAL_ELEMENT_BLANK)
+    fun axisTextYBlank() = withOption(AXIS_TEXT_Y, VAL_ELEMENT_BLANK)
+    fun axisTicksBlank() = withOption(AXIS_TICKS, VAL_ELEMENT_BLANK)
+    fun axisTicksXBlank() = withOption(AXIS_TICKS_X, VAL_ELEMENT_BLANK)
+    fun axisTicksYBlank() = withOption(AXIS_TICKS_Y, VAL_ELEMENT_BLANK)
+    fun axisLineBlank() = withOption(AXIS_LINE, VAL_ELEMENT_BLANK)
+    fun axisLineXBlank() = withOption(AXIS_LINE_X, VAL_ELEMENT_BLANK)
+    fun axisLineYBlank() = withOption(AXIS_LINE_Y, VAL_ELEMENT_BLANK)
+    fun legendPositionNone() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_NONE)
+    fun legendPositionLeft() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_LEFT)
+    fun legendPositionRight() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_RIGHT)
+    fun legendPositionBottom() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_BOTTOM)
+    fun legendPositionTop() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_TOP)
 
     /**
      * Specifies the legend position relative to the plot drawing area.
@@ -61,14 +61,13 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
         )
     }
 
-    fun legendJustification_center() = withOption(LEGEND_JUSTIFICATION, VAL_LEGEND_JUSTIFICATION_CENTER)
+    fun legendJustificationCenter() = withOption(LEGEND_JUSTIFICATION, VAL_LEGEND_JUSTIFICATION_CENTER)
 
     /**
      * Specifies the anchor point for positioning legend inside plot.
      * Justification (0, 0) corresponds to the left, lower corner of the legend.
      * Justification (1, 1) corresponds to the right, upper corner of the legend.
      */
-    @Suppress("SpellCheckingInspection")
     fun legendJustification(xanchor: Number, yanchor: Number): theme {
         return withOption(
             LEGEND_JUSTIFICATION,
@@ -76,9 +75,71 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
         )
     }
 
-    fun legendDirection_horizontal() = withOption(LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_HORIZONTAL)
-    fun legendDirection_vertical() = withOption(LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_VERTICAL)
+    fun legendDirectionHorizontal() = withOption(LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_HORIZONTAL)
+    fun legendDirectionVertical() = withOption(LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_VERTICAL)
 
+
+    // Deprecated functions
+
+    @Deprecated("", ReplaceWith("axisTitleBlank()"))
+    fun axisTitle_blank() = axisTitleBlank()
+
+    @Deprecated("", ReplaceWith("axisTitleXBlank()"))
+    fun axisTitleX_blank() = axisTitleXBlank()
+
+    @Deprecated("", ReplaceWith("axisTitleYBlank()"))
+    fun axisTitleY_blank() = axisTitleYBlank()
+
+    @Deprecated("", ReplaceWith("axisTextBlank()"))
+    fun axisText_blank() = axisTextBlank()
+
+    @Deprecated("", ReplaceWith("axisTextXBlank()"))
+    fun axisTextX_blank() = axisTextXBlank()
+
+    @Deprecated("", ReplaceWith("axisTextYBlank()"))
+    fun axisTextY_blank() = axisTextYBlank()
+
+    @Deprecated("", ReplaceWith("axisTicksBlank()"))
+    fun axisTicks_blank() = axisTicksBlank()
+
+    @Deprecated("", ReplaceWith("axisTicksXBlank()"))
+    fun axisTicksX_blank() = axisTicksXBlank()
+
+    @Deprecated("", ReplaceWith("axisTicksYBlank()"))
+    fun axisTicksY_blank() = axisTicksYBlank()
+
+    @Deprecated("", ReplaceWith("axisLineBlank()"))
+    fun axisLine_blank() = axisLineBlank()
+
+    @Deprecated("", ReplaceWith("axisTitleBlank()"))
+    fun axisLineX_blank() = axisLineXBlank()
+
+    @Deprecated("", ReplaceWith("axisLineYBlank()"))
+    fun axisLineY_blank() = axisLineYBlank()
+
+    @Deprecated("", ReplaceWith("legendPositionNone()"))
+    fun legendPosition_none() = legendPositionNone()
+
+    @Deprecated("", ReplaceWith("legendPositionLeft()"))
+    fun legendPosition_left() = legendPositionLeft()
+
+    @Deprecated("", ReplaceWith("legendPositionRight()"))
+    fun legendPosition_right() = legendPositionRight()
+
+    @Deprecated("", ReplaceWith("legendPositionBottom()"))
+    fun legendPosition_bottom() = legendPositionBottom()
+
+    @Deprecated("", ReplaceWith("legendPositionTop()"))
+    fun legendPosition_top() = legendPositionTop()
+
+    @Deprecated("", ReplaceWith("legendJustificationCenter()"))
+    fun legendJustification_center() = legendJustificationCenter()
+
+    @Deprecated("", ReplaceWith("legendDirectionHorizontal()"))
+    fun legendDirection_horizontal() = legendDirectionHorizontal()
+
+    @Deprecated("", ReplaceWith("legendDirectionVertical()"))
+    fun legendDirection_vertical() = legendDirectionVertical()
 
     companion object {
         // names

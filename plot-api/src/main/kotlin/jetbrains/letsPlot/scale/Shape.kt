@@ -26,10 +26,9 @@ import jetbrains.letsPlot.intern.Scale
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param guide A result returned by guide_legend() function or "none" to hide the guide.
+ * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_shape(
+fun scaleShape(
     solid: Boolean? = null,
     name: String? = null,
     breaks: List<Any>? = null,

@@ -3,8 +3,6 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-@file:Suppress("FunctionName")
-
 package jetbrains.letsPlot.scale
 
 import jetbrains.datalore.plot.base.Aes
@@ -46,14 +44,14 @@ import jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 
-fun scale_fill_continuous(
+fun scaleFillContinuous(
     low: String? = null, high: String? = null,
     name: String? = null,
     breaks: List<Number>? = null,
@@ -100,13 +98,13 @@ fun scale_fill_continuous(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_continuous(
+fun scaleColorContinuous(
     low: String? = null, high: String? = null,           // ToDo: string or Color
     name: String? = null,
     breaks: List<Number>? = null,
@@ -153,13 +151,13 @@ fun scale_color_continuous(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_fill_gradient(
+fun scaleFillGradient(
     low: String, high: String,
     name: String? = null,
     breaks: List<Number>? = null,
@@ -168,7 +166,7 @@ fun scale_fill_gradient(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scale_fill_continuous(
+) = scaleFillContinuous(
     low, high,
     name = name,
     breaks = breaks,
@@ -199,13 +197,13 @@ fun scale_fill_gradient(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_gradient(
+fun scaleColorGradient(
     low: String, high: String,
     name: String? = null,
     breaks: List<Number>? = null,
@@ -214,7 +212,7 @@ fun scale_color_gradient(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scale_color_continuous(
+) = scaleColorContinuous(
     low, high,
     name = name,
     breaks = breaks,
@@ -245,13 +243,13 @@ fun scale_color_gradient(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_fill_gradient2(
+fun scaleFillGradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
     name: String? = null,
@@ -301,13 +299,13 @@ fun scale_fill_gradient2(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_gradient2(
+fun scaleColorGradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
     name: String? = null,
@@ -358,13 +356,13 @@ fun scale_color_gradient2(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_fill_grey(
+fun scaleFillGrey(
     start: Number? = null,
     end: Number? = null,
     direction: Int? = null,        // direction < 0 - reversed
@@ -418,13 +416,13 @@ fun scale_fill_grey(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_grey(
+fun scaleColorGrey(
     start: Number? = null,
     end: Number? = null,
     direction: Int? = null,         // direction < 0 - reversed
@@ -483,13 +481,13 @@ fun scale_color_grey(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_fill_hue(
+fun scaleFillHue(
     h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,
@@ -550,13 +548,13 @@ fun scale_fill_hue(
  *      Missing values will be replaced with this value.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guide_colorbar(), guide_legend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_color_hue(
+fun scaleColorHue(
     h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,

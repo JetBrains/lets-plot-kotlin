@@ -24,13 +24,13 @@ import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
  * Add a smoothed conditional mean.
  * @param data dictionary, optional.
  *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
+ *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat string, optional.
  *      The statistical transformation to use on the data for this layer.
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param tooltips result of the call to the layer_tooltips() function.
+ * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param x x-axis value.
  * @param y predicted (smoothed) value.
@@ -61,7 +61,7 @@ import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_smooth(
+class geomSmooth(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.smooth(),
     position: PosOptions = Pos.identity,

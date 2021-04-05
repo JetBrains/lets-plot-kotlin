@@ -26,13 +26,13 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
  *
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
+ *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat string, default: "bin".
  *     The statistical transformation to use on the data for this layer.
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param tooltips result of the call to the layer_tooltips() function.
+ * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param bins pair of numbers, default: (30,30)
  *     Number of bins in both directions, vertical and horizontal.  Overridden by binwidth.
@@ -57,7 +57,7 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_bin2d(
+class geomBin2d(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin2d(),
     position: PosOptions = Pos.identity,

@@ -23,7 +23,7 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  * Display a filled closed path defined by the vertex coordinates of individual polygons.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
+ *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat string.
  *     The statistical transformation to use on the data for this layer, as a string. Supported transformations:
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
@@ -32,7 +32,7 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  * @param position string.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param tooltips result of the call to the layer_tooltips() function.
+ * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param map SpatialDataset.
  *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
@@ -62,7 +62,7 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_polygon(
+class geomPolygon(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,

@@ -3,8 +3,6 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-@file:Suppress("FunctionName")
-
 package jetbrains.letsPlot.scale
 
 import jetbrains.datalore.plot.base.Aes
@@ -45,7 +43,7 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  * "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
  *
  */
-fun scale_x_datetime(
+fun scaleXDateTime(
     name: String? = null,
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,
@@ -104,7 +102,7 @@ fun scale_x_datetime(
  * "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
  *
  */
-fun scale_y_datetime(
+fun scaleYDateTime(
     name: String? = null,
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,

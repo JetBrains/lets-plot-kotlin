@@ -26,7 +26,7 @@ import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
  * Display contours of a 3d surface in 2d.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [lets_plot][jetbrains.letsPlot.lets_plot].
+ *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat string, optional.
  *     The statistical transformation to use on the data for this layer, as a string. Supported transformations:
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
@@ -35,7 +35,7 @@ import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param tooltips result of the call to the layer_tooltips() function.
+ * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param bins int, optional.
  *     Number of levels.
@@ -55,7 +55,7 @@ import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geom_contour(
+class geomContour(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.contour(),
     position: PosOptions = identity,

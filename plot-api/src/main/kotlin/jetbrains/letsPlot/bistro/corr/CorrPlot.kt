@@ -11,16 +11,16 @@ import jetbrains.letsPlot.bistro.corr.CorrUtil.correlationsToDataframe
 import jetbrains.letsPlot.bistro.corr.CorrUtil.matrixXYSeries
 import jetbrains.letsPlot.bistro.corr.Method.correlationPearson
 import jetbrains.letsPlot.bistro.corr.OptionsConfigurator.getKeepMatrixDiag
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.geom.geom_text
-import jetbrains.letsPlot.geom.geom_tile
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.geom.geomText
+import jetbrains.letsPlot.geom.geomTile
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.Scale
 import jetbrains.letsPlot.intern.asPlotData
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.sampling.sampling_none
+import jetbrains.letsPlot.sampling.samplingNone
 import jetbrains.letsPlot.scale.*
-import jetbrains.letsPlot.tooltips.layer_tooltips
+import jetbrains.letsPlot.tooltips.layerTooltips
 import kotlin.math.max
 import kotlin.math.min
 
@@ -224,7 +224,7 @@ class CorrPlot private constructor(
 
     fun build(): Plot {
         if (!(tiles.added || points.added || labels.added)) {
-            return lets_plot()
+            return letsPlot()
         }
 
         OptionsConfigurator.configure(tiles, points, labels, flip)
@@ -242,10 +242,10 @@ class CorrPlot private constructor(
         val keepDiag = getKeepMatrixDiag(tiles, points, labels)
         val combinedType = OptionsConfigurator.getCombinedMatrixType(tiles, points, labels)
 
-        var plot = lets_plot() + colorScale + fillScale
+        var plot = letsPlot() + colorScale + fillScale
 
         // Add layers
-        val tooltips = (layer_tooltips()
+        val tooltips = (layerTooltips()
             .format(field = "@${CorrVar.CORR}", format = VALUE_FORMAT)
             .line("@${CorrVar.CORR}"))
 
@@ -257,11 +257,11 @@ class CorrPlot private constructor(
                 keepDiag = keepDiag || combinedType == "full",
                 threshold
             )
-            plot += geom_tile(
+            plot += geomTile(
                 data = layerData,
                 showLegend = showLegend,
                 tooltips = tooltips,
-                sampling = sampling_none,
+                sampling = samplingNone,
                 size = 0.0, width = 1.002, height = 1.002
             ) {
                 x = CorrVar.X
@@ -278,12 +278,12 @@ class CorrPlot private constructor(
                 keepDiag = keepDiag || combinedType == "full",
                 threshold
             )
-            plot += geom_point(
+            plot += geomPoint(
                 data = layerData,
                 showLegend = showLegend,
                 sizeUnit = "x",
                 tooltips = tooltips,
-                sampling = sampling_none
+                sampling = samplingNone
             ) {
                 x = CorrVar.X
                 y = CorrVar.Y
@@ -300,14 +300,14 @@ class CorrPlot private constructor(
                 keepDiag = keepDiag || combinedType == "full",
                 threshold
             )
-            plot += geom_text(
+            plot += geomText(
                 data = layerData,
                 showLegend = showLegend,
                 naText = "",
                 labelFormat = VALUE_FORMAT,
                 sizeUnit = "x",
                 tooltips = tooltips,
-                sampling = sampling_none,
+                sampling = samplingNone,
                 size = if (labels.mapSize == true) null else 1.0,
                 color = labels.color
             ) {
@@ -367,9 +367,9 @@ class CorrPlot private constructor(
         }
 
         private fun colorGradient(low: String, mid: String, high: String): Scale {
-            return scale_color_gradient2(
-                name = LEGEND_NAME,
+            return scaleColorGradient2(
                 low = low, mid = mid, high = high,
+                name = LEGEND_NAME,
                 breaks = SCALE_BREAKS,
                 labels = SCALE_LABELS,
                 limits = SCALE_LIMITS,
@@ -378,9 +378,9 @@ class CorrPlot private constructor(
         }
 
         private fun fillGradient(low: String, mid: String, high: String): Scale {
-            return scale_fill_gradient2(
-                name = LEGEND_NAME,
+            return scaleFillGradient2(
                 low = low, mid = mid, high = high,
+                name = LEGEND_NAME,
                 breaks = SCALE_BREAKS,
                 labels = SCALE_LABELS,
                 limits = SCALE_LIMITS,
@@ -389,9 +389,9 @@ class CorrPlot private constructor(
         }
 
         private fun colorBrewer(palette: String): Scale {
-            return scale_color_brewer(
-                name = LEGEND_NAME,
+            return scaleColorBrewer(
                 palette = palette,
+                name = LEGEND_NAME,
                 breaks = SCALE_BREAKS,
                 labels = SCALE_LABELS,
                 limits = SCALE_LIMITS,
@@ -400,9 +400,9 @@ class CorrPlot private constructor(
         }
 
         private fun fillBrewer(palette: String): Scale {
-            return scale_fill_brewer(
-                name = LEGEND_NAME,
+            return scaleFillBrewer(
                 palette = palette,
+                name = LEGEND_NAME,
                 breaks = SCALE_BREAKS,
                 labels = SCALE_LABELS,
                 limits = SCALE_LIMITS,
@@ -420,21 +420,21 @@ class CorrPlot private constructor(
             @Suppress("NAME_SHADOWING")
             var plot = plot
             plot += theme()
-                .axisTitle_blank()
-                .axisLine_blank()
+                .axisTitleBlank()
+                .axisLineBlank()
 
-            plot += scale_size_identity(naValue = 0, guide = "none")
+            plot += scaleSizeIdentity(naValue = 0, guide = "none")
 
             // Smaller 'additive' expand for tiles (normally: 0.6)
 //            val expand = if (onlyTiles) listOf(0.0, 0.1) else null
             val expand = listOf(0.0, 0.0)
 
-            plot += scale_x_discrete(breaks = xValues, limits = xValues, expand = expand)
+            plot += scaleXDiscrete(breaks = xValues, limits = xValues, expand = expand)
 
 
             // ToDo: 'reverse' doesn't work if 'limits' are set. Should be fixed in 1.6.0
-//            plot += scale_y_discree(limits = yValues, expand = scaleXYExpand, reverse = flipY)
-            plot += scale_y_discrete(
+//            plot += scaleYDiscrete(limits = yValues, expand = scaleXYExpand, reverse = flipY)
+            plot += scaleYDiscrete(
                 breaks = yValues,
                 limits = if (flipY) yValues.asReversed() else yValues,
                 expand = expand
@@ -443,9 +443,9 @@ class CorrPlot private constructor(
             val xLim = Pair(-0.6, xValues.size - 1 + 0.6)
             val yLim = Pair(-0.6, yValues.size - 1 + 0.6)
             if (onlyTiles) {
-                plot += coord_cartesian(xlim = xLim, ylim = yLim)
+                plot += coordCartesian(xlim = xLim, ylim = yLim)
             } else {
-                plot += coord_fixed(xlim = xLim, ylim = yLim)
+                plot += coordFixed(xlim = xLim, ylim = yLim)
             }
             return plot
         }

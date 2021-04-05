@@ -42,8 +42,7 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_x_continuous(
+fun scaleXContinuous(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -100,8 +99,7 @@ fun scale_x_continuous(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_y_continuous(
+fun scaleYContinuous(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -156,8 +154,7 @@ fun scale_y_continuous(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_x_log10(
+fun scaleXLog10(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -165,7 +162,7 @@ fun scale_x_log10(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-) = scale_x_continuous(
+) = scaleXContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
@@ -207,8 +204,7 @@ fun scale_x_log10(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_y_log10(
+fun scaleYLog10(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -216,7 +212,7 @@ fun scale_y_log10(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-) = scale_y_continuous(
+) = scaleYContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
@@ -258,8 +254,7 @@ fun scale_y_log10(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_x_reverse(
+fun scaleXReverse(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -267,7 +262,7 @@ fun scale_x_reverse(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-) = scale_x_continuous(
+) = scaleXContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
@@ -309,8 +304,7 @@ fun scale_x_reverse(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_y_reverse(
+fun scaleYReverse(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -318,7 +312,7 @@ fun scale_y_reverse(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-) = scale_y_continuous(
+) = scaleYContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
@@ -360,8 +354,7 @@ fun scale_y_reverse(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_x_sqrt(
+fun scaleXSqrt(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -369,7 +362,7 @@ fun scale_x_sqrt(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-) = scale_x_continuous(
+) = scaleXContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
@@ -411,8 +404,7 @@ fun scale_x_sqrt(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-@Suppress("FunctionName")
-fun scale_y_sqrt(
+fun scaleYSqrt(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -420,7 +412,7 @@ fun scale_y_sqrt(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-) = scale_y_continuous(
+) = scaleYContinuous(
     name = name,
     breaks = breaks,
     labels = labels,

@@ -17,15 +17,13 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * @param ncol A number of columns in legend's guide
  * @param byRow A type of output: by row (default), or by column
  */
-@Suppress("FunctionName")
-fun guide_legend(
+fun guideLegend(
     @Suppress("SpellCheckingInspection")
     nrow: Int? = null,
     @Suppress("SpellCheckingInspection")
     ncol: Int? = null,
     byRow: Boolean? = null
 ): Map<String, Any> {
-    @Suppress("SpellCheckingInspection")
     return mapOf(
         "name" to Option.Guide.LEGEND,
         Option.Guide.Legend.ROW_COUNT to nrow,
@@ -37,13 +35,13 @@ fun guide_legend(
 /**
  * Continuous color bar guide.
  * Color bar guide shows continuous color scales mapped onto values.
- * Color bar is available with scale_fill and scale_color.
+ * Color bar is available with scaleFill and scaleColor.
  * @param barWidth Color bar width
  * @param barHeight Color bar height
  * @param nbin Number of bins in color bar
  */
-@Suppress("FunctionName", "SpellCheckingInspection")
-fun guide_colorbar(
+@Suppress("SpellCheckingInspection")
+fun guideColorBar(
     barWidth: Number? = null,
     barHeight: Number? = null,
     nbin: Int? = null
@@ -60,7 +58,7 @@ fun guide_colorbar(
  * Function to set guides for scales.
  * Sets the mapping between scale and guide.
  * The guide can either be a string ("colorbar"/"legend" or "none" to hide the guide)
- * or a call to a guide function (guide_colorbar()/guide_legend()) specifying additional arguments.
+ * or a call to a guide function (guideColorBar()/guideLegend()) specifying additional arguments.
  * @param alpha String or guide function.
  *     The guide for alpha scale.
  * @param color String or guide function.
@@ -74,6 +72,7 @@ fun guide_colorbar(
  * @param linetype String or guide function.
  *     The guide for linetype scale.
  */
+@Suppress("SpellCheckingInspection")
 fun guides(
     alpha: Any? = null,
     color: Any? = null,
