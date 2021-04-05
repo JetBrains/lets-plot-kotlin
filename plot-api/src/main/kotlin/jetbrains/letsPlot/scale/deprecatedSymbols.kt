@@ -518,7 +518,7 @@ fun scale_alpha(
 
 // Datetime scales
 
-@Deprecated("", ReplaceWith("scaleXDatetime(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleXDateTime(name, breaks, labels, limits, expand, naValue, format)"))
 fun scale_x_datetime(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -527,9 +527,9 @@ fun scale_x_datetime(
     expand: List<Number>? = null,
     naValue: Any? = null,
     format: String? = null,
-) = scaleXDatetime(name, breaks, labels, limits, expand, naValue, format)
+) = scaleXDateTime(name, breaks, labels, limits, expand, naValue, format)
 
-@Deprecated("", ReplaceWith("scaleYDatetime(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleYDateTime(name, breaks, labels, limits, expand, naValue, format)"))
 fun scale_y_datetime(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -538,7 +538,7 @@ fun scale_y_datetime(
     expand: List<Number>? = null,
     naValue: Any? = null,
     format: String? = null,
-) = scaleYDatetime(name, breaks, labels, limits, expand, naValue, format)
+) = scaleYDateTime(name, breaks, labels, limits, expand, naValue, format)
 
 // Scale guides
 
@@ -549,9 +549,9 @@ fun guide_legend(
     byRow: Boolean? = null
 ) = guideLegend(nrow, ncol, byRow)
 
-@Deprecated("", ReplaceWith("guideColorbar(barWidth, barHeight, nbin)"))
+@Deprecated("", ReplaceWith("guideColorBar(barWidth, barHeight, nbin)"))
 fun guide_colorbar(
     barWidth: Number? = null,
     barHeight: Number? = null,
     nbin: Int? = null
-) = guideColorbar(barWidth, barHeight, nbin)
+) = guideColorBar(barWidth, barHeight, nbin)

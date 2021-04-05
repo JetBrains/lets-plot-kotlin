@@ -50,7 +50,7 @@ import jetbrains.letsPlot.intern.layer.geom.PointRangeMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geomPointrange(
+class geomPointRange(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,

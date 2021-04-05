@@ -7,8 +7,8 @@
 
 package jetbrains.letsPlot.geom
 
-@Deprecated("", ReplaceWith("geomAbline"))
-typealias geom_abline = geomAbline
+@Deprecated("", ReplaceWith("geomABLine"))
+typealias geom_abline = geomABLine
 
 @Deprecated("", ReplaceWith("geomArea"))
 typealias geom_area = geomArea
@@ -28,8 +28,8 @@ typealias geom_contour = geomContour
 @Deprecated("", ReplaceWith("geomContourf"))
 typealias geom_contourf = geomContourf
 
-@Deprecated("", ReplaceWith("geomCrossbar"))
-typealias geom_crossbar = geomCrossbar
+@Deprecated("", ReplaceWith("geomCrossBar"))
+typealias geom_crossbar = geomCrossBar
 
 @Deprecated("", ReplaceWith("geomDensity"))
 typealias geom_density = geomDensity
@@ -40,8 +40,8 @@ typealias geom_density2d = geomDensity2d
 @Deprecated("", ReplaceWith("geomDensity2df"))
 typealias geom_density2df = geomDensity2df
 
-@Deprecated("", ReplaceWith("geomErrorbar"))
-typealias geom_errorbar = geomErrorbar
+@Deprecated("", ReplaceWith("geomErrorBar"))
+typealias geom_errorbar = geomErrorBar
 
 @Deprecated("", ReplaceWith("geomFreqpoly"))
 typealias geom_freqpoly = geomFreqpoly
@@ -49,8 +49,8 @@ typealias geom_freqpoly = geomFreqpoly
 @Deprecated("", ReplaceWith("geomHistogram"))
 typealias geom_histogram = geomHistogram
 
-@Deprecated("", ReplaceWith("geomHline"))
-typealias geom_hline = geomHline
+@Deprecated("", ReplaceWith("geomHLine"))
+typealias geom_hline = geomHLine
 
 @Deprecated("", ReplaceWith("geomImage"))
 typealias geom_image = geomImage
@@ -61,8 +61,8 @@ typealias geom_jitter = geomJitter
 @Deprecated("", ReplaceWith("geomLine"))
 typealias geom_line = geomLine
 
-@Deprecated("", ReplaceWith("geomLinerange"))
-typealias geom_linerange = geomLinerange
+@Deprecated("", ReplaceWith("geomLineRange"))
+typealias geom_linerange = geomLineRange
 
 @Deprecated("", ReplaceWith("geomMap"))
 typealias geom_map = geomMap
@@ -73,8 +73,8 @@ typealias geom_path = geomPath
 @Deprecated("", ReplaceWith("geomPoint"))
 typealias geom_point = geomPoint
 
-@Deprecated("", ReplaceWith("geomPointrange"))
-typealias geom_pointrange = geomPointrange
+@Deprecated("", ReplaceWith("geomPointRange"))
+typealias geom_pointrange = geomPointRange
 
 @Deprecated("", ReplaceWith("geomPolygon"))
 typealias geom_polygon = geomPolygon
@@ -103,5 +103,5 @@ typealias geom_text = geomText
 @Deprecated("", ReplaceWith("geomTile"))
 typealias geom_tile = geomTile
 
-@Deprecated("", ReplaceWith("geomVline"))
-typealias geom_vline = geomVline
+@Deprecated("", ReplaceWith("geomVLine"))
+typealias geom_vline = geomVLine

@@ -3,6 +3,8 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
+@file:Suppress("SpellCheckingInspection")
+
 package jetbrains.letsPlot
 
 import jetbrains.datalore.plot.config.Option
@@ -21,7 +23,6 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  *      ratio = 1, ensures that one unit on the x-axis is the same length as one unit on the y-axis.
  *      Ratios higher than one make units on the y axis longer than units on the x-axis, and vice versa.
  */
-@Suppress("SpellCheckingInspection")
 fun coordFixed(
     ratio: Double? = null,
     xlim: Pair<Number?, Number?>? = null,
@@ -46,7 +47,6 @@ fun coordFixed(
  * @param ylim A pair of numbers
  *      Limits for the x and y axes.
  */
-@Suppress("SpellCheckingInspection")
 fun coordCartesian(
     xlim: Pair<Number?, Number?>? = null,
     ylim: Pair<Number?, Number?>? = null
@@ -70,7 +70,6 @@ fun coordCartesian(
  * @param ylim A pair of numbers
  *      Limits for the x and y axes.
  */
-@Suppress("SpellCheckingInspection")
 fun coordMap(
     xlim: Pair<Number?, Number?>? = null,
     ylim: Pair<Number?, Number?>? = null

@@ -43,7 +43,7 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  * "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
  *
  */
-fun scaleXDatetime(
+fun scaleXDateTime(
     name: String? = null,
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,
@@ -102,7 +102,7 @@ fun scaleXDatetime(
  * "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
  *
  */
-fun scaleYDatetime(
+fun scaleYDateTime(
     name: String? = null,
     breaks: List<Any>? = null,      // ToDo: should understand Date
     labels: List<String>? = null,

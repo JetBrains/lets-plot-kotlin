@@ -46,14 +46,13 @@ import jetbrains.letsPlot.intern.layer.geom.VLineMapping
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geomVline(
+class geomVLine(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
-    @Suppress("SpellCheckingInspection")
     override val xintercept: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,

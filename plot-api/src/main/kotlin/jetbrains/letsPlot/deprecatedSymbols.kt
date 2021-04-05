@@ -16,7 +16,6 @@ fun lets_plot(data: Map<*, *>? = null, mapping: GenericAesMapping.() -> Unit = {
 @Deprecated("", ReplaceWith("asDiscrete(variable, label)"))
 fun as_discrete(variable: String, label: String? = null) = asDiscrete(variable, label)
 
-
 // Coordinates
 
 @Deprecated("", ReplaceWith("coordFixed(ratio, xlim, ylim)"))
@@ -37,7 +36,6 @@ fun coord_map(
     xlim: Pair<Number?, Number?>? = null,
     ylim: Pair<Number?, Number?>? = null
 ) = coordMap(xlim, ylim)
-
 
 // Positions
 

@@ -45,7 +45,7 @@ import jetbrains.letsPlot.intern.layer.geom.LineRangeMapping
  *     mapped to plot "aesthetics".
  */
 
-class geomLinerange(
+class geomLineRange(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.identity,
