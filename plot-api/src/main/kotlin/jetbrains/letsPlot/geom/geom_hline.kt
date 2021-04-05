@@ -30,7 +30,7 @@ import jetbrains.letsPlot.intern.layer.geom.HLineMapping
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param tooltips result of the call to the layer_tooltips() function.
+ * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param yintercept line y-intercept
  *     The value of y at the point where the line crosses the y axis.

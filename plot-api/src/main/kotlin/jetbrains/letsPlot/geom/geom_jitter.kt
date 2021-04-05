@@ -33,7 +33,7 @@ import jetbrains.letsPlot.position_jitter
  * @param position string, optional.
  *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
  *     position adjustment function.
- * @param tooltips result of the call to the layer_tooltips() function.
+ * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param width double, optional.
  *     width for jitter, default=0.4
