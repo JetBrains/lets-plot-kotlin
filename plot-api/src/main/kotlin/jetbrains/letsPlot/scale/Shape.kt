@@ -28,8 +28,7 @@ import jetbrains.letsPlot.intern.Scale
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  */
-@Suppress("FunctionName")
-fun scale_shape(
+fun scaleShape(
     solid: Boolean? = null,
     name: String? = null,
     breaks: List<Any>? = null,

@@ -3,8 +3,6 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-@file:Suppress("FunctionName")
-
 package jetbrains.letsPlot.scale
 
 import jetbrains.datalore.plot.base.Aes
@@ -28,7 +26,7 @@ import jetbrains.letsPlot.intern.Scale
  * @param limits list of data values
  *      A vector specifying values to display with the scale and their order in guides (axis).
  */
-fun scale_fill_discrete(
+fun scaleFillDiscrete(
     direction: Int? = null,
     name: String? = null,
     breaks: List<Any>? = null,

@@ -71,8 +71,7 @@ fun scaleColorManual(
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
  */
-@Suppress("FunctionName")
-fun scale_fill_manual(
+fun scaleFillManual(
     values: List<Any>,
     name: String? = null,
     breaks: List<Any>? = null,
@@ -114,8 +113,7 @@ fun scale_fill_manual(
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
  */
-@Suppress("FunctionName")
-fun scale_size_manual(
+fun scaleSizeManual(
     values: List<Number>,
     name: String? = null,
     breaks: List<Any>? = null,
@@ -157,8 +155,7 @@ fun scale_size_manual(
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
  */
-@Suppress("FunctionName")
-fun scale_shape_manual(
+fun scaleShapeManual(
     values: List<Number>,
     name: String? = null,
     breaks: List<Any>? = null,
@@ -200,8 +197,8 @@ fun scale_shape_manual(
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
  */
-@Suppress("FunctionName")
-fun scale_linetype_manual(
+@Suppress("SpellCheckingInspection")
+fun scaleLinetypeManual(
     values: List<Number>,
     name: String? = null,
     breaks: List<Any>? = null,
@@ -243,8 +240,7 @@ fun scale_linetype_manual(
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
  */
-@Suppress("FunctionName")
-fun scale_alpha_manual(
+fun scaleAlphaManual(
     values: List<Double>,
     name: String? = null,
     breaks: List<Any>? = null,

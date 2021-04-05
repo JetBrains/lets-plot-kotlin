@@ -3,8 +3,6 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-@file:Suppress("FunctionName")
-
 package jetbrains.letsPlot.scale
 
 import jetbrains.datalore.plot.base.Aes
@@ -30,7 +28,7 @@ import jetbrains.letsPlot.intern.Scale
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_size(
+fun scaleSize(
     range: Pair<Number, Number>? = null,
     name: String? = null,
     breaks: List<Number>? = null,
@@ -72,7 +70,7 @@ fun scale_size(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_size_area(
+fun scaleSizeArea(
     maxSize: Number? = null,
     name: String? = null,
     breaks: List<Number>? = null,

@@ -9,7 +9,7 @@ package jetbrains.letsPlot.scale
 
 // Position scales
 
-@Deprecated("", ReplaceWith("scaleXDiscrete(data, name, breaks, labels, limits, expand, naValue, format, reverse)"))
+@Deprecated("", ReplaceWith("scaleXDiscrete(name, breaks, labels, limits, expand, naValue, format, reverse)"))
 fun scale_x_discrete(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -21,7 +21,7 @@ fun scale_x_discrete(
     reverse: Boolean? = null
 ) = scaleXDiscrete(name, breaks, labels, limits, expand, naValue, format, reverse)
 
-@Deprecated("", ReplaceWith("scaleYDiscrete(data, name, breaks, labels, limits, expand, naValue, format, reverse)"))
+@Deprecated("", ReplaceWith("scaleYDiscrete(name, breaks, labels, limits, expand, naValue, format, reverse)"))
 fun scale_y_discrete(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -268,6 +268,20 @@ fun scale_color_gradient2(
     trans: String? = null
 ) = scaleColorGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)
 
+@Deprecated("", ReplaceWith("scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_color_grey(
+    start: Number? = null,
+    end: Number? = null,
+    direction: Int? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)
+
 @Deprecated("", ReplaceWith("scaleColorHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_color_hue(
     h: Pair<Int, Int>? = null,
@@ -283,20 +297,6 @@ fun scale_color_hue(
     guide: Any? = null,
     trans: String? = null
 ) = scaleColorHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)
-
-@Deprecated("", ReplaceWith("scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)"))
-fun scale_color_grey(
-    start: Number? = null,
-    end: Number? = null,
-    direction: Int? = null,
-    name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    limits: Pair<Number?, Number?>? = null,
-    naValue: Any? = null,
-    guide: Any? = null,
-    trans: String? = null
-) = scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleColorBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_color_brewer(
@@ -314,17 +314,234 @@ fun scale_color_brewer(
 
 // Fill scales
 
+@Deprecated("", ReplaceWith("scaleFillManual(values, name, breaks, labels, limits, naValue, guide)"))
+fun scale_fill_manual(
+    values: List<Any>,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    guide: Any? = null
+) = scaleFillManual(values, name, breaks, labels, limits, naValue, guide)
+
+@Deprecated("", ReplaceWith("scaleFillDiscrete(direction, name, breaks, labels, limits, naValue, guide)"))
+fun scale_fill_discrete(
+    direction: Int? = null,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    guide: Any? = null
+) = scaleFillDiscrete(direction, name, breaks, labels, limits, naValue, guide)
+
+@Deprecated("", ReplaceWith("scaleFillContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_fill_continuous(
+    low: String? = null, high: String? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleFillContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)
+
+@Deprecated("", ReplaceWith("scaleFillGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_fill_gradient(
+    low: String, high: String,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleFillGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)
+
+@Deprecated("", ReplaceWith("scaleFillGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_fill_gradient2(
+    low: String, mid: String, high: String,
+    midpoint: Double = 0.0,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleFillGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)
+
+@Deprecated("", ReplaceWith("scaleFillGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_fill_grey(
+    start: Number? = null,
+    end: Number? = null,
+    direction: Int? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleFillGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)
+
+@Deprecated("", ReplaceWith("scaleFillHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_fill_hue(
+    h: Pair<Int, Int>? = null,
+    c: Int? = null,
+    l: Int? = null,
+    hstart: Int? = null,
+    direction: Int? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleFillHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)
+
+@Deprecated("", ReplaceWith("scaleFillBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_fill_brewer(
+    type: String? = null,
+    palette: Any? = null,
+    direction: Number? = null,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: Any? = null,
+    naValue: Any? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleFillBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)
+
 // Size scales
+
+@Deprecated("", ReplaceWith("scaleSizeManual(values, name, breaks, labels, limits, naValue, guide)"))
+fun scale_size_manual(
+    values: List<Number>,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Number? = null,
+    guide: Any? = null
+) = scaleSizeManual(values, name, breaks, labels, limits, naValue, guide)
+
+@Deprecated("", ReplaceWith("scaleSize(range, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_size(
+    range: Pair<Number, Number>? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Number? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleSize(range, name, breaks, labels, limits, naValue, guide, trans)
+
+@Deprecated("", ReplaceWith("scaleSizeArea(maxSize, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_size_area(
+    maxSize: Number? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Number? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleSizeArea(maxSize, name, breaks, labels, limits, naValue, guide, trans)
 
 // Shape scales
 
+@Deprecated("", ReplaceWith("scaleShapeManual(values, name, breaks, labels, limits, naValue, guide)"))
+fun scale_shape_manual(
+    values: List<Number>,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    guide: Any? = null
+) = scaleShapeManual(values, name, breaks, labels, limits, naValue, guide)
+
+@Deprecated("", ReplaceWith("scaleShape(solid, name, breaks, labels, limits, naValue, guide)"))
+fun scale_shape(
+    solid: Boolean? = null,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    guide: Any? = null
+) = scaleShape(solid, name, breaks, labels, limits, naValue, guide)
+
 // Linetype scales
+
+@Deprecated("", ReplaceWith("scaleLinetypeManual(values, name, breaks, labels, limits, naValue, guide)"))
+fun scale_linetype_manual(
+    values: List<Number>,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    guide: Any? = null
+) = scaleLinetypeManual(values, name, breaks, labels, limits, naValue, guide)
 
 // Alpha scales
 
+@Deprecated("", ReplaceWith("scaleAlphaManual(values, name, breaks, labels, limits, naValue, guide)"))
+fun scale_alpha_manual(
+    values: List<Double>,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Number? = null,
+    guide: Any? = null
+) = scaleAlphaManual(values, name, breaks, labels, limits, naValue, guide)
+
+@Deprecated("", ReplaceWith("scaleAlpha(range, name, breaks, labels, limits, naValue, guide, trans)"))
+fun scale_alpha(
+    range: Pair<Number, Number>? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Number? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleAlpha(range, name, breaks, labels, limits, naValue, guide, trans)
+
 // Datetime scales
 
+@Deprecated("", ReplaceWith("scaleXDatetime(name, breaks, labels, limits, expand, naValue, format)"))
+fun scale_x_datetime(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Any?, Any?>? = null,
+    expand: List<Number>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+) = scaleXDatetime(name, breaks, labels, limits, expand, naValue, format)
+
+@Deprecated("", ReplaceWith("scaleYDatetime(name, breaks, labels, limits, expand, naValue, format)"))
+fun scale_y_datetime(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Any?, Any?>? = null,
+    expand: List<Number>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+) = scaleYDatetime(name, breaks, labels, limits, expand, naValue, format)
+
 // Scale guides
+
 @Deprecated("", ReplaceWith("guideLegend(nrow, ncol, byRow)"))
 fun guide_legend(
     nrow: Int? = null,

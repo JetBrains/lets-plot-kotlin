@@ -35,7 +35,7 @@ fun guideLegend(
 /**
  * Continuous color bar guide.
  * Color bar guide shows continuous color scales mapped onto values.
- * Color bar is available with scale_fill and scale_color.
+ * Color bar is available with scaleFill and scaleColor.
  * @param barWidth Color bar width
  * @param barHeight Color bar height
  * @param nbin Number of bins in color bar

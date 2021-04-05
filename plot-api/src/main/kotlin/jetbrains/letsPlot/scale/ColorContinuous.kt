@@ -3,8 +3,6 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-@file:Suppress("FunctionName")
-
 package jetbrains.letsPlot.scale
 
 import jetbrains.datalore.plot.base.Aes
@@ -53,7 +51,7 @@ import jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
 
-fun scale_fill_continuous(
+fun scaleFillContinuous(
     low: String? = null, high: String? = null,
     name: String? = null,
     breaks: List<Number>? = null,
@@ -159,7 +157,7 @@ fun scaleColorContinuous(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_fill_gradient(
+fun scaleFillGradient(
     low: String, high: String,
     name: String? = null,
     breaks: List<Number>? = null,
@@ -168,7 +166,7 @@ fun scale_fill_gradient(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scale_fill_continuous(
+) = scaleFillContinuous(
     low, high,
     name = name,
     breaks = breaks,
@@ -251,7 +249,7 @@ fun scaleColorGradient(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_fill_gradient2(
+fun scaleFillGradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
     name: String? = null,
@@ -364,7 +362,7 @@ fun scaleColorGradient2(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_fill_grey(
+fun scaleFillGrey(
     start: Number? = null,
     end: Number? = null,
     direction: Int? = null,        // direction < 0 - reversed
@@ -489,7 +487,7 @@ fun scaleColorGrey(
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-fun scale_fill_hue(
+fun scaleFillHue(
     h: Pair<Int, Int>? = null,
     c: Int? = null,
     l: Int? = null,

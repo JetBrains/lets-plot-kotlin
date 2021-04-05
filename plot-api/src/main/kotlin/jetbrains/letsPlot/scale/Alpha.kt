@@ -30,8 +30,7 @@ import jetbrains.letsPlot.intern.Scale
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  */
-@Suppress("FunctionName")
-fun scale_alpha(
+fun scaleAlpha(
     range: Pair<Number, Number>? = null,
     name: String? = null,
     breaks: List<Number>? = null,
