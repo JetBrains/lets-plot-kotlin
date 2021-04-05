@@ -53,9 +53,12 @@
 <a name="Overview" id="overview"></a>
 ### Overview
 
-**Lets-Plot for Kotlin** is a Kotlin API for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an open-source plotting library for statistical data which is written entirely in the [Kotlin programming language](https://kotlinlang.org/). 
+**Lets-Plot for Kotlin** is a Kotlin API for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
+open-source plotting library for statistical data which is written entirely in
+the [Kotlin programming language](https://kotlinlang.org/).
 
-Lets-Plot Kotlin API is built on the principals of layered graphics first described in the Leland Wilkinson work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
+Lets-Plot Kotlin API is built on the principles of layered graphics first described in the Leland Wilkinson
+work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
 and later implemented in the [ggplot2](https://ggplot2.tidyverse.org/) package for R.
 
 > This grammar [...] is made up of a set of independent components that can be composed in many different ways. This makes [it] very powerful because you are not limited to a set of pre-specified graphics, but you can create new graphics that are precisely tailored for your problem.
