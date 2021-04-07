@@ -16,16 +16,27 @@ If built successfully it will install the kernel to: ~/.ipython/kernels/kotlin
 Normally the kernel is installed to conda env.
 
 --------
+After installing kotlin kernel the "bundled" library descriptors are located in
 
-~/.jupyter_kotlin/cache/libraries
-or
-/opt/anaconda3/envs/<env name>/lib/python3.7/site-packages/run_kotlin_kernel/libraries
+a) After installing via "pip install":
+/opt/anaconda3/envs/<env name>/lib/python3.7/site-packages/run_kotlin_kernel/libraries/
 
-Contains descriptors (json) of libraries integrated with the Kotlin kernel.
- - edit descriptor (i.e. lets-plot.json) locally for experiments.
- - remove descriptor to force the kernel to pull current published version of descriptor from 'master' at https://github.com/Kotlin/kotlin-jupyte.
- - create a PR to publish a new version of the library (no kernel re-deploy needed).
- - upgrade the Kotlin kernel to refresh all library descriptors.
+b) After installing from local sources via "./gradlew install":
+~/.jupyter_kotlin/cache/libraries/
+
+Note:   If the %useLatestDescriptors "line magic" is included in Jupyter notebook,
+        then Kotlin kernel will pull the latest repository version of descriptors and
+        store them in this location:
+        /.jupyter_kotlin/cache/
+         
+
+--------
+
+Lets-Plot descriptor:
+lets-plot.json (and lets-plot-gt.json)
+
+ - edit descriptor: to conduct local experiments.
+ - remove descriptor: force the kernel to pull current published version of descriptor from 'master' at https://github.com/Kotlin/kotlin-jupyter.
 
 
 --------
@@ -35,15 +46,21 @@ In notebook
 
 %useLatestDescriptors - will force Kotlin Kernel to pull and apply the latest repository version of all library descriptors.
 Descriptors location:
-~/.jupyter_kotlin/cache/libraries
+~/.jupyter_kotlin/cache
 
 Otherwise, Kotlin Kernel uses 'bundled' descriptors installed to:
 /opt/anaconda3/envs/<env name>/lib/python3.7/site-packages/run_kotlin_kernel/libraries
 
 --------
-cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot.json ~/.jupyter_kotlin/cache/libraries
-cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot-gt.json ~/.jupyter_kotlin/cache/libraries
+Conducting experiments with Kotlin Kernel locally.
 
-Conda env: kot-test-py37
-cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot.json /opt/anaconda3/envs/kot-test-py37/lib/python3.7/site-packages/run_kotlin_kernel/libraries
-cp ~/Work/kotlin-jupyter-alshan/libraries/lets-plot-gt.json /opt/anaconda3/envs/kot-test-py37/lib/python3.7/site-packages/run_kotlin_kernel/libraries
+- Publish artifacts to the local dev-repo:
+
+$ ./gradlew publishLetsPlotKotlinApiKernelPublicationToLocalMavenRepository
+
+It will publish "lets-plot-kotlin-api-kernel-<version>" artifact to the "<project root>/.maven-publish-dev-repo/" folder.
+
+- edit "lets-plot.json" (see info above about its location):
+
+    - add repository: "file://<path to the project root>/.maven-publish-dev-repo"
+    - configure the artifact version.

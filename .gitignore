@@ -9,3 +9,5 @@
 **/out
 
 build_settings.yml
+
+.maven-publish-dev-repo/*
