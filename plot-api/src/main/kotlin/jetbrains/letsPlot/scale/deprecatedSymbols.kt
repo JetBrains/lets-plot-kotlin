@@ -549,9 +549,9 @@ fun guide_legend(
     byRow: Boolean? = null
 ) = guideLegend(nrow, ncol, byRow)
 
-@Deprecated("", ReplaceWith("guideColorBar(barWidth, barHeight, nbin)"))
+@Deprecated("", ReplaceWith("guideColorbar(barWidth, barHeight, nbin)"))
 fun guide_colorbar(
     barWidth: Number? = null,
     barHeight: Number? = null,
     nbin: Int? = null
-) = guideColorBar(barWidth, barHeight, nbin)
+) = guideColorbar(barWidth, barHeight, nbin)

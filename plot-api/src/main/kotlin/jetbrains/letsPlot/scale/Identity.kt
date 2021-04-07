@@ -33,7 +33,7 @@ import jetbrains.letsPlot.intern.Scale
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  */
@@ -82,7 +82,7 @@ fun scaleColorIdentity(
  * @param naValue an aesthetic value which is used when data in not available.
  * @param guide
  *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorBar(), guideLegend())
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
  */

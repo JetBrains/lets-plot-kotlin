@@ -28,8 +28,8 @@ typealias geom_contour = geomContour
 @Deprecated("", ReplaceWith("geomContourf"))
 typealias geom_contourf = geomContourf
 
-@Deprecated("", ReplaceWith("geomCrossBar"))
-typealias geom_crossbar = geomCrossBar
+@Deprecated("", ReplaceWith("geomCrossbar"))
+typealias geom_crossbar = geomCrossbar
 
 @Deprecated("", ReplaceWith("geomDensity"))
 typealias geom_density = geomDensity

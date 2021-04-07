@@ -41,7 +41,7 @@ fun guideLegend(
  * @param nbin Number of bins in color bar
  */
 @Suppress("SpellCheckingInspection")
-fun guideColorBar(
+fun guideColorbar(
     barWidth: Number? = null,
     barHeight: Number? = null,
     nbin: Int? = null
@@ -58,7 +58,7 @@ fun guideColorBar(
  * Function to set guides for scales.
  * Sets the mapping between scale and guide.
  * The guide can either be a string ("colorbar"/"legend" or "none" to hide the guide)
- * or a call to a guide function (guideColorBar()/guideLegend()) specifying additional arguments.
+ * or a call to a guide function (guideColorbar()/guideLegend()) specifying additional arguments.
  * @param alpha String or guide function.
  *     The guide for alpha scale.
  * @param color String or guide function.

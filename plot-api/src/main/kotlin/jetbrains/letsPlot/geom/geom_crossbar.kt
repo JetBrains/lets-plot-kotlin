@@ -51,7 +51,7 @@ import jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
  *     mapped to plot "aesthetics".
  */
 
-class geomCrossBar(
+class geomCrossbar(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = Pos.dodge,
