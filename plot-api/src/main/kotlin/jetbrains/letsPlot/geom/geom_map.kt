@@ -17,7 +17,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 @Suppress("ClassName")
 /**
  * Display a filled closed path defined by the vertex coordinates of individual polygons.
- * 'geom_map' is essentially the same as 'geom_polygon' but uses 'coord_map' as default coordinate system.
+ * 'geomMap' is essentially the same as 'geomPolygon' but uses 'coordMap' as default coordinate system.
  *
  * @param data dictionary or pandas DataFrame.
  *     The data to be displayed in this layer. If None, the default, the data

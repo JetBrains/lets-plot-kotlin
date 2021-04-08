@@ -38,7 +38,7 @@ import jetbrains.letsPlot.spatial.SpatialDataset
  *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
  *     names of States and their boundaries).
  *
- *    `geom_rect` will draw rectangles using bounding boxes of shapes.
+ *    `geomRect` will draw rectangles using bounding boxes of shapes.
  *     All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
  *
  *     Can be used with parameter 'mapJoin' for joining data and map coordinates.

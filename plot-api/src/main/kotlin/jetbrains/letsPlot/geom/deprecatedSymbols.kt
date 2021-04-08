@@ -34,11 +34,11 @@ typealias geom_crossbar = geomCrossbar
 @Deprecated("", ReplaceWith("geomDensity"))
 typealias geom_density = geomDensity
 
-@Deprecated("", ReplaceWith("geomDensity2d"))
-typealias geom_density2d = geomDensity2d
+@Deprecated("", ReplaceWith("geomDensity2D"))
+typealias geom_density2d = geomDensity2D
 
-@Deprecated("", ReplaceWith("geomDensity2df"))
-typealias geom_density2df = geomDensity2df
+@Deprecated("", ReplaceWith("geomDensity2DFilled"))
+typealias geom_density2df = geomDensity2DFilled
 
 @Deprecated("", ReplaceWith("geomErrorBar"))
 typealias geom_errorbar = geomErrorBar

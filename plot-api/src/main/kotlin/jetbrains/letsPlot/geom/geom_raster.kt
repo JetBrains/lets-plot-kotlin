@@ -19,7 +19,7 @@ import jetbrains.letsPlot.intern.layer.geom.RasterMapping
 /**
  * Display rectangles defined by the center of the tile (x, y).
  *     This is a high performance special function for same-sized tiles.
- * Much faster than geom_tile but doesn't support width/height and color.
+ * Much faster than geomTile but doesn't support width/height and color.
  * @param data dictionary or pandas DataFrame, optional.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

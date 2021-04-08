@@ -60,7 +60,7 @@ import jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
  *     mapped to plot "aesthetics".
  */
 
-class geomDensity2df(
+class geomDensity2DFilled(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.density2df(),
     position: PosOptions = Pos.identity,
