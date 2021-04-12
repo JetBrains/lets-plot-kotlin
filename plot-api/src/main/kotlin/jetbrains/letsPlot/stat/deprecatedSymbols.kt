@@ -8,8 +8,8 @@ package jetbrains.letsPlot.stat
 @Deprecated("", ReplaceWith("statBin"))
 typealias stat_bin = statBin
 
-@Deprecated("", ReplaceWith("statBin2d"))
-typealias stat_bin2d = statBin2d
+@Deprecated("", ReplaceWith("statBin2D"))
+typealias stat_bin2d = statBin2D
 
 @Deprecated("", ReplaceWith("statBoxplot"))
 typealias stat_boxplot = statBoxplot
@@ -17,14 +17,20 @@ typealias stat_boxplot = statBoxplot
 @Deprecated("", ReplaceWith("statContour"))
 typealias stat_contour = statContour
 
+@Deprecated("", ReplaceWith("statContourFilled"))
+typealias stat_contourf = statContourFilled
+
 @Deprecated("", ReplaceWith("statCount"))
 typealias stat_count = statCount
 
 @Deprecated("", ReplaceWith("statDensity"))
 typealias stat_density = statDensity
 
-@Deprecated("", ReplaceWith("statDensity2d"))
-typealias stat_density2d = statDensity2d
+@Deprecated("", ReplaceWith("statDensity2D"))
+typealias stat_density2d = statDensity2D
+
+@Deprecated("", ReplaceWith("statDensity2DFilled"))
+typealias stat_density2df = statDensity2DFilled
 
 @Deprecated("", ReplaceWith("statSmooth"))
 typealias stat_smooth = statSmooth

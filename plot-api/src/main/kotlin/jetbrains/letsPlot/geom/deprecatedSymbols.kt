@@ -16,8 +16,8 @@ typealias geom_area = geomArea
 @Deprecated("", ReplaceWith("geomBar"))
 typealias geom_bar = geomBar
 
-@Deprecated("", ReplaceWith("geomBin2d"))
-typealias geom_bin2d = geomBin2d
+@Deprecated("", ReplaceWith("geomBin2D"))
+typealias geom_bin2d = geomBin2D
 
 @Deprecated("", ReplaceWith("geomBoxplot"))
 typealias geom_boxplot = geomBoxplot
@@ -25,8 +25,8 @@ typealias geom_boxplot = geomBoxplot
 @Deprecated("", ReplaceWith("geomContour"))
 typealias geom_contour = geomContour
 
-@Deprecated("", ReplaceWith("geomContourf"))
-typealias geom_contourf = geomContourf
+@Deprecated("", ReplaceWith("geomContourFilled"))
+typealias geom_contourf = geomContourFilled
 
 @Deprecated("", ReplaceWith("geomCrossbar"))
 typealias geom_crossbar = geomCrossbar
