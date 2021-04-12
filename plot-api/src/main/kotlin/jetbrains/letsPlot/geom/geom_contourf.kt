@@ -51,7 +51,7 @@ import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geomContourf(
+class geomContourFilled(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.contourf(),
     position: PosOptions = Pos.identity,
