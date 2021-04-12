@@ -10,6 +10,7 @@ import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.*
 import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.stat.stat_density2d
+import jetbrains.letsPlot.stat.stat_density2df
 
 object Density {
     @JvmStatic
@@ -51,10 +52,16 @@ object Density {
                 pl.show()
             }
 
-            // Polygon + density2d stat ==> the same
+            // Polygon + density2df stat ==> the same
             run {
                 val pl = p +
                         geom_polygon(stat = Stat.density2df()) { fill = "..level.." }
+                pl.show()
+            }
+
+            // stat_density2df ==> the same
+            run {
+                val pl = p + stat_density2df { fill = "..level.." }
                 pl.show()
             }
         }
