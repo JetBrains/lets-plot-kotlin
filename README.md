@@ -4,15 +4,15 @@
     <tr>
         <td>Latest Lets-Plot Kotlin API Version</td>
         <td>
-            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/_latestVersion"/>
-            <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/images/download.svg"/>
+            <a href="https://search.maven.org/search?q=lets-plot"/>
+            <img src="https://img.shields.io/maven-central/v/org.jetbrains.lets-plot/lets-plot-kotlin-api?color=blue&label=Maven%20Central"/>
         </td>
     </tr>
     <tr>
         <td>Latest Lets-Plot Version</td>
         <td>
-            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-jars/_latestVersion"/>
-            <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-jars/images/download.svg"/>
+            <a href="https://search.maven.org/search?q=lets-plot"/>
+            <img src="https://img.shields.io/maven-central/v/org.jetbrains.lets-plot/lets-plot-common?color=blue&label=Maven%20Central"/>
         </td>
     </tr>
     <tr>

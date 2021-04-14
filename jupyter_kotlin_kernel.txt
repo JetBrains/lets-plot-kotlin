@@ -68,3 +68,6 @@ It will publish "lets-plot-kotlin-api-kernel-<version>" artifact to the "<projec
           ],
 
     - configure the artifact version.
+
+Note:   when editing descriptor in "~/.jupyter_kotlin/cache" always check that you are using the latest descriptor.
+        The kernel can download a newer descriptor at any moment.
