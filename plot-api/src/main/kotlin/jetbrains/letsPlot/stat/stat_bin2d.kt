@@ -43,7 +43,7 @@ class statBin2D(
         mapping = Bin2dMapping().apply(mapping).seal(),
         data = data,
         geom = geom,
-        stat = Stat.bin2d(),
+        stat = Stat.bin2D(),
         position = position,
         showLegend = showLegend,
         sampling = sampling

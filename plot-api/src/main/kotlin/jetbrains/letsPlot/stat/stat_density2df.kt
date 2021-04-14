@@ -48,7 +48,7 @@ class statDensity2DFilled(
         mapping = Density2dfMapping().apply(mapping).seal(),
         data = data,
         geom = geom,
-        stat = Stat.density2df(),
+        stat = Stat.density2DFilled(),
         position = position,
         showLegend = showLegend,
         sampling = sampling

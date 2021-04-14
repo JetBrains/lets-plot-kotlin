@@ -68,7 +68,7 @@ import jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
 
 class geomDensity2D(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.density2d(),
+    stat: StatOptions = Stat.density2D(),
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,

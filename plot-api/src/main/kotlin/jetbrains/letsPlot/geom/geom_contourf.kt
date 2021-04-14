@@ -53,7 +53,7 @@ import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
  */
 class geomContourFilled(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.contourf(),
+    stat: StatOptions = Stat.contourFilled(),
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,

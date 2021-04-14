@@ -69,7 +69,7 @@ object Stat {
     }
 
     @Suppress("ClassName")
-    class bin2d(
+    class bin2D(
         override val bins: Pair<Int, Int>? = null,
         override val binWidth: Pair<Number?, Number?>? = null,
         override val drop: Boolean? = null,
@@ -96,7 +96,7 @@ object Stat {
     }
 
     @Suppress("ClassName")
-    class contourf(
+    class contourFilled(
         override val bins: Int? = null,
         override val binWidth: Number? = null,
         mapping: ContourStatMapping.() -> Unit = {}
@@ -109,7 +109,7 @@ object Stat {
     }
 
     @Suppress("ClassName")
-    class density2d(
+    class density2D(
         override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Int? = null,
@@ -127,7 +127,7 @@ object Stat {
     }
 
     @Suppress("ClassName")
-    class density2df(
+    class density2DFilled(
         override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Int? = null,

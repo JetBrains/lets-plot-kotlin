@@ -62,7 +62,7 @@ import jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
 
 class geomDensity2DFilled(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.density2df(),
+    stat: StatOptions = Stat.density2DFilled(),
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,

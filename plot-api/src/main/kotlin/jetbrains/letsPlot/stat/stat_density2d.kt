@@ -49,7 +49,7 @@ class statDensity2D(
         mapping = Density2dMapping().apply(mapping).seal(),
         data = data,
         geom = geom,
-        stat = Stat.density2d(),
+        stat = Stat.density2D(),
         position = position,
         showLegend = showLegend,
         sampling = sampling

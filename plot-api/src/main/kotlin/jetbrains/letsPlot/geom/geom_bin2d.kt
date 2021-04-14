@@ -59,7 +59,7 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
  */
 class geomBin2D(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.bin2d(),
+    stat: StatOptions = Stat.bin2D(),
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,

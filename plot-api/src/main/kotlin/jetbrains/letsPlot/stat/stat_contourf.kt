@@ -43,7 +43,7 @@ class statContourFilled(
         mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
         geom = geom,
-        stat = Stat.contourf(),
+        stat = Stat.contourFilled(),
         position = position,
         showLegend = showLegend,
         sampling = sampling
