@@ -7,7 +7,6 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
     id 'maven-publish'
-//    id "com.jfrog.bintray"
     id "signing"
     id 'org.jetbrains.dokka' version '0.10.0'
 }
@@ -137,7 +136,6 @@ publishing {
 
     repositories {
         maven {
-//            url = uri("https://jetbrains.bintray.com/lets-plot-maven")
             url = project.sonatypeUrl
             credentials {
                 username = project.buildSettings?.sonatype?.username
@@ -156,33 +154,20 @@ signing {
 }
 
 
-//// Provide Bintray-specific Information
-//def bintray_user = project.buildSettings?.bintray?.user
-//def bintray_key = project.buildSettings?.bintray?.key
-//
-//if (bintray_user != null && bintray_key != null) {
-//
-//    def pkg_name = 'lets-plot-kotlin-jars'
-//    if (ext.versionIsDev) {
-//        pkg_name = 'lets-plot-kotlin-jars-dev'
-//    }
-//
-//    bintray {
-//        user = bintray_user
-//        key = bintray_key
-//        publications = ['letsPlotKotlinApi', 'letsPlotKotlinApiKernel']
-//        publish = true
-//        override = true
-//
-//        pkg {
-//            repo = 'lets-plot-maven'
-//            name = pkg_name
-//            userOrg = 'jetbrains'
-//            licenses = ['MIT']
-//            vcsUrl = 'https://github.com/JetBrains/lets-plot-kotlin'
-//            version {
-//                name = artifactVersion
-//            }
-//        }
-//    }
-//}
+// Store versions in properties to later access at runtime.
+task saveVersions() {
+    doLast {
+        new File("${projectDir}/src/main/resources/letsPlotKotlinAPI/", "version.properties").text = """
+lets_plot.version=$lets_plot_version
+lets_plot_kotlin_api.version=${project.version}
+"""
+    }
+}
+
+compileKotlin.dependsOn += saveVersions
+
+
+task printIt {
+    print("${project.name}: ${uri(project.localMavenRepository)}")
+}
+

@@ -27,7 +27,7 @@ b) After installing from local sources via "./gradlew install":
 Note:   If the %useLatestDescriptors "line magic" is included in Jupyter notebook,
         then Kotlin kernel will pull the latest repository version of descriptors and
         store them in this location:
-        /.jupyter_kotlin/cache/
+        ~/.jupyter_kotlin/cache/
          
 
 --------
@@ -56,11 +56,15 @@ Conducting experiments with Kotlin Kernel locally.
 
 - Publish artifacts to the local dev-repo:
 
-$ ./gradlew publishLetsPlotKotlinApiKernelPublicationToLocalMavenRepository
+$ ./gradlew publishLetsPlotKotlinApiKernelPublicationToMavenLocalRepository
 
 It will publish "lets-plot-kotlin-api-kernel-<version>" artifact to the "<project root>/.maven-publish-dev-repo/" folder.
 
 - edit "lets-plot.json" (see info above about its location):
 
-    - add repository: "file://<path to the project root>/.maven-publish-dev-repo"
+    - add Maven Local repository:
+          "repositories": [
+            "file://<path to the project root>/.maven-publish-dev-repo"
+          ],
+
     - configure the artifact version.

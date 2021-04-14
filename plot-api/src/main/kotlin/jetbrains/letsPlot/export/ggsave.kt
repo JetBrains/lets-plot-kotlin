@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
 package jetbrains.letsPlot.export
 
 import jetbrains.datalore.plot.PlotHtmlExport
+import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 import jetbrains.datalore.plot.PlotImageExport
 import jetbrains.datalore.plot.PlotSvgExport
 import jetbrains.letsPlot.Figure
@@ -74,7 +75,11 @@ fun ggsave(
             file.writeText(svg)
         }
         "html", "htm" -> {
-            val html = PlotHtmlExport.buildHtmlFromRawSpecs(spec, iFrame = true)
+            val html = PlotHtmlExport.buildHtmlFromRawSpecs(
+                spec,
+                iFrame = true,
+                scriptUrl = scriptUrl(VersionChecker.letsPlotVersion)
+            )
             file.createNewFile()
             file.writeText(html)
         }
