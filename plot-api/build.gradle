@@ -167,7 +167,7 @@ lets_plot_kotlin_api.version=${project.version}
 compileKotlin.dependsOn += saveVersions
 
 
-task printIt {
-    print("${project.name}: ${uri(project.localMavenRepository)}")
-}
+//task printIt {
+//    print("${project.name}: ${uri(project.localMavenRepository)}")
+//}
 
