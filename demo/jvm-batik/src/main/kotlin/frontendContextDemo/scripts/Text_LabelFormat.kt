@@ -7,7 +7,7 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.geom.geom_text
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 
 @Suppress("ClassName")
 object Text_LabelFormat {
@@ -23,16 +23,16 @@ object Text_LabelFormat {
             )
 
             // Floating point numbers without formatting.
-            (lets_plot(df) + geom_text { y = "y"; label = "z" }).show()
+            (letsPlot(df) + geom_text { y = "y"; label = "z" }).show()
             // Floating point numbers with formatting.
-            (lets_plot(df) + geom_text(labelFormat = ".3f") { y = "y"; label = "z" }).show()
+            (letsPlot(df) + geom_text(labelFormat = ".3f") { y = "y"; label = "z" }).show()
             // Number format as a part of a string pattern.
-            (lets_plot(df) + geom_text(labelFormat = "Ttl: \${.2f} (B)") { y = "y"; label = "z" }).show()
+            (letsPlot(df) + geom_text(labelFormat = "Ttl: \${.2f} (B)") { y = "y"; label = "z" }).show()
             // String pattern without value formatting.
-            (lets_plot(df) + geom_text(labelFormat = "- {} -") { y = "y"; label = "z" }).show()
+            (letsPlot(df) + geom_text(labelFormat = "- {} -") { y = "y"; label = "z" }).show()
 
             // na-value
-            (lets_plot(df) + geom_text(naText = "Nothing") { y = "y"; label = "nans" }).show()
+            (letsPlot(df) + geom_text(naText = "Nothing") { y = "y"; label = "nans" }).show()
         }
     }
 }

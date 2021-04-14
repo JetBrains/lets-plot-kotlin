@@ -11,8 +11,9 @@ import jetbrains.letsPlot.geom.geom_hline
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_vline
 import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 
 object HLineVLineScripts {
     fun script0() {
@@ -28,7 +29,9 @@ object HLineVLineScripts {
             )
         )
 
-        val p = lets_plot(data) { x = "x"; y = "y" } +
+        val p = letsPlot(data, fun GenericAesMapping.() {
+            x = "x"; y = "y"
+        }) +
                 ggtitle("Horizontal and vertical lines of different styles + points") +
                 geom_point(size = 80.0, alpha = 0.2, showLegend = false) { color = "c" } +
                 geom_hline(yintercept = 3.7) +

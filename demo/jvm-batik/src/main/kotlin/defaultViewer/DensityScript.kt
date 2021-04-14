@@ -5,8 +5,8 @@
 
 package defaultViewer
 
-import jetbrains.letsPlot.geom.geom_density
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.geom.geomDensity
+import jetbrains.letsPlot.letsPlot
 
 @Suppress("DuplicatedCode")
 fun main() {
@@ -15,8 +15,8 @@ fun main() {
     val data = mapOf<String, Any>(
         "x" to List(n) { rand.nextGaussian() }
     )
-    val p = lets_plot(data) +
-            geom_density(
+    val p = letsPlot(data) +
+            geomDensity(
                 color = "dark-green",
                 fill = "green",
                 alpha = .3,

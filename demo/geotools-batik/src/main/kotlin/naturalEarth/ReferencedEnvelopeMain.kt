@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -10,7 +10,7 @@ import jetbrains.letsPlot.geom.geom_polygon
 import jetbrains.letsPlot.geom.geom_rect
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.toolkit.geotools.toSpatialDataset
 import org.geotools.geometry.jts.ReferencedEnvelope
 import org.geotools.referencing.crs.DefaultGeographicCRS
@@ -33,7 +33,7 @@ fun main() {
     // Lets-Plot
     val boundaries = features.toSpatialDataset(10)
     val box = envelope.toSpatialDataset()
-    val p = lets_plot() +
+    val p = letsPlot() +
             geom_polygon(map = boundaries, alpha = 0.2, color = "black") +
             geom_rect(map = box, size = 4, color = "orange", alpha = 0) +
             geom_rect(map = anotherEnvelope.toSpatialDataset(), size = 4, color = "light-blue", alpha = 0) +

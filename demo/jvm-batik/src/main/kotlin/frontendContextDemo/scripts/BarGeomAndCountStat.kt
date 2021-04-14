@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.stat.stat_count
 import frontendContextDemo.ScriptInBatikContext
+import jetbrains.letsPlot.geom.geomBar
 
 object BarGeomAndCountStat {
     @JvmStatic
@@ -22,7 +22,7 @@ object BarGeomAndCountStat {
             val p = ggplot(data)
 
             // bar (with count stat by default)
-            val barLayer = geom_bar {
+            val barLayer = geomBar {
                 x = "cat1"
                 fill = "cat2"
             }

@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_bar
+import jetbrains.letsPlot.geom.geomBar
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.sampling.sampling_none
 
@@ -21,13 +21,13 @@ object BarsPickSampling {
             val p = ggplot(dat) { x = "word" }
 
             // Disable sampling to see raw plot.
-            (p + geom_bar(sampling = sampling_none)).show()
+            (p + geomBar(sampling = sampling_none)).show()
 
             // Draw plot with default sampling enabled
-            (p + geom_bar()).show()
+            (p + geomBar()).show()
 
             // 'pick' sampling handles groups on bar chart correctly.
-            (p + geom_bar { fill = "g" }).show()
+            (p + geomBar { fill = "g" }).show()
         }
     }
 

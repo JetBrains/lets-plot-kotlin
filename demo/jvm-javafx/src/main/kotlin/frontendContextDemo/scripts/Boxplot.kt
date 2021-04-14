@@ -1,13 +1,14 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.geom.geom_boxplot
-import jetbrains.letsPlot.lets_plot
 import frontendContextDemo.ScriptInJfxContext
+import jetbrains.letsPlot.geom.geomBoxplot
+import jetbrains.letsPlot.intern.GenericAesMapping
+import jetbrains.letsPlot.letsPlot
 import kotlin.math.abs
 
 object Boxplot {
@@ -24,7 +25,9 @@ object Boxplot {
                 "cat" to List(n) { categories[abs(rand.nextInt()).rem(categories.size)] }
             )
 
-            val p = lets_plot(data) { x = "cat"; y = "val" } + geom_boxplot(outlierColor = "red")
+            val p = letsPlot(data, fun GenericAesMapping.() {
+                x = "cat"; y = "val"
+            }) + geomBoxplot(outlierColor = "red")
             p.show()
         }
     }

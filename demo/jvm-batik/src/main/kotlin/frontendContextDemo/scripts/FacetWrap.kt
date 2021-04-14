@@ -9,7 +9,7 @@ import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.facet.facet_wrap
 import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import java.awt.Dimension
 
 object FacetWrap {
@@ -22,7 +22,7 @@ object FacetWrap {
         ) {
             val data = AutoMpg.map()
 
-            val p = lets_plot(data) + geom_point {
+            val p = letsPlot(data) + geom_point {
                 x = "engine horsepower"
                 y = "miles per gallon"
                 color = "origin of car"

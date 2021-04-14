@@ -6,14 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.GGBunch
+import jetbrains.letsPlot.*
 import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_color_continuous
 import jetbrains.letsPlot.scale.scale_size
 import jetbrains.letsPlot.scale.scale_x_continuous
-import jetbrains.letsPlot.theme
 
 object ScaleLimitsContinuous {
     @JvmStatic
@@ -33,8 +30,8 @@ object ScaleLimitsContinuous {
                 .axisTicksY_blank().axisTextY_blank()
                 .axisTitleY_blank() +
                     ggsize(500, 100)
-            val p0 = lets_plot(dat0) + geom_point { x = "x"; size = "x"; color = "x" } + settings
-            val p1 = lets_plot(dat1) + geom_point { x = "x"; size = "x"; color = "x" } + settings
+            val p0 = letsPlot(dat0) + geom_point { x = "x"; size = "x"; color = "x" } + settings
+            val p1 = letsPlot(dat1) + geom_point { x = "x"; size = "x"; color = "x" } + settings
 
             // Each plot uses different size limits
             run {

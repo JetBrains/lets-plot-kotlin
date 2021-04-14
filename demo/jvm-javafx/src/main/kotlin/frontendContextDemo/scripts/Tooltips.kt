@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -45,7 +45,7 @@ object Tooltips {
                     .line("@|@len")
                     .line("min/max|@min/@max")
 
-                (plot + geom_bar(
+                (plot + geomBar(
                     position = Pos.dodge,
                     color = "black",
                     stat = Stat.identity,
@@ -54,7 +54,7 @@ object Tooltips {
                         ).show()
 
                 // Move tooltip to the corner.
-                (plot + geom_bar(
+                (plot + geomBar(
                     position = Pos.dodge,
                     color = "black",
                     stat = Stat.identity,
@@ -63,7 +63,7 @@ object Tooltips {
                         ).show()
 
                 // Set the minimum width of the tooltip.
-                (plot + geom_bar(
+                (plot + geomBar(
                     position = Pos.dodge,
                     color = "black",
                     stat = Stat.identity,
@@ -72,7 +72,7 @@ object Tooltips {
                         ).show()
 
                 // Hide tooltips.
-                (plot + geom_bar(
+                (plot + geomBar(
                     position = Pos.dodge,
                     color = "black",
                     stat = Stat.identity,
@@ -86,10 +86,10 @@ object Tooltips {
                 val plot = ggplot(data) { x = "supp"; y = "len"; fill = "supp" }
 
                 // Default tooltips
-                (plot + geom_boxplot()).show()
+                (plot + geomBoxplot()).show()
 
                 // Configure text in outlier tooltips using the 'format()' function.
-                (plot + geom_boxplot(
+                (plot + geomBoxplot(
                     tooltips = layer_tooltips()
                         .format("^Y", "{.0f}")
                         .format("^middle", ".2f")
@@ -98,7 +98,7 @@ object Tooltips {
                 )).show()
 
                 // Replace "outlier" tooltips with the "general" tooltip.
-                (plot + geom_boxplot(
+                (plot + geomBoxplot(
                     tooltips = layer_tooltips()
                         .format("^Y", ".0f")
                         .format("^middle", ".2f")

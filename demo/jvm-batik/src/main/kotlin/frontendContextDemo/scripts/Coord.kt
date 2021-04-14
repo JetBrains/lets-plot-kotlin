@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -10,6 +10,7 @@ import jetbrains.letsPlot.*
 import jetbrains.letsPlot.geom.geom_line
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_smooth
+import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
 
@@ -24,7 +25,9 @@ object Coord {
                     "g" to listOf('a', 'a', 'b', 'b', 'c', 'c')
                 )
 
-                val p = lets_plot(data) { x = "x"; y = "y"; color = "g"; group = "g" } + geom_line()
+                val p = letsPlot(data, fun GenericAesMapping.() {
+                    x = "x"; y = "y"; color = "g"; group = "g"
+                }) + geom_line()
 
                 println((p + ggtitle("coord_map()") + coord_map()).toSpec())
 
@@ -46,7 +49,9 @@ object Coord {
                     "g" to List(50) { "A" } + List(50) { "B" } + List(50) { "C" }
                 )
 
-                val p = lets_plot(data) { x = "x"; y = "y" } +
+                val p = letsPlot(data, fun GenericAesMapping.() {
+                    x = "x"; y = "y"
+                }) +
                         theme().legendPosition_none() +
                         geom_point() + geom_smooth(method = "loess")
                 (p + ggtitle("loess")).show()

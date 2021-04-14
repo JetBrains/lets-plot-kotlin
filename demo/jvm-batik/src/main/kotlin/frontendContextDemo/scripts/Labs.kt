@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -10,7 +10,7 @@ import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.label.labs
 import jetbrains.letsPlot.label.xlab
 import jetbrains.letsPlot.label.ylab
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import kotlin.math.PI
 import kotlin.math.sin
 
@@ -25,7 +25,7 @@ object Labs {
             )
 
             run {
-                val p = lets_plot(dat) +
+                val p = letsPlot(dat) +
                         geom_point { x = "x"; y = "y"; color = "y" } +
                         labs(
                             title = "Sine function",
@@ -37,7 +37,7 @@ object Labs {
             }
 
             run {
-                val p = lets_plot(dat) +
+                val p = letsPlot(dat) +
                         geom_point { x = "x"; y = "y" } +
                         xlab("Sine argument (ms)") + ylab("Sine value (mm)")
                 p.show()

@@ -10,7 +10,7 @@ import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_segment
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.*
 
 object ScaleManual {
@@ -20,7 +20,7 @@ object ScaleManual {
             val xs = ('a'..'h').toList()
             val data = mapOf("x" to xs)
 
-            val p = lets_plot(data) + ggsize(600, 200)
+            val p = letsPlot(data) + ggsize(600, 200)
 
             run {
                 val tiles = geom_tile(width = 1.0, height = 1.0) {

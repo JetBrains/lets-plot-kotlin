@@ -10,7 +10,7 @@ import jetbrains.datalore.base.values.Color
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.scale_color_discrete
 import jetbrains.letsPlot.scale.scale_x_discrete
 import jetbrains.letsPlot.scale.xlim
@@ -31,7 +31,7 @@ object ScaleLimitsDiscrete {
                 .legendPosition_bottom() +
                     ggsize(500, 150)
 
-            val p = lets_plot(dat) +
+            val p = letsPlot(dat) +
                     geom_point(size = 10.0) { x = "x"; color = "x" } +
                     settings
             p.show()

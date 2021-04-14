@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -7,10 +7,10 @@ package frontendContextDemo.scripts
 
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geom_bar
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.ggplot
 import frontendContextDemo.ScriptInBatikContext
+import jetbrains.letsPlot.geom.geomBar
 
 object PointsOverBars {
     @JvmStatic
@@ -24,7 +24,7 @@ object PointsOverBars {
             val p = ggplot(data)
 
             // bars
-            val bars = geom_bar {
+            val bars = geomBar {
                 x = "cat1"
                 fill = "cat2"
             }

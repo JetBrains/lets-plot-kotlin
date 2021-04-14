@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -10,7 +10,8 @@ import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geom_contour
 import jetbrains.letsPlot.geom.geom_contourf
 import jetbrains.letsPlot.geom.geom_path
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.intern.GenericAesMapping
+import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.scale_color_gradient
 import jetbrains.letsPlot.stat.stat_contour
 import jetbrains.letsPlot.stat.stat_contourf
@@ -23,7 +24,9 @@ object Contour {
         ScriptInJfxContext.eval("Contour") {
             val data = contourData()
 
-            val p = lets_plot(data) { x = "x"; y = "y" }
+            val p = letsPlot(data, fun GenericAesMapping.() {
+                x = "x"; y = "y"
+            })
 
             (p + geom_contour(color = "red") { z = "z" }).show()
             (p + geom_contour(bins = 20) { z = "z"; color = "..level.." } +

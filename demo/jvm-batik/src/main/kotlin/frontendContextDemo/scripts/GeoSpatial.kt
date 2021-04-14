@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -10,7 +10,7 @@ import jetbrains.letsPlot.geom.geom_path
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_polygon
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.spatial.SpatialDataset
 
 object GeoSpatial {
@@ -32,21 +32,21 @@ object GeoSpatial {
                 """{"type": "LineString", "coordinates": [[3, 3], [7, 7], [10, 10]]}"""
             )
 
-            (lets_plot() +
+            (letsPlot() +
                     geom_point(
                         map = SpatialDataset.withGEOJSON(data = emptyMap(), geometry = points),
                         size = 10, color = "magenta"
                     ) +
                     ggtitle("map = Points")).show()
 
-            (lets_plot() +
+            (letsPlot() +
                     geom_polygon(
                         map = SpatialDataset.withGEOJSON(data = emptyMap(), geometry = polygons),
                         fill = "light-gray", color = "black"
                     ) +
                     ggtitle("map = Polygons")).show()
 
-            (lets_plot() +
+            (letsPlot() +
                     geom_path(
                         map = SpatialDataset.withGEOJSON(data = emptyMap(), geometry = lines),
                         color = "light-gray"
@@ -58,27 +58,27 @@ object GeoSpatial {
             //
             val data = mapOf("cat" to listOf("A", "B"))
 
-            (lets_plot() +
+            (letsPlot() +
                     geom_point(
                         data = SpatialDataset.withGEOJSON(data = data, geometry = points),
                         size = 10
                     ) { color = "cat" } +
                     ggtitle("data = Points")).show()
 
-            (lets_plot(data = SpatialDataset.withGEOJSON(data = data, geometry = points)) +
+            (letsPlot(data = SpatialDataset.withGEOJSON(data = data, geometry = points)) +
                     geom_point(
                         size = 10
                     ) { color = "cat" } +
                     ggtitle("lets_plot(data = Points) : x,y - not working")).show()
 
-            (lets_plot() +
+            (letsPlot() +
                     geom_polygon(
                         data = SpatialDataset.withGEOJSON(data = data, geometry = polygons),
                         color = "black"
                     ) { fill = "cat" } +
                     ggtitle("data = Polygons")).show()
 
-            (lets_plot() +
+            (letsPlot() +
                     geom_path(
                         data = SpatialDataset.withGEOJSON(data = data, geometry = lines)
                     ) { color = "cat" } +

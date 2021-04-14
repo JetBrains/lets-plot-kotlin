@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -8,7 +8,7 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.*
 import kotlin.math.pow
 
@@ -25,7 +25,7 @@ object ScaleXYContinuous {
                 "formula" to List(n + 1) { "10^(x/10)" } + List(n + 1) { "5*x" }
             )
 
-            val p = lets_plot(data) +
+            val p = letsPlot(data) +
                     geom_point { x = "x"; y = "y"; color = "formula"; size = "formula" } +
                     scale_size_manual(values = listOf(7, 3))
             p.show()

@@ -10,8 +10,9 @@ import jetbrains.letsPlot.geom.geom_density2d
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggsize
+import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.*
 import jetbrains.letsPlot.theme
 
@@ -24,7 +25,7 @@ object ScaleGuide {
                 val xs = ('a'..'f').toList()
                 val data = mapOf("x" to xs)
                 val colors = listOf("red", "green", "blue", "yellow", "orange", "pink")
-                val p = lets_plot(data) + ggsize(600, 200) +
+                val p = letsPlot(data) + ggsize(600, 200) +
                         geom_tile {
                             x = "x"
                             fill = colors
@@ -36,7 +37,7 @@ object ScaleGuide {
                 (p + scale_fill_identity(guide = guide_legend(nrow = 2, byRow = false))).show()
 
                 // Use 'guides' function
-                (lets_plot(data) + ggsize(600, 200) +
+                (letsPlot(data) + ggsize(600, 200) +
                         ggtitle("Use 'guides' function.") +
                         geom_tile {
                             x = "x"
@@ -52,7 +53,9 @@ object ScaleGuide {
                     "x" to List(100) { rand.nextGaussian() },
                     "y" to List(100) { rand.nextGaussian() }
                 )
-                val p = lets_plot(data) { x = "x"; y = "y" } +
+                val p = letsPlot(data, fun GenericAesMapping.() {
+                    x = "x"; y = "y"
+                }) +
                         theme().legendPosition_bottom() +
                         geom_point(alpha = .7) +
                         geom_density2d(size = 1.0, alpha = .7) { color = "..level.." }

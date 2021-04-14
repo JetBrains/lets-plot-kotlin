@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -8,7 +8,7 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.geom.geom_line
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.scale_x_continuous
 import jetbrains.letsPlot.scale.scale_x_log10
 
@@ -21,7 +21,7 @@ object ScaleTransform {
                 "y" to (0..10).toList()
             )
 
-            val p = lets_plot(data) + geom_line { x = "x"; y = "y" }
+            val p = letsPlot(data) + geom_line { x = "x"; y = "y" }
 
             p.show()
             (p + scale_x_continuous(trans = "reverse") + ggtitle("reverse")).show()

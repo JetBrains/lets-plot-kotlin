@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -8,7 +8,7 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.scale_size
 import jetbrains.letsPlot.scale.scale_size_area
 
@@ -22,7 +22,7 @@ object ScaleSize {
                 "s" to (0..5).map { it }
             )
 
-            val p = lets_plot(dat) + geom_point { x = "x"; y = "y"; size = "s" }
+            val p = letsPlot(dat) + geom_point { x = "x"; y = "y"; size = "s" }
 
             // size ~= radius
             (p + scale_size(range = 5 to 50, guide = "none") + ggtitle(

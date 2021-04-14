@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020. JetBrains s.r.o.
+ * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -24,7 +24,7 @@ class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
                 |<head>
                 |   <title>$title</title>
                 |
-                |   ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl("1.4.2"))}
+                |   ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl("2.0.2"))}
                 |   
                 |</head>
                 |<body>

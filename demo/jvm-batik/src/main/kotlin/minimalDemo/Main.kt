@@ -8,11 +8,11 @@ package minimalDemo
 import jetbrains.datalore.base.registration.Disposable
 import jetbrains.datalore.plot.MonolithicCommon
 import jetbrains.datalore.vis.swing.batik.DefaultPlotPanelBatik
-import jetbrains.letsPlot.geom.geom_density
+import jetbrains.letsPlot.geom.geomDensity
 import jetbrains.letsPlot.geom.geom_histogram
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.toSpec
-import jetbrains.letsPlot.lets_plot
+import jetbrains.letsPlot.letsPlot
 import java.awt.Dimension
 import java.awt.GridLayout
 import javax.swing.*
@@ -27,13 +27,13 @@ fun main() {
     )
 
     val plots = mapOf(
-        "Density" to lets_plot(data) + geom_density(
+        "Density" to letsPlot(data) + geomDensity(
             color = "dark-green",
             fill = "green",
             alpha = .3,
             size = 2.0
         ) { x = "x" },
-        "Count" to lets_plot(data) + geom_histogram(
+        "Count" to letsPlot(data) + geom_histogram(
             color = "dark-green",
             fill = "green",
             alpha = .3,
