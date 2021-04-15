@@ -7,7 +7,9 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.datalore.base.random.RandomGaussian
+import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geom_bin2d
+import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.stat.stat_bin2d
 import kotlin.random.Random
@@ -57,6 +59,14 @@ object Bin2d {
                     binWidth = Pair(3, 3)
                 ) { weight = "weight"; fill = "..density.." }
                 p.show()
+            }
+
+            // stat.bin2d ==> the same
+            run {
+                val p2 = ggplot(DATA) { x = "x"; y = "y" } + geom_tile(
+                    stat = Stat.bin2d(binWidth = Pair(3, 3)) { weight = "weight" }
+                ) { fill = "..density.." }
+                p2.show()
             }
         }
     }
