@@ -162,4 +162,63 @@ object Stat {
         ) {
         override val parameters = this.seal()
     }
+
+    // Deprecated
+
+    @Deprecated("", ReplaceWith("Stat.bin2D(bins, binWidth, drop, mapping)"))
+    fun bin2d(
+        bins: Pair<Int, Int>? = null,
+        binWidth: Pair<Number?, Number?>? = null,
+        drop: Boolean? = null,
+        mapping: Bin2dStatMapping.() -> Unit
+    ) = bin2D(bins, binWidth, drop, mapping)
+
+    @Deprecated("", ReplaceWith("Stat.bin2D(bins, binWidth, drop)"))
+    fun bin2d(
+        bins: Pair<Int, Int>? = null,
+        binWidth: Pair<Number?, Number?>? = null,
+        drop: Boolean? = null
+    ) = bin2D(bins, binWidth, drop)
+
+    @Deprecated("", ReplaceWith("Stat.contourFilled(bins, binWidth, mapping)"))
+    fun contourf(
+        bins: Int? = null,
+        binWidth: Number? = null,
+        mapping: ContourStatMapping.() -> Unit = {}
+    ) = contourFilled(bins, binWidth, mapping)
+
+    @Deprecated("", ReplaceWith("Stat.density2D(bw, kernel, n, adjust, contour, bins, binWidth, mapping)"))
+    fun density2d(
+        bw: Any? = null,
+        kernel: String? = null,
+        n: Int? = null,
+        adjust: Number? = null,
+        contour: Boolean? = null,
+        bins: Int? = null,
+        binWidth: Number? = null,
+        mapping: Density2dStatMapping.() -> Unit
+    ) = density2D(bw, kernel, n, adjust, contour, bins, binWidth, mapping)
+
+    @Deprecated("", ReplaceWith("Stat.density2D(bw, kernel, n, adjust, contour, bins, binWidth)"))
+    fun density2d(
+        bw: Any? = null,
+        kernel: String? = null,
+        n: Int? = null,
+        adjust: Number? = null,
+        contour: Boolean? = null,
+        bins: Int? = null,
+        binWidth: Number? = null
+    ) = density2D(bw, kernel, n, adjust, contour, bins, binWidth)
+
+    @Deprecated("", ReplaceWith("Stat.density2DFilled(bw, kernel, n, adjust, contour, bins, binWidth, mapping)"))
+    fun density2df(
+        bw: Any? = null,
+        kernel: String? = null,
+        n: Int? = null,
+        adjust: Number? = null,
+        contour: Boolean? = null,
+        bins: Int? = null,
+        binWidth: Number? = null,
+        mapping: Density2dStatMapping.() -> Unit = {}
+    ) = density2DFilled(bw, kernel, n, adjust, contour, bins, binWidth, mapping)
 }
