@@ -9,9 +9,11 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.GenericAesMapping
 
+@Deprecated("", ReplaceWith("letsPlot(data) { mapping() }"))
+fun lets_plot(data: Map<*, *>? = null, mapping: (GenericAesMapping.() -> Unit)) = letsPlot(data, mapping)
 
-@Deprecated("", ReplaceWith("letsPlot(data, mapping)"))
-fun lets_plot(data: Map<*, *>? = null, mapping: GenericAesMapping.() -> Unit = {}) = letsPlot(data, mapping)
+@Deprecated("", ReplaceWith("letsPlot(data)"))
+fun lets_plot(data: Map<*, *>? = null) = letsPlot(data)
 
 @Deprecated("", ReplaceWith("asDiscrete(variable, label)"))
 fun as_discrete(variable: String, label: String? = null) = asDiscrete(variable, label)
