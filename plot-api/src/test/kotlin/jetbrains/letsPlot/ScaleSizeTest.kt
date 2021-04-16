@@ -7,8 +7,8 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
 import jetbrains.letsPlot.intern.toSpec
-import jetbrains.letsPlot.scale.scale_size
-import jetbrains.letsPlot.scale.scale_size_area
+import jetbrains.letsPlot.scale.scaleSize
+import jetbrains.letsPlot.scale.scaleSizeArea
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
@@ -16,7 +16,7 @@ class ScaleSizeTest {
 
     @Test
     fun `check scale size option`() {
-        val p = ggplot() + scale_size(range = 5 to 10, limits = -10 to null)
+        val p = ggplot() + scaleSize(range = 5 to 10, limits = -10 to null)
         assertThat(p).features().length(1)
 
         val spec = p.toSpec()
@@ -39,7 +39,7 @@ class ScaleSizeTest {
 
     @Test
     fun `check scale size area option`() {
-        val p = ggplot() + scale_size_area(maxSize = 30, limits = null to 20.5)
+        val p = ggplot() + scaleSizeArea(maxSize = 30, limits = null to 20.5)
         assertThat(p).features().length(1)
 
         val spec = p.toSpec()

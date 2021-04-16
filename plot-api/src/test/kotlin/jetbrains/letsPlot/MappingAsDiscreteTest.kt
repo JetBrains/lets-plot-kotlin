@@ -8,7 +8,7 @@ package jetbrains.letsPlot
 import jetbrains.datalore.plot.base.Aes
 import jetbrains.datalore.plot.config.Option.Meta.DATA_META
 import jetbrains.datalore.plot.config.Option.Meta.MappingAnnotation
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.intern.toSpec
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
@@ -18,7 +18,7 @@ class MappingAsDiscreteTest {
     @Test
     fun `check plot mapping`() {
         val data = mapOf("x" to listOf(1.0))
-        val p = ggplot(data) { x = as_discrete("x") }
+        val p = ggplot(data) { x = asDiscrete("x") }
 
         val spec = p.toSpec()
         assertEquals(
@@ -37,7 +37,7 @@ class MappingAsDiscreteTest {
     @Test
     fun `check layer mapping`() {
         val data = mapOf("x" to listOf(1.0))
-        val p = ggplot(data) + geom_point { x = as_discrete("x") }
+        val p = ggplot(data) + geomPoint { x = asDiscrete("x") }
 
         val spec = p.toSpec()
         assertEquals(
@@ -66,7 +66,7 @@ class MappingAsDiscreteTest {
             "x" to listOf(1.0),
             "y" to listOf(1.0)
         )
-        val p = ggplot(data) + geom_point { x = as_discrete("x"); y = as_discrete("y") }
+        val p = ggplot(data) + geomPoint { x = asDiscrete("x"); y = asDiscrete("y") }
 
         val spec = p.toSpec()
         assertEquals(

@@ -5,7 +5,7 @@
 
 package jetbrains.letsPlot.spatial
 
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
@@ -54,7 +54,7 @@ class SpatialParamTest {
             geometry = points
         )
         runLayerTest(
-            ggplot() + geom_point(map = dat),
+            ggplot() + geomPoint(map = dat),
             mapOf(
                 "geom" to "point",
                 "stat" to "identity",
@@ -78,7 +78,7 @@ class SpatialParamTest {
         )
 
         runLayerTest(
-            ggplot() + geom_point(data = dat),
+            ggplot() + geomPoint(data = dat),
             mapOf(
                 "geom" to "point",
                 "stat" to "identity",
@@ -101,7 +101,7 @@ class SpatialParamTest {
             geometry = points
         )
         runLayerTest(
-            ggplot() + geom_point(map = dat, mapJoin = "left" to "right"),
+            ggplot() + geomPoint(map = dat, mapJoin = "left" to "right"),
             mapOf(
                 "geom" to "point",
                 "stat" to "identity",
@@ -125,7 +125,7 @@ class SpatialParamTest {
             geometry = points
         )
         runLayerTest(
-            ggplot() + geom_point(map = dat, mapJoin = listOf("leftA", "leftB") to listOf("rightA", "rightB")),
+            ggplot() + geomPoint(map = dat, mapJoin = listOf("leftA", "leftB") to listOf("rightA", "rightB")),
             mapOf(
                 "geom" to "point",
                 "stat" to "identity",

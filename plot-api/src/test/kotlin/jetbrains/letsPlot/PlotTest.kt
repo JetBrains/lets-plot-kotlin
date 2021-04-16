@@ -5,9 +5,9 @@
 
 package jetbrains.letsPlot
 
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
-import jetbrains.letsPlot.geom.geom_point
 import org.junit.Test
 
 class PlotTest {
@@ -45,7 +45,7 @@ class PlotTest {
 
     @Test
     fun `plot with layer and mapping`() {
-        val p = ggplot() + geom_point { x = "X"; color = "C" }
+        val p = ggplot() + geomPoint { x = "X"; color = "C" }
         assertThat(p).layers()
             .length(1)
             .get(0)
@@ -57,7 +57,7 @@ class PlotTest {
 
     @Test
     fun `plot with layer and constants`() {
-        val p = ggplot() + geom_point(x = 1.0, y = 2.0, color = "C")
+        val p = ggplot() + geomPoint(x = 1.0, y = 2.0, color = "C")
         assertThat(p).layers()
             .length(1)
             .get(0)
@@ -72,7 +72,7 @@ class PlotTest {
 
     @Test
     fun `plot with layer, mapping and constants`() {
-        val p = ggplot() + geom_point(
+        val p = ggplot() + geomPoint(
             mapping = { x = "X"; fill = "F" },
             x = 1.0,
             y = 2.0,
@@ -92,7 +92,7 @@ class PlotTest {
 
     @Test
     fun `plot with layer and group mapping`() {
-        val p = ggplot() + geom_point(mapping = { x = "X"; group = "G" }, color = "C")
+        val p = ggplot() + geomPoint(mapping = { x = "X"; group = "G" }, color = "C")
         assertThat(p).layers()
             .length(1)
             .get(0)

@@ -7,12 +7,12 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.Geom.point
 import jetbrains.letsPlot.Stat.density
-import jetbrains.letsPlot.geom.geom_area
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomArea
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.LayerAssert
 import jetbrains.letsPlot.intern.StatKind
-import jetbrains.letsPlot.stat.stat_density
+import jetbrains.letsPlot.stat.statDensity
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
@@ -20,7 +20,7 @@ class OptionsMergingTest {
 
     @Test
     fun `layer options precedence over geom`() {
-        val l = geom_point(
+        val l = geomPoint(
             color = "layer C", fill = "layer F",
             stat = density(kernel = "gaussian") {
                 x = "stat X"
@@ -47,7 +47,7 @@ class OptionsMergingTest {
 
     @Test
     fun `layer options precedence over stat`() {
-        val l = stat_density(
+        val l = statDensity(
             color = "layer C", fill = "layer F",
             geom = point {
                 x = "stat X"
@@ -76,14 +76,14 @@ class OptionsMergingTest {
 
     @Test
     fun `geom and stat layer equivalence`() {
-        val geomLayer = geom_area(
+        val geomLayer = geomArea(
             color = "C",
             stat = density(kernel = "gaussian") { x = "X" }
         ) { fill = "F" }
 
-        var statLayer: stat_density
+        var statLayer: statDensity
         run {
-            statLayer = stat_density(
+            statLayer = statDensity(
                 color = "C",
                 geom = point { fill = "F" },
                 kernel = "gaussian"
@@ -94,7 +94,7 @@ class OptionsMergingTest {
         }
 
         run {
-            statLayer = stat_density(
+            statLayer = statDensity(
                 geom = point(color = "C") { fill = "F" },
                 kernel = "gaussian"
             ) { x = "X" }

@@ -5,7 +5,7 @@
 
 package jetbrains.letsPlot
 
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.intern.toSpec
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
@@ -33,7 +33,7 @@ class MappingToCollectionTest {
 
     @Test
     fun `check layer mapping`() {
-        val p = ggplot() + geom_point { x = intArrayOf(1, 2, 3); y = (1..3) }
+        val p = ggplot() + geomPoint { x = intArrayOf(1, 2, 3); y = (1..3) }
 
         val spec = p.toSpec()
         assertEquals(

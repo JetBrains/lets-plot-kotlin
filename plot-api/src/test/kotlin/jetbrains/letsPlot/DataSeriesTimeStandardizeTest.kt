@@ -7,7 +7,7 @@ package jetbrains.letsPlot
 
 import jetbrains.datalore.plot.config.Option
 import jetbrains.datalore.plot.server.config.transform.PlotConfigServerSideTransforms
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.intern.toSpec
 import org.junit.Assert
 import org.junit.Test
@@ -85,7 +85,7 @@ class DataSeriesTimeStandardizeTest(
 
     @Test
     fun `data in ggplot`() {
-        val p = ggplot(data = inputData) + geom_point()
+        val p = ggplot(data = inputData) + geomPoint()
 
         val processedSpec = applyEntryTransforms(p.toSpec())
 
@@ -97,7 +97,7 @@ class DataSeriesTimeStandardizeTest(
 
     @Test
     fun `data in layer`() {
-        val p = ggplot() + geom_point(data = inputData)
+        val p = ggplot() + geomPoint(data = inputData)
 
         val processedSpec = applyEntryTransforms(p.toSpec())
 
