@@ -10,7 +10,6 @@ import jetbrains.letsPlot.geom.geom_density2d
 import jetbrains.letsPlot.geom.geom_point
 import jetbrains.letsPlot.geom.geom_tile
 import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.*
@@ -53,9 +52,7 @@ object ScaleGuide {
                     "x" to List(100) { rand.nextGaussian() },
                     "y" to List(100) { rand.nextGaussian() }
                 )
-                val p = letsPlot(data, fun GenericAesMapping.() {
-                    x = "x"; y = "y"
-                }) +
+                val p = letsPlot(data) { x = "x"; y = "y" } +
                         theme().legendPosition_bottom() +
                         geom_point(alpha = .7) +
                         geom_density2d(size = 1.0, alpha = .7) { color = "..level.." }

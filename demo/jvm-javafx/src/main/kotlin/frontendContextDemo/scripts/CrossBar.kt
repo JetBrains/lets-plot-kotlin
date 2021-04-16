@@ -8,7 +8,6 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.position_dodge
 import jetbrains.letsPlot.geom.geom_crossbar
-import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.letsPlot
 
 object CrossBar {
@@ -33,9 +32,7 @@ object CrossBar {
                 ymin = "min"; ymax = "max"; middle = "len"
             }
 
-            val p = letsPlot(data, fun GenericAesMapping.() {
-                x = "dose"; fill = "supp"
-            }) + geom
+            val p = letsPlot(data) { x = "dose"; fill = "supp" } + geom
             p.show()
         }
     }
