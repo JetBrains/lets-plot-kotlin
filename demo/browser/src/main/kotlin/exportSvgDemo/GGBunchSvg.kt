@@ -10,7 +10,6 @@ import jetbrains.datalore.plot.PlotSvgExport
 import jetbrains.letsPlot.GGBunch
 import jetbrains.letsPlot.geom.geomBoxplot
 import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.letsPlot
 import kotlin.math.abs
 
@@ -19,9 +18,7 @@ object GGBunchSvg {
     @JvmStatic
     fun main(args: Array<String>) {
         val density = letsPlot(densityData()) + geomDensity(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
-        val boxplot = letsPlot(boxplotData(), fun GenericAesMapping.() {
-            x = "cat"; y = "val"
-        }) + geomBoxplot(outlierColor = "red")
+        val boxplot = letsPlot(boxplotData()) { x = "cat"; y = "val" } + geomBoxplot(outlierColor = "red")
 
         // Create plot spec using lets-plot Kotlin API
         val w = 300

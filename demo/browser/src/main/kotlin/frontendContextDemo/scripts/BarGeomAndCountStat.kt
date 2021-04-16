@@ -5,10 +5,10 @@
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.stat.stat_count
 import frontendContextDemo.ScriptInBrowserContext
 import jetbrains.letsPlot.geom.geomBar
+import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.stat.statCount
 
 object BarGeomAndCountStat {
     @JvmStatic
@@ -28,7 +28,7 @@ object BarGeomAndCountStat {
             }
 
             // count stat (with bar geom by default)
-            val countLayer = stat_count {
+            val countLayer = statCount {
                 x = "cat1"
                 fill = "cat2"
             }
