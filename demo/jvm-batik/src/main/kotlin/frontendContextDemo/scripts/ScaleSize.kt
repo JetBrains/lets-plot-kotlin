@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scale_size
-import jetbrains.letsPlot.scale.scale_size_area
+import jetbrains.letsPlot.scale.scaleSize
+import jetbrains.letsPlot.scale.scaleSizeArea
 
 object ScaleSize {
     @JvmStatic
@@ -22,18 +22,18 @@ object ScaleSize {
                 "s" to (0..5).map { it }
             )
 
-            val p = letsPlot(dat) + geom_point { x = "x"; y = "y"; size = "s" }
+            val p = letsPlot(dat) + geomPoint { x = "x"; y = "y"; size = "s" }
 
             // size ~= radius
-            (p + scale_size(range = 5 to 50, guide = "none") + ggtitle(
+            (p + scaleSize(range = 5 to 50, guide = "none") + ggtitle(
                 "scale_size"
             )).show()
 
             // with reversed transformation
-            (p + scale_size(range = 5 to 50, guide = "none", trans = "reverse") + ggtitle("reversed ")).show()
+            (p + scaleSize(range = 5 to 50, guide = "none", trans = "reverse") + ggtitle("reversed ")).show()
 
             // size ~= radius where 0 size --> 0 radius
-            (p + scale_size_area(maxSize = 50, guide = "none") + ggtitle("scale_size_area")).show()
+            (p + scaleSizeArea(maxSize = 50, guide = "none") + ggtitle("scale_size_area")).show()
         }
     }
 }

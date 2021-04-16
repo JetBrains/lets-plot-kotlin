@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_tile
+import jetbrains.letsPlot.geom.geomTile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.scale.scale_color_brewer
-import jetbrains.letsPlot.scale.scale_fill_brewer
+import jetbrains.letsPlot.scale.scaleColorBrewer
+import jetbrains.letsPlot.scale.scaleFillBrewer
 
 object ScaleColorBrewer {
     @JvmStatic
@@ -21,26 +21,26 @@ object ScaleColorBrewer {
             val data = mapOf("x" to (-64..64))
 
             val p = ggplot(data) + ggsize(600, 200) +
-                    geom_tile(width = 1.0, height = 10.0) {
+                    geomTile(width = 1.0, height = 10.0) {
                         x = "x"
                         color = "x"
                         fill = "x"
                     }
 
-            (p + scale_fill_brewer() + scale_color_brewer()).show()
+            (p + scaleFillBrewer() + scaleColorBrewer()).show()
 
             // change direction
-            (p + scale_fill_brewer(direction = -1) + scale_color_brewer(direction = -1)).show()
+            (p + scaleFillBrewer(direction = -1) + scaleColorBrewer(direction = -1)).show()
 
             // Diverging palette type
-            (p + scale_fill_brewer(type = "div") + scale_color_brewer(type = "div")).show()
+            (p + scaleFillBrewer(type = "div") + scaleColorBrewer(type = "div")).show()
 
             // Qualitative
-            (p + scale_fill_brewer(type = "qual") + scale_color_brewer(type = "qual")).show()
+            (p + scaleFillBrewer(type = "qual") + scaleColorBrewer(type = "qual")).show()
 
             // Qualitative + Paired
-            (p + scale_fill_brewer(type = "qual", palette = "Paired") +
-                    scale_color_brewer(type = "qual", palette = "Paired")).show()
+            (p + scaleFillBrewer(type = "qual", palette = "Paired") +
+                    scaleColorBrewer(type = "qual", palette = "Paired")).show()
         }
     }
 }

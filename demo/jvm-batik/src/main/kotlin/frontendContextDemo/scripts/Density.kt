@@ -7,10 +7,10 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.geom.geomArea
 import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.geom.geom_area
 import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.stat.stat_density
+import jetbrains.letsPlot.stat.statDensity
 
 object Density {
     @JvmStatic
@@ -40,14 +40,14 @@ object Density {
             // stat_density : the sane
             run {
                 val p = letsPlot(data) +
-                        stat_density(color = "red", size = 5.0) { x = "x"; weight = "w" }
+                        statDensity(color = "red", size = 5.0) { x = "x"; weight = "w" }
                 p.show()
             }
 
             // Area + density stat ==> the sane
             run {
                 val p = letsPlot(data) +
-                        geom_area(
+                        geomArea(
                             stat = Stat.density { x = "x"; weight = "w" },
                             color = "red",
                             fill = "green",

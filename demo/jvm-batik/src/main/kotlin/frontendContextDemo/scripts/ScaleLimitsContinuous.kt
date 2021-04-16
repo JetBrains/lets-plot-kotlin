@@ -6,11 +6,14 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.*
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.scale.scale_color_continuous
-import jetbrains.letsPlot.scale.scale_size
-import jetbrains.letsPlot.scale.scale_x_continuous
+import jetbrains.letsPlot.GGBunch
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.ggsize
+import jetbrains.letsPlot.letsPlot
+import jetbrains.letsPlot.scale.scaleColorContinuous
+import jetbrains.letsPlot.scale.scaleSize
+import jetbrains.letsPlot.scale.scaleXContinuous
+import jetbrains.letsPlot.theme
 
 object ScaleLimitsContinuous {
     @JvmStatic
@@ -24,14 +27,14 @@ object ScaleLimitsContinuous {
             )
 
             val settings = theme()
-                .legendPosition_none()
-                .axisLine_blank()
-                .axisTextY_blank()
-                .axisTicksY_blank().axisTextY_blank()
-                .axisTitleY_blank() +
+                .legendPositionNone()
+                .axisLineBlank()
+                .axisTextYBlank()
+                .axisTicksYBlank().axisTextYBlank()
+                .axisTitleYBlank() +
                     ggsize(500, 100)
-            val p0 = letsPlot(dat0) + geom_point { x = "x"; size = "x"; color = "x" } + settings
-            val p1 = letsPlot(dat1) + geom_point { x = "x"; size = "x"; color = "x" } + settings
+            val p0 = letsPlot(dat0) + geomPoint { x = "x"; size = "x"; color = "x" } + settings
+            val p1 = letsPlot(dat1) + geomPoint { x = "x"; size = "x"; color = "x" } + settings
 
             // Each plot uses different size limits
             run {
@@ -43,9 +46,9 @@ object ScaleLimitsContinuous {
 
             // Both plots use the same size limits
             run {
-                val scales = scale_size(limits = 0 to 9) +
-                        scale_color_continuous(limits = 0 to 9) +
-                        scale_x_continuous(limits = 0 to 9)
+                val scales = scaleSize(limits = 0 to 9) +
+                        scaleColorContinuous(limits = 0 to 9) +
+                        scaleXContinuous(limits = 0 to 9)
                 val b = GGBunch()
                     .addPlot(p0 + scales, 0, 0)
                     .addPlot(p1 + scales, 0, 100)

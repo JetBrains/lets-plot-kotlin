@@ -8,9 +8,9 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geom_freqpoly
-import jetbrains.letsPlot.geom.geom_histogram
-import jetbrains.letsPlot.geom.geom_line
+import jetbrains.letsPlot.geom.geomFreqpoly
+import jetbrains.letsPlot.geom.geomHistogram
+import jetbrains.letsPlot.geom.geomLine
 import jetbrains.letsPlot.ggplot
 
 object Freqpoly {
@@ -24,7 +24,7 @@ object Freqpoly {
             )
 
             run {
-                val geom = geom_freqpoly(binWidth = 1.0) {
+                val geom = geomFreqpoly(binWidth = 1.0) {
                     x = "x"; color = "c"
                 }
                 val p = ggplot(data) + geom
@@ -33,7 +33,7 @@ object Freqpoly {
 
             run {
                 // line + bin stat ==> Same
-                val geom = geom_line(stat = Stat.bin(binWidth = 1.0)) {
+                val geom = geomLine(stat = Stat.bin(binWidth = 1.0)) {
                     x = "x"; color = "c"
                 }
                 val p = ggplot(data) + geom
@@ -44,8 +44,8 @@ object Freqpoly {
                 // line + bin stat ==> Same
                 val stat = Stat.bin(binWidth = 1.0)
                 val geom =
-                    geom_histogram(stat = stat, position = Pos.dodge, alpha = .3, size = 0.0) { x = "x"; fill = "c" } +
-                            geom_line(stat = stat) { x = "x"; color = "c" }
+                    geomHistogram(stat = stat, position = Pos.dodge, alpha = .3, size = 0.0) { x = "x"; fill = "c" } +
+                            geomLine(stat = stat) { x = "x"; color = "c" }
                 val p = ggplot(data) + geom
                 p.show()
             }

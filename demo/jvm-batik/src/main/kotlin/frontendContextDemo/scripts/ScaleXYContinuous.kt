@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.*
@@ -26,24 +26,24 @@ object ScaleXYContinuous {
             )
 
             val p = letsPlot(data) +
-                    geom_point { x = "x"; y = "y"; color = "formula"; size = "formula" } +
-                    scale_size_manual(values = listOf(7, 3))
+                    geomPoint { x = "x"; y = "y"; color = "formula"; size = "formula" } +
+                    scaleSizeManual(values = listOf(7, 3))
             p.show()
 
-            (p + scale_y_log10() + ggtitle("scale_y_log10()")).show()
-            (p + scale_y_log10() + scale_x_log10() + ggtitle("scale_y_log10() + scale_x_log10()")).show()
+            (p + scaleYLog10() + ggtitle("scale_y_log10()")).show()
+            (p + scaleYLog10() + scaleXLog10() + ggtitle("scale_y_log10() + scale_x_log10()")).show()
 
             // the same
-            (p + scale_y_continuous(trans = "log10") + scale_x_continuous(trans = "log10") +
+            (p + scaleYContinuous(trans = "log10") + scaleXContinuous(trans = "log10") +
                     ggtitle("scale_y_continuous(log10) + scale_x_continuous(log10)")).show()
 
             // reversed
-            (p + scale_x_reverse() + ggtitle("scale_x_reverse")).show()
-            (p + scale_y_reverse() + ggtitle("scale_y_reverse")).show()
+            (p + scaleXReverse() + ggtitle("scale_x_reverse")).show()
+            (p + scaleYReverse() + ggtitle("scale_y_reverse")).show()
 
             // sqrt
-            (p + scale_x_sqrt() + ggtitle("scale_x_sqrt")).show()
-            (p + scale_y_sqrt() + ggtitle("scale_y_sqrt")).show()
+            (p + scaleXSqrt() + ggtitle("scale_x_sqrt")).show()
+            (p + scaleYSqrt() + ggtitle("scale_y_sqrt")).show()
 
         }
     }

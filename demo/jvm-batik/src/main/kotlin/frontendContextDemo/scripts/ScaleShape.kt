@@ -6,10 +6,10 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scale_shape
+import jetbrains.letsPlot.scale.scaleShape
 import jetbrains.letsPlot.theme
 
 object ScaleShape {
@@ -20,14 +20,14 @@ object ScaleShape {
             val data = mapOf("x" to xs, "s" to xs)
             val p = letsPlot(data) +
                     ggsize(600, 200) +
-                    theme().legendPosition_none() +
-                    geom_point(size = 7.0) {
+                    theme().legendPositionNone() +
+                    geomPoint(size = 7.0) {
                         x = "x"
                         shape = "s"
                     }
 
-            (p + scale_shape(solid = true)).show()
-            (p + scale_shape(solid = false)).show()
+            (p + scaleShape(solid = true)).show()
+            (p + scaleShape(solid = false)).show()
         }
     }
 }

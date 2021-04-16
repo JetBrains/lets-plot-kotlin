@@ -7,9 +7,9 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geom_histogram
+import jetbrains.letsPlot.geom.geomHistogram
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.stat.stat_bin
+import jetbrains.letsPlot.stat.statBin
 
 object Histogram {
     @JvmStatic
@@ -22,7 +22,7 @@ object Histogram {
             )
 
             run {
-                val geom = geom_histogram(stat = Stat.bin(binWidth = 1.0, boundary = 0.0), size = 0.0) {
+                val geom = geomHistogram(stat = Stat.bin(binWidth = 1.0, boundary = 0.0), size = 0.0) {
                     x = "x"; fill = "c"
                 }
                 val p = ggplot(data) + geom
@@ -30,14 +30,14 @@ object Histogram {
             }
 
             run {
-                val geom = geom_histogram(bins = 3, size = 0.0) {
+                val geom = geomHistogram(bins = 3, size = 0.0) {
                     x = "x"; fill = "c"
                 }
                 (ggplot(data) + geom).show()
             }
 
             run {
-                val geom = geom_histogram(size = 0.0, binWidth = 1.0, boundary = 0.0) {
+                val geom = geomHistogram(size = 0.0, binWidth = 1.0, boundary = 0.0) {
                     x = "x"; fill = "c"
                 }
                 val p = ggplot(data) + geom
@@ -45,7 +45,7 @@ object Histogram {
             }
 
             run {
-                val geom = stat_bin(size = 0.0, binWidth = 1.0, boundary = 0.0) {
+                val geom = statBin(size = 0.0, binWidth = 1.0, boundary = 0.0) {
                     x = "x"; fill = "c"
                 }
                 val p = ggplot(data) + geom

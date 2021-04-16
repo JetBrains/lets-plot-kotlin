@@ -7,12 +7,12 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.datalore.base.values.Color
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scale_color_discrete
-import jetbrains.letsPlot.scale.scale_x_discrete
+import jetbrains.letsPlot.scale.scaleColorDiscrete
+import jetbrains.letsPlot.scale.scaleXDiscrete
 import jetbrains.letsPlot.scale.xlim
 import jetbrains.letsPlot.theme
 
@@ -26,21 +26,21 @@ object ScaleLimitsDiscrete {
             )
 
             val settings = theme()
-                .axisLine_blank()
-                .axisTitleY_blank().axisTextY_blank().axisTicksY_blank()
-                .legendPosition_bottom() +
+                .axisLineBlank()
+                .axisTitleYBlank().axisTextYBlank().axisTicksYBlank()
+                .legendPositionBottom() +
                     ggsize(500, 150)
 
             val p = letsPlot(dat) +
-                    geom_point(size = 10.0) { x = "x"; color = "x" } +
+                    geomPoint(size = 10.0) { x = "x"; color = "x" } +
                     settings
             p.show()
 
             val limits = ('a'..'d').toList()
-            (p + scale_color_discrete(limits = limits, naValue = Color.WHITE) +
+            (p + scaleColorDiscrete(limits = limits, naValue = Color.WHITE) +
                     ggtitle("scale_color_discrete(limits = limits)")).show()
 
-            (p + scale_x_discrete(limits = limits) +
+            (p + scaleXDiscrete(limits = limits) +
                     ggtitle("scale_x_discrete(limits = limits)")).show()
 
             // `xlim` is the other way to do the same

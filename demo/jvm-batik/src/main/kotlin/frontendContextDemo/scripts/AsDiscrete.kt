@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.as_discrete
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.asDiscrete
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.scale.scale_color_discrete
+import jetbrains.letsPlot.scale.scaleColorDiscrete
 
 object AsDiscrete {
     @JvmStatic
@@ -26,7 +26,7 @@ object AsDiscrete {
             // scale
             run {
                 val p = ggplot(dat) { x = "x"; y = "y" } +
-                        geom_point(size = 9.0) { color = "a" } + scale_color_discrete(name = "custom name") +
+                        geomPoint(size = 9.0) { color = "a" } + scaleColorDiscrete(name = "custom name") +
                         ggtitle("scale_color_discrete()")
                 p.show()
             }
@@ -34,7 +34,7 @@ object AsDiscrete {
             // as_discrete, no scale
             run {
                 val p = ggplot(dat) { x = "x"; y = "y" } +
-                        geom_point(size = 9.0) { color = as_discrete(variable = "a", label = "custom name") } +
+                        geomPoint(size = 9.0) { color = asDiscrete(variable = "a", label = "custom name") } +
                         ggtitle("color as_discrete()")
                 p.show()
             }
@@ -42,8 +42,8 @@ object AsDiscrete {
             // as_discrete, scale
             run {
                 val p = ggplot(dat) { x = "x"; y = "y" } +
-                        geom_point(shape = 21, size = 9.0, stroke = 5.0) { color = "a"; fill = as_discrete("b") } +
-                        scale_color_discrete() +
+                        geomPoint(shape = 21, size = 9.0, stroke = 5.0) { color = "a"; fill = asDiscrete("b") } +
+                        scaleColorDiscrete() +
                         ggtitle("scale_color_discrete(), fill as_discrete()")
                 p.show()
             }
@@ -51,20 +51,20 @@ object AsDiscrete {
             // data in mappings, scale_color_discrete
             run {
                 val p = ggplot() +
-                        geom_point(size = 9.0) {
+                        geomPoint(size = 9.0) {
                             x = listOf(0, 5, 10)
                             y = listOf(0, 5, 10)
                             color = listOf(1, 2, 4)
                         } +
-                        scale_color_discrete() +
+                        scaleColorDiscrete() +
                         ggtitle("scale_color_discrete()")
                 p.show()
             }
 
             // as_discrete should work when it is used in "ggplot()" mapping
             run {
-                val p = ggplot(dat) { x = "x"; y = "y"; color = as_discrete(variable = "a") } +
-                        geom_point(size = 9.0) +
+                val p = ggplot(dat) { x = "x"; y = "y"; color = asDiscrete(variable = "a") } +
+                        geomPoint(size = 9.0) +
                         ggtitle("color as_discrete()")
                 p.show()
             }

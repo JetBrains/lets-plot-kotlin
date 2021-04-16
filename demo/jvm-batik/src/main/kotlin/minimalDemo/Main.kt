@@ -9,7 +9,7 @@ import jetbrains.datalore.base.registration.Disposable
 import jetbrains.datalore.plot.MonolithicCommon
 import jetbrains.datalore.vis.swing.batik.DefaultPlotPanelBatik
 import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.geom.geom_histogram
+import jetbrains.letsPlot.geom.geomHistogram
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.letsPlot
@@ -33,7 +33,7 @@ fun main() {
             alpha = .3,
             size = 2.0
         ) { x = "x" },
-        "Count" to letsPlot(data) + geom_histogram(
+        "Count" to letsPlot(data) + geomHistogram(
             color = "dark-green",
             fill = "green",
             alpha = .3,
