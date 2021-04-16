@@ -8,7 +8,7 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.geom.geomBar
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.sampling.sampling_none
+import jetbrains.letsPlot.sampling.samplingNone
 
 object BarsPickSampling {
     @JvmStatic
@@ -21,7 +21,7 @@ object BarsPickSampling {
             val p = ggplot(dat) { x = "word" }
 
             // Disable sampling to see raw plot.
-            (p + geomBar(sampling = sampling_none)).show()
+            (p + geomBar(sampling = samplingNone)).show()
 
             // Draw plot with default sampling enabled
             (p + geomBar()).show()

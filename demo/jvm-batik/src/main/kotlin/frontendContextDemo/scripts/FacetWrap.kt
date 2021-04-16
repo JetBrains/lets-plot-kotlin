@@ -7,8 +7,8 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.facet.facet_wrap
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.facet.facetWrap
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.letsPlot
 import java.awt.Dimension
 
@@ -22,27 +22,27 @@ object FacetWrap {
         ) {
             val data = AutoMpg.map()
 
-            val p = letsPlot(data) + geom_point {
+            val p = letsPlot(data) + geomPoint {
                 x = "engine horsepower"
                 y = "miles per gallon"
                 color = "origin of car"
             }
 
             // one facet
-            (p + facet_wrap(
+            (p + facetWrap(
                 facets = "number of cylinders",
                 format = "{d} cyl"
             )).show()
 
             // one facet, 3 cols
-            (p + facet_wrap(
+            (p + facetWrap(
                 facets = "number of cylinders",
                 ncol = 3,
                 format = "{d} cyl"
             )).show()
 
             // one facet, 4 rows
-            (p + facet_wrap(
+            (p + facetWrap(
                 facets = "number of cylinders",
                 nrow = 4,
                 format = "{d} cyl",
@@ -50,7 +50,7 @@ object FacetWrap {
             )).show()
 
             // two facets
-            (p + facet_wrap(
+            (p + facetWrap(
                 facets = listOf(
                     "origin of car",
                     "number of cylinders"
@@ -60,7 +60,7 @@ object FacetWrap {
             )).show()
 
             // two facets, cylinders order: desc.
-            (p + facet_wrap(
+            (p + facetWrap(
                 facets = listOf(
                     "origin of car",
                     "number of cylinders"

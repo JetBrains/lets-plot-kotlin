@@ -8,10 +8,10 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.datalore.base.random.RandomGaussian
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geom_bin2d
-import jetbrains.letsPlot.geom.geom_tile
+import jetbrains.letsPlot.geom.geomBin2D
+import jetbrains.letsPlot.geom.geomTile
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.stat.stat_bin2d
+import jetbrains.letsPlot.stat.statBin2D
 import kotlin.random.Random
 
 object Bin2d {
@@ -20,26 +20,26 @@ object Bin2d {
         ScriptInJfxContext.eval("Bin2d") {
 
             run {
-                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d()
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geomBin2D()
                 p.show()
             }
 
             run {
-                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geomBin2D(
                     bins = 5 to 5
                 )
                 p.show()
             }
 
             run {
-                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geomBin2D(
                     binWidth = Pair(3, 3)
                 )
                 p.show()
             }
 
             run {
-                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geomBin2D(
                     binWidth = Pair(3, 3)
                 ) { weight = "weight" }
 
@@ -47,7 +47,7 @@ object Bin2d {
             }
 
             run {
-                val p = ggplot(DATA) { x = "x"; y = "y" } + geom_bin2d(
+                val p = ggplot(DATA) { x = "x"; y = "y" } + geomBin2D(
                     binWidth = Pair(3, 3)
                 ) { weight = "weight"; fill = "..density.." }
                 p.show()
@@ -55,7 +55,7 @@ object Bin2d {
 
             // stat_bin2d ==> the same
             run {
-                val p = ggplot(DATA) { x = "x"; y = "y" } + stat_bin2d(
+                val p = ggplot(DATA) { x = "x"; y = "y" } + statBin2D(
                     binWidth = Pair(3, 3)
                 ) { weight = "weight"; fill = "..density.." }
                 p.show()
@@ -63,8 +63,8 @@ object Bin2d {
 
             // stat.bin2d ==> the same
             run {
-                val p2 = ggplot(DATA) { x = "x"; y = "y" } + geom_tile(
-                    stat = Stat.bin2d(binWidth = Pair(3, 3)) { weight = "weight" }
+                val p2 = ggplot(DATA) { x = "x"; y = "y" } + geomTile(
+                    stat = Stat.bin2D(binWidth = Pair(3, 3)) { weight = "weight" }
                 ) { fill = "..density.." }
                 p2.show()
             }

@@ -6,8 +6,8 @@
 package naturalEarth
 
 import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.letsPlot.geom.geom_polygon
-import jetbrains.letsPlot.geom.geom_rect
+import jetbrains.letsPlot.geom.geomPolygon
+import jetbrains.letsPlot.geom.geomRect
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
@@ -34,9 +34,9 @@ fun main() {
     val boundaries = features.toSpatialDataset(10)
     val box = envelope.toSpatialDataset()
     val p = letsPlot() +
-            geom_polygon(map = boundaries, alpha = 0.2, color = "black") +
-            geom_rect(map = box, size = 4, color = "orange", alpha = 0) +
-            geom_rect(map = anotherEnvelope.toSpatialDataset(), size = 4, color = "light-blue", alpha = 0) +
+            geomPolygon(map = boundaries, alpha = 0.2, color = "black") +
+            geomRect(map = box, size = 4, color = "orange", alpha = 0) +
+            geomRect(map = anotherEnvelope.toSpatialDataset(), size = 4, color = "light-blue", alpha = 0) +
             ggtitle("geom_polygon: 'map'")
 
     SimpleBatikView.show(

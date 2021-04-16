@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.position_dodge
-import jetbrains.letsPlot.geom.geom_crossbar
+import jetbrains.letsPlot.geom.geomCrossbar
 import jetbrains.letsPlot.letsPlot
+import jetbrains.letsPlot.positionDodge
 
 object CrossBar {
     @JvmStatic
@@ -22,12 +22,12 @@ object CrossBar {
                 "max" to listOf(15.00, 24.6, 28.11, 10.72, 18.28, 27.93)
             )
 
-            val geom = geom_crossbar(
+            val geom = geomCrossbar(
                 width = 0.3,
                 size = 2.0,
                 alpha = 0.5,
                 fatten = 1.0,
-                position = position_dodge(width = 0.33)
+                position = positionDodge(width = 0.33)
             ) {
                 ymin = "min"; ymax = "max"; middle = "len"
             }

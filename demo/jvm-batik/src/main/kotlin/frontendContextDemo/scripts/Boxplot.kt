@@ -7,9 +7,9 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.geom.geom_jitter
+import jetbrains.letsPlot.geom.geomJitter
 import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.stat.stat_boxplot
+import jetbrains.letsPlot.stat.statBoxplot
 import kotlin.math.abs
 
 object Boxplot {
@@ -30,10 +30,10 @@ object Boxplot {
 
             val p = letsPlot(data) { x = "cat"; y = "val" }
 
-            (p + geom_jitter()).show()
+            (p + geomJitter()).show()
             (p + geomBoxplot(outlierColor = "red")).show()
             (p + geomBoxplot(outlierColor = "red", varWidth = true)).show()
-            (p + stat_boxplot(outlierColor = "red", varWidth = true, fatten = 2, color = "dark-magenta")).show()
+            (p + statBoxplot(outlierColor = "red", varWidth = true, fatten = 2, color = "dark-magenta")).show()
         }
     }
 }

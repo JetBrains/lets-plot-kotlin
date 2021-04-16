@@ -5,9 +5,9 @@
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.ggplot
 import frontendContextDemo.ScriptInBatikContext
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.ggplot
 
 object Scatter {
     @JvmStatic
@@ -21,7 +21,7 @@ object Scatter {
 
 
             val p = ggplot(data) +
-                    geom_point(color = "red") {
+                    geomPoint(color = "red") {
                         x = "weight"
                         y = "height"
                         size = "shoe"

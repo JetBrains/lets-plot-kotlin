@@ -6,10 +6,10 @@
 package frontendContextDemo.scripts
 
 import jetbrains.datalore.base.values.Color
-import jetbrains.letsPlot.geom.geom_abline
-import jetbrains.letsPlot.geom.geom_hline
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.geom.geom_vline
+import jetbrains.letsPlot.geom.geomABLine
+import jetbrains.letsPlot.geom.geomHLine
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.geom.geomVLine
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
@@ -30,15 +30,15 @@ object HLineVLineScripts {
 
         val p = letsPlot(data) { x = "x"; y = "y" } +
                 ggtitle("Horizontal and vertical lines of different styles + points") +
-                geom_point(size = 80.0, alpha = 0.2, showLegend = false) { color = "c" } +
-                geom_hline(yintercept = 3.7) +
-                geom_hline(yintercept = 2.7, color = "red", linetype = "dashed", size = 1.0) +
-                geom_hline(yintercept = 1.7, color = "green", linetype = "dotted", size = 2.0) +
-                geom_hline(yintercept = 0.7, color = "orange", linetype = "dotdash", size = 3.0) +
-                geom_vline(xintercept = 0.7, color = "black", linetype = "longdash", size = 1.5, alpha = 0.5) +
-                geom_vline(xintercept = 1.7, color = "#770077", linetype = "twodash", size = 1.0) +
-                geom_vline(xintercept = 2.7, color = "blue", linetype = "blank", size = 0.7) +
-                geom_vline(xintercept = 3.7)
+                geomPoint(size = 80.0, alpha = 0.2, showLegend = false) { color = "c" } +
+                geomHLine(yintercept = 3.7) +
+                geomHLine(yintercept = 2.7, color = "red", linetype = "dashed", size = 1.0) +
+                geomHLine(yintercept = 1.7, color = "green", linetype = "dotted", size = 2.0) +
+                geomHLine(yintercept = 0.7, color = "orange", linetype = "dotdash", size = 3.0) +
+                geomVLine(xintercept = 0.7, color = "black", linetype = "longdash", size = 1.5, alpha = 0.5) +
+                geomVLine(xintercept = 1.7, color = "#770077", linetype = "twodash", size = 1.0) +
+                geomVLine(xintercept = 2.7, color = "blue", linetype = "blank", size = 0.7) +
+                geomVLine(xintercept = 3.7)
 
         // ToDo: scale_xxx_identity
         // + scale_color_identity()
@@ -52,7 +52,7 @@ object HLineVLineScripts {
             "rating" to listOf(-0.011843241476365302, 0.5547269440141214)
         )
         val p = ggplot() +
-                geom_vline(data = cdata, linetype = "dashed", size = 1.0) {
+                geomVLine(data = cdata, linetype = "dashed", size = 1.0) {
                     xintercept = "rating"
                     color = "cond"
                 }
@@ -71,7 +71,7 @@ object HLineVLineScripts {
             "rating" to input.values
         )
         val p = ggplot() +
-                geom_vline(data = cdata, linetype = "dashed", size = 1.0) {
+                geomVLine(data = cdata, linetype = "dashed", size = 1.0) {
                     xintercept = "rating"
                     color = "cond"
                 }
@@ -83,10 +83,10 @@ object HLineVLineScripts {
         // use 'alpha' parameter
         val p = ggplot() +
                 ggtitle("Use 'alpha' parameter") +
-                geom_vline(xintercept = 0, color = "red", size = 2, alpha = 0.1) +
-                geom_hline(yintercept=0, color="red", size=2, alpha=0.5) +
-                geom_abline(intercept=0, slope=1.0, color="red", size=2, alpha=1) +
-                geom_abline(intercept=0, slope=-1.0, color="red", size=2, alpha=0)
+                geomVLine(xintercept = 0, color = "red", size = 2, alpha = 0.1) +
+                geomHLine(yintercept = 0, color = "red", size = 2, alpha = 0.5) +
+                geomABLine(intercept = 0, slope = 1.0, color = "red", size = 2, alpha = 1) +
+                geomABLine(intercept = 0, slope = -1.0, color = "red", size = 2, alpha = 0)
         p.show()
     }
 }

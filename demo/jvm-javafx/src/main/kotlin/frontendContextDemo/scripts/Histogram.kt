@@ -5,10 +5,10 @@
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geom_histogram
-import jetbrains.letsPlot.ggplot
 import frontendContextDemo.ScriptInJfxContext
+import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.geom.geomHistogram
+import jetbrains.letsPlot.ggplot
 
 object Histogram {
     @JvmStatic
@@ -20,7 +20,7 @@ object Histogram {
                 "c" to List(500) { "A" } + List(500) { "B" }
             )
 
-            val geom = geom_histogram(stat = Stat.bin(binWidth = 0.5, boundary = 0.0)) {
+            val geom = geomHistogram(stat = Stat.bin(binWidth = 0.5, boundary = 0.0)) {
                 x = "x"; fill = "c"
             }
             val p = ggplot(data) + geom

@@ -17,8 +17,8 @@ class ThemeTest {
     fun `plot with simple theme`() {
         val p = ggplot() +
                 theme()
-                    .axisTitleY_blank()
-                    .legendPosition_none()
+                    .axisTitleYBlank()
+                    .legendPositionNone()
 
         assertThat(p).features().length(1)
         val theme = assertThat(p).features().get(0)
@@ -43,8 +43,8 @@ class ThemeTest {
 
     @Test
     fun `plot with additional theme`() {
-        val p0 = ggplot() + theme().axisTitleY_blank()
-        val p = p0 + theme().legendPosition_none()
+        val p0 = ggplot() + theme().axisTitleYBlank()
+        val p = p0 + theme().legendPositionNone()
 
         assertThat(p).features().length(2)
         val spec = p.toSpec()
@@ -59,7 +59,7 @@ class ThemeTest {
 
     @Test
     fun `plot with sum of themes`() {
-        val themes = theme().axisTitleY_blank() + theme().legendPosition_none()
+        val themes = theme().axisTitleYBlank() + theme().legendPositionNone()
         val p = ggplot() + themes
 
         assertThat(p).features().length(2)

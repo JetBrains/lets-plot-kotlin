@@ -7,13 +7,13 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geom_contour
-import jetbrains.letsPlot.geom.geom_contourf
-import jetbrains.letsPlot.geom.geom_path
+import jetbrains.letsPlot.geom.geomContour
+import jetbrains.letsPlot.geom.geomContourFilled
+import jetbrains.letsPlot.geom.geomPath
 import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scale_color_gradient
-import jetbrains.letsPlot.stat.stat_contour
-import jetbrains.letsPlot.stat.stat_contourf
+import jetbrains.letsPlot.scale.scaleColorGradient
+import jetbrains.letsPlot.stat.statContour
+import jetbrains.letsPlot.stat.statContourFilled
 import kotlin.math.PI
 import kotlin.math.sin
 
@@ -25,21 +25,21 @@ object Contour {
 
             val p = letsPlot(data) { x = "x"; y = "y" }
 
-            (p + geom_contour(color = "red") { z = "z" }).show()
-            (p + geom_contour(bins = 20) { z = "z"; color = "..level.." } +
-                    scale_color_gradient(low = "dark_green", high = "yellow")).show()
+            (p + geomContour(color = "red") { z = "z" }).show()
+            (p + geomContour(bins = 20) { z = "z"; color = "..level.." } +
+                    scaleColorGradient(low = "dark_green", high = "yellow")).show()
 
             // Path + contour stat ==> same
-            (p + geom_path(stat = Stat.contour(bins = 20) { z = "z" }) { color = "..level.." } +
-                    scale_color_gradient(low = "dark_green", high = "yellow")).show()
+            (p + geomPath(stat = Stat.contour(bins = 20) { z = "z" }) { color = "..level.." } +
+                    scaleColorGradient(low = "dark_green", high = "yellow")).show()
 
             // stat_contour ==> same
-            (p + stat_contour(bins = 20) { z = "z"; color = "..level.." } +
-                    scale_color_gradient(low = "dark_green", high = "yellow")).show()
+            (p + statContour(bins = 20) { z = "z"; color = "..level.." } +
+                    scaleColorGradient(low = "dark_green", high = "yellow")).show()
 
-            (p + geom_contourf { z = "z"; fill = "..level.." }).show()
+            (p + geomContourFilled { z = "z"; fill = "..level.." }).show()
 
-            (p + stat_contourf { z = "z"; fill = "..level.." }).show()
+            (p + statContourFilled { z = "z"; fill = "..level.." }).show()
         }
     }
 

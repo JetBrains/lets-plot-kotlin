@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.label.labs
 import jetbrains.letsPlot.label.xlab
 import jetbrains.letsPlot.label.ylab
@@ -26,7 +26,7 @@ object Labs {
 
             run {
                 val p = letsPlot(dat) +
-                        geom_point { x = "x"; y = "y"; color = "y" } +
+                        geomPoint { x = "x"; y = "y"; color = "y" } +
                         labs(
                             title = "Sine function",
                             x = "Sine argument (ms)",
@@ -38,7 +38,7 @@ object Labs {
 
             run {
                 val p = letsPlot(dat) +
-                        geom_point { x = "x"; y = "y" } +
+                        geomPoint { x = "x"; y = "y" } +
                         xlab("Sine argument (ms)") + ylab("Sine value (mm)")
                 p.show()
             }

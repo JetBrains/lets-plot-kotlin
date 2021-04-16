@@ -7,8 +7,8 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.facet.facet_grid
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.facet.facetGrid
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.letsPlot
 import java.awt.Dimension
 
@@ -22,39 +22,39 @@ object FacetGrid {
         ) {
             val data = AutoMpg.map()
 
-            val p = letsPlot(data) + geom_point {
+            val p = letsPlot(data) + geomPoint {
                 x = "engine horsepower"
                 y = "miles per gallon"
                 color = "origin of car"
             }
 
             // cols
-            (p + facet_grid(
+            (p + facetGrid(
                 x = "number of cylinders",
                 xFormat = "{d} cyl"
             )).show()
 
             // rows
-            (p + facet_grid(
+            (p + facetGrid(
                 y = "origin of car"
             )).show()
 
             // both
-            (p + facet_grid(
+            (p + facetGrid(
                 x = "number of cylinders",
                 y = "origin of car",
                 xFormat = "{d} cyl"
             )).show()
 
             // both flipped
-            (p + facet_grid(
+            (p + facetGrid(
                 x = "origin of car",
                 y = "number of cylinders",
                 yFormat = "{d} cyl"
             )).show()
 
             // both, Y-order - desc.
-            (p + facet_grid(
+            (p + facetGrid(
                 x = "number of cylinders",
                 y = "origin of car",
                 yOrder = -1,

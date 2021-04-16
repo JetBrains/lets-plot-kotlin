@@ -6,7 +6,7 @@
 package naturalEarth
 
 import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.letsPlot.geom.geom_polygon
+import jetbrains.letsPlot.geom.geomPolygon
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
@@ -18,7 +18,7 @@ fun main() {
 
     // Lets-Plot
     val spatialDataset = features.toSpatialDataset(10)
-    val p = letsPlot() + geom_polygon(data = spatialDataset, alpha = 0.2, color = "black") {
+    val p = letsPlot() + geomPolygon(data = spatialDataset, alpha = 0.2, color = "black") {
         fill = "continent"
     } + ggtitle("geom_polygon: 'data'")
 

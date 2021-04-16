@@ -8,9 +8,12 @@ package frontendContextDemo.scripts
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.*
-import jetbrains.letsPlot.geom.*
-import jetbrains.letsPlot.tooltips.layer_tooltips
-import jetbrains.letsPlot.tooltips.tooltips_none
+import jetbrains.letsPlot.geom.geomBar
+import jetbrains.letsPlot.geom.geomBoxplot
+import jetbrains.letsPlot.geom.geomErrorBar
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.tooltips.layerTooltips
+import jetbrains.letsPlot.tooltips.tooltipsNone
 
 object Tooltips {
     @JvmStatic
@@ -28,15 +31,15 @@ object Tooltips {
             // Configure the "general" multiline tooltip
             run {
                 val plot = ggplot(data) { x = "dose"; y = "len"; color = "supp" } +
-                        geom_errorbar(
-                            position = position_dodge(width = 0.9),
+                        geomErrorBar(
+                            position = positionDodge(width = 0.9),
                             color = "black",
                             width = 0.1
                         ) {
                             ymin = "min"; ymax = "max"; group = "supp"
-                        } + theme().legendPosition_none()
+                        } + theme().legendPositionNone()
 
-                val tooltipsOpts = layer_tooltips()
+                val tooltipsOpts = layerTooltips()
                     .format("@len", ".2f")
                     .format("@min", ".1f")
                     .format("@max", ".1f")
@@ -76,7 +79,7 @@ object Tooltips {
                     position = Pos.dodge,
                     color = "black",
                     stat = Stat.identity,
-                    tooltips = tooltips_none
+                    tooltips = tooltipsNone
                 ) { fill = "supp" }
                         ).show()
             }
@@ -90,7 +93,7 @@ object Tooltips {
 
                 // Configure text in outlier tooltips using the 'format()' function.
                 (plot + geomBoxplot(
-                    tooltips = layer_tooltips()
+                    tooltips = layerTooltips()
                         .format("^Y", "{.0f}")
                         .format("^middle", ".2f")
                         .format("^ymin", "min: {}")
@@ -99,7 +102,7 @@ object Tooltips {
 
                 // Replace "outlier" tooltips with the "general" tooltip.
                 (plot + geomBoxplot(
-                    tooltips = layer_tooltips()
+                    tooltips = layerTooltips()
                         .format("^Y", ".0f")
                         .format("^middle", ".2f")
                         .line("min/max|^ymin/^ymax")
@@ -113,9 +116,9 @@ object Tooltips {
             run {
                 val mpgData = AutoMpg.map()
                 val plot = ggplot(mpgData) +
-                        theme().legendPosition_none() +
-                        geom_point(
-                            tooltips = layer_tooltips()
+                        theme().legendPositionNone() +
+                        geomPoint(
+                            tooltips = layerTooltips()
                                 .line("^color (mpg)")
                                 .line("@{vehicle name} (@{model year})")
                                 .format(field = "model year", format = "19{d}")

@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_tile
+import jetbrains.letsPlot.geom.geomTile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.scale.scale_color_discrete
-import jetbrains.letsPlot.scale.scale_fill_discrete
+import jetbrains.letsPlot.scale.scaleColorDiscrete
+import jetbrains.letsPlot.scale.scaleFillDiscrete
 
 object ScaleColorDiscrete {
     @JvmStatic
@@ -23,12 +23,12 @@ object ScaleColorDiscrete {
 
     private fun discretePaletteWith(data: Map<String, Any>) {
         val p = ggplot(data) + ggsize(600, 200) +
-                geom_tile(width = 1.0) {
+                geomTile(width = 1.0) {
                     x = "x"
                     color = "x"
                     fill = "x"
                 }
 
-        (p + scale_color_discrete() + scale_fill_discrete()).show()
+        (p + scaleColorDiscrete() + scaleFillDiscrete()).show()
     }
 }

@@ -6,8 +6,8 @@
 package naturalEarth
 
 import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.geom.geom_polygon
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.geom.geomPolygon
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
@@ -22,8 +22,8 @@ fun main() {
     val polygonsSD = polygons.toSpatialDataset(10)
     val citiesSD = cities.toSpatialDataset()
     val p = letsPlot() +
-            geom_polygon(map = polygonsSD, fill = "white", color = "gray") +
-            geom_point(map = citiesSD, color = "red") +
+            geomPolygon(map = polygonsSD, fill = "white", color = "gray") +
+            geomPoint(map = citiesSD, color = "red") +
             ggtitle("geom_polygon, geom_point: 'map'")
 
     SimpleBatikView.show(

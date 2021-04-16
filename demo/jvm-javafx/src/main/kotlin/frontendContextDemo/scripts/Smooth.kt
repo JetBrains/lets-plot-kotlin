@@ -6,11 +6,10 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geom_point
-
-import jetbrains.letsPlot.geom.geom_smooth
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.geom.geomSmooth
 import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.stat.stat_smooth
+import jetbrains.letsPlot.stat.statSmooth
 import jetbrains.letsPlot.theme
 
 object Smooth {
@@ -25,9 +24,9 @@ object Smooth {
             )
             run {
                 val p = letsPlot(data) { x = "x"; y = "y" } +
-                        theme().legendPosition_none() +
-                        geom_point(shape = 21, fill = "yellow", color = "blue") +
-                        geom_smooth(method = "lm", deg = 5, size = 1.2)
+                        theme().legendPositionNone() +
+                        geomPoint(shape = 21, fill = "yellow", color = "blue") +
+                        geomSmooth(method = "lm", deg = 5, size = 1.2)
 
                 p.show()
             }
@@ -35,9 +34,9 @@ object Smooth {
             run {
                 // the same
                 val p = letsPlot(data) { x = "x"; y = "y" } +
-                        theme().legendPosition_none() +
-                        geom_point(shape = 21, fill = "yellow", color = "blue") +
-                        stat_smooth(method = "lm", deg = 5, size = 1.2)
+                        theme().legendPositionNone() +
+                        geomPoint(shape = 21, fill = "yellow", color = "blue") +
+                        statSmooth(method = "lm", deg = 5, size = 1.2)
 
                 p.show()
             }

@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_line
+import jetbrains.letsPlot.geom.geomLine
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scale_x_continuous
-import jetbrains.letsPlot.scale.scale_x_log10
+import jetbrains.letsPlot.scale.scaleXContinuous
+import jetbrains.letsPlot.scale.scaleXLog10
 
 object ScaleTransform {
     @JvmStatic
@@ -21,13 +21,13 @@ object ScaleTransform {
                 "y" to (0..10).toList()
             )
 
-            val p = letsPlot(data) + geom_line { x = "x"; y = "y" }
+            val p = letsPlot(data) + geomLine { x = "x"; y = "y" }
 
             p.show()
-            (p + scale_x_continuous(trans = "reverse") + ggtitle("reverse")).show()
-            (p + scale_x_continuous(trans = "log10") + ggtitle("log10")).show()
-            (p + scale_x_log10() + ggtitle("scale_x_log10")).show()
-            (p + scale_x_continuous(trans = "sqrt") + ggtitle("sqrt")).show()
+            (p + scaleXContinuous(trans = "reverse") + ggtitle("reverse")).show()
+            (p + scaleXContinuous(trans = "log10") + ggtitle("log10")).show()
+            (p + scaleXLog10() + ggtitle("scale_x_log10")).show()
+            (p + scaleXContinuous(trans = "sqrt") + ggtitle("sqrt")).show()
         }
     }
 }

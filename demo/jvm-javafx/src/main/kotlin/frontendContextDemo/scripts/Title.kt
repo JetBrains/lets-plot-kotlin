@@ -5,11 +5,11 @@
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.scale.scale_size_area
 import frontendContextDemo.ScriptInJfxContext
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
+import jetbrains.letsPlot.scale.scaleSizeArea
 import kotlin.math.PI
 import kotlin.math.sin
 
@@ -23,9 +23,9 @@ object Title {
             )
 
             val p = letsPlot(dat) +
-                    geom_point { x = "x"; y = "y" } +
+                    geomPoint { x = "x"; y = "y" } +
                     ggtitle("Sine function") +
-                    scale_size_area(maxSize = 70, guide = "none")
+                    scaleSizeArea(maxSize = 70, guide = "none")
 
             p.show()
         }

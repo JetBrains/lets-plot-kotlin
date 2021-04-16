@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_hline
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.geom.geom_vline
+import jetbrains.letsPlot.geom.geomHLine
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.geom.geomVLine
 import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.*
 import java.util.*
@@ -28,38 +28,38 @@ object LimitsContinuous {
             )
 
             val p = letsPlot(dat) +
-                    geom_point(color = "black", alpha = .3) { x = "x"; y = "y" }
+                    geomPoint(color = "black", alpha = .3) { x = "x"; y = "y" }
             p.show()
 
             (p + lims(x = -1 to 1, y = -1 to 1) +
-                    geom_vline(linetype = 3) { xintercept = Pair(-1, 1) } +
-                    geom_hline(linetype = 3) { yintercept = listOf(-1, 1) }
+                    geomVLine(linetype = 3) { xintercept = Pair(-1, 1) } +
+                    geomHLine(linetype = 3) { yintercept = listOf(-1, 1) }
                     ).show()
 
             (p + lims(x = -1 to null, y = null to 1) +
-                    geom_vline(linetype = 3, xintercept = -1) +
-                    geom_hline(linetype = 3, yintercept = 1)
+                    geomVLine(linetype = 3, xintercept = -1) +
+                    geomHLine(linetype = 3, yintercept = 1)
                     ).show()
 
             (p + xlim(-10 to 10) + ylim(-10 to 10) +
-                    geom_vline(linetype = 3) { xintercept = Pair(-10, 10) } +
-                    geom_hline(linetype = 3) { yintercept = listOf(-10, 10) }
+                    geomVLine(linetype = 3) { xintercept = Pair(-10, 10) } +
+                    geomHLine(linetype = 3) { yintercept = listOf(-10, 10) }
                     ).show()
 
             // scale continuous limits
 
-            (p + scale_x_continuous(limits = -1 to 1) +
-                    geom_vline(linetype = 3) { xintercept = -1 to 1 }
+            (p + scaleXContinuous(limits = -1 to 1) +
+                    geomVLine(linetype = 3) { xintercept = -1 to 1 }
                     ).show()
 
-            (p + scale_x_continuous(limits = -1 to 1, expand = listOf(.0, .5)) +
-                    geom_vline(linetype = 3) { xintercept = -1 to 1 }
+            (p + scaleXContinuous(limits = -1 to 1, expand = listOf(.0, .5)) +
+                    geomVLine(linetype = 3) { xintercept = -1 to 1 }
                     ).show()
 
-            (p + scale_x_continuous(limits = -1 to 1, expand = listOf(.0, .5)) +
-                    geom_vline(linetype = 3) { xintercept = -1 to 1 } +
-                    scale_y_continuous(limits = -2 to 2, expand = listOf(.0, 1)) +
-                    geom_hline(linetype = 3) { yintercept = -2 to 2 }
+            (p + scaleXContinuous(limits = -1 to 1, expand = listOf(.0, .5)) +
+                    geomVLine(linetype = 3) { xintercept = -1 to 1 } +
+                    scaleYContinuous(limits = -2 to 2, expand = listOf(.0, 1)) +
+                    geomHLine(linetype = 3) { yintercept = -2 to 2 }
                     ).show()
         }
     }

@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geom_image
+import jetbrains.letsPlot.geom.geomImage
 import jetbrains.letsPlot.ggplot
 
 object Image {
@@ -25,7 +25,7 @@ object Image {
                 "ymax" to listOf(1.5)
             )
             val p = ggplot(data) +
-                    geom_image(
+                    geomImage(
                         href = sampleImageDataUrl3x3()
                     ) {
                         xmin = "xmin";

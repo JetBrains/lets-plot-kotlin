@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.ggsize
 import jetbrains.letsPlot.theme
@@ -21,34 +21,34 @@ object ThemePosition {
             val data = mapOf("x" to xs, "y" to ys, "c" to cs)
 
             val p = ggplot(data) + ggsize(500, 200) +
-                    geom_point { x = "x"; y = "y"; color = "c" }
+                    geomPoint { x = "x"; y = "y"; color = "c" }
 
             p.show()
 
             (p + theme()
-                .legendPosition_bottom()
+                .legendPositionBottom()
                     ).show()
 
             (p + theme()
                 .legendPosition(1, 1)
                 .legendJustification(1, .9)
-                .legendDirection_horizontal()
+                .legendDirectionHorizontal()
                     ).show()
 
             (p + theme()
                 .legendPosition(0.5, 0.5)
-                .legendJustification_center()
-                .legendDirection_horizontal()
+                .legendJustificationCenter()
+                .legendDirectionHorizontal()
                     ).show()
 
             (p + theme()
                 .legendPosition(0, 0)
                 .legendJustification(0, 0)
-                .legendDirection_horizontal()
+                .legendDirectionHorizontal()
                     ).show()
 
             (p + theme()
-                .legendPosition_left()
+                .legendPositionLeft()
                     ).show()
         }
     }

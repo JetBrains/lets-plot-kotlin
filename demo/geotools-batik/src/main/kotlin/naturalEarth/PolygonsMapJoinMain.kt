@@ -6,7 +6,7 @@
 package naturalEarth
 
 import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.letsPlot.geom.geom_polygon
+import jetbrains.letsPlot.geom.geomPolygon
 import jetbrains.letsPlot.intern.toSpec
 import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
@@ -24,7 +24,7 @@ fun main() {
         "region" to listOf("Europe", "Asia", "North America", "Africa", "Australia", "Oceania"),
         "avg_temp" to listOf(8.6, 16.6, 11.7, 21.9, 14.9, 23.9)
     )
-    val p = letsPlot() + geom_polygon(
+    val p = letsPlot() + geomPolygon(
         data = climateData,
         map = spatialDataset,
         mapJoin = "region" to "continent",

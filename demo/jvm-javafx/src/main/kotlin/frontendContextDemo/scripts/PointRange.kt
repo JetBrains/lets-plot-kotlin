@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geom_pointrange
+import jetbrains.letsPlot.geom.geomPointRange
 import jetbrains.letsPlot.ggplot
 
 object PointRange {
@@ -20,7 +20,7 @@ object PointRange {
                 "lower" to listOf(6, 3, 2, 1)
             )
 
-            val geom = geom_pointrange(fatten = 10.0) {
+            val geom = geomPointRange(fatten = 10.0) {
                 x = "drink"; y = "mean"; ymin = "lower"; ymax = "upper"; fill = "mean"
             }
 

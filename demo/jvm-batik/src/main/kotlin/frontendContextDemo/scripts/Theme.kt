@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geom_tile
+import jetbrains.letsPlot.geom.geomTile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.theme
 
@@ -18,23 +18,23 @@ object Theme {
             val data = mapOf("x" to xs)
 
             val p = ggplot(data) +
-                    geom_tile(width = 1.0, height = 10.0) { x = "x"; color = "x"; fill = "x" }
+                    geomTile(width = 1.0, height = 10.0) { x = "x"; color = "x"; fill = "x" }
 
 
             (p + theme()
-                .legendPosition_none()
-                .axisTextY_blank()
-                .axisTicksY_blank()
-                .axisTitleY_blank())
+                .legendPositionNone()
+                .axisTextYBlank()
+                .axisTicksYBlank()
+                .axisTitleYBlank())
                 .show()
 
             // compose themes --> the same
             (p + theme()
-                .legendPosition_none() +
+                .legendPositionNone() +
                     theme()
-                        .axisTextY_blank()
-                        .axisTicksY_blank()
-                        .axisTitleY_blank())
+                        .axisTextYBlank()
+                        .axisTicksYBlank()
+                        .axisTitleYBlank())
                 .show()
 
         }

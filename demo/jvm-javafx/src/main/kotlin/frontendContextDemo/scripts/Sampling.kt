@@ -5,10 +5,10 @@
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.sampling.sampling_random
 import frontendContextDemo.ScriptInJfxContext
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.letsPlot
+import jetbrains.letsPlot.sampling.samplingRandom
 import kotlin.math.PI
 import kotlin.math.sin
 
@@ -22,7 +22,7 @@ object Sampling {
             )
 
             val p = letsPlot(dat) +
-                    geom_point(data = dat, sampling = sampling_random(40)) { x = "x"; y = "y" }
+                    geomPoint(data = dat, sampling = samplingRandom(40)) { x = "x"; y = "y" }
 
             p.show()
         }

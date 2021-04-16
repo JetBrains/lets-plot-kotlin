@@ -6,7 +6,7 @@
 package jetbrains.letsPlot
 
 import jetbrains.letsPlot.Stat.density
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.LayerAssert
 import jetbrains.letsPlot.intern.StatKind
@@ -16,7 +16,7 @@ class GeomLayerTest {
 
     @Test
     fun `geom with default stat`() {
-        val l = geom_point(color = "C") { fill = "F" }
+        val l = geomPoint(color = "C") { fill = "F" }
 
         LayerAssert.assertThat(l)
             .aes("fill", "F")
@@ -31,7 +31,7 @@ class GeomLayerTest {
 
     @Test
     fun `geom with overridden stat`() {
-        val l = geom_point(color = "C", stat = density(kernel = "gaussian")) { fill = "F" }
+        val l = geomPoint(color = "C", stat = density(kernel = "gaussian")) { fill = "F" }
         LayerAssert.assertThat(l)
             .aes("fill", "F")
             .parameter("color", "C")
@@ -49,7 +49,7 @@ class GeomLayerTest {
     @Test
     fun `geom with overridden stat, mapping`() {
         val l =
-            geom_point(color = "C", stat = density(kernel = "gaussian") { x = "F1"; weight = "W" }) {
+            geomPoint(color = "C", stat = density(kernel = "gaussian") { x = "F1"; weight = "W" }) {
                 x = "F"
             }
 

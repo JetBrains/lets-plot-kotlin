@@ -5,10 +5,10 @@
 
 package jetbrains.letsPlot
 
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.toSpec
-import jetbrains.letsPlot.sampling.sampling_none
+import jetbrains.letsPlot.sampling.samplingNone
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -18,8 +18,8 @@ class SamplingNoneTest {
 
     @Test
     fun noneSampling() {
-        val p = ggplot() + geom_point(
-            sampling = sampling_none
+        val p = ggplot() + geomPoint(
+            sampling = samplingNone
         )
         val layers = p.layers()
         assertEquals(1, layers.size)
