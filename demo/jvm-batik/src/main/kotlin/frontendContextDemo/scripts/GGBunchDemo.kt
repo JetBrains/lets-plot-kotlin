@@ -10,7 +10,6 @@ import jetbrains.letsPlot.GGBunch
 import jetbrains.letsPlot.geom.geomBoxplot
 import jetbrains.letsPlot.geom.geomDensity
 import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.letsPlot
 import kotlin.math.abs
 
@@ -22,9 +21,7 @@ object GGBunchDemo {
             maxCol = 2
         ) {
             val density = letsPlot(densityData()) + geomDensity(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
-            val boxplot = letsPlot(boxplotData(), fun GenericAesMapping.() {
-                x = "cat"; y = "val"
-            }) + geomBoxplot(outlierColor = "red")
+            val boxplot = letsPlot(boxplotData()) { x = "cat"; y = "val" } + geomBoxplot(outlierColor = "red")
 
             // set plot size via `addPlot` func param
             val w = 300

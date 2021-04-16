@@ -9,8 +9,8 @@ import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geomBar
 import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.letsPlot
+import jetbrains.letsPlot.lets_plot
 import jetbrains.letsPlot.scale.scale_alpha
 
 object ScaleAlpha {
@@ -25,9 +25,7 @@ object ScaleAlpha {
                     "y" to List(n) { rand.nextGaussian() }
                 )
 
-                val p = letsPlot(data, fun GenericAesMapping.() {
-                    x = "x"; y = "y"
-                }) +
+                val p = lets_plot(data) { x = "x"; y = "y" } +
                         geom_point(stat = Stat.density2d(contour = false, n = 30)) { alpha = "..density.." } +
                         scale_alpha(range = 0.5 to 1)
                 p.show()
@@ -39,9 +37,7 @@ object ScaleAlpha {
                     "y" to (1..3).toList(),
                     "alpha" to listOf(0.5, 1.0, 1.5)
                 )
-                val p = letsPlot(df, fun GenericAesMapping.() {
-                    x = "x"; y = "y"; alpha = "alpha"
-                }) +
+                val p = letsPlot(df) { x = "x"; y = "y"; alpha = "alpha" } +
                         geomBar(stat = Stat.identity) +
                         scale_alpha(breaks = listOf(0.5, 1.0, 1.5), labels = listOf("a", "b", "c"))
                 p.show()

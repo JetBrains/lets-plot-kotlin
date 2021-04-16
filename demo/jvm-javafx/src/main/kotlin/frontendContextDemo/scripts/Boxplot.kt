@@ -7,7 +7,6 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.letsPlot
 import kotlin.math.abs
 
@@ -25,9 +24,7 @@ object Boxplot {
                 "cat" to List(n) { categories[abs(rand.nextInt()).rem(categories.size)] }
             )
 
-            val p = letsPlot(data, fun GenericAesMapping.() {
-                x = "cat"; y = "val"
-            }) + geomBoxplot(outlierColor = "red")
+            val p = letsPlot(data) { x = "cat"; y = "val" } + geomBoxplot(outlierColor = "red")
             p.show()
         }
     }

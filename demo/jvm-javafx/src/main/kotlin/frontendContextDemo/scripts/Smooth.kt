@@ -9,7 +9,6 @@ import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geom_point
 
 import jetbrains.letsPlot.geom.geom_smooth
-import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.stat.stat_smooth
 import jetbrains.letsPlot.theme
@@ -25,9 +24,7 @@ object Smooth {
                 "y" to List(n) { rand.nextGaussian() }
             )
             run {
-                val p = letsPlot(data, fun GenericAesMapping.() {
-                    x = "x"; y = "y"
-                }) +
+                val p = letsPlot(data) { x = "x"; y = "y" } +
                         theme().legendPosition_none() +
                         geom_point(shape = 21, fill = "yellow", color = "blue") +
                         geom_smooth(method = "lm", deg = 5, size = 1.2)
@@ -37,9 +34,7 @@ object Smooth {
 
             run {
                 // the same
-                val p = letsPlot(data, fun GenericAesMapping.() {
-                    x = "x"; y = "y"
-                }) +
+                val p = letsPlot(data) { x = "x"; y = "y" } +
                         theme().legendPosition_none() +
                         geom_point(shape = 21, fill = "yellow", color = "blue") +
                         stat_smooth(method = "lm", deg = 5, size = 1.2)

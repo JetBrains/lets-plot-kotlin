@@ -10,7 +10,6 @@ import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.geom_contour
 import jetbrains.letsPlot.geom.geom_contourf
 import jetbrains.letsPlot.geom.geom_path
-import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.scale_color_gradient
 import jetbrains.letsPlot.stat.stat_contour
@@ -24,9 +23,7 @@ object Contour {
         ScriptInJfxContext.eval("Contour") {
             val data = contourData()
 
-            val p = letsPlot(data, fun GenericAesMapping.() {
-                x = "x"; y = "y"
-            })
+            val p = letsPlot(data) { x = "x"; y = "y" }
 
             (p + geom_contour(color = "red") { z = "z" }).show()
             (p + geom_contour(bins = 20) { z = "z"; color = "..level.." } +

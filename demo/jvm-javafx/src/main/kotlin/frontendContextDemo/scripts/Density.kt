@@ -8,7 +8,6 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.geom.*
-import jetbrains.letsPlot.intern.GenericAesMapping
 import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.stat.stat_density2d
 import jetbrains.letsPlot.stat.stat_density2df
@@ -22,9 +21,7 @@ object Density {
                 "x" to List(100) { rand.nextGaussian() },
                 "y" to List(100) { rand.nextGaussian() }
             )
-            val p = letsPlot(data, fun GenericAesMapping.() {
-                x = "x"; y = "y"
-            })
+            val p = letsPlot(data) { x = "x"; y = "y" }
 
             run {
                 val pl = p + geomDensity(color = "red", alpha = 0.3, size = 5.0)
