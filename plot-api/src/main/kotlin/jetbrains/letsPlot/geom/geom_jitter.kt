@@ -13,11 +13,11 @@ import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.tooltips.TooltipOptions
 import jetbrains.letsPlot.intern.layer.geom.JitterParameters
 import jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PointMapping
-import jetbrains.letsPlot.position_jitter
+import jetbrains.letsPlot.positionJitter
+import jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
@@ -80,7 +80,7 @@ class geomJitter(
         stat = stat,
         position = when {
             // init with the given width/height if its parameters was not specified
-            position.parameters.isEmpty() -> position_jitter(width, height)
+            position.parameters.isEmpty() -> positionJitter(width, height)
             else -> position
         },
         showLegend = showLegend,
