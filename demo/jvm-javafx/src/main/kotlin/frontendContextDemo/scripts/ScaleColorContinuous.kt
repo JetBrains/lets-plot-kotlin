@@ -5,10 +5,10 @@
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.geom.geom_tile
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.scale.scale_fill_gradient2
 import frontendContextDemo.ScriptInJfxContext
+import jetbrains.letsPlot.geom.geomTile
+import jetbrains.letsPlot.ggplot
+import jetbrains.letsPlot.scale.scaleFillGradient2
 
 object ScaleColorContinuous {
     @JvmStatic
@@ -18,7 +18,7 @@ object ScaleColorContinuous {
             val data = mapOf("x" to xs)
 
             val p = ggplot(data) +
-                    geom_tile(width = 1.0, height = 10.0) {
+                    geomTile(width = 1.0, height = 10.0) {
                         x = "x"
                         color = "x"
                         fill = "x"
@@ -26,7 +26,7 @@ object ScaleColorContinuous {
 
             p.show()
 
-            val gradient = scale_fill_gradient2(low = "green", mid = "yellow", high = "red")
+            val gradient = scaleFillGradient2(low = "green", mid = "yellow", high = "red")
             (p + gradient).show()
         }
     }

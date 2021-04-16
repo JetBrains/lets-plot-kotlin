@@ -5,12 +5,12 @@
 
 package frontendContextDemo.scripts
 
+import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geom_point
-import jetbrains.letsPlot.ggplot
-import frontendContextDemo.ScriptInJfxContext
 import jetbrains.letsPlot.geom.geomBar
+import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.ggplot
 
 object PointsOverBars {
     @JvmStatic
@@ -30,7 +30,7 @@ object PointsOverBars {
             }
 
             // points with count stat and `stack` position adjustment
-            val points = geom_point(stat = Stat.count(), position = Pos.stack, size = 15.0) {
+            val points = geomPoint(stat = Stat.count(), position = Pos.stack, size = 15.0) {
                 x = "cat1"
                 color = "cat2"
             }

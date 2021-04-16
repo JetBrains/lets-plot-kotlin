@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geom_polygon
+import jetbrains.letsPlot.geom.geomPolygon
 import jetbrains.letsPlot.ggplot
 
 object Polygons {
@@ -14,7 +14,7 @@ object Polygons {
     fun main(args: Array<String>) {
         ScriptInJfxContext.eval("Polygons") {
             val data = samplePolygons()
-            val p = ggplot(data) { x = "x"; y = "y" } + geom_polygon { fill = "value"; group = "id" }
+            val p = ggplot(data) { x = "x"; y = "y" } + geomPolygon { fill = "value"; group = "id" }
             p.show()
         }
     }

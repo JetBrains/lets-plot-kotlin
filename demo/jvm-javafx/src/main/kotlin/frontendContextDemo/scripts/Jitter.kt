@@ -6,10 +6,10 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geom_jitter
-import jetbrains.letsPlot.geom.geom_point
+import jetbrains.letsPlot.geom.geomJitter
+import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.scale.scale_x_discrete
+import jetbrains.letsPlot.scale.scaleXDiscrete
 
 object Jitter {
     @JvmStatic
@@ -23,14 +23,14 @@ object Jitter {
 
             val p = ggplot(data) { x = "l"; y = "d" }
 
-            (p + geom_point(shape = 21, color = "black", fill = "white", size = 3, stroke = 3)).show()
+            (p + geomPoint(shape = 21, color = "black", fill = "white", size = 3, stroke = 3)).show()
 
-            (p + geom_jitter(shape = 21, fill = "white", size = 3, stroke = 3)).show()
+            (p + geomJitter(shape = 21, fill = "white", size = 3, stroke = 3)).show()
 
-            val geom = geom_jitter(size = 3.0, width = .2) { color = "l" }
+            val geom = geomJitter(size = 3.0, width = .2) { color = "l" }
             (p + geom).show()
 
-            (p + geom + scale_x_discrete(expand = listOf(0, .1))).show()
+            (p + geom + scaleXDiscrete(expand = listOf(0, .1))).show()
         }
     }
 }
