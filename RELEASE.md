@@ -1,21 +1,31 @@
 ## Releasing the project
 
-
 ### Make version
 
 ##### 1. Update CHANGELOG.md file
 
-##### 2. Set release version in 'build.gradle' 
+##### 2. Set release version in 'build.gradle'
 
-- remove _"-alphaN"_ qualifier for the 'version' property. 
-  
-##### 3. Build and upload JVM artifacts to Bintray/JCenter
+- remove _"-alphaN"_ qualifier for the 'version' property.
 
-- `./gradlew :plot-api:bintrayUpload`
-- `./gradlew :geotools:bintrayUpload`
+##### 3. Build and release JVM artifacts to Maven Central
 
-Note that release versions will be uploaded to the `lets-plot-kotlin-jars` package.    
-Any 'alpha' version will be uploaded to the `lets-plot-kotlin-jars-dev` package.
+a) Upload to the Nexus staging repository:
+
+- `./gradlew publishLetsPlotKotlinApiPublicationToMavenRepository`
+- `./gradlew publishLetsPlotKotlinApiKernelPublicationToMavenRepository`
+- `./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenRepository`
+
+b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
+
+- `./gradlew closeAndReleaseRepository`
+
+Note: PGP signature is required for publishing.
+
+See:
+
+- https://central.sonatype.org/pages/working-with-pgp-signatures.html
+- [build_settings.template.yml](https://github.com/JetBrains/lets-plot-kotlin/blob/master/build_settings.template.yml)
 
 ##### 4. Prepare to the next dev cycle
 

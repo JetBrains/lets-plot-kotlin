@@ -45,7 +45,7 @@
   - [Tooltip customization](#tooltip-customization)
   - [GeoTools support](#geotools)
 
-- [What is new in 1.3.0](#new)
+- [What is new in 2.0.1](#new)
 - [Change log](#change_log)
 - [License](#license)    
 
@@ -245,30 +245,15 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 
 <a id="new"></a>
 
-## What is new in 1.3.0
+## What is new in 2.0.1
 
-- Improved faceting:
-  - New `facet_wrap()` function.
-  - Formatting and ordering options.
-
-  See: [Facets demo](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
-  .
-
-- Formatting tick labels on X/Y axis.
-
-  Example:
-   ```Kotlin
-   scale_x_datetime(format="%b %Y")
-   scale_x_continuous(format="is {.2f}")
-   ```
-
-  Demo: [Formatting demo](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
-
-  See also: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
-
-- The`show()` method, by default, now opens a Swing frame showing the
-  plot. [[#51](https://github.com/JetBrains/lets-plot-kotlin/issues/51)]
-
+- **[BREAKING CHANGE]**: The **groupId** of all maven artifacts is now **"org.jetbrains.lets-plot"** (was "
+  org.jetbrains.lets-plot-kotlin")
+  This was the reason for increasing of the `major` version.
+- All **snake_case** symbols were deprecated and replaced with equivalent **camelCase**
+  symbols [[#53](https://github.com/JetBrains/lets-plot-kotlin/discussions/53)].
+- Maven artifacts published to [Maven Central](https://search.maven.org/search?q=lets-plot) (due to shutting down
+  of [Bintray, JCenter](https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/))
 
 - Other improvements and fixes -
   see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)

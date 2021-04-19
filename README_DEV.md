@@ -28,19 +28,17 @@ It also offers a choice between [JavaFX](https://en.wikipedia.org/wiki/JavaFX) g
 - `lets-plot-common`
 - `lets-plot-batik` or `lets-plot-jfx` (choose one) 
 
-[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-jars/_latestVersion)
-
+[![Maven Central](https://img.shields.io/maven-central/v/org.jetbrains.lets-plot/lets-plot-common?color=blue&label=Maven%20Central)](https://search.maven.org/search?q=lets-plot)
 
 #### Lets-Plot Kotlin API artifact (published by this project)
 
 - `lets-plot-kotlin-api`
 
-[ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/_latestVersion)
-
+[![Maven Central](https://img.shields.io/maven-central/v/org.jetbrains.lets-plot/lets-plot-kotlin-api?color=blue&label=Maven%20Central)](https://search.maven.org/search?q=lets-plot-kotlin)
 
 #### Project dependencies
 
-All artifacts are available at [jcenter](https://bintray.com/bintray/jcenter) Maven repository.
+All artifacts are available at [Maven Central](https://search.maven.org/search?q=lets-plot).
 
 The following is an example fragment of a Gradle project that uses Lets-Plot Kotlin API and Apache Batik rendering:
 
@@ -49,45 +47,15 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.jetbrains.lets-plot:lets-plot-batik:<lib version>"
     api "org.jetbrains.lets-plot:lets-plot-common:<lib version>"
-    api "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-api:<api version>"
+    api "org.jetbrains.lets-plot:lets-plot-kotlin-api:<api version>"
 }
 ```
 
 ```groovy
 repositories {
-    jcenter()
+    mavenCentral()
 }
 ```
-
-Development artifacts are not linked to [jcenter](https://bintray.com/bintray/jcenter) and can be only used via 
-a direct link to the `lets-plot-maven` repository:     
-
-```groovy
-repositories {
-    maven {
-        url "https://jetbrains.bintray.com/lets-plot-maven"
-    }
-}
-```
-
-<table>
-    <tr>
-        <td>Lets-Plot Kotlin API snapshots</td>
-        <td>
-            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars-dev/_latestVersion"/>
-            <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars-dev/images/download.svg"/>
-        </td>
-    </tr>
-    <tr>
-        <td>Lets-Plot library snapshots</td>
-        <td>
-            <a href="https://bintray.com/jetbrains/lets-plot-maven/lets-plot-jars-dev/_latestVersion"/>
-            <img src="https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-jars-dev/images/download.svg"/>
-        </td>
-    </tr>
-</table>
-
-
 
 #### An example of a **minimal JVM-based** application
 
@@ -112,7 +80,8 @@ org.jetbrains.lets-plot:lets-plot-common:<lib version>
 org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-api:<api version>
 ```
 
-#### Implement interface `jetbrains.letsPlot.FrontendContext` like: 
+#### Implement the `jetbrains.letsPlot.FrontendContext` interface:
+
 ```
 import jetbrains.datalore.plot.PlotHtmlHelper
 import jetbrains.letsPlot.FrontendContext
@@ -132,7 +101,7 @@ Load `Lets-Plot` JS library to the user agent:
 import jetbrains.datalore.plot.PlotHtmlHelper
 import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 
-val ver = .. // JS library version, for example: "1.1.dev2"
+val ver = .. // JS library version, for example: "1.2.3"
 val html:String = PlotHtmlHelper.getDynamicConfigureHtml(scriptUrl(ver), false)
 // include `configure html` in your document ...
 ```

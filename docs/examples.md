@@ -27,29 +27,29 @@ Try the following tutorials and examples to learn and evaluate various features 
 <a id="geoms_n_stats"></a>
 #### Geoms and Stats
 
-`geom_histogram, geom_density, geom_vline, geom_freqpoly, geom_boxplot`:
+`geomHistogram, geomDensity, geomVLine, geomFreqpoly, geomBoxplot`:
 
 [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
 
-`geom_errorbar, geom_line, geom_point, geom_bar, geom_crossbar, geom_linerange, geom_pointrange`:
+`geomErrorBar, geomLine, geomPoint, geomBar, geomCrossbar, geomLineRange, geomPointRange`:
 
 [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
 
-`geom_point, geom_smooth (stat_smooth)`:
+`geomPoint, geomSmooth (statSmooth)`:
 
 [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
 
-[geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb) 
+[geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
-`geom_density2d, geom_density2df, geom_bin2d, geom_polygon, geom_point` :
+`geomDensity2D, geomDensity2DFilled, geomBin2D, geomPolygon, geomPoint` :
 
 [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
 
-`geom_tile, geom_contour, geom_polygon (Stat.contour), geom_contourf` :
+`geomTile, geomContour, geomPolygon (Stat.contour), geomContourFilled` :
 
 [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
 
-`geom_text`, label format
+`geomText`, label format
 
 [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
 
@@ -57,25 +57,25 @@ Try the following tutorials and examples to learn and evaluate various features 
 <a id="pos"></a>
 #### Position Adjustment
 
-* `position_dodge` : [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
-* `position_jitter` : [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
+* `positionDodge` : [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+* `positionJitter` : [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
 
 
 <a id="scales"></a>
 #### Scales
 
-* `scale_color_manual, scale_fill_manual` :
- [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
-* `scale_x_continuous, scale_shape_manual` :
- [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
-* `scale_color_gradient` : [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
-* `scale_fill_hue, scale_fill_grey, scale_color_gradient` : [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
+* `scaleColorManual, scaleFillManual` :
+  [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+* `scaleXContinuous, scaleShapeManual` :
+  [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
+* `scaleColorGradient` : [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
+* `scaleFillHue, scaleFillGrey, scaleColorGradient` : [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
 
 
 <a id="facets"></a>
 #### Facets
 
-* `facet_grid(), facet_wrap()`:
+* `facetGrid(), facetWrap()`:
   [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
 
 <a id="ggbunch"></a>
@@ -95,7 +95,8 @@ A simple utility which you can use to arrange plots in a regular grid.
 * [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
 
 <a id="as_discrete"></a>
-#### `as_discrete()` function
+
+#### `asDiscrete()` function
 
 * [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 

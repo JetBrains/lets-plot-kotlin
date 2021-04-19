@@ -5,17 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.1] - 2021-04-?? (coming)
+## [2.0.1] - 2021-04-19
 
 ### Changed
 
+- **[BREAKING CHANGE]**: The **groupId** of all maven artifacts is now **"org.jetbrains.lets-plot"** (was "
+  org.jetbrains.lets-plot-kotlin")
 - Built with Lets-Plot v2.0.2 (was v2.0.2).
-- All "snake_case" symbols were deprecated and replaced with equivalent "camelCase"
+- All **snake_case** symbols were deprecated and replaced with equivalent **camelCase**
   symbols [[#53](https://github.com/JetBrains/lets-plot-kotlin/discussions/53)].
 - Maven artifacts published to [Maven Central](https://search.maven.org/search?q=lets-plot) (due to shutting down
   of [Bintray, JCenter](https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/))
-- **[!]** The **groupId** of all maven artifacts is now **org.jetbrains.lets-plot** (before was "
-  org.jetbrains.lets-plot-kotlin")
 
 ## [1.3.0] - 2021-03-22
 
