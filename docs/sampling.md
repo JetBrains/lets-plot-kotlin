@@ -9,9 +9,9 @@ Sampling is also one of the ways of handling over-plotting.
 ### How it works
 
 By default, sampling kicks-in automatically when the data volume exceeds a certain threshold. 
-Sampling type and parameters can also be configured manually per geometry layer using the `sampling` argument of `geom_xxx()` function. 
+Sampling type and parameters can also be configured manually per geometry layer using the `sampling` argument of `geomXxx()` function. 
 
-Value `sampling_none` will disable any sampling for the given layer.
+Value `samplingNone` will disable any sampling for the given layer.
 
 There are several sampling methods implemented in Lets-Plot. The sampling methods can be chained together using the `+` operator.
 

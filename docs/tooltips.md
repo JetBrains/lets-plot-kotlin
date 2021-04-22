@@ -18,7 +18,7 @@ You can customize the content of tooltips for the layer by using the parameter `
 The following functions set lines, define formatting of the tooltip, its location and width:
 
 ```
-tooltips=layer_tooltips()
+tooltips=layerTooltips()
     .format(field, format)
     .line(template)
     .anchor(position)
@@ -27,7 +27,7 @@ tooltips=layer_tooltips()
 
 
 <a id="formatting"></a>
-### Formatting tooltip fields: `layer_tooltips().format(field, format)`
+### Formatting tooltip fields: `layerTooltips().format(field, format)`
 
 Defines the format for displaying the value.
 The format will be applied to the mapped value in the default tooltip or to the corresponding value specified in the `line` template.
@@ -59,7 +59,7 @@ The string template in the `format` parameter will allow changing lines for the 
 Variable's and aesthetic's formats are not interchangeable, for example, `var` format will not be applied to `aes` mapped to this variable.
 
 <a id="lines"></a>
-### Customizing tooltip lines: `layer_tooltips().line(template)`
+### Customizing tooltip lines: `layerTooltips().line(template)`
 
 Specifies the string template to use in a general tooltip. If you add `line()`, it overrides the default tooltip.
 
@@ -93,7 +93,7 @@ do not specify a label, the string will be centered in the tooltip. For example:
 
 <a id="tooltip-anchor"></a>
 
-### Tooltip anchor: `layer_tooltips().anchor(position)`
+### Tooltip anchor: `layerTooltips().anchor(position)`
 
 Specifies a fixed position for a general tooltip.
 
@@ -111,13 +111,13 @@ The `anchor()` function accepts the following values:
 
 <a id="minwidth"></a>
 
-### Minimum width of a general tooltip: `layer_tooltips().minWidth(value)`
+### Minimum width of a general tooltip: `layerTooltips().minWidth(value)`
 
 Specifies a minimum width of a general tooltip in pixels.
 
 <a id="Color"></a>
 
-### Tooltip color: `layer_tooltips().color(value)`
+### Tooltip color: `layerTooltips().color(value)`
 
 Specifies a color of a general tooltip.
 
@@ -126,10 +126,10 @@ Specifies a color of a general tooltip.
 ### Examples
 
 ```
-lets_plot(mpg) {x = "displ"; y = "cty"} + theme().legendPosition_none() +
-    geom_point(shape = 21, 
+letsPlot(mpg) { x = "displ"; y = "cty" } + theme().legendPositionNone() +
+    geomPoint(shape = 21, 
                color = "black",
-               tooltips = layer_tooltips()
+               tooltips = layerTooltips()
                           .format("cty", ".1f")
                           .format("hwy", ".1f")
                           .format("drv", "{}wd")
@@ -145,10 +145,10 @@ lets_plot(mpg) {x = "displ"; y = "cty"} + theme().legendPosition_none() +
 Change format for the default tooltip:
 
 ```
-lets_plot(mpg) {x = "displ"; y = "cty"} + 
-    geom_point(shape = 21,
+letsPlot(mpg) { x = "displ"; y = "cty" } + 
+    geomPoint(shape = 21,
                color = "black",
-               tooltips = layer_tooltips().format("^size", "{.2f} (mpg)")) {fill="drv"; size="hwy"}
+               tooltips = layerTooltips().format("^size", "{.2f} (mpg)")) { fill="drv"; size="hwy" }
 ```
 
 ![](examples/images/tooltips_2.png)
@@ -156,10 +156,10 @@ lets_plot(mpg) {x = "displ"; y = "cty"} +
 Place a general tooltip at the top center and define its minimum width:
 
 ```
-lets_plot(mpg) +
-    geom_point(
+letsPlot(mpg) +
+    geomPoint(
         shape=21, color="black",
-        tooltips=layer_tooltips()
+        tooltips=layerTooltips()
                    .format("cty", ".1f")
                    .format("hwy", ".1f")
                    .format("drv", "{}wd")
@@ -170,7 +170,7 @@ lets_plot(mpg) +
                    .line("@|@year")
                    .anchor("top_center")
                    .minWidth(200) 
-    ) {x = "displ"; y = "cty"; fill="drv"; size="hwy"}
+    ) { x = "displ"; y = "cty"; fill="drv"; size="hwy" }
 ```
 
 ![](examples/images/tooltips_6.png)
@@ -178,15 +178,15 @@ lets_plot(mpg) +
 Move the tooltips to the top right corner:
 
 ```
-lets_plot(iris_df) + theme().legendPosition_none() +
-    geom_area(
+letsPlot(iris) + theme().legendPositionNone() +
+    geomArea(
         stat=Stat.density(),
-        tooltips=layer_tooltips()
+        tooltips=layerTooltips()
                    .anchor("top_right")
                    .line("^fill")
                    .line("length|^x")
                    .line("density|^y")
-    ) {x="sepal_length"; color="sepal_width"; fill="species"}
+    ) { x="sepal_length"; color="sepal_width"; fill="species" }
 ```                 
 
 ![](examples/images/tooltips_5.png)
@@ -205,12 +205,12 @@ The specified `line` for an outlier will move it to a general multi-line tooltip
 <a id="example-outliers"></a>
 ### Examples
 
-`val p = lets_plot(mpg_dat) {x = "class"; y = "hwy"} + theme().legendPosition_none()`
+`val p = letsPlot(mpg) { x = "class"; y = "hwy" } + theme().legendPositionNone()`
 
 
 Change formatting for outliers:
 ```
-p + geom_boxplot(tooltips = layer_tooltips()
+p + geomBoxplot(tooltips = layerTooltips()
                     .format("^Y", ".2f")                 // all positionals
                     .format("^ymax", ".3f")              // use number format --> "ymax: value"
                     .format("^middle", "{.3f}")          // use line format --> "value"
@@ -222,7 +222,7 @@ p + geom_boxplot(tooltips = layer_tooltips()
 Move outliers to a general tooltip:
 
 ```
-p + geom_boxplot(tooltips=layer_tooltips()
+p + geomBoxplot(tooltips=layerTooltips()
                    .format("^Y", ".1f")
                    .line("y min/max|^ymin/^ymax")
                    .line("lower/upper|^lower/^upper")
@@ -234,7 +234,7 @@ p + geom_boxplot(tooltips=layer_tooltips()
 Place tooltip at the top center and change its color:
 
 ``` 
-p + geom_boxplot(tooltips=layer_tooltips()
+p + geomBoxplot(tooltips=layerTooltips()
                    .anchor("top_center")
                    .color("cyan")
                    .format("^Y", ".0f")
@@ -250,7 +250,7 @@ p + geom_boxplot(tooltips=layer_tooltips()
 
 ## Hiding tooltips
 
-Set `tooltips = tooltips_none` to hide tooltips from the layer.
+Set `tooltips = tooltipsNone` to hide tooltips from the layer.
 
 <a id="example-notebooks"></a>
 
