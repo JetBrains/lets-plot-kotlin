@@ -126,7 +126,7 @@ Specifies a color of a general tooltip.
 ### Examples
 
 ```
-letsPlot(mpg) {x = "displ"; y = "cty"} + theme().legendPositionNone() +
+letsPlot(mpg) { x = "displ"; y = "cty" } + theme().legendPositionNone() +
     geomPoint(shape = 21, 
                color = "black",
                tooltips = layerTooltips()
@@ -145,7 +145,7 @@ letsPlot(mpg) {x = "displ"; y = "cty"} + theme().legendPositionNone() +
 Change format for the default tooltip:
 
 ```
-letsPlot(mpg) {x = "displ"; y = "cty"} + 
+letsPlot(mpg) { x = "displ"; y = "cty" } + 
     geomPoint(shape = 21,
                color = "black",
                tooltips = layerTooltips().format("^size", "{.2f} (mpg)")) { fill="drv"; size="hwy" }
@@ -170,7 +170,7 @@ letsPlot(mpg) +
                    .line("@|@year")
                    .anchor("top_center")
                    .minWidth(200) 
-    ) {x = "displ"; y = "cty"; fill="drv"; size="hwy"}
+    ) { x = "displ"; y = "cty"; fill="drv"; size="hwy" }
 ```
 
 ![](examples/images/tooltips_6.png)
@@ -205,7 +205,7 @@ The specified `line` for an outlier will move it to a general multi-line tooltip
 <a id="example-outliers"></a>
 ### Examples
 
-`val p = letsPlot(mpg) {x = "class"; y = "hwy"} + theme().§()`
+`val p = letsPlot(mpg) { x = "class"; y = "hwy" } + theme().legendPositionNone()`
 
 
 Change formatting for outliers:
