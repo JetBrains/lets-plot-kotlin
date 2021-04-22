@@ -128,7 +128,7 @@ format   number        result
 The number format can be used in a template to create a string with variable substitution. The string template contains
 “replacement fields” surrounded by curly braces `{}`. Anything that is not contained in braces is considered literal
 text, which is copied unchanged to the result string. If you need to include a brace character in the literal text, it
-can be escaped by doubling: {{ and }}. This approach is used in function `layer_tooltips()` to customize the content of
+can be escaped by doubling: {{ and }}. This approach is used in function `layerTooltips()` to customize the content of
 tooltips.
 
 See: [Tooltip Customization in Lets-Plot](https://github.com/JetBrains/lets-plot/blob/master/docs/tooltips.md).

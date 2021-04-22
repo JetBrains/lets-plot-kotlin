@@ -29,7 +29,7 @@ val data: SpatialDataset = featureCollection.toSpatialDataset()
 The instance of `SpatialDataset` then can be passed to a plot geometry layer via the `map` or `data` parameters.
 
 ```python
-lets-plot() + geom_polygon(map = data, fill = "white", color = "gray")
+letsPlot() + geomPolygon(map = data, fill = "white", color = "gray")
 ```
 
 The Lets-Plot library recognizes the following three 2D-geometry types:
@@ -40,9 +40,9 @@ The Lets-Plot library recognizes the following three 2D-geometry types:
 
 These shapes can be plotted using various geometry layers that depend on the type of the shape:
 
-- Points : `geom_point, geom_text`
-- Lines : `geom_path`
-- Polygons : `geom_polygon, geom_map`. `geom_rect` when used with Polygon shapes displays corresponding bounding boxes.
+- Points : `geomPoint, geomText`
+- Lines : `geomPath`
+- Polygons : `geomPolygon, geomMap`. `geomRect` when used with Polygon shapes displays corresponding bounding boxes.
 
 All coordinates must be in decimal degree units, in "WGS 84" coordinates. 
 

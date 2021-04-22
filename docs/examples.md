@@ -8,7 +8,7 @@ Try the following tutorials and examples to learn and evaluate various features 
 - [Scales](#scales)
 - [Facets](#facets)
 - [GGBunch](#ggbunch)
-- [`as_discrete()` function](#as_discrete)
+- [`asDiscrete()` function](#as_discrete)
 - [gggrid()](#gggrig)
 - [Export to File](#export)
 - [Formatting](#formatting)
