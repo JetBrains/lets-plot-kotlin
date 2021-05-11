@@ -61,8 +61,13 @@ allprojects {
             url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven"
         }
 
+//        maven {
+//            url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
+//        }
+
+        // SNAPSHOTS
         maven {
-            url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
+            url "https://oss.sonatype.org/content/repositories/snapshots"
         }
     }
 
