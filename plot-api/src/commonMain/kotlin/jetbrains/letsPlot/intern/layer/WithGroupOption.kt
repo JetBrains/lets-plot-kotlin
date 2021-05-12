@@ -9,7 +9,7 @@ import jetbrains.letsPlot.intern.Options
 import kotlin.js.JsName
 
 interface WithGroupOption {
-    @JsName("groupOption")   // 'group' clashes with 'group()'
+    @JsName("groupBy")   // 'group' clashes with 'group()'
     val group: Any?
 
     fun group() = Options.of(
