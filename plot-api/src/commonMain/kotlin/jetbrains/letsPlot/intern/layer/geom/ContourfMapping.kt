@@ -21,5 +21,5 @@ class ContourfMapping(
 ) : PolygonAesthetics, ContourStatAesthetics, WithGroupOption {
     override fun seal() = super<PolygonAesthetics>.seal() +
             super<ContourStatAesthetics>.seal() +
-            group()
+            groupOption()
 }

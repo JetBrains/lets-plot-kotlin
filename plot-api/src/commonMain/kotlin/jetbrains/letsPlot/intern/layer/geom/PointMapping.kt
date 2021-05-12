@@ -18,7 +18,7 @@ class PointMapping(
     override var stroke: Any? = null,
     override var group: Any? = null
 ) : PointAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }
 
 

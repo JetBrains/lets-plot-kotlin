@@ -20,5 +20,5 @@ class HistogramMapping(
 ) : HistogramAesthetics, BinStatAesthetics, WithGroupOption {
     override fun seal() = super<HistogramAesthetics>.seal() +
             super<BinStatAesthetics>.seal() +
-            group()
+            groupOption()
 }

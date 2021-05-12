@@ -16,7 +16,7 @@ class LineMapping(
     override var size: Any? = null,
     override var group: Any? = null
 ) : LineAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }
 
 

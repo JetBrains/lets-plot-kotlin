@@ -14,5 +14,5 @@ class ImageMapping(
     override var ymax: Any? = null,
     override var group: Any? = null
 ) : ImageAesthetics, WithGroupOption{
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }

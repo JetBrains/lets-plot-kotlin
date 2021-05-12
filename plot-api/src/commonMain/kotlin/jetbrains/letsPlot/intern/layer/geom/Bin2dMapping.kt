@@ -23,5 +23,5 @@ class Bin2dMapping(
 ) : TileAesthetics, Bin2dStatAesthetics, WithGroupOption {
     override fun seal() = super<TileAesthetics>.seal() +
             super<Bin2dStatAesthetics>.seal() +
-            group()
+            groupOption()
 }

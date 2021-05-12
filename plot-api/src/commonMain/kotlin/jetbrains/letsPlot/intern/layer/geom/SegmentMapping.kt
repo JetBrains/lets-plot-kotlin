@@ -20,7 +20,7 @@ class SegmentMapping(
     override var flow: Any? = null,
     override var group: Any? = null
 ) : SegmentAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }
 
 

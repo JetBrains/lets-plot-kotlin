@@ -6,13 +6,11 @@
 package jetbrains.letsPlot.intern.layer
 
 import jetbrains.letsPlot.intern.Options
-import kotlin.js.JsName
 
 interface WithGroupOption {
-    @JsName("groupBy")   // 'group' clashes with 'group()'
     val group: Any?
 
-    fun group() = Options.of(
+    fun groupOption() = Options.of(
         "group" to group
     )
 }

@@ -19,6 +19,6 @@ class SmoothMapping(
     override var alpha: Any? = null,
     override var group: Any? = null
 ) : SmoothAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }
 

@@ -21,5 +21,5 @@ class Density2dfMapping(
 ) : PolygonAesthetics, Density2dStatAesthetics, WithGroupOption {
     override fun seal() = super<PolygonAesthetics>.seal() +
             super<Density2dStatAesthetics>.seal() +
-            group()
+            groupOption()
 }

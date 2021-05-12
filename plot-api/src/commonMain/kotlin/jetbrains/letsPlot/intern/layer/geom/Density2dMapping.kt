@@ -25,6 +25,6 @@ class Density2dMapping(
     override fun seal() = super<PathAesthetics>.seal() +
             super<ContourStatAesthetics>.seal() +
             super<Density2dStatAesthetics>.seal() +
-            group()
+            groupOption()
 }
 

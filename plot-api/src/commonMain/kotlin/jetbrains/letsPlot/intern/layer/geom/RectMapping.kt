@@ -19,7 +19,7 @@ class RectMapping(
     override var fill: Any? = null,
     override var group: Any? = null
 ) : RectAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }
 
 

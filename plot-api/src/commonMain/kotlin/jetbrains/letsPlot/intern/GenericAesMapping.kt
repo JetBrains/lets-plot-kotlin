@@ -22,5 +22,5 @@ class GenericAesMapping(
         "alpha" to alpha,
         "color" to color,
         "fill" to fill
-    ) + group()
+    ) + groupOption()
 }

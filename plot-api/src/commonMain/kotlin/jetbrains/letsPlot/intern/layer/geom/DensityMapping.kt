@@ -21,7 +21,7 @@ class DensityMapping(
 ) : AreaAesthetics,
     DensityStatAesthetics, WithGroupOption {
     override fun seal() = super<AreaAesthetics>.seal() +
-            super<DensityStatAesthetics>.seal() + group()
+            super<DensityStatAesthetics>.seal() + groupOption()
 }
 
 

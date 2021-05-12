@@ -22,5 +22,5 @@ class ContourMapping(
 ) : PathAesthetics, ContourStatAesthetics, WithGroupOption {
     override fun seal() = super<PathAesthetics>.seal() +
             super<ContourStatAesthetics>.seal() +
-            group()
+            groupOption()
 }

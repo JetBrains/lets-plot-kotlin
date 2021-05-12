@@ -17,5 +17,5 @@ class LineRangeMapping(
     override var size: Any? = null,
     override var group: Any? = null
 ) : LineRangeAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }

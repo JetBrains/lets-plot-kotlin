@@ -18,5 +18,5 @@ class ErrorBarMapping(
     override var size: Any? = null,
     override var group: Any? = null
 ) : ErrorBarAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }

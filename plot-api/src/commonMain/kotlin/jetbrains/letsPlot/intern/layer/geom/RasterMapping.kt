@@ -14,7 +14,7 @@ class RasterMapping(
     override var fill: Any? = null,
     override var group: Any? = null
 ) : RasterAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }
 
 

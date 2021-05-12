@@ -28,5 +28,5 @@ class BoxplotMapping(
 ) : BoxplotAesthetics, BoxplotStatAesthetics, WithGroupOption {
 
     override fun seal() = super<BoxplotAesthetics>.seal() +
-            super<BoxplotStatAesthetics>.seal() + group()
+            super<BoxplotStatAesthetics>.seal() + groupOption()
 }

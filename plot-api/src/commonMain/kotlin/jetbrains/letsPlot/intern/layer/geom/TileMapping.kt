@@ -19,7 +19,7 @@ class TileMapping(
     override var size: Any? = null,
     override var group: Any? = null
 ) : TileAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + group()
+    override fun seal() = super.seal() + groupOption()
 }
 
 
