@@ -12,6 +12,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
     implementation "org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_version"
+    implementation "org.jetbrains.lets-plot:lets-plot-gis:$lets_plot_version"
     implementation project(':plot-api')
 
     implementation project(':demo-common')

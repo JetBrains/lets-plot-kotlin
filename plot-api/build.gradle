@@ -86,30 +86,31 @@ publishing {
         // publish jar with old name: "lets-plot-kotlin-api"
         // Remove soon!
         // New dependency: "lets-plot-kotlin-jvm"
-        letsPlotKotlinApi(MavenPublication) {
-            groupId artifactGroupId
-            artifactId "$artifactBaseName-api"
-            version artifactVersion
-
-            artifact jvmJar
-            artifact jvmSourcesJar
-
-            pom {
-                name = "Lets-Plot Kotlin API"
-                description = "Lets-Plot Kotlin API."
-                // Add dependency on lets-plot-common
-                withXml {
-                    def deps = asNode().appendNode('dependencies')
-                    def dep = deps.appendNode('dependency')
-                    dep.appendNode('groupId', 'org.jetbrains.lets-plot')
-                    dep.appendNode('artifactId', 'lets-plot-common')
-                    dep.appendNode('version', lets_plot_version)
-                }
-            }
-        }
+//        letsPlotKotlinApi(MavenPublication) {
+//            groupId artifactGroupId
+//            artifactId "$artifactBaseName-api"
+//            version artifactVersion
+//
+//            artifact jvmJar
+//            artifact jvmSourcesJar
+//
+//            pom {
+//                name = "Lets-Plot Kotlin API"
+//                description = "Lets-Plot Kotlin API."
+//                // Add dependency on lets-plot-common
+//                withXml {
+//                    def deps = asNode().appendNode('dependencies')
+//                    def dep = deps.appendNode('dependency')
+//                    dep.appendNode('groupId', 'org.jetbrains.lets-plot')
+//                    dep.appendNode('artifactId', 'lets-plot-common')
+//                    dep.appendNode('version', lets_plot_version)
+//                }
+//            }
+//        }
 
         // Note: artifact renamed: 'lets-plot-kotlin-api-kernel' --> 'lets-plot-kotlin-kernel'
-        letsPlotKotlinApiKernel(MavenPublication) {
+//        letsPlotKotlinApiKernel(MavenPublication) {
+        letsPlotKotlinKernel(MavenPublication) {
             groupId artifactGroupId
             artifactId "$artifactBaseName-kernel"
             version artifactVersion
