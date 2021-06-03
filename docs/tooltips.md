@@ -1,5 +1,7 @@
 # Tooltip Customization
 
+- [Tooltip `variables` parameter](#variables)
+  - [Examples](#example-variables)
 - [Formatting tooltip fields](#formatting)
 - [Customizing tooltip lines](#lines)
   - [Labels configuration](#labels-configuration)
@@ -18,58 +20,89 @@ You can customize the content of tooltips for the layer by using the parameter `
 The following functions set lines, define formatting of the tooltip, its location and width:
 
 ```
-tooltips=layerTooltips()
+tooltips=layerTooltips(variables)
     .format(field, format)
     .line(template)
     .anchor(position)
     .minWidth(value)
 ```
 
+<a id="variables"></a>
+
+### Tooltip `variables` parameter (optional): `layer_tooltips("varName1", ... , "varNameN" )`
+
+The `variables` parameter defines a list of variable names, which values will be placed line by line in the general
+tooltip. If formatting is specified for a variable from this list (with the `format` function), it will be applied.
+Otherwise, the default formatting is used. Additional tooltip lines can be specified using the `line` functions.
+
+This is useful for configuring the tooltip content, instead of using the `line()` method to configure each line of the
+tooltip.
+
+<a id="example-variables"></a>
+
+### Examples
+
+Set list of variables to place them in a multiline tooltip with the default formatting:
+
+```
+letsPlot(mpg) + geomPoint(shape=21, color='black',
+                         tooltips=layerTooltips("manufacturer", "model", "class", "drv")) {
+                           x="displ"
+                           y="cty"
+                           fill="drv"
+                           size="hwy" 
+                         }
+```
+
+![](examples/images/tooltips_8.png)
 
 <a id="formatting"></a>
+
 ### Formatting tooltip fields: `layerTooltips().format(field, format)`
 
-Defines the format for displaying the value.
-The format will be applied to the mapped value in the default tooltip or to the corresponding value specified in the `line` template.
+Defines the format for displaying the value. The format will be applied to the mapped value in the default tooltip or to
+the corresponding value specified in the `line` template.
 
 #### Arguments
 
-- `field` (string): The name of the variable/aesthetics.
-The field name begins with `^` for aesthetics. You can specify variable names without a prefix, but the `@` prefix can be also used.
-It's possible to set a format for all positional aesthetics: `^X` (all positional x) and `^Y` (all positional y).
-For example:
+- `field` (string): The name of the variable/aesthetics. The field name begins with `^` for aesthetics. You can specify
+  variable names without a prefix, but the `@` prefix can be also used. It's possible to set a format for all positional
+  aesthetics: `^X` (all positional x) and `^Y` (all positional y). For example:
   - `field = "^Y"` - for all positional y;
   - `field = "^y"` - for y aesthetic;
   - `field = "y"` - for variable with the name "y".
 
-- `format` (string): The format to apply to the field.
-The format contains a number format (`'1.f'`) or a string template (`'{.1f}'`).
-The numeric format for non-numeric value will be ignored.
-The string template contains “replacement fields” surrounded by curly braces `{}`.
-Any code that is not in the braces is considered literal text, and it will be copied unchanged to the result string.
-If you need to include a brace character into the literal text, it can be escaped by doubling: {{ and }}.
-For example:
+- `format` (string): The format to apply to the field. The format contains a number format (`'1.f'`) or a string
+  template (`'{.1f}'`). The numeric format for non-numeric value will be ignored. The string template contains
+  “replacement fields” surrounded by curly braces `{}`. Any code that is not in the braces is considered literal text,
+  and it will be copied unchanged to the result string. If you need to include a brace character into the literal text,
+  it can be escaped by doubling: {{ and }}. For example:
   - `.format("^color", ".1f")` -> `"17.0"`;
   - `.format("cty", "{.2f} (mpg)"))` -> `"17.00 (mpg)"`;
   - `.format("^color", "{{{.2f}}}")` -> `"{17.00}"`;
   - `.format("model", "{} {{text}}")` -> `"mustang {text}"`.
 
-The string template in the `format` parameter will allow changing lines for the default tooltip without `line` specifying.
+The string template in the `format` parameter will allow changing lines for the default tooltip without `line`
+specifying.
 
-Variable's and aesthetic's formats are not interchangeable, for example, `var` format will not be applied to `aes` mapped to this variable.
+Variable's and aesthetic's formats are not interchangeable, for example, `var` format will not be applied to `aes`
+mapped to this variable.
 
 <a id="lines"></a>
+
 ### Customizing tooltip lines: `layerTooltips().line(template)`
 
 Specifies the string template to use in a general tooltip. If you add `line()`, it overrides the default tooltip.
 
 Variables and aesthetics can be accessed via a special syntax:
+
 - `^color` for aesthetic;
 - `@year` for variable;
 - `@{number of cylinders}` for a variable with spaces or non-word characters in the name;
 - `@..count..` for statistics variables.
 
 A '^' symbol can be escaped with a backslash; a brace character in the literal text - by doubling:
+
 - `.line("text")` -> `"text"`;
 - `.line("\^text")` -> `"^text"`;
 - `.line("{{text}}")` -> `"{text}"`;
@@ -77,11 +110,12 @@ A '^' symbol can be escaped with a backslash; a brace character in the literal t
 - `.line("{{@model}}")` -> `"{mustang}"`.
 
 <a id="labels-configuration"></a>
+
 #### Labels configuration
-The default tooltip has a label before the value usually containing the name of the mapped variable.
-It has its own behaviour similar to a blank label for an axis aesthetics.
-This default label can be set in the template by using a pair of symbols `@|`. You can override the label by specifying
-a string value before `|` symbol.
+
+The default tooltip has a label before the value usually containing the name of the mapped variable. It has its own
+behaviour similar to a blank label for an axis aesthetics. This default label can be set in the template by using a pair
+of symbols `@|`. You can override the label by specifying a string value before `|` symbol.
 
 Within the tooltip line, ou can align a label to left. The string formed by a template can be aligned to right. If you
 do not specify a label, the string will be centered in the tooltip. For example:
@@ -139,8 +173,8 @@ letsPlot(mpg) { x = "displ"; y = "cty" } + theme().legendPositionNone() +
                           .line("drive train|@drv")
                           .line("@|@year")) {fill = "drv"; size = "hwy"}
 ```
-![](examples/images/tooltips_1.png)
 
+![](examples/images/tooltips_1.png)
 
 Change format for the default tooltip:
 
@@ -203,12 +237,13 @@ is (`'name: value'`) and formats the value. The string template replaces the def
 The specified `line` for an outlier will move it to a general multi-line tooltip.
 
 <a id="example-outliers"></a>
+
 ### Examples
 
 `val p = letsPlot(mpg) { x = "class"; y = "hwy" } + theme().legendPositionNone()`
 
-
 Change formatting for outliers:
+
 ```
 p + geomBoxplot(tooltips = layerTooltips()
                     .format("^Y", ".2f")                 // all positionals
@@ -216,8 +251,8 @@ p + geomBoxplot(tooltips = layerTooltips()
                     .format("^middle", "{.3f}")          // use line format --> "value"
                     .format("^ymin", "ymin is {.3f}"))
 ```                        
-![](examples/images/tooltips_3.png)
 
+![](examples/images/tooltips_3.png)
 
 Move outliers to a general tooltip:
 
