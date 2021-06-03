@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2021. JetBrains s.r.o.
+ * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+ */
+
+package jetbrains.letsPlot.intern.layer.stat
+
+import jetbrains.letsPlot.intern.Options
+
+/**
+ * The "Five Number Summary" requires x,y (weight is optional)
+ */
+interface BoxplotStatAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+    val x: Any?
+    val y: Any?
+    val weight: Any?
+
+    override fun seal(): Options {
+        return Options.of(
+            "x" to x,
+            "y" to y,
+            "weight" to weight
+        )
+    }
+}

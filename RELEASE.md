@@ -12,20 +12,39 @@
 
 a) Upload to the Nexus staging repository:
 
-- `./gradlew publishLetsPlotKotlinApiPublicationToMavenRepository`
-- `./gradlew publishLetsPlotKotlinApiKernelPublicationToMavenRepository`
+- `./gradlew :plot-api:publishAllPublicationsToMavenRepository`
 - `./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenRepository`
+
+> Check artifacts were uploaded to Nexus staging repository:
+>
+> https://oss.sonatype.org/index.html#stagingRepositories
+>
+> In the "Content" tab enter ‘Path lookup’: org/jetbrains/lets-plot
+
 
 b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 
 - `./gradlew closeAndReleaseRepository`
 
-Note: PGP signature is required for publishing.
+> **Note**: PGP signature is required for publishing.
+>
+> See:
+>
+> - https://central.sonatype.org/pages/working-with-pgp-signatures.html
+> - [build_settings.template.yml](https://github.com/JetBrains/lets-plot-kotlin/blob/master/build_settings.template.yml)
 
-See:
+> **Note**: Individually Lets-Plot Kotlin API artifacts can be published with commands:
+>
+> - "Kotlin kernel":
+    >
+- `./gradlew publishLetsPlotKotlinKernelPublicationToMavenRepository`
+> - Multi-platform:
+    >
+- `./gradlew :plot-api:publishKotlinMultiplatformPublicationToMavenRepository`
+>     - `./gradlew :plot-api:publishJvmPublicationToMavenRepository`
+>     - `./gradlew :plot-api:publishJsPublicationToMavenRepository`
+>     - `./gradlew :plot-api:publishMetadataPublicationToMavenRepository`
 
-- https://central.sonatype.org/pages/working-with-pgp-signatures.html
-- [build_settings.template.yml](https://github.com/JetBrains/lets-plot-kotlin/blob/master/build_settings.template.yml)
 
 ##### 4. Prepare to the next dev cycle
 

@@ -133,6 +133,22 @@ object Tooltips {
 
                 plot.show()
             }
+
+            // Quick select tooltip variables
+            run {
+                val mpgData = AutoMpg.map()
+                val plot = ggplot(mpgData) +
+                        theme().legendPositionNone() +
+                        geomPoint(
+                            tooltips = layerTooltips("vehicle name", "model year", "origin of car")
+                        ) {
+                            x = "engine displacement (cu. inches)"
+                            y = "engine horsepower"
+                            color = "miles per gallon"
+                        }
+
+                plot.show()
+            }
         }
     }
 }

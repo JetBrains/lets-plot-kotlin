@@ -56,7 +56,8 @@ Conducting experiments with Kotlin Kernel locally.
 
 - Publish artifacts to the local dev-repo:
 
-$ ./gradlew publishLetsPlotKotlinApiKernelPublicationToMavenLocalRepository
+$ ./gradlew publishLetsPlotKotlinKernelPublicationToMavenLocalRepository
+$ ./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository
 
 It will publish "lets-plot-kotlin-api-kernel-<version>" artifact to the "<project root>/.maven-publish-dev-repo/" folder.
 

@@ -5,8 +5,8 @@ buildscript {
 }
 
 plugins {
-    id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.4.21'
+    id "org.jetbrains.kotlin.multiplatform" apply false
+    id 'org.jetbrains.kotlin.jvm' apply false
     id "io.codearte.nexus-staging"
 }
 
@@ -27,19 +27,24 @@ project.ext.buildSettings = settings
 
 allprojects {
     group 'org.jetbrains.lets-plot'
-    version "2.0.2-alpha1"
+    version "3.0.0-SNAPSHOT"
 
     ext.versionIsDev = (version.contains('SNAPSHOT')
             || version.contains('rc')
             || version.contains('alpha')
             || version.contains('beta'))
 
-    sourceCompatibility = 1.8
-    compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+//    sourceCompatibility = 1.8
+//    compileKotlin {
+//        kotlinOptions.jvmTarget = "1.8"
+//    }
+//    compileTestKotlin {
+//        kotlinOptions.jvmTarget = "1.8"
+//    }
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
     }
 
     repositories {
@@ -50,19 +55,22 @@ allprojects {
             url "https://repo.osgeo.org/repository/release"
         }
 
-//        maven {
-//            url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
-//        }
-
         mavenCentral()
-
-        // Needed for kotlinx-html-jvm:0.7.1.
-        jcenter()
 
         // For kotlinx-html-jvm:0.7.2. and up.
         maven {
             url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven"
         }
+
+        // local
+//        maven {
+//            url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
+//        }
+
+        // SNAPSHOTS
+//        maven {
+//            url "https://oss.sonatype.org/content/repositories/snapshots"
+//        }
     }
 
     // Maven publication settings

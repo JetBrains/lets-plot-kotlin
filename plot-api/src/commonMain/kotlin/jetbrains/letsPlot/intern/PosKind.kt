@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2021. JetBrains s.r.o.
+ * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+ */
+
+package jetbrains.letsPlot.intern
+
+enum class PosKind {
+    IDENTITY,
+    STACK,
+    DODGE,
+    FILL,
+    NUDGE,
+    JITTER,
+    JITTER_DODGE {
+        @Suppress("SpellCheckingInspection")
+        override fun optionName() = "jitterdodge"
+    };
+
+    open fun optionName() = name.toLowerCase()
+}

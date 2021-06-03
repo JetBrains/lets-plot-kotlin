@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) 2021. JetBrains s.r.o.
+ * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+ */
+
+plugins {
+    id 'org.jetbrains.kotlin.js'
+}
+
+//group = 'me.igor'
+//version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+
+//    maven {
+//        url = uri("/Users/Igor/Work/lets-plot-kotlin/.maven-publish-dev-repo")
+//    }
+    maven {
+        url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
+    }
+}
+
+dependencies {
+//    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:2.0.2-SNAPSHOT"
+
+    implementation project(':plot-api')
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-js'
+}
+
+kotlin {
+    js(LEGACY) {
+        binaries.executable()
+        browser {
+            commonWebpackConfig {
+                cssSupport.enabled = true
+            }
+        }
+//        useCommonJs()
+    }
+}

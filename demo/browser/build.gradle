@@ -4,7 +4,7 @@
  */
 
 plugins {
-    id 'java'
+//    id 'java'
     id 'org.jetbrains.kotlin.jvm'
 }
 
@@ -13,5 +13,8 @@ dependencies {
 //    implementation "org.jetbrains.kotlinx:kotlinx-html-jvm:${kotlinx_html_version}"
 
     implementation project(':plot-api')
+
+    implementation "org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version"
+
     implementation "org.jetbrains.lets-plot:lets-plot-image-export:$lets_plot_version"
 }

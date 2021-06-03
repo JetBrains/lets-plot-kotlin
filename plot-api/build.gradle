@@ -4,8 +4,7 @@
  */
 
 plugins {
-    id 'java'
-    id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.kotlin.multiplatform'
     id 'maven-publish'
     id "signing"
     id 'org.jetbrains.dokka' version '0.10.0'
@@ -16,103 +15,130 @@ dokka {
     outputDirectory = "$projectDir/../docs/api-reference"
 }
 
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+kotlin {
+    jvm()
+    js {
+        browser()
+    }
 
-    testCompile "junit:junit:$junit_version"
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation kotlin('stdlib-common')
+                implementation "io.github.microutils:kotlin-logging:$kotlinLogging_version"
+                api "org.jetbrains.lets-plot:base-portable:$lets_plot_version"
+                api "org.jetbrains.lets-plot:plot-base-portable:$lets_plot_version"
+                api "org.jetbrains.lets-plot:plot-common-portable:$lets_plot_version"
+                api "org.jetbrains.lets-plot:plot-config-portable:$lets_plot_version"
+            }
+        }
+        commonTest {
+            dependencies {
+                implementation kotlin('test-common')
+                implementation kotlin('test-annotations-common')
+            }
+        }
+        jvmMain {
+            dependencies {
+                implementation kotlin('stdlib-jdk8')
+                implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
-    api "org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version"
-    compileOnly "org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_version"
-    compileOnly "org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_version"
-    compileOnly "org.jetbrains.lets-plot:lets-plot-image-export:$lets_plot_version"
+                compileOnly "org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_version"
+                compileOnly "org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_version"
+                compileOnly "org.jetbrains.lets-plot:lets-plot-image-export:$lets_plot_version"
+            }
+        }
+        jvmTest {
+            dependencies {
+                implementation kotlin('test')
+                implementation kotlin('test-junit')
+            }
+        }
+        jsMain {
+            dependencies {
+                implementation kotlin('stdlib-js')
+            }
+        }
+        jsTest {
+            dependencies {
+                implementation kotlin('test-js')
+            }
+        }
+    }
 }
 
 
-def artifactBaseName = 'lets-plot-kotlin-api'
+def artifactBaseName = 'lets-plot-kotlin'
 def artifactGroupId = project.group
 def artifactVersion = project.version
 
 def task_group = 'lets plot'
 
-task jarClasses(type: Jar, dependsOn: classes) {
-    group task_group
-    baseName artifactBaseName
-    version artifactVersion
-    from sourceSets.main.output
-}
-
-task jarSources(type: Jar) {
-    classifier 'sources'
-    group task_group
-    baseName artifactBaseName
-    version artifactVersion
-    from sourceSets.main.allSource
-}
-
 task jarJavaDocs(type: Jar) {
     classifier 'javadoc'
     group task_group
-    baseName artifactBaseName
-    version artifactVersion
     from("$rootDir/README.md")
 }
 
-
 publishing {
     publications {
-        letsPlotKotlinApi(MavenPublication) {
-            groupId artifactGroupId
-            artifactId artifactBaseName
-            version artifactVersion
+        // Since 3.0.0:
+        // Artifact "lets-plot-kotlin-api"
+        // replaced with multi-platform artifact "lets-plot-kotlin-jvm"
+//        letsPlotKotlinApi(MavenPublication) {
+//            groupId artifactGroupId
+//            artifactId "$artifactBaseName-api"
+//            version artifactVersion
+//
+//            artifact jvmJar
+//            artifact jvmSourcesJar
+//
+//            pom {
+//                name = "Lets-Plot Kotlin API"
+//                description = "Lets-Plot Kotlin API."
+//                // Add dependency on lets-plot-common
+//                withXml {
+//                    def deps = asNode().appendNode('dependencies')
+//                    def dep = deps.appendNode('dependency')
+//                    dep.appendNode('groupId', 'org.jetbrains.lets-plot')
+//                    dep.appendNode('artifactId', 'lets-plot-common')
+//                    dep.appendNode('version', lets_plot_version)
+//                }
+//            }
+//        }
 
-            artifact jarClasses
-            artifact jarSources
-            artifact jarJavaDocs
-
-            pom {
-                name = "Lets-Plot Kotlin API"
-                description = "Lets-Plot Kotlin API"
-                url = "https://github.com/JetBrains/lets-plot-kotlin"
-                licenses {
-                    license {
-                        name = "MIT"
-                        url = "https://opensource.org/licenses/MIT"
-                    }
-                }
-                developers {
-                    developer {
-                        id = "jetbrains"
-                        name = "JetBrains"
-                        email = "lets-plot@jetbrains.com"
-                    }
-                }
-                scm {
-                    url = "https://github.com/JetBrains/lets-plot-kotlin"
-                }
-                // Add dependency on lets-plot-common
-                withXml {
-                    def deps = asNode().appendNode('dependencies')
-                    def dep = deps.appendNode('dependency')
-                    dep.appendNode('groupId', 'org.jetbrains.lets-plot')
-                    dep.appendNode('artifactId', 'lets-plot-common')
-                    dep.appendNode('version', lets_plot_version)
-                }
-            }
-        }
-
-        letsPlotKotlinApiKernel(MavenPublication) {
+        // Since 3.0.0:
+        // Artifact   "lets-plot-kotlin-api-kernel"
+        // renamed to "lets-plot-kotlin-kernel"
+        letsPlotKotlinKernel(MavenPublication) {
             groupId artifactGroupId
             artifactId "$artifactBaseName-kernel"
             version artifactVersion
 
-            artifact jarClasses
-            artifact jarSources
-            artifact jarJavaDocs
+            artifact jvmJar
+            artifact jvmSourcesJar
 
             pom {
                 name = "Lets-Plot Kotlin API (for Jupyter Kotlin Kernel)"
-                description = "Lets-Plot Kotlin API without fixed dependencies."
+                description = "Lets-Plot Kotlin API without dependencies."
+            }
+        }
+
+
+        withType(MavenPublication) {
+            if (!artifactId.startsWith(artifactBaseName)) {
+                // Default multiplatform artifacts: rename.
+                artifactId = artifactId.replaceAll(project.name, artifactBaseName)
+                pom {
+                    name = "Lets-Plot Kotlin API"
+                    description = "Lets-Plot Kotlin API."
+                }
+            }
+
+            // Add "javadocs" to each publication or Maven won't publish it.
+            artifact jarJavaDocs
+
+            pom {
                 url = "https://github.com/JetBrains/lets-plot-kotlin"
                 licenses {
                     license {
@@ -131,6 +157,9 @@ publishing {
                     url = "https://github.com/JetBrains/lets-plot-kotlin"
                 }
             }
+
+            // Sign all publications.
+            signing.sign(it)
         }
     }
 
@@ -148,23 +177,24 @@ publishing {
     }
 }
 
-signing {
-    sign publishing.publications.letsPlotKotlinApi
-    sign publishing.publications.letsPlotKotlinApiKernel
-}
+//signing {
+//    sign publishing.publications.letsPlotKotlinApi
+//    sign publishing.publications.letsPlotKotlinApiKernel
+//}
 
 
 // Store versions in properties to later access at runtime.
 task saveVersions() {
     doLast {
-        new File("${projectDir}/src/main/resources/letsPlotKotlinAPI/", "version.properties").text = """
+        new File("${projectDir}/src/jvmMain/resources/letsPlotKotlinAPI/", "version.properties").text = """
 lets_plot.version=$lets_plot_version
 lets_plot_kotlin_api.version=${project.version}
 """
     }
 }
 
-compileKotlin.dependsOn += saveVersions
+//compileKotlin.dependsOn += saveVersions
+jvmMainClasses.dependsOn += saveVersions
 
 
 //task printIt {
