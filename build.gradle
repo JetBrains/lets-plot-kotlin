@@ -27,8 +27,7 @@ project.ext.buildSettings = settings
 
 allprojects {
     group 'org.jetbrains.lets-plot'
-//    version "2.0.2-alpha1"
-    version "2.0.2-SNAPSHOT"
+    version "3.0.0-SNAPSHOT"
 
     ext.versionIsDev = (version.contains('SNAPSHOT')
             || version.contains('rc')
@@ -42,6 +41,11 @@ allprojects {
 //    compileTestKotlin {
 //        kotlinOptions.jvmTarget = "1.8"
 //    }
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
 
     repositories {
         maven {
@@ -52,9 +56,6 @@ allprojects {
         }
 
         mavenCentral()
-
-        // Needed for kotlinx-html-jvm:0.7.1.
-//        jcenter()
 
         // For kotlinx-html-jvm:0.7.2. and up.
         maven {

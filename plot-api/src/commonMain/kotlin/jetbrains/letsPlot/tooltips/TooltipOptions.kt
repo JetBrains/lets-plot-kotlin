@@ -10,12 +10,28 @@ import jetbrains.datalore.plot.config.Option
 /**
  * Hide tooltips.
  */
-val tooltipsNone = TooltipOptions().none()
+val tooltipsNone = TooltipOptions(emptyList()).none()
 
-fun layerTooltips() = TooltipOptions()
+/**
+ * Defines the format for displaying the value.
+ * The format will be applied to the mapped value in the default tooltip
+ * or to the corresponding value specified in the line template.
+ *
+ * @param variables Variable names to crete a general multiline tooltip with.
+ *      Useful for specifying the tooltip content quickly, instead of
+ *      configuring it via the `line()` method.
+ */
+fun layerTooltips(vararg variables: String) = TooltipOptions(variables.toList())
 
-class TooltipOptions() {
-    private val parameters = HashMap<String, Any>()
+class TooltipOptions(variables: List<String>?) {
+    private val parameters = HashMap<String, Any>().apply {
+        variables?.let {
+            if (it.isNotEmpty()) {
+                this[TOOLTIP_VARIABLES] = it
+            }
+        }
+    }
+
     private var isNone = false
 
     val options: Any
@@ -25,7 +41,7 @@ class TooltipOptions() {
             parameters
         }
 
-    private constructor(other: TooltipOptions) : this() {
+    private constructor(other: TooltipOptions) : this(null) {
         this.parameters.putAll(other.parameters)
     }
 
@@ -141,6 +157,7 @@ class TooltipOptions() {
     }
 
     companion object {
+        private const val TOOLTIP_VARIABLES = Option.Layer.TOOLTIP_VARIABLES
         private const val TOOLTIP_FORMATS = Option.Layer.TOOLTIP_FORMATS
         private const val TOOLTIP_ANCHOR = Option.Layer.TOOLTIP_ANCHOR
         private const val FIELD = Option.TooltipFormat.FIELD

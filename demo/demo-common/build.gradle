@@ -12,5 +12,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
     implementation project(':plot-api')
+
+    implementation "org.slf4j:slf4j-simple:$slf4j_version"  // Enable logging to console
 }
 

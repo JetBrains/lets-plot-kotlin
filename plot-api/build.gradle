@@ -82,10 +82,9 @@ task jarJavaDocs(type: Jar) {
 
 publishing {
     publications {
-        // For backward compatibility only:
-        // publish jar with old name: "lets-plot-kotlin-api"
-        // Remove soon!
-        // New dependency: "lets-plot-kotlin-jvm"
+        // Since 3.0.0:
+        // Artifact "lets-plot-kotlin-api"
+        // replaced with multi-platform artifact "lets-plot-kotlin-jvm"
 //        letsPlotKotlinApi(MavenPublication) {
 //            groupId artifactGroupId
 //            artifactId "$artifactBaseName-api"
@@ -108,8 +107,9 @@ publishing {
 //            }
 //        }
 
-        // Note: artifact renamed: 'lets-plot-kotlin-api-kernel' --> 'lets-plot-kotlin-kernel'
-//        letsPlotKotlinApiKernel(MavenPublication) {
+        // Since 3.0.0:
+        // Artifact   "lets-plot-kotlin-api-kernel"
+        // renamed to "lets-plot-kotlin-kernel"
         letsPlotKotlinKernel(MavenPublication) {
             groupId artifactGroupId
             artifactId "$artifactBaseName-kernel"
