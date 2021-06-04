@@ -134,7 +134,7 @@ The following steps describe how to use `Lets-Plot` JVM "backend" in "browser" f
 
 ```
 org.jetbrains.lets-plot:lets-plot-common:<lib version>
-org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-api:<api version>
+org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-jvm:<api version>
 ```
 
 #### Implement the `jetbrains.letsPlot.FrontendContext` interface:
