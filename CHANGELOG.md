@@ -5,6 +5,59 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2021-06-04
+
+### Added
+
+- In tooltip customization API:
+  - `layerTooltips(variables)` - the new parameter `variables` defines a list of variable names, which values will be
+    placed in the general multiline tooltip.
+    See: [Tooltip Customization](https://github.com/JetBrains/lets-plot/blob/master/docs/tooltips.md#variables).
+
+
+- [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository containing examples of using
+  the Lets-Plot Kotlin API in JVM and Kotlin-JS projects.
+
+### Changed
+
+- **[BREAKING CHANGE]**: The CDN for delivering the Lets-Plot JavaScript library is
+  now [JSDELIVR](https://www.jsdelivr.com/?docs=gh)
+  (was CDNJS).
+
+  New URLs:
+  - Lets-Plot v2.0.3: https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v2.0.3/js-package/distr/lets-plot.min.js
+  - The latest version: https://cdn.jsdelivr.net/gh/JetBrains/lets-plot/js-package/distr/lets-plot.min.js
+
+
+- The project has been converted to a "multiplatform" project targeting JVM and JS platforms.
+
+  To use Lets-Plot Kotlin API in your project, include dependencies:
+  - JVM:  `implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:3.0.0"`
+  - JS:   `implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:3.0.0"`
+
+  See [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md) for more details.
+
+
+- **[BREAKING CHANGE]** The JVM artifact `lets-plot-kotlin-api` is no longer deployed: replaced with the
+  equivalent `lets-plot-kotlin-jvm`.
+
+
+- The artifact `lets-plot-kotlin-api-kernel` renamed to `lets-plot-kotlin-kernel` (this change only concerns Kotlin
+  Jupyter Kernel)
+
+### Fixed
+
+- Poor font rendering in Swing/Batik. Related to:  [[#364](https://github.com/JetBrains/lets-plot/issues/364)]
+- Exclude slf4j implementation from lets-plot-common [[#374](https://github.com/JetBrains/lets-plot/issues/374)]
+- geom_boxplot: should be possible to create boxplot without specifying
+  x-series [[#325](https://github.com/JetBrains/lets-plot/issues/325)]
+- geom_hline: graph plotted outside of coordinate plane visible
+  part [[#334](https://github.com/JetBrains/lets-plot/issues/334)]
+- Draw geometry only once if layer has no aes mapping
+  specified [[#73](https://github.com/JetBrains/lets-plot/issues/73)]
+- Can't build plot: "Uncaught SyntaxError: Unexpected string" in a
+  console [[#371](https://github.com/JetBrains/lets-plot/issues/371)]
+
 ## [2.0.1] - 2021-04-19
 
 ### Changed

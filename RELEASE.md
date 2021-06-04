@@ -15,7 +15,7 @@ a) Upload to the Nexus staging repository:
 - `./gradlew :plot-api:publishAllPublicationsToMavenRepository`
 - `./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenRepository`
 
-> Check artifacts were uploaded to Nexus staging repository:
+> Check artifacts are uploaded to the Nexus staging repository:
 >
 > https://oss.sonatype.org/index.html#stagingRepositories
 >
@@ -25,6 +25,13 @@ a) Upload to the Nexus staging repository:
 b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 
 - `./gradlew closeAndReleaseRepository`
+
+> Check artifacts `lets-plot-kotlin-[jvm, js, kernel, metadata, geotools]` are uploaded to the Nexus Releases repository:
+>
+> https://oss.sonatype.org/index.html#view-repositories;releases~browsestorage
+>
+> In the "Browse Storage" tab enter ‘Path lookup’: org/jetbrains/lets-plot
+
 
 > **Note**: PGP signature is required for publishing.
 >
