@@ -76,7 +76,12 @@ The following is how you configure a Gradle (Groovy) project:
 
 ```groovy
 repositories {
-    mavenCentral()
+  mavenCentral()
+
+  // For kotlinx-html-jvm:0.7.2 (0.7.3 is at the Maven Central).
+  maven {
+    url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven"
+  }
 }
 ```
 
@@ -93,16 +98,18 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_library_version"
-    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:$lets_plot_kotlin_api_version"
+  implementation "org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_library_version"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:$lets_plot_kotlin_api_version"
 }
 ```
+
+> *Note*: Depending on which JRE you are using, you might need to add JavaFX dependencies as well.
 
 - Kotlin-JS application:
 
 ```groovy
 dependencies {
-    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:$lets_plot_kotlin_api_version"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:$lets_plot_kotlin_api_version"
 }
 ```
 
