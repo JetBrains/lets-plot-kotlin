@@ -105,6 +105,17 @@ dependencies {
 
 > *Note*: Depending on which JRE you are using, you might need to add JavaFX dependencies as well.
 
+- JVM/other:
+
+If your JVM app doesn't use either frontend, you can provide just "lets-plot-common" dependency:
+
+```groovy
+dependencies {
+  implementation "org.jetbrains.lets-plot:lets-plot-common:$lets_plot_library_version"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:$lets_plot_kotlin_api_version"
+}
+```
+
 - Kotlin-JS application:
 
 ```groovy
