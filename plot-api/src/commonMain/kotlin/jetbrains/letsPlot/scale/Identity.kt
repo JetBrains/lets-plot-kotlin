@@ -31,11 +31,24 @@ import jetbrains.letsPlot.intern.Scale
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleColorIdentity(
     name: String? = null,
@@ -43,6 +56,7 @@ fun scaleColorIdentity(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
@@ -51,6 +65,7 @@ fun scaleColorIdentity(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     otherOptions = Options(
         mapOf(
@@ -80,11 +95,24 @@ fun scaleColorIdentity(
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
  *      specifying additional arguments.
  *      "none" will hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleFillIdentity(
     name: String? = null,
@@ -92,6 +120,7 @@ fun scaleFillIdentity(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.FILL,
@@ -100,6 +129,7 @@ fun scaleFillIdentity(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     otherOptions = Options(
         mapOf(
@@ -126,7 +156,20 @@ fun scaleFillIdentity(
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleShapeIdentity(
     name: String? = null,
@@ -134,6 +177,7 @@ fun scaleShapeIdentity(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.SHAPE,
@@ -142,6 +186,7 @@ fun scaleShapeIdentity(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     otherOptions = Options(
         mapOf(
@@ -170,7 +215,20 @@ fun scaleShapeIdentity(
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 @Suppress("SpellCheckingInspection")
 fun scaleLinetypeIdentity(
@@ -179,6 +237,7 @@ fun scaleLinetypeIdentity(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.LINETYPE,
@@ -187,6 +246,7 @@ fun scaleLinetypeIdentity(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     otherOptions = Options(
         mapOf(
@@ -214,7 +274,20 @@ fun scaleLinetypeIdentity(
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleAlphaIdentity(
     name: String? = null,
@@ -222,6 +295,7 @@ fun scaleAlphaIdentity(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
+    format: String? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.ALPHA,
@@ -230,6 +304,7 @@ fun scaleAlphaIdentity(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     otherOptions = Options(
         mapOf(
@@ -256,7 +331,20 @@ fun scaleAlphaIdentity(
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleSizeIdentity(
     name: String? = null,
@@ -264,6 +352,7 @@ fun scaleSizeIdentity(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
+    format: String? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.SIZE,
@@ -272,6 +361,7 @@ fun scaleSizeIdentity(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     otherOptions = Options(
         mapOf(

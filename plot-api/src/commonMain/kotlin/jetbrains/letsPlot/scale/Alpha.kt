@@ -26,9 +26,26 @@ import jetbrains.letsPlot.intern.Scale
  *      A numeric vector of length two providing limits of the scale.
  * @param naValue
  *      An aesthetic value which is used when data in not available.
- * @param guide A result returned by guideLegend() function or "none" to hide the guide.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ * @param guide
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
+ *      specifying additional arguments.
+ *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleAlpha(
     range: Pair<Number, Number>? = null,
@@ -37,6 +54,7 @@ fun scaleAlpha(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Number? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -46,6 +64,7 @@ fun scaleAlpha(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(

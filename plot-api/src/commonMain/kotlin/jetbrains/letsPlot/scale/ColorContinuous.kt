@@ -42,6 +42,8 @@ import jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -49,8 +51,18 @@ import jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
-
 fun scaleFillContinuous(
     low: String? = null, high: String? = null,
     name: String? = null,
@@ -58,6 +70,7 @@ fun scaleFillContinuous(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -67,6 +80,7 @@ fun scaleFillContinuous(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(
@@ -96,6 +110,8 @@ fun scaleFillContinuous(
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -103,6 +119,17 @@ fun scaleFillContinuous(
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleColorContinuous(
     low: String? = null, high: String? = null,           // ToDo: string or Color
@@ -111,6 +138,7 @@ fun scaleColorContinuous(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -120,6 +148,7 @@ fun scaleColorContinuous(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(
@@ -149,6 +178,8 @@ fun scaleColorContinuous(
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -156,6 +187,17 @@ fun scaleColorContinuous(
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleFillGradient(
     low: String, high: String,
@@ -164,6 +206,7 @@ fun scaleFillGradient(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = scaleFillContinuous(
@@ -173,6 +216,7 @@ fun scaleFillGradient(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans
 )
@@ -195,6 +239,8 @@ fun scaleFillGradient(
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -202,6 +248,17 @@ fun scaleFillGradient(
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleColorGradient(
     low: String, high: String,
@@ -210,6 +267,7 @@ fun scaleColorGradient(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = scaleColorContinuous(
@@ -219,6 +277,7 @@ fun scaleColorGradient(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans
 )
@@ -241,6 +300,8 @@ fun scaleColorGradient(
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -248,6 +309,17 @@ fun scaleColorGradient(
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleFillGradient2(
     low: String, mid: String, high: String,
@@ -257,6 +329,7 @@ fun scaleFillGradient2(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -266,6 +339,7 @@ fun scaleFillGradient2(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(
@@ -297,6 +371,8 @@ fun scaleFillGradient2(
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -304,6 +380,17 @@ fun scaleFillGradient2(
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleColorGradient2(
     low: String, mid: String, high: String,
@@ -313,6 +400,7 @@ fun scaleColorGradient2(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -322,6 +410,7 @@ fun scaleColorGradient2(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(
@@ -354,6 +443,8 @@ fun scaleColorGradient2(
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -361,6 +452,17 @@ fun scaleColorGradient2(
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleFillGrey(
     start: Number? = null,
@@ -371,6 +473,7 @@ fun scaleFillGrey(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ): Scale {
@@ -382,6 +485,7 @@ fun scaleFillGrey(
         labels = labels,
         limits = limits,
         naValue = naValue,
+        format = format,
         guide = guide,
         trans = trans,
         otherOptions = Options(
@@ -414,6 +518,8 @@ fun scaleFillGrey(
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -421,6 +527,17 @@ fun scaleFillGrey(
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleColorGrey(
     start: Number? = null,
@@ -431,6 +548,7 @@ fun scaleColorGrey(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ): Scale {
@@ -442,6 +560,7 @@ fun scaleColorGrey(
         labels = labels,
         limits = limits,
         naValue = naValue,
+        format = format,
         guide = guide,
         trans = trans,
         otherOptions = Options(
@@ -479,6 +598,8 @@ fun scaleColorGrey(
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -486,6 +607,17 @@ fun scaleColorGrey(
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleFillHue(
     h: Pair<Int, Int>? = null,
@@ -499,6 +631,7 @@ fun scaleFillHue(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -508,6 +641,7 @@ fun scaleFillHue(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(
@@ -546,6 +680,8 @@ fun scaleFillHue(
  *      Use null to refer to default min/max.
  * @param naValue
  *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
  *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
@@ -553,6 +689,17 @@ fun scaleFillHue(
  *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleColorHue(
     h: Pair<Int, Int>? = null,
@@ -566,6 +713,7 @@ fun scaleColorHue(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -575,6 +723,7 @@ fun scaleColorHue(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(

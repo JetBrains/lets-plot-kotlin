@@ -26,7 +26,20 @@ import jetbrains.letsPlot.intern.Scale
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleShape(
     solid: Boolean? = null,
@@ -35,6 +48,7 @@ fun scaleShape(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.SHAPE,
@@ -43,6 +57,7 @@ fun scaleShape(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     otherOptions = Options(
         mapOf(

@@ -32,8 +32,26 @@ import jetbrains.letsPlot.intern.Scale
  *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *      Discrete scale: list of data values to display, and their order.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ * @param guide
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
+ *      specifying additional arguments.
+ *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleFillBrewer(
     type: String? = null,
@@ -44,6 +62,7 @@ fun scaleFillBrewer(
     labels: List<String>? = null,
     limits: Any? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -53,6 +72,7 @@ fun scaleFillBrewer(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(
@@ -87,8 +107,26 @@ fun scaleFillBrewer(
  *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *      Discrete scale: list of data values to display, and their order.
  * @param naValue an aesthetic value which is used when data in not available.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ * @param guide
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
+ *      specifying additional arguments.
+ *      "none" will hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleColorBrewer(
     type: String? = null,
@@ -99,6 +137,7 @@ fun scaleColorBrewer(
     labels: List<String>? = null,
     limits: Any? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -108,6 +147,7 @@ fun scaleColorBrewer(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(

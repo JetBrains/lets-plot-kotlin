@@ -155,7 +155,7 @@ fun scale_color_identity(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleColorIdentity(name, breaks, labels, limits, naValue, guide)
+) = scaleColorIdentity(name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleFillIdentity(name, breaks, labels, limits, naValue, guide)"))
 fun scale_fill_identity(
@@ -165,7 +165,7 @@ fun scale_fill_identity(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleFillIdentity(name, breaks, labels, limits, naValue, guide)
+) = scaleFillIdentity(name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleShapeIdentity(name, breaks, labels, limits, naValue, guide)"))
 fun scale_shape_identity(
@@ -175,7 +175,7 @@ fun scale_shape_identity(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleShapeIdentity(name, breaks, labels, limits, naValue, guide)
+) = scaleShapeIdentity(name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleLinetypeIdentity(name, breaks, labels, limits, naValue, guide)"))
 fun scale_linetype_identity(
@@ -185,7 +185,7 @@ fun scale_linetype_identity(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleLinetypeIdentity(name, breaks, labels, limits, naValue, guide)
+) = scaleLinetypeIdentity(name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleAlphaIdentity(name, breaks, labels, limits, naValue, guide)"))
 fun scale_alpha_identity(
@@ -195,7 +195,7 @@ fun scale_alpha_identity(
     limits: List<Any>? = null,
     naValue: Number? = null,
     guide: Any? = null
-) = scaleAlphaIdentity(name, breaks, labels, limits, naValue, guide)
+) = scaleAlphaIdentity(name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleSizeIdentity(name, breaks, labels, limits, naValue, guide)"))
 fun scale_size_identity(
@@ -205,7 +205,7 @@ fun scale_size_identity(
     limits: List<Any>? = null,
     naValue: Number? = null,
     guide: Any? = null
-) = scaleSizeIdentity(name, breaks, labels, limits, naValue, guide)
+) = scaleSizeIdentity(name, breaks, labels, limits, naValue, null, guide)
 
 // Color scales
 
@@ -218,7 +218,7 @@ fun scale_color_manual(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleColorManual(values, name, breaks, labels, limits, naValue, guide)
+) = scaleColorManual(values, name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleColorDiscrete(direction, name, breaks, labels, limits, naValue, guide)"))
 fun scale_color_discrete(
@@ -229,7 +229,7 @@ fun scale_color_discrete(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleColorDiscrete(direction, name, breaks, labels, limits, naValue, guide)
+) = scaleColorDiscrete(direction, name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleColorContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_color_continuous(
@@ -241,7 +241,7 @@ fun scale_color_continuous(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleColorContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleColorContinuous(low, high, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleColorGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_color_gradient(
@@ -253,7 +253,7 @@ fun scale_color_gradient(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleColorGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleColorGradient(low, high, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleColorGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_color_gradient2(
@@ -266,7 +266,7 @@ fun scale_color_gradient2(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleColorGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleColorGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_color_grey(
@@ -280,7 +280,7 @@ fun scale_color_grey(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleColorHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_color_hue(
@@ -296,7 +296,7 @@ fun scale_color_hue(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleColorHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleColorHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleColorBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_color_brewer(
@@ -310,7 +310,7 @@ fun scale_color_brewer(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleColorBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleColorBrewer(type, palette, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
 // Fill scales
 
@@ -323,7 +323,7 @@ fun scale_fill_manual(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleFillManual(values, name, breaks, labels, limits, naValue, guide)
+) = scaleFillManual(values, name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleFillDiscrete(direction, name, breaks, labels, limits, naValue, guide)"))
 fun scale_fill_discrete(
@@ -334,7 +334,7 @@ fun scale_fill_discrete(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleFillDiscrete(direction, name, breaks, labels, limits, naValue, guide)
+) = scaleFillDiscrete(direction, name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleFillContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_fill_continuous(
@@ -346,7 +346,7 @@ fun scale_fill_continuous(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleFillContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleFillContinuous(low, high, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleFillGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_fill_gradient(
@@ -358,7 +358,7 @@ fun scale_fill_gradient(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleFillGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleFillGradient(low, high, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleFillGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_fill_gradient2(
@@ -371,7 +371,7 @@ fun scale_fill_gradient2(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleFillGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleFillGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleFillGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_fill_grey(
@@ -385,7 +385,7 @@ fun scale_fill_grey(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleFillGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleFillGrey(start, end, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleFillHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_fill_hue(
@@ -401,7 +401,7 @@ fun scale_fill_hue(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleFillHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleFillHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleFillBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_fill_brewer(
@@ -415,7 +415,7 @@ fun scale_fill_brewer(
     naValue: Any? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleFillBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleFillBrewer(type, palette, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
 // Size scales
 
@@ -428,7 +428,7 @@ fun scale_size_manual(
     limits: List<Any>? = null,
     naValue: Number? = null,
     guide: Any? = null
-) = scaleSizeManual(values, name, breaks, labels, limits, naValue, guide)
+) = scaleSizeManual(values, name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleSize(range, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_size(
@@ -440,7 +440,7 @@ fun scale_size(
     naValue: Number? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleSize(range, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleSize(range, name, breaks, labels, limits, naValue, null, guide, trans)
 
 @Deprecated("", ReplaceWith("scaleSizeArea(maxSize, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_size_area(
@@ -452,7 +452,7 @@ fun scale_size_area(
     naValue: Number? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleSizeArea(maxSize, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleSizeArea(maxSize, name, breaks, labels, limits, naValue, null, guide, trans)
 
 // Shape scales
 
@@ -465,7 +465,7 @@ fun scale_shape_manual(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleShapeManual(values, name, breaks, labels, limits, naValue, guide)
+) = scaleShapeManual(values, name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleShape(solid, name, breaks, labels, limits, naValue, guide)"))
 fun scale_shape(
@@ -476,7 +476,7 @@ fun scale_shape(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleShape(solid, name, breaks, labels, limits, naValue, guide)
+) = scaleShape(solid, name, breaks, labels, limits, naValue, null, guide)
 
 // Linetype scales
 
@@ -489,7 +489,7 @@ fun scale_linetype_manual(
     limits: List<Any>? = null,
     naValue: Any? = null,
     guide: Any? = null
-) = scaleLinetypeManual(values, name, breaks, labels, limits, naValue, guide)
+) = scaleLinetypeManual(values, name, breaks, labels, limits, naValue, null, guide)
 
 // Alpha scales
 
@@ -502,7 +502,7 @@ fun scale_alpha_manual(
     limits: List<Any>? = null,
     naValue: Number? = null,
     guide: Any? = null
-) = scaleAlphaManual(values, name, breaks, labels, limits, naValue, guide)
+) = scaleAlphaManual(values, name, breaks, labels, limits, naValue, null, guide)
 
 @Deprecated("", ReplaceWith("scaleAlpha(range, name, breaks, labels, limits, naValue, guide, trans)"))
 fun scale_alpha(
@@ -514,7 +514,7 @@ fun scale_alpha(
     naValue: Number? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleAlpha(range, name, breaks, labels, limits, naValue, guide, trans)
+) = scaleAlpha(range, name, breaks, labels, limits, naValue, null, guide, trans)
 
 // Datetime scales
 

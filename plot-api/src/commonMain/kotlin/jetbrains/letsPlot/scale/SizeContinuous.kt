@@ -24,9 +24,22 @@ import jetbrains.letsPlot.intern.Scale
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleSize(
     range: Pair<Number, Number>? = null,
@@ -35,6 +48,7 @@ fun scaleSize(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Number? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -44,6 +58,7 @@ fun scaleSize(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(
@@ -66,9 +81,22 @@ fun scaleSize(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  * @param naValue Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
  * @param trans string
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleSizeArea(
     maxSize: Number? = null,
@@ -77,6 +105,7 @@ fun scaleSizeArea(
     labels: List<String>? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Number? = null,
+    format: String? = null,
     guide: Any? = null,
     trans: String? = null
 ) = Scale(
@@ -86,6 +115,7 @@ fun scaleSizeArea(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     trans = trans,
     otherOptions = Options(

@@ -25,6 +25,26 @@ import jetbrains.letsPlot.intern.Scale
  *      A vector of labels (on ticks)
  * @param limits list of data values
  *      A vector specifying values to display with the scale and their order in guides (axis).
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ * @param guide
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
+ *      specifying additional arguments.
+ *      "none" will hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleFillDiscrete(
     direction: Int? = null,
@@ -33,6 +53,7 @@ fun scaleFillDiscrete(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.FILL,
@@ -41,6 +62,7 @@ fun scaleFillDiscrete(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     otherOptions = Options(
         mapOf(
@@ -65,6 +87,26 @@ fun scaleFillDiscrete(
  *      A vector of labels (on ticks)
  * @param limits list of data values
  *      A vector specifying values to display with the scale and their order in guides (axis).
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ * @param guide
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
+ *      specifying additional arguments.
+ *      "none" will hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
  */
 fun scaleColorDiscrete(
     direction: Int? = null,
@@ -73,6 +115,7 @@ fun scaleColorDiscrete(
     labels: List<String>? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
+    format: String? = null,
     guide: Any? = null
 ) = Scale(
     aesthetic = Aes.COLOR,
@@ -81,6 +124,7 @@ fun scaleColorDiscrete(
     labels = labels,
     limits = limits,
     naValue = naValue,
+    format = format,
     guide = guide,
     otherOptions = Options(
         mapOf(
