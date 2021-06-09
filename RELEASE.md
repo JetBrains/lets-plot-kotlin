@@ -20,6 +20,10 @@ a) Upload to the Nexus staging repository:
 > https://oss.sonatype.org/index.html#stagingRepositories
 >
 > In the "Content" tab enter ‘Path lookup’: org/jetbrains/lets-plot
+>
+> Note: check SNAPSHOT artifacts at:
+>
+> https://oss.sonatype.org/index.html#view-repositories;snapshots~browsestorage
 
 
 b) Publish all artifacts to the Nexus "Releases" repository (from the staging):

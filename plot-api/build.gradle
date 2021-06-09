@@ -43,6 +43,8 @@ kotlin {
                 implementation kotlin('stdlib-jdk8')
                 implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
+                api "org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version"
+
                 compileOnly "org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_version"
                 compileOnly "org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_version"
                 compileOnly "org.jetbrains.lets-plot:lets-plot-image-export:$lets_plot_version"
