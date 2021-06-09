@@ -35,7 +35,7 @@
 
 - [Lets-Plot-Kotlin in Datalore notebooks](#datalore)
 
-- [Lets-Plot in JVM and Kotlin-JS application](#jvm)
+- [Lets-Plot in JVM and Kotlin/JS application](#jvm)
 
 - [Lets-Plot Kotlin API](#api)
   - [User guide and API reference](#guide)
@@ -165,16 +165,16 @@ Watch the [Datalore Getting Started Tutorial](https://youtu.be/MjvFQxqNSe0) vide
 
 <a id="jvm"></a>
 
-### Lets-Plot in JVM and Kotlin-JS application
+### Lets-Plot in JVM and Kotlin/JS application
 
-Apart from Jupyter notebooks, Lets-Plot library and Kotlin API enables embedding plots into a JVM and a Kotlin-JS
+Apart from Jupyter notebooks, Lets-Plot library and Kotlin API enables embedding plots into a JVM and a Kotlin/JS
 application.
 
 See [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md) to learn more about
-creating plots in JVM or Kotlin-JS environment.
+creating plots in JVM or Kotlin/JS environment.
 
 In the [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository you will find examples of
-using Lets-Plot Kotlin API in JVM and Kotlin-JS projects.
+using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
 <a id="api"></a>
 

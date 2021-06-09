@@ -10,11 +10,11 @@ run `./gradlew build`
 ### Running demos
 
 Aside from of Jupyter demo notebooks the project also contains a set of simple demos showing how plots can be built in a
-JVM or Kotlin-JS environment.
+JVM or Kotlin/JS environment.
 
 Each JVM demo has `main` method and is launched like any other JVM application.
 
-The Kotlin-JS demo app is launched using Gradle task: `./gradlew :js-frontend-app:browserDevelopmentRun`
+The Kotlin/JS demo app is launched using Gradle task: `./gradlew :js-frontend-app:browserDevelopmentRun`
 
 The simple demos can be found in the following folders:
 
@@ -26,9 +26,9 @@ lets-plot-kotlin/demo/geotools-batik
 lets-plot-kotlin/demo/js-frontend-app
 ```
 
-### Lets-Plot in JVM and Kotlin-JS applications
+### Lets-Plot in JVM and Kotlin/JS applications
 
-Lets-Plot library enables embedding plots into a JVM or Kotlin-JS application.
+Lets-Plot library enables embedding plots into a JVM or Kotlin/JS application.
 
 When in JVM environment the Lets-Plot library offers a choice between [JavaFX](https://en.wikipedia.org/wiki/JavaFX)
 graphics and rendering powered by [Apache Batik SVG Toolkit](https://xmlgraphics.apache.org/batik/).
@@ -116,7 +116,7 @@ dependencies {
 }
 ```
 
-- Kotlin-JS application:
+- Kotlin/JS application:
 
 ```groovy
 dependencies {
@@ -127,7 +127,7 @@ dependencies {
 #### Example applications
 
 The [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository contains examples of using
-the Lets-Plot Kotlin API in JVM and Kotlin-JS projects.
+the Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
 You will also find similar "minimal" apps in this repository.
 
@@ -137,7 +137,7 @@ You will also find similar "minimal" apps in this repository.
 - JVM/Swing/JavaFX Scene:
   [minimalDemo/Main.kt](https://github.com/JetBrains/lets-plot-kotlin/blob/master/demo/jvm-javafx/src/main/kotlin/minimalDemo/Main.kt)
 
-- Kotlin-JS:
+- Kotlin/JS:
   [js-frontend-app](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/js-frontend-app)
 
 ### Frontend context

@@ -16,7 +16,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
 - [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository containing examples of using
-  the Lets-Plot Kotlin API in JVM and Kotlin-JS projects.
+  the Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
 ### Changed
 
