@@ -84,7 +84,7 @@ Until then, the `%useLatestDescriptors` line magic must be included in notebooks
 
 ##### 1. Edit `binder/environment.yml` file.
 
-This is optional - needed only if newer versions of 'kotlin-jupyter-kernel' or 'numpy' are required.
+This is optional - needed only if newer version of 'kotlin-jupyter-kernel' is required.
 
 ##### 2. Update demo notebooks
 
