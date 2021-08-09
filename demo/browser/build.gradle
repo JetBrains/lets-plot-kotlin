@@ -4,17 +4,17 @@
  */
 
 plugins {
-//    id 'java'
     id 'org.jetbrains.kotlin.jvm'
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-//    implementation "org.jetbrains.kotlinx:kotlinx-html-jvm:${kotlinx_html_version}"
 
     implementation project(':plot-api')
 
     implementation "org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version"
 
     implementation "org.jetbrains.lets-plot:lets-plot-image-export:$lets_plot_version"
+
+    implementation "org.slf4j:slf4j-simple:$slf4j_version"  // Enable logging to console
 }

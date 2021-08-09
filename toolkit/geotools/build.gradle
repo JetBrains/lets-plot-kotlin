@@ -7,19 +7,18 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
     id 'maven-publish'
-//    id "com.jfrog.bintray"
     id "signing"
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
     implementation project(':plot-api')
     compileOnly "org.geotools:gt-main:$geotools_version"
     compileOnly "org.geotools:gt-geojson:$geotools_version"
 
-    testCompile "junit:junit:$junit_version"
+    testImplementation "junit:junit:$junit_version"
     testImplementation "org.geotools:gt-main:$geotools_version"
     testImplementation "org.geotools:gt-geojson:$geotools_version"
 }

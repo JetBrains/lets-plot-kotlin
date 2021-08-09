@@ -7,18 +7,12 @@ plugins {
     id 'org.jetbrains.kotlin.js'
 }
 
-//group = 'me.igor'
-//version = '1.0-SNAPSHOT'
-
 repositories {
     mavenCentral()
 
 //    maven {
 //        url = uri("/Users/Igor/Work/lets-plot-kotlin/.maven-publish-dev-repo")
 //    }
-    maven {
-        url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
-    }
 }
 
 dependencies {

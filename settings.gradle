@@ -7,7 +7,8 @@ pluginManagement {
     plugins {
         id "org.jetbrains.kotlin.multiplatform" version "$kotlin_version"
         id "org.jetbrains.kotlin.jvm" version "$kotlin_version"
-        id "io.codearte.nexus-staging" version "0.30.0"
+        id 'org.jetbrains.dokka' version "$dokka_version"
+        id "io.codearte.nexus-staging" version "$nexus_staging_version"
     }
 }
 
@@ -30,5 +31,3 @@ project(':js-frontend-app').projectDir = new File('./demo/js-frontend-app')
 
 project(':geotools').projectDir = new File('./toolkit/geotools')
 project(':geotools-batik').projectDir = new File('./demo/geotools-batik')
-
-enableFeaturePreview('GRADLE_METADATA')
