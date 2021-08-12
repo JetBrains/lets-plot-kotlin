@@ -60,5 +60,5 @@ enum class GeomKind {
     RASTER,
     IMAGE;
 
-    open fun optionName() = name.toLowerCase()
+    open fun optionName() = name.lowercase()
 }

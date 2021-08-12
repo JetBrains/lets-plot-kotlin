@@ -16,5 +16,5 @@ enum class SamplingKind {
     VERTEX_DP,
     GROUP_RANDOM;
 
-    fun optionName() = name.toLowerCase()
+    fun optionName() = name.lowercase()
 }

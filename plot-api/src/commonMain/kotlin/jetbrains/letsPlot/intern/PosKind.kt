@@ -17,5 +17,5 @@ enum class PosKind {
         override fun optionName() = "jitterdodge"
     };
 
-    open fun optionName() = name.toLowerCase()
+    open fun optionName() = name.lowercase()
 }

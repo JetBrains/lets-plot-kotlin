@@ -18,5 +18,5 @@ enum class StatKind {
     CONTOURF,
     SMOOTH;
 
-    fun optionName() = name.toLowerCase()
+    fun optionName() = name.lowercase()
 }
