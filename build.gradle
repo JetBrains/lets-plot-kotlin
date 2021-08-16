@@ -27,7 +27,7 @@ project.ext.buildSettings = settings
 
 allprojects {
     group 'org.jetbrains.lets-plot'
-    version "3.0.2-alpha1"
+    version "3.0.3-alpha1"
 
     ext.versionIsDev = (version.contains('SNAPSHOT')
             || version.contains('rc')

@@ -48,13 +48,16 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 >
 > - "Kotlin kernel":
     >
+    >
 - `./gradlew publishLetsPlotKotlinKernelPublicationToMavenRepository`
+>
+>
 > - Multi-platform:
     >
 - `./gradlew :plot-api:publishKotlinMultiplatformPublicationToMavenRepository`
->     - `./gradlew :plot-api:publishJvmPublicationToMavenRepository`
->     - `./gradlew :plot-api:publishJsPublicationToMavenRepository`
->     - `./gradlew :plot-api:publishMetadataPublicationToMavenRepository`
+>  - `./gradlew :plot-api:publishJvmPublicationToMavenRepository`
+>  - `./gradlew :plot-api:publishJsPublicationToMavenRepository`
+>  - `./gradlew :plot-api:publishMetadataPublicationToMavenRepository`
 
 
 ##### 4. Prepare to the next dev cycle
