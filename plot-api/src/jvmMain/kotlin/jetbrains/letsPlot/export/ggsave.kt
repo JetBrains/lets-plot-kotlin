@@ -15,6 +15,7 @@ import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.toSpec
 import java.io.File
 import java.lang.Double.NaN
+import java.util.*
 
 private const val DEF_EXPORT_DIR = "lets-plot-images"
 
@@ -54,7 +55,7 @@ fun ggsave(
     require(filename.substringBeforeLast('.', "").isNotEmpty()) {
         "Malformed filename: \"$filename\"."
     }
-    val ext = filename.substringAfterLast('.', "").toLowerCase()
+    val ext = filename.substringAfterLast('.', "").lowercase(Locale.getDefault())
     require(ext.isNotEmpty()) { "Missing file extension: \"$filename\"." }
 
     val dir = path?.let { File(path) } ?: File(System.getProperty("user.dir"), DEF_EXPORT_DIR)
@@ -111,7 +112,7 @@ private fun exportRasterImage(
     // lets-plot-image-export.jar might not be present in the classpath.
     val imageBytes: ByteArray = try {
 
-        val format = when (val ext = file.extension.toLowerCase()) {
+        val format = when (val ext = file.extension.lowercase(Locale.getDefault())) {
             "png" -> PlotImageExport.Format.PNG
             "jpeg", "jpg" -> PlotImageExport.Format.JPEG()
             "tiff", "tif" -> PlotImageExport.Format.TIFF

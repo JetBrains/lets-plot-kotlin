@@ -8,6 +8,7 @@ package jetbrains.letsPlot
 import jetbrains.letsPlot.frontend.DefaultSwingBatikFrontendContext
 import jetbrains.letsPlot.frontend.DefaultSwingJfxFrontendContext
 import jetbrains.letsPlot.frontend.NotebookFrontendContext
+import java.util.*
 
 // Environment variables
 const val ENV_HTML_ISOLATED_FRAME = "LETS_PLOT_HTML_ISOLATED_FRAME"
@@ -37,8 +38,8 @@ object LetsPlot {
         val value = System.getenv(name)
         return when {
             value.isNullOrBlank() -> false
-            value.trim().toLowerCase() in listOf("true", "1", "t", "y", "yes") -> true
-            value.trim().toLowerCase() in listOf("false", "0", "f", "n", "no") -> false
+            value.trim().lowercase(Locale.getDefault()) in listOf("true", "1", "t", "y", "yes") -> true
+            value.trim().lowercase(Locale.getDefault()) in listOf("false", "0", "f", "n", "no") -> false
             else -> {
                 throw IllegalArgumentException("Can't convert str to boolean : [$name] : $value")
             }
