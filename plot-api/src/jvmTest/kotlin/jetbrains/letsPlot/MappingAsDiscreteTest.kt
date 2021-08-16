@@ -104,7 +104,9 @@ class MappingAsDiscreteTest {
                 MappingAnnotation.AES to aes.name,
                 MappingAnnotation.ANNOTATION to MappingAnnotation.AS_DISCRETE,
                 MappingAnnotation.PARAMETERS to mapOf(
-                    MappingAnnotation.LABEL to label
+                    MappingAnnotation.LABEL to label,
+                    MappingAnnotation.ORDER_BY to null,
+                    MappingAnnotation.ORDER to null
                 )
             )
         }

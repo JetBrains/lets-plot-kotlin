@@ -68,6 +68,14 @@ object AsDiscrete {
                         ggtitle("color as_discrete()")
                 p.show()
             }
+
+            // add reordering
+            run {
+                val p = ggplot(dat) { x = "x"; y = "y"; color = asDiscrete(variable = "a", order=-1) } +
+                        geomPoint(size = 9.0) +
+                        ggtitle("color as_discrete(order=-1)")
+                p.show()
+            }
         }
     }
 }
