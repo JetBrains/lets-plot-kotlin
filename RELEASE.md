@@ -94,25 +94,15 @@ This is optional - needed only if newer version of 'kotlin-jupyter-kernel' is re
 - Remove parameters in the `%use lets-plot` line magic.
 - Re-run all notebooks.
 
-##### 3. Update "demo tag"
+##### 3. Push the updated demo notebooks and add "demo-tag":
 
-In all notebooks update the *demos-tag* part in the Binder URLs.  
+```
+git add --all && git commit -m "Updated demo notebooks, add v1.2.3demos1 repo tag" && git push
 
-For example: the Lets-Plot Kotlin API version being released is 1.2.3. 
-Then the *demos-tag* is going to be **v1.2.3demos1*** add all Binder URLs
-like:
+git tag v1.2.3demos1 && git push --tags
+```
 
-`https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/v1.2.2demos1?...`
-
-need to be updated as: 
-
-`https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/v1.2.3demos1?...`
-
-##### 4. Push the updated demo notebooks and a git tag:
-
-`git add --all && git commit -m "Updated demo notebooks binder url to match repo tag v1.2.3demos1" && git push`
-
-`git tag v1.2.3demos1 && git push --tags`
+In [docs/README.md](docs/README.md) update the Binder link with new "demo" tag (above).
 
 
 ### Add the GitHub release:
