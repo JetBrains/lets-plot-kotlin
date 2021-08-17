@@ -1,6 +1,6 @@
 name: kotlin-jupyter-demo
 dependencies:
-  - kotlin-jupyter-kernel>=0.10.0.40
+  - kotlin-jupyter-kernel>=0.10.0.200
   - python=3.7
 channels:
   - jetbrains

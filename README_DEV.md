@@ -77,11 +77,6 @@ The following is how you configure a Gradle (Groovy) project:
 ```groovy
 repositories {
   mavenCentral()
-
-  // For kotlinx-html-jvm:0.7.2 (0.7.3 is at the Maven Central).
-  maven {
-    url "https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven"
-  }
 }
 ```
 
