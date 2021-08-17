@@ -47,14 +47,12 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 > **Note**: Individually Lets-Plot Kotlin API artifacts can be published with commands:
 >
 > - "Kotlin kernel":
-    >
-    >
-- `./gradlew publishLetsPlotKotlinKernelPublicationToMavenRepository`
+>
+>  - `./gradlew publishLetsPlotKotlinKernelPublicationToMavenRepository`
 >
 >
 > - Multi-platform:
-    >
-- `./gradlew :plot-api:publishKotlinMultiplatformPublicationToMavenRepository`
+>  - `./gradlew :plot-api:publishKotlinMultiplatformPublicationToMavenRepository`
 >  - `./gradlew :plot-api:publishJvmPublicationToMavenRepository`
 >  - `./gradlew :plot-api:publishJsPublicationToMavenRepository`
 >  - `./gradlew :plot-api:publishMetadataPublicationToMavenRepository`
