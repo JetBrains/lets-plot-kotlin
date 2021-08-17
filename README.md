@@ -45,7 +45,7 @@
   - [Tooltip customization](#tooltip-customization)
   - [GeoTools support](#geotools)
 
-- [What is new in 3.0.0](#new)
+- [What is new in 3.0.2](#new)
 - [Change log](#change_log)
 - [License](#license)    
 
@@ -258,33 +258,15 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 
 <a id="new"></a>
 
-## What is new in 3.0.0
+## What is new in 3.0.2
 
-- The project has been converted to a "multiplatform" project targeting JVM and JS platforms.
+- Ordering categories:
 
-  To use Lets-Plot Kotlin API in your project, include dependencies:
-  - JVM:  `implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:3.0.0"`
-  - JS:   `implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:3.0.0"`
+  New parameters added to the `asDiscrete()` function:
+  - `orderBy` - name of the variable by which the ordering will be performed;
+  - `order` - ordering direction: 1 for ascending direction and -1 for descending (default).
 
-  See [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md) for more details.
-
-
-- **[BREAKING CHANGE]** The JVM artifact `lets-plot-kotlin-api` is no longer deployed: replaced with the
-  equivalent `lets-plot-kotlin-jvm`.
-
-
-- The artifact `lets-plot-kotlin-api-kernel` renamed to `lets-plot-kotlin-kernel` (this change only concerns Kotlin
-  Jupyter Kernel)
-
-
-- **[BREAKING CHANGE]**: The CDN for delivering the Lets-Plot JavaScript library is
-  now [JSDELIVR](https://www.jsdelivr.com/?docs=gh)
-  (was CDNJS).
-
-  New URLs:
-  - Lets-Plot v2.0.3: https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v2.0.3/js-package/distr/lets-plot.min.js
-  - The latest version: https://cdn.jsdelivr.net/gh/JetBrains/lets-plot/js-package/distr/lets-plot.min.js
-
+  See: [as_discrete.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/as_discrete.md).
 
 - Other improvements and fixes -
   see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)

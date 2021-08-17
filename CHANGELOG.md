@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
+## [3.0.2] - 2021-06-09
+
+### Added
+
+- Ordering categories:
+
+  New parameters added to the `asDiscrete()` function:
+  - `orderBy` - name of the variable by which the ordering will be performed;
+  - `order` - ordering direction: 1 for ascending direction and -1 for descending (default).
+
+  See: [as_discrete](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/as_discrete.md).
+
+### Changed 
+
+- Upgraded dependencies:
+  - Kotlin: 1.5.21
+  - Lets-Plot: 2.1.0 (see [Lets-Plot CHANGELOG](https://github.com/JetBrains/lets-plot/blob/master/CHANGELOG.md))
+  - Apache Batik: 1.14 [[#398](https://github.com/JetBrains/lets-plot/issues/398)]
+
 ## [3.0.1] - 2021-06-09
 
 ### Added
