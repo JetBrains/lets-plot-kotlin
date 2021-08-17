@@ -8,7 +8,7 @@ Try the following tutorials and examples to learn and evaluate various features 
 - [Scales](#scales)
 - [Facets](#facets)
 - [GGBunch](#ggbunch)
-- [`asDiscrete()` function](#as_discrete)
+- [Ordering categories, `asDiscrete()` function](#as_discrete)
 - [gggrid()](#gggrig)
 - [Export to File](#export)
 - [Formatting](#formatting)
@@ -96,8 +96,9 @@ A simple utility which you can use to arrange plots in a regular grid.
 
 <a id="as_discrete"></a>
 
-#### `asDiscrete()` function
-
+#### Ordering categories, `asDiscrete()` function
+                          
+* [ordering_examples.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ordering_examples.ipynb)
 * [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
 <a id="export"></a>
