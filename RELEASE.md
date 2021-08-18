@@ -71,10 +71,11 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 See also: [api_reference.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/api_reference.md) 
 
 
-### Update the lets-plot `library descriptor` in Jupyter Kotlin Kernel
+### Update Lets-Plot `library descriptor` in Jupyter Kotlin Kernel
 
-- Edit the [lets-plot.json](https://github.com/Kotlin/kotlin-jupyter/blob/master/libraries/lets-plot.json)
-file in the [kotlin-jupyter](https://github.com/Kotlin/kotlin-jupyter) GitHub project.
+- Edit [lets-plot.json](https://github.com/Kotlin/kotlin-jupyter-libraries/blob/master/lets-plot.json) and 
+[lets-plot-gt.json](https://github.com/Kotlin/kotlin-jupyter-libraries/blob/master/lets-plot-gt.json)
+in the [kotlin-jupyter-libraries](https://github.com/Kotlin/kotlin-jupyter-libraries) GitHub project.
 
 - Create a PR and get it merged into 'master'.
 
