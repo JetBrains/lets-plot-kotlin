@@ -7,6 +7,15 @@ plugins {
     kotlin("jvm")
 }
 
+// Let demo load resources from 'plot-api' module.
+sourceSets {
+    main {
+        resources {
+            srcDir("$rootDir/plot-api/src/jvmMain/resources")
+        }
+    }
+}
+
 dependencies {
     implementation(projects.plotApi)
 
