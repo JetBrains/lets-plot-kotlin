@@ -9,18 +9,20 @@ plugins {
     signing
 }
 
+@Suppress("SpellCheckingInspection")
+val geotoolsVersion: String by project
+
 dependencies {
     implementation(kotlin("reflect"))
 
-    val geotools_version: String by project
-
     implementation(projects.plotApi)
-    compileOnly("org.geotools:gt-main:$geotools_version")
-    compileOnly("org.geotools:gt-geojson:$geotools_version")
+
+    compileOnly("org.geotools:gt-main:$geotoolsVersion")
+    compileOnly("org.geotools:gt-geojson:$geotoolsVersion")
 
     testImplementation(kotlin("test"))
-    testImplementation("org.geotools:gt-main:$geotools_version")
-    testImplementation("org.geotools:gt-geojson:$geotools_version")
+    testImplementation("org.geotools:gt-main:$geotoolsVersion")
+    testImplementation("org.geotools:gt-geojson:$geotoolsVersion")
 }
 
 val artifactBaseName = "lets-plot-kotlin-geotools"
@@ -28,54 +30,51 @@ val artifactGroupId = project.group as String
 val artifactVersion = project.version as String
 
 java {
-    withJavadocJar()
     withSourcesJar()
 }
 
+val jarJavaDocs by tasks.creating(Jar::class) {
+    archiveClassifier.set("javadoc")
+    group = "lets plot"
+    from("$rootDir/README.md")
+}
+
 publishing {
-    publications.create<MavenPublication>("mavenJava") {
-        from(components["java"])
-    }
-    publications.all {
-        this as MavenPublication
-        pom {
-            name.set("Lets-Plot Kotlin GeoTools Bridge")
-            val geotools_version: String by project
-            description.set(
-                "Lets-Plot Kotlin GeoTools Bridge." +
-                        "\nRequires GeoTools artifacts:" +
-                        "\n - org.geotools:gt-main:$geotools_version" +
-                        "\n - org.geotools:gt-geojson:$geotools_version"
-            )
-            url.set("https://github.com/JetBrains/lets-plot-kotlin")
-            licenses {
-                license {
-                    name.set("MIT")
-                    url.set("https://opensource.org/licenses/MIT")
-                }
-            }
-            developers {
-                developer {
-                    id.set("jetbrains")
-                    name.set("JetBrains")
-                    email.set("lets-plot@jetbrains.com")
-                }
-            }
-            scm {
+    publications {
+        create<MavenPublication>("letsPlotKotlinGeoTools") {
+            groupId = artifactGroupId
+            artifactId = artifactBaseName
+            version = artifactVersion
+
+            from(components["java"])
+            artifact(jarJavaDocs)
+
+            pom {
+                name.set("Lets-Plot Kotlin GeoTools Bridge")
+                description.set(
+                    "Lets-Plot Kotlin GeoTools Bridge." +
+                            "\nRequires GeoTools artifacts:" +
+                            "\n - org.geotools:gt-main:$geotoolsVersion" +
+                            "\n - org.geotools:gt-geojson:$geotoolsVersion"
+                )
                 url.set("https://github.com/JetBrains/lets-plot-kotlin")
+                licenses {
+                    license {
+                        name.set("MIT")
+                        url.set("https://opensource.org/licenses/MIT")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("jetbrains")
+                        name.set("JetBrains")
+                        email.set("lets-plot@jetbrains.com")
+                    }
+                }
+                scm {
+                    url.set("https://github.com/JetBrains/lets-plot-kotlin")
+                }
             }
-            // Add dependency on 'geotools': gt-geojson, gt-main
-//                withXml {
-//                    def deps = asNode().appendNode('dependencies')
-//                    def dep = deps.appendNode('dependency')
-//                    dep.appendNode('groupId', 'org.geotools')
-//                    dep.appendNode('artifactId', 'gt-geojson')
-//                    dep.appendNode('version', geotools_version)
-//                    dep = deps.appendNode('dependency')
-//                    dep.appendNode('groupId', 'org.geotools')
-//                    dep.appendNode('artifactId', 'gt-main')
-//                    dep.appendNode('version', geotools_version)
-//                }
         }
     }
 
@@ -85,6 +84,7 @@ publishing {
             url = uri(sonatypeUrl)
 
             val buildSettings: Map<String, Any?> by project
+            @Suppress("UNCHECKED_CAST")
             val sonatype = (buildSettings["sonatype"] as? Map<String, String?>) ?: emptyMap()
             credentials {
                 username = sonatype["username"]
