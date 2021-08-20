@@ -6,7 +6,7 @@
 pluginManagement {
     plugins {
         val kotlin_version: String by settings
-        id("org.jetbrains.kotlin.multiplatform") version kotlin_version
+        kotlin("multiplatform") version kotlin_version
         val dokka_version: String by settings
         id("org.jetbrains.dokka") version dokka_version
         val nexus_staging_version: String by settings
