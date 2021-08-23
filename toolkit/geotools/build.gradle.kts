@@ -29,8 +29,15 @@ val artifactBaseName = "lets-plot-kotlin-geotools"
 val artifactGroupId = project.group as String
 val artifactVersion = project.version as String
 
-java {
-    withSourcesJar()
+val jarClasses by tasks.creating(Jar::class) {
+    group = "lets plot"
+    from(sourceSets.main.get().output)
+}
+
+val jarSources by tasks.creating(Jar::class) {
+    archiveClassifier.set("sources")
+    group = "lets plot"
+    from(sourceSets.main.get().allSource)
 }
 
 val jarJavaDocs by tasks.creating(Jar::class) {
@@ -41,12 +48,18 @@ val jarJavaDocs by tasks.creating(Jar::class) {
 
 publishing {
     publications {
+        // Build artifact with no dependencies in POM.
         create<MavenPublication>("letsPlotKotlinGeoTools") {
             groupId = artifactGroupId
             artifactId = artifactBaseName
             version = artifactVersion
 
-            from(components["java"])
+            // This leads to 'maven-publish' failure: "Publishing is not able to resolve a dependency
+            // on a project with multiple publications that have different coordinates."
+//            from(components["java"])
+
+            artifact(jarClasses)
+            artifact(jarSources)
             artifact(jarJavaDocs)
 
             pom {
@@ -84,6 +97,7 @@ publishing {
             url = uri(sonatypeUrl)
 
             val buildSettings: Map<String, Any?> by project
+
             @Suppress("UNCHECKED_CAST")
             val sonatype = (buildSettings["sonatype"] as? Map<String, String?>) ?: emptyMap()
             credentials {
