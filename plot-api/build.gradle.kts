@@ -72,10 +72,9 @@ java {
     withSourcesJar()
 }
 
-
 publishing {
     publications {
-        // artifact "lets-plot-kotlin-kernel": no dependencies in POM
+        // Build artifact "lets-plot-kotlin-kernel" with no dependencies in POM.
         create<MavenPublication>("letsPlotKotlinKernel") {
             artifactId = "$artifactBaseName-kernel"
 

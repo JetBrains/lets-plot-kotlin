@@ -2,9 +2,9 @@ name: GradleWrapperValidation
 
 on:
   push:
-    branches: [master]
+    branches: [gradleKotlin]
   pull_request:
-    branches: [master]
+    branches: [gradleKotlin]
 
 jobs:
   build:
