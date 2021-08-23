@@ -4,7 +4,7 @@
  */
 
 plugins {
-    id 'org.jetbrains.kotlin.js'
+    kotlin("js")
 }
 
 repositories {
@@ -18,8 +18,8 @@ repositories {
 dependencies {
 //    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:2.0.2-SNAPSHOT"
 
-    implementation project(':plot-api')
-    testImplementation 'org.jetbrains.kotlin:kotlin-test-js'
+    implementation(projects.plotApi)
+    testImplementation(kotlin("test"))
 }
 
 kotlin {

@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) 2021. JetBrains s.r.o.
+ * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+ */
+
+buildscript {
+    dependencies {
+        classpath("org.yaml:snakeyaml:1.25")
+    }
+}
+
+plugins {
+    kotlin("multiplatform") apply false
+    id("io.codearte.nexus-staging")
+}
+
+val buildSettingsFile = File(rootDir, "build_settings.yml")
+if (!buildSettingsFile.canRead()) {
+    error("Couldn't read build_settings.yml")
+}
+val settings: Map<String, Any?> = org.yaml.snakeyaml.Yaml().load(buildSettingsFile.inputStream())
+project.extra["buildSettings"] = settings
+
+
+allprojects {
+    group = "org.jetbrains.lets-plot"
+    version = "3.0.3-alpha2"
+
+    val version = version as String
+    var versionIsDev: Boolean by extra
+    versionIsDev = (version.contains("SNAPSHOT")
+            || version.contains("rc")
+            || version.contains("alpha")
+            || version.contains("beta"))
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+
+    repositories {
+        // GeoTools repository must be before Maven Central
+        // See: https://stackoverflow.com/questions/26993105/i-get-an-error-downloading-javax-media-jai-core1-1-3-from-maven-central
+        // See also Jupyter Kotlin issue: https://github.com/Kotlin/kotlin-jupyter/issues/107
+        maven(url = "https://repo.osgeo.org/repository/release")
+
+        mavenCentral()
+
+        // local
+//        maven {
+//            url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
+//        }
+
+        // SNAPSHOTS
+        maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
+    }
+
+    // Maven publication settings
+
+    // define local Maven Repository path:
+    var localMavenRepository: String by extra
+    localMavenRepository = "$rootDir/.maven-publish-dev-repo"
+
+    // define Sonatype nexus repository manager settings:
+    val sonatypeSnapshotUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+    val sonatypeReleaseUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+    project.extra["sonatypeUrl"] = if (version.contains("SNAPSHOT")) sonatypeSnapshotUrl else sonatypeReleaseUrl
+}
+
+// nexus-staging plugin settings:
+nexusStaging {
+    packageGroup = "org.jetbrains"
+    val buildSettings: Map<String, Any?>? by extra
+    buildSettings?.let {
+        val sonatype: Map<String, String?> by it
+        username = sonatype["username"]
+        password = sonatype["password"]
+    }
+}
