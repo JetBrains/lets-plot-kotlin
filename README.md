@@ -4,15 +4,15 @@
     <tr>
         <td>Latest Lets-Plot Kotlin API Version</td>
         <td>
-            <a href="https://search.maven.org/search?q=lets-plot"/>
-            <img src="https://img.shields.io/maven-central/v/org.jetbrains.lets-plot/lets-plot-kotlin?color=blue&label=Maven%20Central"/>
+            <a href="https://github.com/JetBrains/lets-plot-kotlin/releases/latest"/>
+            <img src="https://img.shields.io/github/v/release/JetBrains/lets-plot-kotlin"/>
         </td>
     </tr>
     <tr>
         <td>Latest Lets-Plot Version</td>
         <td>
-            <a href="https://search.maven.org/search?q=lets-plot"/>
-            <img src="https://img.shields.io/maven-central/v/org.jetbrains.lets-plot/lets-plot-common?color=blue&label=Maven%20Central"/>
+            <a href="https://github.com/JetBrains/lets-plot/releases/latest"/>
+            <img src="https://img.shields.io/github/v/release/JetBrains/lets-plot"/>
         </td>
     </tr>
     <tr>
