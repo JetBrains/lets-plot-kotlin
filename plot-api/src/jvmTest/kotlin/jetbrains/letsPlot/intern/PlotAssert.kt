@@ -54,7 +54,7 @@ internal class OptionsMapAssert(private val optionsMap: OptionsMap) {
 
 internal open class FeatureListAssert(private val featureList: List<Feature>) {
     open fun length(length: Int): FeatureListAssert {
-        assertEquals(length, featureList.size)
+        assertEquals(length + 1, featureList.size)
         return this
     }
 
