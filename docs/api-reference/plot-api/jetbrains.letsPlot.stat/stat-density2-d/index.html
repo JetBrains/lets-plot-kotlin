@@ -1,0 +1,499 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>statDensity2D</title>
+<link href="../../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script><script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script><link href="../../../styles/style.css" rel="Stylesheet"><link href="../../../styles/logo-styles.css" rel="Stylesheet"><link href="../../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script><script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script><script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script><script type="text/javascript" src="../../../scripts/main.js" async="async"></script>  </head>
+  <body>
+    <div id="container">
+      <div id="leftColumn"><a href="../../../index.html">
+          <div id="logo"></div>
+        </a>
+        <div id="paneSearch"></div>
+        <div id="sideMenu"></div>
+      </div>
+      <div id="main">
+        <div id="leftToggler"><span class="icon-toggler"></span></div>
+<script type="text/javascript" src="../../../scripts/main.js"></script>        <div class="main-content" id="content" pageIds="plot-api::jetbrains.letsPlot.stat/statDensity2D///PointingToDeclaration//-1086445664">
+          <div class="navigation-wrapper" id="navigation-wrapper">
+            <div class="breadcrumbs"><a href="../../../index.html">plot-api</a>/<a href="../index.html">jetbrains.letsPlot.stat</a>/<a href="index.html">statDensity2D</a></div>
+            <div class="pull-right d-flex">
+              <div class="filter-section" id="filter-section"><button class="platform-tag platform-selector common-like" data-active="" data-filter=":plot-api:dokkaHtml/commonMain">common</button></div>
+              <div id="searchBar"></div>
+            </div>
+          </div>
+          <div class="cover ">
+            <h1 class="cover"><span>stat</span><wbr></wbr><span>Density2</span><wbr></wbr><span>D</span></h1>
+            <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><div class="symbol monospace">class <a href="index.html">statDensity2D</a>(data: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a>&lt;*, *&gt;?, geom: <a href="../../jetbrains.letsPlot.intern.layer/-geom-options/index.html">GeomOptions</a>, position: <a href="../../jetbrains.letsPlot.intern.layer/-pos-options/index.html">PosOptions</a>, showLegend: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>, sampling: <a href="../../jetbrains.letsPlot.intern.layer/-sampling-options/index.html">SamplingOptions</a>?, x: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>?, y: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>?, z: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>?, alpha: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html">Number</a>?, color: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>?, linetype: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>?, size: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html">Number</a>?, speed: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>?, flow: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>?, weight: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>?, bw: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>?, kernel: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>?, n: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>?, adjust: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html">Number</a>?, contour: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>?, bins: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>?, binWidth: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html">Number</a>?, mapping: <a href="../../jetbrains.letsPlot.intern.layer.geom/-density2d-mapping/index.html">Density2dMapping</a>.() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>) : <a href="../../jetbrains.letsPlot.intern.layer/-layer-base/index.html">LayerBase</a>, <a href="../../jetbrains.letsPlot.intern.layer.geom/-path-aesthetics/index.html">PathAesthetics</a>, <a href="../../jetbrains.letsPlot.intern.layer.stat/-contour-stat-aesthetics/index.html">ContourStatAesthetics</a>, <a href="../../jetbrains.letsPlot.intern.layer.stat/-density2d-stat-aesthetics/index.html">Density2dStatAesthetics</a>, <a href="../../jetbrains.letsPlot.intern.layer.stat/-density2d-stat-parameters/index.html">Density2dStatParameters</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+          </div>
+          <div class="tabbedcontent">
+            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+            <div class="tabs-section-body">
+              <h2 class="">Functions</h2>
+              <div class="table" data-togglable="Functions"><a data-name="-1675306623%2FFunctions%2F-1086445664" anchor-label="plus" id="-1675306623%2FFunctions%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="../../jetbrains.letsPlot.intern/-feature/plus.html">plus</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1675306623%2FFunctions%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title"><div class="divergent-group" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><div class="symbol monospace">open operator fun <a href="../../jetbrains.letsPlot.intern/-feature/plus.html">plus</a>(other: <a href="../../jetbrains.letsPlot.intern/-feature/index.html">Feature</a>): <a href="../../jetbrains.letsPlot.intern/-feature/index.html">Feature</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+</div>
+</div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-248638247%2FFunctions%2F-1086445664" anchor-label="seal" id="-248638247%2FFunctions%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="seal.html">seal</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-248638247%2FFunctions%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title"><div class="divergent-group" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain"><div class="with-platform-tags"><span class="pull-right"></span></div>
+
+  <div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><div class="symbol monospace">open override fun <a href="seal.html">seal</a>(): <a href="../../jetbrains.letsPlot.intern/-options/index.html">Options</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+  </div>
+</div>
+</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h2 class="">Properties</h2>
+              <div class="table" data-togglable="Properties"><a data-name="2102917447%2FProperties%2F-1086445664" anchor-label="adjust" id="2102917447%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="adjust.html">adjust</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2102917447%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="2102917447%2FProperties%2F-1086445664" anchor-label="adjust" id="2102917447%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="adjust.html">adjust</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html">Number</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1129435450%2FProperties%2F-1086445664" anchor-label="alpha" id="-1129435450%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="alpha.html">alpha</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1129435450%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-1129435450%2FProperties%2F-1086445664" anchor-label="alpha" id="-1129435450%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="alpha.html">alpha</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html">Number</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-332192406%2FProperties%2F-1086445664" anchor-label="bins" id="-332192406%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="bins.html">bins</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-332192406%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-332192406%2FProperties%2F-1086445664" anchor-label="bins" id="-332192406%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="bins.html">bins</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="329168791%2FProperties%2F-1086445664" anchor-label="binWidth" id="329168791%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="bin-width.html">binWidth</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="329168791%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="329168791%2FProperties%2F-1086445664" anchor-label="binWidth" id="329168791%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="bin-width.html">binWidth</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html">Number</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1258288065%2FProperties%2F-1086445664" anchor-label="bw" id="1258288065%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="bw.html">bw</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1258288065%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="1258288065%2FProperties%2F-1086445664" anchor-label="bw" id="1258288065%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="bw.html">bw</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="660148321%2FProperties%2F-1086445664" anchor-label="color" id="660148321%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="color.html">color</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="660148321%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="660148321%2FProperties%2F-1086445664" anchor-label="color" id="660148321%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="color.html">color</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-822486262%2FProperties%2F-1086445664" anchor-label="contour" id="-822486262%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="contour.html">contour</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-822486262%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-822486262%2FProperties%2F-1086445664" anchor-label="contour" id="-822486262%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="contour.html">contour</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-286703668%2FProperties%2F-1086445664" anchor-label="data" id="-286703668%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#-286703668%2FProperties%2F-1086445664">data</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-286703668%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-286703668%2FProperties%2F-1086445664" anchor-label="data" id="-286703668%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">val <a href="index.html#-286703668%2FProperties%2F-1086445664">data</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a>&lt;*, *&gt;?<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1533269304%2FProperties%2F-1086445664" anchor-label="flow" id="-1533269304%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="flow.html">flow</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1533269304%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-1533269304%2FProperties%2F-1086445664" anchor-label="flow" id="-1533269304%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="flow.html">flow</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="632790138%2FProperties%2F-1086445664" anchor-label="geom" id="632790138%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#632790138%2FProperties%2F-1086445664">geom</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="632790138%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="632790138%2FProperties%2F-1086445664" anchor-label="geom" id="632790138%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">val <a href="index.html#632790138%2FProperties%2F-1086445664">geom</a>: <a href="../../jetbrains.letsPlot.intern.layer/-geom-options/index.html">GeomOptions</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-760552359%2FProperties%2F-1086445664" anchor-label="kernel" id="-760552359%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="kernel.html">kernel</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-760552359%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-760552359%2FProperties%2F-1086445664" anchor-label="kernel" id="-760552359%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="kernel.html">kernel</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1539202488%2FProperties%2F-1086445664" anchor-label="linetype" id="-1539202488%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="linetype.html">linetype</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1539202488%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-1539202488%2FProperties%2F-1086445664" anchor-label="linetype" id="-1539202488%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="linetype.html">linetype</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="231143318%2FProperties%2F-1086445664" anchor-label="mapping" id="231143318%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#231143318%2FProperties%2F-1086445664">mapping</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="231143318%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="231143318%2FProperties%2F-1086445664" anchor-label="mapping" id="231143318%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">val <a href="index.html#231143318%2FProperties%2F-1086445664">mapping</a>: <a href="../../jetbrains.letsPlot.intern/-options/index.html">Options</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="635395382%2FProperties%2F-1086445664" anchor-label="n" id="635395382%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="n.html">n</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="635395382%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="635395382%2FProperties%2F-1086445664" anchor-label="n" id="635395382%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="n.html">n</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-1696762164%2FProperties%2F-1086445664" anchor-label="parameters" id="-1696762164%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#-1696762164%2FProperties%2F-1086445664">parameters</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1696762164%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-1696762164%2FProperties%2F-1086445664" anchor-label="parameters" id="-1696762164%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="index.html#-1696762164%2FProperties%2F-1086445664">parameters</a>: <a href="../../jetbrains.letsPlot.intern/-options/index.html">Options</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="37949101%2FProperties%2F-1086445664" anchor-label="position" id="37949101%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#37949101%2FProperties%2F-1086445664">position</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="37949101%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="37949101%2FProperties%2F-1086445664" anchor-label="position" id="37949101%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">val <a href="index.html#37949101%2FProperties%2F-1086445664">position</a>: <a href="../../jetbrains.letsPlot.intern.layer/-pos-options/index.html">PosOptions</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-5682769%2FProperties%2F-1086445664" anchor-label="sampling" id="-5682769%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#-5682769%2FProperties%2F-1086445664">sampling</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-5682769%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-5682769%2FProperties%2F-1086445664" anchor-label="sampling" id="-5682769%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">val <a href="index.html#-5682769%2FProperties%2F-1086445664">sampling</a>: <a href="../../jetbrains.letsPlot.intern.layer/-sampling-options/index.html">SamplingOptions</a>?<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-371994804%2FProperties%2F-1086445664" anchor-label="showLegend" id="-371994804%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#-371994804%2FProperties%2F-1086445664">showLegend</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-371994804%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-371994804%2FProperties%2F-1086445664" anchor-label="showLegend" id="-371994804%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">val <a href="index.html#-371994804%2FProperties%2F-1086445664">showLegend</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1080790869%2FProperties%2F-1086445664" anchor-label="size" id="1080790869%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="size.html">size</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1080790869%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="1080790869%2FProperties%2F-1086445664" anchor-label="size" id="1080790869%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="size.html">size</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html">Number</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1856980989%2FProperties%2F-1086445664" anchor-label="speed" id="1856980989%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="speed.html">speed</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1856980989%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="1856980989%2FProperties%2F-1086445664" anchor-label="speed" id="1856980989%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="speed.html">speed</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="473439330%2FProperties%2F-1086445664" anchor-label="stat" id="473439330%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#473439330%2FProperties%2F-1086445664">stat</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="473439330%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="473439330%2FProperties%2F-1086445664" anchor-label="stat" id="473439330%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">val <a href="index.html#473439330%2FProperties%2F-1086445664">stat</a>: <a href="../../jetbrains.letsPlot.intern.layer/-stat-options/index.html">StatOptions</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="-359362330%2FProperties%2F-1086445664" anchor-label="tooltips" id="-359362330%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="index.html#-359362330%2FProperties%2F-1086445664">tooltips</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-359362330%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="-359362330%2FProperties%2F-1086445664" anchor-label="tooltips" id="-359362330%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">val <a href="index.html#-359362330%2FProperties%2F-1086445664">tooltips</a>: <a href="../../jetbrains.letsPlot.tooltips/-tooltip-options/index.html">TooltipOptions</a>?<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="2127287934%2FProperties%2F-1086445664" anchor-label="weight" id="2127287934%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="weight.html">weight</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2127287934%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="2127287934%2FProperties%2F-1086445664" anchor-label="weight" id="2127287934%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="weight.html">weight</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="945593452%2FProperties%2F-1086445664" anchor-label="x" id="945593452%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="x.html">x</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="945593452%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="945593452%2FProperties%2F-1086445664" anchor-label="x" id="945593452%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="x.html">x</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="976613259%2FProperties%2F-1086445664" anchor-label="y" id="976613259%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="y.html">y</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="976613259%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="976613259%2FProperties%2F-1086445664" anchor-label="y" id="976613259%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="y.html">y</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<a data-name="1007633066%2FProperties%2F-1086445664" anchor-label="z" id="1007633066%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a>
+                <div class="table-row" data-filterable-current=":plot-api:dokkaHtml/commonMain" data-filterable-set=":plot-api:dokkaHtml/commonMain">
+                  <div class="main-subrow keyValue ">
+                    <div class=""><span class="inline-flex"><a href="z.html">z</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1007633066%2FProperties%2F-1086445664"></span>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                        </span></span></div>
+                    <div>
+                      <div class="platform-tags ">
+                        <div class="platform-tag common-like">common</div>
+                      </div>
+                      <div class="title">
+                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":plot-api:dokkaHtml/commonMain"><a data-name="1007633066%2FProperties%2F-1086445664" anchor-label="z" id="1007633066%2FProperties%2F-1086445664" data-filterable-set=":plot-api:dokkaHtml/commonMain"></a><div class="symbol monospace">open override val <a href="z.html">z</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>? = null<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2021 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+      </div>
+    </div>
+  </body>
+</html>
+
