@@ -13,6 +13,12 @@ plugins {
 
 tasks.dokkaHtml {
     outputDirectory.set(File("$projectDir/../docs/api-reference"))
+    pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "Copyright © 2019-2021 JetBrains s.r.o." }"""))
+    dokkaSourceSets {
+        configureEach {
+            skipDeprecated.set(true)
+        }
+    }
 }
 
 @Suppress("PropertyName")
