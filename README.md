@@ -188,7 +188,7 @@ using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
   notebook: [user_guide.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
 
 - Lets-Plot Kotlin
-  API [reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/index.html)
+  API [reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/index.html)
   .
 
 <a id="sampling"></a>
@@ -236,7 +236,7 @@ ggsave(p, "density.png")
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/ggsave_demo.png" alt="Couldn't load ggsave_demo.png" width="500" height="250"/>
 <br/>
 
-See `ggsave()` [documentation](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/jetbrains.lets-plot.export/ggsave.html) 
+See `ggsave()` [documentation](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/jetbrains.letsPlot.export/ggsave.html)
 for more information about the function arguments and default values.
 
 <a id="tooltip-customization"></a>
