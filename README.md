@@ -51,24 +51,23 @@
 
 
 <a name="Overview" id="overview"></a>
-### Overview
+## Overview
 
 **Lets-Plot for Kotlin** is a Kotlin API for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
-open-source plotting library for statistical data which is written entirely in
-the [Kotlin programming language](https://kotlinlang.org/).
+open-source plotting library for statistical data.
 
 Lets-Plot Kotlin API is built on the principles of layered graphics first described in the Leland Wilkinson
 work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
 and later implemented in the [ggplot2](https://ggplot2.tidyverse.org/) package for R.
 
 > This grammar [...] is made up of a set of independent components that can be composed in many different ways. This makes [it] very powerful because you are not limited to a set of pre-specified graphics, but you can create new graphics that are precisely tailored for your problem.
-> - Hadley Wickham, "ggplot2: [Elegant Graphics for Data Analysis](https://www.goodreads.com/book/show/6829192-ggplot2)"
+> - Hadley Wickham, "[ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html)"
 
 Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
 for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_. 
 
 <a id="jupyter"></a>
-### Lets-Plot in Jupyter with Kotlin Kernel
+## Lets-Plot in Jupyter with Kotlin Kernel
 
 <a id="inst"></a>
 #### Installation
@@ -151,7 +150,7 @@ Try the following [examples](https://github.com/JetBrains/lets-plot-kotlin/blob/
 * [Using Kotlin for Data Science](https://www.youtube.com/watch?v=APnyDVye4JA&list=PLQ176FUIyIUY6SKGl3Cj9yeYibBuRr3Hl&index=39&t=0s) : recording of the talk at KotlinConf-19. 
 
 <a id="datalore"></a>
-### Lets-Plot-Kotlin in Datalore notebooks
+## Lets-Plot-Kotlin in Datalore notebooks
 
 [Datalore](https://datalore.jetbrains.com/) is an online data science notebook by JetBrains.
 
@@ -165,7 +164,7 @@ Watch the [Datalore Getting Started Tutorial](https://youtu.be/MjvFQxqNSe0) vide
 
 <a id="jvm"></a>
 
-### Lets-Plot in JVM and Kotlin/JS application
+## Lets-Plot in JVM and Kotlin/JS application
 
 Apart from Jupyter notebooks, Lets-Plot library and Kotlin API enables embedding plots into a JVM and a Kotlin/JS
 application.
@@ -178,7 +177,7 @@ using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
 <a id="api"></a>
 
-### Lets-Plot Kotlin API
+## Lets-Plot Kotlin API
 
 <a id="guide"></a>
 
@@ -279,7 +278,7 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md).
 
 <a id="license"></a>
-### License
+## License
 
 Code and documentation released under the [MIT license](https://github.com/JetBrains/lets-plot/blob/master/LICENSE).
 Copyright © 2019-2021, JetBrains s.r.o.
