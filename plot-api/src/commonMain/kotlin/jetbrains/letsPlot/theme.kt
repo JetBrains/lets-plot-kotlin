@@ -5,14 +5,9 @@
 
 package jetbrains.letsPlot
 
+import jetbrains.datalore.plot.builder.defaultTheme.values.ThemeOption
 import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.intern.OptionsMap
-
-///**
-// *  Element to draw nothing and assigns no space
-// */
-//@Suppress("FunctionName")
-//fun element_blank() = "blank"
 
 /**
  * Use theme() to modify individual components of a theme,
@@ -30,6 +25,9 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
         return newTheme
     }
 
+    // ToDo: axisBlank(), axisTooltipBlank()
+
+    // ToDo: deprecate "xxxBlank()" methods.
     fun axisTitleBlank() = withOption(AXIS_TITLE, VAL_ELEMENT_BLANK)
     fun axisTitleXBlank() = withOption(AXIS_TITLE_X, VAL_ELEMENT_BLANK)
     fun axisTitleYBlank() = withOption(AXIS_TITLE_Y, VAL_ELEMENT_BLANK)
@@ -42,6 +40,7 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
     fun axisLineBlank() = withOption(AXIS_LINE, VAL_ELEMENT_BLANK)
     fun axisLineXBlank() = withOption(AXIS_LINE_X, VAL_ELEMENT_BLANK)
     fun axisLineYBlank() = withOption(AXIS_LINE_Y, VAL_ELEMENT_BLANK)
+
     fun legendPositionNone() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_NONE)
     fun legendPositionLeft() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_LEFT)
     fun legendPositionRight() = withOption(LEGEND_POSITION, VAL_LEGEND_POS_RIGHT)
@@ -143,21 +142,21 @@ class theme() : OptionsMap(Option.Plot.THEME, HashMap()) {
 
     companion object {
         // names
-        private const val AXIS_TITLE = Option.Theme.AXIS_TITLE
+        private const val AXIS_TITLE = ThemeOption.AXIS_TITLE
         private const val AXIS_TITLE_X = "axis_title_x"
         private const val AXIS_TITLE_Y = "axis_title_y"
-        private const val AXIS_TEXT = Option.Theme.AXIS_TEXT
+        private const val AXIS_TEXT = ThemeOption.AXIS_TEXT
         private const val AXIS_TEXT_X = "axis_text_x"
         private const val AXIS_TEXT_Y = "axis_text_y"
-        private const val AXIS_TICKS = Option.Theme.AXIS_TICKS
+        private const val AXIS_TICKS = ThemeOption.AXIS_TICKS
         private const val AXIS_TICKS_X = "axis_ticks_x"
         private const val AXIS_TICKS_Y = "axis_ticks_y"
-        private const val AXIS_LINE = Option.Theme.AXIS_LINE
+        private const val AXIS_LINE = ThemeOption.AXIS_LINE
         private const val AXIS_LINE_X = "axis_line_x"
         private const val AXIS_LINE_Y = "axis_line_y"
-        private const val LEGEND_POSITION = Option.Theme.LEGEND_POSITION
-        private const val LEGEND_JUSTIFICATION = Option.Theme.LEGEND_JUSTIFICATION
-        private const val LEGEND_DIRECTION = Option.Theme.LEGEND_DIRECTION
+        private const val LEGEND_POSITION = ThemeOption.LEGEND_POSITION
+        private const val LEGEND_JUSTIFICATION = ThemeOption.LEGEND_JUSTIFICATION
+        private const val LEGEND_DIRECTION = ThemeOption.LEGEND_DIRECTION
 
         // values
         private const val VAL_ELEMENT_BLANK = "blank"
