@@ -34,7 +34,7 @@ object SinglePlotHtml {
         // Export: use PlotHtmlExport utility to generate dynamic HTML (optionally in iframe).
         val html = PlotHtmlExport.buildHtmlFromRawSpecs(
             spec, iFrame = true,
-            scriptUrl = PlotHtmlHelper.scriptUrl(VersionChecker.letsPlotVersion)
+            scriptUrl = PlotHtmlHelper.scriptUrl(VersionChecker.letsPlotJsVersion)
         )
         BrowserDemoUtil.openInBrowser(html)
     }

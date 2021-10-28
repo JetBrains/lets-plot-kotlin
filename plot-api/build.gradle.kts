@@ -29,7 +29,7 @@ val lets_plot_version: String by project
 
 kotlin {
     jvm()
-    js {
+    js(BOTH) {
         browser()
     }
 

@@ -24,6 +24,8 @@ object VersionChecker {
 
     val letsPlotVersion: String
         get() = PROP_MAP.getValue(KEY_LETS_PLOT_VER) as String
+    val letsPlotJsVersion: String
+        get() = (PROP_MAP.getValue(KEY_LETS_PLOT_VER) as String).replace("-", "") // x.y.z-rc1 -> x.y.zrc1
     val letsPlotKotlinAPIVersion: String
         get() = PROP_MAP.getValue(KEY_LETS_PLOT_KOTLIN_API_VER) as String
 }
