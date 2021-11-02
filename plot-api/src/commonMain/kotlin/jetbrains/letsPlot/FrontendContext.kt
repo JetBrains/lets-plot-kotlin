@@ -9,3 +9,5 @@ interface FrontendContext {
     fun display(plotSpecRaw: MutableMap<String, Any>)
     fun getInfo() = "Not available"
 }
+
+expect fun createDefaultFrontendContext(): FrontendContext
