@@ -5,8 +5,4 @@
 
 package jetbrains.letsPlot
 
-internal actual object Env {
-    actual fun get(name: String): String? = null
-
-    actual fun getBool(name: String): Boolean? = null
-}
+expect fun createDefaultFrontendContext(): FrontendContext

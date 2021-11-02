@@ -130,13 +130,13 @@ class ThemeTest {
 
     @Test
     fun `global theme`() {
-        LetsPlot.setTheme(themeGrey())
+        LetsPlot.theme = themeGrey()
         assertEquals(
             mapOf("name" to "grey"),
             ggplot().toSpec()[Option.Plot.THEME]
         )
 
-        LetsPlot.setTheme(null)
+        LetsPlot.theme = null
         assertNull(
             ggplot().toSpec()[Option.Plot.THEME]
         )

@@ -13,7 +13,7 @@ fun letsPlot(data: Map<*, *>? = null, mapping: GenericAesMapping.() -> Unit = {}
     return Plot(
         data = data,
         mapping = GenericAesMapping().apply(mapping).seal(),
-        features = listOfNotNull(GlobalSettings.getTheme())
+        features = listOfNotNull(GlobalSettings.theme)
     )
 }
 

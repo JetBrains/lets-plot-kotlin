@@ -10,4 +10,18 @@ interface FrontendContext {
     fun getInfo() = "Not available"
 }
 
-expect fun createDefaultFrontendContext(): FrontendContext
+internal fun undefinedFrontendContext() = object : FrontendContext {
+    override fun display(plotSpecRaw: MutableMap<String, Any>) {
+        throw IllegalStateException(
+            """
+                            
+                            The frontend context is not defined.
+                            To define the frontend context please select one of the following options:
+                            a. Add "lets-plot-batik-<version>.jar" to your classpath.   
+                            b. Add "lets-plot-jfx-<version>.jar" to your classpath.   
+                            c. Specify the frontend context explicitly: "LetsPlot.frontendContext = ..."
+                               
+                            """.trimIndent()
+        )
+    }
+}

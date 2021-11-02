@@ -11,12 +11,10 @@ import jetbrains.letsPlot.intern.OptionsMap
 object LetsPlot {
     var frontendContext: FrontendContext = createDefaultFrontendContext()
 
+    var theme: OptionsMap? by GlobalSettings::theme
+
     @Suppress("MemberVisibilityCanBePrivate")
     var apiVersion: String = "Unknown"
-
-    fun setTheme(theme: OptionsMap?) {
-        GlobalSettings.setTheme(theme)
-    }
 
     @Suppress("unused")
     fun getInfo() = "Lets-Plot Kotlin API v.$apiVersion. Frontend: ${frontendContext.getInfo()}"

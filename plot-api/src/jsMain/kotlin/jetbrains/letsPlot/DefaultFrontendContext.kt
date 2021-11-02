@@ -5,6 +5,4 @@
 
 package jetbrains.letsPlot
 
-actual fun createDefaultFrontendContext(): FrontendContext {
-    TODO("Not yet implemented")
-}
+actual fun createDefaultFrontendContext() = undefinedFrontendContext()
