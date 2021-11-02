@@ -13,6 +13,7 @@ import jetbrains.datalore.base.datetime.tz.TimeZone
 import jetbrains.letsPlot.geom.geomLine
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.scale.scaleXDateTime
+import jetbrains.letsPlot.tooltips.layerTooltips
 import kotlin.random.Random
 
 object ScaleDateTime {
@@ -29,16 +30,35 @@ object ScaleDateTime {
             val nDays = 30
             val rnd = Random(0)
 
+            val days = (0..nDays).map { instant.timeSinceEpoch + it * day }
             val daysData = mapOf<String, Any>(
-                "days" to (0..nDays).map { instant.timeSinceEpoch + it * day },
+                "days" to days,
                 "val" to (0..nDays).map { rnd.nextDouble(0.0, 20.0) }
             )
 
-            val p = ggplot(daysData) +
-                    geomLine() { x = "days"; y = "val" } +
-                    scaleXDateTime()
+            val p = ggplot(daysData) + geomLine { x = "days"; y = "val" }
 
-            p.show()
+            // Default
+            (p + scaleXDateTime()).show()
+
+            // Format axis labels
+            (p + scaleXDateTime(format = "%e %B")).show()
+
+            // Format axis labels for breaks specified manually
+            val breaks = days.slice(0..nDays step 15)
+            (p + scaleXDateTime(format = "%e %B", breaks = breaks)).show()
+
+            // Format value shown in the tooltip
+            (ggplot(daysData) +
+                    geomLine(tooltips = layerTooltips()
+                        .line("@val [@days]")
+                        .format("days", "%d.%m.%Y")
+                        .anchor("top_left")
+                        .color("black")
+                    ) { x = "days"; y = "val" } +
+                    scaleXDateTime(format = "%e %B")
+                    ).show()
+
 
             val nSeconds = 1000
             val secondsData = mapOf<String, Any>(
@@ -47,7 +67,7 @@ object ScaleDateTime {
             )
 
             val t = ggplot(secondsData) +
-                    geomLine() { x = "seconds"; y = "val" } +
+                    geomLine { x = "seconds"; y = "val" } +
                     scaleXDateTime("Time (min)")
             t.show()
         }
