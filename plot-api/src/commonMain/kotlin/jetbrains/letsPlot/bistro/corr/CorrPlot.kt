@@ -5,24 +5,14 @@
 
 package jetbrains.letsPlot.bistro.corr
 
-import jetbrains.letsPlot.*
-import jetbrains.letsPlot.bistro.corr.CorrUtil.correlations
-import jetbrains.letsPlot.bistro.corr.CorrUtil.correlationsToDataframe
-import jetbrains.letsPlot.bistro.corr.CorrUtil.matrixXYSeries
-import jetbrains.letsPlot.bistro.corr.Method.correlationPearson
-import jetbrains.letsPlot.bistro.corr.OptionsConfigurator.getKeepMatrixDiag
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.geom.geomText
-import jetbrains.letsPlot.geom.geomTile
+import jetbrains.datalore.plot.config.Option
+import jetbrains.datalore.plot.config.Option.Plot.BISTRO
+import jetbrains.letsPlot.intern.OptionsMap
 import jetbrains.letsPlot.intern.Plot
-import jetbrains.letsPlot.intern.Scale
-import jetbrains.letsPlot.intern.asPlotData
+import jetbrains.letsPlot.intern.filterNonNullValues
 import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.sampling.samplingNone
-import jetbrains.letsPlot.scale.*
-import jetbrains.letsPlot.tooltips.layerTooltips
-import kotlin.math.max
-import kotlin.math.min
+import jetbrains.letsPlot.letsPlot
+
 
 /**
  * Correlation plot builder.
@@ -39,23 +29,25 @@ import kotlin.math.min
 class CorrPlot private constructor(
     private val data: Map<*, *>,
     private val title: String? = null,
-    private val showLegend: Boolean = true,
-    private val flip: Boolean = true,
-    private val threshold: Double = DEF_THRESHOLD,
-    private val adjustSize: Double = 1.0,
+    private val showLegend: Boolean? = null,
+    private val flip: Boolean? = null,
+    private val threshold: Double? = null,
+    private val adjustSize: Double? = null,
     private val tiles: LayerParams,
     private val points: LayerParams,
     private val labels: LayerParams,
-    private val colorScale: Scale,
-    private val fillScale: Scale
+    private val palette: String? = null,
+    private val low: String? = null,
+    private val mid: String? = null,
+    private val high: String? = null
 ) {
     constructor(
         data: Map<*, *>,
         title: String? = null,
-        showLegend: Boolean = true,
-        flip: Boolean = true,
-        threshold: Double = DEF_THRESHOLD,
-        adjustSize: Double = 1.0,
+        showLegend: Boolean? = null,
+        flip: Boolean? = null,
+        threshold: Double? = null,
+        adjustSize: Double? = null,
     ) : this(
         data,
         title,
@@ -66,12 +58,11 @@ class CorrPlot private constructor(
         tiles = LayerParams(),
         points = LayerParams(),
         labels = LayerParams(),
-        colorScale = colorGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR),
-        fillScale = fillGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
+        palette = null,
+        low = null,
+        mid = null,
+        high = null
     )
-
-//    private var colorScale = colorGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
-//    private var fillScale = fillGradient(DEF_LOW_COLOR, DEF_MID_COLOR, DEF_HIGH_COLOR)
 
     private fun copy(): CorrPlot {
         return CorrPlot(
@@ -79,22 +70,25 @@ class CorrPlot private constructor(
             tiles.copy(),
             points.copy(),
             labels.copy(),
-            colorScale,
-            fillScale
+            palette,
+            low,
+            mid,
+            high
         )
     }
 
     private fun copyUpdateColors(
-        colorScale: Scale,
-        fillScale: Scale
+        palette: String?,
+        low: String?,
+        mid: String?,
+        high: String?
     ): CorrPlot {
         return CorrPlot(
             data, title, showLegend, flip, threshold, adjustSize,
             tiles.copy(),
             points.copy(),
             labels.copy(),
-            colorScale,
-            fillScale
+            palette, low, mid, high
         )
     }
 
@@ -163,10 +157,7 @@ class CorrPlot private constructor(
      * Use gradient colors
      */
     fun paletteGradient(low: String, mid: String, high: String): CorrPlot {
-        return this.copyUpdateColors(
-            colorScale = colorGradient(low, mid, high),
-            fillScale = fillGradient(low, mid, high)
-        )
+        return this.copyUpdateColors("gradient", low, mid, high)
     }
 
     /**
@@ -216,10 +207,7 @@ class CorrPlot private constructor(
 
 
     private fun setBrewerPalette(palette: String): CorrPlot {
-        return this.copyUpdateColors(
-            colorScale = colorBrewer(palette),
-            fillScale = fillBrewer(palette)
-        )
+        return this.copyUpdateColors(palette, null, null, null)
     }
 
     fun build(): Plot {
@@ -227,137 +215,55 @@ class CorrPlot private constructor(
             return letsPlot()
         }
 
-        OptionsConfigurator.configure(tiles, points, labels, flip)
-
-        val originalVariables = data.keys.map { it.toString() }.toList()
-
-        // Compute correlations
-        @Suppress("NAME_SHADOWING")
-        val data = asPlotData(data)
-        val correlations = correlations(data, ::correlationPearson)
-        // variables in the 'original' order
-        val varsInMatrix = correlations.keys.map { it.first }.toSet()
-        val varsInOrder = originalVariables.filter { varsInMatrix.contains(it) }
-
-        val keepDiag = getKeepMatrixDiag(tiles, points, labels)
-        val combinedType = OptionsConfigurator.getCombinedMatrixType(tiles, points, labels)
-
-        var plot = letsPlot() + colorScale + fillScale
-
-        // Add layers
-        val tooltips = (layerTooltips()
-            .format(field = "@${CorrVar.CORR}", format = VALUE_FORMAT)
-            .line("@${CorrVar.CORR}"))
-
-        if (tiles.added) {
-            val layerData = layerData(
-                tiles,
-                correlations,
-                varsInOrder,
-                keepDiag = keepDiag || combinedType == "full",
-                threshold
+        val tileLayer = when {
+            tiles.added -> mapOf(
+                Option.Layer.TYPE to tiles.type,
+                Option.Layer.DIAG to tiles.diag
             )
-            plot += geomTile(
-                data = layerData,
-                showLegend = showLegend,
-                tooltips = tooltips,
-                sampling = samplingNone,
-                size = 0.0, width = 1.002, height = 1.002
-            ) {
-                x = CorrVar.X
-                y = CorrVar.Y
-                fill = CorrVar.CORR
-            }
+            else -> null
         }
 
-        if (points.added) {
-            val layerData = layerData(
-                points,
-                correlations,
-                varsInOrder,
-                keepDiag = keepDiag || combinedType == "full",
-                threshold
+        val pointLayer = when {
+            points.added -> mapOf(
+                Option.Layer.TYPE to points.type,
+                Option.Layer.DIAG to points.diag
             )
-            plot += geomPoint(
-                data = layerData,
-                showLegend = showLegend,
-                sizeUnit = "x",
-                tooltips = tooltips,
-                sampling = samplingNone
-            ) {
-                x = CorrVar.X
-                y = CorrVar.Y
-                size = CorrVar.CORR_ABS
-                color = CorrVar.CORR
-            }
+            else -> null
         }
 
-        if (labels.added) {
-            val layerData = layerData(
-                labels,
-                correlations,
-                varsInOrder,
-                keepDiag = keepDiag || combinedType == "full",
-                threshold
+        val labelLayer = when {
+            labels.added -> mapOf(
+                Option.Layer.TYPE to labels.type,
+                Option.Layer.DIAG to labels.diag,
+                Option.Layer.COLOR to labels.color,
+                Option.Layer.MAP_SIZE to labels.mapSize
             )
-            plot += geomText(
-                data = layerData,
-                showLegend = showLegend,
-                naText = "",
-                labelFormat = VALUE_FORMAT,
-                sizeUnit = "x",
-                tooltips = tooltips,
-                sampling = samplingNone,
-                size = if (labels.mapSize == true) null else 1.0,
-                color = labels.color
-            ) {
-                x = CorrVar.X
-                y = CorrVar.Y
-                label = CorrVar.CORR
-                size = CorrVar.CORR_ABS
-                color = CorrVar.CORR
-            }
+            else -> null
         }
 
-        // Actual labels on axis.
-        val (xs, ys) = matrixXYSeries(
-            correlations, varsInOrder, combinedType, !keepDiag, threshold,
-            dropDiagNA = !keepDiag,
-            dropOtherNA = combinedType == "full"
+        var plot = letsPlot(data)
+        title?.let { plot += ggtitle(it) }
+
+        return plot + OptionsMap(
+            kind = BISTRO,
+            name = "corr",
+            options = mapOf(
+                Option.COEFFICIENTS to isCorrMatrix(data),
+                Option.SHOW_LEGEND to showLegend,
+                Option.FLIP to flip,
+                Option.THRESHOLD to threshold,
+                Option.PALETTE to palette,
+                Option.GRADIENT_LOW to low,
+                Option.GRADIENT_MID to mid,
+                Option.GRADIENT_HIGH to high,
+                Option.POINT_LAYER to pointLayer,
+                Option.TILE_LAYER to tileLayer,
+                Option.LABEL_LAYER to labelLayer
+            ).filterNonNullValues()
         )
-        val plotSize = plotSize(xs, ys, title != null, showLegend, adjustSize)
-        plot += ggsize(plotSize.first, plotSize.second)
-
-        title?.run { plot += ggtitle(title) }
-
-        // preserve the original order on x/y scales
-        val xsSet = xs.distinct().toSet()
-        val ysSet = ys.distinct().toSet()
-        val plotX = varsInOrder.filter { it in xsSet }
-        val plotY = varsInOrder.filter { it in ysSet }
-
-        val onlyTiles = tiles.added && !(points.added || labels.added)
-        return addCommonParams(plot, plotX, plotY, onlyTiles, flip)
     }
 
     companion object {
-        private const val VALUE_FORMAT = ".2f"
-
-        private const val LEGEND_NAME = "Corr"
-        private val SCALE_BREAKS = listOf(-1.0, -0.5, 0.0, 0.5, 1.0)
-        private val SCALE_LABELS = listOf("-1", "-0.5", "0", "0.5", "1")
-        private val SCALE_LIMITS = -1.0 to 1.0
-
-        private const val DEF_THRESHOLD = 0.0
-        private const val DEF_LOW_COLOR = "#B3412C" //"red"
-        private const val DEF_MID_COLOR = "#EDEDED" //"light_gray"
-        private const val DEF_HIGH_COLOR = "#326C81" // "blue"
-
-        private const val COLUMN_WIDTH = 40
-        private const val MIN_PLOT_WIDTH = 150
-        private const val MAX_PLOT_WIDTH = 700
-//        private const val PLOT_PROPORTION = 3.0 / 4.0
-
         private fun checkTypeArg(type: String?) {
             type?.run {
                 require(type in listOf("upper", "lower", "full")) {
@@ -366,148 +272,56 @@ class CorrPlot private constructor(
             }
         }
 
-        private fun colorGradient(low: String, mid: String, high: String): Scale {
-            return scaleColorGradient2(
-                low = low, mid = mid, high = high,
-                name = LEGEND_NAME,
-                breaks = SCALE_BREAKS,
-                labels = SCALE_LABELS,
-                limits = SCALE_LIMITS,
-                naValue = "rgba(0,0,0,0)"
-            )
-        }
-
-        private fun fillGradient(low: String, mid: String, high: String): Scale {
-            return scaleFillGradient2(
-                low = low, mid = mid, high = high,
-                name = LEGEND_NAME,
-                breaks = SCALE_BREAKS,
-                labels = SCALE_LABELS,
-                limits = SCALE_LIMITS,
-                naValue = "rgba(0,0,0,0)"
-            )
-        }
-
-        private fun colorBrewer(palette: String): Scale {
-            return scaleColorBrewer(
-                palette = palette,
-                name = LEGEND_NAME,
-                breaks = SCALE_BREAKS,
-                labels = SCALE_LABELS,
-                limits = SCALE_LIMITS,
-                naValue = "rgba(0,0,0,0)"
-            )
-        }
-
-        private fun fillBrewer(palette: String): Scale {
-            return scaleFillBrewer(
-                palette = palette,
-                name = LEGEND_NAME,
-                breaks = SCALE_BREAKS,
-                labels = SCALE_LABELS,
-                limits = SCALE_LIMITS,
-                naValue = "rgba(0,0,0,0)"
-            )
-        }
-
-        private fun addCommonParams(
-            plot: Plot,
-            xValues: List<String>,
-            yValues: List<String>,
-            onlyTiles: Boolean,
-            flipY: Boolean
-        ): Plot {
-            @Suppress("NAME_SHADOWING")
-            var plot = plot
-            plot += theme()
-                .axisTitleBlank()
-                .axisLineBlank()
-
-            plot += scaleSizeIdentity(naValue = 0, guide = "none")
-
-            // Smaller 'additive' expand for tiles (normally: 0.6)
-//            val expand = if (onlyTiles) listOf(0.0, 0.1) else null
-            val expand = listOf(0.0, 0.0)
-
-            plot += scaleXDiscrete(breaks = xValues, limits = xValues, expand = expand)
-
-
-            // ToDo: 'reverse' doesn't work if 'limits' are set. Should be fixed in 1.6.0
-//            plot += scaleYDiscrete(limits = yValues, expand = scaleXYExpand, reverse = flipY)
-            plot += scaleYDiscrete(
-                breaks = yValues,
-                limits = if (flipY) yValues.asReversed() else yValues,
-                expand = expand
-            )
-
-            val xLim = Pair(-0.6, xValues.size - 1 + 0.6)
-            val yLim = Pair(-0.6, yValues.size - 1 + 0.6)
-            if (onlyTiles) {
-                plot += coordCartesian(xlim = xLim, ylim = yLim)
-            } else {
-                plot += coordFixed(xlim = xLim, ylim = yLim)
-            }
-            return plot
-        }
-
-        private fun plotSize(
-            xs: List<String>,
-            ys: List<String>,
-            hasTitle: Boolean,
-            hasLegend: Boolean,
-            adjustSize: Double
-        ): Pair<Int, Int> {
-            val colCount = xs.distinct().size
-
-            // magic values
-            val titleHeight = if (hasTitle) 20 else 0
-            val legendWidth = if (hasLegend) 70 else 0
-            val geomWidth = (min(MAX_PLOT_WIDTH, max(MIN_PLOT_WIDTH, (colCount * COLUMN_WIDTH))) * adjustSize).toInt()
-
-            fun axisLabelWidth(labs: List<String>): Int {
-                val labelLen = labs.maxByOrNull { it.length }?.length ?: 0
-                return (labelLen * 5.7).toInt()
+        private fun isCorrMatrix(data: Map<*, *>): Boolean {
+            if (data.isEmpty()) {
+                return false
             }
 
-            val labelWidthX = axisLabelWidth(xs)
-            val labelWidthY = axisLabelWidth(ys)
-            val colWidth = geomWidth / colCount
-            val labelHeightY = if (labelWidthY * 1.0 > colWidth) labelWidthY / 2 else 20
+            val vectors = data.values.mapNotNull { it as? List<*> }
+            if (vectors.size != data.size) {
+                return false
+            }
 
-            val width = geomWidth + labelWidthX + legendWidth
-            val height = geomWidth + titleHeight + labelHeightY
+            if (vectors.any { it.size != data.size }) {
+                return false
+            }
 
-            return width to height
+            val values = vectors.asSequence().flatMap { it }
+            if (values.all { it is Double && it >= -1.0 && it <= 1.0 } ) {
+                return true
+            }
+
+            return false
         }
+    }
 
-        private fun layerData(
-            params: LayerParams,
-            correlations: Map<Pair<String, String>, Double>,
-            varsInOrder: List<String>,
-            keepDiag: Boolean,
-            threshold: Double
-        ): Map<String, List<Any?>> {
-            val diag = params.diag!!
-            val type = params.type!!
+    object Option {
+        const val COEFFICIENTS = "coefficients"
+        const val TITLE = "title"
+        const val SHOW_LEGEND = "show_legend"
+        const val FLIP = "flip"
+        const val THRESHOLD = "threshold"
+        const val ADJUST_SIZE = "adjust_size"
+        const val PALETTE = "palette"
+        const val GRADIENT_LOW = "low"
+        const val GRADIENT_MID = "mid"
+        const val GRADIENT_HIGH = "high"
 
-            val (xs, ys) = matrixXYSeries(
-                correlations, varsInOrder, type,
-                nullDiag = !(keepDiag),
-                threshold,
-                dropDiagNA = false,
-                dropOtherNA = false
-            )
+        const val POINT_LAYER = "point_params"
+        const val TILE_LAYER = "tile_params"
+        const val LABEL_LAYER = "label_params"
 
-            val matrix = CorrUtil.CorrMatrix(
-                correlations,
-                nullDiag = !diag,
-                threshold
-            )
+        object Layer {
+            const val TYPE = "type"
+            const val DIAG = "diag"
+            const val COLOR = "color"
+            const val MAP_SIZE = "map_size"
 
-            return correlationsToDataframe(
-                matrix,
-                xs, ys
-            )
+            object Type {
+                const val FULL = "full"
+                const val LOWER = "lower"
+                const val UPPER = "upper"
+            }
         }
     }
 }

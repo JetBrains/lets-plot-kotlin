@@ -3,12 +3,12 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package jetbrains.letsPlot.bistro.corr
+package jetbrains.letsPlot.bistro.corr.deprecated
 
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-internal object Method {
+public object Method {
     fun correlationPearson(xs: List<Double>, ys: List<Double>): Double {
         require(xs.size == ys.size) { "Two series must have the same size." }
         if (xs.isEmpty()) {
