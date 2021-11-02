@@ -39,6 +39,11 @@ allprojects {
         }
     }
 
+    tasks.withType<JavaCompile>().all {
+        sourceCompatibility = "1.8"
+        targetCompatibility = "1.8"
+    }
+
     repositories {
         // GeoTools repository must be before Maven Central
         // See: https://stackoverflow.com/questions/26993105/i-get-an-error-downloading-javax-media-jai-core1-1-3-from-maven-central
