@@ -79,83 +79,90 @@ java {
     withSourcesJar()
 }
 
-publishing {
-    publications {
-        // Build artifact "lets-plot-kotlin-kernel" with no dependencies in POM.
-        create<MavenPublication>("letsPlotKotlinKernel") {
-            artifactId = "$artifactBaseName-kernel"
+afterEvaluate {
+    publishing {
+        publications {
+            // Build artifact "lets-plot-kotlin-kernel" with no dependencies in POM.
+            create<MavenPublication>("letsPlotKotlinKernel") {
+                artifactId = "$artifactBaseName-kernel"
 
-//            artifact(jvmJar)
-//            artifact jvmSourcesJar
-            from(components["java"])
+                // For unknown reason this doesn't work:
+                // the deployed JAR doesn't contain classes.
+//                from(components["java"])
 
-            pom {
-                name.set("Lets-Plot Kotlin API (for Jupyter Kotlin Kernel)")
-                description.set("Lets-Plot Kotlin API without dependencies.")
-            }
-        }
+                val jvmJar: Task by tasks
+                val jvmSourcesJar: Task by tasks
+                artifact(jvmJar)
+                artifact(jvmSourcesJar)
 
-    }
-
-    publications.forEach {
-        with(it as MavenPublication) {
-            groupId = artifactGroupId
-            version = artifactVersion
-
-            if (!artifactId.startsWith(artifactBaseName)) {
-                // Default multiplatform artifacts: rename.
-                artifactId = artifactId.replace(project.name, artifactBaseName)
                 pom {
-                    name.set("Lets-Plot Kotlin API")
-                    description.set("Lets-Plot Kotlin API.")
+                    name.set("Lets-Plot Kotlin API (for Jupyter Kotlin Kernel)")
+                    description.set("Lets-Plot Kotlin API without dependencies.")
                 }
             }
 
-            // Add "javadocs" to each publication or Maven won't publish it.
-            artifact(jarJavaDocs)
+        }
 
-            pom {
-                url.set("https://github.com/JetBrains/lets-plot-kotlin")
-                licenses {
-                    license {
-                        name.set("MIT")
-                        url.set("https://opensource.org/licenses/MIT")
+        publications.forEach {
+            with(it as MavenPublication) {
+                groupId = artifactGroupId
+                version = artifactVersion
+
+                if (!artifactId.startsWith(artifactBaseName)) {
+                    // Default multiplatform artifacts: rename.
+                    artifactId = artifactId.replace(project.name, artifactBaseName)
+                    pom {
+                        name.set("Lets-Plot Kotlin API")
+                        description.set("Lets-Plot Kotlin API.")
                     }
                 }
-                developers {
-                    developer {
-                        id.set("jetbrains")
-                        name.set("JetBrains")
-                        email.set("lets-plot@jetbrains.com")
-                    }
-                }
-                scm {
+
+                // Add "javadocs" to each publication or Maven won't publish it.
+                artifact(jarJavaDocs)
+
+                pom {
                     url.set("https://github.com/JetBrains/lets-plot-kotlin")
+                    licenses {
+                        license {
+                            name.set("MIT")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id.set("jetbrains")
+                            name.set("JetBrains")
+                            email.set("lets-plot@jetbrains.com")
+                        }
+                    }
+                    scm {
+                        url.set("https://github.com/JetBrains/lets-plot-kotlin")
+                    }
+                }
+
+                // Sign all publications.
+                signing.sign(it)
+            }
+        }
+
+        repositories {
+            maven {
+                val sonatypeUrl: String by extra
+                url = uri(sonatypeUrl)
+
+                val buildSettings: Map<String, Any?> by project
+
+                @Suppress("UNCHECKED_CAST")
+                val sonatype = (buildSettings["sonatype"] as? Map<String, String?>) ?: emptyMap()
+                credentials {
+                    username = sonatype["username"]
+                    password = sonatype["password"]
                 }
             }
-
-            // Sign all publications.
-            signing.sign(it)
-        }
-    }
-
-    repositories {
-        maven {
-            val sonatypeUrl: String by extra
-            url = uri(sonatypeUrl)
-
-            val buildSettings: Map<String, Any?> by project
-
-            @Suppress("UNCHECKED_CAST")
-            val sonatype = (buildSettings["sonatype"] as? Map<String, String?>) ?: emptyMap()
-            credentials {
-                username = sonatype["username"]
-                password = sonatype["password"]
+            mavenLocal {
+                val localMavenRepository: String by project
+                url = uri(localMavenRepository)
             }
-        }
-        mavenLocal {
-            val localMavenRepository: String by project
-            url = uri(localMavenRepository)
         }
     }
 }
