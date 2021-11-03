@@ -69,7 +69,7 @@ class TooltipOptions(variables: List<String>?) {
      *     It's possible to set the format for all positional aesthetics:
      *        field = "^X" - for all positional x;
      *        field = "^Y" - for all positional y.
-     * @param format A number format ('1.f') or a string template ('{.1f}').
+     * @param format A number format ('1.f'), a string template ('{.1f}') or a date/time format ('%d.%m.%y').
      *     The numeric format for non-numeric value will be ignored.
      *     If you need to include a brace character in the literal text, it can be escaped by doubling: {{ and }}, e.g.,
      *       .format('^color', '{{ {.1f} }}') -> "{ 17.0 }"

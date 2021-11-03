@@ -12,7 +12,7 @@ import jetbrains.letsPlot.intern.Scale
 import jetbrains.letsPlot.intern.checkScaleExpand
 
 /**
- * Continuous position scale (x).
+ * Position scale x for date/time data.
  *
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
@@ -29,7 +29,8 @@ import jetbrains.letsPlot.intern.checkScaleExpand
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
- * @param format Specifies the format pattern for labels on the scale.
+ * @param format string
+ *      Defines the format for labels on the scale. Also applies to `breaks`.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -71,7 +72,7 @@ fun scaleXDateTime(
 }
 
 /**
- * Continuous position scale (y).
+ * Position scale y for date/time data.
  *
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
@@ -88,7 +89,8 @@ fun scaleXDateTime(
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
- * @param format Specifies the format pattern for labels on the scale.
+ * @param format string
+ *      Defines the format for labels on the scale. Also applies to `breaks`.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
