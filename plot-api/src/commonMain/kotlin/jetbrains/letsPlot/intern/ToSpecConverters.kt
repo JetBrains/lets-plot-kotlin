@@ -53,13 +53,19 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     // Width of plot in percents of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
 
-// TODO:
-//    const val COORD = "coord"
-
     for (plotFeature in plot.otherFeatures()) {
         if (plotFeature.kind == Option.Plot.THEME && spec.containsKey(Option.Plot.THEME)) {
-            // merge themes
-            spec[Option.Plot.THEME] = spec[Option.Plot.THEME] as Map<*, *> + plotFeature.toSpec()
+            val otherThemeOpts = plotFeature.toSpec()
+            val newThemeOptions = otherThemeOpts[Option.Meta.NAME]?.let {
+                // 'named' theme overrides all prev theme options.
+                otherThemeOpts
+            } ?: let {
+                // Merge themes.
+                @Suppress("UNCHECKED_CAST")
+                mergeThemeOptions(spec.getValue(Option.Plot.THEME) as Map<String, Any>, otherThemeOpts)
+            }
+
+            spec[Option.Plot.THEME] = newThemeOptions
         } else {
             spec[plotFeature.kind] = plotFeature.toSpec()
         }
@@ -249,4 +255,15 @@ private fun createMappingAnnotations(mappings: Map<String, Any>): List<Map<Strin
     return mappings
         .filter { it.value is MappingMeta }
         .map { (it.value as MappingMeta).getAnnotatedData(it.key) }
+}
+
+private fun mergeThemeOptions(m0: Map<String, Any>, m1: Map<String, Any>): Map<String, Any> {
+    val overlappingKeys = m0.keys.intersect(m1.keys)
+    val keysToMerge = overlappingKeys.filter {
+        m0[it] is Map<*, *> && m1[it] is Map<*, *>
+    }
+    val m2 = keysToMerge.map {
+        it to (m0[it] as Map<*, *> + m1[it] as Map<*, *>)
+    }.toMap()
+    return m0 + m1 + m2
 }

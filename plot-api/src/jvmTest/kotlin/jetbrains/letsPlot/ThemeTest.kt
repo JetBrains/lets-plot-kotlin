@@ -74,7 +74,38 @@ class ThemeTest {
     }
 
     @Test
-    fun `element color standartized`() {
+    fun `theme elements merged`() {
+        val themes = theme(axisLine = elementLine(color = "#0000FF")) +
+                theme(axisLine = elementLine(size = 10))
+        val p = ggplot() + themes
+
+        assertThat(p).features().length(2)
+        val spec = p.toSpec()
+        assertEquals(
+            mapOf(
+                "axis_line" to mapOf("color" to "#0000FF", "size" to 10.0),
+            ),
+            spec[Option.Plot.THEME]
+        )
+    }
+
+    @Test
+    fun `named theme overrides other theme`() {
+        val themes = theme(line = elementLine(color = "#000000")) + themeNone()
+        val p = ggplot() + themes
+
+        assertThat(p).features().length(2)
+        val spec = p.toSpec()
+        assertEquals(
+            mapOf(
+                "name" to "none",
+            ),
+            spec[Option.Plot.THEME]
+        )
+    }
+
+    @Test
+    fun `element color standardized`() {
         val themes = theme(
             axisLineX = elementLine(color = Color.BLACK),
             axisLineY = elementLine(color = jetbrains.datalore.base.values.Color.BLUE)
