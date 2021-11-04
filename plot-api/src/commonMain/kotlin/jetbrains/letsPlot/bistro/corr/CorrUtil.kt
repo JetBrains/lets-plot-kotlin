@@ -16,9 +16,6 @@ internal object CorrUtil {
         data: Map<String, List<Any?>>,
         corrFun: (List<Double>, List<Double>) -> Double
     ): Map<Pair<String, String>, Double> {
-        @Suppress("NAME_SHADOWING")
-        val data = asPlotData(data)
-
         val df = DataFrameUtil.fromMap(data)
         val numerics = df.variables().filter { df.isNumeric(it) }
         val correlations = HashMap<Pair<DataFrame.Variable, DataFrame.Variable>, Double>()
@@ -43,6 +40,42 @@ internal object CorrUtil {
                 it.key.second.label
             )
         }
+    }
+
+    /*
+    Note that keys iterating order should be consistent with coefficients order
+     */
+    fun correlationsFromCoefficients(
+        coeff: Map<String, List<Any?>>
+    ): Map<Pair<String, String>, Double> {
+        val correlations = LinkedHashMap<Pair<String, String>, Double>()
+
+        coeff.onEachIndexed { vxIndex, (vx, vxCoeffs) ->
+            coeff.keys.asSequence()
+                .drop(vxIndex) // skip symmetric elements, e.g. (c to a),  (c to b)
+                .mapIndexed { i, vy -> (vxIndex + i) to vy } // rebase vy indices
+                .forEach { (vyIndex, vy) -> correlations[vx to vy] = vxCoeffs.get(vyIndex) as Double }
+        }
+
+        return correlations
+    }
+
+    fun isCoefficientsMatrix(data: Map<String, List<Any?>>): Boolean {
+        if (data.isEmpty()) {
+            return false
+        }
+
+        val vectors = data.values
+        if (vectors.any { it.size != data.size }) {
+            return false
+        }
+
+        val values = vectors.asSequence().flatMap { it }
+        if (values.all { it is Double && it >= -1.0 && it <= 1.0 } ) {
+            return true
+        }
+
+        return false
     }
 
     private fun correlation(
