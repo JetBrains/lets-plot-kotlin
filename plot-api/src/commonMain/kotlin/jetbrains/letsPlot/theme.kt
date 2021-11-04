@@ -13,6 +13,61 @@ import jetbrains.letsPlot.intern.filterNonNullValues
 /**
  * Use theme() to modify individual components of a theme,
  * allowing you to control the appearance of all non-data components of the plot.
+ *
+ * All parameters resposible for styling of lines, rectangles and texts accept:
+ * - string "blank" or the result of the `elementBlank()` function.
+ * - the result of `elementLine()`, `elementRect()` or `elementText()` respectively.
+ *
+ * Settings passed via more specific parameters override settings passed via less specific parameters.
+ * For example, parameter `axisLineX` is more specific than parameter `axisLine`.
+ *
+ * @param line All line elements.
+ * @param rect All rectangle elements.
+ * @param text All text elements.
+ * @param title All line elements: plot, axes, legends.
+ * @param axis All axis elements: lines, ticks, texts, titles.
+ *
+ * @param axisTitle Labels of axes.
+ * @param axisTitleX Labels of axes.
+ * @param axisTitleY Labels of axes.
+ *
+ * @param axisText Tick labels along axes.
+ * @param axisTextX Tick labels along axes.
+ * @param axisTextY Tick labels along axes.
+ *
+ * @param axisTicks Tick marks along axes.
+ * @param axisTicksX Tick marks along axes.
+ * @param axisTicksY Tick marks along axes.
+ *
+ * @param axisTicksLength Length of tick marks.
+ * @param axisTicksLengthX Length of tick marks.
+ * @param axisTicksLengthY Length of tick marks.
+ *
+ * @param axisLine Lines along axes.
+ * @param axisLineX Lines along axes.
+ * @param axisLineY Lines along axes.
+ *
+ * @param legendText Legend item labels.
+ * @param legendTitle Title of legend.
+ *
+ * @param panelBackground Background of plotting area.
+ *
+ * @param panelGrid Grid lines.
+ * @param panelGridMajor Grid lines.
+ * @param panelGridMinor Grid lines.
+ * @param panelGridMajorX Grid lines.
+ * @param panelGridMinorX Grid lines.
+ * @param panelGridMajorY Grid lines.
+ * @param panelGridMinorY Grid lines.
+ *
+ * @param plotTitle Plot title.
+ *
+ * @param stripBackground Background of facet labels.
+ * @param stripText Facet labels.
+ *
+ * @param axisTooltip Axes tooltips.
+ * @param axisTooltipX Axes tooltips.
+ * @param axisTooltipY Axes tooltips.
  */
 @Suppress("ClassName", "FunctionName")
 class theme(
@@ -237,3 +292,66 @@ class theme(
         private const val VAL_LEGEND_DIRECTION_VERTICAL = "vertical"
     }
 }
+
+/**
+ * Specifies how non-data components of the plot are drawn.
+ * This theme element draws nothing, and assigns no space.
+ */
+fun elementBlank() = mapOf(ThemeOption.Elem.BLANK to true)
+
+
+/**
+ * Specifies how non-data components of the plot are drawn.
+ * This theme element draws borders and backgrounds.
+ *
+ * @param fill Fill color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param color Border color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param size Border line width.
+ * @param blank Mark as a 'blank' element.
+ */
+fun elementRect(
+    fill: Any? = null,
+    color: Any? = null,
+    size: Number? = null,
+    blank: Boolean? = null,
+) = mapOf(
+    ThemeOption.Elem.FILL to fill,
+    ThemeOption.Elem.COLOR to color,
+    ThemeOption.Elem.SIZE to size,
+    ThemeOption.Elem.BLANK to blank,
+).filterNonNullValues()
+
+
+/**
+ * Specifies how non-data components of the plot are drawn.
+ * This theme element draws lines.
+ *
+ * @param color Line color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param size Line width.
+ * @param blank Mark as a 'blank' element.
+ */
+fun elementLine(
+    color: Any? = null,
+    size: Number? = null,
+    blank: Boolean? = null,
+) = mapOf(
+    ThemeOption.Elem.COLOR to color,
+    ThemeOption.Elem.SIZE to size,
+    ThemeOption.Elem.BLANK to blank,
+).filterNonNullValues()
+
+
+/**
+ * Specifies how non-data components of the plot are drawn.
+ * This theme element draws texts.
+ *
+ * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param blank Mark as a 'blank' element.
+ */
+fun elementText(
+    color: Any? = null,
+    blank: Boolean? = null,
+) = mapOf(
+    ThemeOption.Elem.COLOR to color,
+    ThemeOption.Elem.BLANK to blank,
+).filterNonNullValues()
