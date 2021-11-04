@@ -12,7 +12,7 @@
     - using date-time format pattern in tooltip format();
     - date/time scales apply date-time formatting to the `breaks`.
 
-  See: [example notebook](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/datetime_formatting.md).  
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/datetime_formatting.ipynb).
 
 
 ### Changed
