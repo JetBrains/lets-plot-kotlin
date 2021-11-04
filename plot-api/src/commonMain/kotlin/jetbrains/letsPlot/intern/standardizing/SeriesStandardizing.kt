@@ -3,9 +3,9 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package jetbrains.letsPlot.intern
+package jetbrains.letsPlot.intern.standardizing
 
-object SeriesStandardizing {
+internal object SeriesStandardizing {
     @Suppress("SpellCheckingInspection")
     fun isListy(rawValue: Any?) = when (rawValue) {
         is List<*> -> true
@@ -23,7 +23,7 @@ object SeriesStandardizing {
         else -> false
     }
 
-    fun toList(key: String, rawValue: Any): List<Any?> {
+    fun toList(rawValue: Any, messageKey: String? = null): List<Any?> {
         return when (rawValue) {
             is List<*> -> standardizeList(rawValue)
             is Iterable<*> -> standardizeIterable(rawValue).toList()
@@ -37,16 +37,19 @@ object SeriesStandardizing {
             is DoubleArray -> standardizeList(rawValue.asList())
             is CharArray -> standardizeList(rawValue.asList())
             is Pair<*, *> -> standardizeList(rawValue.toList())
-            else -> throw IllegalArgumentException("Can't transform data[\"$key\"] of type ${rawValue::class.simpleName} to a list")
+            else -> {
+                val keyInfo = messageKey?.let { "[$messageKey]" } ?: ""
+                throw IllegalArgumentException("Can't transform ${rawValue::class.simpleName} to list$keyInfo.")
+            }
         }
     }
 
-    fun toListOrPass(rawValue: Any): Any {
-        if (isListy(rawValue)) {
-            return toList("<key not provided>", rawValue)
-        }
-        return rawValue
-    }
+//    fun toListOrPass(rawValue: Any): Any {
+//        if (isListy(rawValue)) {
+//            return toList("<key not provided>", rawValue)
+//        }
+//        return rawValue
+//    }
 
     private fun needToStandardizeValues(series: Iterable<*>): Boolean {
         return series.any {
@@ -62,41 +65,36 @@ object SeriesStandardizing {
     }
 
     private fun standardizeIterable(series: Iterable<*>): Iterable<*> {
-//        fun noTimeZoneError(time: Any): Nothing {
-//            throw IllegalArgumentException(
-//                "Can't convert ${time::class.qualifiedName} to the number of milliseconds from the epoch of 1970-01-01T00:00:00Z."
-//            )
+//        fun toDouble(n: Number): Double? {
+//            return when (n) {
+//                is Float -> if (n.isFinite()) n.toDouble() else null
+//                is Double -> if (n.isFinite()) n else null
+//                else -> n.toDouble()
+//            }
 //        }
-
-        fun toDouble(n: Number): Double? {
-            return when (n) {
-                is Float -> if (n.isFinite()) n.toDouble() else null
-                is Double -> if (n.isFinite()) n else null
-                else -> n.toDouble()
-            }
-        }
         return if (needToStandardizeValues(series)) {
             series.map {
-                when (it) {
-                    null -> it
-                    is String -> it
-                    is Number -> toDouble(it)
-                    is Char -> it.toString()
-                    is jetbrains.datalore.base.values.Color -> it.toHexColor()
-                    else -> {
-                        if (JvmStandardizing.isJvm(it)) {
-                            JvmStandardizing.standardize(it)
-                        } else {
-                            throw IllegalArgumentException(
-                                "Can't standardize the value \"$it\" of type ${
-                                    ReflectionPatch.qualifiedName(
-                                        it
-                                    )
-                                } as a string, number or date-time."
-                            )
-                        }
-                    }
-                }
+//                when (it) {
+//                    null -> it
+//                    is String -> it
+//                    is Number -> toDouble(it)
+//                    is Char -> it.toString()
+//                    is jetbrains.datalore.base.values.Color -> it.toHexColor()
+//                    else -> {
+//                        if (JvmStandardizing.isJvm(it)) {
+//                            JvmStandardizing.standardize(it)
+//                        } else {
+//                            throw IllegalArgumentException(
+//                                "Can't standardize the value \"$it\" of type ${
+//                                    ReflectionPatch.qualifiedName(
+//                                        it
+//                                    )
+//                                } as a string, number or date-time."
+//                            )
+//                        }
+//                    }
+//                }
+                Standardizing.standardizeValue(it)
             }
         } else {
             series

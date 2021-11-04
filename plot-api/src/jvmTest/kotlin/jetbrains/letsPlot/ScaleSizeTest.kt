@@ -51,7 +51,7 @@ class ScaleSizeTest {
                 "scales" to listOf(
                     mapOf(
                         "aesthetic" to "size",
-                        "max_size" to 30,
+                        "max_size" to 30.0,
                         "limits" to listOf(null, 20.5),
                         "scale_mapper_kind" to "size_area"
                     )

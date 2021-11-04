@@ -10,14 +10,14 @@ import jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
 import jetbrains.letsPlot.intern.toSpec
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
+import java.awt.Color
 
 class ThemeTest {
 
     @Test
     fun `plot with simple theme`() {
         val p = ggplot() +
-                theme()
-                    .axisTitleYBlank()
+                theme(axisTitleY = elementBlank())
                     .legendPositionNone()
 
         assertThat(p).features().length(1)
@@ -28,7 +28,7 @@ class ThemeTest {
 
         assertEquals(
             mapOf(
-                "axis_title_y" to "blank",
+                "axis_title_y" to mapOf("blank" to true),
                 "legend_position" to "none"
             ),
             options
@@ -43,7 +43,7 @@ class ThemeTest {
 
     @Test
     fun `plot with additional theme`() {
-        val p0 = ggplot() + theme().axisTitleYBlank()
+        val p0 = ggplot() + theme(axisTitleY = "blank")
         val p = p0 + theme().legendPositionNone()
 
         assertThat(p).features().length(2)
@@ -59,7 +59,7 @@ class ThemeTest {
 
     @Test
     fun `plot with sum of themes`() {
-        val themes = theme().axisTitleYBlank() + theme().legendPositionNone()
+        val themes = theme(axisTitleY = "blank") + theme().legendPositionNone()
         val p = ggplot() + themes
 
         assertThat(p).features().length(2)
@@ -68,6 +68,25 @@ class ThemeTest {
             mapOf(
                 "axis_title_y" to "blank",
                 "legend_position" to "none"
+            ),
+            spec[Option.Plot.THEME]
+        )
+    }
+
+    @Test
+    fun `element color standartized`() {
+        val themes = theme(
+            axisLineX = elementLine(color = Color.BLACK),
+            axisLineY = elementLine(color = jetbrains.datalore.base.values.Color.BLUE)
+        )
+        val p = ggplot() + themes
+
+        assertThat(p).features().length(1)
+        val spec = p.toSpec()
+        assertEquals(
+            mapOf(
+                "axis_line_x" to mapOf("color" to "#000000"),
+                "axis_line_y" to mapOf("color" to "#0000ff"),
             ),
             spec[Option.Plot.THEME]
         )

@@ -20,8 +20,9 @@ import jetbrains.datalore.plot.config.Option.Scale.LIMITS
 import jetbrains.datalore.plot.config.Option.Scale.NAME
 import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
 import jetbrains.letsPlot.MappingMeta
-import jetbrains.letsPlot.intern.SeriesStandardizing.toList
 import jetbrains.letsPlot.intern.layer.WithSpatialParameters
+import jetbrains.letsPlot.intern.standardizing.MapStandardizing
+import jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.toList
 import jetbrains.letsPlot.spatial.GeometryFormat
 import jetbrains.letsPlot.spatial.SpatialDataset
 
@@ -172,9 +173,9 @@ fun Scale.toSpec(): MutableMap<String, Any> {
 
     spec[AES] = aesthetic.name
     name?.let { spec[NAME] = name }
-    breaks?.let { spec[BREAKS] = toList(BREAKS, breaks) }
+    breaks?.let { spec[BREAKS] = toList(breaks, BREAKS) }
     labels?.let { spec[LABELS] = labels }
-    limits?.let { spec[LIMITS] = toList(LIMITS, limits) }
+    limits?.let { spec[LIMITS] = toList(limits, LIMITS) }
     expand?.let { spec[EXPAND] = expand }
     naValue?.let { spec[NA_VALUE] = naValue }
     guide?.let { spec[GUIDE] = guide }
@@ -186,31 +187,28 @@ fun Scale.toSpec(): MutableMap<String, Any> {
 }
 
 fun OptionsMap.toSpec(includeKind: Boolean = false): MutableMap<String, Any> {
-    return if (includeKind) {
-        HashMap(mapOf(KIND to kind) + options)
-    } else {
-        HashMap(options)
-    }
+    return HashMap(
+        MapStandardizing.standardize(
+            if (includeKind) {
+                mapOf(KIND to kind) + options
+            } else {
+                options
+            }
+        )
+    )
 }
 
 internal fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
     val standardisedData = HashMap<String, List<Any?>>()
     for ((rawKey, rawValue) in rawData) {
         val key = rawKey.toString()
-        standardisedData[key] = toList(key, rawValue!!)
+        standardisedData[key] = toList(rawValue!!, key)
     }
     return standardisedData
 }
 
 private fun asMappingData(rawMapping: Map<String, Any>): Map<String, Any> {
     val mapping = rawMapping.toMutableMap()
-//    mapping.replaceAll { _, value ->
-//        when (value) {
-//            is MappingMeta -> value.variable
-//            else -> value
-//        }
-//    }
-//    return mapping
     return mapping.mapValues { (_, value) ->
         when (value) {
             is MappingMeta -> value.variable
