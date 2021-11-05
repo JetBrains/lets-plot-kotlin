@@ -6,14 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.GGBunch
+import jetbrains.letsPlot.*
 import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.scale.scaleColorContinuous
 import jetbrains.letsPlot.scale.scaleSize
 import jetbrains.letsPlot.scale.scaleXContinuous
-import jetbrains.letsPlot.theme
 
 object ScaleLimitsContinuous {
     @JvmStatic
@@ -26,13 +23,13 @@ object ScaleLimitsContinuous {
                 "x" to (5..9).map { it }
             )
 
-            val settings = theme()
-                .legendPositionNone()
-                .axisLineBlank()
-                .axisTextYBlank()
-                .axisTicksYBlank().axisTextYBlank()
-                .axisTitleYBlank() +
-                    ggsize(500, 100)
+            val settings = theme(
+                axisLine = elementBlank(),
+                axisTicksY = elementBlank(),
+                axisTextY = elementBlank(),
+                axisTitleY = elementBlank()
+            ).legendPositionNone() + ggsize(500, 100)
+
             val p0 = letsPlot(dat0) + geomPoint { x = "x"; size = "x"; color = "x" } + settings
             val p1 = letsPlot(dat1) + geomPoint { x = "x"; size = "x"; color = "x" } + settings
 
