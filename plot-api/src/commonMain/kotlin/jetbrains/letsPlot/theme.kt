@@ -313,7 +313,7 @@ fun elementRect(
     fill: Any? = null,
     color: Any? = null,
     size: Number? = null,
-    blank: Boolean? = null,
+    blank: Boolean = false,
 ) = mapOf(
     ThemeOption.Elem.FILL to fill,
     ThemeOption.Elem.COLOR to color,
@@ -333,7 +333,7 @@ fun elementRect(
 fun elementLine(
     color: Any? = null,
     size: Number? = null,
-    blank: Boolean? = null,
+    blank: Boolean = false,
 ) = mapOf(
     ThemeOption.Elem.COLOR to color,
     ThemeOption.Elem.SIZE to size,
@@ -350,7 +350,7 @@ fun elementLine(
  */
 fun elementText(
     color: Any? = null,
-    blank: Boolean? = null,
+    blank: Boolean = false,
 ) = mapOf(
     ThemeOption.Elem.COLOR to color,
     ThemeOption.Elem.BLANK to blank,

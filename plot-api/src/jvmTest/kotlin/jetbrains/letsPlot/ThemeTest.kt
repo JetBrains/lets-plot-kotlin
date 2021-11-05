@@ -83,7 +83,11 @@ class ThemeTest {
         val spec = p.toSpec()
         assertEquals(
             mapOf(
-                "axis_line" to mapOf("color" to "#0000FF", "size" to 10.0),
+                "axis_line" to mapOf(
+                    "color" to "#0000FF",
+                    "size" to 10.0,
+                    "blank" to false
+                ),
             ),
             spec[Option.Plot.THEME]
         )
@@ -116,8 +120,8 @@ class ThemeTest {
         val spec = p.toSpec()
         assertEquals(
             mapOf(
-                "axis_line_x" to mapOf("color" to "#000000"),
-                "axis_line_y" to mapOf("color" to "#0000ff"),
+                "axis_line_x" to mapOf("color" to "#000000", "blank" to false),
+                "axis_line_y" to mapOf("color" to "#0000ff", "blank" to false),
             ),
             spec[Option.Plot.THEME]
         )
