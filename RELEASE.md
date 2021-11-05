@@ -111,3 +111,10 @@ In [docs/README.md](docs/README.md) update the Binder link with new "demo" tag (
  * Open the link: https://github.com/JetBrains/lets-plot-kotlin/releases/new
  * Fill `Tag version` and `Release title` with the released version: "vX.X.X"
  * Fill the description field - copy from the CHANGELOG.md
+    
+
+### Re-generate the API reference documentation (Dokka):
+
+1. Run the `dokkaHtml` task (from console: `./gradlew dokkaHtml`).
+2. **(!)** Set *Reformat code* and *Update copyright* flags during the commit.
+
