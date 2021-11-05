@@ -4,6 +4,53 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
+           
+
+## [3.1.0] - 2021-11-05
+
+### Added
+
+- `coord_flip()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb).
+
+- Date-time formatting support:
+  - using date-time format pattern in tooltip format();
+  - date/time scales apply date-time formatting to the `breaks`.
+
+  See `Out[7, 8, 10]` in [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb).
+
+- Pre-configured themes:
+  - Standard ggplot2 themes: `themeGrey(), themeLight(), themeClassic(), themeMinimal()`;
+  - Other themes: `themeMinimal2()` - the default theme, `themeNone()`.
+
+- Theme modification: more parameters were added to the `theme()` function.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb).
+
+> Note: fonts size, family and face still can not be configured.
+
+- `corr_plot()` function now also accepts pre-computed correlation coefficients.
+
+- Kotlin/JS IR: `xxx.klib` artifacts are available.
+
+  See: [sample Kotlin/JS IR app](https://github.com/alshan/lets-plot-mini-apps/tree/main/js-ir-frontend-app)
+
+
+### Changed
+
+- The size of fonts on plot was slightly increased all across the board.
+- The default plot size was increased by 20%, it's now 600x400 px.
+- **Deprecated API**: all `Theme.xxxBlank()` functions. Please use corresponding parameters in `theme()`.
+
+
+### Fixed
+
+- Ordering facets - the "order" value 0 disables facet ordering [[#454](https://github.com/JetBrains/lets-plot/issues/454)].
+- Tooltips for discrete variables: add the dependence of the tooltip on the number of factors.
+  The X-axis tooltip is always shown for discrete data.
+- Unreadable breaks on axis [[#430](https://github.com/JetBrains/lets-plot/issues/430)].
+                                          
 
 ## [3.0.2] - 2021-06-09
 
