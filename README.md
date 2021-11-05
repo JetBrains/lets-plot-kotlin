@@ -31,18 +31,17 @@
     - ["Line Magics"](#line-magics)
     - [Quick start with Jupyter](#start)
     - [Example notebooks](#jupyter-examples)
-    - [Resources](#resources)
 
 - [Lets-Plot-Kotlin in Datalore notebooks](#datalore)
 
 - [Lets-Plot in JVM and Kotlin/JS application](#jvm)
 
-- [Lets-Plot Kotlin API](#api)
+- [further Reading](#further_reading)
   - [User guide and API reference](#guide)
-  - [Data sampling](#sampling)
-  - [GGBunch](#ggbunch)
-  - [Saving plot to file](#export)
   - [Tooltip customization](#tooltip-customization)
+  - [Formatting](#formatting)
+  - [Data sampling](#sampling)
+  - [Saving plot to file](#export)
   - [GeoTools support](#geotools)
 
 - [What is new in 3.0.2](#new)
@@ -143,11 +142,6 @@ p + ggsize(500, 250)
 
 Try the following [examples](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md) to study features of the `Lets-Plot` library.
 
-<a id="resources"></a>
-#### Resources
-
-* [Kotlin for Data Science](https://kotlinlang.org/docs/reference/data-science-overview.html) : overview of Kotlin Jupyter kernel etc.
-* [Using Kotlin for Data Science](https://www.youtube.com/watch?v=APnyDVye4JA&list=PLQ176FUIyIUY6SKGl3Cj9yeYibBuRr3Hl&index=39&t=0s) : recording of the talk at KotlinConf-19. 
 
 <a id="datalore"></a>
 ## Lets-Plot-Kotlin in Datalore notebooks
@@ -175,12 +169,10 @@ creating plots in JVM or Kotlin/JS environment.
 In the [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository you will find examples of
 using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
-<a id="api"></a>
-
-## Lets-Plot Kotlin API
+<a id="further_reading"></a>
+## Further Reading
 
 <a id="guide"></a>
-
 #### User guide and API reference
 
 - The User Guide in the form of Jupyter
@@ -190,22 +182,26 @@ using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
   API [reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/index.html)
   .
 
+<a id="tooltip-customization"></a>
+#### Tooltip customization
+
+You can customize the content, values formatting and appearance of tooltip for any geometry layer in your plot.
+
+Learn more: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
+
+<a id="formatting"></a>
+#### Formatting
+
+Formatting of numeric and date-time values in tooltips, legends, on the axes and *text geometry* layer.
+
+Learn more: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md).
+
 <a id="sampling"></a>
 #### Data sampling 
 
 Sampling is a special technique of data transformation, which helps to deal with large datasets and overplotting.
 
 Learn more: [Data Sampling](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md). 
-
-<a id="ggbunch"></a>
-#### GGBunch
-
-GGBunch allows to show a collection of plots on one figure. Each plot in the collection can have arbitrary location and size. There is no automatic layout inside the bunch.
-
-Examples:
-
-* [ggbunch.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ggbunch.ipynb) 
-* [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb) 
 
 
 <a id="export"></a>
@@ -237,13 +233,6 @@ ggsave(p, "density.png")
 
 See `ggsave()` [documentation](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/plot-api/jetbrains.letsPlot.export/ggsave.html)
 for more information about the function arguments and default values.
-
-<a id="tooltip-customization"></a>
-#### Tooltip customization
-
-You can customize the content of tooltips for the layer by using the parameter `tooltips` of `geom` functions.
-
-Learn more: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md). 
 
 <a id="geotools"></a>
 #### GeoTools support

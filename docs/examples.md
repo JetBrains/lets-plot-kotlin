@@ -7,9 +7,8 @@ Try the following tutorials and examples to learn and evaluate various features 
 - [Position Adjustment](#pos)
 - [Scales](#scales)
 - [Facets](#facets)
-- [GGBunch](#ggbunch)
+- [Grouping Plots](#ggbunch)
 - [Ordering categories, `asDiscrete()` function](#as_discrete)
-- [gggrid()](#gggrig)
 - [Export to File](#export)
 - [Formatting](#formatting)
 - [Theme](#theme)
@@ -79,20 +78,22 @@ Try the following tutorials and examples to learn and evaluate various features 
   [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
 
 <a id="ggbunch"></a>
-#### GGBunch
+#### Grouping Plots
 
-GGBunch allows to show a collection of plots on one figure. Each plot in the collection can have arbitrary location and
+_GGBunch_
+
+*GGBunch* allows to show a collection of plots on one figure. Each plot in the collection can have arbitrary location and
 size. There is no automatic layout inside the bunch.
 
 * [ggbunch.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ggbunch.ipynb)
 * [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
-<a id="gggrid"></a>
-#### gggrid()
+_gggrid()_
 
 A simple utility which you can use to arrange plots in a regular grid.
 
 * [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+                         
 
 <a id="as_discrete"></a>
 
