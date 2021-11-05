@@ -7,6 +7,8 @@ Formatting provides the ability to do complex variable substitutions and value f
 - [String template](#string-template)
 - [Date and time format](#datetime)
   - [Examples](#examples-datetime)
+- [Tooltip Customization](#tooltips)
+- [Demo Notebooks](#demo-notebooks)
 
 ------
 <a id="number-format"></a>
@@ -197,3 +199,16 @@ Let's apply the format string to the date `Aug 6, 2019` and the time `4:46:35`:
 %a, %e %b %Y %H:%M:%S  -->  "Tue, 6 Aug 2019 04:46:35"
 %B %e %Y %H:%M %p      -->  "August 6 2019 04:46 AM"
 ```
+
+<a id="tooltips"></a>
+                           
+## Tooltip Customization
+
+You can format text in tooltips, see: [Tooltip Customization](https://github.com/JetBrains/lets-plot/blob/master/docs/tooltips.md).
+
+<a id="demo-notebooks"></a>
+
+## Demo Notebooks
+
+* [Formatting labels on plots](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+* [The `label_format` parameter in `geom_text()`](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)

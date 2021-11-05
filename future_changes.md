@@ -10,7 +10,7 @@
     - using date-time format pattern in tooltip format();
     - date/time scales apply date-time formatting to the `breaks`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/datetime_formatting.ipynb).
+  See `Out[7, 8, 10]` in [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb).
 
 - Pre-configured themes:
   - Standard ggplot2 themes: `themeGrey(), themeLight(), themeClassic(), themeMinimal()`;

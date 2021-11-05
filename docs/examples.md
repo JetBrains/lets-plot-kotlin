@@ -120,8 +120,7 @@ The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or 
 
 #### Theme
 
-Legend layout and axis presentation options :
-
+* [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
 * [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
 
 <a id="sampling"></a>
