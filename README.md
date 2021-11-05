@@ -44,7 +44,7 @@
   - [Saving plot to file](#export)
   - [GeoTools support](#geotools)
 
-- [What is new in 3.0.2](#new)
+- [What is new in 3.1.0](#new)
 - [Change log](#change_log)
 - [License](#license)    
 
@@ -235,6 +235,7 @@ See `ggsave()` [documentation](https://htmlpreview.github.io/?https://raw.github
 for more information about the function arguments and default values.
 
 <a id="geotools"></a>
+
 #### GeoTools support
 
 [GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
@@ -246,18 +247,47 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 
 <a id="new"></a>
 
-## What is new in 3.0.2
+## What is new in 3.1.0
 
-- Ordering categories:
+- Added support for `coordFlip()`.
 
-  New parameters added to the `asDiscrete()` function:
-  - `orderBy` - name of the variable by which the ordering will be performed;
-  - `order` - ordering direction: 1 for ascending direction and -1 for descending (default).
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb)
+  .
 
-  See: [as_discrete.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/as_discrete.md).
+- Improved plot appearance and better `theme` support:
+
+  - Bigger fonts across the board;
+  - Gridlines;
+  - 4 themes from ggplot2 (R) library: `themeGrey(), themeLight(), themeClassic(), themeMinimal()`;
+  - Our designer theme: `themeMinimal2()` (used by default);
+  - `themeNone()` for the case you want to design another theme;
+  - A lot more parameters in the `theme()` function, also helpers: `elementLine()`, `elementRect()`, `elementText()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+  .
+
+> Note: fonts size, family and face still can not be configured.
+
+- Improved Date-time formatting support:
+
+  - tooltip format() should understand date-time format
+    pattern [[#387](https://github.com/JetBrains/lets-plot/issues/387)];
+  - scaleXDatetime should apply date-time formatting to the
+    breaks [[#392](https://github.com/JetBrains/lets-plot/issues/392)].
+
+  See `Out[7, 8, 10]` in
+  the [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+  .
+
+- `CorrPlot()` function now also accepts pre-computed correlation coefficients.
+
+- Kotlin/JS IR: `xxx.klib` artifacts are now available.
+
+  See: [sample Kotlin/JS IR app](https://github.com/alshan/lets-plot-mini-apps/tree/main/js-ir-frontend-app)
+
 
 - Other improvements and fixes -
-  see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)
+  see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#310---2021-11-05)
   for details.
 
 <a id="change_log"></a>

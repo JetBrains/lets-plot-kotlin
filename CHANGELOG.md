@@ -10,15 +10,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should
 
 ### Added
 
-- `coord_flip()`.
+- `coordFlip()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb).
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb)
+  .
 
 - Date-time formatting support:
   - using date-time format pattern in tooltip format();
   - date/time scales apply date-time formatting to the `breaks`.
 
-  See `Out[7, 8, 10]` in [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb).
+  See `Out[7, 8, 10]` in
+  the [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+  .
 
 - Pre-configured themes:
   - Standard ggplot2 themes: `themeGrey(), themeLight(), themeClassic(), themeMinimal()`;
@@ -30,9 +33,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should
 
 > Note: fonts size, family and face still can not be configured.
 
-- `corr_plot()` function now also accepts pre-computed correlation coefficients.
+- `CorrPlot()` function now also accepts pre-computed correlation coefficients.
 
-- Kotlin/JS IR: `xxx.klib` artifacts are available.
+- Kotlin/JS IR: `xxx.klib` artifacts are now available.
 
   See: [sample Kotlin/JS IR app](https://github.com/alshan/lets-plot-mini-apps/tree/main/js-ir-frontend-app)
 
