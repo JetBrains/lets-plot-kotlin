@@ -21,6 +21,7 @@ $dokka.location:jetbrains.letsPlot.bistro.corr/CorrPlot/tiles/#kotlin.String?#ko
 $dokka.location:jetbrains.letsPlot.export////PointingToDeclaration/plot-api/jetbrains.letsPlot.export/index.html
 $dokka.location:jetbrains.letsPlot.export//ggsave/#jetbrains.letsPlot.Figure#kotlin.String#kotlin.Number#kotlin.Number?#kotlin.String?/PointingToDeclaration/plot-api/jetbrains.letsPlot.export/ggsave.html
 $dokka.location:jetbrains.letsPlot.export/VersionChecker///PointingToDeclaration/plot-api/jetbrains.letsPlot.export/-version-checker/index.html
+$dokka.location:jetbrains.letsPlot.export/VersionChecker/letsPlotJsVersion/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.export/-version-checker/lets-plot-js-version.html
 $dokka.location:jetbrains.letsPlot.export/VersionChecker/letsPlotKotlinAPIVersion/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.export/-version-checker/lets-plot-kotlin-a-p-i-version.html
 $dokka.location:jetbrains.letsPlot.export/VersionChecker/letsPlotVersion/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.export/-version-checker/lets-plot-version.html
 $dokka.location:jetbrains.letsPlot.facet////PointingToDeclaration/plot-api/jetbrains.letsPlot.facet/index.html
@@ -1210,6 +1211,10 @@ $dokka.location:jetbrains.letsPlot.intern.layer/WithSizeUnitOption/sizeUnit/#/Po
 $dokka.location:jetbrains.letsPlot.intern.layer/WithSpatialParameters///PointingToDeclaration/plot-api/jetbrains.letsPlot.intern.layer/-with-spatial-parameters/index.html
 $dokka.location:jetbrains.letsPlot.intern.layer/WithSpatialParameters/map/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern.layer/-with-spatial-parameters/map.html
 $dokka.location:jetbrains.letsPlot.intern.layer/WithSpatialParameters/mapJoin/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern.layer/-with-spatial-parameters/map-join.html
+$dokka.location:jetbrains.letsPlot.intern.standardizing////PointingToDeclaration/plot-api/jetbrains.letsPlot.intern.standardizing/index.html
+$dokka.location:jetbrains.letsPlot.intern.standardizing/JvmStandardizing///PointingToDeclaration/plot-api/jetbrains.letsPlot.intern.standardizing/-jvm-standardizing/index.html
+$dokka.location:jetbrains.letsPlot.intern.standardizing/JvmStandardizing/isJvm/#kotlin.Any/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern.standardizing/-jvm-standardizing/is-jvm.html
+$dokka.location:jetbrains.letsPlot.intern.standardizing/JvmStandardizing/standardize/#kotlin.Any/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern.standardizing/-jvm-standardizing/standardize.html
 $dokka.location:jetbrains.letsPlot.intern////PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/index.html
 $dokka.location:jetbrains.letsPlot.intern//checkGreyScaleStartEnd/#kotlin.Number?#kotlin.Number?/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/check-grey-scale-start-end.html
 $dokka.location:jetbrains.letsPlot.intern//checkScaleExpand/#kotlin.collections.List[kotlin.Any]?/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/check-scale-expand.html
@@ -1349,9 +1354,6 @@ $dokka.location:jetbrains.letsPlot.intern/GeomKind.V_LINE/optionName/#/PointingT
 $dokka.location:jetbrains.letsPlot.intern/GeomKind.V_LINE/ordinal/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-geom-kind/-v_-l-i-n-e/ordinal.html
 $dokka.location:jetbrains.letsPlot.intern/GeomKind///PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-geom-kind/index.html
 $dokka.location:jetbrains.letsPlot.intern/GeomKind/optionName/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-geom-kind/option-name.html
-$dokka.location:jetbrains.letsPlot.intern/JvmStandardizing///PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-jvm-standardizing/index.html
-$dokka.location:jetbrains.letsPlot.intern/JvmStandardizing/isJvm/#kotlin.Any/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-jvm-standardizing/is-jvm.html
-$dokka.location:jetbrains.letsPlot.intern/JvmStandardizing/standardize/#kotlin.Any/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-jvm-standardizing/standardize.html
 $dokka.location:jetbrains.letsPlot.intern/Layer///PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-layer/index.html
 $dokka.location:jetbrains.letsPlot.intern/Layer/Layer/#jetbrains.letsPlot.intern.Options#kotlin.collections.Map[*,*]?#jetbrains.letsPlot.intern.layer.GeomOptions#jetbrains.letsPlot.intern.layer.StatOptions#jetbrains.letsPlot.intern.layer.PosOptions#kotlin.Boolean#jetbrains.letsPlot.intern.layer.SamplingOptions?#jetbrains.letsPlot.tooltips.TooltipOptions?/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-layer/-layer.html
 $dokka.location:jetbrains.letsPlot.intern/Layer/data/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-layer/data.html
@@ -1465,10 +1467,6 @@ $dokka.location:jetbrains.letsPlot.intern/Scale/naValue/#/PointingToDeclaration/
 $dokka.location:jetbrains.letsPlot.intern/Scale/name/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-scale/name.html
 $dokka.location:jetbrains.letsPlot.intern/Scale/otherOptions/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-scale/other-options.html
 $dokka.location:jetbrains.letsPlot.intern/Scale/trans/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-scale/trans.html
-$dokka.location:jetbrains.letsPlot.intern/SeriesStandardizing///PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-series-standardizing/index.html
-$dokka.location:jetbrains.letsPlot.intern/SeriesStandardizing/isListy/#kotlin.Any?/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-series-standardizing/is-listy.html
-$dokka.location:jetbrains.letsPlot.intern/SeriesStandardizing/toList/#kotlin.String#kotlin.Any/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-series-standardizing/to-list.html
-$dokka.location:jetbrains.letsPlot.intern/SeriesStandardizing/toListOrPass/#kotlin.Any/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-series-standardizing/to-list-or-pass.html
 $dokka.location:jetbrains.letsPlot.intern/StatKind.BIN///PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-stat-kind/-b-i-n/index.html
 $dokka.location:jetbrains.letsPlot.intern/StatKind.BIN/name/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-stat-kind/-b-i-n/name.html
 $dokka.location:jetbrains.letsPlot.intern/StatKind.BIN/ordinal/#/PointingToDeclaration/plot-api/jetbrains.letsPlot.intern/-stat-kind/-b-i-n/ordinal.html
@@ -1772,9 +1770,14 @@ $dokka.location:jetbrains.letsPlot.tooltips/TooltipOptions/options/#/PointingToD
 $dokka.location:jetbrains.letsPlot////PointingToDeclaration/plot-api/jetbrains.letsPlot/index.html
 $dokka.location:jetbrains.letsPlot//ENV_HTML_ISOLATED_FRAME/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/-e-n-v_-h-t-m-l_-i-s-o-l-a-t-e-d_-f-r-a-m-e.html
 $dokka.location:jetbrains.letsPlot//asDiscrete/#kotlin.String#kotlin.String?#kotlin.String?#kotlin.Int?/PointingToDeclaration/plot-api/jetbrains.letsPlot/as-discrete.html
-$dokka.location:jetbrains.letsPlot//coordCartesian/#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Pair[kotlin.Number?,kotlin.Number?]?/PointingToDeclaration/plot-api/jetbrains.letsPlot/coord-cartesian.html
-$dokka.location:jetbrains.letsPlot//coordFixed/#kotlin.Double?#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Pair[kotlin.Number?,kotlin.Number?]?/PointingToDeclaration/plot-api/jetbrains.letsPlot/coord-fixed.html
-$dokka.location:jetbrains.letsPlot//coordMap/#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Pair[kotlin.Number?,kotlin.Number?]?/PointingToDeclaration/plot-api/jetbrains.letsPlot/coord-map.html
+$dokka.location:jetbrains.letsPlot//coordCartesian/#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Boolean/PointingToDeclaration/plot-api/jetbrains.letsPlot/coord-cartesian.html
+$dokka.location:jetbrains.letsPlot//coordFixed/#kotlin.Double?#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Boolean/PointingToDeclaration/plot-api/jetbrains.letsPlot/coord-fixed.html
+$dokka.location:jetbrains.letsPlot//coordFlip/#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Pair[kotlin.Number?,kotlin.Number?]?/PointingToDeclaration/plot-api/jetbrains.letsPlot/coord-flip.html
+$dokka.location:jetbrains.letsPlot//coordMap/#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Pair[kotlin.Number?,kotlin.Number?]?#kotlin.Boolean/PointingToDeclaration/plot-api/jetbrains.letsPlot/coord-map.html
+$dokka.location:jetbrains.letsPlot//elementBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/element-blank.html
+$dokka.location:jetbrains.letsPlot//elementLine/#kotlin.Any?#kotlin.Number?#kotlin.Boolean/PointingToDeclaration/plot-api/jetbrains.letsPlot/element-line.html
+$dokka.location:jetbrains.letsPlot//elementRect/#kotlin.Any?#kotlin.Any?#kotlin.Number?#kotlin.Boolean/PointingToDeclaration/plot-api/jetbrains.letsPlot/element-rect.html
+$dokka.location:jetbrains.letsPlot//elementText/#kotlin.Any?#kotlin.Boolean/PointingToDeclaration/plot-api/jetbrains.letsPlot/element-text.html
 $dokka.location:jetbrains.letsPlot//gggrid/#kotlin.collections.Iterable[jetbrains.letsPlot.intern.Plot]#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Boolean/PointingToDeclaration/plot-api/jetbrains.letsPlot/gggrid.html
 $dokka.location:jetbrains.letsPlot//ggplot/#kotlin.collections.Map[*,*]?#kotlin.Function1[jetbrains.letsPlot.intern.GenericAesMapping,kotlin.Unit]/PointingToDeclaration/plot-api/jetbrains.letsPlot/ggplot.html
 $dokka.location:jetbrains.letsPlot//ggsize/#kotlin.Int#kotlin.Int/PointingToDeclaration/plot-api/jetbrains.letsPlot/ggsize.html
@@ -1783,6 +1786,12 @@ $dokka.location:jetbrains.letsPlot//positionDodge/#kotlin.Number?/PointingToDecl
 $dokka.location:jetbrains.letsPlot//positionJitter/#kotlin.Number?#kotlin.Number?/PointingToDeclaration/plot-api/jetbrains.letsPlot/position-jitter.html
 $dokka.location:jetbrains.letsPlot//positionJitterDodge/#kotlin.Number?#kotlin.Number?#kotlin.Number?/PointingToDeclaration/plot-api/jetbrains.letsPlot/position-jitter-dodge.html
 $dokka.location:jetbrains.letsPlot//positionNudge/#kotlin.Number?#kotlin.Number?/PointingToDeclaration/plot-api/jetbrains.letsPlot/position-nudge.html
+$dokka.location:jetbrains.letsPlot//themeClassic/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme-classic.html
+$dokka.location:jetbrains.letsPlot//themeGrey/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme-grey.html
+$dokka.location:jetbrains.letsPlot//themeLight/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme-light.html
+$dokka.location:jetbrains.letsPlot//themeMinimal/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme-minimal.html
+$dokka.location:jetbrains.letsPlot//themeMinimal2/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme-minimal2.html
+$dokka.location:jetbrains.letsPlot//themeNone/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme-none.html
 $dokka.location:jetbrains.letsPlot/Figure///PointingToDeclaration/plot-api/jetbrains.letsPlot/-figure/index.html
 $dokka.location:jetbrains.letsPlot/Figure/show/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/-figure/show.html
 $dokka.location:jetbrains.letsPlot/FrontendContext///PointingToDeclaration/plot-api/jetbrains.letsPlot/-frontend-context/index.html
@@ -2152,18 +2161,6 @@ $dokka.location:jetbrains.letsPlot/Stat///PointingToDeclaration/plot-api/jetbra
 $dokka.location:jetbrains.letsPlot/Stat/identity/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/-stat/identity.html
 $dokka.location:jetbrains.letsPlot/theme.Companion///PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/-companion/index.html
 $dokka.location:jetbrains.letsPlot/theme///PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/index.html
-$dokka.location:jetbrains.letsPlot/theme/axisLineBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-line-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisLineXBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-line-x-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisLineYBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-line-y-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisTextBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-text-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisTextXBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-text-x-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisTextYBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-text-y-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisTicksBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-ticks-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisTicksXBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-ticks-x-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisTicksYBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-ticks-y-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisTitleBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-title-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisTitleXBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-title-x-blank.html
-$dokka.location:jetbrains.letsPlot/theme/axisTitleYBlank/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/axis-title-y-blank.html
 $dokka.location:jetbrains.letsPlot/theme/legendDirectionHorizontal/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/legend-direction-horizontal.html
 $dokka.location:jetbrains.letsPlot/theme/legendDirectionVertical/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/legend-direction-vertical.html
 $dokka.location:jetbrains.letsPlot/theme/legendJustification/#kotlin.Number#kotlin.Number/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/legend-justification.html
@@ -2174,7 +2171,7 @@ $dokka.location:jetbrains.letsPlot/theme/legendPositionLeft/#/PointingToDeclarat
 $dokka.location:jetbrains.letsPlot/theme/legendPositionNone/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/legend-position-none.html
 $dokka.location:jetbrains.letsPlot/theme/legendPositionRight/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/legend-position-right.html
 $dokka.location:jetbrains.letsPlot/theme/legendPositionTop/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/legend-position-top.html
-$dokka.location:jetbrains.letsPlot/theme/theme/#/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/theme.html
+$dokka.location:jetbrains.letsPlot/theme/theme/#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Number?#kotlin.Number?#kotlin.Number?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?#kotlin.Any?/PointingToDeclaration/plot-api/jetbrains.letsPlot/theme/theme.html
 jetbrains.letsPlot
 jetbrains.letsPlot.bistro.corr
 jetbrains.letsPlot.export
@@ -2185,6 +2182,7 @@ jetbrains.letsPlot.intern
 jetbrains.letsPlot.intern.layer
 jetbrains.letsPlot.intern.layer.geom
 jetbrains.letsPlot.intern.layer.stat
+jetbrains.letsPlot.intern.standardizing
 jetbrains.letsPlot.label
 jetbrains.letsPlot.sampling
 jetbrains.letsPlot.scale
