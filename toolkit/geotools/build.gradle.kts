@@ -46,73 +46,74 @@ val jarJavaDocs by tasks.creating(Jar::class) {
     from("$rootDir/README.md")
 }
 
-publishing {
-    publications {
-        // Build artifact with no dependencies in POM.
-        create<MavenPublication>("letsPlotKotlinGeoTools") {
-            groupId = artifactGroupId
-            artifactId = artifactBaseName
-            version = artifactVersion
+afterEvaluate {
+    publishing {
+        publications {
+            // Build artifact with no dependencies in POM.
+            create<MavenPublication>("letsPlotKotlinGeoTools") {
+                groupId = artifactGroupId
+                artifactId = artifactBaseName
+                version = artifactVersion
 
-            // This leads to 'maven-publish' failure: "Publishing is not able to resolve a dependency
-            // on a project with multiple publications that have different coordinates."
+                // This leads to 'maven-publish' failure: "Publishing is not able to resolve a dependency
+                // on a project with multiple publications that have different coordinates."
 //            from(components["java"])
 
-            artifact(jarClasses)
-            artifact(jarSources)
-            artifact(jarJavaDocs)
+                artifact(jarClasses)
+                artifact(jarSources)
+                artifact(jarJavaDocs)
 
-            pom {
-                name.set("Lets-Plot Kotlin GeoTools Bridge")
-                description.set(
-                    "Lets-Plot Kotlin GeoTools Bridge." +
-                            "\nRequires GeoTools artifacts:" +
-                            "\n - org.geotools:gt-main:$geotools_version" +
-                            "\n - org.geotools:gt-geojson:$geotools_version"
-                )
-                url.set("https://github.com/JetBrains/lets-plot-kotlin")
-                licenses {
-                    license {
-                        name.set("MIT")
-                        url.set("https://opensource.org/licenses/MIT")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("jetbrains")
-                        name.set("JetBrains")
-                        email.set("lets-plot@jetbrains.com")
-                    }
-                }
-                scm {
+                pom {
+                    name.set("Lets-Plot Kotlin GeoTools Bridge")
+                    description.set(
+                        "Lets-Plot Kotlin GeoTools Bridge." +
+                                "\nRequires GeoTools artifacts:" +
+                                "\n - org.geotools:gt-main:$geotools_version" +
+                                "\n - org.geotools:gt-geojson:$geotools_version"
+                    )
                     url.set("https://github.com/JetBrains/lets-plot-kotlin")
+                    licenses {
+                        license {
+                            name.set("MIT")
+                            url.set("https://opensource.org/licenses/MIT")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id.set("jetbrains")
+                            name.set("JetBrains")
+                            email.set("lets-plot@jetbrains.com")
+                        }
+                    }
+                    scm {
+                        url.set("https://github.com/JetBrains/lets-plot-kotlin")
+                    }
                 }
             }
         }
-    }
 
-    repositories {
-        maven {
-            val sonatypeUrl: String by extra
-            url = uri(sonatypeUrl)
+        repositories {
+            maven {
+                val sonatypeUrl: String by extra
+                url = uri(sonatypeUrl)
 
-            val buildSettings: Map<String, Any?> by project
+                val buildSettings: Map<String, Any?> by project
 
-            @Suppress("UNCHECKED_CAST")
-            val sonatype = (buildSettings["sonatype"] as? Map<String, String?>) ?: emptyMap()
-            credentials {
-                username = sonatype["username"]
-                password = sonatype["password"]
+                @Suppress("UNCHECKED_CAST")
+                val sonatype = (buildSettings["sonatype"] as? Map<String, String?>) ?: emptyMap()
+                credentials {
+                    username = sonatype["username"]
+                    password = sonatype["password"]
+                }
             }
-        }
 
-        mavenLocal {
-            val localMavenRepository: String by project
-            url = uri(localMavenRepository)
+            mavenLocal {
+                val localMavenRepository: String by project
+                url = uri(localMavenRepository)
+            }
         }
     }
 }
-
 signing {
     sign(publishing.publications)
 }

@@ -20,8 +20,9 @@ import jetbrains.datalore.plot.config.Option.Scale.LIMITS
 import jetbrains.datalore.plot.config.Option.Scale.NAME
 import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
 import jetbrains.letsPlot.MappingMeta
-import jetbrains.letsPlot.intern.SeriesStandardizing.toList
 import jetbrains.letsPlot.intern.layer.WithSpatialParameters
+import jetbrains.letsPlot.intern.standardizing.MapStandardizing
+import jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.toList
 import jetbrains.letsPlot.spatial.GeometryFormat
 import jetbrains.letsPlot.spatial.SpatialDataset
 
@@ -52,13 +53,19 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     // Width of plot in percents of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
 
-// TODO:
-//    const val COORD = "coord"
-
     for (plotFeature in plot.otherFeatures()) {
         if (plotFeature.kind == Option.Plot.THEME && spec.containsKey(Option.Plot.THEME)) {
-            // merge themes
-            spec[Option.Plot.THEME] = spec[Option.Plot.THEME] as Map<*, *> + plotFeature.toSpec()
+            val otherThemeOpts = plotFeature.toSpec()
+            val newThemeOptions = otherThemeOpts[Option.Meta.NAME]?.let {
+                // 'named' theme overrides all prev theme options.
+                otherThemeOpts
+            } ?: let {
+                // Merge themes.
+                @Suppress("UNCHECKED_CAST")
+                mergeThemeOptions(spec.getValue(Option.Plot.THEME) as Map<String, Any>, otherThemeOpts)
+            }
+
+            spec[Option.Plot.THEME] = newThemeOptions
         } else {
             spec[plotFeature.kind] = plotFeature.toSpec()
         }
@@ -172,9 +179,9 @@ fun Scale.toSpec(): MutableMap<String, Any> {
 
     spec[AES] = aesthetic.name
     name?.let { spec[NAME] = name }
-    breaks?.let { spec[BREAKS] = toList(BREAKS, breaks) }
+    breaks?.let { spec[BREAKS] = toList(breaks, BREAKS) }
     labels?.let { spec[LABELS] = labels }
-    limits?.let { spec[LIMITS] = toList(LIMITS, limits) }
+    limits?.let { spec[LIMITS] = toList(limits, LIMITS) }
     expand?.let { spec[EXPAND] = expand }
     naValue?.let { spec[NA_VALUE] = naValue }
     guide?.let { spec[GUIDE] = guide }
@@ -186,31 +193,28 @@ fun Scale.toSpec(): MutableMap<String, Any> {
 }
 
 fun OptionsMap.toSpec(includeKind: Boolean = false): MutableMap<String, Any> {
-    return if (includeKind) {
-        HashMap(mapOf(KIND to kind) + options)
-    } else {
-        HashMap(options)
-    }
+    return HashMap(
+        MapStandardizing.standardize(
+            if (includeKind) {
+                mapOf(KIND to kind) + options
+            } else {
+                options
+            }
+        )
+    )
 }
 
 internal fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
     val standardisedData = HashMap<String, List<Any?>>()
     for ((rawKey, rawValue) in rawData) {
         val key = rawKey.toString()
-        standardisedData[key] = toList(key, rawValue!!)
+        standardisedData[key] = toList(rawValue!!, key)
     }
     return standardisedData
 }
 
 private fun asMappingData(rawMapping: Map<String, Any>): Map<String, Any> {
     val mapping = rawMapping.toMutableMap()
-//    mapping.replaceAll { _, value ->
-//        when (value) {
-//            is MappingMeta -> value.variable
-//            else -> value
-//        }
-//    }
-//    return mapping
     return mapping.mapValues { (_, value) ->
         when (value) {
             is MappingMeta -> value.variable
@@ -251,4 +255,15 @@ private fun createMappingAnnotations(mappings: Map<String, Any>): List<Map<Strin
     return mappings
         .filter { it.value is MappingMeta }
         .map { (it.value as MappingMeta).getAnnotatedData(it.key) }
+}
+
+private fun mergeThemeOptions(m0: Map<String, Any>, m1: Map<String, Any>): Map<String, Any> {
+    val overlappingKeys = m0.keys.intersect(m1.keys)
+    val keysToMerge = overlappingKeys.filter {
+        m0[it] is Map<*, *> && m1[it] is Map<*, *>
+    }
+    val m2 = keysToMerge.map {
+        it to (m0[it] as Map<*, *> + m1[it] as Map<*, *>)
+    }.toMap()
+    return m0 + m1 + m2
 }

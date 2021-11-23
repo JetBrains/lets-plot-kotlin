@@ -7,7 +7,9 @@ package jetbrains.letsPlot.bistro.corr
 
 import jetbrains.letsPlot.*
 import jetbrains.letsPlot.bistro.corr.CorrUtil.correlations
+import jetbrains.letsPlot.bistro.corr.CorrUtil.correlationsFromCoefficients
 import jetbrains.letsPlot.bistro.corr.CorrUtil.correlationsToDataframe
+import jetbrains.letsPlot.bistro.corr.CorrUtil.isCoefficientsMatrix
 import jetbrains.letsPlot.bistro.corr.CorrUtil.matrixXYSeries
 import jetbrains.letsPlot.bistro.corr.Method.correlationPearson
 import jetbrains.letsPlot.bistro.corr.OptionsConfigurator.getKeepMatrixDiag
@@ -234,7 +236,11 @@ class CorrPlot private constructor(
         // Compute correlations
         @Suppress("NAME_SHADOWING")
         val data = asPlotData(data)
-        val correlations = correlations(data, ::correlationPearson)
+        val correlations = when (isCoefficientsMatrix(data)) {
+            true -> correlationsFromCoefficients(data)
+            false -> correlations(data, Method::correlationPearson)
+        }
+
         // variables in the 'original' order
         val varsInMatrix = correlations.keys.map { it.first }.toSet()
         val varsInOrder = originalVariables.filter { varsInMatrix.contains(it) }
@@ -343,7 +349,7 @@ class CorrPlot private constructor(
     companion object {
         private const val VALUE_FORMAT = ".2f"
 
-        private const val LEGEND_NAME = "Corr"
+        private const val LEGEND_NAME = ""
         private val SCALE_BREAKS = listOf(-1.0, -0.5, 0.0, 0.5, 1.0)
         private val SCALE_LABELS = listOf("-1", "-0.5", "0", "0.5", "1")
         private val SCALE_LIMITS = -1.0 to 1.0
@@ -419,9 +425,13 @@ class CorrPlot private constructor(
         ): Plot {
             @Suppress("NAME_SHADOWING")
             var plot = plot
-            plot += theme()
-                .axisTitleBlank()
-                .axisLineBlank()
+            plot += theme(
+                axisTitle = elementBlank(),
+                axisLine = elementBlank(),
+                axisTicksX = elementLine(blank = false),
+                axisTicksY = elementLine(blank = false),
+                panelGrid = elementBlank(),
+            )
 
             plot += scaleSizeIdentity(naValue = 0, guide = "none")
 

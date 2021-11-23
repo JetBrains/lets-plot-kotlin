@@ -37,7 +37,7 @@ For this case there is always a 'safety' sampling (**random** N=200_000) ready t
 ### Examples
 
 Pick sampling on Bar-chart: 
-[sampling_pick.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/sampling_pick.ipynb)
+[sampling_pick.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_pick.ipynb)
 
 Stratified sampling: 
-[sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
+[sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)

@@ -4,14 +4,15 @@
 
 ##### 1. Update CHANGELOG.md file
 
-##### 2. Set release version in 'build.gradle'
+##### 2. Set release version in 'build.gradle.kts'
 
 - remove _"-alphaN"_ qualifier for the 'version' property.
 
 ##### 3. Build and release JVM artifacts to Maven Central
 
 a) Upload to the Nexus staging repository:
-
+        
+- `./gradlew :clean`
 - `./gradlew :plot-api:publishAllPublicationsToMavenRepository`
 - `./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenRepository`
 
@@ -65,8 +66,8 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 
 ##### 5. Re-generate the API Reference (HTML)
 
-- `./gradlew dokka`
-- push the new version to GitHub with the "Reformat code" and "Update copyright" flags **ON** during the commit.
+- `./gradlew dokkaHtml`
+- **(!)** Set *Reformat code* and *Update copyright* flags during committing changes.
 
 See also: [api_reference.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/api_reference.md) 
 
@@ -111,3 +112,4 @@ In [docs/README.md](docs/README.md) update the Binder link with new "demo" tag (
  * Open the link: https://github.com/JetBrains/lets-plot-kotlin/releases/new
  * Fill `Tag version` and `Release title` with the released version: "vX.X.X"
  * Fill the description field - copy from the CHANGELOG.md
+ 

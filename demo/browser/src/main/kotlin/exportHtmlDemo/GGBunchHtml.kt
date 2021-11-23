@@ -35,7 +35,7 @@ object GGBunchHtml {
         val html = PlotHtmlExport.buildHtmlFromRawSpecs(
             spec,
             iFrame = true,
-            scriptUrl = PlotHtmlHelper.scriptUrl(VersionChecker.letsPlotVersion)
+            scriptUrl = PlotHtmlHelper.scriptUrl(VersionChecker.letsPlotJsVersion)
         )
         BrowserDemoUtil.openInBrowser(html)
     }

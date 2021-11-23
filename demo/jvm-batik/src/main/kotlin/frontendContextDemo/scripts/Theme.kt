@@ -9,6 +9,7 @@ import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.geom.geomTile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.theme
+import jetbrains.letsPlot.themeGrey
 
 object Theme {
     @JvmStatic
@@ -21,22 +22,12 @@ object Theme {
                     geomTile(width = 1.0, height = 10.0) { x = "x"; color = "x"; fill = "x" }
 
 
-            (p + theme()
-                .legendPositionNone()
-                .axisTextYBlank()
-                .axisTicksYBlank()
-                .axisTitleYBlank())
+            (p + theme().legendPositionNone())
                 .show()
 
             // compose themes --> the same
-            (p + theme()
-                .legendPositionNone() +
-                    theme()
-                        .axisTextYBlank()
-                        .axisTicksYBlank()
-                        .axisTitleYBlank())
+            (p + themeGrey() + theme().legendPositionNone())
                 .show()
-
         }
     }
 }

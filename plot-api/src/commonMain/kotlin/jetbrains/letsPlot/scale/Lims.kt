@@ -8,7 +8,7 @@ package jetbrains.letsPlot.scale
 import jetbrains.datalore.plot.base.Aes
 import jetbrains.letsPlot.intern.Feature
 import jetbrains.letsPlot.intern.Scale
-import jetbrains.letsPlot.intern.SeriesStandardizing
+import jetbrains.letsPlot.intern.standardizing.SeriesStandardizing
 
 /**
  * Specifies data range for x and y axis.
@@ -41,7 +41,7 @@ fun lims(x: Any, y: Any): Feature {
  */
 @Suppress("SpellCheckingInspection")
 fun xlim(limits: Any): Feature {
-    return Scale(aesthetic = Aes.X, limits = SeriesStandardizing.toList("limits", limits))
+    return Scale(aesthetic = Aes.X, limits = SeriesStandardizing.toList(limits, "limits"))
 }
 
 /**
@@ -56,5 +56,5 @@ fun xlim(limits: Any): Feature {
  */
 @Suppress("SpellCheckingInspection")
 fun ylim(limits: Any): Feature {
-    return Scale(aesthetic = Aes.Y, limits = SeriesStandardizing.toList("limits", limits))
+    return Scale(aesthetic = Aes.Y, limits = SeriesStandardizing.toList(limits, "limits"))
 }

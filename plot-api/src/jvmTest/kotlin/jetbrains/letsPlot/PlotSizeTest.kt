@@ -24,7 +24,7 @@ class PlotSizeTest {
                 "mapping" to emptyMap<Any, Any>(),
                 "layers" to emptyList<Any>(),
                 "scales" to emptyList<Any>(),
-                "ggsize" to mapOf("height" to 10, "width" to 5)
+                "ggsize" to mapOf("height" to 10.0, "width" to 5.0)
             ),
             spec
         )

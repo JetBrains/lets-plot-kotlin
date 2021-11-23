@@ -40,14 +40,14 @@ class PositionAdjustmentTest {
 
         LayerAssert.assertThat(l)
             .position(PosKind.DODGE)
-            .parameter("width", 10)
+            .parameter("width", 10.0)
 
 
         val expectedSpec = HashMap(geomPoint().toSpec())
         expectedSpec[Option.Layer.POS] = mapOf(
             Option.Meta.KIND to Option.Meta.Kind.POS,
             "name" to "dodge",
-            "width" to 10
+            "width" to 10.0
         )
         assertEquals(
             expectedSpec,

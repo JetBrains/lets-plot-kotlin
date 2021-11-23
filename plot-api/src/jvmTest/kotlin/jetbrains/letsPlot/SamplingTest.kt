@@ -26,60 +26,60 @@ class SamplingTest(
                 arrayOf(
                     samplingRandom(100, 5000),
                     mapOf(
-                        "n" to 100,
-                        "seed" to 5000,
+                        "n" to 100.0,
+                        "seed" to 5000.0,
                         "name" to "random"
                     )
                 ),
                 arrayOf(
                     samplingGroupRandom(101, 5001),
                     mapOf(
-                        "n" to 101,
-                        "seed" to 5001,
+                        "n" to 101.0,
+                        "seed" to 5001.0,
                         "name" to "group_random"
                     )
                 ),
                 arrayOf(
                     samplingRandomStratified(10, 0, 5),
                     mapOf(
-                        "n" to 10,
+                        "n" to 10.0,
                         "name" to "random_stratified",
-                        "seed" to 0,
-                        "min_subsample" to 5
+                        "seed" to 0.0,
+                        "min_subsample" to 5.0
                     )
                 ),
                 arrayOf(
                     samplingPick(100),
                     mapOf(
-                        "n" to 100,
+                        "n" to 100.0,
                         "name" to "pick"
                     )
                 ),
                 arrayOf(
                     samplingSystematic(42),
                     mapOf(
-                        "n" to 42,
+                        "n" to 42.0,
                         "name" to "systematic"
                     )
                 ),
                 arrayOf(
                     samplingGroupSystematic(43),
                     mapOf(
-                        "n" to 43,
+                        "n" to 43.0,
                         "name" to "group_systematic"
                     )
                 ),
                 arrayOf(
                     samplingVertexVW(44),
                     mapOf(
-                        "n" to 44,
+                        "n" to 44.0,
                         "name" to "vertex_vw"
                     )
                 ),
                 arrayOf(
                     samplingVertexDP(45),
                     mapOf(
-                        "n" to 45,
+                        "n" to 45.0,
                         "name" to "vertex_dp"
                     )
                 )

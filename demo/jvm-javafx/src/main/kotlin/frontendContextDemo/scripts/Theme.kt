@@ -6,6 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
+import jetbrains.letsPlot.elementBlank
 import jetbrains.letsPlot.geom.geomTile
 import jetbrains.letsPlot.ggplot
 import jetbrains.letsPlot.theme
@@ -19,11 +20,11 @@ object Theme {
 
             val p = ggplot(data) +
                     geomTile(width = 1.0, height = 10.0) { x = "x"; color = "x"; fill = "x" } +
-                    theme()
-                        .legendPositionNone()
-                        .axisTextYBlank()
-                        .axisTicksYBlank()
-                        .axisTitleYBlank()
+                    theme(
+                        axisTextY = "blank",
+                        axisTicksY = elementBlank(),
+                        axisTitleY = "blank"
+                    ).legendPositionNone()
 
             p.show()
         }

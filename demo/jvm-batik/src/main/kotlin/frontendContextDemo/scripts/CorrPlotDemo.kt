@@ -96,6 +96,16 @@ object CorrPlotDemo {
                 .paletteSpectral()
                 .build().show()
 
+            CorrPlot(mapOf(
+                "a" to listOf(1.0, 0.32, -0.43, 0.55),
+                "b" to listOf(0.32, 1.0, 0.78, 0.0),
+                "c" to listOf(-0.43, 0.78, 1.0, -0.42),
+                "d" to listOf(0.55, 0.0, -0.42, 1.0)
+            ), "Computed coefficients")
+                .points()
+                .labels()
+                .build().show()
+
 //            val dataShortened = data.mapKeys { it.key.subSequence(0, 4) }
 //            CorrPlot(dataShortened)
 //                .points()

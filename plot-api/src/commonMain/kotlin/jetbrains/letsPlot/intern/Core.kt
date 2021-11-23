@@ -131,6 +131,7 @@ open class OptionsMap internal constructor(
     val kind: String,
     val options: Map<String, Any>
 ) : Feature() {
+
     internal constructor(
         kind: String,
         name: String,

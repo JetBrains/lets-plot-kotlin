@@ -18,6 +18,11 @@ internal class VersionCheckerTest {
     }
 
     @Test
+    fun getLetsPlotJsVersion() {
+        println(VersionChecker.letsPlotJsVersion)
+    }
+
+    @Test
     fun getLetsPlotKotlinAPIVersion() {
         println(VersionChecker.letsPlotKotlinAPIVersion)
     }

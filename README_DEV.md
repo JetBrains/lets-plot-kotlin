@@ -135,6 +135,10 @@ You will also find similar "minimal" apps in this repository.
 - Kotlin/JS:
   [js-frontend-app](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/js-frontend-app)
 
+- Kotlin/JS IR:
+  [js-ir-frontend-app](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/js-ir-frontend-app)
+
+
 ### Frontend context
 
 `Frontend context` is required for method `show()` in `Figure` interface to work properly. Both `Plot` and `GGBunch`
