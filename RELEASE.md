@@ -67,7 +67,7 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 ##### 5. Re-generate the API Reference (HTML)
 
 - `./gradlew dokkaHtml`
-- **(!)** Set *Reformat code* and *Update copyright* flags during committing changes.
+- Move the content of docs/api-reference/ to the docs/kotlin/ directory of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
 
 See also: [api_reference.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/api_reference.md) 
 
