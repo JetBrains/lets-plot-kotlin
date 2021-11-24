@@ -14,6 +14,7 @@ internal object Standardizing {
             is Char -> value.toString()
             is jetbrains.datalore.base.values.Color -> value.toHexColor()
             is Map<*, *> -> MapStandardizing.standardize(value)
+            is Enum<*> -> value.name
 
             else -> {
                 if (JvmStandardizing.isJvm(value)) {
