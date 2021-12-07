@@ -13,7 +13,7 @@ plugins {
 val geotools_version: String by project
 
 dependencies {
-    implementation(kotlin("reflect"))
+//    implementation(kotlin("reflect"))
 
     implementation(projects.plotApi)
 
