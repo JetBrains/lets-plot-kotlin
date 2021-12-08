@@ -73,6 +73,20 @@ allprojects {
     project.extra["sonatypeUrl"] = if (version.contains("SNAPSHOT")) sonatypeSnapshotUrl else sonatypeReleaseUrl
 }
 
+subprojects {
+    afterEvaluate {
+        // Add LICENSE file to the META-INF folder inside published JAR files
+        tasks.filterIsInstance(org.gradle.jvm.tasks.Jar::class.java)
+            .forEach {
+                it.metaInf {
+                    from("$rootDir") {
+                        include("LICENSE")
+                    }
+                }
+            }
+    }
+}
+
 // nexus-staging plugin settings:
 nexusStaging {
     packageGroup = "org.jetbrains"

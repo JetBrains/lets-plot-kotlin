@@ -125,7 +125,7 @@ afterEvaluate {
                     licenses {
                         license {
                             name.set("MIT")
-                            url.set("https://opensource.org/licenses/MIT")
+                            url.set("https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/LICENSE")
                         }
                     }
                     developers {

@@ -18,7 +18,7 @@
     <tr>
         <td>License</td>
         <td>
-            <a href="https://opensource.org/licenses/MIT"/>
+            <a href="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/LICENSE"/>
             <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
         </td>
     </tr>
@@ -298,5 +298,5 @@ See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHA
 <a id="license"></a>
 ## License
 
-Code and documentation released under the [MIT license](https://github.com/JetBrains/lets-plot/blob/master/LICENSE).
+Code and documentation released under the [MIT license](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LICENSE).
 Copyright © 2019-2021, JetBrains s.r.o.
