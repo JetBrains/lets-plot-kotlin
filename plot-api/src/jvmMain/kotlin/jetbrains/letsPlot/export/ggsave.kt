@@ -79,7 +79,7 @@ fun ggsave(
             val html = PlotHtmlExport.buildHtmlFromRawSpecs(
                 spec,
                 iFrame = true,
-                scriptUrl = scriptUrl(VersionChecker.letsPlotVersion)
+                scriptUrl = scriptUrl(VersionChecker.letsPlotJsVersion)
             )
             file.createNewFile()
             file.writeText(html)
