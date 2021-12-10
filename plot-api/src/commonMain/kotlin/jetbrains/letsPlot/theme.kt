@@ -14,7 +14,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * Use theme() to modify individual components of a theme,
  * allowing you to control the appearance of all non-data components of the plot.
  *
- * All parameters resposible for styling of lines, rectangles and texts accept:
+ * All parameters responsible for styling of lines, rectangles (often called 'background') and texts accept:
  * - string "blank" or the result of the `elementBlank()` function.
  * - the result of `elementLine()`, `elementRect()` or `elementText()` respectively.
  *
@@ -26,6 +26,10 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * @param text All text elements.
  * @param title All line elements: plot, axes, legends.
  * @param axis All axis elements: lines, ticks, texts, titles.
+ *
+ * @param axisOntop Option to place axis (lines, tick-marks and labels) over the data layers.
+ * @param axisOntopX Option to place X-axis (lines, tick-marks and labels) over the data layers.
+ * @param axisOntopY Option to place Y-axis (lines, tick-marks and labels) over the data layers.
  *
  * @param axisTitle Labels of axes.
  * @param axisTitleX Labels of axes.
@@ -47,6 +51,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * @param axisLineX Lines along axes.
  * @param axisLineY Lines along axes.
  *
+ * @param legendBackground Background of legend.
  * @param legendText Legend item labels.
  * @param legendTitle Title of legend.
  *
@@ -60,6 +65,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * @param panelGridMajorY Grid lines.
  * @param panelGridMinorY Grid lines.
  *
+ * @param plotBackground Background of the entire plot.
  * @param plotTitle Plot title.
  *
  * @param stripBackground Background of facet labels.
@@ -76,6 +82,13 @@ class theme(
     text: Any? = null,
     title: Any? = null,
     axis: Any? = null,
+
+    @Suppress("SpellCheckingInspection")
+    axisOntop: Boolean? = null,
+    @Suppress("SpellCheckingInspection")
+    axisOntopX: Boolean? = null,
+    @Suppress("SpellCheckingInspection")
+    axisOntopY: Boolean? = null,
 
     axisTitle: Any? = null,
     axisTitleX: Any? = null,
@@ -97,6 +110,7 @@ class theme(
     axisLineX: Any? = null,
     axisLineY: Any? = null,
 
+    legendBackground: Any? = null,
     legendText: Any? = null,
     legendTitle: Any? = null,
 
@@ -110,6 +124,7 @@ class theme(
     panelGridMajorY: Any? = null,
     panelGridMinorY: Any? = null,
 
+    plotBackground: Any? = null,
     plotTitle: Any? = null,
 
     stripBackground: Any? = null,
@@ -126,6 +141,10 @@ class theme(
         ThemeOption.TEXT to text,
         ThemeOption.TITLE to title,
         ThemeOption.AXIS to axis,
+
+        ThemeOption.AXIS_ONTOP to axisOntop,
+        ThemeOption.AXIS_ONTOP_X to axisOntopX,
+        ThemeOption.AXIS_ONTOP_Y to axisOntopY,
 
         ThemeOption.AXIS_TITLE to axisTitle,
         ThemeOption.AXIS_TITLE_X to axisTitleX,
@@ -147,6 +166,7 @@ class theme(
         ThemeOption.AXIS_LINE_X to axisLineX,
         ThemeOption.AXIS_LINE_Y to axisLineY,
 
+        ThemeOption.LEGEND_BKGR_RECT to legendBackground,
         ThemeOption.LEGEND_TEXT to legendText,
         ThemeOption.LEGEND_TITLE to legendTitle,
 
@@ -160,6 +180,7 @@ class theme(
         ThemeOption.PANEL_GRID_MAJOR_Y to panelGridMajorY,
         ThemeOption.PANEL_GRID_MINOR_Y to panelGridMinorY,
 
+        ThemeOption.PLOT_BKGR_RECT to plotBackground,
         ThemeOption.PLOT_TITLE to plotTitle,
 
         ThemeOption.FACET_STRIP_BGR_RECT to stripBackground,
