@@ -15,22 +15,22 @@ import jetbrains.letsPlot.intern.checkScaleExpand
 /**
  * Position scale x for date/time data.
  *
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numeric
+ * @param breaks
  *     A numeric vector of positions (of ticks).
- * @param labels list of strings
+ * @param labels
  *      A vector of labels (on ticks).
- * @param limits pair
+ * @param limits
  *      A numeric vector of length two providing limits of the scale.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Defines the format for labels on the scale. Also applies to `breaks`.
  *
  *
@@ -75,22 +75,22 @@ fun scaleXDateTime(
 /**
  * Position scale y for date/time data.
  *
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numerics
+ * @param breaks
  *     A numeric vector of positions (of ticks).
- * @param labels list of strings
+ * @param labels
  *      A vector of labels (on ticks).
- * @param limits pair
+ * @param limits
  *      A numeric vector of length two providing limits of the scale.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Defines the format for labels on the scale. Also applies to `breaks`.
  *
  *
@@ -135,16 +135,16 @@ fun scaleYDateTime(
 /**
  * Position scale x for data representing "time delta" values expressed in milliseconds.
  *
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title.
  *      If None, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks list of numeric
+ * @param breaks
  *     A numeric vector of positions (of ticks).
- * @param labels list of strings
+ * @param labels
  *      A vector of labels (on ticks).
- * @param limits pair
+ * @param limits
  *      A numeric vector of length two providing limits of the scale.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
@@ -180,16 +180,16 @@ fun scaleXTime(
 /**
  * Position scale y for data representing "time delta" values expressed in milliseconds.
  *
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title.
  *      If None, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks list of numerics
+ * @param breaks
  *     A numeric vector of positions (of ticks).
- * @param labels list of strings
+ * @param labels
  *      A vector of labels (on ticks).
- * @param limits pair
+ * @param limits
  *      A numeric vector of length two providing limits of the scale.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
