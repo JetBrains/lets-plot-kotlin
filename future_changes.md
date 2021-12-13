@@ -4,7 +4,7 @@
 
 - `scale_x_time()` and `scale_y_time()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks-dev/scale_time.ipynb).
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scale_time.ipynb).
 
 ### Changed
 

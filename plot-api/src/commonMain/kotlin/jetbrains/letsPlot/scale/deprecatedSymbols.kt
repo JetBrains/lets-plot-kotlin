@@ -255,7 +255,10 @@ fun scale_color_gradient(
     trans: String? = null
 ) = scaleColorGradient(low, high, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleColorGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated(
+    "",
+    ReplaceWith("scaleColorGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)")
+)
 fun scale_color_gradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
@@ -268,7 +271,10 @@ fun scale_color_gradient2(
     trans: String? = null
 ) = scaleColorGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated(
+    "",
+    ReplaceWith("scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)")
+)
 fun scale_color_grey(
     start: Number? = null,
     end: Number? = null,
@@ -282,7 +288,10 @@ fun scale_color_grey(
     trans: String? = null
 ) = scaleColorGrey(start, end, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleColorHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated(
+    "",
+    ReplaceWith("scaleColorHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)")
+)
 fun scale_color_hue(
     h: Pair<Int, Int>? = null,
     c: Int? = null,
@@ -298,7 +307,10 @@ fun scale_color_hue(
     trans: String? = null
 ) = scaleColorHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleColorBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated(
+    "",
+    ReplaceWith("scaleColorBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)")
+)
 fun scale_color_brewer(
     type: String? = null,
     palette: Any? = null,
@@ -360,7 +372,10 @@ fun scale_fill_gradient(
     trans: String? = null
 ) = scaleFillGradient(low, high, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleFillGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated(
+    "",
+    ReplaceWith("scaleFillGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, guide, trans)")
+)
 fun scale_fill_gradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
@@ -373,7 +388,10 @@ fun scale_fill_gradient2(
     trans: String? = null
 ) = scaleFillGradient2(low, mid, high, midpoint, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleFillGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated(
+    "",
+    ReplaceWith("scaleFillGrey(start, end, direction, name, breaks, labels, limits, naValue, guide, trans)")
+)
 fun scale_fill_grey(
     start: Number? = null,
     end: Number? = null,
@@ -387,7 +405,10 @@ fun scale_fill_grey(
     trans: String? = null
 ) = scaleFillGrey(start, end, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleFillHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated(
+    "",
+    ReplaceWith("scaleFillHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, guide, trans)")
+)
 fun scale_fill_hue(
     h: Pair<Int, Int>? = null,
     c: Int? = null,
@@ -403,7 +424,10 @@ fun scale_fill_hue(
     trans: String? = null
 ) = scaleFillHue(h, c, l, hstart, direction, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleFillBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated(
+    "",
+    ReplaceWith("scaleFillBrewer(type, palette, direction, name, breaks, labels, limits, naValue, guide, trans)")
+)
 fun scale_fill_brewer(
     type: String? = null,
     palette: Any? = null,
@@ -539,26 +563,6 @@ fun scale_y_datetime(
     naValue: Any? = null,
     format: String? = null,
 ) = scaleYDateTime(name, breaks, labels, limits, expand, naValue, format)
-
-@Deprecated("", ReplaceWith("scaleXTime(name, breaks, labels, limits, expand, naValue)"))
-fun scale_x_time(
-    name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
-    limits: Pair<Any?, Any?>? = null,
-    expand: List<Number>? = null,
-    naValue: Any? = null
-) = scaleXTime(name, breaks, labels, limits, expand, naValue)
-
-@Deprecated("", ReplaceWith("scaleYTime(name, breaks, labels, limits, expand, naValue)"))
-fun scale_y_time(
-    name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
-    limits: Pair<Any?, Any?>? = null,
-    expand: List<Number>? = null,
-    naValue: Any? = null
-) = scaleYTime(name, breaks, labels, limits, expand, naValue)
 
 // Scale guides
 
