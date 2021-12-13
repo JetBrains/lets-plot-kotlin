@@ -540,6 +540,26 @@ fun scale_y_datetime(
     format: String? = null,
 ) = scaleYDateTime(name, breaks, labels, limits, expand, naValue, format)
 
+@Deprecated("", ReplaceWith("scaleXTime(name, breaks, labels, limits, expand, naValue)"))
+fun scale_x_time(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Any?, Any?>? = null,
+    expand: List<Number>? = null,
+    naValue: Any? = null
+) = scaleXTime(name, breaks, labels, limits, expand, naValue)
+
+@Deprecated("", ReplaceWith("scaleYTime(name, breaks, labels, limits, expand, naValue)"))
+fun scale_y_time(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Any?, Any?>? = null,
+    expand: List<Number>? = null,
+    naValue: Any? = null
+) = scaleYTime(name, breaks, labels, limits, expand, naValue)
+
 // Scale guides
 
 @Deprecated("", ReplaceWith("guideLegend(nrow, ncol, byRow)"))
