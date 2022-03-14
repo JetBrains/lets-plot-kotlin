@@ -52,7 +52,7 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
-                implementation(kotlin("reflect"))
+//                implementation(kotlin("reflect"))
 
                 api("org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version")
 
@@ -125,7 +125,7 @@ afterEvaluate {
                     licenses {
                         license {
                             name.set("MIT")
-                            url.set("https://opensource.org/licenses/MIT")
+                            url.set("https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/LICENSE")
                         }
                     }
                     developers {

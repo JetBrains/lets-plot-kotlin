@@ -18,7 +18,7 @@
     <tr>
         <td>License</td>
         <td>
-            <a href="https://opensource.org/licenses/MIT"/>
+            <a href="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/LICENSE"/>
             <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
         </td>
     </tr>
@@ -36,7 +36,7 @@
 
 - [Lets-Plot in JVM and Kotlin/JS application](#jvm)
 
-- [further Reading](#further_reading)
+- [Further Reading](#further_reading)
   - [User guide and API reference](#guide)
   - [Tooltip customization](#tooltip-customization)
   - [Formatting](#formatting)
@@ -176,11 +176,10 @@ using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 #### User guide and API reference
 
 - The User Guide in the form of Jupyter
-  notebook: [user_guide.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
+  notebook: [user_guide.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb).
 
 - Lets-Plot Kotlin
-  API [reference](https://htmlpreview.github.io/?https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/api-reference/index.html)
-  .
+  API [reference](https://lets-plot.org/kotlin/index.html).
 
 <a id="tooltip-customization"></a>
 #### Tooltip customization
@@ -299,5 +298,5 @@ See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHA
 <a id="license"></a>
 ## License
 
-Code and documentation released under the [MIT license](https://github.com/JetBrains/lets-plot/blob/master/LICENSE).
+Code and documentation released under the [MIT license](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LICENSE).
 Copyright © 2019-2021, JetBrains s.r.o.

@@ -61,7 +61,7 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 
 ##### 4. Prepare to the next dev cycle
 
-- increment the version and add _"-alpha1"_ qualifier (The 'version' property in 'build.gradle')
+- increment the version and add _"-alpha1"_ qualifier (The 'version' property in the root 'build.gradle.kts')
 - push the new dev version to GitHub.
 
 ##### 5. Re-generate the API Reference (HTML)

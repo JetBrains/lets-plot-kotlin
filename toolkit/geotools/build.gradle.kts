@@ -13,7 +13,7 @@ plugins {
 val geotools_version: String by project
 
 dependencies {
-    implementation(kotlin("reflect"))
+//    implementation(kotlin("reflect"))
 
     implementation(projects.plotApi)
 
@@ -75,7 +75,7 @@ afterEvaluate {
                     licenses {
                         license {
                             name.set("MIT")
-                            url.set("https://opensource.org/licenses/MIT")
+                            url.set("https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/LICENSE")
                         }
                     }
                     developers {

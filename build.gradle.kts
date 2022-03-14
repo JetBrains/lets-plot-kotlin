@@ -24,7 +24,7 @@ project.extra["buildSettings"] = settings
 
 allprojects {
     group = "org.jetbrains.lets-plot"
-    version = "3.1.1-alpha1"
+    version = "3.1.2-alpha1"
 
     val version = version as String
     var versionIsDev: Boolean by extra
@@ -71,6 +71,20 @@ allprojects {
     val sonatypeSnapshotUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
     val sonatypeReleaseUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
     project.extra["sonatypeUrl"] = if (version.contains("SNAPSHOT")) sonatypeSnapshotUrl else sonatypeReleaseUrl
+}
+
+subprojects {
+    afterEvaluate {
+        // Add LICENSE file to the META-INF folder inside published JAR files
+        tasks.filterIsInstance(org.gradle.jvm.tasks.Jar::class.java)
+            .forEach {
+                it.metaInf {
+                    from("$rootDir") {
+                        include("LICENSE")
+                    }
+                }
+            }
+    }
 }
 
 // nexus-staging plugin settings:
