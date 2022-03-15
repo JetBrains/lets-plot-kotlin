@@ -144,8 +144,10 @@ class TooltipOptions(variables: List<String>?) {
      *
      * @param value The color for the general tooltip.
      */
+    @Deprecated("No longer supported.")
     fun color(value: String): TooltipOptions {
-        return setOption(TOOLTIP_COLOR, value)
+//        return setOption(TOOLTIP_COLOR, value)
+        return this
     }
 
     /**
@@ -165,7 +167,7 @@ class TooltipOptions(variables: List<String>?) {
 
         private const val TOOLTIP_LINES = Option.Layer.TOOLTIP_LINES
         private const val TOOLTIP_MIN_WIDTH = Option.Layer.TOOLTIP_MIN_WIDTH
-        private const val TOOLTIP_COLOR = Option.Layer.TOOLTIP_COLOR
+//        private const val TOOLTIP_COLOR = Option.Layer.TOOLTIP_COLOR
 
         private const val NO_TOOLTIPS = Option.Layer.NONE
     }
