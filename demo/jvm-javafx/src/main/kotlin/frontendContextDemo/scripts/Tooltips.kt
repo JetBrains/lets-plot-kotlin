@@ -108,7 +108,6 @@ object Tooltips {
                         .line("min/max|^ymin/^ymax")
                         .line("lower/upper|^lower/^upper")
                         .line("@|^middle")
-                        .color("red")
                 )).show()
             }
 
@@ -122,7 +121,6 @@ object Tooltips {
                                 .line("^color (mpg)")
                                 .line("@{vehicle name} (@{model year})")
                                 .format(field = "model year", format = "19{d}")
-                                .color("black")
                                 .minWidth(240)
                                 .anchor("top_left")
                         ) {

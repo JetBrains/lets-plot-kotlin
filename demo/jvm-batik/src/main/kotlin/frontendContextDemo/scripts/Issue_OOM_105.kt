@@ -9,7 +9,6 @@ import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.geom.geomSmooth
 import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.scale.*
 
 @Suppress("ClassName")
 object Issue_OOM_105 {
@@ -67,12 +66,12 @@ object Issue_OOM_105 {
             val plot = ggplot(data) {
                 x = "Task interval coefficient of variation"
                 y = "Average processing time"
-//            } + geomPoint() + geomSmooth() + xlim(41.13249 to 41.13251)
+            } + geomPoint() + geomSmooth()
 //            } + geomPoint() + geomSmooth() + xlim(listOf(41.13249, 41.13251))
 //            } + geomPoint() + geomSmooth() + scaleXContinuous(limits = Pair(41.13249, 41.13251))
 //            } + geomPoint() + geomSmooth() + ylim(41.13249 to 41.13251)
 //            } + geomPoint()
-            } + geomSmooth() + ylim(41.09 to 41.11)
+//            } + geomSmooth() + ylim(41.09 to 41.11)
 
 
             plot.show()

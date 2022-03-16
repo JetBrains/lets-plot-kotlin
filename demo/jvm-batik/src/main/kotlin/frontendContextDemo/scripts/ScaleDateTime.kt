@@ -49,11 +49,11 @@ object ScaleDateTime {
 
             // Format value shown in the tooltip
             (ggplot(daysData) +
-                    geomLine(tooltips = layerTooltips()
-                        .line("@val [@days]")
-                        .format("days", "%d.%m.%Y")
-                        .anchor("top_left")
-                        .color("black")
+                    geomLine(
+                        tooltips = layerTooltips()
+                            .line("@val [@days]")
+                            .format("days", "%d.%m.%Y")
+                            .anchor("top_left")
                     ) { x = "days"; y = "val" } +
                     scaleXDateTime(format = "%e %B")
                     ).show()
