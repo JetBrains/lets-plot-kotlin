@@ -7,19 +7,23 @@ package jetbrains.letsPlot.label
 
 import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.intern.OptionsMap
+import jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
  * Add title to the plot.
  *
  * @param title string.
  *     The text for the plot title.
+ * @param subtitle string.
+ *     The text for the plot subtitle.
  */
 @Suppress("SpellCheckingInspection")
-fun ggtitle(title: String): OptionsMap {
+fun ggtitle(title: String, subtitle: String? = null): OptionsMap {
     return OptionsMap(
         Option.Plot.TITLE,
         mapOf(
-            "text" to title
-        )
+            Option.Plot.TITLE_TEXT to title,
+            Option.Plot.SUBTITLE_TEXT to subtitle
+        ).filterNonNullValues()
     )
 }

@@ -67,6 +67,8 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  *
  * @param plotBackground Background of the entire plot.
  * @param plotTitle Plot title.
+ * @param plotSubtitle Plot subtitle.
+ * @param plotCaption Plot caption.
  *
  * @param stripBackground Background of facet labels.
  * @param stripText Facet labels.
@@ -126,6 +128,8 @@ class theme(
 
     plotBackground: Any? = null,
     plotTitle: Any? = null,
+    plotSubtitle: Any? = null,
+    plotCaption: Any? = null,
 
     stripBackground: Any? = null,
     stripText: Any? = null,
@@ -182,6 +186,8 @@ class theme(
 
         ThemeOption.PLOT_BKGR_RECT to plotBackground,
         ThemeOption.PLOT_TITLE to plotTitle,
+        ThemeOption.PLOT_SUBTITLE to plotSubtitle,
+        ThemeOption.PLOT_CAPTION to plotCaption,
 
         ThemeOption.FACET_STRIP_BGR_RECT to stripBackground,
         ThemeOption.FACET_STRIP_TEXT to stripText,
