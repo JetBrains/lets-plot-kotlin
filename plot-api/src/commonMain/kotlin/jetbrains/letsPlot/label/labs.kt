@@ -6,8 +6,10 @@
 package jetbrains.letsPlot.label
 
 import jetbrains.datalore.plot.base.Aes
+import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.intern.Feature
 import jetbrains.letsPlot.intern.FeatureList
+import jetbrains.letsPlot.intern.OptionsMap
 import jetbrains.letsPlot.intern.Scale
 
 /**
@@ -37,6 +39,10 @@ fun ylab(label: String): Feature {
 
  * @param title string.
  *     The plot title text.
+ * @param subtitle string.
+ *     The plot subtitle text.
+ * @param caption string.
+ *     The plot caption text.
  * @param x string.
  *     The x-axis text.
  * @param y string.
@@ -60,6 +66,8 @@ fun ylab(label: String): Feature {
  */
 fun labs(
     title: String? = null,
+    subtitle: String? = null,
+    caption: String? = null,
     // aesthetics
     x: String? = null,
     y: String? = null,
@@ -73,7 +81,16 @@ fun labs(
     linetype: String? = null
 ): FeatureList {
     val list = ArrayList<Feature>()
-    title?.let { list.add(ggtitle(it)) }
+    title?.let { list.add(ggtitle(it, subtitle)) }
+
+    caption?.let {
+        list.add(
+            OptionsMap(
+                Option.Plot.CAPTION,
+                mapOf(Option.Plot.CAPTION_TEXT to it)
+            )
+        )
+    }
 
     x?.let { list.add(Scale(aesthetic = Aes.X, name = it)) }
     y?.let { list.add(Scale(aesthetic = Aes.Y, name = it)) }
