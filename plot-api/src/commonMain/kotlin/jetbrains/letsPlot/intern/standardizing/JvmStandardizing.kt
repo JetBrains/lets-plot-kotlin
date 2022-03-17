@@ -7,5 +7,6 @@ package jetbrains.letsPlot.intern.standardizing
 
 expect object JvmStandardizing {
     fun isJvm(o: Any): Boolean
+    fun isDateTimeJvm(o: Any): Boolean
     fun standardize(o: Any): Any
 }
