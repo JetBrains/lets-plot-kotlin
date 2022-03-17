@@ -278,30 +278,13 @@ private fun createDateTimeAnnotation(varName: String): Map<String, Any> {
 
 private fun createSeriesAnnotations(data: Map<*, *>?): List<Map<String, Any>> {
     fun isDateTime(value: Any?): Boolean {
-        return value is Instant ||(value?.let { JvmStandardizing.isDateTimeJvm(it) } ?: false)
-    }
-
-    fun asList(rawValue: Any): List<Any?> {
-        return when (rawValue) {
-            is List<*> -> rawValue
-            is Iterable<*> -> rawValue.toList()
-            is Sequence<*> -> rawValue.asIterable().toList()
-            is Array<*> -> rawValue.asList()
-            is ByteArray -> rawValue.asList()
-            is ShortArray -> rawValue.asList()
-            is IntArray -> rawValue.asList()
-            is LongArray -> rawValue.asList()
-            is FloatArray -> rawValue.asList()
-            is DoubleArray -> rawValue.asList()
-            is CharArray -> rawValue.asList()
-            is Pair<*, *> -> rawValue.toList()
-            else -> emptyList()
-        }
+        return value is Instant ||
+                (value?.let(JvmStandardizing::isDateTimeJvm) ?: false)
     }
 
     return data?.mapNotNull { (varName, values) ->
         if (SeriesStandardizing.isListy(values)) {
-            val l = values?.let(::asList)
+            val l = values?.let(SeriesStandardizing::asList)
             if (!l.isNullOrEmpty() && l.all(::isDateTime)) {
                 return@mapNotNull createDateTimeAnnotation(varName as String)
             }

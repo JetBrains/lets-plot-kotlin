@@ -23,8 +23,30 @@ internal object SeriesStandardizing {
         else -> false
     }
 
-    fun toList(rawValue: Any, messageKey: String? = null): List<Any?> {
+    fun asList(rawValue: Any, messageKey: String? = null): List<Any?> {
         return when (rawValue) {
+            is List<*> -> rawValue
+            is Iterable<*> -> rawValue.toList()
+            is Sequence<*> -> rawValue.toList()
+            is Array<*> -> rawValue.asList()
+            is ByteArray -> rawValue.asList()
+            is ShortArray -> rawValue.asList()
+            is IntArray -> rawValue.asList()
+            is LongArray -> rawValue.asList()
+            is FloatArray -> rawValue.asList()
+            is DoubleArray -> rawValue.asList()
+            is CharArray -> rawValue.asList()
+            is Pair<*, *> -> rawValue.toList()
+            else -> {
+                val keyInfo = messageKey?.let { "[$messageKey]" } ?: ""
+                throw IllegalArgumentException("Can't transform ${rawValue::class.simpleName} to list$keyInfo.")
+            }
+        }
+    }
+
+    fun toList(rawValue: Any, messageKey: String? = null): List<Any?> {
+        return standardizeList(asList(rawValue, messageKey))
+       /* return when (rawValue) {
             is List<*> -> standardizeList(rawValue)
             is Iterable<*> -> standardizeIterable(rawValue).toList()
             is Sequence<*> -> standardizeIterable(rawValue.asIterable()).toList()
@@ -41,7 +63,7 @@ internal object SeriesStandardizing {
                 val keyInfo = messageKey?.let { "[$messageKey]" } ?: ""
                 throw IllegalArgumentException("Can't transform ${rawValue::class.simpleName} to list$keyInfo.")
             }
-        }
+        }*/
     }
 
 //    fun toListOrPass(rawValue: Any): Any {

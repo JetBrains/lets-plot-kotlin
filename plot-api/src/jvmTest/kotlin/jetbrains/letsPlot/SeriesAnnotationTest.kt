@@ -118,7 +118,7 @@ class SeriesAnnotationTest {
         }
 
         private fun assertNoSeriesAnnotation(spec: MutableMap<String, Any>) {
-            assertTrue(Option.Meta.DATA_META !in spec, message = "Series shouldn't detected as date/time")
+            assertTrue(Option.Meta.DATA_META !in spec, message = "Series shouldn't be detected as date/time")
         }
 
     }
