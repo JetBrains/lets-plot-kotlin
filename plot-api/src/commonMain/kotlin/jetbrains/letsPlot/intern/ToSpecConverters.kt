@@ -5,6 +5,7 @@
 
 package jetbrains.letsPlot.intern
 
+import jetbrains.datalore.base.datetime.Instant
 import jetbrains.datalore.plot.config.Option
 import jetbrains.datalore.plot.config.Option.Meta.DATA_META
 import jetbrains.datalore.plot.config.Option.Meta.KIND
@@ -21,7 +22,9 @@ import jetbrains.datalore.plot.config.Option.Scale.NAME
 import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
 import jetbrains.letsPlot.MappingMeta
 import jetbrains.letsPlot.intern.layer.WithSpatialParameters
+import jetbrains.letsPlot.intern.standardizing.JvmStandardizing
 import jetbrains.letsPlot.intern.standardizing.MapStandardizing
+import jetbrains.letsPlot.intern.standardizing.SeriesStandardizing
 import jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.toList
 import jetbrains.letsPlot.spatial.GeometryFormat
 import jetbrains.letsPlot.spatial.SpatialDataset
@@ -47,8 +50,8 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     }
 
     spec[Option.PlotBase.MAPPING] = asMappingData(plot.mapping.map)
-    spec[Option.Plot.LAYERS] = plot.layers().map { it.toSpec() }
-    spec[Option.Plot.SCALES] = plot.scales().map { it.toSpec() }
+    spec[Option.Plot.LAYERS] = plot.layers().map(Layer::toSpec)
+    spec[Option.Plot.SCALES] = plot.scales().map(Scale::toSpec)
 
     // Width of plot in percents of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
@@ -239,7 +242,16 @@ private fun createDataMeta(data: Map<*, *>?, mappings: Map<String, Any>): Map<St
         emptyMap()
     }
 
-    return spatialDataMeta + mappingDataMeta
+    val seriesAnnotations = createSeriesAnnotations(data)
+    val seriesDataMeta: Map<String, Any> = if (seriesAnnotations.isNotEmpty()) {
+        mapOf(
+            Option.Meta.SeriesAnnotation.TAG to seriesAnnotations
+        )
+    } else {
+        emptyMap()
+    }
+
+    return spatialDataMeta + mappingDataMeta + seriesDataMeta
 }
 
 private fun createGeoDataframeAnnotation(data: SpatialDataset): Map<String, Any> {
@@ -255,6 +267,30 @@ private fun createMappingAnnotations(mappings: Map<String, Any>): List<Map<Strin
     return mappings
         .filter { it.value is MappingMeta }
         .map { (it.value as MappingMeta).getAnnotatedData(it.key) }
+}
+
+private fun createDateTimeAnnotation(varName: String): Map<String, Any> {
+    return mapOf(
+        Option.Meta.SeriesAnnotation.COLUMN to varName,
+        Option.Meta.SeriesAnnotation.TYPE to Option.Meta.SeriesAnnotation.DateTime.DATE_TIME
+    )
+}
+
+private fun createSeriesAnnotations(data: Map<*, *>?): List<Map<String, Any>> {
+    fun isDateTime(value: Any?): Boolean {
+        return value is Instant ||
+                (value?.let(JvmStandardizing::isDateTimeJvm) ?: false)
+    }
+
+    return data?.mapNotNull { (varName, values) ->
+        if (SeriesStandardizing.isListy(values)) {
+            val l = values?.let(SeriesStandardizing::asList)
+            if (!l.isNullOrEmpty() && l.all(::isDateTime)) {
+                return@mapNotNull createDateTimeAnnotation(varName as String)
+            }
+        }
+        return@mapNotNull null
+    } ?: emptyList()
 }
 
 private fun mergeThemeOptions(m0: Map<String, Any>, m1: Map<String, Any>): Map<String, Any> {

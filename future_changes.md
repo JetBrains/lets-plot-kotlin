@@ -18,3 +18,5 @@
 - Deprecated tooltip customization API: function `color()` will be removed in one of the future releases. 
 
 ### Fixed
+
+- Automatic detection of DateTime series [[#99](https://github.com/JetBrains/lets-plot-kotlin/issues/99)].
