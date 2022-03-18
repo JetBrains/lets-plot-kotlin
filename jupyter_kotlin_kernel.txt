@@ -68,7 +68,14 @@ It will publish "lets-plot-kotlin-api-kernel-<version>" artifact to the "<projec
             "file://<path to the project root>/.maven-publish-dev-repo"
           ],
 
-    - configure the artifact version.
+    - configure the artifact (i.e. "api") version, for example:
+          "properties": {
+            "api": "3.1.2-SNAPSHOT",
+            "lib": "2.3.0-rc2",
+            "js": "2.3.0rc2",
+            "isolatedFrame": ""
+          },
+
 
 Note:   when editing descriptor in "~/.jupyter_kotlin/cache" always check that you are using the latest descriptor.
         The kernel can download a newer descriptor at any moment.
