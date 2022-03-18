@@ -17,6 +17,9 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * @param facets [string | list], one or more faceting variable names.
  * @param ncol Number of columns.
  * @param nrow Number of rows.
+ * @param scales Specifies whether scales are shared across all facets.
+ *      "fixed" - shared (the default), "free" - vary across both rows and columns,
+ *      "free_x" or "free_y" - vary across rows or columns respectively.
  * @param order [int | list], specifies ordering direction panels.
  *              1 - ascending, -1 - descending, None - default (ascending).
  *              The `order` values are positionally matched to variables in `facets`.
@@ -39,6 +42,7 @@ fun facetWrap(
     facets: Any,
     ncol: Any? = null,
     nrow: Any? = null,
+    scales: String? = null,
     order: Any? = null,
     format: Any? = null,
     dir: String = "h"
@@ -50,6 +54,7 @@ fun facetWrap(
             Option.Facet.FACETS to facets,
             Option.Facet.NCOL to ncol,
             Option.Facet.NROW to nrow,
+            Option.Facet.SCALES to scales,
             Option.Facet.FACETS_ORDER to order,
             Option.Facet.FACETS_FORMAT to format,
             Option.Facet.FACETS_FILL_DIR to dir,

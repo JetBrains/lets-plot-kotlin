@@ -9,15 +9,16 @@ import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.facet.facetWrap
 import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.themeGrey
 import java.awt.Dimension
 
-object FacetWrap {
+object FacetWrapFreeScales {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInBatikContext.eval(
-            "Facet wrap",
+            "Facet wrap, free scales",
             2,
             Dimension(600, 400)
         ) {
@@ -30,45 +31,73 @@ object FacetWrap {
             } + themeGrey()
 
             // one facet
+
+            // free_x
             (p + facetWrap(
                 facets = "number of cylinders",
+                scales = "free_x",
                 format = "{d} cyl"
+            ) + ggtitle(
+                "scales='free_x'"
             )).show()
 
-            // one facet, 3 cols
+            // free_y
             (p + facetWrap(
                 facets = "number of cylinders",
-                ncol = 3,
+                scales = "free_y",
                 format = "{d} cyl"
+            ) + ggtitle(
+                "scales='free_y'"
             )).show()
 
-            // one facet, 4 rows
+            // free both
             (p + facetWrap(
                 facets = "number of cylinders",
-                nrow = 4,
-                format = "{d} cyl",
-                dir = "v"
+                scales = "free",
+                format = "{d} cyl"
+            ) + ggtitle(
+                "scales='free'"
             )).show()
 
             // two facets
+
+            // free_x
             (p + facetWrap(
                 facets = listOf(
                     "origin of car",
                     "number of cylinders"
                 ),
+                scales = "free_x",
                 ncol = 5,
                 format = listOf(null, "{d} cyl")
+            ) + ggtitle(
+                "scales='free_x'"
             )).show()
 
-            // two facets, cylinders order: desc.
+            // free_y
             (p + facetWrap(
                 facets = listOf(
                     "origin of car",
                     "number of cylinders"
                 ),
+                scales = "free_y",
                 ncol = 5,
-                order = listOf(null, -1),
                 format = listOf(null, "{d} cyl")
+            ) + ggtitle(
+                "scales='free_y'"
+            )).show()
+
+            // free both
+            (p + facetWrap(
+                facets = listOf(
+                    "origin of car",
+                    "number of cylinders"
+                ),
+                scales = "free",
+                ncol = 5,
+                format = listOf(null, "{d} cyl")
+            ) + ggtitle(
+                "scales='free'"
             )).show()
         }
     }

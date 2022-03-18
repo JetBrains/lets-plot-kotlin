@@ -7,7 +7,6 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.coordFixed
 import jetbrains.letsPlot.facet.facetGrid
 import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.label.ggtitle
@@ -15,11 +14,11 @@ import jetbrains.letsPlot.letsPlot
 import jetbrains.letsPlot.themeGrey
 import java.awt.Dimension
 
-object FacetGrid {
+object FacetGridFreeScales {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInBatikContext.eval(
-            "Facet grid",
+            "Facet grid, free scales",
             2,
             Dimension(600, 400)
         ) {
@@ -34,36 +33,38 @@ object FacetGrid {
             // cols
             (p + facetGrid(
                 x = "number of cylinders",
+                scales = "free_x",
                 xFormat = "{d} cyl"
-            ) + coordFixed(
-                ylim = (-50 to 150)
-            ) + ggtitle("With fixed coord system", subtitle = "ylim = (-50 to 150)")).show()
+            ) + ggtitle(
+                "scales='free_x'"
+            )).show()
 
             // rows
             (p + facetGrid(
-                y = "origin of car"
+                y = "origin of car",
+                scales = "free_y"
+            ) + ggtitle(
+                "scales='free_y'"
             )).show()
 
             // both
             (p + facetGrid(
                 x = "number of cylinders",
                 y = "origin of car",
+                scales = "free",
                 xFormat = "{d} cyl"
+            ) + ggtitle(
+                "scales='free'"
             )).show()
 
             // both flipped
             (p + facetGrid(
                 x = "origin of car",
                 y = "number of cylinders",
+                scales = "free",
                 yFormat = "{d} cyl"
-            )).show()
-
-            // both, Y-order - desc.
-            (p + facetGrid(
-                x = "number of cylinders",
-                y = "origin of car",
-                yOrder = -1,
-                xFormat = "{d} cyl"
+            ) + ggtitle(
+                "scales='free' (flipped)"
             )).show()
         }
     }
