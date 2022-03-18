@@ -42,6 +42,7 @@ enum class GeomKind {
     BOX_PLOT {
         override fun optionName() = "boxplot"
     },
+    VIOLIN,
     LIVE_MAP,
     POINT,
     RIBBON,
