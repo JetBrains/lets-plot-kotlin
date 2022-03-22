@@ -1,6 +1,13 @@
-## [3.1.2] - 202x-xx-xx
+## [3.1.2] - 2022-xx-xx
 
 ### Added
+
+- New geometries:
+  - `geom_violin()`
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks-dev/geom_violin.ipynb).
+
+
 
 - Plot subtitle and caption:
   `subtitle` parameter in `ggtitle()` and `labs()`,
