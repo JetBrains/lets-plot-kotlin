@@ -180,6 +180,24 @@ object Stat {
         override val parameters = this.seal()
     }
 
+
+    @Suppress("ClassName")
+    class dotplot(
+        override val bins: Int? = null,
+        override val binWidth: Number? = null,
+        override val center: Number? = null,
+        override val boundary: Number? = null,
+        override val method: String? = null,
+        mapping: DotplotStatMapping.() -> Unit = {},
+    ) : DotplotStatParameters,
+        StatOptions(
+            StatKind.DOTPLOT,
+            mapping = DotplotStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+
     // Deprecated
 
     @Deprecated("", ReplaceWith("Stat.bin2D(bins, binWidth, drop) { mapping() }"))

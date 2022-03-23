@@ -23,7 +23,7 @@ class statYDensity(
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
-    override val violinwidth: Double? = null,
+    override val violinWidth: Double? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,

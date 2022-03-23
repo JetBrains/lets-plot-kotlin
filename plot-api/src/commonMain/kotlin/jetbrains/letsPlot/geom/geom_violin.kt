@@ -36,7 +36,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     Draw horizontal lines at the given quantiles of the density estimate.
  * @param x x-axis coordinates.
  * @param y y-axis coordinates.
- * @param violinwidth density scaled for the violin plot, according to area, counts or to a constant maximum width.
+ * @param violinWidth density scaled for the violin plot, according to area, counts or to a constant maximum width.
  * @param alpha transparency level of a layer
  *     Understands numbers between 0 and 1.
  * @param color (colour) color of a geometry lines.
@@ -67,7 +67,7 @@ class geomViolin(
     private val drawQuantiles: Any? = null,
     override val x: Double? = null,
     override val y: Double? = null,
-    override val violinwidth: Double? = null,
+    override val violinWidth: Double? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,

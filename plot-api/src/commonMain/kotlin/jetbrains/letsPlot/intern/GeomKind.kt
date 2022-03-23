@@ -12,6 +12,7 @@ enum class GeomKind {
     SMOOTH,
     BAR,
     HISTOGRAM,
+    DOTPLOT,
     TILE,
     BIN_2D {
         override fun optionName() = "bin2d"
