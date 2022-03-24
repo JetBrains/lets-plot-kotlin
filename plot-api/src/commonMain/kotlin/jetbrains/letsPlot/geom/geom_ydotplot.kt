@@ -9,18 +9,19 @@ import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.layer.*
-import jetbrains.letsPlot.intern.layer.geom.DotplotAesthetics
-import jetbrains.letsPlot.intern.layer.geom.DotplotMapping
-import jetbrains.letsPlot.intern.layer.geom.DotplotParameters
-import jetbrains.letsPlot.intern.layer.stat.DotplotStatAesthetics
-import jetbrains.letsPlot.intern.layer.stat.DotplotStatParameters
+import jetbrains.letsPlot.intern.layer.geom.YDotplotAesthetics
+import jetbrains.letsPlot.intern.layer.geom.YDotplotMapping
+import jetbrains.letsPlot.intern.layer.geom.YDotplotParameters
+import jetbrains.letsPlot.intern.layer.stat.YDotplotStatAesthetics
+import jetbrains.letsPlot.intern.layer.stat.YDotplotStatParameters
 import jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
- * 
- * Dotplot represents individual observations in a batch of data with circular dots.
+ *
+ * Y-dotplot represents individual observations in a batch of data with circular dots.
  * The diameter of a dot corresponds to the maximum width or bin width, depending on the binning algorithm.
+ * `geom_ydotplot()` is an obvious blend of `geom_violin()` and `geom_dotplot()`.
  *
  * @param data
  *      The data to be displayed in this layer. If None, the default, the data
@@ -28,11 +29,15 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * @param stat default: Stat.dotplot().
  *      The statistical transformation to use on the data for this layer.
  *      The only other 'stat' supported by 'dotplot' is Stat.identity.
+ * @param position
+ *      Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
+ *      position adjustment function.
  * @param showLegend default=True.
  *      False - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.
  *      Specifies appearance, style and content.
  * @param x x-axis coordinates.
+ * @param y y-axis coordinates.
  * @param bins When method is "histodot", this specifies number of bins (default=30). Overridden by `binWidth`.
  * @param center When method is "histodot", this specifies x-value to align bin centers to.
  * @param boundary When method is "histodot", this specifies x-value to align bin boundary
@@ -64,13 +69,15 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geomDotplot(
+class geomYDotplot(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.dotplot(),
+    stat: StatOptions = Stat.yDotplot(),
+    position: PosOptions = Pos.dodge,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val x: Double? = null,
+    override val y: Any? = null,
     override val bins: Int? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,
@@ -85,24 +92,24 @@ class geomDotplot(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val size: Number? = null,
-    mapping: DotplotMapping.() -> Unit = {},
-) : DotplotAesthetics,
-    DotplotParameters,
-    DotplotStatAesthetics,
-    DotplotStatParameters,
+    mapping: YDotplotMapping.() -> Unit = {}
+) : YDotplotAesthetics,
+    YDotplotParameters,
+    YDotplotStatAesthetics,
+    YDotplotStatParameters,
     LayerBase(
-        mapping = DotplotMapping().apply(mapping).seal(),
+        mapping = YDotplotMapping().apply(mapping).seal(),
         data = data,
-        geom = GeomOptions(GeomKind.DOTPLOT),
+        geom = GeomOptions(GeomKind.Y_DOTPLOT),
         stat = stat,
-        position = Pos.identity,
+        position = position,
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips
     ) {
 
-    override fun seal() = super<DotplotAesthetics>.seal() +
-            super<DotplotParameters>.seal() +
-            super<DotplotStatAesthetics>.seal() +
-            super<DotplotStatParameters>.seal()
+    override fun seal() = super<YDotplotAesthetics>.seal() +
+            super<YDotplotParameters>.seal() +
+            super<YDotplotStatAesthetics>.seal() +
+            super<YDotplotStatParameters>.seal()
 }

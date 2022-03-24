@@ -13,6 +13,9 @@ enum class GeomKind {
     BAR,
     HISTOGRAM,
     DOTPLOT,
+    Y_DOTPLOT {
+        override fun optionName() = "ydotplot"
+    },
     TILE,
     BIN_2D {
         override fun optionName() = "bin2d"

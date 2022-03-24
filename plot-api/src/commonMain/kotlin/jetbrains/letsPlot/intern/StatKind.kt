@@ -13,6 +13,7 @@ enum class StatKind {
     DENSITY2DF,
     YDENSITY,
     DOTPLOT,
+    YDOTPLOT,
     BIN,
     BIN2D,
     BOXPLOT,

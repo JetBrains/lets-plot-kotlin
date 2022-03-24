@@ -198,6 +198,23 @@ object Stat {
     }
 
 
+    @Suppress("ClassName")
+    class yDotplot(
+        override val bins: Int? = null,
+        override val binWidth: Number? = null,
+        override val center: Number? = null,
+        override val boundary: Number? = null,
+        override val method: String? = null,
+        mapping: YDotplotStatMapping.() -> Unit = {},
+    ) : YDotplotStatParameters,
+        StatOptions(
+            StatKind.YDOTPLOT,
+            mapping = YDotplotStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+
     // Deprecated
 
     @Deprecated("", ReplaceWith("Stat.bin2D(bins, binWidth, drop) { mapping() }"))
