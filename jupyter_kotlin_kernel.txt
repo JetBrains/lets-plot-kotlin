@@ -74,7 +74,7 @@ It will publish "lets-plot-kotlin-api-kernel-<version>" artifact to the "<projec
 
     - configure the artifact (i.e. "api") version, for example:
           "properties": {
-            "api": "3.1.2-SNAPSHOT",
+            "api": "3.1.2-alpha2",
             "lib": "2.3.0-rc2",
             "js": "2.3.0rc2",
             "isolatedFrame": ""

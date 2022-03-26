@@ -96,13 +96,26 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     spec[Option.Layer.GEOM] = geom.kind.optionName()
     spec[Option.Layer.STAT] = stat.kind.optionName()
 
-    val posOptions = position
-    spec[Option.Layer.POS] = if (posOptions.parameters.isEmpty()) {
-        posOptions.kind.optionName()
-    } else {
-        OptionsMap(
-            Option.Meta.Kind.POS, posOptions.kind.optionName(), posOptions.parameters.map
-        ).toSpec(true)
+//    val posOptions = position
+//    spec[Option.Layer.POS] = if (posOptions.parameters.isEmpty()) {
+//        posOptions.kind.optionName()
+//    } else {
+//        OptionsMap(
+//            Option.Meta.Kind.POS, posOptions.kind.optionName(), posOptions.parameters.map
+//        ).toSpec(true)
+//    }
+
+    position?.let {
+        spec[Option.Layer.POS] =
+            if (it.parameters.isEmpty()) {
+                it.kind.optionName()
+            } else {
+                OptionsMap(
+                    Option.Meta.Kind.POS,
+                    it.kind.optionName(),
+                    it.parameters.map
+                ).toSpec(true)
+            }
     }
 
     sampling?.let {

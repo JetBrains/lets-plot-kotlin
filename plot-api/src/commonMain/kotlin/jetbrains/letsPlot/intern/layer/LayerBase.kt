@@ -12,11 +12,11 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 abstract class LayerBase(
     mapping: Options,
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions,
-    stat: jetbrains.letsPlot.intern.layer.StatOptions,
-    position: jetbrains.letsPlot.intern.layer.PosOptions,
+    geom: GeomOptions,
+    stat: StatOptions,
+    position: PosOptions?,
     showLegend: Boolean,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null
 ) : Layer(
     mapping = mapping,
@@ -27,7 +27,7 @@ abstract class LayerBase(
     showLegend = showLegend,
     sampling = sampling,
     tooltips = tooltips
-), jetbrains.letsPlot.intern.layer.OptionsCapsule {
+), OptionsCapsule {
 
     override val parameters by lazy { geom.parameters + stat.parameters + this.seal() }
 }

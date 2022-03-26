@@ -3,10 +3,17 @@
 ### Added
 
 - New geometries:
-  - `geom_violin()`
+  - `geomViolin()`
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks-dev/geom_violin.ipynb).
 
+  - `geomDotplot()`
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks-dev/geom_dotplot.ipynb).
+
+  - `geomYDotplot()`
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks-dev/geom_dotplot.ipynb).
 
 
 - Plot subtitle and caption:

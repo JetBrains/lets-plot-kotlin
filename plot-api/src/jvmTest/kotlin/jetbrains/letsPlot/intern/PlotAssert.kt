@@ -5,10 +5,10 @@
 
 package jetbrains.letsPlot.intern
 
+import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import junit.framework.AssertionFailedError
-import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertTrue
+import junit.framework.TestCase.*
 
 internal class PlotAssert(private val plot: Plot) : MappingAssert<PlotAssert> {
     companion object {
@@ -110,14 +110,15 @@ internal class StatOptionsAssert(private val stat: StatOptions) : MappingAssert<
 }
 
 internal class PosOptionsAssert(
-    pos: jetbrains.letsPlot.intern.layer.PosOptions,
+    pos: PosOptions?,
     kind: PosKind
 ) : ParametersAssert<PosOptionsAssert> {
     init {
-        assertTrue(pos.kind === kind)
+        assertNotNull(pos)
+        assertTrue(pos!!.kind === kind)
     }
 
-    override val parameterOptions = pos.parameters
+    override val parameterOptions = pos!!.parameters
 }
 
 internal interface MappingAssert<T> {

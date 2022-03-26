@@ -72,7 +72,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomYDotplot(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.yDotplot(),
-    position: PosOptions = Pos.dodge,
+    position: PosOptions? = null,  // Default value depends on `stackGroups` flag.
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
