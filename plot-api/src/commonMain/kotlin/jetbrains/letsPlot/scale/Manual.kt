@@ -14,9 +14,8 @@ import jetbrains.letsPlot.intern.Scale
  * Create your own discrete scale for color aesthetic
  *
  * @param values list of strings (encoding colors) or color values
- *      A set of aesthetic values to map data values to. If this is a named vector, then the values will be matched
- *      based on the names. If unnamed, values will be matched in order (usually alphabetical) with the limits of
- *      the scale.
+ *      A set of aesthetic values to map data values to.
+ *      Values will be matched with the limits of the scale (if specified).
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
@@ -76,9 +75,8 @@ fun scaleColorManual(
  * Create your own discrete scale for fill aesthetic
  *
  * @param values list of strings (encoding colors) or color values
- *      A set of aesthetic values to map data values to. If this is a named vector, then the values will be matched
- *      based on the names. If unnamed, values will be matched in order (usually alphabetical) with the limits of
- *      the scale.
+ *      A set of aesthetic values to map data values to.
+ *      Values will be matched with the limits of the scale (if specified).
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
@@ -138,9 +136,8 @@ fun scaleFillManual(
  * Create your own discrete scale for size aesthetic
  *
  * @param values list of numbers encoding size.
- *      A set of aesthetic values to map data values to. If this is a named vector, then the values will be matched
- *      based on the names. If unnamed, values will be matched in order (usually alphabetical) with the limits of
- *      the scale.
+ *      A set of aesthetic values to map data values to.
+ *      Values will be matched with the limits of the scale (if specified).
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
@@ -200,9 +197,8 @@ fun scaleSizeManual(
  * Create your own discrete scale for shape aesthetic
  *
  * @param values list of numbers encoding shape.
- *      A set of aesthetic values to map data values to. If this is a named vector, then the values will be matched
- *      based on the names. If unnamed, values will be matched in order (usually alphabetical) with the limits of
- *      the scale.
+ *      A set of aesthetic values to map data values to.
+ *      Values will be matched with the limits of the scale (if specified).
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
@@ -262,9 +258,8 @@ fun scaleShapeManual(
  * Create your own discrete scale for linetype aesthetic
  *
  * @param values list of numbers encoding linetype.
- *      A set of aesthetic values to map data values to. If this is a named vector, then the values will be matched
- *      based on the names. If unnamed, values will be matched in order (usually alphabetical) with the limits of
- *      the scale.
+ *      A set of aesthetic values to map data values to.
+ *      Values will be matched with the limits of the scale (if specified).
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
@@ -325,9 +320,8 @@ fun scaleLinetypeManual(
  * Create your own discrete scale for alpha aesthetic
  *
  * @param values list of alpha values.
- *      A set of aesthetic values to map data values to. If this is a named vector, then the values will be matched
- *      based on the names. If unnamed, values will be matched in order (usually alphabetical) with the limits of
- *      the scale.
+ *      A set of aesthetic values to map data values to.
+ *      Values will be matched with the limits of the scale (if specified).
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
