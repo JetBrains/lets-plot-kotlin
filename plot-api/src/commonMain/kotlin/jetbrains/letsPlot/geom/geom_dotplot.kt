@@ -27,7 +27,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *      is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat default: Stat.dotplot().
  *      The statistical transformation to use on the data for this layer.
- *      The only other 'stat' supported by 'dotplot' is Stat.identity.
+ *      The only other 'stat' supported by 'dotplot' is `Stat.identity`.
  * @param showLegend default=True.
  *      False - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.

@@ -20,14 +20,14 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * A violin plot is a mirrored density plot with an additional grouping as for a boxplot.
  *
- * @param data dictionary or pandas DataFrame, optional.
+ * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat string, optional, default="ydensity".
- *     The statistical transformation to use on the data for this layer, as a string.
- * @param position string, optional.
- *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
- *     position adjustment function.
+ *     The statistical transformation to use on the data for this layer.
+ * @param position
+ *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
+ * 
  * @param showLegend Boolean, optional, default=True.
  *      False - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.
