@@ -44,7 +44,7 @@
   - [Saving plot to file](#export)
   - [GeoTools support](#geotools)
 
-- [What is new in 3.1.0](#new)
+- [What is new in 3.2.0](#new)
 - [Change log](#change_log)
 - [License](#license)    
 
@@ -246,47 +246,56 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 
 <a id="new"></a>
 
-## What is new in 3.1.0
+## What is new in 3.2.0
 
-- Added support for `coordFlip()`.
+- ### Geometries
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb)
-  .
+  - `geomViolin()`
 
-- Improved plot appearance and better `theme` support:
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb).
 
-  - Bigger fonts across the board;
-  - Gridlines;
-  - 4 themes from ggplot2 (R) library: `themeGrey(), themeLight(), themeClassic(), themeMinimal()`;
-  - Our designer theme: `themeMinimal2()` (used by default);
-  - `themeNone()` for the case you want to design another theme;
-  - A lot more parameters in the `theme()` function, also helpers: `elementLine()`, `elementRect()`, `elementText()`.
+  - `geomDotplot()`
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
-  .
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_dotplot.ipynb).
 
-> Note: fonts size, family and face still can not be configured.
+  - `geomYDotplot()`
 
-- Improved Date-time formatting support:
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_dotplot.ipynb).
 
-  - tooltip format() should understand date-time format
-    pattern [[#387](https://github.com/JetBrains/lets-plot/issues/387)];
-  - scaleXDatetime should apply date-time formatting to the
-    breaks [[#392](https://github.com/JetBrains/lets-plot/issues/392)].
+- ### Labels and Legends
 
-  See `Out[7, 8, 10]` in
-  the [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
-  .
+  - Plot **subtitle** and **caption** are now supported.
 
-- `CorrPlot()` function now also accepts pre-computed correlation coefficients.
+    You can use parameter `subtitle`in `ggtitle()` and `labs()` to add a subtitle below the plot' title, and
+    parameter `caption` in `labs()` to add a caption below plot.
 
-- Kotlin/JS IR: `xxx.klib` artifacts are now available.
+  - Multi-line labels.
 
-  See: [sample Kotlin/JS IR app](https://github.com/alshan/lets-plot-mini-apps/tree/main/js-ir-frontend-app)
+    The 'newline' character (`\n`) now works as `line break` in plot title, subtitle and caption, in legend's title and in tooltips.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb).
+
+- ### Tooltips
+
+<img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22a/images/tooltip.png" alt="f-22a/images/tooltip.png" width="362" height="310">
+
+- Improved appearance
+- Automatic word wrap makes long text values look better
+- Tooltip title
+
+  You can use new method `title()` in the [Tooltip castomization API](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md) to add a title to tooltip.
+
+See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_title.ipynb).
+
+- ### Facets
+
+  "Free" scales are now supported on faceted plots.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb).
 
 
 - Other improvements and fixes -
-  see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#310---2021-11-05)
+  see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#310---2022-03-29)
   for details.
 
 <a id="change_log"></a>

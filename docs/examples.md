@@ -6,12 +6,14 @@ Try the following tutorials and examples to learn and evaluate various features 
 - [Geoms and Stats](#geoms_n_stats)
 - [Position Adjustment](#pos)
 - [Scales](#scales)
+- [Time Series](#time-series)
 - [Facets](#facets)
+- [Coordinate Systems](#coord-sys)
 - [Grouping Plots](#ggbunch)
 - [Ordering categories, `asDiscrete()` function](#as_discrete)
 - [Export to File](#export)
 - [Formatting](#formatting)
-- [Theme](#theme)
+- [Themes](#theme)
 - [Data Sampling](#sampling)
 - [Tooltip Customization](#tooltip)
 - [Correlation Plot](#corrplot)
@@ -71,11 +73,32 @@ Try the following tutorials and examples to learn and evaluate various features 
 * `scaleFillHue, scaleFillGrey, scaleColorGradient` : [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
 
 
+<a id="time-series"></a>
+#### Time Series
+
+`scaleXDatetime(), scaleYDatetime(), scaleYTime(), scaleYTime()`
+
+* [scale_time.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scale_time.ipynb)
+* [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+
+
 <a id="facets"></a>
 #### Facets
 
-* `facetGrid(), facetWrap()`:
-  [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
+`facetGrid(), facetWrap()`
+
+* [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
+* [facets_free_scales.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb)
+
+
+<a id="coord-sys"></a>
+
+#### Coordinate Systems
+
+`coordCartesian(), coordFixed(), coordMap(), coordFlip()`
+
+* [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb)
+
 
 <a id="ggbunch"></a>
 #### Grouping Plots
@@ -102,6 +125,7 @@ A simple utility which you can use to arrange plots in a regular grid.
 * [ordering_examples.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ordering_examples.ipynb)
 * [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
+
 <a id="export"></a>
 
 #### Export to File
@@ -119,7 +143,9 @@ The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or 
 
 <a id="theme"></a>
 
-#### Theme
+#### Themes
+
+`themeGrey(), themeLight(), themeClassic(), themeMinimal()` and `themeMinimal2()` (used by default).
 
 * [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
 * [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
