@@ -97,7 +97,7 @@ Try the following tutorials and examples to learn and evaluate various features 
 
 `coordCartesian(), coordFixed(), coordMap(), coordFlip()`
 
-* [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb)
+* [coord_flip.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb)
 
 
 <a id="ggbunch"></a>

@@ -260,7 +260,7 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 
   - `geomYDotplot()`
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_dotplot.ipynb).
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb).
 
 - ### Labels and Legends
 
