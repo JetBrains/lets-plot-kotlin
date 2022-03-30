@@ -9,7 +9,7 @@ import java.time.*
 import java.util.*
 
 actual object JvmStandardizing {
-    actual fun isJvm(o: Any): Boolean {
+    actual fun isDateTimeJvm(o: Any): Boolean {
         return when (o) {
             is Date -> true
             is Instant -> true
@@ -17,7 +17,14 @@ actual object JvmStandardizing {
             is LocalDate -> true
             is LocalTime -> true
             is LocalDateTime -> true
-            is java.awt.Color -> true
+            else -> false
+        }
+    }
+
+    actual fun isJvm(o: Any): Boolean {
+        return when {
+            isDateTimeJvm(o) -> true
+            o is java.awt.Color -> true
             else -> false
         }
     }

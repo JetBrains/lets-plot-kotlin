@@ -7,9 +7,12 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
+import jetbrains.letsPlot.coordFixed
 import jetbrains.letsPlot.facet.facetGrid
 import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.label.ggtitle
 import jetbrains.letsPlot.letsPlot
+import jetbrains.letsPlot.themeGrey
 import java.awt.Dimension
 
 object FacetGrid {
@@ -26,13 +29,15 @@ object FacetGrid {
                 x = "engine horsepower"
                 y = "miles per gallon"
                 color = "origin of car"
-            }
+            } + themeGrey()
 
             // cols
             (p + facetGrid(
                 x = "number of cylinders",
                 xFormat = "{d} cyl"
-            )).show()
+            ) + coordFixed(
+                ylim = (-50 to 150)
+            ) + ggtitle("With fixed coord system", subtitle = "ylim = (-50 to 150)")).show()
 
             // rows
             (p + facetGrid(

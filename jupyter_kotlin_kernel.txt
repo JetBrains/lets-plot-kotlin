@@ -15,7 +15,13 @@ Github: https://github.com/Kotlin/kotlin-jupyter
 If built successfully it will install the kernel to: ~/.ipython/kernels/kotlin
 Normally the kernel is installed to conda env.
 
---------
+
+Library descriptors location
+-----------------------------
+Lets-Plot library descriptors are files:
+- lets-plot.json
+- lets-plot-gt.json
+
 After installing kotlin kernel the "bundled" library descriptors are located in
 
 a) After installing via "pip install":
@@ -30,12 +36,10 @@ Note:   If the %useLatestDescriptors "line magic" is included in Jupyter noteboo
         ~/.jupyter_kotlin/cache/
          
 
---------
+About library descriptors (lets-plot.json, lets-plot-gt.json)
+------------------------------------------------------------
 
-Lets-Plot descriptor:
-lets-plot.json (and lets-plot-gt.json)
-
- - edit descriptor: to conduct local experiments.
+ - edit descriptor: to conduct local experiments (see more info below).
  - remove descriptor: force the kernel to pull current published version of descriptor from 'master' at https://github.com/Kotlin/kotlin-jupyter.
 
 
@@ -68,7 +72,14 @@ It will publish "lets-plot-kotlin-api-kernel-<version>" artifact to the "<projec
             "file://<path to the project root>/.maven-publish-dev-repo"
           ],
 
-    - configure the artifact version.
+    - configure the artifact (i.e. "api") version, for example:
+          "properties": {
+            "api": "3.1.2-alpha2",
+            "lib": "2.3.0-rc2",
+            "js": "2.3.0rc2",
+            "isolatedFrame": ""
+          },
+
 
 Note:   when editing descriptor in "~/.jupyter_kotlin/cache" always check that you are using the latest descriptor.
         The kernel can download a newer descriptor at any moment.

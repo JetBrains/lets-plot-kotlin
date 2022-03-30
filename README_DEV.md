@@ -191,4 +191,4 @@ LetsPlot.frontendContext = MyNotebookContext()
 ### License
 
 Code and documentation released under the [MIT license](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LICENSE).
-Copyright © 2019-2021, JetBrains s.r.o.
+Copyright © 2019-2022, JetBrains s.r.o.

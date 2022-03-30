@@ -21,14 +21,14 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Divide the plane into a grid and color the bins by the count of cases in them.
  *
- * @param data dictionary or pandas DataFrame, optional.
+ * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat string, default: "bin".
  *     The statistical transformation to use on the data for this layer.
- * @param position string, optional.
- *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
- *     position adjustment function.
+ * @param position
+ *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
+ * 
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param bins pair of numbers, default: (30,30)

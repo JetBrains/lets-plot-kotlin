@@ -119,6 +119,19 @@ class TooltipOptions(variables: List<String>?) {
     }
 
     /**
+     * Specifies the string template to use as a title in the multi-line tooltip.
+     *
+     * @param template A line template to add the tooltip title.
+     *     The specification rules are the same as for the `lines()` function:
+     *     variables and aesthetics can be used in the template.
+     *     The resulting string will be at the beginning of the general tooltip, centered and highlighted in bold.
+     *     A long title can be split into multiple lines using `\n` as a text separator.
+     */
+    fun title(template: String): TooltipOptions {
+        return setOption(TOOLTIP_TITLE, template)
+    }
+
+    /**
      * Specifies a fixed position for the general tooltip.
      *
      * @param position Position of the plot to move the general tooltip:
@@ -144,8 +157,10 @@ class TooltipOptions(variables: List<String>?) {
      *
      * @param value The color for the general tooltip.
      */
+    @Deprecated("No longer supported.")
     fun color(value: String): TooltipOptions {
-        return setOption(TOOLTIP_COLOR, value)
+//        return setOption(TOOLTIP_COLOR, value)
+        return this
     }
 
     /**
@@ -164,8 +179,9 @@ class TooltipOptions(variables: List<String>?) {
         private const val FORMAT = Option.TooltipFormat.FORMAT
 
         private const val TOOLTIP_LINES = Option.Layer.TOOLTIP_LINES
+        private const val TOOLTIP_TITLE = Option.Layer.TOOLTIP_TITLE
         private const val TOOLTIP_MIN_WIDTH = Option.Layer.TOOLTIP_MIN_WIDTH
-        private const val TOOLTIP_COLOR = Option.Layer.TOOLTIP_COLOR
+//        private const val TOOLTIP_COLOR = Option.Layer.TOOLTIP_COLOR
 
         private const val NO_TOOLTIPS = Option.Layer.NONE
     }

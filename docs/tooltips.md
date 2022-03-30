@@ -1,21 +1,21 @@
 # Tooltip Customization
 
 - [Tooltip `variables` parameter](#variables)
-  - [Examples](#example-variables)
+    - [Examples](#example-variables)
 - [Formatting tooltip fields](#formatting)
-- [Customizing tooltip lines](#lines)
-  - [Labels configuration](#labels-configuration)
+- [Tooltip lines](#lines)
+    - [Labels configuration](#labels-configuration)
+- [Tooltip title](#tooltip-title)
 - [Tooltip anchor](#tooltip-anchor)
-- [Minimum width of a general tooltip](#minwidth)
-- [Tooltip color](#color)
+- [Minimum width of general tooltip](#minwidth)
 - [Examples](#examples)
-- [Outlier tooltips configuration](#outliers)
-  - [Examples](#example-outliers)
+- [Side tooltips configuration](#outliers)
+    - [Examples](#example-outliers)
 - [Hiding tooltips](#hiding-tooltips)
 - [Example Notebooks](#example-notebooks)
 
 ------
-You can customize the content of tooltips for the layer by using the parameter `tooltips` of `geom` functions.
+You can customize the content of tooltips for the layer by using the parameter `tooltips` of `geomXxx()` functions.
 
 The following functions set lines, define formatting of the tooltip, its location and width:
 
@@ -68,19 +68,19 @@ the corresponding value specified in the `line` template.
 - `field` (string): The name of the variable/aesthetics. The field name begins with `^` for aesthetics. You can specify
   variable names without a prefix, but the `@` prefix can be also used. It's possible to set a format for all positional
   aesthetics: `^X` (all positional x) and `^Y` (all positional y). For example:
-  - `field = "^Y"` - for all positional y;
-  - `field = "^y"` - for y aesthetic;
-  - `field = "y"` - for variable with the name "y".
+    - `field = "^Y"` - for all positional y;
+    - `field = "^y"` - for y aesthetic;
+    - `field = "y"` - for variable with the name "y".
 
 - `format` (string): The format to apply to the field. The format contains a number format (`'1.f'`) or a string
   template (`'{.1f}'`). The numeric format for non-numeric value will be ignored. The string template contains
   “replacement fields” surrounded by curly braces `{}`. Any code that is not in the braces is considered literal text,
   and it will be copied unchanged to the result string. If you need to include a brace character into the literal text,
   it can be escaped by doubling: {{ and }}. For example:
-  - `.format("^color", ".1f")` -> `"17.0"`;
-  - `.format("cty", "{.2f} (mpg)"))` -> `"17.00 (mpg)"`;
-  - `.format("^color", "{{{.2f}}}")` -> `"{17.00}"`;
-  - `.format("model", "{} {{text}}")` -> `"mustang {text}"`.
+    - `.format("^color", ".1f")` -> `"17.0"`;
+    - `.format("cty", "{.2f} (mpg)"))` -> `"17.00 (mpg)"`;
+    - `.format("^color", "{{{.2f}}}")` -> `"{17.00}"`;
+    - `.format("model", "{} {{text}}")` -> `"mustang {text}"`.
 
 The string template in the `format` parameter will allow changing lines for the default tooltip without `line`
 specifying.
@@ -125,6 +125,16 @@ do not specify a label, the string will be centered in the tooltip. For example:
 - `line("@|^color")`: default label is used, value is right-aligned;
 - `line("my label|^color")`: label is specified, value is right-aligned.
 
+<a id="tooltip-title"></a>
+
+### Tooltip title: `layer_tooltips().title(text)`
+
+Adds a title template to the tooltip.
+
+The specification rules are the same as for the `lines()` function.
+
+A long title can be split into multiple lines using \n as a text separator.
+
 <a id="tooltip-anchor"></a>
 
 ### Tooltip anchor: `layerTooltips().anchor(position)`
@@ -145,15 +155,9 @@ The `anchor()` function accepts the following values:
 
 <a id="minwidth"></a>
 
-### Minimum width of a general tooltip: `layerTooltips().minWidth(value)`
+### Minimum width of general tooltip: `layerTooltips().minWidth(value)`
 
-Specifies a minimum width of a general tooltip in pixels.
-
-<a id="Color"></a>
-
-### Tooltip color: `layerTooltips().color(value)`
-
-Specifies a color of a general tooltip.
+Specifies minimum width of a general tooltip in pixels.
 
 <a id="examples"></a>
 
@@ -227,14 +231,17 @@ letsPlot(iris) + theme().legendPositionNone() +
 
 <a id="outliers"></a>
 
-## Outlier tooltips configuration
+## Side tooltips configuration
 
-The default an outlier's tooltip contains a string like `'name: value'`: there is no label and no alignment. It's
-possible to change formatting of it with the `format` function. The number format (`'1.f'` ) leaves the string as
-is (`'name: value'`) and formats the value. The string template replaces the default string:
-`‘{.1f}` - with `'value'`, `‘format text {.1f}’` - with `“format text value”`.
+In Lets-Plot certain aesthetics by default are represented by so-called "side tooltip" - a small tipped box containing
+just a single numeric value.
 
-The specified `line` for an outlier will move it to a general multi-line tooltip.
+You can override these defaults using the `line()` function. Configuring a "line" in a general multi-line tooltip
+disables  
+side tooltip for the correspondent aesthetic.
+
+Formatting in side tooltip is configured with the help of the `format()` function: the same way it's done for lines in
+general tooltip.
 
 <a id="example-outliers"></a>
 
@@ -242,7 +249,7 @@ The specified `line` for an outlier will move it to a general multi-line tooltip
 
 `val p = letsPlot(mpg) { x = "class"; y = "hwy" } + theme().legendPositionNone()`
 
-Change formatting for outliers:
+Change formatting for side tooltips:
 
 ```
 p + geomBoxplot(tooltips = layerTooltips()
@@ -254,7 +261,7 @@ p + geomBoxplot(tooltips = layerTooltips()
 
 ![](examples/images/tooltips_3.png)
 
-Move outliers to a general tooltip:
+Move aesthetics from side tooltips to general tooltip:
 
 ```
 p + geomBoxplot(tooltips=layerTooltips()
@@ -291,9 +298,5 @@ Set `tooltips = tooltipsNone` to hide tooltips from the layer.
 
 ## Example Notebooks
 
-* [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
-* Visualization of Airport Data on
-  Map: <a href="https://www.kaggle.com/alshan/visualization-of-airport-data-on-map" title="View at Kaggle">
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/examples/images/logo_kaggle.svg" width="20" height="20">
-  </a>
-  <br>
+* [Tooltip title](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_title.ipynb)
+* [Tooltip customization](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)

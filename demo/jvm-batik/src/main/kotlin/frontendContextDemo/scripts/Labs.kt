@@ -18,7 +18,7 @@ import kotlin.math.sin
 object Labs {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("labs(title=\" Sine function\", x=\"Sine argument (ms)\", y=\"Sine value (mm)\")") {
+        ScriptInBatikContext.eval("labs(title=\"Sine function\", x=\"Sine argument (ms)\", y=\"Sine value (mm)\")") {
             val dat = mapOf<String, Any>(
                 "x" to (0..100).map { it * 2 * PI / 100 },
                 "y" to (0..100).map { sin(it * 2 * PI / 100) }
@@ -40,6 +40,36 @@ object Labs {
                 val p = letsPlot(dat) +
                         geomPoint { x = "x"; y = "y" } +
                         xlab("Sine argument (ms)") + ylab("Sine value (mm)")
+                p.show()
+            }
+
+            // Add subtitle and caption
+            run {
+                val p = letsPlot(dat) +
+                        geomPoint { x = "x"; y = "y"; color = "y" } +
+                        labs(
+                            title = "Sine function",
+                            subtitle = "With specified labels: plot title/subtitle/caption, axis and legend",
+                            caption = "Using the labs() function",
+                            x = "Sine argument (ms)",
+                            y = "Sine value (mm)",
+                            color = "Sine value (mm)"
+                        )
+                p.show()
+            }
+
+            // Use multiple lines
+            run {
+                val p = letsPlot(dat) +
+                        geomPoint { x = "x"; y = "y"; color = "y" } +
+                        labs(
+                            title = "The plot title:\nSine function",
+                            subtitle = "With specified labels:\nplot title/subtitle/caption, axis and legend",
+                            caption = "Using\nthe labs() function",
+                            x = "Sine argument (ms)",
+                            y = "Sine value (mm)",
+                            color = "Sine value\n(mm)"
+                        )
                 p.show()
             }
         }

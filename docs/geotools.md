@@ -124,7 +124,7 @@ the `lets-plot-gt` magic to avoid possible compatibility issues.
 #### Example notebooks
 
 * The world map with *Lets-Plot* and *GeoTools*: 
-[geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks-dev/geotools_naturalearth.ipynb)
+[geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
 
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/naturalearth_world.png" alt="Couldn't load naturalearth_world.png" width="480" height="339"><br><br>
 

@@ -19,7 +19,7 @@ object Tooltips {
     @JvmStatic
     @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
-        ScriptInJfxContext.eval("Tooltip Customization") {
+        ScriptInJfxContext.eval("Tooltip Customization", maxCol = 4) {
             val data = mapOf<String, Any>(
                 "supp" to listOf("OJ", "OJ", "OJ", "VC", "VC", "VC"),
                 "dose" to listOf(0.5, 1.0, 1.5, 0.5, 1.0, 1.5),
@@ -44,7 +44,7 @@ object Tooltips {
                     .format("@min", ".1f")
                     .format("@max", ".1f")
                     .format("@supp", "supplement is {}")
-                    .line("@supp")
+                    .title("@supp")
                     .line("@|@len")
                     .line("min/max|@min/@max")
 
@@ -108,21 +108,31 @@ object Tooltips {
                         .line("min/max|^ymin/^ymax")
                         .line("lower/upper|^lower/^upper")
                         .line("@|^middle")
-                        .color("red")
+                )).show()
+
+                // Use '\n' in tooltip lines
+                (plot + geomBoxplot(
+                    tooltips = layerTooltips()
+                        .format("^Y", ".0f")
+                        .format("^middle", ".2f")
+                        .line("min\nmax|^ymin\n^ymax")
+                        .line("@|^middle")
+                        .line("lower\nupper|^lower\n^upper")
+
                 )).show()
             }
 
-            // Anchor + Color
+            // Anchor + multi-line title
             run {
                 val mpgData = AutoMpg.map()
                 val plot = ggplot(mpgData) +
                         theme().legendPositionNone() +
                         geomPoint(
                             tooltips = layerTooltips()
-                                .line("^color (mpg)")
-                                .line("@{vehicle name} (@{model year})")
+                                .line("@|^color (mpg)")
+                                .line("@|@{origin of car}")
+                                .title("@{vehicle name}\n(@{model year})")
                                 .format(field = "model year", format = "19{d}")
-                                .color("black")
                                 .minWidth(240)
                                 .anchor("top_left")
                         ) {

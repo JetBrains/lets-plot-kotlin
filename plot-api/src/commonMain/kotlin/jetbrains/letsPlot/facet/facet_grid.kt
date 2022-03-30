@@ -17,6 +17,9 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  *
  * @param x Variable name which defines columns of the facet grid.
  * @param y Variable name which defines rows of the facet grid.
+ * @param scales Specifies whether scales are shared across all facets.
+ *      "fixed" - shared (the default), "free" - vary across both rows and columns,
+ *      "free_x" or "free_y" - vary across rows or columns respectively.
  * @param xOrder Specifies ordering direction of columns: 1 - ascending, -1 - descending
  * @param yOrder Specifies ordering direction of rows: 1 - ascending, -1 - descending
  * @param xFormat Specifies the format pattern for displaying faceting values in columns.
@@ -36,6 +39,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
 fun facetGrid(
     x: String? = null,
     y: String? = null,
+    scales: String? = null,
     xOrder: Int = 1,
     yOrder: Int = 1,
     xFormat: String? = null,
@@ -47,6 +51,7 @@ fun facetGrid(
         mapOf(
             Option.Facet.X to x,
             Option.Facet.Y to y,
+            Option.Facet.SCALES to scales,
             Option.Facet.X_ORDER to xOrder,
             Option.Facet.Y_ORDER to yOrder,
             Option.Facet.X_FORMAT to xFormat,

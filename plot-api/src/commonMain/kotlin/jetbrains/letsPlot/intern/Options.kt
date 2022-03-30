@@ -17,20 +17,6 @@ class Options(map: Map<String, Any?>) {
 
     val map: Map<String, Any> = MapStandardizing.standardize(map)
 
-//    init {
-//        val tmp = mutableMapOf<String, Any>()
-//        for ((k, v) in map) {
-//            if (v != null) {
-//                if (SeriesStandardizing.isListy(v)) {
-//                    tmp[k] = SeriesStandardizing.toList(v, k)
-//                } else {
-//                    tmp[k] = v
-//                }
-//            }
-//        }
-//        this.map = tmp
-//    }
-
     operator fun plus(other: Options) = union(other)
 
     fun has(k: String): Boolean {

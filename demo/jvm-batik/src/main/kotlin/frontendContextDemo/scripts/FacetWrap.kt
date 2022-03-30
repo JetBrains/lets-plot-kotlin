@@ -10,6 +10,7 @@ import frontendContextDemo.ScriptInBatikContext
 import jetbrains.letsPlot.facet.facetWrap
 import jetbrains.letsPlot.geom.geomPoint
 import jetbrains.letsPlot.letsPlot
+import jetbrains.letsPlot.themeGrey
 import java.awt.Dimension
 
 object FacetWrap {
@@ -26,7 +27,7 @@ object FacetWrap {
                 x = "engine horsepower"
                 y = "miles per gallon"
                 color = "origin of car"
-            }
+            } + themeGrey()
 
             // one facet
             (p + facetWrap(

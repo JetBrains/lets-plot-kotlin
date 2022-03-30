@@ -19,8 +19,4 @@ interface BinStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
         "center" to center,
         "boundary" to boundary
     )
-
-    companion object {
-        const val DEF_BIN_COUNT = 30
-    }
 }

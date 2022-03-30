@@ -8,6 +8,9 @@ package jetbrains.letsPlot.intern
 import jetbrains.datalore.plot.base.Aes
 import jetbrains.letsPlot.Figure
 import jetbrains.letsPlot.frontend.CurrentFrontendContext
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -96,11 +99,11 @@ internal object DummyFeature : Feature() {
 abstract class Layer(
     mapping: Options,
     val data: Map<*, *>?,
-    val geom: jetbrains.letsPlot.intern.layer.GeomOptions,
+    val geom: GeomOptions,
     val stat: StatOptions,
-    val position: jetbrains.letsPlot.intern.layer.PosOptions,
+    val position: PosOptions?,
     val showLegend: Boolean,
-    val sampling: jetbrains.letsPlot.intern.layer.SamplingOptions?,
+    val sampling: SamplingOptions?,
     val tooltips: TooltipOptions?
 ) : Feature() {
 

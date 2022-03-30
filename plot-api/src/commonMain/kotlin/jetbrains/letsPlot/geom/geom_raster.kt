@@ -17,17 +17,18 @@ import jetbrains.letsPlot.intern.layer.geom.RasterMapping
  * Display rectangles defined by the center of the tile (x, y).
  *     This is a high performance special function for same-sized tiles.
  * Much faster than geomTile but doesn't support width/height and color.
- * @param data dictionary or pandas DataFrame, optional.
+ * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
- * @param stat string, optional.
- *     The statistical transformation to use on the data for this layer, as a string. Supported transformations:
+ * @param stat
+ *     The statistical transformation to use on the data for this layer. Supported transformations:
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
- *     linear default)
- * @param position string, optional.
- *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
- *     position adjustment function.
+ *     linear default).
+ *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
+ * @param position
+ *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
+ * 
  * @param x x-axis coordinates of the center of rectangles.
  * @param y coordinates of the center of rectangles.
  * @param alpha transparency level of a layer.

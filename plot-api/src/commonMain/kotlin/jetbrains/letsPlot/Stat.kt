@@ -145,6 +145,23 @@ object Stat {
     }
 
     @Suppress("ClassName")
+    class yDensity(
+        override val scale: String? = null,
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Int? = null,
+        override val trim: Boolean? = null,
+        override val adjust: Number? = null,
+        mapping: YDensityStatMapping.() -> Unit = {}
+    ) : YDensityStatParameters,
+        StatOptions(
+            StatKind.YDENSITY,
+            mapping = YDensityStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class smooth(
         override val method: String? = null,
         override val n: Int? = null,
@@ -162,6 +179,41 @@ object Stat {
         ) {
         override val parameters = this.seal()
     }
+
+
+    @Suppress("ClassName")
+    class dotplot(
+        override val bins: Int? = null,
+        override val binWidth: Number? = null,
+        override val center: Number? = null,
+        override val boundary: Number? = null,
+        override val method: String? = null,
+        mapping: DotplotStatMapping.() -> Unit = {},
+    ) : DotplotStatParameters,
+        StatOptions(
+            StatKind.DOTPLOT,
+            mapping = DotplotStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+
+    @Suppress("ClassName")
+    class yDotplot(
+        override val bins: Int? = null,
+        override val binWidth: Number? = null,
+        override val center: Number? = null,
+        override val boundary: Number? = null,
+        override val method: String? = null,
+        mapping: YDotplotStatMapping.() -> Unit = {},
+    ) : YDotplotStatParameters,
+        StatOptions(
+            StatKind.YDOTPLOT,
+            mapping = YDotplotStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
 
     // Deprecated
 

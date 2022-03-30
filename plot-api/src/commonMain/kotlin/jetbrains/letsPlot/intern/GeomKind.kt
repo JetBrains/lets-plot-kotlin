@@ -12,6 +12,10 @@ enum class GeomKind {
     SMOOTH,
     BAR,
     HISTOGRAM,
+    DOTPLOT,
+    Y_DOTPLOT {
+        override fun optionName() = "ydotplot"
+    },
     TILE,
     BIN_2D {
         override fun optionName() = "bin2d"
@@ -42,6 +46,7 @@ enum class GeomKind {
     BOX_PLOT {
         override fun optionName() = "boxplot"
     },
+    VIOLIN,
     LIVE_MAP,
     POINT,
     RIBBON,

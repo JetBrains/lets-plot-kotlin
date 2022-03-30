@@ -24,13 +24,14 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
  * @param stat string.
- *     The statistical transformation to use on the data for this layer, as a string. Supported transformations:
+ *     The statistical transformation to use on the data for this layer. Supported transformations:
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
- *     linear default)
+ *     linear default).
+ *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
  * @param position string.
- *     Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
- *     position adjustment function.
+ *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
+ * 
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param map SpatialDataset.

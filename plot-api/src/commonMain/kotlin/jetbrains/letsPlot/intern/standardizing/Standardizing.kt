@@ -5,6 +5,8 @@
 
 package jetbrains.letsPlot.intern.standardizing
 
+import jetbrains.datalore.base.datetime.Instant
+
 internal object Standardizing {
     fun standardizeValue(value: Any?): Any? {
         return when (value) {
@@ -15,7 +17,7 @@ internal object Standardizing {
             is jetbrains.datalore.base.values.Color -> value.toHexColor()
             is Map<*, *> -> MapStandardizing.standardize(value)
             is Enum<*> -> value.name
-
+            is Instant -> value.timeSinceEpoch
             else -> {
                 if (JvmStandardizing.isJvm(value)) {
                     JvmStandardizing.standardize(value)
