@@ -13,9 +13,11 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
+val publicVersion: String = "3.2.1"
 val currentYear: Int = LocalDateTime.now().getYear()
 
 tasks.dokkaHtml {
+    moduleName.set("Lets-Plot-Kotlin v$publicVersion")
     outputDirectory.set(File("$projectDir/../docs/api-reference"))
     pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "Copyright © 2019-$currentYear JetBrains s.r.o." }"""))
     dokkaSourceSets {
