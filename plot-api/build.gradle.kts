@@ -3,6 +3,8 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
+import java.time.LocalDateTime
+
 plugins {
     kotlin("multiplatform")
     java
@@ -11,9 +13,11 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
+val currentYear: Int = LocalDateTime.now().getYear()
+
 tasks.dokkaHtml {
     outputDirectory.set(File("$projectDir/../docs/api-reference"))
-    pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "Copyright © 2019-2021 JetBrains s.r.o." }"""))
+    pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "Copyright © 2019-$currentYear JetBrains s.r.o." }"""))
     dokkaSourceSets {
         configureEach {
             skipDeprecated.set(true)
