@@ -13,7 +13,7 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
-val publicVersion: String = "3.2.1"
+val publicVersion: String = "3.2.0"
 val currentYear: Int = LocalDateTime.now().getYear()
 
 tasks.dokkaHtml {
