@@ -3,7 +3,7 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package jetbrains.letsPlot
+package jetbrains.letsPlot.intern.settings
 
 internal actual object Env {
     actual fun get(name: String): String? = null

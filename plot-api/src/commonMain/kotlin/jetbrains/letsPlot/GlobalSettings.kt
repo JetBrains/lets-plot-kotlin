@@ -11,6 +11,7 @@ import jetbrains.datalore.plot.config.Option
 import jetbrains.datalore.plot.config.Option.Plot.THEME
 import jetbrains.letsPlot.intern.OptionsMap
 import jetbrains.letsPlot.intern.filterNonNullValues
+import jetbrains.letsPlot.intern.settings.Env
 
 
 // Environment variables

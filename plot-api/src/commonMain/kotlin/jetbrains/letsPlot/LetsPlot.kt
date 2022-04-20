@@ -7,6 +7,7 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.frontend.NotebookFrontendContext
 import jetbrains.letsPlot.intern.OptionsMap
+import jetbrains.letsPlot.intern.settings.createDefaultFrontendContext
 
 object LetsPlot {
     var frontendContext: FrontendContext = createDefaultFrontendContext()
