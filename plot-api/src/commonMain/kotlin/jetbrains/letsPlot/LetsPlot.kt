@@ -7,6 +7,7 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.frontend.NotebookFrontendContext
 import jetbrains.letsPlot.intern.OptionsMap
+import jetbrains.letsPlot.intern.settings.GlobalSettings
 import jetbrains.letsPlot.intern.settings.createDefaultFrontendContext
 
 object LetsPlot {
@@ -26,7 +27,7 @@ object LetsPlot {
         isolatedFrame: Boolean?,
         htmlRenderer: (String) -> Unit
     ): NotebookFrontendContext {
-        val isolatedFrameContext: Boolean = isolatedFrame ?: jetbrains.letsPlot.GlobalSettings.isolatedFrameContext
+        val isolatedFrameContext: Boolean = isolatedFrame ?: GlobalSettings.isolatedFrameContext
         frontendContext = NotebookFrontendContext(jsVersion, isolatedFrameContext, htmlRenderer)
         return frontendContext as NotebookFrontendContext
     }

@@ -3,15 +3,12 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package jetbrains.letsPlot
+package jetbrains.letsPlot.intern.settings
 
-import jetbrains.datalore.base.json.JsonSupport
 import jetbrains.datalore.base.json.JsonSupport.parseJson
-import jetbrains.datalore.plot.config.Option
 import jetbrains.datalore.plot.config.Option.Plot.THEME
 import jetbrains.letsPlot.intern.OptionsMap
 import jetbrains.letsPlot.intern.filterNonNullValues
-import jetbrains.letsPlot.intern.settings.Env
 
 
 // Environment variables
