@@ -32,6 +32,7 @@ val kotlinLogging_version: String by project
 
 @Suppress("PropertyName")
 val lets_plot_version: String by project
+val datetime_version: String by project
 
 kotlin {
     jvm()
@@ -43,6 +44,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation("io.github.microutils:kotlin-logging:$kotlinLogging_version")
+                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime:$datetime_version")
 
                 api("org.jetbrains.lets-plot:base-portable:$lets_plot_version")
                 api("org.jetbrains.lets-plot:plot-base-portable:$lets_plot_version")
@@ -54,6 +56,7 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$datetime_version")
             }
         }
         val jvmMain by getting {

@@ -17,7 +17,10 @@ actual object JvmStandardizing {
             is LocalDate -> true
             is LocalTime -> true
             is LocalDateTime -> true
-            else -> false
+            else -> when {
+                isKotlinxDateTime(o) -> true
+                else -> false
+            }
         }
     }
 
@@ -38,13 +41,27 @@ actual object JvmStandardizing {
             is LocalTime -> noTimeZoneError(o)
             is LocalDateTime -> noTimeZoneError(o)
             is java.awt.Color -> "#%02x%02x%02x".format(o.red, o.green, o.blue)
-            else -> throw IllegalArgumentException("Can't standardize value \"$o\" of type ${o::class.qualifiedName} as string or number.")
+            else -> when {
+                isKotlinxDateTime(o) -> when (o) {
+                    is kotlinx.datetime.Instant -> o.toEpochMilliseconds()
+                    is kotlinx.datetime.LocalDate -> noTimeZoneError(o)
+                    is kotlinx.datetime.LocalDateTime -> noTimeZoneError(o)
+                    else -> unsupportedTypeError(o)
+                }
+                else -> unsupportedTypeError(o)
+            }
         }
     }
+
+    private fun isKotlinxDateTime(o: Any) = o.javaClass.name.startsWith("kotlinx.datetime.")
 
     private fun noTimeZoneError(time: Any): Nothing {
         throw IllegalArgumentException(
             "Can't convert ${time::class.qualifiedName} to the number of milliseconds from the epoch of 1970-01-01T00:00:00Z."
         )
+    }
+
+    private fun unsupportedTypeError(o: Any) {
+        throw IllegalArgumentException("Can't standardize value \"$o\" of type ${o::class.qualifiedName} as string or number.")
     }
 }
