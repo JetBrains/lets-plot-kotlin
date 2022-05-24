@@ -38,7 +38,7 @@ class SeriesAnnotationTest {
     }
 
     @Test
-    fun `date-time series - use different types of series`() {
+    fun `date-time series - different types of series`() {
         val instant = TimeZone.UTC.toInstant(DateTime(Date(1, Month.FEBRUARY, 2003)))
 
         run {
@@ -56,8 +56,14 @@ class SeriesAnnotationTest {
     }
 
     @Test
-    fun `date-time series - use Java instant`() {
+    fun `date-time series - java_time_Instant`() {
         val instant = Instant.parse("2021-01-01T00:00:00Z")
+        checkDataSeries(values = listOf(instant), isDateTime = true)
+    }
+
+    @Test
+    fun `date-time series - kotlinx_datetime_Instant`() {
+        val instant = kotlinx.datetime.Instant.parse("2021-01-01T00:00:00Z")
         checkDataSeries(values = listOf(instant), isDateTime = true)
     }
 

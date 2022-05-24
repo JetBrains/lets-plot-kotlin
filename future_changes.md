@@ -2,6 +2,7 @@
 
 ### Added
 - Global theme configuring with `LetsPlot.theme` property.
+- `kotlinx.datetime` support.
 
 
 ### Changed
