@@ -52,9 +52,6 @@ typealias geom_histogram = geomHistogram
 @Deprecated("", ReplaceWith("geomHLine"))
 typealias geom_hline = geomHLine
 
-@Deprecated("", ReplaceWith("geomImage"))
-typealias geom_image = geomImage
-
 @Deprecated("", ReplaceWith("geomJitter"))
 typealias geom_jitter = geomJitter
 
