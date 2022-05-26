@@ -6,6 +6,7 @@
 
 
 ### Changed
+- `geomImage()` removed as it is not yet production ready.
 
 
 ### Fixed
