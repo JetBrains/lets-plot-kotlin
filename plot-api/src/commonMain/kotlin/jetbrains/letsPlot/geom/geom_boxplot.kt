@@ -33,9 +33,12 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     smoothing - linear default)
  * @param position string, optional
  *     Position adjustment, either as a string ("identity", "stack", "dodge",...), or the result of a call to a
- * 
+ *     position adjustment function.
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
+ * @param orientation  string, optional
+ *     Specifies the axis that the layer' stat and geom should run along.
+ *     Possible values: 'x' (default), 'y'.
  * @param outlierColor
  * @param outlierFill
  * @param outlierShape
@@ -72,6 +75,7 @@ class geomBoxplot(
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    orientation: String? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val lower: Double? = null,
@@ -109,7 +113,8 @@ class geomBoxplot(
         position = position,
         showLegend = showLegend,
         sampling = sampling,
-        tooltips = tooltips
+        tooltips = tooltips,
+        orientation = orientation
     ) {
     override fun seal(): Options {
         return super<BoxplotAesthetics>.seal() +

@@ -27,11 +27,13 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     The statistical transformation to use on the data for this layer.
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
  * @param showLegend Boolean, optional, default=True.
  *      False - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
+ * @param orientation  string, optional
+ *     Specifies the axis that the layer' stat and geom should run along.
+ *     Possible values: 'x' (default), 'y'.
  * @param drawQuantiles list of float, optional.
  *     Draw horizontal lines at the given quantiles of the density estimate.
  * @param x x-axis coordinates.
@@ -64,6 +66,7 @@ class geomViolin(
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    orientation: String? = null,
     private val drawQuantiles: Any? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -93,7 +96,8 @@ class geomViolin(
         position = position,
         showLegend = showLegend,
         sampling = sampling,
-        tooltips = tooltips
+        tooltips = tooltips,
+        orientation = orientation
     ) {
 
     override fun seal() = super<ViolinAesthetics>.seal() +
