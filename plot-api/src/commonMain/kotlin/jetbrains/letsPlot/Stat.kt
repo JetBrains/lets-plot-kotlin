@@ -214,6 +214,52 @@ object Stat {
         override val parameters = this.seal()
     }
 
+    @Suppress("ClassName")
+    class qq(
+        override val distribution: String? = null,
+        override val dParams: List<Number>? = null,
+        mapping: QQStatMapping.() -> Unit = {}
+    ) : QQStatParameters,
+        StatOptions(
+            StatKind.QQ,
+            mapping = QQStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class qqLine(
+        override val distribution: String? = null,
+        override val dParams: List<Number>? = null,
+        override val quantiles: Pair<Number, Number>? = null,
+        mapping: QQStatMapping.() -> Unit = {}
+    ) : QQLineStatParameters,
+        StatOptions(
+            StatKind.QQ_LINE,
+            mapping = QQStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class qq2(
+        mapping: QQ2StatMapping.() -> Unit = {}
+    ) : StatOptions(
+            StatKind.QQ2,
+            mapping = QQ2StatMapping().apply(mapping).seal()
+        )
+
+    @Suppress("ClassName")
+    class qq2Line(
+        override val quantiles: Pair<Number, Number>? = null,
+        mapping: QQ2StatMapping.() -> Unit = {}
+    ) : QQ2LineStatParameters,
+        StatOptions(
+            StatKind.QQ2_LINE,
+            mapping = QQ2StatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 
     // Deprecated
 
