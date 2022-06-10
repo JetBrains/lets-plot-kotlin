@@ -11,6 +11,7 @@ import jetbrains.letsPlot.intern.toSpec
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 import java.awt.Color
+import kotlin.test.assertNull
 
 class ThemeTest {
 
@@ -124,6 +125,20 @@ class ThemeTest {
                 "axis_line_y" to mapOf("color" to "#0000ff", "blank" to false),
             ),
             spec[Option.Plot.THEME]
+        )
+    }
+
+    @Test
+    fun `global theme`() {
+        LetsPlot.theme = themeGrey()
+        assertEquals(
+            mapOf("name" to "grey"),
+            ggplot().toSpec()[Option.Plot.THEME]
+        )
+
+        LetsPlot.theme = null
+        assertNull(
+            ggplot().toSpec()[Option.Plot.THEME]
         )
     }
 }

@@ -40,5 +40,4 @@ class DefaultSwingJfxFrontendContext private constructor() : FrontendContext {
             }
         }
     }
-
 }
