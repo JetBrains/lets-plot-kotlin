@@ -11,8 +11,8 @@ import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
-import jetbrains.letsPlot.intern.layer.geom.PathMapping
+import jetbrains.letsPlot.intern.layer.geom.QQLineAesthetics
+import jetbrains.letsPlot.intern.layer.geom.QQLineMapping
 import jetbrains.letsPlot.intern.layer.stat.QQLineStatParameters
 import jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
 import jetbrains.letsPlot.tooltips.TooltipOptions
@@ -70,24 +70,20 @@ class geomQQLine(
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
-    override val x: Double? = null,
-    override val y: Double? = null,
+    override val sample: Double? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
-    override val speed: Double? = null,
-    override val flow: Double? = null,
-    override val sample: Double? = null,
     override val distribution: String? = null,
     override val dParams: List<Number>? = null,
     override val quantiles: Pair<Number, Number>? = null,
-    mapping: PathMapping.() -> Unit = {}
-) : PathAesthetics,
+    mapping: QQLineMapping.() -> Unit = {}
+) : QQLineAesthetics,
     QQStatAesthetics,
     QQLineStatParameters,
     jetbrains.letsPlot.intern.layer.LayerBase(
-        mapping = PathMapping().apply(mapping).seal(),
+        mapping = QQLineMapping().apply(mapping).seal(),
         data = data,
         geom = GeomOptions(GeomKind.Q_Q_LINE),
         stat = stat,
@@ -98,7 +94,7 @@ class geomQQLine(
     ) {
 
     override fun seal(): Options {
-        return super<PathAesthetics>.seal() +
+        return super<QQLineAesthetics>.seal() +
                 super<QQStatAesthetics>.seal() +
                 super<QQLineStatParameters>.seal()
     }

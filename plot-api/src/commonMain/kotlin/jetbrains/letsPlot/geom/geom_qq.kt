@@ -11,8 +11,8 @@ import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.geom.PointAesthetics
-import jetbrains.letsPlot.intern.layer.geom.PointMapping
+import jetbrains.letsPlot.intern.layer.geom.QQAesthetics
+import jetbrains.letsPlot.intern.layer.geom.QQMapping
 import jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
 import jetbrains.letsPlot.intern.layer.stat.QQStatParameters
 import jetbrains.letsPlot.tooltips.TooltipOptions
@@ -69,23 +69,20 @@ class geomQQ(
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
-    override val x: Double? = null,
-    override val y: Double? = null,
+    override val sample: Double? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
     override val shape: Any? = null,
     override val size: Number? = null,
-    override val stroke: Number? = null,
-    override val sample: Double? = null,
     override val distribution: String? = null,
     override val dParams: List<Number>? = null,
-    mapping: PointMapping.() -> Unit = {}
-) : PointAesthetics,
+    mapping: QQMapping.() -> Unit = {}
+) : QQAesthetics,
     QQStatAesthetics,
     QQStatParameters,
     jetbrains.letsPlot.intern.layer.LayerBase(
-        mapping = PointMapping().apply(mapping).seal(),
+        mapping = QQMapping().apply(mapping).seal(),
         data = data,
         geom = GeomOptions(GeomKind.Q_Q),
         stat = stat,
@@ -96,7 +93,7 @@ class geomQQ(
     ) {
 
     override fun seal(): Options {
-        return super<PointAesthetics>.seal() +
+        return super<QQAesthetics>.seal() +
                 super<QQStatAesthetics>.seal() +
                 super<QQStatParameters>.seal()
     }
