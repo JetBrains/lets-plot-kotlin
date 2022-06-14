@@ -5,9 +5,11 @@
 
 package jetbrains.letsPlot.geom
 
+import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.Geom.segment
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.SegmentAesthetics
 import jetbrains.letsPlot.intern.layer.geom.SegmentMapping
@@ -27,9 +29,10 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
+ * @param arrow Specification for arrow head, as created by `arrow()` function.
+ *
  * @param x x-axis value.
  * @param y y-axis value.
  * @param xend x-axis value.
@@ -57,6 +60,7 @@ class geomSegment(
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    private val arrow: Map<String, Any>? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val xend: Double? = null,
@@ -79,4 +83,8 @@ class geomSegment(
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips
-    )
+    ) {
+    override fun seal(): Options {
+        return super.seal() + Options.of(Option.Geom.Segment.ARROW to arrow)
+    }
+}
