@@ -7,7 +7,6 @@ import java.time.LocalDateTime
 
 plugins {
     kotlin("multiplatform")
-    java
     `maven-publish`
     signing
     id("org.jetbrains.dokka")
@@ -61,8 +60,6 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
-//                implementation(kotlin("reflect"))
-
                 api("org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version")
 
                 compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_version")
@@ -84,20 +81,12 @@ val jarJavaDocs by tasks.creating(Jar::class) {
     from("$rootDir/README.md")
 }
 
-java {
-    withSourcesJar()
-}
-
 afterEvaluate {
     publishing {
         publications {
             // Build artifact "lets-plot-kotlin-kernel" with no dependencies in POM.
             create<MavenPublication>("letsPlotKotlinKernel") {
                 artifactId = "$artifactBaseName-kernel"
-
-                // For unknown reason this doesn't work:
-                // the deployed JAR doesn't contain classes.
-//                from(components["java"])
 
                 val jvmJar: Task by tasks
                 val jvmSourcesJar: Task by tasks

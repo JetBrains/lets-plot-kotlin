@@ -35,8 +35,6 @@ fun gggrid(
 ): GGBunch {
     val bunch = GGBunch()
     for ((i, p) in plots.withIndex()) {
-        val figureSize = preferredFigureSize(p.toSpec(), cellWidth, cellHeight)
-
         val col = i % ncol
         val row = i / ncol
         val x = col * (cellWidth + hGap)
@@ -44,6 +42,7 @@ fun gggrid(
         if (fit) {
             bunch.addPlot(p, x, y, cellWidth, cellHeight)
         } else {
+            val figureSize = preferredFigureSize(p.toSpec(), cellWidth, cellHeight)
             bunch.addPlot(p, x, y, figureSize.first, figureSize.second)
         }
     }
@@ -51,6 +50,7 @@ fun gggrid(
 }
 
 // ToDo: move to the main lib.
+// ToDo: see PlotSizeHelper.scaledFigureSize()
 private fun preferredFigureSize(figureSpec: Map<String, Any>, width: Int, height: Int): Pair<Int, Int> {
     return when {
         PlotConfig.isGGBunchSpec(figureSpec) -> {
