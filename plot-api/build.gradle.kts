@@ -43,7 +43,6 @@ kotlin {
         commonMain {
             dependencies {
                 implementation("io.github.microutils:kotlin-logging:$kotlinLogging_version")
-                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime:$datetime_version")
 
                 api("org.jetbrains.lets-plot:base-portable:$lets_plot_version")
                 api("org.jetbrains.lets-plot:plot-base-portable:$lets_plot_version")
@@ -61,6 +60,11 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 api("org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version")
+                // Use "-jvm" variant to work around the issue where LPK JS (IR) artefact becomes dependent on
+                // the "kotlinx-datetime".
+                // See also:
+                // https://youtrack.jetbrains.com/issue/KT-52812/JSIR-compiler-error-Could-not-find-orgjetbrainskotlinxkotlinx-datetime-in-USERLibraryApplication-Supportkotlindaemon
+                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime-jvm:$datetime_version")
 
                 compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_version")
                 compileOnly("org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_version")
