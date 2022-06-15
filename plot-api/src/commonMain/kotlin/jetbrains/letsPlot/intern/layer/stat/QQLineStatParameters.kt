@@ -5,6 +5,7 @@
 
 package jetbrains.letsPlot.intern.layer.stat
 
+import jetbrains.datalore.plot.config.Option.Stat
 import jetbrains.letsPlot.intern.Options
 
 interface QQLineStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
@@ -13,10 +14,8 @@ interface QQLineStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule 
     val quantiles: Pair<Number, Number>?
 
     override fun seal() = Options.of(
-        // ToDo Use from jetbrains.datalore.plot.config.Option.Stat:
-        //  Stat.QQLine.DISTRIBUTION, Stat.QQLine.DISTRIBUTION_PARAMETERS, Stat.QQLine.LINE_QUANTILES
-        "distribution" to distribution,
-        "dparams" to dParams,
-        "quantiles" to quantiles
+        Stat.QQLine.DISTRIBUTION to distribution,
+        Stat.QQLine.DISTRIBUTION_PARAMETERS to dParams,
+        Stat.QQLine.LINE_QUANTILES to quantiles
     )
 }

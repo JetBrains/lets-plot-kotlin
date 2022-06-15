@@ -16,10 +16,10 @@ import jetbrains.letsPlot.intern.layer.geom.PointMapping
 import jetbrains.letsPlot.intern.layer.stat.QQ2StatAesthetics
 import jetbrains.letsPlot.tooltips.TooltipOptions
 
-
 @Suppress("ClassName")
 /**
  * Display quantile-quantile plot.
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

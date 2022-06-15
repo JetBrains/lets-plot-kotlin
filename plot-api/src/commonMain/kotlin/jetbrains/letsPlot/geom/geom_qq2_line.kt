@@ -19,7 +19,8 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Display quantile-quantile plot.
+ * Display quantile-quantile fitting line.
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
@@ -38,6 +39,8 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     False - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
+ * @param quantiles pair of numbers, default=[0.25, 0.75]
+ *     Pair of quantiles to use when fitting the Q-Q line.
  *
  * @param x x-axis value.
  * @param y y-axis value.

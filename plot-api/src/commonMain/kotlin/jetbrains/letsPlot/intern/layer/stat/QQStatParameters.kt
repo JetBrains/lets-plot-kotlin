@@ -5,6 +5,7 @@
 
 package jetbrains.letsPlot.intern.layer.stat
 
+import jetbrains.datalore.plot.config.Option.Stat
 import jetbrains.letsPlot.intern.Options
 
 interface QQStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
@@ -12,9 +13,7 @@ interface QQStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
     val dParams: List<Number>?
 
     override fun seal() = Options.of(
-        // ToDo Use from jetbrains.datalore.plot.config.Option.Stat:
-        //  Stat.QQ.DISTRIBUTION, Stat.QQ.DISTRIBUTION_PARAMETERS
-        "distribution" to distribution,
-        "dparams" to dParams
+        Stat.QQ.DISTRIBUTION to distribution,
+        Stat.QQ.DISTRIBUTION_PARAMETERS to dParams
     )
 }

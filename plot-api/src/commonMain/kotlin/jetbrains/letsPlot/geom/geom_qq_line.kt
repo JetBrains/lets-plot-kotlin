@@ -17,10 +17,10 @@ import jetbrains.letsPlot.intern.layer.stat.QQLineStatParameters
 import jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
 import jetbrains.letsPlot.tooltips.TooltipOptions
 
-
 @Suppress("ClassName")
 /**
- * Display quantile-quantile plot.
+ * Display quantile-quantile fitting line.
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
@@ -49,7 +49,8 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     If `distribution` is `"gamma"` then `dParams` is a pair [alpha, beta] (=[1.0, 1.0] by default).
  *     If `distribution` is `"exp"` then `dParams` is a float number [lambda] (=[1.0] by default).
  *     If `distribution` is `"chi2"` then `dParams` is an integer number [k] (=[1] by default).
- *
+ * @param quantiles pair of numbers, default=[0.25, 0.75]
+ *     Pair of quantiles to use when fitting the Q-Q line.
  * @param sample y-axis value.
  * @param alpha transparency level of the point
  *     Understands numbers between 0 and 1.
