@@ -18,7 +18,7 @@ import javax.swing.WindowConstants
 
 object BarRaw {
     private val SVG_COMPONENT_FACTORY_JFX =
-        { svg: SvgSvgElement -> SceneMapperJfxPanel(svg, listOf(Style.JFX_PLOT_STYLESHEET)) }
+        { svg: SvgSvgElement -> SceneMapperJfxPanel(svg, stylesheets = emptyList()) }
     private val EXECUTOR_JFX = { r: () -> Unit ->
         if (Platform.isFxApplicationThread()) {
             r.invoke()
