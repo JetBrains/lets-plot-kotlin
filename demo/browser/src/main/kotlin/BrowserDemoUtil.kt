@@ -25,6 +25,10 @@ object BrowserDemoUtil {
 
     private fun createTemporaryFile(): File {
         val tmpDir = File(getOutputPath())
+        if (!tmpDir.exists()) {
+            tmpDir.mkdir()
+        }
+
         val file = File.createTempFile("index", ".html", tmpDir)
         println(file.canonicalFile)
         return file

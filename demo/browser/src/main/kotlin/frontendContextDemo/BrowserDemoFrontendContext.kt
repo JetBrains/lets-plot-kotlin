@@ -9,6 +9,7 @@ import BrowserDemoUtil
 import jetbrains.datalore.plot.PlotHtmlHelper
 import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 import jetbrains.letsPlot.FrontendContext
+import jetbrains.letsPlot.export.VersionChecker
 
 class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
     private val plotSpecs = ArrayList<MutableMap<String, Any>>()
@@ -24,7 +25,7 @@ class BrowserDemoFrontendContext(private val title: String) : FrontendContext {
                 |<head>
                 |   <title>$title</title>
                 |
-                |   ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl("2.0.2"))}
+                |   ${PlotHtmlHelper.getStaticConfigureHtml(scriptUrl(VersionChecker.letsPlotJsVersion))}
                 |   
                 |</head>
                 |<body>

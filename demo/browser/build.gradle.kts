@@ -8,13 +8,20 @@ plugins {
 }
 
 // Let demo load resources from 'plot-api' module.
-sourceSets {
-    main {
-        resources {
-            srcDir("$rootDir/plot-api/src/jvmMain/resources")
-        }
-    }
+//sourceSets {
+//    main {
+//        resources {
+//            srcDir("$rootDir/plot-api/src/jvmMain/resources")
+//        }
+//    }
+//}
+
+// Copy resources from 'plot-api' module.
+val copyVersionInfo by tasks.creating(Copy::class) {
+    from("$rootDir/plot-api/src/jvmMain/resources/letsPlotKotlinAPI")
+    into("$rootDir/demo/browser/src/main/resources/letsPlotKotlinAPI")
 }
+tasks.getByPath(":browser:processResources").dependsOn.add(copyVersionInfo)
 
 dependencies {
     implementation(projects.plotApi)
