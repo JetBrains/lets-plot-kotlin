@@ -4,6 +4,7 @@
 - Global theme configuring with `LetsPlot.theme` property.
 - `kotlinx.datetime` support.
 - `arrow` parameter in `geomSegment` - specification for arrow heads, as created by `arrow()` function.
+- `scaleColorGradientN()` and `scaleFillGradientN()` functions.
 
 ### Changed
 - `geomImage()` removed as it is not yet production ready.
