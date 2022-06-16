@@ -56,6 +56,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * @param legendTitle Title of legend.
  *
  * @param panelBackground Background of plotting area.
+ * @param panelBorder Border around plotting area.
  *
  * @param panelGrid Grid lines.
  * @param panelGridMajor Grid lines.
@@ -76,6 +77,14 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * @param axisTooltip Axes tooltips.
  * @param axisTooltipX Axes tooltips.
  * @param axisTooltipY Axes tooltips.
+ *
+ * @param axisTooltipText Text in axes tooltips.
+ * @param axisTooltipTextX Text in axes tooltips.
+ * @param axisTooltipTextY Text in axes tooltips.
+ *
+ * @param tooltip General tooltip.
+ * @param tooltipText Text in general tooltip.
+ * @param tooltipTitleText Tooltip title text.
  */
 @Suppress("ClassName", "FunctionName")
 class theme(
@@ -117,6 +126,7 @@ class theme(
     legendTitle: Any? = null,
 
     panelBackground: Any? = null,
+    panelBorder: Any? = null,
 
     panelGrid: Any? = null,
     panelGridMajor: Any? = null,
@@ -136,7 +146,15 @@ class theme(
 
     axisTooltip: Any? = null,
     axisTooltipX: Any? = null,
-    axisTooltipY: Any? = null
+    axisTooltipY: Any? = null,
+
+    axisTooltipText: Any? = null,
+    axisTooltipTextX: Any? = null,
+    axisTooltipTextY: Any? = null,
+
+    tooltip: Any? = null,
+    tooltipText: Any? = null,
+    tooltipTitleText: Any? = null
 
 ) : OptionsMap(
     Option.Plot.THEME, mapOf(
@@ -175,6 +193,7 @@ class theme(
         ThemeOption.LEGEND_TITLE to legendTitle,
 
         ThemeOption.PANEL_BKGR_RECT to panelBackground,
+        ThemeOption.PANEL_BORDER_RECT to panelBorder,
 
         ThemeOption.PANEL_GRID to panelGrid,
         ThemeOption.PANEL_GRID_MAJOR to panelGridMajor,
@@ -194,7 +213,15 @@ class theme(
 
         ThemeOption.AXIS_TOOLTIP to axisTooltip,
         ThemeOption.AXIS_TOOLTIP_X to axisTooltipX,
-        ThemeOption.AXIS_TOOLTIP_Y to axisTooltipY
+        ThemeOption.AXIS_TOOLTIP_Y to axisTooltipY,
+
+        ThemeOption.AXIS_TOOLTIP_TEXT to axisTooltipText,
+        ThemeOption.AXIS_TOOLTIP_TEXT_X to axisTooltipTextX,
+        ThemeOption.AXIS_TOOLTIP_TEXT_Y to axisTooltipTextY,
+
+        ThemeOption.TOOLTIP_RECT to tooltip,
+        ThemeOption.TOOLTIP_TEXT to tooltipText,
+        ThemeOption.TOOLTIP_TITLE_TEXT to tooltipTitleText
     )
         .filterNonNullValues()
         .toMutableMap()
@@ -373,12 +400,15 @@ fun elementLine(
  * This theme element draws texts.
  *
  * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param face Font face ("plain", "italic", "bold", "bold_italic").
  * @param blank Mark as a 'blank' element.
  */
 fun elementText(
     color: Any? = null,
+    face: Any? = null,
     blank: Boolean = false,
 ) = mapOf(
     ThemeOption.Elem.COLOR to color,
+    ThemeOption.Elem.FONT_FACE to face,
     ThemeOption.Elem.BLANK to blank,
 ).filterNonNullValues()
