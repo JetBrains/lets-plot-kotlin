@@ -3,7 +3,7 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package jetbrains.letsPlot
+package jetbrains.letsPlot.geom.extras
 
 import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.intern.filterNonNullValues

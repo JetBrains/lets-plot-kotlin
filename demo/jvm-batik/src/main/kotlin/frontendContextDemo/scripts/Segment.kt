@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.arrow
+import jetbrains.letsPlot.geom.extras.arrow
 import jetbrains.letsPlot.geom.geomSegment
 import jetbrains.letsPlot.letsPlot
 
