@@ -42,7 +42,8 @@ fun gggrid(
         if (fit) {
             bunch.addPlot(p, x, y, cellWidth, cellHeight)
         } else {
-            val figureSize = preferredFigureSize(p.toSpec(), cellWidth, cellHeight)
+//            val figureSize = preferredFigureSize(p.toSpec(), cellWidth, cellHeight)
+            val figureSize = PlotSizeHelper.scaledFigureSize(p.toSpec(), cellWidth, cellHeight)
             bunch.addPlot(p, x, y, figureSize.first, figureSize.second)
         }
     }
