@@ -44,6 +44,9 @@ object ScaleColorContinuous {
             (p + scaleFillHue(l = 40) + scaleColorHue(l = 40)).show()
             (p + scaleFillHue(h = 0 to 60) + scaleColorHue(h = 0 to 60)).show()
             (p + scaleFillHue(hstart = 180) + scaleColorHue(hstart = 180)).show()
+
+            val gradientColors = listOf("red", "orange", "yellow", "green", "light_blue", "blue", "magenta")
+            (p + scaleFillGradientN(colors = gradientColors) + scaleColorGradientN(colors = gradientColors)).show()
         }
     }
 }
