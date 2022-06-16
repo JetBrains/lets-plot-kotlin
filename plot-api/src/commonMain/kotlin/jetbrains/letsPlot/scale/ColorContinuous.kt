@@ -7,6 +7,7 @@ package jetbrains.letsPlot.scale
 
 import jetbrains.datalore.plot.base.Aes
 import jetbrains.datalore.plot.config.Option.Scale.CHROMA
+import jetbrains.datalore.plot.config.Option.Scale.COLORS
 import jetbrains.datalore.plot.config.Option.Scale.DIRECTION
 import jetbrains.datalore.plot.config.Option.Scale.END
 import jetbrains.datalore.plot.config.Option.Scale.HIGH
@@ -354,6 +355,71 @@ fun scaleFillGradient2(
 )
 
 /**
+ * Define smooth color gradient between multiple colors for fill aesthetic.
+ *
+ * @param colors list of strings
+ *      Gradient colors list.
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ * @param guide
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
+ *      specifying additional arguments.
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
+ */
+fun scaleFillGradientN(
+    colors: List<String>,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = Scale(
+    aesthetic = Aes.FILL,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
+        mapOf(
+            COLORS to colors,
+            SCALE_MAPPER_KIND to "color_gradientn"
+        )
+    )
+)
+
+/**
  * Defines diverging color gradient (low-mid-high) for color aesthetic.
  *
  * @param low string
@@ -420,6 +486,71 @@ fun scaleColorGradient2(
             MID to mid,
             MIDPOINT to midpoint,
             SCALE_MAPPER_KIND to "color_gradient2"
+        )
+    )
+)
+
+/**
+ * Define smooth color gradient between multiple colors for color aesthetic.
+ *
+ * @param colors list of strings
+ *      Gradient colors list.
+ * @param name string
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks list of numbers
+ *      A numeric vector of positions (of ticks)
+ * @param labels list of strings
+ *      A vector of labels (on ticks)
+ * @param limits A pair of numbers specifying the data range for the scale.
+ *      Use null to refer to default min/max.
+ * @param naValue
+ *      Missing values will be replaced with this value.
+ * @param format string
+ *      Specifies the format pattern for labels on the scale.
+ * @param guide
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
+ *      specifying additional arguments.
+ *      "none" will hide the guide.
+ * @param trans string
+ *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
+ */
+fun scaleColorGradientN(
+    colors: List<String>,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null,
+    trans: String? = null
+)= Scale(
+    aesthetic = Aes.COLOR,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
+        mapOf(
+            COLORS to colors,
+            SCALE_MAPPER_KIND to "color_gradientn"
         )
     )
 )
