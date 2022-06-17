@@ -488,4 +488,35 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class qq(
+        override val alpha: Number? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val shape: Any? = null,
+        override val size: Number? = null,
+        mapping: QQMapping.() -> Unit = {}
+    ) : QQAesthetics,
+        jetbrains.letsPlot.intern.layer.GeomOptions(
+            GeomKind.Q_Q,
+            QQMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class qqLine(
+        override val alpha: Number? = null,
+        override val color: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Number? = null,
+        mapping: QQLineMapping.() -> Unit = {}
+    ) : QQLineAesthetics,
+        jetbrains.letsPlot.intern.layer.GeomOptions(
+            GeomKind.Q_Q_LINE,
+            QQLineMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }

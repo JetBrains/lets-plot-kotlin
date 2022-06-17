@@ -5,11 +5,10 @@
 
 package jetbrains.letsPlot.geom
 
+import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.QQLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.QQLineMapping
@@ -86,7 +85,7 @@ class geomQQLine(
     jetbrains.letsPlot.intern.layer.LayerBase(
         mapping = QQLineMapping().apply(mapping).seal(),
         data = data,
-        geom = GeomOptions(GeomKind.Q_Q_LINE),
+        geom = Geom.qqLine(),
         stat = stat,
         position = position,
         showLegend = showLegend,

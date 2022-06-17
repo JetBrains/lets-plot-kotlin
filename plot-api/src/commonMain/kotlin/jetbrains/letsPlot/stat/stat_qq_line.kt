@@ -5,9 +5,9 @@
 
 package jetbrains.letsPlot.stat
 
+import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.geom.QQLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.QQLineMapping
@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
 @Suppress("ClassName")
 class statQQLine(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.Q_Q_LINE),
+    geom: jetbrains.letsPlot.intern.layer.GeomOptions = Geom.qqLine(),
     position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,

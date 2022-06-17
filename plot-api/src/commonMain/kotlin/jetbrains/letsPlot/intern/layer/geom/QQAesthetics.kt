@@ -8,7 +8,6 @@ package jetbrains.letsPlot.intern.layer.geom
 import jetbrains.letsPlot.intern.Options
 
 interface QQAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
-    val sample: Any?
     val alpha: Any?
     val color: Any?
     val fill: Any?
@@ -16,7 +15,6 @@ interface QQAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
     val size: Any?
 
     override fun seal() = Options.of(
-        "sample" to sample,
         "alpha" to alpha,
         "color" to color,
         "fill" to fill,
