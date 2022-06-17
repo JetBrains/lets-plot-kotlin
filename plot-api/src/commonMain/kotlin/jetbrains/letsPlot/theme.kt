@@ -237,40 +237,40 @@ class theme(
         return newTheme
     }
 
-    @Deprecated("Use: theme(axisTitle=\"blank\"")
+    @Deprecated("Use: theme(axisTitle=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisTitleBlank() = withOption(ThemeOption.AXIS_TITLE, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisTitleX=\"blank\"")
+    @Deprecated("Use: theme(axisTitleX=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisTitleXBlank() = withOption(ThemeOption.AXIS_TITLE_X, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisTitleY=\"blank\"")
+    @Deprecated("Use: theme(axisTitleY=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisTitleYBlank() = withOption(ThemeOption.AXIS_TITLE_Y, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisText=\"blank\"")
+    @Deprecated("Use: theme(axisText=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisTextBlank() = withOption(ThemeOption.AXIS_TEXT, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisTextX=\"blank\"")
+    @Deprecated("Use: theme(axisTextX=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisTextXBlank() = withOption(ThemeOption.AXIS_TEXT_X, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisTextY=\"blank\"")
+    @Deprecated("Use: theme(axisTextY=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisTextYBlank() = withOption(ThemeOption.AXIS_TEXT_Y, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisTicks=\"blank\"")
+    @Deprecated("Use: theme(axisTicks=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisTicksBlank() = withOption(ThemeOption.AXIS_TICKS, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisTicksX=\"blank\"")
+    @Deprecated("Use: theme(axisTicksX=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisTicksXBlank() = withOption(ThemeOption.AXIS_TICKS_X, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisTicksY=\"blank\"")
+    @Deprecated("Use: theme(axisTicksY=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisTicksYBlank() = withOption(ThemeOption.AXIS_TICKS_Y, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisLine=\"blank\"")
+    @Deprecated("Use: theme(axisLine=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisLineBlank() = withOption(ThemeOption.AXIS_LINE, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisLineX=\"blank\"")
+    @Deprecated("Use: theme(axisLineX=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisLineXBlank() = withOption(ThemeOption.AXIS_LINE_X, VAL_ELEMENT_BLANK)
 
-    @Deprecated("Use: theme(axisLineY=\"blank\"")
+    @Deprecated("Use: theme(axisLineY=\"blank\"", level = DeprecationLevel.ERROR)
     fun axisLineYBlank() = withOption(ThemeOption.AXIS_LINE_Y, VAL_ELEMENT_BLANK)
 
     fun legendPositionNone() = withOption(ThemeOption.LEGEND_POSITION, VAL_LEGEND_POS_NONE)
@@ -310,28 +310,28 @@ class theme(
     fun legendDirectionVertical() = withOption(ThemeOption.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_VERTICAL)
 
 
-    @Deprecated("", ReplaceWith("legendPositionNone()"))
+    @Deprecated("", ReplaceWith("legendPositionNone()"), level = DeprecationLevel.ERROR)
     fun legendPosition_none() = legendPositionNone()
 
-    @Deprecated("", ReplaceWith("legendPositionLeft()"))
+    @Deprecated("", ReplaceWith("legendPositionLeft()"), level = DeprecationLevel.ERROR)
     fun legendPosition_left() = legendPositionLeft()
 
-    @Deprecated("", ReplaceWith("legendPositionRight()"))
+    @Deprecated("", ReplaceWith("legendPositionRight()"), level = DeprecationLevel.ERROR)
     fun legendPosition_right() = legendPositionRight()
 
-    @Deprecated("", ReplaceWith("legendPositionBottom()"))
+    @Deprecated("", ReplaceWith("legendPositionBottom()"), level = DeprecationLevel.ERROR)
     fun legendPosition_bottom() = legendPositionBottom()
 
-    @Deprecated("", ReplaceWith("legendPositionTop()"))
+    @Deprecated("", ReplaceWith("legendPositionTop()"), level = DeprecationLevel.ERROR)
     fun legendPosition_top() = legendPositionTop()
 
-    @Deprecated("", ReplaceWith("legendJustificationCenter()"))
+    @Deprecated("", ReplaceWith("legendJustificationCenter()"), level = DeprecationLevel.ERROR)
     fun legendJustification_center() = legendJustificationCenter()
 
-    @Deprecated("", ReplaceWith("legendDirectionHorizontal()"))
+    @Deprecated("", ReplaceWith("legendDirectionHorizontal()"), level = DeprecationLevel.ERROR)
     fun legendDirection_horizontal() = legendDirectionHorizontal()
 
-    @Deprecated("", ReplaceWith("legendDirectionVertical()"))
+    @Deprecated("", ReplaceWith("legendDirectionVertical()"), level = DeprecationLevel.ERROR)
     fun legendDirection_vertical() = legendDirectionVertical()
 
     companion object {

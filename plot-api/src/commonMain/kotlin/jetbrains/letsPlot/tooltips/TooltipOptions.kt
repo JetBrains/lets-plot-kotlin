@@ -157,7 +157,7 @@ class TooltipOptions(variables: List<String>?) {
      *
      * @param value The color for the general tooltip.
      */
-    @Deprecated("No longer supported.")
+    @Deprecated("No longer supported.", level = DeprecationLevel.ERROR)
     fun color(value: String): TooltipOptions {
 //        return setOption(TOOLTIP_COLOR, value)
         return this

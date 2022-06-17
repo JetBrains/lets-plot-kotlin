@@ -5,9 +5,9 @@
 
 package jetbrains.letsPlot.tooltips
 
-@Deprecated("", ReplaceWith("tooltipsNone"))
+@Deprecated("", ReplaceWith("tooltipsNone"), level = DeprecationLevel.ERROR)
 val tooltips_none = tooltipsNone
 
 @Suppress("FunctionName")
-@Deprecated("", ReplaceWith("layerTooltips()"))
+@Deprecated("", ReplaceWith("layerTooltips()"), level = DeprecationLevel.ERROR)
 fun layer_tooltips() = layerTooltips()

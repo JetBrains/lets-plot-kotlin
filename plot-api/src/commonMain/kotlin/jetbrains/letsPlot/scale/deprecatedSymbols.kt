@@ -3,13 +3,13 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-@file:Suppress("FunctionName", "SpellCheckingInspection")
+@file:Suppress("FunctionName", "SpellCheckingInspection", "unused")
 
 package jetbrains.letsPlot.scale
 
 // Position scales
 
-@Deprecated("", ReplaceWith("scaleXDiscrete(name, breaks, labels, limits, expand, naValue, format, reverse)"))
+@Deprecated("", ReplaceWith("scaleXDiscrete(name, breaks, labels, limits, expand, naValue, format, reverse)"), level = DeprecationLevel.ERROR)
 fun scale_x_discrete(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -21,7 +21,7 @@ fun scale_x_discrete(
     reverse: Boolean? = null
 ) = scaleXDiscrete(name, breaks, labels, limits, expand, naValue, format, reverse)
 
-@Deprecated("", ReplaceWith("scaleYDiscrete(name, breaks, labels, limits, expand, naValue, format, reverse)"))
+@Deprecated("", ReplaceWith("scaleYDiscrete(name, breaks, labels, limits, expand, naValue, format, reverse)"), level = DeprecationLevel.ERROR)
 fun scale_y_discrete(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -33,7 +33,7 @@ fun scale_y_discrete(
     reverse: Boolean? = null
 ) = scaleYDiscrete(name, breaks, labels, limits, expand, naValue, format, reverse)
 
-@Deprecated("", ReplaceWith("scaleXDiscreteReversed(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleXDiscreteReversed(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_x_discrete_reversed(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -44,7 +44,7 @@ fun scale_x_discrete_reversed(
     format: String? = null,
 ) = scaleXDiscreteReversed(name, breaks, labels, limits, expand, naValue, format)
 
-@Deprecated("", ReplaceWith("scaleYDiscreteReversed(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleYDiscreteReversed(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_y_discrete_reversed(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -55,7 +55,7 @@ fun scale_y_discrete_reversed(
     format: String? = null,
 ) = scaleYDiscreteReversed(name, breaks, labels, limits, expand, naValue, format)
 
-@Deprecated("", ReplaceWith("scaleXContinuous(name, breaks, labels, limits, expand, naValue, format, trans)"))
+@Deprecated("", ReplaceWith("scaleXContinuous(name, breaks, labels, limits, expand, naValue, format, trans)"), level = DeprecationLevel.ERROR)
 fun scale_x_continuous(
     name: String? = null,
     breaks: List<Number>? = null,
@@ -67,7 +67,7 @@ fun scale_x_continuous(
     trans: String? = null,
 ) = scaleXContinuous(name, breaks, labels, limits, expand, naValue, format, trans)
 
-@Deprecated("", ReplaceWith("scaleYContinuous(name, breaks, labels, limits, expand, naValue, format, trans)"))
+@Deprecated("", ReplaceWith("scaleYContinuous(name, breaks, labels, limits, expand, naValue, format, trans)"), level = DeprecationLevel.ERROR)
 fun scale_y_continuous(
     name: String? = null,
     breaks: List<Number>? = null,
@@ -79,7 +79,7 @@ fun scale_y_continuous(
     trans: String? = null,
 ) = scaleYContinuous(name, breaks, labels, limits, expand, naValue, format, trans)
 
-@Deprecated("", ReplaceWith("scaleXLog10(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleXLog10(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_x_log10(
     name: String? = null,
     breaks: List<Number>? = null,
@@ -90,7 +90,7 @@ fun scale_x_log10(
     format: String? = null,
 ) = scaleXLog10(name, breaks, labels, limits, expand, naValue, format)
 
-@Deprecated("", ReplaceWith("scaleYLog10(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleYLog10(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_y_log10(
     name: String? = null,
     breaks: List<Number>? = null,
@@ -101,7 +101,7 @@ fun scale_y_log10(
     format: String? = null,
 ) = scaleYLog10(name, breaks, labels, limits, expand, naValue, format)
 
-@Deprecated("", ReplaceWith("scaleXReverse(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleXReverse(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_x_reverse(
     name: String? = null,
     breaks: List<Number>? = null,
@@ -112,7 +112,7 @@ fun scale_x_reverse(
     format: String? = null,
 ) = scaleXReverse(name, breaks, labels, limits, expand, naValue, format)
 
-@Deprecated("", ReplaceWith("scaleYReverse(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleYReverse(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_y_reverse(
     name: String? = null,
     breaks: List<Number>? = null,
@@ -123,7 +123,7 @@ fun scale_y_reverse(
     format: String? = null,
 ) = scaleYReverse(name, breaks, labels, limits, expand, naValue, format)
 
-@Deprecated("", ReplaceWith("scaleXSqrt(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleXSqrt(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_x_sqrt(
     name: String? = null,
     breaks: List<Number>? = null,
@@ -134,7 +134,7 @@ fun scale_x_sqrt(
     format: String? = null,
 ) = scaleXSqrt(name, breaks, labels, limits, expand, naValue, format)
 
-@Deprecated("", ReplaceWith("scaleYSqrt(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleYSqrt(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_y_sqrt(
     name: String? = null,
     breaks: List<Number>? = null,
@@ -147,7 +147,7 @@ fun scale_y_sqrt(
 
 // Identity scales
 
-@Deprecated("", ReplaceWith("scaleColorIdentity(name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleColorIdentity(name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_color_identity(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -157,7 +157,7 @@ fun scale_color_identity(
     guide: Any? = null
 ) = scaleColorIdentity(name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleFillIdentity(name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleFillIdentity(name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_fill_identity(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -167,7 +167,7 @@ fun scale_fill_identity(
     guide: Any? = null
 ) = scaleFillIdentity(name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleShapeIdentity(name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleShapeIdentity(name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_shape_identity(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -177,7 +177,7 @@ fun scale_shape_identity(
     guide: Any? = null
 ) = scaleShapeIdentity(name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleLinetypeIdentity(name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleLinetypeIdentity(name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_linetype_identity(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -187,7 +187,7 @@ fun scale_linetype_identity(
     guide: Any? = null
 ) = scaleLinetypeIdentity(name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleAlphaIdentity(name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleAlphaIdentity(name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_alpha_identity(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -197,7 +197,7 @@ fun scale_alpha_identity(
     guide: Any? = null
 ) = scaleAlphaIdentity(name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleSizeIdentity(name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleSizeIdentity(name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_size_identity(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -209,7 +209,7 @@ fun scale_size_identity(
 
 // Color scales
 
-@Deprecated("", ReplaceWith("scaleColorManual(values, name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleColorManual(values, name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_color_manual(
     values: List<Any>,
     name: String? = null,
@@ -220,7 +220,7 @@ fun scale_color_manual(
     guide: Any? = null
 ) = scaleColorManual(values, name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleColorDiscrete(direction, name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleColorDiscrete(direction, name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_color_discrete(
     direction: Int? = null,
     name: String? = null,
@@ -231,7 +231,7 @@ fun scale_color_discrete(
     guide: Any? = null
 ) = scaleColorDiscrete(direction, name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleColorContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated("", ReplaceWith("scaleColorContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)"), level = DeprecationLevel.ERROR)
 fun scale_color_continuous(
     low: String? = null, high: String? = null,
     name: String? = null,
@@ -243,7 +243,7 @@ fun scale_color_continuous(
     trans: String? = null
 ) = scaleColorContinuous(low, high, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleColorGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated("", ReplaceWith("scaleColorGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)"), level = DeprecationLevel.ERROR)
 fun scale_color_gradient(
     low: String, high: String,
     name: String? = null,
@@ -326,7 +326,7 @@ fun scale_color_brewer(
 
 // Fill scales
 
-@Deprecated("", ReplaceWith("scaleFillManual(values, name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleFillManual(values, name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_fill_manual(
     values: List<Any>,
     name: String? = null,
@@ -337,7 +337,7 @@ fun scale_fill_manual(
     guide: Any? = null
 ) = scaleFillManual(values, name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleFillDiscrete(direction, name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleFillDiscrete(direction, name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_fill_discrete(
     direction: Int? = null,
     name: String? = null,
@@ -348,7 +348,7 @@ fun scale_fill_discrete(
     guide: Any? = null
 ) = scaleFillDiscrete(direction, name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleFillContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated("", ReplaceWith("scaleFillContinuous(low, high, name, breaks, labels, limits, naValue, guide, trans)"), level = DeprecationLevel.ERROR)
 fun scale_fill_continuous(
     low: String? = null, high: String? = null,
     name: String? = null,
@@ -360,7 +360,7 @@ fun scale_fill_continuous(
     trans: String? = null
 ) = scaleFillContinuous(low, high, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleFillGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated("", ReplaceWith("scaleFillGradient(low, high, name, breaks, labels, limits, naValue, guide, trans)"), level = DeprecationLevel.ERROR)
 fun scale_fill_gradient(
     low: String, high: String,
     name: String? = null,
@@ -443,7 +443,7 @@ fun scale_fill_brewer(
 
 // Size scales
 
-@Deprecated("", ReplaceWith("scaleSizeManual(values, name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleSizeManual(values, name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_size_manual(
     values: List<Number>,
     name: String? = null,
@@ -454,7 +454,7 @@ fun scale_size_manual(
     guide: Any? = null
 ) = scaleSizeManual(values, name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleSize(range, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated("", ReplaceWith("scaleSize(range, name, breaks, labels, limits, naValue, guide, trans)"), level = DeprecationLevel.ERROR)
 fun scale_size(
     range: Pair<Number, Number>? = null,
     name: String? = null,
@@ -466,7 +466,7 @@ fun scale_size(
     trans: String? = null
 ) = scaleSize(range, name, breaks, labels, limits, naValue, null, guide, trans)
 
-@Deprecated("", ReplaceWith("scaleSizeArea(maxSize, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated("", ReplaceWith("scaleSizeArea(maxSize, name, breaks, labels, limits, naValue, guide, trans)"), level = DeprecationLevel.ERROR)
 fun scale_size_area(
     maxSize: Number? = null,
     name: String? = null,
@@ -480,7 +480,7 @@ fun scale_size_area(
 
 // Shape scales
 
-@Deprecated("", ReplaceWith("scaleShapeManual(values, name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleShapeManual(values, name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_shape_manual(
     values: List<Number>,
     name: String? = null,
@@ -491,7 +491,7 @@ fun scale_shape_manual(
     guide: Any? = null
 ) = scaleShapeManual(values, name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleShape(solid, name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleShape(solid, name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_shape(
     solid: Boolean? = null,
     name: String? = null,
@@ -504,7 +504,7 @@ fun scale_shape(
 
 // Linetype scales
 
-@Deprecated("", ReplaceWith("scaleLinetypeManual(values, name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleLinetypeManual(values, name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_linetype_manual(
     values: List<Number>,
     name: String? = null,
@@ -517,7 +517,7 @@ fun scale_linetype_manual(
 
 // Alpha scales
 
-@Deprecated("", ReplaceWith("scaleAlphaManual(values, name, breaks, labels, limits, naValue, guide)"))
+@Deprecated("", ReplaceWith("scaleAlphaManual(values, name, breaks, labels, limits, naValue, guide)"), level = DeprecationLevel.ERROR)
 fun scale_alpha_manual(
     values: List<Double>,
     name: String? = null,
@@ -528,7 +528,7 @@ fun scale_alpha_manual(
     guide: Any? = null
 ) = scaleAlphaManual(values, name, breaks, labels, limits, naValue, null, guide)
 
-@Deprecated("", ReplaceWith("scaleAlpha(range, name, breaks, labels, limits, naValue, guide, trans)"))
+@Deprecated("", ReplaceWith("scaleAlpha(range, name, breaks, labels, limits, naValue, guide, trans)"), level = DeprecationLevel.ERROR)
 fun scale_alpha(
     range: Pair<Number, Number>? = null,
     name: String? = null,
@@ -542,7 +542,7 @@ fun scale_alpha(
 
 // Datetime scales
 
-@Deprecated("", ReplaceWith("scaleXDateTime(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleXDateTime(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_x_datetime(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -553,7 +553,7 @@ fun scale_x_datetime(
     format: String? = null,
 ) = scaleXDateTime(name, breaks, labels, limits, expand, naValue, format)
 
-@Deprecated("", ReplaceWith("scaleYDateTime(name, breaks, labels, limits, expand, naValue, format)"))
+@Deprecated("", ReplaceWith("scaleYDateTime(name, breaks, labels, limits, expand, naValue, format)"), level = DeprecationLevel.ERROR)
 fun scale_y_datetime(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -566,14 +566,14 @@ fun scale_y_datetime(
 
 // Scale guides
 
-@Deprecated("", ReplaceWith("guideLegend(nrow, ncol, byRow)"))
+@Deprecated("", ReplaceWith("guideLegend(nrow, ncol, byRow)"), level = DeprecationLevel.ERROR)
 fun guide_legend(
     nrow: Int? = null,
     ncol: Int? = null,
     byRow: Boolean? = null
 ) = guideLegend(nrow, ncol, byRow)
 
-@Deprecated("", ReplaceWith("guideColorbar(barWidth, barHeight, nbin)"))
+@Deprecated("", ReplaceWith("guideColorbar(barWidth, barHeight, nbin)"), level = DeprecationLevel.ERROR)
 fun guide_colorbar(
     barWidth: Number? = null,
     barHeight: Number? = null,
