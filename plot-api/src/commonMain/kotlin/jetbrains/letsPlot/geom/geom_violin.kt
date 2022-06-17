@@ -31,8 +31,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *      False - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
- * @param orientation  string, optional
- *     Specifies the axis that the layer' stat and geom should run along.
+ * @param orientation Specifies the axis that the layer' stat and geom should run along.
  *     Possible values: 'x' (default), 'y'.
  * @param drawQuantiles list of float, optional.
  *     Draw horizontal lines at the given quantiles of the density estimate.

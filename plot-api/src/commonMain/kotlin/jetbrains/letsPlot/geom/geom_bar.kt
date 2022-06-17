@@ -31,8 +31,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
- * @param orientation  string, optional
- *     Specifies the axis that the layer' stat and geom should run along.
+ * @param orientation Specifies the axis that the layer' stat and geom should run along.
  *     Possible values: 'x' (default), 'y'.
  * @param x x-axis value (this values will produce cases or bins for bars).
  * @param y y-axis value (this value will be used to multiply the case's or bin's counts).
