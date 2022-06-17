@@ -5,9 +5,9 @@
 
 package jetbrains.letsPlot.stat
 
+import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PathMapping
@@ -17,7 +17,7 @@ import jetbrains.letsPlot.intern.layer.stat.QQ2StatAesthetics
 @Suppress("ClassName")
 class statQQ2Line(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.Q_Q_2_LINE),
+    geom: jetbrains.letsPlot.intern.layer.GeomOptions = Geom.path(),
     position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
