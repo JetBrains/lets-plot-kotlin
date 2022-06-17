@@ -19,7 +19,11 @@ enum class StatKind {
     BOXPLOT,
     CONTOUR,
     CONTOURF,
-    SMOOTH;
+    SMOOTH,
+    QQ,
+    QQ2,
+    QQ_LINE,
+    QQ2_LINE;
 
     fun optionName() = name.lowercase()
 }

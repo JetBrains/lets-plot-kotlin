@@ -57,6 +57,18 @@ enum class GeomKind {
     DENSITY2D,
     DENSITY2DF,
     JITTER,
+    Q_Q {
+        override fun optionName() = "qq"
+    },
+    Q_Q_2 {
+        override fun optionName() = "qq2"
+    },
+    Q_Q_LINE {
+        override fun optionName() = "qq_line"
+    },
+    Q_Q_2_LINE {
+        override fun optionName() = "qq2_line"
+    },
     FREQPOLY,
     STEP,
     RECT,

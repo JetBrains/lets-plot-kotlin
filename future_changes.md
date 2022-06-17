@@ -11,6 +11,18 @@
     - `axisTooltipText, axisTooltipTextX, axisTooltipTextY` - axis tooltip text options.
     - `panelBorder` parameter in `theme()`.
 - `face` parameter in `elementText()`.
+- Quantile-Quantile (Q-Q) plot:
+  - geometries:
+    - `geomQQ()`
+    - `geomQQLine()`
+    - `geomQQ2()`
+    - `geomQQ2Line()`
+  - stats:
+    - `statQQ()`
+    - `statQQLine()`
+    - `statQQ2()`
+    - `statQQ2Line()`    
+  - the `qqPlot()` function.
 
 ### Changed
 - `geomImage()` removed as it is not yet production ready.

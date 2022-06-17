@@ -37,6 +37,8 @@ class GenericAesMapping(
     var label: Any? = null,
     var weight: Any? = null,
 
+    var sample: Any? = null,
+
     override var group: Any? = null
 
 ) : OptionsCapsule, WithGroupOption {
@@ -68,6 +70,8 @@ class GenericAesMapping(
 
         "label" to label,
         "weight" to weight,
+
+        "sample" to sample
 
         ) + groupOption()
 }
