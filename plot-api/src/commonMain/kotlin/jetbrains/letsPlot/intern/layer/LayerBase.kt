@@ -17,7 +17,8 @@ abstract class LayerBase(
     position: PosOptions?,
     showLegend: Boolean,
     sampling: SamplingOptions? = null,
-    tooltips: TooltipOptions? = null
+    tooltips: TooltipOptions? = null,
+    orientation: String? = null
 ) : Layer(
     mapping = mapping,
     data = data,
@@ -26,7 +27,8 @@ abstract class LayerBase(
     position = position,
     showLegend = showLegend,
     sampling = sampling,
-    tooltips = tooltips
+    tooltips = tooltips,
+    orientation = orientation
 ), OptionsCapsule {
 
     override val parameters by lazy { geom.parameters + stat.parameters + this.seal() }

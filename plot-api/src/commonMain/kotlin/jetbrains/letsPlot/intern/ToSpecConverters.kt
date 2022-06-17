@@ -128,6 +128,10 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         spec[Option.Layer.TOOLTIPS] = it.options
     }
 
+    orientation?.let {
+        spec[Option.Layer.ORIENTATION] = it
+    }
+
     // parameters 'map', 'mapJoin'
     if (this is WithSpatialParameters) {
         map?.run {

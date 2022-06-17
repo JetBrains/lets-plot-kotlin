@@ -104,7 +104,8 @@ abstract class Layer(
     val position: PosOptions?,
     val showLegend: Boolean,
     val sampling: SamplingOptions?,
-    val tooltips: TooltipOptions?
+    val tooltips: TooltipOptions?,
+    val orientation: String?
 ) : Feature() {
 
     // layer mapping has precedence over geom and stat
