@@ -25,6 +25,8 @@
   - the `qqPlot()` function.
 
 ### Changed
+
+- Potentially **breaking change**: deprecation level for all deprecated API raised to the **ERROR** level. 
 - `geomImage()` removed as it is not yet production ready.
 
 
