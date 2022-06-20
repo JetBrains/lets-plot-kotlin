@@ -84,8 +84,8 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation "org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_library_version>"
-    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:$lets_plot_kotlin_api_version"
+    implementation "org.jetbrains.lets-plot:lets-plot-batik:2.4.0"
+    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:3.2.0"
 }
 ```
 
@@ -93,8 +93,8 @@ dependencies {
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_library_version"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:$lets_plot_kotlin_api_version"
+  implementation "org.jetbrains.lets-plot:lets-plot-jfx:2.4.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:3.2.0"
 }
 ```
 
@@ -106,8 +106,8 @@ If your JVM app doesn't use either frontend, you can provide just "lets-plot-com
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-common:$lets_plot_library_version"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:$lets_plot_kotlin_api_version"
+  implementation "org.jetbrains.lets-plot:lets-plot-common:2.4.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:3.2.0"
 }
 ```
 
@@ -115,7 +115,7 @@ dependencies {
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:$lets_plot_kotlin_api_version"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:3.2.0"
 }
 ```
 
@@ -150,8 +150,8 @@ The following steps describe how to use `Lets-Plot` JVM "backend" in "browser" f
 #### Add dependencies on maven artifacts
 
 ```
-org.jetbrains.lets-plot:lets-plot-common:<lib version>
-org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-jvm:<api version>
+org.jetbrains.lets-plot:lets-plot-common:2.4.0
+org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-jvm:3.2.0
 ```
 
 #### Implement the `jetbrains.letsPlot.FrontendContext` interface:
