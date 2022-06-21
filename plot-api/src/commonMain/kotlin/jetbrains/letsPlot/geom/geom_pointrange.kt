@@ -28,7 +28,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param fatten : number, default: 5.0
- *     A multiplicative factor applied to size of the middle bar
+ *     A multiplicative factor applied to size of the middle point.
  * @param x x-axis coordinates.
  * @param y position of mid-point,
  * @param ymin lower bound for error bar.
