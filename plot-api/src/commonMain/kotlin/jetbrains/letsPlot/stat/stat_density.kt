@@ -34,6 +34,7 @@ class statDensity(
     override val n: Int? = null,
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
+    override val fullScanMax: Int? = null,
     mapping: DensityMapping.() -> Unit = {}
 
 ) : AreaAesthetics,

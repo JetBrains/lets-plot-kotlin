@@ -21,7 +21,8 @@ object Stat {
         override val n: Int? = null,
         override val trim: Boolean? = null,
         override val adjust: Number? = null,
-        mapping: DensityStatMapping.() -> Unit = {}
+        override val fullScanMax: Int? = null,
+        mapping: DensityStatMapping.() -> Unit = {},
     ) : DensityStatParameters,
         StatOptions(
             StatKind.DENSITY,
@@ -152,6 +153,7 @@ object Stat {
         override val n: Int? = null,
         override val trim: Boolean? = null,
         override val adjust: Number? = null,
+        override val fullScanMax: Int? = null,
         mapping: YDensityStatMapping.() -> Unit = {}
     ) : YDensityStatParameters,
         StatOptions(

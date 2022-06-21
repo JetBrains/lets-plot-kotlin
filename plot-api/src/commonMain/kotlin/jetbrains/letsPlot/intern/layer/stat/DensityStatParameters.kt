@@ -13,12 +13,14 @@ interface DensityStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule
     val n: Int?
     val trim: Boolean?
     val adjust: Number?
+    val fullScanMax: Int?
 
     override fun seal() = Options.of(
         "bw" to bw,
         "kernel" to kernel,
         "n" to n,
         "trim" to trim,
-        "adjust" to adjust
+        "adjust" to adjust,
+        "fs_max" to fullScanMax
     )
 }

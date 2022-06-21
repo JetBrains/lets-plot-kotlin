@@ -45,6 +45,21 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     5 = "longdash", 6 = "twodash".
  * @param fill color of geometry filling.
  * @param weight used by "density" stat to compute weighted density.
+ * @param bw string or double, optional.
+ *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
+ * @param kernel string, optional.
+ *     The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
+ *     "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic")
+ * @param n int, optional.
+ *     The number of sampled points for plotting the function.
+ * @param trim boolean, optional, default=false.
+ *     If False, each density is computed on the full range of the data.
+ *     If True, each density is computed over the range of that group.
+ * @param adjust double, optional.
+ *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
+ * @param fullScanMax int, optional.
+ *     Maximum size of data to use density computation with 'full scan'.
+ *     For bigger data, less accurate but more efficient density computation is applied.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -70,6 +85,7 @@ class geomDensity(
     override val n: Int? = null,
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
+    override val fullScanMax: Int? = null,
     mapping: DensityMapping.() -> Unit = {}
 
 ) : AreaAesthetics,
