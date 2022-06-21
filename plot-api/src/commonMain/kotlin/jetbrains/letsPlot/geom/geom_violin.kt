@@ -23,17 +23,17 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
- * @param stat string, optional, default="ydensity".
+ * @param stat default="ydensity".
  *     The statistical transformation to use on the data for this layer.
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * @param showLegend Boolean, optional, default=True.
+ * @param showLegend default=True.
  *      False - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param orientation Specifies the axis that the layer' stat and geom should run along.
  *     Possible values: 'x' (default), 'y'.
- * @param drawQuantiles list of float, optional.
+ * @param drawQuantiles list of float.
  *     Draw horizontal lines at the given quantiles of the density estimate.
  * @param x x-axis coordinates.
  * @param y y-axis coordinates.
@@ -50,22 +50,22 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     Defines line width
  * @param width width of violin bounding box
  * @param weight used by "ydensity" stat to compute weighted density.
- * @param scale string, optional.
+ * @param scale
  *     If "area" (default), all violins have the same area.
  *     If "count", areas are scaled proportionally to the number of observations.
  *     If "width", all violins have the same maximum width.
- * @param bw string or double, optional.
+ * @param bw string or double.
  *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
- * @param kernel string, optional.
+ * @param kernel
  *     The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
  *     "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic")
- * @param n int, optional.
+ * @param n
  *     The number of sampled points for plotting the function.
- * @param trim boolean, optional, default=true.
+ * @param trim default=true.
  *     Trim the tails of the violins to the range of the data.
- * @param adjust double, optional.
+ * @param adjust
  *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
- * @param fullScanMax int, optional.
+ * @param fullScanMax
  *     Maximum size of data to use density computation with 'full scan'.
  *     For bigger data, less accurate but more efficient density computation is applied.
  * @param mapping set of aesthetic mappings.

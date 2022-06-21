@@ -8,11 +8,11 @@ package jetbrains.letsPlot.intern.layer.stat
 import jetbrains.letsPlot.intern.Options
 
 interface Density2dStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
-    val bw: Any?       // ToDo: constants. (bin width: string (method) or Number or Pair<Number>)
-    val kernel: String?   // ToDo: constants
-    val n: Int?
+    val bw: Any?
+    val kernel: String?
+    val n: Int?           // ToDo: just Int or a pair of ints?
     val adjust: Number?
-    val contour: Boolean?  // If TRUE, contour the results of the 2d density estimation.
+    val contour: Boolean?
     val bins: Int?
     val binWidth: Number?
 

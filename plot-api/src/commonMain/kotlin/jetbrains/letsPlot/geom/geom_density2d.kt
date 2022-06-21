@@ -34,25 +34,26 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * 
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
- * @param kernel string, optional.
+ * @param kernel
  *     The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
  *     "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic")
- * @param bw string or double array, optional.
+ * @param bw string or double array.
  *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd"), or a double array of length 2.
- * @param adjust double, optional.
- *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
- * @param n int array, optional.
+ * @param n
  *     The number of sampled points for plotting the function (on x and y direction correspondingly)
- * @param contour Boolean, optional.
- * @param bins int, optional.
+ * @param adjust
+ *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
+ * @param contour
+ *      If TRUE, contour the results of the 2d density estimation.
+ * @param bins
  *     Number of levels.
- * @param binWidth double, optional.
+ * @param binWidth
  *     Distance between levels.
  * @param x x-axis coordinates of the center of rectangles, forming a tessellation.
  * @param y y-axis coordinates of the center of rectangles, forming a tessellation.
  * @param alpha transparency level of a point
  *     Understands numbers between 0 and 1.
- * @param color (colour) color of a geometry.
+ * @param color color of a geometry.
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
  * @param linetype type of the line.
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",

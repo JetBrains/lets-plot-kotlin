@@ -34,15 +34,17 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * 
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
- * @param kernel string, optional.
+ * @param kernel
  *     The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
  *     "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic")
- * @param bw string or double array, optional.
+ * @param bw string or double array.
  *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd"), or a double array of length 2.
- * @param adjust double, optional.
- *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
  * @param n int array, optional.
  *     The number of sampled points for plotting the function (on x and y direction correspondingly)
+ * @param adjust
+ *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
+ * @param contour
+ *      If TRUE, contour the results of the 2d density estimation.
  * @param bins int, optional.
  *     Number of levels.
  * @param binWidth double, optional.

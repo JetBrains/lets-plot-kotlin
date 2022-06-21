@@ -26,7 +26,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
  *     linear default).
- *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
+ *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat].
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
  * @param tooltips result of the call to the layerTooltips() function.
@@ -45,19 +45,20 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     5 = "longdash", 6 = "twodash".
  * @param fill color of geometry filling.
  * @param weight used by "density" stat to compute weighted density.
- * @param bw string or double, optional.
+ * @param bw string or double.
  *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
- * @param kernel string, optional.
+ * @param kernel
  *     The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
  *     "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic")
- * @param n int, optional.
+ * @param n
  *     The number of sampled points for plotting the function.
- * @param trim boolean, optional, default=false.
+ * @param trim
  *     If False, each density is computed on the full range of the data.
  *     If True, each density is computed over the range of that group.
- * @param adjust double, optional.
+ *     The default is False.
+ * @param adjust
  *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
- * @param fullScanMax int, optional.
+ * @param fullScanMax
  *     Maximum size of data to use density computation with 'full scan'.
  *     For bigger data, less accurate but more efficient density computation is applied.
  * @param mapping set of aesthetic mappings.
