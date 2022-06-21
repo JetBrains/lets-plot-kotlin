@@ -40,7 +40,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * @param bw string or double array, optional.
  *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd"), or a double array of length 2.
  * @param adjust double, optional.
- *     Adjust the value of bandwidth my multiplying it. Changes how smooth the frequency curve is.
+ *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
  * @param n int array, optional.
  *     The number of sampled points for plotting the function (on x and y direction correspondingly)
  * @param contour Boolean, optional.

@@ -51,9 +51,20 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * @param width width of violin bounding box
  * @param weight used by "ydensity" stat to compute weighted density.
  * @param scale string, optional.
- *     If 'area' (default), all violins have the same area.
- *     If 'count', areas are scaled proportionally to the number of observations.
- *     If 'width', all violins have the same maximum width.
+ *     If "area" (default), all violins have the same area.
+ *     If "count", areas are scaled proportionally to the number of observations.
+ *     If "width", all violins have the same maximum width.
+ * @param bw string or double, optional.
+ *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
+ * @param kernel string, optional.
+ *     The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
+ *     "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic")
+ * @param n int, optional.
+ *     The number of sampled points for plotting the function.
+ * @param trim boolean, optional, default=true.
+ *     Trim the tails of the violins to the range of the data.
+ * @param adjust double, optional.
+ *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
