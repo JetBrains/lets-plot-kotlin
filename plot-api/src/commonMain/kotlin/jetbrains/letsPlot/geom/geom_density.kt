@@ -57,6 +57,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     If True, each density is computed over the range of that group.
  * @param adjust double, optional.
  *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
+ * @param fullScanMax int, optional.
+ *     Maximum size of data to use density computation with 'full scan'.
+ *     For bigger data, less accurate but more efficient density computation is applied.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -82,6 +85,7 @@ class geomDensity(
     override val n: Int? = null,
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
+    override val fullScanMax: Int? = null,
     mapping: DensityMapping.() -> Unit = {}
 
 ) : AreaAesthetics,
