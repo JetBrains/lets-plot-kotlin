@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface ErrorBarAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface ErrorBarAesthetics : OptionsCapsule {
     val x: Any?
     val ymin: Any?
     val ymax: Any?

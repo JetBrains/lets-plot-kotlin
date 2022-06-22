@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface BinStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface BinStatParameters : OptionsCapsule {
     val bins: Int?
     val binWidth: Number?
     val center: Number?

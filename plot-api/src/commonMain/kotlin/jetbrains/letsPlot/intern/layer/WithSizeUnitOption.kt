@@ -7,8 +7,9 @@ package jetbrains.letsPlot.intern.layer
 
 import jetbrains.datalore.plot.config.Option.Geom.Point
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface WithSizeUnitOption : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface WithSizeUnitOption : OptionsCapsule {
     val sizeUnit: String?
 
     override fun seal() = Options.of(

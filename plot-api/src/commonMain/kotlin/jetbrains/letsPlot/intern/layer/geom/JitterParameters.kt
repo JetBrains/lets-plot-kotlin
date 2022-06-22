@@ -7,8 +7,9 @@ package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface JitterParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface JitterParameters : OptionsCapsule {
     val width: Number?
     val height: Number?
 

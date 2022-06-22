@@ -7,8 +7,9 @@ package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.datalore.plot.config.Option.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface BoxplotStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface BoxplotStatParameters : OptionsCapsule {
     val varWidth: Boolean?
 
     @Suppress("SpellCheckingInspection")

@@ -6,6 +6,7 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
  * Params:
@@ -17,7 +18,7 @@ import jetbrains.letsPlot.intern.Options
  * seed  - random seed for LOESS sampling
  * maxN (1000)  - maximum points in DF for LOESS
  */
-interface SmoothStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface SmoothStatParameters : OptionsCapsule {
     val method: String?
     val n: Int?
     val level: Number?

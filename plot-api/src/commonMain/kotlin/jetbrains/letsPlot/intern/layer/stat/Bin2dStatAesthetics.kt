@@ -6,11 +6,12 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
  * 'bin2d' stat requires x,y (weight is optional)
  */
-interface Bin2dStatAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface Bin2dStatAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
     val weight: Any?

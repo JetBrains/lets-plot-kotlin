@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface QQStatAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface QQStatAesthetics : OptionsCapsule {
     val sample: Any?
 
     override fun seal() = Options.of(

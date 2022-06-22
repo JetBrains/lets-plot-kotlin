@@ -106,14 +106,18 @@ abstract class Layer(
     val sampling: SamplingOptions?,
     val tooltips: TooltipOptions?,
     val orientation: String?
-) : Feature() {
+) : OptionsCapsule, Feature() {
 
     // layer mapping has precedence over geom and stat
     val mapping by lazy {
         geom.mapping + stat.mapping + mapping
     }
 
-    abstract val parameters: Options
+    //    abstract val parameters: Options
+    // layer parameters has precedence over geom and stat
+    val parameters by lazy {
+        geom.parameters + stat.parameters + this.seal()
+    }
 }
 
 class Scale(

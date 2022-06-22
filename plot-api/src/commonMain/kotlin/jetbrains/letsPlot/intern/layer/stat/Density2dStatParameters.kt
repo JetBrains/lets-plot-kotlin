@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface Density2dStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface Density2dStatParameters : OptionsCapsule {
     val bw: Any?
     val kernel: String?
     val n: Int?           // ToDo: just Int or a pair of ints?

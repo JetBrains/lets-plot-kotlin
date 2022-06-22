@@ -7,8 +7,9 @@ package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.datalore.plot.config.Option.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface QQStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface QQStatParameters : OptionsCapsule {
     val distribution: String?
     val dParams: List<Number>?
 

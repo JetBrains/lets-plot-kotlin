@@ -7,8 +7,9 @@ package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.datalore.plot.config.Option.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface QQLineStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface QQLineStatParameters : OptionsCapsule {
     val distribution: String?
     val dParams: List<Number>?
     val quantiles: Pair<Number, Number>?

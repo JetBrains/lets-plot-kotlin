@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface LineRangeAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface LineRangeAesthetics : OptionsCapsule {
     val x: Any?
     val ymin: Any?
     val ymax: Any?

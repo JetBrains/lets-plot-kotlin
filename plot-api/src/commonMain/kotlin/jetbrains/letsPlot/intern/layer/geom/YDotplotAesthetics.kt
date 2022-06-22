@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.OptionsCapsule
+import jetbrains.letsPlot.intern.OptionsCapsule
 
 interface YDotplotAesthetics : OptionsCapsule {
     val x: Any?

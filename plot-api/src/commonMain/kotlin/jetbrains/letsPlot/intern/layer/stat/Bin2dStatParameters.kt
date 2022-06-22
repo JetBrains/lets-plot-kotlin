@@ -7,8 +7,9 @@ package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.datalore.plot.config.Option.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface Bin2dStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface Bin2dStatParameters : OptionsCapsule {
     val bins: Pair<Int, Int>?
     val binWidth: Pair<Number?, Number?>?
     val drop: Boolean?

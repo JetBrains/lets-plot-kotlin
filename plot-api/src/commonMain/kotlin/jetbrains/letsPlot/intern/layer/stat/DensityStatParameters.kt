@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface DensityStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface DensityStatParameters : OptionsCapsule {
     val bw: Any?       // ToDo: constants (bin width: string (method) or Number)
     val kernel: String?   // ToDo: constants
     val n: Int?

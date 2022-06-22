@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface ContourStatAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface ContourStatAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
     val z: Any?

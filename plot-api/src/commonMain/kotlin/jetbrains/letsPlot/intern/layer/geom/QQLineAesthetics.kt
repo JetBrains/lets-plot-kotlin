@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface QQLineAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface QQLineAesthetics : OptionsCapsule {
     val alpha: Any?
     val color: Any?
     val linetype: Any?

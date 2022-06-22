@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface BarAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface BarAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
     val alpha: Any?

@@ -5,7 +5,6 @@
 
 package jetbrains.letsPlot.intern
 
-import jetbrains.letsPlot.intern.layer.OptionsCapsule
 import jetbrains.letsPlot.intern.layer.WithGroupOption
 
 class GenericAesMapping(

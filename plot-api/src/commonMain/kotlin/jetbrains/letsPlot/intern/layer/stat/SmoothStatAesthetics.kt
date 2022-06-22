@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface SmoothStatAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface SmoothStatAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
 

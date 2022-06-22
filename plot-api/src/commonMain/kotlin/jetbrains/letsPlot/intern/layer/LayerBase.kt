@@ -9,6 +9,7 @@ import jetbrains.letsPlot.intern.Layer
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.tooltips.TooltipOptions
 
+// ToDo: It seems we don't need 'LayerBase'
 abstract class LayerBase(
     mapping: Options,
     data: Map<*, *>? = null,
@@ -29,7 +30,9 @@ abstract class LayerBase(
     sampling = sampling,
     tooltips = tooltips,
     orientation = orientation
-), OptionsCapsule {
-
-    override val parameters by lazy { geom.parameters + stat.parameters + this.seal() }
-}
+)
+//), OptionsCapsule {
+//
+//    // layer parameters has precedence over geom and stat
+//    override val parameters by lazy { geom.parameters + stat.parameters + this.seal() }
+//}

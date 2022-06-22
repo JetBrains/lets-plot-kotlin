@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.OptionsCapsule
+import jetbrains.letsPlot.intern.OptionsCapsule
 
 interface DotplotStatParameters : OptionsCapsule {
     val bins: Int?

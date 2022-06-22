@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface QQ2StatAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface QQ2StatAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
 

@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface ABLineAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface ABLineAesthetics : OptionsCapsule {
     val slope: Any?
     val intercept: Any?
     val alpha: Any?

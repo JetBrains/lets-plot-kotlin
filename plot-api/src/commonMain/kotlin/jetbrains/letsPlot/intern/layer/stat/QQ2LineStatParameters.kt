@@ -7,8 +7,9 @@ package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.datalore.plot.config.Option.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface QQ2LineStatParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface QQ2LineStatParameters : OptionsCapsule {
     val quantiles: Pair<Number, Number>?
 
     override fun seal() = Options.of(

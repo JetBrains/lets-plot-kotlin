@@ -7,8 +7,9 @@ package jetbrains.letsPlot.intern.layer.geom
 
 import jetbrains.datalore.plot.config.Option
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
-interface TextParameters : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface TextParameters : OptionsCapsule {
     val labelFormat: String?
     val naText: String?
 

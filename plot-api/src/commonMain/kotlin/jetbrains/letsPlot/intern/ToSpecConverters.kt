@@ -85,7 +85,8 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         spec[Option.PlotBase.DATA] = asPlotData(data)
     }
 
-    val allMappings = (mapping + geom.mapping + stat.mapping).map
+//    val allMappings = (mapping + geom.mapping + stat.mapping).map
+    val allMappings = mapping.map
     spec[Option.PlotBase.MAPPING] = asMappingData(allMappings)
 
     val dataMeta = createDataMeta(data, allMappings)
@@ -95,15 +96,6 @@ fun Layer.toSpec(): MutableMap<String, Any> {
 
     spec[Option.Layer.GEOM] = geom.kind.optionName()
     spec[Option.Layer.STAT] = stat.kind.optionName()
-
-//    val posOptions = position
-//    spec[Option.Layer.POS] = if (posOptions.parameters.isEmpty()) {
-//        posOptions.kind.optionName()
-//    } else {
-//        OptionsMap(
-//            Option.Meta.Kind.POS, posOptions.kind.optionName(), posOptions.parameters.map
-//        ).toSpec(true)
-//    }
 
     position?.let {
         spec[Option.Layer.POS] =
@@ -162,8 +154,10 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         }
     }
 
-    val allParameters = parameters + geom.parameters + stat.parameters
-    spec.putAll(allParameters.map)
+//    val allParameters = parameters + geom.parameters + stat.parameters
+//    spec.putAll(allParameters.map)
+    val allParameters = parameters.map
+    spec.putAll(allParameters)
     if (!showLegend) {
         spec[Option.Layer.SHOW_LEGEND] = false
     }

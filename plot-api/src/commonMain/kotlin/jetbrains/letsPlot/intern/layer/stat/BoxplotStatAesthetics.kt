@@ -6,11 +6,12 @@
 package jetbrains.letsPlot.intern.layer.stat
 
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
  * The "Five Number Summary" requires x,y (weight is optional)
  */
-interface BoxplotStatAesthetics : jetbrains.letsPlot.intern.layer.OptionsCapsule {
+interface BoxplotStatAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
     val weight: Any?

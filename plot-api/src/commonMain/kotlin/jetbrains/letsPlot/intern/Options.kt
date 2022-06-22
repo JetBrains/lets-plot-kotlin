@@ -17,7 +17,7 @@ class Options(map: Map<String, Any?>) {
 
     val map: Map<String, Any> = MapStandardizing.standardize(map)
 
-    operator fun plus(other: Options) = union(other)
+    operator fun plus(other: Options) = Options(this.map + other.map)
 
     fun has(k: String): Boolean {
         return map.containsKey(k)
@@ -28,6 +28,4 @@ class Options(map: Map<String, Any?>) {
     }
 
     fun isEmpty() = map.isEmpty()
-
-    fun union(other: Options) = Options(this.map + other.map)
 }
