@@ -41,7 +41,7 @@ fun ggmarginal(
 
     val sizeList = when (size) {
         null -> emptyList()
-        is Number -> listOf(size.toDouble())
+        is Number -> List(4) { (size.toDouble()) }
         is Pair<*, *> -> size.toList()
         is Iterable<*> -> size.toList()
         else -> throw IllegalArgumentException("Invalid 'size' type: ${size::class.simpleName}. Expected: number, list or pair.")

@@ -24,7 +24,7 @@ project.extra["buildSettings"] = settings
 
 allprojects {
     group = "org.jetbrains.lets-plot"
-    version = "3.4.0-alpha2"
+    version = "3.4.0-alpha3"
 
     val version = version as String
     var versionIsDev: Boolean by extra
