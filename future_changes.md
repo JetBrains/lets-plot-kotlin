@@ -1,4 +1,4 @@
-## [3.2.1] - 2022-xx-xx
+## [3.4.0] - 2022-xx-xx
 
 ### Added
 - Global theme configuring with `LetsPlot.theme` property.

@@ -32,7 +32,7 @@ import jetbrains.letsPlot.intern.layer.MarginalLayer
 @Suppress("SpellCheckingInspection")
 fun ggmarginal(
     sides: String,
-    size: Any?,
+    size: Any? = null,
     layer: Layer
 ): Feature {
 
