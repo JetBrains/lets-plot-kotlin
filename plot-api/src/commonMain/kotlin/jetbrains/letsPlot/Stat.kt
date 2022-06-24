@@ -86,7 +86,7 @@ object Stat {
     @Suppress("ClassName")
     class contour(
         override val bins: Int? = null,
-        override val binWidth: Double? = null,
+        override val binWidth: Number? = null,
         mapping: ContourStatMapping.() -> Unit = {}
     ) : ContourStatParameters,
         StatOptions(

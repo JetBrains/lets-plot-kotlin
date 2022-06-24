@@ -70,7 +70,7 @@ class geomDotplot(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
-    override val x: Double? = null,
+    override val x: Number? = null,
     override val bins: Int? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,

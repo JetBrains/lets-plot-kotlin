@@ -76,7 +76,7 @@ class geomYDotplot(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
-    override val x: Double? = null,
+    override val x: Number? = null,
     override val y: Any? = null,
     override val bins: Int? = null,
     override val center: Number? = null,

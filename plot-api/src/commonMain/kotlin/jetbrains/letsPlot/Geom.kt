@@ -20,8 +20,8 @@ object Geom {
 
     @Suppress("ClassName")
     class point(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -43,14 +43,14 @@ object Geom {
 
     @Suppress("ClassName")
     class path(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
-        override val speed: Double? = null,
-        override val flow: Double? = null,
+        override val speed: Number? = null,
+        override val flow: Number? = null,
         mapping: PathMapping.() -> Unit = {}
     ) : PathAesthetics,
         jetbrains.letsPlot.intern.layer.GeomOptions(
@@ -62,8 +62,8 @@ object Geom {
 
     @Suppress("ClassName")
     class area(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -80,8 +80,8 @@ object Geom {
 
     @Suppress("ClassName")
     class histogram(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -97,8 +97,8 @@ object Geom {
 
     @Suppress("ClassName")
     class line(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -114,12 +114,12 @@ object Geom {
 
     @Suppress("ClassName")
     class bar(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
-        override val width: Double? = null,
+        override val width: Number? = null,
         override val size: Number? = null,
         mapping: BarMapping.() -> Unit = {}
     ) : BarAesthetics,
@@ -132,10 +132,10 @@ object Geom {
 
     @Suppress("ClassName")
     class tile(
-        override val x: Double? = null,
-        override val y: Double? = null,
-        override val width: Double? = null,
-        override val height: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val width: Number? = null,
+        override val height: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -152,8 +152,8 @@ object Geom {
 
     @Suppress("ClassName")
     class raster(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val alpha: Number? = null,
         override val fill: Any? = null,
         mapping: RasterMapping.() -> Unit = {}

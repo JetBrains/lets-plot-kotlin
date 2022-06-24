@@ -71,14 +71,14 @@ class geomPath(
     tooltips: TooltipOptions? = null,
     override val map: SpatialDataset? = null,
     override val mapJoin: Pair<Any, Any>? = null,
-    override val x: Double? = null,
-    override val y: Double? = null,
+    override val x: Number? = null,
+    override val y: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
-    override val speed: Double? = null,
-    override val flow: Double? = null,
+    override val speed: Number? = null,
+    override val flow: Number? = null,
     mapping: PathMapping.() -> Unit = {}
 
 ) : PathAesthetics,

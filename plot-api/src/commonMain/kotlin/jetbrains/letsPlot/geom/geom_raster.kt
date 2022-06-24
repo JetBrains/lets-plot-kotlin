@@ -43,8 +43,8 @@ class geomRaster(
     position: jetbrains.letsPlot.intern.layer.PosOptions = identity,
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
-    override val x: Double? = null,
-    override val y: Double? = null,
+    override val x: Number? = null,
+    override val y: Number? = null,
     override val alpha: Number? = null,
     override val fill: Any? = null,
     mapping: RasterMapping.() -> Unit = {}

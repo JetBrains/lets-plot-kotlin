@@ -25,7 +25,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  *             so that horizontal axis becomes vertical and vice versa.
  */
 fun coordFixed(
-    ratio: Double? = null,
+    ratio: Number? = null,
     xlim: Pair<Number?, Number?>? = null,
     ylim: Pair<Number?, Number?>? = null,
     flip: Boolean = false

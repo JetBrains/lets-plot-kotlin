@@ -49,7 +49,7 @@ class geomABLine(
     position: jetbrains.letsPlot.intern.layer.PosOptions = identity,
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
-    override val slope: Double? = null,
+    override val slope: Number? = null,
     override val intercept: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,

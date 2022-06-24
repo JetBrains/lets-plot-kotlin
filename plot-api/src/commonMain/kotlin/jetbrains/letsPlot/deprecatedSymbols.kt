@@ -22,7 +22,7 @@ fun as_discrete(variable: String, label: String? = null) = asDiscrete(variable, 
 
 @Deprecated("", ReplaceWith("coordFixed(ratio, xlim, ylim)"), level = DeprecationLevel.ERROR)
 fun coord_fixed(
-    ratio: Double? = null,
+    ratio: Number? = null,
     xlim: Pair<Number?, Number?>? = null,
     ylim: Pair<Number?, Number?>? = null
 ) = coordFixed(ratio, xlim, ylim)

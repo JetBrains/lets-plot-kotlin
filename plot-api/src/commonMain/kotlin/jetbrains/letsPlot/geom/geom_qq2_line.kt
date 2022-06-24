@@ -63,7 +63,7 @@ class geomQQ2Line(
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
-    override val x: Double? = null,
+    override val x: Number? = null,
     override val y: Double? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
