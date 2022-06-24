@@ -9,11 +9,13 @@ import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.ViolinAesthetics
 import jetbrains.letsPlot.intern.layer.geom.ViolinMapping
 import jetbrains.letsPlot.intern.layer.stat.YDensityStatAesthetics
 import jetbrains.letsPlot.intern.layer.stat.YDensityStatParameters
+import jetbrains.letsPlot.positionDodge
 import jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName", "SpellCheckingInspection")
@@ -75,7 +77,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomViolin(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.yDensity(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.dodge,
+    // ToDo: fix in lets-plot: see comments in `geomBoxplot`.
+//    position: PosOptions = Pos.dodge,
+    position: PosOptions = positionDodge(0.95), // tmp fix
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

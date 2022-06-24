@@ -9,12 +9,14 @@ import jetbrains.letsPlot.Geom.boxplot
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
 import jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
 import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
+import jetbrains.letsPlot.positionDodge
 import jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -70,7 +72,16 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomBoxplot(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.boxplot(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.dodge,
+    // ToDo: fix in lets-plot:
+    //  - Pos.dodge
+    //  - positionDodge()
+    //  - positionDodge(0.95)
+    //  should be equivalent as `width = 0.95` is the default for box-plot
+    //  see: GeomProto.boxplotDefaults()
+    //  The problem manifest itself on the "marginal_layers" demo notebook in
+    //  both Kotlin and Python (with added position="dodge" parameter)
+//    position: PosOptions = Pos.dodge,
+    position: PosOptions = positionDodge(0.95), // tmp fix
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

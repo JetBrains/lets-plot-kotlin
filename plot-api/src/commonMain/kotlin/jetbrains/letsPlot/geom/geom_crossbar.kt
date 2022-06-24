@@ -9,9 +9,11 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.CrossBarAesthetics
 import jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
+import jetbrains.letsPlot.positionDodge
 import jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -51,7 +53,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomCrossbar(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.dodge,
+    // ToDo: fix in lets-plot: see comments in `geomBoxplot`.
+//    position: PosOptions = Pos.dodge,
+    position: PosOptions = positionDodge(0.95), // tmp fix
     showLegend: Boolean = true,
     sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
