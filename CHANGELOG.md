@@ -5,6 +5,78 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
+## [3.3.0] - 2022-06-27
+
+### Added
+
+- Global theme configuring with `LetsPlot.theme` property.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/default_theme.ipynb).
+
+- Quantile-Quantile (Q-Q) plot:
+  - geometries:
+    - `geomQQ()`
+    - `geomQQLine()`
+    - `geomQQ2()`
+    - `geomQQ2Line()`
+  - stats:
+    - `statQQ()`
+    - `statQQLine()`
+    - `statQQ2()`
+    - `statQQ2Line()`
+  - quick Q-Q: `qqPlot()`
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb).
+
+- Marginal plots: the `ggmarginal()` function.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb).
+
+- Parameter `orientation` in geoms: `bar, boxplot, density, histogram, freqpoly, smooth, violin`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/y_orientation.ipynb).
+
+- New in *plot theme*:
+  - `face` parameter in `elementText()`.
+
+    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/set_font_faces.ipynb).
+
+  - `panelBorder` parameter in `theme()` [[#542](https://github.com/JetBrains/lets-plot/issues/542)].
+
+    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/panel_border.ipynb).
+
+  - *Tooltip* theme options, new parameters in `theme()`:
+    - `tooltip` - tooltip rectangle options;
+    - `tooltipText, tooltipTitleText` - tooltip text options;
+    - `axisTooltipText, axisTooltipTextX, axisTooltipTextY` - axis tooltip text options.
+
+    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb).
+
+- `scaleColorGradientN()` and `scaleFillGradientN()` functions [[#504](https://github.com/JetBrains/lets-plot/issues/504)].
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/scale_color_gradientn.ipynb).
+          
+
+- `kotlinx.datetime` support.
+- `arrow` parameter in `geomSegment` - specification for arrow heads, as created by `arrow()` function.
+
+
+### Changed
+
+- Potentially **breaking change**: deprecation level for all deprecated API raised to the **ERROR** level.
+- `geomImage()` removed as it is not yet production ready.
+- Default sampling type for `geom_violin` switched from `systematic` to `pick`.
+
+
+### Fixed
+
+- Labels out of plot when axisTextY="blank" [[#525](https://github.com/JetBrains/lets-plot/issues/525)].
+- Outliers are not shown when boxplot' alpha=0.
+- JFX rendering issue that causes tooltips to stuck [[#539](https://github.com/JetBrains/lets-plot/issues/539)].
+- Support trim parameter in `density` and `ydensity` stats [[#62](https://github.com/JetBrains/lets-plot/issues/62)].
+- `geom_violin`: add missing parameters `kernel`, `bw`, `adjust`, `n`, `fs_max` to signature and docstring.
+
+
 ## [3.2.0] - 2022-03-29
 
 ### Added

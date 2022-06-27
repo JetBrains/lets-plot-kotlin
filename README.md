@@ -44,7 +44,7 @@
   - [Saving plot to file](#export)
   - [GeoTools support](#geotools)
 
-- [What is new in 3.2.0](#new)
+- [What is new in 3.3.0](#new)
 - [Change log](#change_log)
 - [License](#license)    
 
@@ -246,56 +246,56 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 
 <a id="new"></a>
 
-## What is new in 3.2.0
+## What is new in 3.3.0
 
-- ### Geometries
+- ### New Plot Types
 
-  - `geomViolin()`
+  - #### Quantile-Quantile (Q-Q) plot.
+    - geometries:
+      - `geomQQ()`
+      - `geomQQLine()`
+      - `geomQQ2()`
+      - `geomQQ2Line()`
+    - stats:
+      - `statQQ()`
+      - `statQQLine()`
+      - `statQQ2()`
+      - `statQQ2Line()`
+    - quick Q-Q: `qqPlot()`
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb).
+    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb).
 
-  - `geomDotplot()`
+  - #### Marginal plots.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_dotplot.ipynb).
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22b/images/marginal_layers.png" alt="f-22b/images/marginal_layers.png" width="360" height="276">
 
-  - `geomYDotplot()`
+    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb).
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb).
+- ### Plot Theme
 
-- ### Labels and Legends
+  - `face` parameter in `elementText()`.
 
-  - Plot **subtitle** and **caption** are now supported.
+    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/set_font_faces.ipynb).
 
-    You can use parameter `subtitle`in `ggtitle()` and `labs()` to add a subtitle below the plot' title, and
-    parameter `caption` in `labs()` to add a caption below plot.
+  - `panelBorder` parameter in `theme()`.
 
-  - Multi-line labels.
+    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/panel_border.ipynb).
 
-    The 'newline' character (`\n`) now works as `line break` in plot title, subtitle and caption, in legend's title and in tooltips.
+  - New options for configuring tooltip appearance.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb).
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22b/images/tooltip_theme.png" alt="f-22b/images/tooltip_theme.png" width="150" height="114">
 
-- ### Tooltips
+    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb).
 
-<img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22a/images/tooltip.png" alt="f-22a/images/tooltip.png" width="362" height="310">
+- ### Color Scales
 
-- Improved appearance
-- Automatic word wrap makes long text values look better
-- Tooltip title
+  `scaleColorGradientN()` and `scaleFillGradientN()` functions.
 
-  You can use new method `title()` in the [Tooltip castomization API](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md) to add a title to tooltip.
-
-See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_title.ipynb).
-
-- ### Facets
-
-  "Free" scales are now supported on faceted plots.
-
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb).
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/scale_color_gradientn.ipynb).
 
 
 - Other improvements and fixes -
-  see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#310---2022-03-29)
+  see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#330---2022-06-27)
   for details.
 
 <a id="change_log"></a>
