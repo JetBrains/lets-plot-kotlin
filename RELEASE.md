@@ -8,6 +8,8 @@
 
 - remove _"-alphaN"_ qualifier for the 'version' property.
 
+> Also, update the artifacts' version in [README_DEV.md](README_DEV.md).
+
 ##### 3. Build and release JVM artifacts to Maven Central
 
 a) Upload to the Nexus staging repository:
@@ -106,7 +108,6 @@ git tag v1.2.3demos1 && git push --tags
 ```
 
 In [docs/README.md](docs/README.md) update the Binder link with new "demo" tag (above).
-
 
 ### Add the GitHub release:
  

@@ -292,10 +292,14 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
   `scaleColorGradientN()` and `scaleFillGradientN()` functions.
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/scale_color_gradientn.ipynb).
+               
+- ### Deprecated API
+>
+>  **(!)** Potentially **breaking change**: deprecation level for all deprecated API raised to the **ERROR** level.
+>
 
-
-- Other improvements and fixes -
-  see [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#330---2022-06-27)
+- ### Other improvements and fixes
+  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#330---2022-06-27)
   for details.
 
 <a id="change_log"></a>
