@@ -67,6 +67,9 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 - push the new dev version to GitHub.
 
 ##### 5. Re-generate the API Reference (HTML)
+   
+- Update `publicVersion` in [plot-api/build.gradle.kts](plot-api/build.gradle.kts)
+  `val publicVersion: String = <version>`
 
 - `./gradlew dokkaHtml`
 - Move the content of docs/api-reference/ to the docs/kotlin/ directory of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
