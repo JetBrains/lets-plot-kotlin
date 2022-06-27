@@ -12,6 +12,7 @@
 - [Side tooltips configuration](#outliers)
     - [Examples](#example-outliers)
 - [Hiding tooltips](#hiding-tooltips)
+- [Tooltip theme](#tooltip-theme)
 - [Example Notebooks](#example-notebooks)
 
 ------
@@ -293,6 +294,24 @@ p + geomBoxplot(tooltips=layerTooltips()
 ## Hiding tooltips
 
 Set `tooltips = tooltipsNone` to hide tooltips from the layer.
+
+To hide axis tooltips you can set "blank" or `elementBlank()` to the `axisTooltip, axisTooltipX, axisTooltipY` parameters of the `theme()` function.
+
+<a id="tooltip-theme"></a>
+                     
+## Tooltip theme
+
+You can modify tooltip appearance using following parameters in the `theme()` function.
+ - tooltip rectangle:          
+   - `tooltip`
+   - `axisTooltip`, `axisTooltipX`, `axisTooltipY`
+ - tooltip text:
+   - `tooltipText`
+   - `tooltipTitleText`
+   - `axisTooltipText`, `axisTooltipTextX`, `axisTooltipTextY`
+
+ See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb).
+
 
 <a id="example-notebooks"></a>
 
