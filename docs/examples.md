@@ -32,6 +32,15 @@ Try the following tutorials and examples to learn and evaluate various features 
 
 [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
 
+`geomViolin()`
+[geom_violin.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb)
+
+`geomDotplot()`
+[geom_dotplot](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_dotplot.ipynb)
+
+`geomYDotplot()`
+[geom_ydotplot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb)
+
 `geomErrorBar, geomLine, geomPoint, geomBar, geomCrossbar, geomLineRange, geomPointRange`:
 
 [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
@@ -144,11 +153,13 @@ The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or 
 <a id="theme"></a>
 
 #### Themes
-
-`themeGrey(), themeLight(), themeClassic(), themeMinimal()` and `themeMinimal2()` (used by default).
+                   
+Named themes: `themeGrey(), themeLight(), themeClassic(), themeMinimal()` and `themeMinimal2()` (used by default).
+Use the `theme()` function to modify components of a theme.
 
 * [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
 * [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
+* [Title, subtitle, caption](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb)
 
 <a id="sampling"></a>
 
