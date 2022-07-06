@@ -22,6 +22,8 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * Dotplot represents individual observations in a batch of data with circular dots.
  * The diameter of a dot corresponds to the maximum width or bin width, depending on the binning algorithm.
  *
+ * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_dotplot.ipynb).
+ *
  * @param data
  *      The data to be displayed in this layer. If None, the default, the data
  *      is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

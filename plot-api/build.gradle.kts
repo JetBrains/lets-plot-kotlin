@@ -13,15 +13,19 @@ plugins {
 }
 
 val publicVersion: String = "3.3.0"
-val currentYear: Int = LocalDateTime.now().getYear()
+val customFooterMessage = "Copyright © 2019-${LocalDateTime.now().year} JetBrains s.r.o."
+val customStyleSheet = "$projectDir/../docs/source/custom.css"
+val customScript = "$projectDir/../docs/source/custom.js"
 
 tasks.dokkaHtml {
     moduleName.set("Lets-Plot-Kotlin v$publicVersion")
     outputDirectory.set(File("$projectDir/../docs/api-reference"))
-    pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "Copyright © 2019-$currentYear JetBrains s.r.o." }"""))
+    pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "$customFooterMessage", "customStyleSheets": ["$customStyleSheet"], "customAssets": ["$customScript"]}"""))
     dokkaSourceSets {
         configureEach {
             skipDeprecated.set(true)
+            includes.from("$projectDir/../docs/source/packages.md")
+            samples.from("$projectDir/../plot-api/src/commonMain/kotlin/jetbrains/letsPlot/samples/geomABLine.kt")
         }
     }
 }

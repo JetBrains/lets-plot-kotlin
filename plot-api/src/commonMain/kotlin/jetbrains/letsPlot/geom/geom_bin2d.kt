@@ -21,6 +21,8 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Divide the plane into a grid and color the bins by the count of cases in them.
  *
+ * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb).
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

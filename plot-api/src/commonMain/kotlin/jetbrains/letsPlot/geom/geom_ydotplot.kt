@@ -23,6 +23,8 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * The diameter of a dot corresponds to the maximum width or bin width, depending on the binning algorithm.
  * `geom_ydotplot()` is an obvious blend of `geom_violin()` and `geom_dotplot()`.
  *
+ * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb).
+ *
  * @param data
  *      The data to be displayed in this layer. If None, the default, the data
  *      is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

@@ -17,6 +17,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Add a vertical line defined by upper and lower value with midpoint at y location.
+ *
+ * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb).
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].
