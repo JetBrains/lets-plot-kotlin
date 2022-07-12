@@ -12,20 +12,21 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
-val publicVersion: String = "3.3.0"
+val rootDir = "${projectDir.toString().replace("\\", "/")}/.."
+val docsDir = "$rootDir/docs"
 val customFooterMessage = "Copyright © 2019-${LocalDateTime.now().year} JetBrains s.r.o."
-val customStyleSheet = "$projectDir/../docs/source/custom.css"
-val customScript = "$projectDir/../docs/source/custom.js"
+val customStyleSheet = "$docsDir/source/custom.css"
+val customScript = "$docsDir/source/custom.js"
 
 tasks.dokkaHtml {
-    moduleName.set("Lets-Plot-Kotlin v$publicVersion")
-    outputDirectory.set(File("$projectDir/../docs/api-reference"))
+    moduleName.set("Lets-Plot-Kotlin")
+    outputDirectory.set(File("$docsDir/api-reference"))
     pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "$customFooterMessage", "customStyleSheets": ["$customStyleSheet"], "customAssets": ["$customScript"]}"""))
     dokkaSourceSets {
         configureEach {
             skipDeprecated.set(true)
-            includes.from("$projectDir/../docs/source/packages.md")
-            samples.from("$projectDir/../plot-api/src/commonMain/kotlin/jetbrains/letsPlot/samples/geomABLine.kt")
+            includes.from("$docsDir/source/packages.md")
+            samples.from("$rootDir/plot-api/src/commonMain/kotlin/jetbrains/letsPlot/samples/geomABLine.kt")
         }
     }
 }
