@@ -1,34 +1,27 @@
 const indexHTML = `
 <div class="UnderCoverText custom-under-cover">
-    <h2>Examples</h2>
-    <ul>
-        <li>
-            <p>
-                <a href="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb">quickstart.ipynb</a>
-            </p>
-        </li>
-        <li>
-            <p>
-                <a href="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb">user_guide.ipynb</a>
-            </p>
-        </li>
-    </ul>
+    <div>
+        See also the <a href="https://github.com/JetBrains/lets-plot-kotlin">GitHub repository</a> of the library.
+    </div>
 </div>
 `;
 
-document.addEventListener('DOMContentLoaded', function(){
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', onDocumentReady, false);
+} else
+    onDocumentReady();
 
+
+function onDocumentReady() {
     const coverElem = document.querySelector("#main div.cover");
     if (coverElem.textContent.trim().split(" ").indexOf("Lets-Plot-Kotlin") == 0) {
         const newElem = htmlToElement(indexHTML);
         coverElem.parentElement.insertBefore(newElem, coverElem.nextSibling);
     }
-
-}, false);
+}
 
 function htmlToElement(html) {
-    var template = document.createElement('template');
-    html = html.trim();
-    template.innerHTML = html;
+    const template = document.createElement('template');
+    template.innerHTML = html.trim();
     return template.content.firstChild;
 }
