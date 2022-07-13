@@ -8,6 +8,9 @@ package jetbrains.letsPlot
 import jetbrains.datalore.plot.config.Option.Meta.MappingAnnotation
 
 
+/**
+ * @suppress
+ */
 class MappingMeta(
     val variable: String,
     private val annotation: String,

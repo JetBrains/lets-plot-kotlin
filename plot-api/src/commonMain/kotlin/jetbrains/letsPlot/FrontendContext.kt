@@ -5,6 +5,9 @@
 
 package jetbrains.letsPlot
 
+/**
+ * @suppress
+ */
 interface FrontendContext {
     fun display(plotSpecRaw: MutableMap<String, Any>)
     fun getInfo() = "Not available"

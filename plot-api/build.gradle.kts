@@ -26,6 +26,14 @@ tasks.dokkaHtml {
         configureEach {
             skipDeprecated.set(true)
             includes.from("$docsDir/source/packages.md")
+            perPackageOption {
+                matchingRegex.set(".*\\.frontend.*")
+                suppress.set(true)
+            }
+            perPackageOption {
+                matchingRegex.set(".*\\.intern.*")
+                suppress.set(true)
+            }
         }
     }
 }
