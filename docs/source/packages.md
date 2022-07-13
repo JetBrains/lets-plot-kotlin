@@ -8,6 +8,8 @@
 
 - [y_orientation.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/y_orientation.ipynb)
 
+More examples you can find [here](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md).
+
 # Package jetbrains.letsPlot.bistro.corr
 
 The `CorrPlot` class produces a correlation matrix plot.
@@ -84,6 +86,8 @@ letsPlot(data) +
 
 # Package jetbrains.letsPlot.label
 
+See [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md).
+
 ## Examples
 
 - [title_subtitle_caption.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb)
@@ -102,6 +106,8 @@ val data = mapOf("x" to List(n) { rand.nextInt(m) })
 letsPlot(data) +
     geomBar(sampling = samplingRandomStratified(3, seed=42)) { x="x" }
 ```
+
+For more information, see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
 
 ## Examples
 
@@ -138,6 +144,8 @@ For more information, see [geotools.md](https://github.com/JetBrains/lets-plot-k
 - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
 # Package jetbrains.letsPlot.tooltips
+
+See [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
 
 ## Examples
 

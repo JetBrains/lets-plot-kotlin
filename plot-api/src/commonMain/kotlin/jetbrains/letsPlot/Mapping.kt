@@ -27,6 +27,8 @@ class MappingMeta(
  * The plot will use a discrete scale for the aesthetic mapping.
  * It is similar to the factor() function from R but works differently - there is no data transformation.
  *
+ * See also [as_discrete.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/as_discrete.md).
+ *
  * ## Examples
  *
  * - [ordering_examples.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ordering_examples.ipynb)
