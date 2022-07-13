@@ -1,6 +1,6 @@
 const indexHTML = `
 <div class="UnderCoverText custom-under-cover">
-    <p>Example notebooks:</p>
+    <h2>Examples</h2>
     <ul>
         <li>
             <p>

@@ -9,6 +9,17 @@ import jetbrains.letsPlot.intern.StatKind
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.stat.*
 
+/**
+ * Stat options to pass as a value of `stat` parameter of layer functions like:
+ *
+ * ```kotlin
+ * val n = 100
+ * val rand = java.util.Random(42)
+ * val data = mapOf("x" to List(n) { rand.nextGaussian() })
+ * letsPlot(data) +
+ *     geomArea(stat = Stat.density()) { x="x" }
+ * ```
+ */
 object Stat {
     val identity = StatOptions(
         StatKind.IDENTITY

@@ -8,6 +8,22 @@ package jetbrains.letsPlot
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.PosKind
 
+/**
+ * Pos options to pass as a value of `position` parameter of layer functions like:
+ *
+ * ```kotlin
+ * val n = 100
+ * val m = 5
+ * val k = 2
+ * val rand = java.util.Random(42)
+ * val data = mapOf(
+ *     "v" to List(n) { rand.nextInt(m) },
+ *     "c" to List(n) { rand.nextInt(k) }
+ * )
+ * letsPlot(data) +
+ *     geomBar(position=Pos.dodge) { x="v"; fill=asDiscrete("c") }
+ * ```
+ */
 object Pos {
     val identity = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.IDENTITY)
     val stack = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.STACK)

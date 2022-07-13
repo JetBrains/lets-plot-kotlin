@@ -16,8 +16,6 @@ import jetbrains.letsPlot.intern.layer.geom.ABLineMapping
 /**
  * Add a line with specified slope and intercept to the plot.
  *
- * @sample jetbrains.letsPlot.samples.GeomABLine.elementaryExample
- *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

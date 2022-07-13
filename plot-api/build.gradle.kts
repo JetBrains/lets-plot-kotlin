@@ -26,7 +26,6 @@ tasks.dokkaHtml {
         configureEach {
             skipDeprecated.set(true)
             includes.from("$docsDir/source/packages.md")
-            samples.from("$rootDir/plot-api/src/commonMain/kotlin/jetbrains/letsPlot/samples/geomABLine.kt")
         }
     }
 }
