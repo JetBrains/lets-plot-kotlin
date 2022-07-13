@@ -17,6 +17,10 @@ import jetbrains.letsPlot.intern.layer.MarginalLayer
  * A marginal plot is a scatterplot (sometimes a 2D density plot or other bivariate plot) that has histograms,
  * boxplots, or other distribution visualization layers in the margins of the x- and y-axes.
  *
+ * ## Examples
+ *
+ * - [marginal_layers.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb)
+ *
  * @param sides Which sides of the plot the marginal layer will appear on.
  *      It should be set to a string containing any of "trbl", for top, right, bottom, and left.
  * @param size number or list of numbers.

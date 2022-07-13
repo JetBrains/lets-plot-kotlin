@@ -18,6 +18,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 @Suppress("ClassName")
 /**
  * Connect observations in the order in which they appear in the data.
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

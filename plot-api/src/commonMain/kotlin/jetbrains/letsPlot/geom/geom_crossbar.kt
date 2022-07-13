@@ -20,7 +20,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Display bars with horizontal median line.
  *
- * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb).
+ * ## Examples
+ *
+ * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
  *
  * @param data dictionary or pandas DataFrame, optional
  *     The data to be displayed in this layer. If None, the default, the data

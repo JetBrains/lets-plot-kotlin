@@ -27,6 +27,12 @@ class MappingMeta(
  * The plot will use a discrete scale for the aesthetic mapping.
  * It is similar to the factor() function from R but works differently - there is no data transformation.
  *
+ * ## Examples
+ *
+ * - [ordering_examples.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ordering_examples.ipynb)
+ *
+ * - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
+ *
  * @param variable name of the variable.
  * @param label name of the scale to be used as the axis label or the legend title (the default is the variable name).
  * @param orderBy the variable name by which the ordering will be performed.

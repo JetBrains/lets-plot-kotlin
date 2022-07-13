@@ -24,7 +24,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * Display the distribution of data based on a five number summary ("minimum", first quartile (Q1), median, third quartile (Q3), and "maximum"),
  * and "outlying" points individually.
  *
- * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb).
+ * ## Examples
+ *
+ * - [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
  *
  * @param data dictionary or pandas DataFrame, optional
  *     The data to be displayed in this layer. If None, the default, the data

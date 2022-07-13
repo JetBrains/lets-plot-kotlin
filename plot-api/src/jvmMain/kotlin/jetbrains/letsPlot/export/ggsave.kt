@@ -27,6 +27,10 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  * The exported file is created in directory ${user.dir}/lets-plot-images
  * if not specified otherwise (see the `path` parameter).
  *
+ * ## Examples
+ *
+ * - [export_to_file.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/export_to_file.ipynb)
+ *
  * @param plot Plot or GGBunch to export.
  * @param filename The name of file. It mast end with file extention corresponding
  *      to one of the supported formats: svg, html (or htm), png, jpeg (or jpg) or tiff (or tif)

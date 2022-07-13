@@ -36,6 +36,10 @@ fun ylab(label: String): Feature {
 
 /**
  * Change plot title, axis labels and legend titles.
+ *
+ * ## Examples
+ *
+ * - [title_subtitle_caption.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb)
 
  * @param title string.
  *     The plot title text.

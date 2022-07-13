@@ -14,6 +14,12 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * Splits data by one or more faceting variables.
  * For each data subset creates a plot panel and lays out panels according to the `ncol`, `nrow` and `dir` settings.
  *
+ * ## Examples
+ *
+ * - [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
+ *
+ * - [facets_free_scales.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb)
+ *
  * @param facets [string | list], one or more faceting variable names.
  * @param ncol Number of columns.
  * @param nrow Number of rows.

@@ -10,6 +10,13 @@ import jetbrains.letsPlot.intern.OptionsMap
 
 /**
  * Specifies overall size of plot.
+ *
+ * ## Examples
+ *
+ * - [quickstart.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb)
+ *
+ * - [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
+ *
  * @param width number.
  *     Width of plot in px.
  * @param height number.

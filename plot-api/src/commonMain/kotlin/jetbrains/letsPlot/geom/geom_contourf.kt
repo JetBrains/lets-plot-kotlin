@@ -21,7 +21,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Fill contours of a 3d surface in 2d.
  *
- * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb).
+ * ## Examples
+ *
+ * - [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data

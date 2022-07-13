@@ -22,7 +22,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * A violin plot is a mirrored density plot with an additional grouping as for a boxplot.
  *
- * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb).
+ * ## Examples
+ *
+ * - [geom_violin.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data

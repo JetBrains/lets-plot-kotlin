@@ -19,7 +19,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Display a bar chart which makes the height of the bar proportional to the number of observed variable values, mapped to x axis.
  *
- * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb).
+ * ## Examples
+ *
+ * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data

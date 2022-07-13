@@ -21,6 +21,12 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * Settings passed via more specific parameters override settings passed via less specific parameters.
  * For example, parameter `axisLineX` is more specific than parameter `axisLine`.
  *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ *
+ * - [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
+ *
  * @param line All line elements.
  * @param rect All rectangle elements.
  * @param text All text elements.
@@ -350,6 +356,10 @@ class theme(
 /**
  * Specifies how non-data components of the plot are drawn.
  * This theme element draws nothing, and assigns no space.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  */
 fun elementBlank() = mapOf(ThemeOption.Elem.BLANK to true)
 
@@ -357,6 +367,10 @@ fun elementBlank() = mapOf(ThemeOption.Elem.BLANK to true)
 /**
  * Specifies how non-data components of the plot are drawn.
  * This theme element draws borders and backgrounds.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  *
  * @param fill Fill color. Accepts color core as string (HEX or rgb) or Color object.
  * @param color Border color. Accepts color core as string (HEX or rgb) or Color object.
@@ -380,6 +394,10 @@ fun elementRect(
  * Specifies how non-data components of the plot are drawn.
  * This theme element draws lines.
  *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ *
  * @param color Line color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Line width.
  * @param blank Mark as a 'blank' element.
@@ -398,6 +416,10 @@ fun elementLine(
 /**
  * Specifies how non-data components of the plot are drawn.
  * This theme element draws texts.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  *
  * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
  * @param face Font face ("plain", "italic", "bold", "bold_italic").

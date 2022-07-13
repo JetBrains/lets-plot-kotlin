@@ -19,7 +19,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Display a density estimate, which is a smoothed version of the histogram.
  *
- * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb).
+ * ## Examples
+ *
+ * - [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data

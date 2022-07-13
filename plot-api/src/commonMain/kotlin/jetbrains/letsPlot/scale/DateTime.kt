@@ -15,6 +15,10 @@ import jetbrains.letsPlot.intern.checkScaleExpand
 /**
  * Position scale x for date/time data.
  *
+ * ## Examples
+ *
+ * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+ *
  * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
@@ -74,6 +78,10 @@ fun scaleXDateTime(
 
 /**
  * Position scale y for date/time data.
+ *
+ * ## Examples
+ *
+ * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
  *
  * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
@@ -135,6 +143,10 @@ fun scaleYDateTime(
 /**
  * Position scale x for data representing "time delta" values expressed in milliseconds.
  *
+ * ## Examples
+ *
+ * - [scale_time.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scale_time.ipynb)
+ *
  * @param name
  *      The name of the scale - used as the axis label or the legend title.
  *      If None, the default, the name of the scale is taken from the first mapping used for that aesthetic.
@@ -179,6 +191,10 @@ fun scaleXTime(
 
 /**
  * Position scale y for data representing "time delta" values expressed in milliseconds.
+ *
+ * ## Examples
+ *
+ * - [scale_time.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scale_time.ipynb)
  *
  * @param name
  *      The name of the scale - used as the axis label or the legend title.

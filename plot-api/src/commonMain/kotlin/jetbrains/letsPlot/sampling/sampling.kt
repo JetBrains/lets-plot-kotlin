@@ -9,10 +9,31 @@ import jetbrains.letsPlot.intern.SamplingKind
 
 val samplingNone = jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.NONE, emptyMap())
 
+/**
+ * Return a subset of randomly selected items.
+ *
+ * ## Examples
+ *
+ * - [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
+ *
+ * @param n Number of items to return.
+ * @param seed Number used to initialize a pseudo random number generator.
+ */
 fun samplingRandom(n: Int, seed: Int? = null): jetbrains.letsPlot.intern.layer.SamplingOptions {
     return jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.RANDOM, n, seed)
 }
 
+/**
+ * Randomly sample from each stratum (subgroup).
+ *
+ * ## Examples
+ *
+ * - [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
+ *
+ * @param n Number of items to return.
+ * @param seed Number used to initialize a pseudo random number generator.
+ * @param minSubsample Minimal number of items in sub sample.
+ */
 fun samplingRandomStratified(
     n: Int,
     seed: Int? = null,

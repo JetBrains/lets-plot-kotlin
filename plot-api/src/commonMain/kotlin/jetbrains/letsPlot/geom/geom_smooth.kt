@@ -19,11 +19,11 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Add a smoothed conditional mean.
  *
- * See also example notebooks:
+ * ## Examples
  *
- * - [geom_smooth.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
+ * - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
  *
- * - [scatter_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
+ * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
  *
  * @param data dictionary, optional.
  *     The data to be displayed in this layer. If None, the default, the data

@@ -31,6 +31,10 @@ import kotlin.math.min
  *
  * The terminal 'build()' method will create a fully configured 'Plot' (i.e. Figure) object.
  *
+ * ## Examples
+ *
+ * - [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+ *
  * @param data Dataframe to compute correlations on.
  * @param title Plot title.
  * @param showLegend Whether to show a legend.

@@ -21,7 +21,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Display density function contour.
  *
- * See also [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb).
+ * ## Examples
+ *
+ * - [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data

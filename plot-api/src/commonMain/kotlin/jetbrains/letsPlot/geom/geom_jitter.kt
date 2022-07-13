@@ -19,6 +19,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 @Suppress("ClassName")
 /**
  * Jittered points, especially for discrete plots or dense plots.
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

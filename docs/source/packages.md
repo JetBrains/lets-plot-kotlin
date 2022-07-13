@@ -6,6 +6,8 @@
 
 - [user_guide.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
 
+- [y_orientation.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/y_orientation.ipynb)
+
 # Package jetbrains.letsPlot.bistro.corr
 
 The `CorrPlot` class produces a correlation matrix plot.
@@ -78,6 +80,8 @@ letsPlot(data) +
 
 - `geomText()`: [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
 
+- `geomQQ()`, `geomQQLine()`, `geomQQ2()`, `geomQQ2Line()`, `qqPlot()`: [qq_plots.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
+
 # Package jetbrains.letsPlot.label
 
 ## Examples
@@ -98,6 +102,12 @@ val data = mapOf("x" to List(n) { rand.nextInt(m) })
 letsPlot(data) +
     geomBar(sampling = samplingRandomStratified(3, seed=42)) { x="x" }
 ```
+
+## Examples
+
+- [sampling_pick.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_pick.ipynb)
+
+- [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
 
 # Package jetbrains.letsPlot.scale
 
