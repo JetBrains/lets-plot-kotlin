@@ -12,6 +12,7 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
+val publicVersion: String = "3.3.0"
 val rootDir = "${projectDir.toString().replace("\\", "/")}/.."
 val docsDir = "$rootDir/docs"
 val customFooterMessage = "Copyright © 2019-${LocalDateTime.now().year} JetBrains s.r.o."
@@ -19,7 +20,7 @@ val customStyleSheet = "$docsDir/source/custom.css"
 val customScript = "$docsDir/source/custom.js"
 
 tasks.dokkaHtml {
-    moduleName.set("Lets-Plot-Kotlin")
+    moduleName.set("Lets-Plot-Kotlin $publicVersion")
     outputDirectory.set(File("$docsDir/api-reference"))
     pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "$customFooterMessage", "customStyleSheets": ["$customStyleSheet"], "customAssets": ["$customScript"]}"""))
     dokkaSourceSets {
