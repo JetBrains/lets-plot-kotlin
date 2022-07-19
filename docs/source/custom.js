@@ -4,13 +4,8 @@ if (document.readyState == 'loading') {
     onDocumentReady();
 
 function onDocumentReady() {
-    removeVersion();
     addUnderCoverTextToIndex();
     addTargetBlankToLinks();
-}
-
-function removeVersion() {
-    document.querySelector("#navigation-wrapper .library-name").nextElementSibling.remove();
 }
 
 function addUnderCoverTextToIndex() {
