@@ -193,7 +193,7 @@ class layerTooltips(vararg variables: String) {
         return this
     }
 
-    companion object {
+    private companion object {
         private const val TOOLTIP_VARIABLES = Option.Layer.TOOLTIP_VARIABLES
         private const val TOOLTIP_FORMATS = Option.Layer.TOOLTIP_FORMATS
         private const val TOOLTIP_ANCHOR = Option.Layer.TOOLTIP_ANCHOR
