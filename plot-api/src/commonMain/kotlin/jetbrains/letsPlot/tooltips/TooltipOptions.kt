@@ -7,10 +7,13 @@ package jetbrains.letsPlot.tooltips
 
 import jetbrains.datalore.plot.config.Option
 
+typealias TooltipOptions = layerTooltips
+
+
 /**
  * Hide tooltips.
  */
-val tooltipsNone = TooltipOptions(emptyList()).none()
+val tooltipsNone = layerTooltips().none()
 
 /**
  * Defines the format for displaying the value.
@@ -35,15 +38,12 @@ val tooltipsNone = TooltipOptions(emptyList()).none()
  *      Useful for specifying the tooltip content quickly, instead of
  *      configuring it via the `line()` method.
  *
- * @see TooltipOptions
  */
-fun layerTooltips(vararg variables: String) = TooltipOptions(variables.toList())
+@Suppress("ClassName")
+class layerTooltips(vararg variables: String) {
 
-class TooltipOptions
-// Dokka cannot @suppress a primary constructor: https://github.com/Kotlin/dokka/issues/1953
-internal constructor(variables: List<String>?) {
     private val parameters = HashMap<String, Any>().apply {
-        variables?.let {
+        variables.toList().let {
             if (it.isNotEmpty()) {
                 this[TOOLTIP_VARIABLES] = it
             }
@@ -52,27 +52,30 @@ internal constructor(variables: List<String>?) {
 
     private var isNone = false
 
-    val options: Any
+    /**
+     * @suppress
+     */
+    internal val options: Any
         get() = if (isNone) {
             NO_TOOLTIPS
         } else {
             parameters
         }
 
-    private constructor(other: TooltipOptions) : this(null) {
+    private constructor(other: layerTooltips) : this() {
         this.parameters.putAll(other.parameters)
     }
 
-    private fun addListOption(key: String, value: Any): TooltipOptions {
-        val newTooltips = TooltipOptions(this)
-        val newOptions = newTooltips.parameters.getOrPut(key, { mutableListOf<Any>() })
+    private fun addListOption(key: String, value: Any): layerTooltips {
+        val newTooltips = layerTooltips(this)
+        val newOptions = newTooltips.parameters.getOrPut(key) { mutableListOf<Any>() }
         @Suppress("UNCHECKED_CAST")
         (newOptions as MutableList<Any>).add(value)
         return newTooltips
     }
 
-    private fun setOption(key: String, value: Any): TooltipOptions {
-        val newTooltips = TooltipOptions(this)
+    private fun setOption(key: String, value: Any): layerTooltips {
+        val newTooltips = layerTooltips(this)
         newTooltips.parameters[key] = value
         return newTooltips
     }
@@ -93,10 +96,10 @@ internal constructor(variables: List<String>?) {
      *       .format('^color', '{{ {.1f} }}') -> "{ 17.0 }"
      *       .format('model', '{} {{text}}') -> "mustang {text}"
      *     The string template in format will allow to change lines for the default tooltip without 'line' specifying.
-     *     Also the template will change the line for outliers.
+     *     Also, the template will change the line for outliers.
      *     Aes and var formats are not interchangeable, i.e. var format will not be applied to aes, mapped to this variable.
      */
-    fun format(field: String, format: String): TooltipOptions {
+    fun format(field: String, format: String): layerTooltips {
         return addListOption(
             TOOLTIP_FORMATS, mapOf(
                 FIELD to field,
@@ -122,7 +125,7 @@ internal constructor(variables: List<String>?) {
      *        .line("{{@model}}") -> "{mustang}"
      *     The specified 'line' for outlier will move it to the general multi-line tooltip.
      *     The default tooltip has a label before the value, usually containing the name of the mapped variable.
-     *     It has it's own behaviour, like blank label for axis aesthetics.
+     *     It has its own behaviour, like blank label for axis aesthetics.
      *     This default label can be set in template using a pair of symbols '@|'.
      *     The label can be overridden by specifying a string value before '|' symbol.
      *     Within the tooltip line the label is left-aligned, the formed by template string is right-aligned.
@@ -132,7 +135,7 @@ internal constructor(variables: List<String>?) {
      *        - line("@|^color"): default label is used, value is right-aligned;
      *        - line("my label|^color"): label is specified, value is right-aligned.
      */
-    fun line(template: String): TooltipOptions {
+    fun line(template: String): layerTooltips {
         return addListOption(TOOLTIP_LINES, template)
     }
 
@@ -145,7 +148,7 @@ internal constructor(variables: List<String>?) {
      *     The resulting string will be at the beginning of the general tooltip, centered and highlighted in bold.
      *     A long title can be split into multiple lines using `\n` as a text separator.
      */
-    fun title(template: String): TooltipOptions {
+    fun title(template: String): layerTooltips {
         return setOption(TOOLTIP_TITLE, template)
     }
 
@@ -157,7 +160,7 @@ internal constructor(variables: List<String>?) {
      *         "middle_left" | "middle_center" | "middle_right" |
      *         "bottom_left" | "bottom_center" | "bottom_right"]
      */
-    fun anchor(position: String): TooltipOptions {
+    fun anchor(position: String): layerTooltips {
         return setOption(TOOLTIP_ANCHOR, position)
     }
 
@@ -166,7 +169,7 @@ internal constructor(variables: List<String>?) {
 
      * @param value Minimum width of the general tooltip.
      */
-    fun minWidth(value: Number): TooltipOptions {
+    fun minWidth(value: Number): layerTooltips {
         return setOption(TOOLTIP_MIN_WIDTH, value)
     }
 
@@ -175,8 +178,9 @@ internal constructor(variables: List<String>?) {
      *
      * @param value The color for the general tooltip.
      */
+    @Suppress("DeprecatedCallableAddReplaceWith")
     @Deprecated("No longer supported.", level = DeprecationLevel.ERROR)
-    fun color(value: String): TooltipOptions {
+    fun color(@Suppress("UNUSED_PARAMETER") value: String): layerTooltips {
 //        return setOption(TOOLTIP_COLOR, value)
         return this
     }
@@ -184,7 +188,7 @@ internal constructor(variables: List<String>?) {
     /**
      * Hide tooltips.
      */
-    internal fun none(): TooltipOptions {
+    internal fun none(): layerTooltips {
         isNone = true
         return this
     }
