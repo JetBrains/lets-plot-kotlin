@@ -24,14 +24,14 @@ class statCount(
     position: PosOptions = stack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
-    override val x: Double? = null,
-    override val y: Double? = null,
+    override val x: Number? = null,
+    override val y: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val width: Double? = null,
+    override val width: Number? = null,
     override val size: Number? = null,
-    override val weight: Double? = null,
+    override val weight: Number? = null,
     mapping: BarMapping.() -> Unit = {}
 
 ) : CountStatAesthetics, BarAesthetics,

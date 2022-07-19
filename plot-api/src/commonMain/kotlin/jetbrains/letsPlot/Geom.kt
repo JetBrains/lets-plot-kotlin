@@ -175,8 +175,8 @@ object Geom {
 
     @Suppress("ClassName", "SpellCheckingInspection")
     class abline(
-        override val slope: Double? = null,
-        override val intercept: Double? = null,
+        override val slope: Number? = null,
+        override val intercept: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -193,7 +193,7 @@ object Geom {
     @Suppress("ClassName")
     class hline(
         @Suppress("SpellCheckingInspection")
-        override val yintercept: Double? = null,
+        override val yintercept: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -210,7 +210,7 @@ object Geom {
     @Suppress("ClassName")
     class vline(
         @Suppress("SpellCheckingInspection")
-        override val xintercept: Double? = null,
+        override val xintercept: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -226,10 +226,10 @@ object Geom {
 
     @Suppress("ClassName")
     class rect(
-        override val xmin: Double? = null,
-        override val xmax: Double? = null,
-        override val ymin: Double? = null,
-        override val ymax: Double? = null,
+        override val xmin: Number? = null,
+        override val xmax: Number? = null,
+        override val ymin: Number? = null,
+        override val ymax: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -246,16 +246,16 @@ object Geom {
 
     @Suppress("ClassName")
     class segment(
-        override val x: Double? = null,
-        override val y: Double? = null,
-        override val xend: Double? = null,
-        override val yend: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val xend: Number? = null,
+        override val yend: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
-        override val speed: Double? = null,
-        override val flow: Double? = null,
+        override val speed: Number? = null,
+        override val flow: Number? = null,
         mapping: SegmentMapping.() -> Unit = {}
     ) : SegmentAesthetics,
         GeomOptions(
@@ -267,8 +267,8 @@ object Geom {
 
     @Suppress("ClassName")
     class text(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val label: String? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
@@ -277,7 +277,7 @@ object Geom {
         override val fontface: String? = null,
         override val hjust: Any? = null,
         override val vjust: Any? = null,
-        override val angle: Double? = null,
+        override val angle: Number? = null,
         override val labelFormat: String? = null,
         override val naText: String? = null,
         override val sizeUnit: String? = null,
@@ -297,13 +297,13 @@ object Geom {
 
     @Suppress("ClassName")
     class boxplot(
-        override val x: Double? = null,
-        override val y: Double? = null,
-        override val lower: Double? = null,
-        override val middle: Double? = null,
-        override val upper: Double? = null,
-        override val ymin: Double? = null,
-        override val ymax: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val lower: Number? = null,
+        override val middle: Number? = null,
+        override val upper: Number? = null,
+        override val ymin: Number? = null,
+        override val ymax: Number? = null,
         override val outlierColor: Any? = null,
         override val outlierFill: Any? = null,
         override val outlierShape: Any? = null,
@@ -315,7 +315,7 @@ object Geom {
         override val size: Number? = null,
         override val linetype: Any? = null,
         override val shape: Any? = null,
-        override val width: Double? = null,
+        override val width: Number? = null,
         mapping: BoxplotMapping.() -> Unit = {}
     ) : BoxplotAesthetics,
         BoxplotParameters,
@@ -332,10 +332,10 @@ object Geom {
 
     @Suppress("ClassName", "SpellCheckingInspection")
     class errorbar(
-        override val x: Double? = null,
-        override val ymin: Double? = null,
-        override val ymax: Double? = null,
-        override val width: Double? = null,
+        override val x: Number? = null,
+        override val ymin: Number? = null,
+        override val ymax: Number? = null,
+        override val width: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -351,11 +351,11 @@ object Geom {
 
     @Suppress("ClassName")
     class crossbar(
-        override val x: Double? = null,
-        override val ymin: Double? = null,
-        override val ymax: Double? = null,
-        override val middle: Double? = null,
-        override val width: Double? = null,
+        override val x: Number? = null,
+        override val ymin: Number? = null,
+        override val ymax: Number? = null,
+        override val middle: Number? = null,
+        override val width: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -373,10 +373,10 @@ object Geom {
 
     @Suppress("ClassName", "SpellCheckingInspection")
     class pointrange(
-        override val x: Double? = null,
-        override val y: Double? = null,
-        override val ymin: Double? = null,
-        override val ymax: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val ymin: Number? = null,
+        override val ymax: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -394,9 +394,9 @@ object Geom {
 
     @Suppress("ClassName", "SpellCheckingInspection")
     class linerange(
-        override val x: Double? = null,
-        override val ymin: Double? = null,
-        override val ymax: Double? = null,
+        override val x: Number? = null,
+        override val ymin: Number? = null,
+        override val ymax: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -412,9 +412,9 @@ object Geom {
 
     @Suppress("ClassName")
     class ribbon(
-        override val x: Double? = null,
-        override val ymin: Double? = null,
-        override val ymax: Double? = null,
+        override val x: Number? = null,
+        override val ymin: Number? = null,
+        override val ymax: Number? = null,
         override val size: Number? = null,
         override val linetype: Any? = null,
         override val color: Any? = null,
@@ -431,8 +431,8 @@ object Geom {
 
     @Suppress("ClassName")
     class polygon(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val size: Number? = null,
         override val linetype: Any? = null,
         override val color: Any? = null,
@@ -449,8 +449,8 @@ object Geom {
 
     @Suppress("ClassName")
     class map(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val size: Number? = null,
         override val linetype: Any? = null,
         override val color: Any? = null,
@@ -467,8 +467,8 @@ object Geom {
 
     @Suppress("ClassName")
     class step(
-        override val x: Double? = null,
-        override val y: Double? = null,
+        override val x: Number? = null,
+        override val y: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -478,21 +478,6 @@ object Geom {
         GeomOptions(
             GeomKind.STEP,
             LineMapping().apply(mapping).seal()
-        ) {
-        override val parameters = this.seal()
-    }
-
-    @Suppress("ClassName")
-    class image(
-        override val xmin: Any? = null,
-        override val xmax: Any? = null,
-        override val ymin: Any? = null,
-        override val ymax: Any? = null,
-        mapping: ImageMapping.() -> Unit = {}
-    ) : ImageAesthetics,
-        GeomOptions(
-            GeomKind.IMAGE,
-            ImageMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }

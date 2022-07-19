@@ -25,7 +25,7 @@ class statQQLine(
     position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
-    override val sample: Double? = null,
+    override val sample: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
