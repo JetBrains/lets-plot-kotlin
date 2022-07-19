@@ -9,6 +9,10 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos.stack
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.BarAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BarMapping
 import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
@@ -16,10 +20,10 @@ import jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
 @Suppress("ClassName")
 class statCount(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = Geom.bar(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = stack,
+    geom: GeomOptions = Geom.bar(),
+    position: PosOptions = stack,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Number? = null,
@@ -31,7 +35,7 @@ class statCount(
     mapping: BarMapping.() -> Unit = {}
 
 ) : CountStatAesthetics, BarAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = BarMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

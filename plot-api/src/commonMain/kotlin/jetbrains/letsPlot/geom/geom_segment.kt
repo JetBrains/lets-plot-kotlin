@@ -10,6 +10,9 @@ import jetbrains.letsPlot.Geom.segment
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.SegmentAesthetics
 import jetbrains.letsPlot.intern.layer.geom.SegmentMapping
@@ -31,7 +34,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
  *     linear default).
- *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
+ *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat].
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
  * @param tooltips result of the call to the layerTooltips() function.
@@ -61,9 +64,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomSegment(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: jetbrains.letsPlot.intern.layer.PosOptions = identity,
+    position: PosOptions = identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     private val arrow: Map<String, Any>? = null,
     override val x: Double? = null,
@@ -79,7 +82,7 @@ class geomSegment(
     mapping: SegmentMapping.() -> Unit = {}
 
 ) : SegmentAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = SegmentMapping().apply(mapping).seal(),
         data = data,
         geom = segment(),

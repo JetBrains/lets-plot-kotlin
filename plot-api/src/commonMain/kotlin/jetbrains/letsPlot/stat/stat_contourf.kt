@@ -9,6 +9,10 @@ import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.ContourfMapping
 import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
@@ -17,10 +21,10 @@ import jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
 @Suppress("ClassName")
 class statContourFilled(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.CONTOURF),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    geom: GeomOptions = GeomOptions(GeomKind.CONTOURF),
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val z: Double? = null,
@@ -35,7 +39,7 @@ class statContourFilled(
 ) : PolygonAesthetics,
     ContourStatAesthetics,
     ContourStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

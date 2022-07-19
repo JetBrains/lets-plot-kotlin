@@ -5,6 +5,7 @@
 
 package jetbrains.letsPlot.intern
 
+import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.PosOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import junit.framework.AssertionFailedError
@@ -86,7 +87,7 @@ internal class LayerAssert(private val layer: Layer) :
     fun position(kind: PosKind) = PosOptionsAssert(layer.position, kind)
 }
 
-internal class GeomOptionsAssert(private val geom: jetbrains.letsPlot.intern.layer.GeomOptions) :
+internal class GeomOptionsAssert(private val geom: GeomOptions) :
     MappingAssert<GeomOptionsAssert>,
     ParametersAssert<GeomOptionsAssert> {
     override val mappingOptions = geom.mapping

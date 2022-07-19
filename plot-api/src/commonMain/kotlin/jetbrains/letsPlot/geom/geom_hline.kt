@@ -8,6 +8,9 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.hline
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.HLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.HLineMapping
@@ -29,10 +32,10 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
  *     linear default).
- *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
+ *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat].
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
+ *
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param yintercept line y-intercept
@@ -52,9 +55,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomHLine(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: jetbrains.letsPlot.intern.layer.PosOptions = identity,
+    position: PosOptions = identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     @Suppress("SpellCheckingInspection")
     override val yintercept: Number? = null,
@@ -65,7 +68,7 @@ class geomHLine(
     mapping: HLineMapping.() -> Unit = {}
 
 ) : HLineAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = HLineMapping().apply(mapping).seal(),
         data = data,
         geom = hline(),

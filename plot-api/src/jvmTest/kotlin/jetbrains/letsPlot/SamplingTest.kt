@@ -6,6 +6,7 @@
 package jetbrains.letsPlot
 
 import jetbrains.letsPlot.geom.geomPoint
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.sampling.*
 import org.junit.Assert
 import org.junit.Test
@@ -14,7 +15,7 @@ import org.junit.runners.Parameterized
 
 @RunWith(Parameterized::class)
 class SamplingTest(
-    private val samplingOptions: jetbrains.letsPlot.intern.layer.SamplingOptions,
+    private val samplingOptions: SamplingOptions,
     private val expectedMap: Map<String, Any>
 ) {
 

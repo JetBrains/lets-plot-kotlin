@@ -8,9 +8,7 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.point
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.intern.layer.StatOptions
-import jetbrains.letsPlot.intern.layer.WithSizeUnitOption
-import jetbrains.letsPlot.intern.layer.WithSpatialParameters
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PointMapping
 import jetbrains.letsPlot.spatial.SpatialDataset
@@ -38,10 +36,10 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
  *     linear default).
- *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
+ *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat].
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
+ *
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param map SpatialDataset.
@@ -73,9 +71,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomPoint(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: jetbrains.letsPlot.intern.layer.PosOptions = identity,
+    position: PosOptions = identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val map: SpatialDataset? = null,
     override val mapJoin: Pair<Any, Any>? = null,
@@ -93,7 +91,7 @@ class geomPoint(
 ) : PointAesthetics,
     WithSizeUnitOption,
     WithSpatialParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
         geom = point(),

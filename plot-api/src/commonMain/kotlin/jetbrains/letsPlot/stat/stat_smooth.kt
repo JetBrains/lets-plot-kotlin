@@ -9,6 +9,10 @@ import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.SmoothAesthetics
 import jetbrains.letsPlot.intern.layer.geom.SmoothMapping
 import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
@@ -16,10 +20,10 @@ import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
 @Suppress("ClassName")
 class statSmooth(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.SMOOTH),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    geom: GeomOptions = GeomOptions(GeomKind.SMOOTH),
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val ymin: Double? = null,
@@ -40,7 +44,7 @@ class statSmooth(
     mapping: SmoothMapping.() -> Unit = {}
 ) : SmoothAesthetics,
     SmoothStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = SmoothMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

@@ -10,7 +10,7 @@ import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.ContourMapping
 import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
@@ -33,10 +33,10 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
  *     linear default).
- *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
+ *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat].
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
+ *
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param bins int, optional.
@@ -60,9 +60,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomContour(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.contour(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = identity,
+    position: PosOptions = identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -79,10 +79,10 @@ class geomContour(
 ) : PathAesthetics,
     ContourStatAesthetics,
     ContourStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = ContourMapping().apply(mapping).seal(),
         data = data,
-        geom = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.CONTOUR),
+        geom = GeomOptions(GeomKind.CONTOUR),
         stat = stat,
         position = position,
         showLegend = showLegend,

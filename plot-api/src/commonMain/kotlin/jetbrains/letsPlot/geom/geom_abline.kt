@@ -8,6 +8,9 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.abline
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.ABLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.ABLineMapping
@@ -28,10 +31,10 @@ import jetbrains.letsPlot.intern.layer.geom.ABLineMapping
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
  *     linear default).
- *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
+ *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat].
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
+ *
  * @param slope
  *     The line slope.
  * @param intercept
@@ -51,9 +54,9 @@ import jetbrains.letsPlot.intern.layer.geom.ABLineMapping
 class geomABLine(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: jetbrains.letsPlot.intern.layer.PosOptions = identity,
+    position: PosOptions = identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val slope: Number? = null,
     override val intercept: Number? = null,
     override val alpha: Number? = null,
@@ -62,7 +65,7 @@ class geomABLine(
     override val size: Number? = null,
     mapping: ABLineMapping.() -> Unit = {}
 ) : ABLineAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = ABLineMapping().apply(mapping).seal(),
         data = data,
         geom = abline(),

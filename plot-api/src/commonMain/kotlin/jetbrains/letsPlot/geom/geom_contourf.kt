@@ -9,7 +9,7 @@ import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.ContourfMapping
 import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
@@ -36,7 +36,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat].
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
+ *
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param bins int, optional.
@@ -56,9 +56,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomContourFilled(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.contourFilled(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -74,10 +74,10 @@ class geomContourFilled(
 ) : PolygonAesthetics,
     ContourStatAesthetics,
     ContourStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
-        geom = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.CONTOURF),
+        geom = GeomOptions(GeomKind.CONTOURF),
         stat = stat,
         position = position,
         showLegend = showLegend,

@@ -8,7 +8,7 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import jetbrains.letsPlot.intern.layer.geom.DensityMapping
 import jetbrains.letsPlot.intern.layer.stat.DensityStatAesthetics
@@ -73,9 +73,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomDensity(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.density(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
     override val x: Number? = null,
@@ -97,10 +97,10 @@ class geomDensity(
 ) : AreaAesthetics,
     DensityStatAesthetics,
     DensityStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = DensityMapping().apply(mapping).seal(),
         data = data,
-        geom = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.DENSITY),
+        geom = GeomOptions(GeomKind.DENSITY),
         stat = stat,
         position = position,
         showLegend = showLegend,

@@ -8,6 +8,9 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom.line
 import jetbrains.letsPlot.Pos.identity
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.LineMapping
@@ -35,7 +38,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat].
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
+ *
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param x x-axis value.
@@ -55,9 +58,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomLine(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: jetbrains.letsPlot.intern.layer.PosOptions = identity,
+    position: PosOptions = identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -68,7 +71,7 @@ class geomLine(
     mapping: LineMapping.() -> Unit = {}
 
 ) : LineAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = LineMapping().apply(mapping).seal(),
         data = data,
         geom = line(),

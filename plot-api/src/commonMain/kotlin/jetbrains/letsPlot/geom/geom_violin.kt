@@ -5,12 +5,10 @@
 
 package jetbrains.letsPlot.geom
 
-import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.PosOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.ViolinAesthetics
 import jetbrains.letsPlot.intern.layer.geom.ViolinMapping
 import jetbrains.letsPlot.intern.layer.stat.YDensityStatAesthetics
@@ -85,7 +83,7 @@ class geomViolin(
 //    position: PosOptions = Pos.dodge,
     position: PosOptions = positionDodge(0.95), // tmp fix
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
     private val drawQuantiles: Any? = null,
@@ -110,10 +108,10 @@ class geomViolin(
 ) : ViolinAesthetics,
     YDensityStatAesthetics,
     YDensityStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = ViolinMapping().apply(mapping).seal(),
         data = data,
-        geom = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.VIOLIN),
+        geom = GeomOptions(GeomKind.VIOLIN),
         stat = stat,
         position = position,
         showLegend = showLegend,

@@ -39,7 +39,9 @@ val tooltipsNone = TooltipOptions(emptyList()).none()
  */
 fun layerTooltips(vararg variables: String) = TooltipOptions(variables.toList())
 
-class TooltipOptions(variables: List<String>?) {
+class TooltipOptions
+// Dokka cannot @suppress a primary constructor: https://github.com/Kotlin/dokka/issues/1953
+internal constructor(variables: List<String>?) {
     private val parameters = HashMap<String, Any>().apply {
         variables?.let {
             if (it.isNotEmpty()) {

@@ -9,6 +9,10 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PathMapping
 import jetbrains.letsPlot.intern.layer.stat.QQ2LineStatParameters
@@ -17,10 +21,10 @@ import jetbrains.letsPlot.intern.layer.stat.QQ2StatAesthetics
 @Suppress("ClassName")
 class statQQ2Line(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = Geom.path(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    geom: GeomOptions = Geom.path(),
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Number? = null,
@@ -31,10 +35,10 @@ class statQQ2Line(
     override val flow: Double? = null,
     override val quantiles: Pair<Number, Number>? = null,
     mapping: PathMapping.() -> Unit = {}
-): PathAesthetics,
+) : PathAesthetics,
     QQ2StatAesthetics,
     QQ2LineStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = PathMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

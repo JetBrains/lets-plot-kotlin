@@ -9,6 +9,10 @@ import jetbrains.letsPlot.Pos.stack
 import jetbrains.letsPlot.Stat.density
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import jetbrains.letsPlot.intern.layer.geom.DensityMapping
 import jetbrains.letsPlot.intern.layer.stat.DensityStatAesthetics
@@ -17,10 +21,10 @@ import jetbrains.letsPlot.intern.layer.stat.DensityStatParameters
 @Suppress("ClassName")
 class statDensity(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.DENSITY),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = stack,
+    geom: GeomOptions = GeomOptions(GeomKind.DENSITY),
+    position: PosOptions = stack,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val alpha: Number? = null,
@@ -40,7 +44,7 @@ class statDensity(
 ) : AreaAesthetics,
     DensityStatAesthetics,
     DensityStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = DensityMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

@@ -9,6 +9,9 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import jetbrains.letsPlot.intern.layer.geom.TileAesthetics
@@ -32,7 +35,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     The statistical transformation to use on the data for this layer.
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
+ *
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param bins pair of numbers, default: (30,30)
@@ -61,9 +64,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomBin2D(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin2D(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
@@ -82,7 +85,7 @@ class geomBin2D(
 ) : TileAesthetics,
     Bin2dStatAesthetics,
     Bin2dStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = Bin2dMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.tile(),

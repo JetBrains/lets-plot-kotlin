@@ -7,6 +7,7 @@ package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.PosKind
+import jetbrains.letsPlot.intern.layer.PosOptions
 
 /**
  * Pos options to pass as a value of `position` parameter of layer functions like:
@@ -25,15 +26,15 @@ import jetbrains.letsPlot.intern.PosKind
  * ```
  */
 object Pos {
-    val identity = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.IDENTITY)
-    val stack = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.STACK)
-    val dodge = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.DODGE)
-    val fill = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.FILL)
-    val nudge = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.NUDGE)
-    val jitter = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.JITTER)
+    val identity = PosOptions(PosKind.IDENTITY)
+    val stack = PosOptions(PosKind.STACK)
+    val dodge = PosOptions(PosKind.DODGE)
+    val fill = PosOptions(PosKind.FILL)
+    val nudge = PosOptions(PosKind.NUDGE)
+    val jitter = PosOptions(PosKind.JITTER)
 
     @Suppress("SpellCheckingInspection")
-    val jitterdodge = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.JITTER_DODGE)
+    val jitterdodge = PosOptions(PosKind.JITTER_DODGE)
 
     // parameter names
     internal const val DODGE_WIDTH = "width"
@@ -56,7 +57,7 @@ object Pos {
  * @param width Dodging width, when different to the width of the individual elements. This is useful when you want to align narrow geoms with wider geoms.
  */
 fun positionDodge(width: Number? = null) =
-    jetbrains.letsPlot.intern.layer.PosOptions(
+    PosOptions(
         PosKind.DODGE,
         Options.of(Pos.DODGE_WIDTH to width)
     )
@@ -72,7 +73,7 @@ fun positionDodge(width: Number? = null) =
  * @param height Jittering height.
  */
 fun positionJitter(width: Number? = null, height: Number? = null) =
-    jetbrains.letsPlot.intern.layer.PosOptions(
+    PosOptions(
         PosKind.JITTER,
         Options.of(
             Pos.JITTER_WIDTH to width,
@@ -81,7 +82,7 @@ fun positionJitter(width: Number? = null, height: Number? = null) =
     )
 
 fun positionNudge(x: Number? = null, y: Number? = null) =
-    jetbrains.letsPlot.intern.layer.PosOptions(
+    PosOptions(
         PosKind.NUDGE,
         Options.of(
             Pos.NUDGE_WIDTH to x,
@@ -94,7 +95,7 @@ fun positionJitterDodge(
     jitterWidth: Number? = null,
     jitterHeight: Number? = null
 ) =
-    jetbrains.letsPlot.intern.layer.PosOptions(
+    PosOptions(
         PosKind.JITTER_DODGE,
         Options.of(
             Pos.JD_DODGE_WIDTH to dodgeWidth,

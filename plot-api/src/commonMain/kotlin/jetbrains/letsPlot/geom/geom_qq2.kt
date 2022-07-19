@@ -9,8 +9,7 @@ import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.GeomOptions
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PointMapping
 import jetbrains.letsPlot.intern.layer.stat.QQ2StatAesthetics
@@ -60,9 +59,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomQQ2(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.qq2(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -75,7 +74,7 @@ class geomQQ2(
     mapping: PointMapping.() -> Unit = {}
 ) : PointAesthetics,
     QQ2StatAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
         geom = GeomOptions(GeomKind.Q_Q_2),

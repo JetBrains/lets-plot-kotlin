@@ -6,10 +6,11 @@
 package jetbrains.letsPlot.geom
 
 import jetbrains.letsPlot.Geom
-import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.CrossBarAesthetics
 import jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
@@ -31,7 +32,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     The statistical transformation to use on the data for this layer.
  * @param position string, optional
  *     Position adjustment, either as a string ("identity", "stack", "dodge",...), or the result of a call to a
- * 
+ *
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param fatten : number, default: 2.5
@@ -62,7 +63,7 @@ class geomCrossbar(
 //    position: PosOptions = Pos.dodge,
     position: PosOptions = positionDodge(0.95), // tmp fix
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     val fatten: Double? = null,
     override val x: Double? = null,
@@ -78,7 +79,7 @@ class geomCrossbar(
     override val size: Number? = null,
     mapping: CrossBarMapping.() -> Unit = {}
 ) : CrossBarAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = CrossBarMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.crossbar(),

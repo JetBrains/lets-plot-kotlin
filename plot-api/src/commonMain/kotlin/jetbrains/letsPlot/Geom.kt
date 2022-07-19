@@ -6,6 +6,7 @@
 package jetbrains.letsPlot
 
 import jetbrains.letsPlot.intern.GeomKind
+import jetbrains.letsPlot.intern.layer.GeomOptions
 import jetbrains.letsPlot.intern.layer.WithSizeUnitOption
 import jetbrains.letsPlot.intern.layer.geom.*
 
@@ -21,9 +22,9 @@ import jetbrains.letsPlot.intern.layer.geom.*
  * ```
  */
 object Geom {
-    val blank = jetbrains.letsPlot.intern.layer.GeomOptions(
-        GeomKind.BLANK
-    )
+//    val blank = GeomOptions(
+//        GeomKind.BLANK
+//    )
 
     @Suppress("ClassName")
     class point(
@@ -39,7 +40,7 @@ object Geom {
         mapping: PointMapping.() -> Unit = {}
     ) : PointAesthetics,
         WithSizeUnitOption,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.POINT,
             PointMapping().apply(mapping).seal()
         ) {
@@ -60,7 +61,7 @@ object Geom {
         override val flow: Number? = null,
         mapping: PathMapping.() -> Unit = {}
     ) : PathAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.PATH,
             PathMapping().apply(mapping).seal()
         ) {
@@ -78,7 +79,7 @@ object Geom {
         override val size: Number? = null,
         mapping: AreaMapping.() -> Unit = {}
     ) : AreaAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.AREA,
             AreaMapping().apply(mapping).seal()
         ) {
@@ -95,7 +96,7 @@ object Geom {
         override val size: Number? = null,
         mapping: HistogramMapping.() -> Unit = {}
     ) : HistogramAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.HISTOGRAM,
             HistogramMapping().apply(mapping).seal()
         ) {
@@ -112,7 +113,7 @@ object Geom {
         override val size: Number? = null,
         mapping: LineMapping.() -> Unit = {}
     ) : LineAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.LINE,
             LineMapping().apply(mapping).seal()
         ) {
@@ -130,7 +131,7 @@ object Geom {
         override val size: Number? = null,
         mapping: BarMapping.() -> Unit = {}
     ) : BarAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.BAR,
             BarMapping().apply(mapping).seal()
         ) {
@@ -150,7 +151,7 @@ object Geom {
         override val size: Number? = null,
         mapping: TileMapping.() -> Unit = {}
     ) : TileAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.TILE,
             TileMapping().apply(mapping).seal()
         ) {
@@ -165,7 +166,7 @@ object Geom {
         override val fill: Any? = null,
         mapping: RasterMapping.() -> Unit = {}
     ) : RasterAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.RASTER,
             RasterMapping().apply(mapping).seal()
         ) {
@@ -182,7 +183,7 @@ object Geom {
         override val size: Number? = null,
         mapping: ABLineMapping.() -> Unit = {}
     ) : ABLineAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.AB_LINE,
             ABLineMapping().apply(mapping).seal()
         ) {
@@ -199,7 +200,7 @@ object Geom {
         override val size: Number? = null,
         mapping: HLineMapping.() -> Unit = {}
     ) : HLineAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.H_LINE,
             HLineMapping().apply(mapping).seal()
         ) {
@@ -216,7 +217,7 @@ object Geom {
         override val size: Number? = null,
         mapping: VLineMapping.() -> Unit = {}
     ) : VLineAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.V_LINE,
             VLineMapping().apply(mapping).seal()
         ) {
@@ -236,7 +237,7 @@ object Geom {
         override val fill: Any? = null,
         mapping: RectMapping.() -> Unit = {}
     ) : RectAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.RECT,
             RectMapping().apply(mapping).seal()
         ) {
@@ -257,7 +258,7 @@ object Geom {
         override val flow: Double? = null,
         mapping: SegmentMapping.() -> Unit = {}
     ) : SegmentAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.SEGMENT,
             SegmentMapping().apply(mapping).seal()
         ) {
@@ -284,7 +285,7 @@ object Geom {
     ) : TextAesthetics,
         TextParameters,
         WithSizeUnitOption,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.TEXT,
             TextMapping().apply(mapping).seal()
         ) {
@@ -318,7 +319,7 @@ object Geom {
         mapping: BoxplotMapping.() -> Unit = {}
     ) : BoxplotAesthetics,
         BoxplotParameters,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.BOX_PLOT,
             BoxplotMapping().apply(mapping).seal()
         ) {
@@ -341,7 +342,7 @@ object Geom {
         override val size: Number? = null,
         mapping: ErrorBarMapping.() -> Unit = {}
     ) : ErrorBarAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.ERROR_BAR,
             ErrorBarMapping().apply(mapping).seal()
         ) {
@@ -363,7 +364,7 @@ object Geom {
         override val size: Number? = null,
         mapping: CrossBarMapping.() -> Unit = {}
     ) : CrossBarAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.CROSS_BAR,
             CrossBarMapping().apply(mapping).seal()
         ) {
@@ -384,7 +385,7 @@ object Geom {
         override val size: Number? = null,
         mapping: PointRangeMapping.() -> Unit = {}
     ) : PointRangeAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.POINT_RANGE,
             PointRangeMapping().apply(mapping).seal()
         ) {
@@ -402,7 +403,7 @@ object Geom {
         override val size: Number? = null,
         mapping: LineRangeMapping.() -> Unit = {}
     ) : LineRangeAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.LINE_RANGE,
             LineRangeMapping().apply(mapping).seal()
         ) {
@@ -421,7 +422,7 @@ object Geom {
         override val alpha: Number? = null,
         mapping: RibbonMapping.() -> Unit = {}
     ) : RibbonAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.RIBBON,
             RibbonMapping().apply(mapping).seal()
         ) {
@@ -439,7 +440,7 @@ object Geom {
         override val alpha: Number? = null,
         mapping: PolygonMapping.() -> Unit = {}
     ) : PolygonAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.POLYGON,
             PolygonMapping().apply(mapping).seal()
         ) {
@@ -457,7 +458,7 @@ object Geom {
         override val alpha: Number? = null,
         mapping: PolygonMapping.() -> Unit = {}
     ) : PolygonAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.MAP,
             PolygonMapping().apply(mapping).seal()
         ) {
@@ -474,7 +475,7 @@ object Geom {
         override val size: Number? = null,
         mapping: LineMapping.() -> Unit = {}
     ) : LineAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.STEP,
             LineMapping().apply(mapping).seal()
         ) {
@@ -489,7 +490,7 @@ object Geom {
         override val ymax: Any? = null,
         mapping: ImageMapping.() -> Unit = {}
     ) : ImageAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.IMAGE,
             ImageMapping().apply(mapping).seal()
         ) {
@@ -505,7 +506,7 @@ object Geom {
         override val size: Number? = null,
         mapping: QQMapping.() -> Unit = {}
     ) : QQAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.Q_Q,
             QQMapping().apply(mapping).seal()
         ) {
@@ -520,7 +521,7 @@ object Geom {
         override val size: Number? = null,
         mapping: QQLineMapping.() -> Unit = {}
     ) : QQLineAesthetics,
-        jetbrains.letsPlot.intern.layer.GeomOptions(
+        GeomOptions(
             GeomKind.Q_Q_LINE,
             QQLineMapping().apply(mapping).seal()
         ) {

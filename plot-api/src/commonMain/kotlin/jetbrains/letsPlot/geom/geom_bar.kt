@@ -9,6 +9,9 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.BarAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BarMapping
@@ -31,7 +34,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
  *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
  *     linear default).
- *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat]. 
+ *     Statistic types: [letsPlot][jetbrains.letsPlot.Stat].
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
  * @param tooltips result of the call to the layerTooltips() function.
@@ -54,9 +57,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomBar(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.count(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.stack,
+    position: PosOptions = Pos.stack,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
     override val x: Double? = null,
@@ -71,7 +74,7 @@ class geomBar(
 
 ) : BarAesthetics,
     CountStatAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = BarMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.bar(),

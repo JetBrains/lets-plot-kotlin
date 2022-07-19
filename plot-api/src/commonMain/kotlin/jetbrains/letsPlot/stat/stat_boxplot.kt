@@ -9,6 +9,10 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos.dodge
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
@@ -18,10 +22,10 @@ import jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 @Suppress("ClassName")
 class statBoxplot(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = Geom.boxplot(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = dodge,
+    geom: GeomOptions = Geom.boxplot(),
+    position: PosOptions = dodge,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val lower: Double? = null,
@@ -51,7 +55,7 @@ class statBoxplot(
     BoxplotParameters,
     BoxplotStatAesthetics,
     BoxplotStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = BoxplotMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

@@ -9,6 +9,10 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
@@ -17,10 +21,10 @@ import jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
 @Suppress("ClassName")
 class statBin2D(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = Geom.tile(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    geom: GeomOptions = Geom.tile(),
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val width: Double? = null,
@@ -38,7 +42,7 @@ class statBin2D(
 ) : TileAesthetics,
     Bin2dStatAesthetics,
     Bin2dStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = Bin2dMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

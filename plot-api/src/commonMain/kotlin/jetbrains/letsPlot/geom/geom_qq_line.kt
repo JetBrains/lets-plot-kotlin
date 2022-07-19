@@ -9,6 +9,9 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.QQLineAesthetics
 import jetbrains.letsPlot.intern.layer.geom.QQLineMapping
@@ -70,9 +73,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomQQLine(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.qqLine(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val sample: Number? = null,
     override val alpha: Number? = null,
@@ -86,7 +89,7 @@ class geomQQLine(
 ) : QQLineAesthetics,
     QQStatAesthetics,
     QQLineStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = QQLineMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.qqLine(),

@@ -6,10 +6,11 @@
 package jetbrains.letsPlot.geom
 
 import jetbrains.letsPlot.Geom.boxplot
-import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.LayerBase
 import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
@@ -87,7 +88,7 @@ class geomBoxplot(
 //    position: PosOptions = Pos.dodge,
     position: PosOptions = positionDodge(0.95), // tmp fix
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
     override val x: Number? = null,
@@ -119,7 +120,7 @@ class geomBoxplot(
     BoxplotParameters,
     BoxplotStatAesthetics,
     BoxplotStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = BoxplotMapping().apply(mapping).seal(),
         data = data,
         geom = boxplot(),

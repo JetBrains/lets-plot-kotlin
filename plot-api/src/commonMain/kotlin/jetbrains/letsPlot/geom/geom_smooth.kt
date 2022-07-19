@@ -9,7 +9,7 @@ import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
-import jetbrains.letsPlot.intern.layer.StatOptions
+import jetbrains.letsPlot.intern.layer.*
 import jetbrains.letsPlot.intern.layer.geom.SmoothAesthetics
 import jetbrains.letsPlot.intern.layer.geom.SmoothMapping
 import jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
@@ -68,9 +68,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomSmooth(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.smooth(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
     override val x: Number? = null,
@@ -93,10 +93,10 @@ class geomSmooth(
     mapping: SmoothMapping.() -> Unit = {}
 ) : SmoothAesthetics,
     SmoothStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = SmoothMapping().apply(mapping).seal(),
         data = data,
-        geom = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.SMOOTH),
+        geom = GeomOptions(GeomKind.SMOOTH),
         stat = stat,
         position = position,
         showLegend = showLegend,

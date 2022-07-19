@@ -9,10 +9,14 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.PointRangeAesthetics
 import jetbrains.letsPlot.intern.layer.geom.PointRangeMapping
 import jetbrains.letsPlot.tooltips.TooltipOptions
+
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
@@ -29,7 +33,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *      The statistical transformation to use on the data for this layer.
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
+ *
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param fatten : number, default: 5.0
@@ -55,9 +59,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomPointRange(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     val fatten: Number? = null,
     override val x: Number? = null,
@@ -72,7 +76,7 @@ class geomPointRange(
     override val size: Number? = null,
     mapping: PointRangeMapping.() -> Unit = {}
 ) : PointRangeAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = PointRangeMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.pointrange(),

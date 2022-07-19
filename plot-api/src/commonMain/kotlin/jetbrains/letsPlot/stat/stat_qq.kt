@@ -9,6 +9,10 @@ import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.QQAesthetics
 import jetbrains.letsPlot.intern.layer.geom.QQMapping
 import jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
@@ -17,10 +21,10 @@ import jetbrains.letsPlot.intern.layer.stat.QQStatParameters
 @Suppress("ClassName")
 class statQQ(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = Geom.qq(),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    geom: GeomOptions = Geom.qq(),
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val sample: Double? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
@@ -33,7 +37,7 @@ class statQQ(
 ) : QQAesthetics,
     QQStatAesthetics,
     QQStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = QQMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

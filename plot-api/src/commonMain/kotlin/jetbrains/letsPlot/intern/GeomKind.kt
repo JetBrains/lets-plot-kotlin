@@ -6,7 +6,7 @@
 package jetbrains.letsPlot.intern
 
 enum class GeomKind {
-    BLANK,
+//    BLANK,  not implemented
     PATH,
     LINE,
     SMOOTH,

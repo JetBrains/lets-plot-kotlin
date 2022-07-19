@@ -6,8 +6,9 @@
 package jetbrains.letsPlot.sampling
 
 import jetbrains.letsPlot.intern.SamplingKind
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 
-val samplingNone = jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.NONE, emptyMap())
+val samplingNone = SamplingOptions(SamplingKind.NONE, emptyMap())
 
 /**
  * Return a subset of randomly selected items.
@@ -19,8 +20,8 @@ val samplingNone = jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.
  * @param n Number of items to return.
  * @param seed Number used to initialize a pseudo random number generator.
  */
-fun samplingRandom(n: Int, seed: Int? = null): jetbrains.letsPlot.intern.layer.SamplingOptions {
-    return jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.RANDOM, n, seed)
+fun samplingRandom(n: Int, seed: Int? = null): SamplingOptions {
+    return SamplingOptions(SamplingKind.RANDOM, n, seed)
 }
 
 /**
@@ -38,30 +39,30 @@ fun samplingRandomStratified(
     n: Int,
     seed: Int? = null,
     minSubsample: Int? = null
-): jetbrains.letsPlot.intern.layer.SamplingOptions {
-    return jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.RANDOM_STRATIFIED, n, seed, minSubsample)
+): SamplingOptions {
+    return SamplingOptions(SamplingKind.RANDOM_STRATIFIED, n, seed, minSubsample)
 }
 
-fun samplingPick(n: Int): jetbrains.letsPlot.intern.layer.SamplingOptions {
-    return jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.PICK, n)
+fun samplingPick(n: Int): SamplingOptions {
+    return SamplingOptions(SamplingKind.PICK, n)
 }
 
-fun samplingSystematic(n: Int): jetbrains.letsPlot.intern.layer.SamplingOptions {
-    return jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.SYSTEMATIC, n)
+fun samplingSystematic(n: Int): SamplingOptions {
+    return SamplingOptions(SamplingKind.SYSTEMATIC, n)
 }
 
-fun samplingGroupSystematic(n: Int): jetbrains.letsPlot.intern.layer.SamplingOptions {
-    return jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.GROUP_SYSTEMATIC, n)
+fun samplingGroupSystematic(n: Int): SamplingOptions {
+    return SamplingOptions(SamplingKind.GROUP_SYSTEMATIC, n)
 }
 
-fun samplingGroupRandom(n: Int, seed: Int? = null): jetbrains.letsPlot.intern.layer.SamplingOptions {
-    return jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.GROUP_RANDOM, n, seed)
+fun samplingGroupRandom(n: Int, seed: Int? = null): SamplingOptions {
+    return SamplingOptions(SamplingKind.GROUP_RANDOM, n, seed)
 }
 
-fun samplingVertexVW(n: Int): jetbrains.letsPlot.intern.layer.SamplingOptions {
-    return jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.VERTEX_VW, n)
+fun samplingVertexVW(n: Int): SamplingOptions {
+    return SamplingOptions(SamplingKind.VERTEX_VW, n)
 }
 
-fun samplingVertexDP(n: Int): jetbrains.letsPlot.intern.layer.SamplingOptions {
-    return jetbrains.letsPlot.intern.layer.SamplingOptions(SamplingKind.VERTEX_DP, n)
+fun samplingVertexDP(n: Int): SamplingOptions {
+    return SamplingOptions(SamplingKind.VERTEX_DP, n)
 }

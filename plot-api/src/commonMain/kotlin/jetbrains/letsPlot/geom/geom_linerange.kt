@@ -8,6 +8,9 @@ package jetbrains.letsPlot.geom
 import jetbrains.letsPlot.Geom
 import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.StatOptions
 import jetbrains.letsPlot.intern.layer.geom.LineRangeAesthetics
 import jetbrains.letsPlot.intern.layer.geom.LineRangeMapping
@@ -28,7 +31,7 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  *     The statistical transformation to use on the data for this layer.
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][jetbrains.letsPlot.Pos].
- * 
+ *
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param x x-axis coordinates.
@@ -50,9 +53,9 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 class geomLineRange(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val x: Number? = null,
     override val ymin: Number? = null,
@@ -63,7 +66,7 @@ class geomLineRange(
     override val size: Number? = null,
     mapping: LineRangeMapping.() -> Unit = {}
 ) : LineRangeAesthetics,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = LineRangeMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.linerange(),

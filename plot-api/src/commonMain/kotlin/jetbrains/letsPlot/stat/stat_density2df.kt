@@ -9,6 +9,10 @@ import jetbrains.letsPlot.Pos
 import jetbrains.letsPlot.Stat
 import jetbrains.letsPlot.intern.GeomKind
 import jetbrains.letsPlot.intern.Options
+import jetbrains.letsPlot.intern.layer.GeomOptions
+import jetbrains.letsPlot.intern.layer.LayerBase
+import jetbrains.letsPlot.intern.layer.PosOptions
+import jetbrains.letsPlot.intern.layer.SamplingOptions
 import jetbrains.letsPlot.intern.layer.geom.Density2dfMapping
 import jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import jetbrains.letsPlot.intern.layer.stat.Density2dStatAesthetics
@@ -17,10 +21,10 @@ import jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
 @Suppress("ClassName")
 class statDensity2DFilled(
     data: Map<*, *>? = null,
-    geom: jetbrains.letsPlot.intern.layer.GeomOptions = jetbrains.letsPlot.intern.layer.GeomOptions(GeomKind.DENSITY2DF),
-    position: jetbrains.letsPlot.intern.layer.PosOptions = Pos.identity,
+    geom: GeomOptions = GeomOptions(GeomKind.DENSITY2DF),
+    position: PosOptions = Pos.identity,
     showLegend: Boolean = true,
-    sampling: jetbrains.letsPlot.intern.layer.SamplingOptions? = null,
+    sampling: SamplingOptions? = null,
     override val x: Double? = null,
     override val y: Double? = null,
     override val size: Number? = null,
@@ -40,7 +44,7 @@ class statDensity2DFilled(
 ) : PolygonAesthetics,
     Density2dStatAesthetics,
     Density2dStatParameters,
-    jetbrains.letsPlot.intern.layer.LayerBase(
+    LayerBase(
         mapping = Density2dfMapping().apply(mapping).seal(),
         data = data,
         geom = geom,
