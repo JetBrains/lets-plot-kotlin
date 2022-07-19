@@ -18,6 +18,12 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * Connect points in the order of the variable on the x axis.
  * In the case points need to be connected in the order in which they appear in the data, use 'geomPath'.
  *
+ * ## Examples
+ *
+ * - [lines.ipynb](https://nbviewer.jupyter.org/github/HIL-HK/lets-plot-examples/blob/master/kotlin/lines.ipynb)
+ *
+ * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

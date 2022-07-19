@@ -16,6 +16,11 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Error bars defined by an upper and lower value ymin and ymax.
+ *
+ * ## Examples
+ *
+ * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

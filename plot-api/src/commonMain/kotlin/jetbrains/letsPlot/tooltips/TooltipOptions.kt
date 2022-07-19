@@ -17,9 +17,25 @@ val tooltipsNone = TooltipOptions(emptyList()).none()
  * The format will be applied to the mapped value in the default tooltip
  * or to the corresponding value specified in the line template.
  *
+ * ## Examples
+ *
+ * ```kotlin
+ * val n = 100
+ * val m = 5
+ * val rand = java.util.Random(42)
+ * val data = mapOf("x" to List(n) { rand.nextInt(m) })
+ * letsPlot(data) +
+ *     geomBar(
+ *         tooltips = layerTooltips().format("@x", "d").title("@x")
+ *                                   .line("count|@..count..")
+ *     ) { x="x" }
+ * ```
+ *
  * @param variables Variable names to crete a general multiline tooltip with.
  *      Useful for specifying the tooltip content quickly, instead of
  *      configuring it via the `line()` method.
+ *
+ * @see TooltipOptions
  */
 fun layerTooltips(vararg variables: String) = TooltipOptions(variables.toList())
 

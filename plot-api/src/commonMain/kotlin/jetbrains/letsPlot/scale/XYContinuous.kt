@@ -10,7 +10,11 @@ import jetbrains.letsPlot.intern.Scale
 import jetbrains.letsPlot.intern.checkScaleExpand
 
 /**
- * Continuous scale for x axis
+ * Continuous scale for x axis.
+ *
+ * ## Examples
+ *
+ * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
  *
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
@@ -67,7 +71,11 @@ fun scaleXContinuous(
 }
 
 /**
- * Continuous scale for y axis
+ * Continuous scale for y axis.
+ *
+ * ## Examples
+ *
+ * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
  *
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale

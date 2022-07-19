@@ -13,15 +13,28 @@ plugins {
 }
 
 val publicVersion: String = "3.3.0"
-val currentYear: Int = LocalDateTime.now().getYear()
+val rootDir = "${projectDir.toString().replace("\\", "/")}/.."
+val docsDir = "$rootDir/docs"
+val customFooterMessage = "Copyright © 2019-${LocalDateTime.now().year} JetBrains s.r.o."
+val customStyleSheet = "$docsDir/source/custom.css"
+val customScript = "$docsDir/source/custom.js"
 
 tasks.dokkaHtml {
-    moduleName.set("Lets-Plot-Kotlin v$publicVersion")
-    outputDirectory.set(File("$projectDir/../docs/api-reference"))
-    pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "Copyright © 2019-$currentYear JetBrains s.r.o." }"""))
+    moduleName.set("Lets-Plot-Kotlin $publicVersion")
+    outputDirectory.set(File("$docsDir/api-reference"))
+    pluginsMapConfiguration.set(mapOf("org.jetbrains.dokka.base.DokkaBase" to """{ "footerMessage": "$customFooterMessage", "customStyleSheets": ["$customStyleSheet"], "customAssets": ["$customScript"]}"""))
     dokkaSourceSets {
         configureEach {
             skipDeprecated.set(true)
+            includes.from("$docsDir/source/packages.md")
+            perPackageOption {
+                matchingRegex.set(".*\\.frontend.*")
+                suppress.set(true)
+            }
+            perPackageOption {
+                matchingRegex.set(".*\\.intern.*")
+                suppress.set(true)
+            }
         }
     }
 }

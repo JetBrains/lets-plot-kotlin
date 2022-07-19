@@ -15,6 +15,12 @@ import jetbrains.letsPlot.intern.filterNonNullValues
  * For each data subset creates a plot panel and lays out panels as grid.
  * The grid columns are defined by X faceting variable and rows are defined by Y faceting variable.
  *
+ * ## Examples
+ *
+ * - [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
+ *
+ * - [facets_free_scales.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb)
+ *
  * @param x Variable name which defines columns of the facet grid.
  * @param y Variable name which defines rows of the facet grid.
  * @param scales Specifies whether scales are shared across all facets.

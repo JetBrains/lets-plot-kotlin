@@ -96,6 +96,10 @@ fun scaleFillContinuous(
 /**
  * Defines smooth color gradient between two colors for color aesthetic.
  *
+ * ## Examples
+ *
+ * - [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
+ *
  * @param low string
  *      Color for low end of gradient
  * @param high string
@@ -224,6 +228,12 @@ fun scaleFillGradient(
 
 /**
  * Defines smooth color gradient between two colors (low-high) for color aesthetic.
+ *
+ * ## Examples
+ *
+ * - [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
+ *
+ * - [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
  *
  * @param low string
  *      Color for low end of gradient
@@ -559,6 +569,10 @@ fun scaleColorGradientN(
  * Sequential grey color scale for fill aesthetic.
  * The palette is computed using HSV (hue, saturation, value) color model.
  *
+ * ## Examples
+ *
+ * - [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
+ *
  * @param start numeric
  *      Gray value at low end of palette in range `[0,1`]
  * @param end numeric
@@ -707,6 +721,10 @@ fun scaleColorGrey(
 
 /**
  * Qualitative color scale with evenly spaced hues for fill aesthetic.
+ *
+ * ## Examples
+ *
+ * - [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
  *
  * @param h a pair of numbers
  *      Range of hues, in `[0,360`].

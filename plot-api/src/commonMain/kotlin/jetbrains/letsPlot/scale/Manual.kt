@@ -11,7 +11,11 @@ import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.Scale
 
 /**
- * Create your own discrete scale for color aesthetic
+ * Create your own discrete scale for color aesthetic.
+ *
+ * ## Examples
+ *
+ * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
  *
  * @param values list of strings (encoding colors) or color values
  *      A set of aesthetic values to map data values to.
@@ -72,7 +76,11 @@ fun scaleColorManual(
 )
 
 /**
- * Create your own discrete scale for fill aesthetic
+ * Create your own discrete scale for fill aesthetic.
+ *
+ * ## Examples
+ *
+ * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
  *
  * @param values list of strings (encoding colors) or color values
  *      A set of aesthetic values to map data values to.
@@ -194,7 +202,11 @@ fun scaleSizeManual(
 )
 
 /**
- * Create your own discrete scale for shape aesthetic
+ * Create your own discrete scale for shape aesthetic.
+ *
+ * ## Examples
+ *
+ * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
  *
  * @param values list of numbers encoding shape.
  *      A set of aesthetic values to map data values to.

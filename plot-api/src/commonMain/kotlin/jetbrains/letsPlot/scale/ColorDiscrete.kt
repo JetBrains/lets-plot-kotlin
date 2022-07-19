@@ -76,6 +76,10 @@ fun scaleFillDiscrete(
  * Qualitative color scale with evenly spaced hues for color aesthetic.
  * Defaults to the Brewer 'Set2' palette (or 'Set3' if the categories count > 8)
  *
+ * ## Examples
+ *
+ * - [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
+ *
  * @param direction numeric
  *      Direction to travel around the color wheel, 1 = clockwise (default), -1=counter-clockwise
  * @param name string

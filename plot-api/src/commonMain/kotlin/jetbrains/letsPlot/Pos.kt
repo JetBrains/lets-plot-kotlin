@@ -8,6 +8,22 @@ package jetbrains.letsPlot
 import jetbrains.letsPlot.intern.Options
 import jetbrains.letsPlot.intern.PosKind
 
+/**
+ * Pos options to pass as a value of `position` parameter of layer functions like:
+ *
+ * ```kotlin
+ * val n = 100
+ * val m = 5
+ * val k = 2
+ * val rand = java.util.Random(42)
+ * val data = mapOf(
+ *     "v" to List(n) { rand.nextInt(m) },
+ *     "c" to List(n) { rand.nextInt(k) }
+ * )
+ * letsPlot(data) +
+ *     geomBar(position=Pos.dodge) { x="v"; fill=asDiscrete("c") }
+ * ```
+ */
 object Pos {
     val identity = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.IDENTITY)
     val stack = jetbrains.letsPlot.intern.layer.PosOptions(PosKind.STACK)
@@ -30,12 +46,31 @@ object Pos {
     internal const val JD_JITTER_HEIGHT = "jitter_height"
 }
 
+/**
+ * Adjust position by dodging overlaps to the side.
+ *
+ * ## Examples
+ *
+ * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+ *
+ * @param width Dodging width, when different to the width of the individual elements. This is useful when you want to align narrow geoms with wider geoms.
+ */
 fun positionDodge(width: Number? = null) =
     jetbrains.letsPlot.intern.layer.PosOptions(
         PosKind.DODGE,
         Options.of(Pos.DODGE_WIDTH to width)
     )
 
+/**
+ * Adjust position by assigning random noise to points. Better for discrete values.
+ *
+ * ## Examples
+ *
+ * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
+ *
+ * @param width Jittering width.
+ * @param height Jittering height.
+ */
 fun positionJitter(width: Number? = null, height: Number? = null) =
     jetbrains.letsPlot.intern.layer.PosOptions(
         PosKind.JITTER,

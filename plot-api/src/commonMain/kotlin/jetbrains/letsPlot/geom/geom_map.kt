@@ -20,6 +20,10 @@ import jetbrains.letsPlot.tooltips.TooltipOptions
  * Display a filled closed path defined by the vertex coordinates of individual polygons.
  * 'geomMap' is essentially the same as 'geomPolygon' but uses 'coordMap' as default coordinate system.
  *
+ * ## Examples
+ *
+ * - [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
+ *
  * @param data dictionary or pandas DataFrame.
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

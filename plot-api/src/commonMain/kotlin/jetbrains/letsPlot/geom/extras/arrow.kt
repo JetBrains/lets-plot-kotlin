@@ -10,6 +10,7 @@ import jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
  * Describe arrows to add to a line.
+ *
  * @param angle number.
  *     The angle of the arrow head in degrees (smaller numbers produce narrower, pointer arrows).
  *     Essentially describes the width of the arrow head.

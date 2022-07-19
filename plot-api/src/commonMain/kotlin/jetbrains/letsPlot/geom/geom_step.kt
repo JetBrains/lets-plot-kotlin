@@ -16,6 +16,11 @@ import jetbrains.letsPlot.intern.layer.geom.LineMapping
 @Suppress("ClassName")
 /**
  * Connect observations in the order in which they appear in the data by stairs.
+ *
+ * ## Examples
+ *
+ * - [lines.ipynb](https://nbviewer.jupyter.org/github/HIL-HK/lets-plot-examples/blob/master/kotlin/lines.ipynb)
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

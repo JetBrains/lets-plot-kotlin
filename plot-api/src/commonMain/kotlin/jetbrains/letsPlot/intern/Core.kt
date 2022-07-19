@@ -70,6 +70,9 @@ class Plot internal constructor(
 
 
 sealed class Feature {
+    /**
+     * @suppress
+     */
     open operator fun plus(other: Feature): Feature {
         return when (other) {
             is DummyFeature -> this // nothing

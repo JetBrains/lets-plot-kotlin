@@ -8,6 +8,9 @@ package jetbrains.letsPlot
 import jetbrains.datalore.plot.config.Option.Meta.MappingAnnotation
 
 
+/**
+ * @suppress
+ */
 class MappingMeta(
     val variable: String,
     private val annotation: String,
@@ -26,6 +29,14 @@ class MappingMeta(
  * Marks a numeric variable as categorical.
  * The plot will use a discrete scale for the aesthetic mapping.
  * It is similar to the factor() function from R but works differently - there is no data transformation.
+ *
+ * See also [as_discrete.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/as_discrete.md).
+ *
+ * ## Examples
+ *
+ * - [ordering_examples.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ordering_examples.ipynb)
+ *
+ * - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
  *
  * @param variable name of the variable.
  * @param label name of the scale to be used as the axis label or the legend title (the default is the variable name).

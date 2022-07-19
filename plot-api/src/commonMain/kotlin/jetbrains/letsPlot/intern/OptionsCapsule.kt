@@ -8,6 +8,9 @@ package jetbrains.letsPlot.intern
 import jetbrains.letsPlot.intern.Options
 
 interface OptionsCapsule {
+    /**
+     * @suppress
+     */
     fun seal(): Options
 }
 

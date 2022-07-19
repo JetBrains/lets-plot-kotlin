@@ -13,6 +13,16 @@ import jetbrains.letsPlot.frontend.CurrentFrontendContext
 import jetbrains.letsPlot.intern.Plot
 import jetbrains.letsPlot.intern.toSpec
 
+/**
+ * Collection of plots created by ggplot function. Use method `addPlot()` to add plot to 'bunch'.
+ * Each plot can have arbitrary location and size. Use `show()` to draw all plots in bunch.
+ *
+ * ## Examples
+ *
+ * - [ggbunch.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ggbunch.ipynb)
+ *
+ * - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
+ */
 class GGBunch : Figure {
     private val items: MutableList<PlotItem> = ArrayList()
 

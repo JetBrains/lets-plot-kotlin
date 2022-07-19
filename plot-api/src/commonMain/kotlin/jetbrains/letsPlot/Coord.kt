@@ -98,6 +98,12 @@ fun coordMap(
  *
  * Flip axis of default coordinate system so that horizontal axis becomes vertical and vice versa.
  *
+ * ## Examples
+ *
+ * - [coord_flip.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb)
+ *
+ * - [y_orientation.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/y_orientation.ipynb)
+ *
  * @param xlim Limits for x-axes.
  * @param ylim Limits for y-axes.
  */

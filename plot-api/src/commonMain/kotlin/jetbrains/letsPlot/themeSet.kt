@@ -12,6 +12,10 @@ import jetbrains.letsPlot.intern.OptionsMap
 
 /**
  * Grey background and white gridlines.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  */
 fun themeGrey() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -22,6 +26,10 @@ fun themeGrey() = OptionsMap(
 
 /**
  * Light grey lines of various widths on white backgrounds.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  */
 fun themeLight() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -32,6 +40,10 @@ fun themeLight() = OptionsMap(
 
 /**
  * Black axes and no gridlines.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  */
 fun themeClassic() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -42,6 +54,10 @@ fun themeClassic() = OptionsMap(
 
 /**
  * A minimalistic theme without axes lines.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  */
 fun themeMinimal() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -52,6 +68,10 @@ fun themeMinimal() = OptionsMap(
 
 /**
  * Default theme similar to `themeMinimal()` but with x-axis line and only major grid lines.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  */
 fun themeMinimal2() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -62,6 +82,10 @@ fun themeMinimal2() = OptionsMap(
 
 /**
  * A completely empty theme.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  */
 fun themeNone() = OptionsMap(
     kind = Option.Plot.THEME,

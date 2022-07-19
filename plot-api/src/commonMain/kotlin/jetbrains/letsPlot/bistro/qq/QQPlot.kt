@@ -12,6 +12,10 @@ package jetbrains.letsPlot.bistro.qq
  * ('normal' or as otherwise specified by the `distribution` parameter).
  * Alternatively, supply `x` and `y` parameters to compare the distribution of `x` with the distribution of `y`.
  *
+ * ## Examples
+ *
+ * - [qq_plots.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][jetbrains.letsPlot.letsPlot].

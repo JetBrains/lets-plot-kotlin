@@ -10,8 +10,15 @@ import jetbrains.letsPlot.intern.layer.WithSizeUnitOption
 import jetbrains.letsPlot.intern.layer.geom.*
 
 /**
- * `Geom options` to pass as a value of `geom` parameter of `layer` functions like:
- *  letsPlot() + statDensity(..., geom = Pos.point(), ... )
+ * Geom options to pass as a value of `geom` parameter of layer functions like:
+ *
+ * ```kotlin
+ * val n = 100
+ * val rand = java.util.Random(42)
+ * val data = mapOf("x" to List(n) { rand.nextGaussian() })
+ * letsPlot(data) +
+ *     statDensity(geom = Geom.area()) { x="x" }
+ * ```
  */
 object Geom {
     val blank = jetbrains.letsPlot.intern.layer.GeomOptions(
