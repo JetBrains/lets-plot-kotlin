@@ -174,18 +174,6 @@ class layerTooltips(vararg variables: String) {
     }
 
     /**
-     * Specifies a color of a general tooltip.
-     *
-     * @param value The color for the general tooltip.
-     */
-    @Suppress("DeprecatedCallableAddReplaceWith")
-    @Deprecated("No longer supported.", level = DeprecationLevel.ERROR)
-    fun color(@Suppress("UNUSED_PARAMETER") value: String): layerTooltips {
-//        return setOption(TOOLTIP_COLOR, value)
-        return this
-    }
-
-    /**
      * Hide tooltips.
      */
     internal fun none(): layerTooltips {

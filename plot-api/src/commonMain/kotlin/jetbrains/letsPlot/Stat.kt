@@ -258,9 +258,9 @@ object Stat {
     class qq2(
         mapping: QQ2StatMapping.() -> Unit = {}
     ) : StatOptions(
-            StatKind.QQ2,
-            mapping = QQ2StatMapping().apply(mapping).seal()
-        )
+        StatKind.QQ2,
+        mapping = QQ2StatMapping().apply(mapping).seal()
+    )
 
     @Suppress("ClassName")
     class qq2Line(
@@ -273,80 +273,4 @@ object Stat {
         ) {
         override val parameters = this.seal()
     }
-
-    // Deprecated
-
-    @Deprecated("", ReplaceWith("Stat.bin2D(bins, binWidth, drop) { mapping() }"), level = DeprecationLevel.ERROR)
-    fun bin2d(
-        bins: Pair<Int, Int>? = null,
-        binWidth: Pair<Number?, Number?>? = null,
-        drop: Boolean? = null,
-        mapping: Bin2dStatMapping.() -> Unit
-    ) = bin2D(bins, binWidth, drop, mapping)
-
-    @Deprecated("", ReplaceWith("Stat.bin2D(bins, binWidth, drop)"), level = DeprecationLevel.ERROR)
-    fun bin2d(
-        bins: Pair<Int, Int>? = null,
-        binWidth: Pair<Number?, Number?>? = null,
-        drop: Boolean? = null
-    ) = bin2D(bins, binWidth, drop)
-
-    @Deprecated("", ReplaceWith("Stat.contourFilled(bins, binWidth) { mapping() }"), level = DeprecationLevel.ERROR)
-    fun contourf(
-        bins: Int? = null,
-        binWidth: Number? = null,
-        mapping: ContourStatMapping.() -> Unit
-    ) = contourFilled(bins, binWidth, mapping)
-
-    @Deprecated("", ReplaceWith("Stat.contourFilled(bins, binWidth)"), level = DeprecationLevel.ERROR)
-    fun contourf(
-        bins: Int? = null,
-        binWidth: Number? = null
-    ) = contourFilled(bins, binWidth)
-
-    @Deprecated("", ReplaceWith("Stat.density2D(bw, kernel, n, adjust, contour, bins, binWidth) { mapping() }"), level = DeprecationLevel.ERROR)
-    fun density2d(
-        bw: Any? = null,
-        kernel: String? = null,
-        n: Int? = null,
-        adjust: Number? = null,
-        contour: Boolean? = null,
-        bins: Int? = null,
-        binWidth: Number? = null,
-        mapping: Density2dStatMapping.() -> Unit
-    ) = density2D(bw, kernel, n, adjust, contour, bins, binWidth, mapping)
-
-    @Deprecated("", ReplaceWith("Stat.density2D(bw, kernel, n, adjust, contour, bins, binWidth)"), level = DeprecationLevel.ERROR)
-    fun density2d(
-        bw: Any? = null,
-        kernel: String? = null,
-        n: Int? = null,
-        adjust: Number? = null,
-        contour: Boolean? = null,
-        bins: Int? = null,
-        binWidth: Number? = null
-    ) = density2D(bw, kernel, n, adjust, contour, bins, binWidth)
-
-    @Deprecated("", ReplaceWith("Stat.density2DFilled(bw, kernel, n, adjust, contour, bins, binWidth) { mapping() }"), level = DeprecationLevel.ERROR)
-    fun density2df(
-        bw: Any? = null,
-        kernel: String? = null,
-        n: Int? = null,
-        adjust: Number? = null,
-        contour: Boolean? = null,
-        bins: Int? = null,
-        binWidth: Number? = null,
-        mapping: Density2dStatMapping.() -> Unit
-    ) = density2DFilled(bw, kernel, n, adjust, contour, bins, binWidth, mapping)
-
-    @Deprecated("", ReplaceWith("Stat.density2DFilled(bw, kernel, n, adjust, contour, bins, binWidth)"), level = DeprecationLevel.ERROR)
-    fun density2df(
-        bw: Any? = null,
-        kernel: String? = null,
-        n: Int? = null,
-        adjust: Number? = null,
-        contour: Boolean? = null,
-        bins: Int? = null,
-        binWidth: Number? = null
-    ) = density2DFilled(bw, kernel, n, adjust, contour, bins, binWidth)
 }

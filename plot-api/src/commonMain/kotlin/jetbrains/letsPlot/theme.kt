@@ -3,6 +3,8 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
+@file:Suppress("MemberVisibilityCanBePrivate")
+
 package jetbrains.letsPlot
 
 import jetbrains.datalore.plot.builder.defaultTheme.values.ThemeOption
@@ -243,42 +245,6 @@ class theme(
         return newTheme
     }
 
-    @Deprecated("Use: theme(axisTitle=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisTitleBlank() = withOption(ThemeOption.AXIS_TITLE, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisTitleX=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisTitleXBlank() = withOption(ThemeOption.AXIS_TITLE_X, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisTitleY=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisTitleYBlank() = withOption(ThemeOption.AXIS_TITLE_Y, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisText=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisTextBlank() = withOption(ThemeOption.AXIS_TEXT, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisTextX=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisTextXBlank() = withOption(ThemeOption.AXIS_TEXT_X, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisTextY=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisTextYBlank() = withOption(ThemeOption.AXIS_TEXT_Y, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisTicks=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisTicksBlank() = withOption(ThemeOption.AXIS_TICKS, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisTicksX=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisTicksXBlank() = withOption(ThemeOption.AXIS_TICKS_X, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisTicksY=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisTicksYBlank() = withOption(ThemeOption.AXIS_TICKS_Y, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisLine=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisLineBlank() = withOption(ThemeOption.AXIS_LINE, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisLineX=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisLineXBlank() = withOption(ThemeOption.AXIS_LINE_X, VAL_ELEMENT_BLANK)
-
-    @Deprecated("Use: theme(axisLineY=\"blank\"", level = DeprecationLevel.ERROR)
-    fun axisLineYBlank() = withOption(ThemeOption.AXIS_LINE_Y, VAL_ELEMENT_BLANK)
-
     fun legendPositionNone() = withOption(ThemeOption.LEGEND_POSITION, VAL_LEGEND_POS_NONE)
     fun legendPositionLeft() = withOption(ThemeOption.LEGEND_POSITION, VAL_LEGEND_POS_LEFT)
     fun legendPositionRight() = withOption(ThemeOption.LEGEND_POSITION, VAL_LEGEND_POS_RIGHT)
@@ -314,31 +280,6 @@ class theme(
 
     fun legendDirectionHorizontal() = withOption(ThemeOption.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_HORIZONTAL)
     fun legendDirectionVertical() = withOption(ThemeOption.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_VERTICAL)
-
-
-    @Deprecated("", ReplaceWith("legendPositionNone()"), level = DeprecationLevel.ERROR)
-    fun legendPosition_none() = legendPositionNone()
-
-    @Deprecated("", ReplaceWith("legendPositionLeft()"), level = DeprecationLevel.ERROR)
-    fun legendPosition_left() = legendPositionLeft()
-
-    @Deprecated("", ReplaceWith("legendPositionRight()"), level = DeprecationLevel.ERROR)
-    fun legendPosition_right() = legendPositionRight()
-
-    @Deprecated("", ReplaceWith("legendPositionBottom()"), level = DeprecationLevel.ERROR)
-    fun legendPosition_bottom() = legendPositionBottom()
-
-    @Deprecated("", ReplaceWith("legendPositionTop()"), level = DeprecationLevel.ERROR)
-    fun legendPosition_top() = legendPositionTop()
-
-    @Deprecated("", ReplaceWith("legendJustificationCenter()"), level = DeprecationLevel.ERROR)
-    fun legendJustification_center() = legendJustificationCenter()
-
-    @Deprecated("", ReplaceWith("legendDirectionHorizontal()"), level = DeprecationLevel.ERROR)
-    fun legendDirection_horizontal() = legendDirectionHorizontal()
-
-    @Deprecated("", ReplaceWith("legendDirectionVertical()"), level = DeprecationLevel.ERROR)
-    fun legendDirection_vertical() = legendDirectionVertical()
 
     companion object {
         private const val VAL_ELEMENT_BLANK = "blank"
