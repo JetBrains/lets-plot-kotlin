@@ -281,7 +281,7 @@ class theme(
     fun legendDirectionHorizontal() = withOption(ThemeOption.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_HORIZONTAL)
     fun legendDirectionVertical() = withOption(ThemeOption.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_VERTICAL)
 
-    companion object {
+    private companion object {
         private const val VAL_ELEMENT_BLANK = "blank"
         private const val VAL_LEGEND_POS_NONE = "none"
         private const val VAL_LEGEND_POS_LEFT = "left"

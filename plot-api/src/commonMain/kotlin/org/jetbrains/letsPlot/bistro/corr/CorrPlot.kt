@@ -349,7 +349,7 @@ class CorrPlot private constructor(
         return addCommonParams(plot, plotX, plotY, onlyTiles, flip)
     }
 
-    companion object {
+    private companion object {
         private const val VALUE_FORMAT = ".2f"
 
         private const val LEGEND_NAME = ""
