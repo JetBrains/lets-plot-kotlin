@@ -6,10 +6,10 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geomHistogram
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.stat.statBin
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.geom.geomHistogram
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.stat.statBin
 
 object Histogram {
     @JvmStatic

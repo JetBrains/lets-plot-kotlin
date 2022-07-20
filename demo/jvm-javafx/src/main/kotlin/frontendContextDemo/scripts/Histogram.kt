@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geomHistogram
-import jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.geom.geomHistogram
+import org.jetbrains.letsPlot.ggplot
 
 object Histogram {
     @JvmStatic

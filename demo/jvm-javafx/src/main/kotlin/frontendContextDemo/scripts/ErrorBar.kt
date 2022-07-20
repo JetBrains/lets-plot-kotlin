@@ -6,13 +6,14 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.Pos
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.*
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.positionDodge
-import jetbrains.letsPlot.scale.scaleColorManual
+import org.jetbrains.letsPlot.Pos
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.geom.*
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.positionDodge
+import org.jetbrains.letsPlot.scale.scaleColorManual
+import org.jetbrains.letsPlot.geom.*
 
 object ErrorBar {
     @JvmStatic

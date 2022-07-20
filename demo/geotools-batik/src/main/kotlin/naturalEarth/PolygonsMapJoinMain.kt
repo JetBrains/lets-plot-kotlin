@@ -6,11 +6,11 @@
 package naturalEarth
 
 import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.letsPlot.geom.geomPolygon
-import jetbrains.letsPlot.intern.toSpec
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.toolkit.geotools.toSpatialDataset
+import org.jetbrains.letsPlot.geom.geomPolygon
+import org.jetbrains.letsPlot.intern.toSpec
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.toolkit.geotools.toSpatialDataset
 
 fun main() {
     // GeoTools

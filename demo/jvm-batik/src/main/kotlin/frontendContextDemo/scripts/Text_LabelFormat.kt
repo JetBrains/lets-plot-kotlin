@@ -6,8 +6,8 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomText
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.geom.geomText
+import org.jetbrains.letsPlot.letsPlot
 
 @Suppress("ClassName")
 object Text_LabelFormat {

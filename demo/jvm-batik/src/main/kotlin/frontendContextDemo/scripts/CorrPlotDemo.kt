@@ -7,7 +7,7 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.bistro.corr.CorrPlot
+import org.jetbrains.letsPlot.bistro.corr.CorrPlot
 import java.awt.Dimension
 
 object CorrPlotDemo {

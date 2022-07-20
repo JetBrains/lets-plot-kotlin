@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.geom.geomSmooth
-import jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.geom.geomSmooth
+import org.jetbrains.letsPlot.ggplot
 
 @Suppress("ClassName")
 object Issue_OOM_105 {

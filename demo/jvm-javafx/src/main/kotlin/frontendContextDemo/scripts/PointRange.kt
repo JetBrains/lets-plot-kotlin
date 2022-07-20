@@ -6,8 +6,8 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geomPointRange
-import jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.geom.geomPointRange
+import org.jetbrains.letsPlot.ggplot
 
 object PointRange {
     @JvmStatic

@@ -7,11 +7,11 @@ package ggsaveDemo
 
 import BrowserDemoUtil
 import jetbrains.datalore.base.geometry.Vector
-import jetbrains.letsPlot.export.ggsave
-import jetbrains.letsPlot.geom.geomBar
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.export.ggsave
+import org.jetbrains.letsPlot.geom.geomBar
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.ggsize
+import org.jetbrains.letsPlot.label.ggtitle
 
 @Suppress("DuplicatedCode", "ClassName")
 object ggsavePng {

@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBrowserContext
-import jetbrains.letsPlot.Pos
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geomBar
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.Pos
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.geom.geomBar
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.ggplot
 
 object PointsOverBars {
     @JvmStatic

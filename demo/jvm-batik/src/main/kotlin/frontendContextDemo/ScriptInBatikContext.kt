@@ -5,7 +5,7 @@
 
 package frontendContextDemo
 
-import jetbrains.letsPlot.LetsPlot
+import org.jetbrains.letsPlot.LetsPlot
 import java.awt.Dimension
 
 object ScriptInBatikContext {

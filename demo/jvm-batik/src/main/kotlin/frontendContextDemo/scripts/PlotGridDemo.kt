@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.gggrid
-import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.geom.geomBoxplot
+import org.jetbrains.letsPlot.geom.geomDensity
+import org.jetbrains.letsPlot.gggrid
+import org.jetbrains.letsPlot.ggsize
+import org.jetbrains.letsPlot.letsPlot
 import kotlin.math.abs
 
 object PlotGridDemo {

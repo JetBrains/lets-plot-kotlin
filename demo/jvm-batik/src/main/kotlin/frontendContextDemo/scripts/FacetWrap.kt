@@ -7,10 +7,10 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.facet.facetWrap
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.themeGrey
+import org.jetbrains.letsPlot.facet.facetWrap
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.themeGrey
 import java.awt.Dimension
 
 object FacetWrap {

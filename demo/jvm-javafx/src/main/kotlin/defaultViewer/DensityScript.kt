@@ -5,8 +5,8 @@
 
 package defaultViewer
 
-import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.geom.geomDensity
+import org.jetbrains.letsPlot.letsPlot
 
 @Suppress("DuplicatedCode")
 fun main() {

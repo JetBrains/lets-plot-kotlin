@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.asDiscrete
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.scale.scaleColorDiscrete
+import org.jetbrains.letsPlot.asDiscrete
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.scale.scaleColorDiscrete
 
 object AsDiscrete {
     @JvmStatic

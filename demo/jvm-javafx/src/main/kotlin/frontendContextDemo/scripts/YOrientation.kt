@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts;
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.coordFlip
-import jetbrains.letsPlot.geom.geomBar
-import jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.coordFlip
+import org.jetbrains.letsPlot.geom.geomBar
+import org.jetbrains.letsPlot.ggplot
 
 
 object YOrientation {

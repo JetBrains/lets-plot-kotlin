@@ -20,8 +20,8 @@ A set of Kotlin extension methods with the signature `toSpatialDataset(decimals:
 to facilitate converting `GeoTools` objects to an instance of the `SpatialDataset` class. 
 
 ```
-import jetbrains.letsPlot.spatial.SpatialDataset
-import jetbrains.letsPlot.toolkit.geotools.toSpatialDataset
+import org.jetbrains.letsPlot.spatial.SpatialDataset
+import org.jetbrains.letsPlot.toolkit.geotools.toSpatialDataset
 
 val data: SpatialDataset = featureCollection.toSpatialDataset()
 ```   

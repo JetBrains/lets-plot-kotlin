@@ -7,15 +7,15 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.datalore.base.values.Color
-import jetbrains.letsPlot.elementBlank
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scaleColorDiscrete
-import jetbrains.letsPlot.scale.scaleXDiscrete
-import jetbrains.letsPlot.scale.xlim
-import jetbrains.letsPlot.theme
+import org.jetbrains.letsPlot.elementBlank
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.ggsize
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.scale.scaleColorDiscrete
+import org.jetbrains.letsPlot.scale.scaleXDiscrete
+import org.jetbrains.letsPlot.scale.xlim
+import org.jetbrains.letsPlot.theme
 
 object ScaleLimitsDiscrete {
     @JvmStatic

@@ -6,8 +6,8 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geomPolygon
-import jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.geom.geomPolygon
+import org.jetbrains.letsPlot.ggplot
 
 object Polygons {
     @JvmStatic

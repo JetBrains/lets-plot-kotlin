@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBrowserContext
-import jetbrains.letsPlot.geom.geomBar
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.stat.statCount
+import org.jetbrains.letsPlot.geom.geomBar
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.stat.statCount
 
 object BarGeomAndCountStat {
     @JvmStatic

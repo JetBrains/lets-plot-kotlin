@@ -7,13 +7,13 @@ package frontendContextDemo.scripts
 
 import demoData.Iris
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.coordFlip
-import jetbrains.letsPlot.geom.geomViolin
-import jetbrains.letsPlot.geom.geomYDotplot
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.coordFlip
+import org.jetbrains.letsPlot.geom.geomViolin
+import org.jetbrains.letsPlot.geom.geomYDotplot
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.letsPlot
 
 object YDotplot {
     @JvmStatic

@@ -7,10 +7,10 @@ package exportSvgDemo
 
 import BrowserDemoUtil
 import jetbrains.datalore.plot.PlotSvgExport
-import jetbrains.letsPlot.geom.geomBar
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.intern.toSpec
-import jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.geom.geomBar
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.intern.toSpec
+import org.jetbrains.letsPlot.label.ggtitle
 
 @Suppress("DuplicatedCode")
 object SinglePlotSvg {

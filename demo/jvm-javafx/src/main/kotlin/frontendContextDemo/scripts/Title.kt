@@ -6,10 +6,10 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scaleSizeArea
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.scale.scaleSizeArea
 import kotlin.math.PI
 import kotlin.math.sin
 

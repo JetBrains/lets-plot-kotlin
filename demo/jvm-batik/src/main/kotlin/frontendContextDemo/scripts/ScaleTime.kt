@@ -7,10 +7,10 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.datalore.base.datetime.Duration
-import jetbrains.letsPlot.geom.geomLine
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.scale.scaleXTime
-import jetbrains.letsPlot.scale.scaleYTime
+import org.jetbrains.letsPlot.geom.geomLine
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.scale.scaleXTime
+import org.jetbrains.letsPlot.scale.scaleYTime
 import kotlin.random.Random
 
 object ScaleTime {

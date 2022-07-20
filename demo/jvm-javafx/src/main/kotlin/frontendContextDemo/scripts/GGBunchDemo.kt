@@ -5,12 +5,12 @@
 
 package frontendContextDemo.scripts
 
-import jetbrains.letsPlot.GGBunch
-import jetbrains.letsPlot.ggsize
+import org.jetbrains.letsPlot.GGBunch
+import org.jetbrains.letsPlot.ggsize
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.geom.geomBoxplot
+import org.jetbrains.letsPlot.geom.geomDensity
+import org.jetbrains.letsPlot.letsPlot
 import kotlin.math.abs
 
 object GGBunchDemo {

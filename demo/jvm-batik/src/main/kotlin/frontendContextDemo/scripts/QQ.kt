@@ -7,16 +7,16 @@ package frontendContextDemo.scripts
 
 import demoData.Iris
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.bistro.qq.qqPlot
-import jetbrains.letsPlot.geom.geomQQ
-import jetbrains.letsPlot.geom.geomQQ2
-import jetbrains.letsPlot.geom.geomQQ2Line
-import jetbrains.letsPlot.geom.geomQQLine
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.label.xlab
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scaleColorBrewer
-import jetbrains.letsPlot.scale.scaleFillBrewer
+import org.jetbrains.letsPlot.bistro.qq.qqPlot
+import org.jetbrains.letsPlot.geom.geomQQ
+import org.jetbrains.letsPlot.geom.geomQQ2
+import org.jetbrains.letsPlot.geom.geomQQ2Line
+import org.jetbrains.letsPlot.geom.geomQQLine
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.label.xlab
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.scale.scaleColorBrewer
+import org.jetbrains.letsPlot.scale.scaleFillBrewer
 
 object QQ {
     @JvmStatic

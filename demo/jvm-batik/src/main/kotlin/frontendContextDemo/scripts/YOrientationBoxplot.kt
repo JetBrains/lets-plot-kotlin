@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.geom.geomBoxplot
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.ggplot
 
 object YOrientationBoxplot {
     private val X = listOf(

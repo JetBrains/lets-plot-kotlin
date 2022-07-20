@@ -7,11 +7,11 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.datalore.base.random.RandomGaussian
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geomBin2D
-import jetbrains.letsPlot.geom.geomTile
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.stat.statBin2D
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.geom.geomBin2D
+import org.jetbrains.letsPlot.geom.geomTile
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.stat.statBin2D
 import kotlin.random.Random
 
 object Bin2d {

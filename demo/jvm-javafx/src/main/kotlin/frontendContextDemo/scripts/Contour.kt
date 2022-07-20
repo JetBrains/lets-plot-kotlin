@@ -6,14 +6,14 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geomContour
-import jetbrains.letsPlot.geom.geomContourFilled
-import jetbrains.letsPlot.geom.geomPath
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scaleColorGradient
-import jetbrains.letsPlot.stat.statContour
-import jetbrains.letsPlot.stat.statContourFilled
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.geom.geomContour
+import org.jetbrains.letsPlot.geom.geomContourFilled
+import org.jetbrains.letsPlot.geom.geomPath
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.scale.scaleColorGradient
+import org.jetbrains.letsPlot.stat.statContour
+import org.jetbrains.letsPlot.stat.statContourFilled
 import kotlin.math.PI
 import kotlin.math.sin
 

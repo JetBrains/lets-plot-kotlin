@@ -5,7 +5,7 @@
 
 package frontendContextDemo
 
-import jetbrains.letsPlot.LetsPlot
+import org.jetbrains.letsPlot.LetsPlot
 
 object ScriptInBrowserContext {
     fun eval(title: String, script: () -> Unit) {

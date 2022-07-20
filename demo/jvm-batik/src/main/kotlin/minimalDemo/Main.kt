@@ -8,11 +8,11 @@ package minimalDemo
 import jetbrains.datalore.base.registration.Disposable
 import jetbrains.datalore.plot.MonolithicCommon
 import jetbrains.datalore.vis.swing.batik.DefaultPlotPanelBatik
-import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.geom.geomHistogram
-import jetbrains.letsPlot.intern.Plot
-import jetbrains.letsPlot.intern.toSpec
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.geom.geomDensity
+import org.jetbrains.letsPlot.geom.geomHistogram
+import org.jetbrains.letsPlot.intern.Plot
+import org.jetbrains.letsPlot.intern.toSpec
+import org.jetbrains.letsPlot.letsPlot
 import java.awt.Dimension
 import java.awt.GridLayout
 import javax.swing.*

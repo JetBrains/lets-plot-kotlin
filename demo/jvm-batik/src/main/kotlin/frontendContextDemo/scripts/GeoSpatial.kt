@@ -6,12 +6,12 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomPath
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.geom.geomPolygon
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.spatial.SpatialDataset
+import org.jetbrains.letsPlot.geom.geomPath
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.geom.geomPolygon
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.spatial.SpatialDataset
 
 object GeoSpatial {
     @JvmStatic

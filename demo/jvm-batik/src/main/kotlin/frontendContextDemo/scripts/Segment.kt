@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.extras.arrow
-import jetbrains.letsPlot.geom.geomSegment
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.geom.extras.arrow
+import org.jetbrains.letsPlot.geom.geomSegment
+import org.jetbrains.letsPlot.letsPlot
 
 object Segment {
     @JvmStatic

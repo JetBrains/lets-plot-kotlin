@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.geom.geomSmooth
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.stat.statSmooth
-import jetbrains.letsPlot.theme
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.geom.geomSmooth
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.stat.statSmooth
+import org.jetbrains.letsPlot.theme
 
 object Smooth {
     @JvmStatic

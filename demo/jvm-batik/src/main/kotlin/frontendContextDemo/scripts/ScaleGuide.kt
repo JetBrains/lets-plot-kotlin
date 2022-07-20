@@ -6,14 +6,15 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomDensity2D
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.geom.geomTile
-import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.*
-import jetbrains.letsPlot.theme
+import org.jetbrains.letsPlot.geom.geomDensity2D
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.geom.geomTile
+import org.jetbrains.letsPlot.ggsize
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.scale.*
+import org.jetbrains.letsPlot.scale.*
+import org.jetbrains.letsPlot.theme
 
 object ScaleGuide {
     @JvmStatic

@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geomTile
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.scale.scaleFillGradient2
+import org.jetbrains.letsPlot.geom.geomTile
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.scale.scaleFillGradient2
 
 object ScaleColorContinuous {
     @JvmStatic

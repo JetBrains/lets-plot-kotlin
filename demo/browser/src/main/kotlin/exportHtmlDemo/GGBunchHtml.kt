@@ -8,11 +8,11 @@ package exportHtmlDemo
 import BrowserDemoUtil
 import jetbrains.datalore.plot.PlotHtmlExport
 import jetbrains.datalore.plot.PlotHtmlHelper
-import jetbrains.letsPlot.GGBunch
-import jetbrains.letsPlot.export.VersionChecker
-import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.GGBunch
+import org.jetbrains.letsPlot.export.VersionChecker
+import org.jetbrains.letsPlot.geom.geomBoxplot
+import org.jetbrains.letsPlot.geom.geomDensity
+import org.jetbrains.letsPlot.letsPlot
 import kotlin.math.abs
 
 @Suppress("DuplicatedCode")

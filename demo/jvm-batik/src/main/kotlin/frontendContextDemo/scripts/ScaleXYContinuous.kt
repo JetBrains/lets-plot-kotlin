@@ -6,10 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.*
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.scale.*
+import org.jetbrains.letsPlot.scale.*
 import kotlin.math.pow
 
 object ScaleXYContinuous {

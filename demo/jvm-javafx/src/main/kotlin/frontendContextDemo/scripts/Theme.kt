@@ -7,18 +7,18 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import jetbrains.datalore.base.values.Color
-import jetbrains.letsPlot.coordFixed
-import jetbrains.letsPlot.elementBlank
-import jetbrains.letsPlot.elementRect
-import jetbrains.letsPlot.elementText
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.geom.geomTile
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.label.labs
-import jetbrains.letsPlot.theme
-import jetbrains.letsPlot.themeGrey
-import jetbrains.letsPlot.tooltips.layerTooltips
+import org.jetbrains.letsPlot.coordFixed
+import org.jetbrains.letsPlot.elementBlank
+import org.jetbrains.letsPlot.elementRect
+import org.jetbrains.letsPlot.elementText
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.geom.geomTile
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.label.labs
+import org.jetbrains.letsPlot.theme
+import org.jetbrains.letsPlot.themeGrey
+import org.jetbrains.letsPlot.tooltips.layerTooltips
 import java.awt.Dimension
 
 object Theme {

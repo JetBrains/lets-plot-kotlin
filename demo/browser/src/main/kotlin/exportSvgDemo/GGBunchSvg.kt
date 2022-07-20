@@ -7,10 +7,10 @@ package exportSvgDemo
 
 import BrowserDemoUtil
 import jetbrains.datalore.plot.PlotSvgExport
-import jetbrains.letsPlot.GGBunch
-import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.GGBunch
+import org.jetbrains.letsPlot.geom.geomBoxplot
+import org.jetbrains.letsPlot.geom.geomDensity
+import org.jetbrains.letsPlot.letsPlot
 import kotlin.math.abs
 
 @Suppress("DuplicatedCode")

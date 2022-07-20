@@ -8,11 +8,11 @@ package exportHtmlDemo
 import BrowserDemoUtil
 import jetbrains.datalore.plot.PlotHtmlExport
 import jetbrains.datalore.plot.PlotHtmlHelper
-import jetbrains.letsPlot.export.VersionChecker
-import jetbrains.letsPlot.geom.geomBar
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.intern.toSpec
-import jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.export.VersionChecker
+import org.jetbrains.letsPlot.geom.geomBar
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.intern.toSpec
+import org.jetbrains.letsPlot.label.ggtitle
 
 @Suppress("DuplicatedCode")
 object SinglePlotHtml {

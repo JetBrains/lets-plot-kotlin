@@ -6,12 +6,13 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.*
-import jetbrains.letsPlot.geom.geomLine
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.geom.geomSmooth
-import jetbrains.letsPlot.intern.toSpec
-import jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.*
+import org.jetbrains.letsPlot.geom.geomLine
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.geom.geomSmooth
+import org.jetbrains.letsPlot.intern.toSpec
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.*
 
 object Coord {
     @JvmStatic

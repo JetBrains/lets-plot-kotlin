@@ -6,12 +6,12 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.Pos
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geomFreqpoly
-import jetbrains.letsPlot.geom.geomHistogram
-import jetbrains.letsPlot.geom.geomLine
-import jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.Pos
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.geom.geomFreqpoly
+import org.jetbrains.letsPlot.geom.geomHistogram
+import org.jetbrains.letsPlot.geom.geomLine
+import org.jetbrains.letsPlot.ggplot
 
 object Freqpoly {
     @JvmStatic

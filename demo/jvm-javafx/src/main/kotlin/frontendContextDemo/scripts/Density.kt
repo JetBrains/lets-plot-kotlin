@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.*
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.stat.statDensity2D
-import jetbrains.letsPlot.stat.statDensity2DFilled
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.geom.*
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.stat.statDensity2D
+import org.jetbrains.letsPlot.stat.statDensity2DFilled
 
 object Density {
     @JvmStatic

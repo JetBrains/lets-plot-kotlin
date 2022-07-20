@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.label.labs
-import jetbrains.letsPlot.label.xlab
-import jetbrains.letsPlot.label.ylab
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.label.labs
+import org.jetbrains.letsPlot.label.xlab
+import org.jetbrains.letsPlot.label.ylab
+import org.jetbrains.letsPlot.letsPlot
 import kotlin.math.PI
 import kotlin.math.sin
 

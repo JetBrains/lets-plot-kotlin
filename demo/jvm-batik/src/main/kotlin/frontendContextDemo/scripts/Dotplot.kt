@@ -8,10 +8,11 @@ package frontendContextDemo.scripts
 import demoData.Iris
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.datalore.base.values.Color
-import jetbrains.letsPlot.*
-import jetbrains.letsPlot.facet.facetGrid
-import jetbrains.letsPlot.geom.geomDotplot
-import jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.*
+import org.jetbrains.letsPlot.facet.facetGrid
+import org.jetbrains.letsPlot.geom.geomDotplot
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.*
 
 object Dotplot {
     @JvmStatic

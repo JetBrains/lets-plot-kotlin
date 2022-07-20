@@ -6,12 +6,12 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.Figure
-import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.ggmarginal
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.Figure
+import org.jetbrains.letsPlot.geom.geomBoxplot
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.ggmarginal
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.label.ggtitle
 
 object MarginalLayersBoxplot {
     private val X = listOf(

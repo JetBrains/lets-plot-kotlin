@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomBar
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.sampling.samplingNone
+import org.jetbrains.letsPlot.geom.geomBar
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.sampling.samplingNone
 
 object BarsPickSampling {
     @JvmStatic

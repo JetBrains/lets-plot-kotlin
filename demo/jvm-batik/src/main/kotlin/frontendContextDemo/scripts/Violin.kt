@@ -7,9 +7,9 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.asDiscrete
-import jetbrains.letsPlot.geom.geomViolin
-import jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.asDiscrete
+import org.jetbrains.letsPlot.geom.geomViolin
+import org.jetbrains.letsPlot.ggplot
 
 object Violin {
     @JvmStatic

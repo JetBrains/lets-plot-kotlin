@@ -7,13 +7,14 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.*
-import jetbrains.letsPlot.geom.geomBar
-import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.geom.geomErrorBar
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.tooltips.layerTooltips
-import jetbrains.letsPlot.tooltips.tooltipsNone
+import org.jetbrains.letsPlot.*
+import org.jetbrains.letsPlot.geom.geomBar
+import org.jetbrains.letsPlot.geom.geomBoxplot
+import org.jetbrains.letsPlot.geom.geomErrorBar
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.tooltips.layerTooltips
+import org.jetbrains.letsPlot.tooltips.tooltipsNone
+import org.jetbrains.letsPlot.*
 
 object Tooltips {
     @JvmStatic

@@ -158,7 +158,7 @@ org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-jvm:3.3.0
 
 ```
 import jetbrains.datalore.plot.PlotHtmlHelper
-import jetbrains.letsPlot.FrontendContext
+import org.jetbrains.letsPlot.FrontendContext
 
 class MyNotebookContext: FrontendContext {
     override fun display(plotSpecRaw: MutableMap<String, Any>) {
@@ -182,7 +182,7 @@ val html:String = PlotHtmlHelper.getDynamicConfigureHtml(scriptUrl(ver), false)
 
 Define `Lets-Plot` frontend context:
 ```
-import jetbrains.letsPlot.LetsPlot
+import org.jetbrains.letsPlot.LetsPlot
 ...
 LetsPlot.frontendContext = MyNotebookContext()
 ```

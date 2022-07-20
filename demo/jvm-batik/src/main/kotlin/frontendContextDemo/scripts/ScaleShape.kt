@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.ggsize
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.scale.scaleShape
-import jetbrains.letsPlot.theme
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.ggsize
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.scale.scaleShape
+import org.jetbrains.letsPlot.theme
 
 object ScaleShape {
     @JvmStatic

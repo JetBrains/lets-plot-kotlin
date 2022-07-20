@@ -6,10 +6,10 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geomJitter
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.scale.scaleXDiscrete
+import org.jetbrains.letsPlot.geom.geomJitter
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.scale.scaleXDiscrete
 
 object Jitter {
     @JvmStatic

@@ -6,13 +6,13 @@
 package frontendContextDemo.scripts
 
 import jetbrains.datalore.base.values.Color
-import jetbrains.letsPlot.geom.geomABLine
-import jetbrains.letsPlot.geom.geomHLine
-import jetbrains.letsPlot.geom.geomPoint
-import jetbrains.letsPlot.geom.geomVLine
-import jetbrains.letsPlot.ggplot
-import jetbrains.letsPlot.label.ggtitle
-import jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.geom.geomABLine
+import org.jetbrains.letsPlot.geom.geomHLine
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.geom.geomVLine
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.letsPlot
 
 object HLineVLineScripts {
     fun script0() {

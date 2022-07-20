@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.Stat
-import jetbrains.letsPlot.geom.geomArea
-import jetbrains.letsPlot.geom.geomDensity
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.stat.statDensity
+import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.geom.geomArea
+import org.jetbrains.letsPlot.geom.geomDensity
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.stat.statDensity
 
 object Density {
     @JvmStatic

@@ -6,10 +6,10 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.letsPlot.geom.geomBoxplot
-import jetbrains.letsPlot.geom.geomJitter
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.stat.statBoxplot
+import org.jetbrains.letsPlot.geom.geomBoxplot
+import org.jetbrains.letsPlot.geom.geomJitter
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.stat.statBoxplot
 import kotlin.math.abs
 
 object Boxplot {

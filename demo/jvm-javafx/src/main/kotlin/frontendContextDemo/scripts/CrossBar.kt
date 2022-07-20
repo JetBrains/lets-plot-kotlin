@@ -6,9 +6,9 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.letsPlot.geom.geomCrossbar
-import jetbrains.letsPlot.letsPlot
-import jetbrains.letsPlot.positionDodge
+import org.jetbrains.letsPlot.geom.geomCrossbar
+import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.positionDodge
 
 object CrossBar {
     @JvmStatic
