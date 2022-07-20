@@ -11,7 +11,6 @@ import org.jetbrains.letsPlot.geom.geomSegment
 import org.jetbrains.letsPlot.geom.geomTile
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.scale.*
-import org.jetbrains.letsPlot.scale.*
 
 object ScaleIdentity {
     @JvmStatic

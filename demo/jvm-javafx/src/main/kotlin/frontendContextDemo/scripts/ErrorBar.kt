@@ -13,7 +13,6 @@ import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.positionDodge
 import org.jetbrains.letsPlot.scale.scaleColorManual
-import org.jetbrains.letsPlot.geom.*
 
 object ErrorBar {
     @JvmStatic

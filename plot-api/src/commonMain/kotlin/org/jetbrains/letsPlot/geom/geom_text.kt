@@ -15,7 +15,6 @@ import org.jetbrains.letsPlot.intern.layer.geom.TextMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TextParameters
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
-import org.jetbrains.letsPlot.intern.layer.*
 
 @Suppress("ClassName")
 /**

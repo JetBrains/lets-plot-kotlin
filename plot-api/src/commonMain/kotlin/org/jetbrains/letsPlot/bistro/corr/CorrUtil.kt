@@ -8,8 +8,6 @@ package org.jetbrains.letsPlot.bistro.corr
 import jetbrains.datalore.plot.base.DataFrame
 import jetbrains.datalore.plot.base.data.DataFrameUtil
 import jetbrains.datalore.plot.common.data.SeriesUtil.filterFinite
-import org.jetbrains.letsPlot.bistro.corr.CorrVar
-import org.jetbrains.letsPlot.intern.asPlotData
 import kotlin.math.absoluteValue
 
 internal object CorrUtil {

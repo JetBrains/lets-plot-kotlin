@@ -14,7 +14,6 @@ import org.jetbrains.letsPlot.geom.geomErrorBar
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.tooltips.layerTooltips
 import org.jetbrains.letsPlot.tooltips.tooltipsNone
-import org.jetbrains.letsPlot.*
 
 object Tooltips {
     @JvmStatic

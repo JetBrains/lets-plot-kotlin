@@ -9,7 +9,6 @@ import javafx.application.Platform
 import jetbrains.datalore.base.geometry.DoubleVector
 import jetbrains.datalore.base.json.JsonSupport
 import jetbrains.datalore.plot.MonolithicAwt
-import jetbrains.datalore.plot.builder.presentation.Style
 import jetbrains.datalore.vis.svg.SvgSvgElement
 import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
 import javax.swing.JFrame

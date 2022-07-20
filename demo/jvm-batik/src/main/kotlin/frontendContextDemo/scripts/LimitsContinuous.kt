@@ -11,7 +11,6 @@ import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomVLine
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.scale.*
-import org.jetbrains.letsPlot.scale.*
 import java.util.*
 
 @Suppress("DuplicatedCode")

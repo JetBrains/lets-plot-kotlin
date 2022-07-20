@@ -5,8 +5,6 @@
 
 package org.jetbrains.letsPlot.bistro.corr
 
-import org.jetbrains.letsPlot.bistro.corr.LayerParams
-
 internal object OptionsConfigurator {
     /**
      * @return true if at least one layer fills diagonal

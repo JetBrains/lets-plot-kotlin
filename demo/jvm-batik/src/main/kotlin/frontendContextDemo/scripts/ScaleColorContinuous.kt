@@ -10,7 +10,6 @@ import org.jetbrains.letsPlot.geom.geomTile
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.ggsize
 import org.jetbrains.letsPlot.scale.*
-import org.jetbrains.letsPlot.scale.*
 
 object ScaleColorContinuous {
     @JvmStatic

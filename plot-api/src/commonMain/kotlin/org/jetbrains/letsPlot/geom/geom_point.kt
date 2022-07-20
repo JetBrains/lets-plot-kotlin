@@ -13,7 +13,6 @@ import org.jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointMapping
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
-import org.jetbrains.letsPlot.intern.layer.*
 
 @Suppress("ClassName")
 /**

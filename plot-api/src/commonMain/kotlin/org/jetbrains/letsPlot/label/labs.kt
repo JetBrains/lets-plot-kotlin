@@ -11,7 +11,6 @@ import org.jetbrains.letsPlot.intern.Feature
 import org.jetbrains.letsPlot.intern.FeatureList
 import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.Scale
-import org.jetbrains.letsPlot.label.ggtitle
 
 /**
  * Add label to the x axis

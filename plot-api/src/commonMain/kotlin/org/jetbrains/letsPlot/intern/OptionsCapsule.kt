@@ -5,8 +5,6 @@
 
 package org.jetbrains.letsPlot.intern
 
-import org.jetbrains.letsPlot.intern.Options
-
 interface OptionsCapsule {
     /**
      * @suppress

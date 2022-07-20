@@ -12,7 +12,6 @@ import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomSmooth
 import org.jetbrains.letsPlot.intern.toSpec
 import org.jetbrains.letsPlot.label.ggtitle
-import org.jetbrains.letsPlot.*
 
 object Coord {
     @JvmStatic

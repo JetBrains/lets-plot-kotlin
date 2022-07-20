@@ -6,16 +6,11 @@
 package org.jetbrains.letsPlot.bistro.corr
 
 import org.jetbrains.letsPlot.*
-import org.jetbrains.letsPlot.bistro.corr.CorrUtil
 import org.jetbrains.letsPlot.bistro.corr.CorrUtil.correlations
 import org.jetbrains.letsPlot.bistro.corr.CorrUtil.correlationsFromCoefficients
 import org.jetbrains.letsPlot.bistro.corr.CorrUtil.correlationsToDataframe
 import org.jetbrains.letsPlot.bistro.corr.CorrUtil.isCoefficientsMatrix
 import org.jetbrains.letsPlot.bistro.corr.CorrUtil.matrixXYSeries
-import org.jetbrains.letsPlot.bistro.corr.CorrVar
-import org.jetbrains.letsPlot.bistro.corr.Method
-import org.jetbrains.letsPlot.bistro.corr.Method.correlationPearson
-import org.jetbrains.letsPlot.bistro.corr.OptionsConfigurator
 import org.jetbrains.letsPlot.bistro.corr.OptionsConfigurator.getKeepMatrixDiag
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomText
@@ -27,9 +22,6 @@ import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.sampling.samplingNone
 import org.jetbrains.letsPlot.scale.*
 import org.jetbrains.letsPlot.tooltips.layerTooltips
-import org.jetbrains.letsPlot.*
-import org.jetbrains.letsPlot.bistro.corr.LayerParams
-import org.jetbrains.letsPlot.scale.*
 import kotlin.math.max
 import kotlin.math.min
 
