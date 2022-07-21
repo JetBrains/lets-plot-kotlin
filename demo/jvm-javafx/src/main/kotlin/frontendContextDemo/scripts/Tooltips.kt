@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomErrorBar
 import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.pos.positionDodge
+import org.jetbrains.letsPlot.themes.theme
 import org.jetbrains.letsPlot.tooltips.layerTooltips
 import org.jetbrains.letsPlot.tooltips.tooltipsNone
 
@@ -49,7 +51,7 @@ object Tooltips {
                     .line("min/max|@min/@max")
 
                 (plot + geomBar(
-                    position = Pos.dodge,
+                    position = positionDodge(),
                     color = "black",
                     stat = Stat.identity,
                     tooltips = tooltipsOpts
@@ -58,7 +60,7 @@ object Tooltips {
 
                 // Move tooltip to the corner.
                 (plot + geomBar(
-                    position = Pos.dodge,
+                    position = positionDodge(),
                     color = "black",
                     stat = Stat.identity,
                     tooltips = tooltipsOpts.anchor("top_left")
@@ -67,7 +69,7 @@ object Tooltips {
 
                 // Set the minimum width of the tooltip.
                 (plot + geomBar(
-                    position = Pos.dodge,
+                    position = positionDodge(),
                     color = "black",
                     stat = Stat.identity,
                     tooltips = tooltipsOpts.anchor("top_left").minWidth(150)
@@ -76,7 +78,7 @@ object Tooltips {
 
                 // Hide tooltips.
                 (plot + geomBar(
-                    position = Pos.dodge,
+                    position = positionDodge(),
                     color = "black",
                     stat = Stat.identity,
                     tooltips = tooltipsNone

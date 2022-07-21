@@ -18,6 +18,7 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
@@ -102,7 +103,7 @@ class geomDotplot(
         data = data,
         geom = GeomOptions(GeomKind.DOTPLOT),
         stat = stat,
-        position = Pos.identity,
+        position = positionIdentity,
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips

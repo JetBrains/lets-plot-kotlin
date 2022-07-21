@@ -15,6 +15,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 /**
@@ -55,7 +56,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
 class geomStep(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     private val direction: String? = null,

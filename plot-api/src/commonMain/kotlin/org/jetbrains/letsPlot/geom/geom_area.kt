@@ -14,6 +14,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.AreaMapping
+import org.jetbrains.letsPlot.pos.positionStack
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -58,7 +59,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomArea(
     data: Map<*, *>? = null,
     stat: StatOptions = identity,
-    position: PosOptions = Pos.stack,
+    position: PosOptions = positionStack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

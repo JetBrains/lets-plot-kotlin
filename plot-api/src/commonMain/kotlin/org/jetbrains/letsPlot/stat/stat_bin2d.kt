@@ -17,12 +17,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 class statBin2D(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.tile(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.LayerBase
@@ -16,7 +15,7 @@ import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.JitterParameters
 import org.jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointMapping
-import org.jetbrains.letsPlot.positionJitter
+import org.jetbrains.letsPlot.pos.positionJitter
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -62,7 +61,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomJitter(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = Pos.jitter,
+    position: PosOptions = positionJitter(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

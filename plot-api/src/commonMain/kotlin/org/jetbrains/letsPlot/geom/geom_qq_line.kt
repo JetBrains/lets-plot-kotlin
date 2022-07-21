@@ -17,6 +17,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.QQLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.QQLineMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQLineStatParameters
 import org.jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -73,7 +74,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomQQLine(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.qqLine(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

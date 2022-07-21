@@ -17,12 +17,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.ContourMapping
 import org.jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 class statContour(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.CONTOUR),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

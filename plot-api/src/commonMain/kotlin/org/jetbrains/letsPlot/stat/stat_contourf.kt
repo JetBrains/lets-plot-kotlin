@@ -17,12 +17,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.ContourfMapping
 import org.jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 class statContourFilled(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.CONTOURF),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.vline
-import org.jetbrains.letsPlot.Pos.identity
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
@@ -14,6 +13,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.VLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.VLineMapping
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName", "SpellCheckingInspection")
@@ -55,7 +55,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomVLine(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

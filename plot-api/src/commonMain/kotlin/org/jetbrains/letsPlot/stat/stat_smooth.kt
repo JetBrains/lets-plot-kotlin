@@ -5,7 +5,6 @@
 
 package org.jetbrains.letsPlot.stat
 
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Options
@@ -16,12 +15,13 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.geom.SmoothAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.SmoothMapping
 import org.jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 class statSmooth(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.SMOOTH),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

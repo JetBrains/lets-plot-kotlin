@@ -13,8 +13,8 @@ import org.jetbrains.letsPlot.bistro.corr.CorrUtil.correlationsToDataframe
 import org.jetbrains.letsPlot.bistro.corr.CorrUtil.isCoefficientsMatrix
 import org.jetbrains.letsPlot.bistro.corr.CorrUtil.matrixXYSeries
 import org.jetbrains.letsPlot.bistro.corr.OptionsConfigurator.getKeepMatrixDiag
-import org.jetbrains.letsPlot.coordCartesian
-import org.jetbrains.letsPlot.coordFixed
+import org.jetbrains.letsPlot.coord.coordCartesian
+import org.jetbrains.letsPlot.coord.coordFixed
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomText
 import org.jetbrains.letsPlot.geom.geomTile
@@ -45,7 +45,7 @@ import kotlin.math.min
  * @param data Dataframe to compute correlations on.
  * @param title Plot title.
  * @param showLegend Whether to show a legend.
- * @param flip Whether to flip the y axis.
+ * @param flip Whether to flip the y-axis.
  * @param threshold Minimal correlation abs value to be included in result. Must be in interval [0.0, 1.0]
  * @param adjustSize A scaler to adjust the plot size which was computed by `CorrPlot` automatically.
  */
@@ -463,10 +463,10 @@ class CorrPlot private constructor(
 
             val xLim = Pair(-0.6, xValues.size - 1 + 0.6)
             val yLim = Pair(-0.6, yValues.size - 1 + 0.6)
-            if (onlyTiles) {
-                plot += coordCartesian(xlim = xLim, ylim = yLim)
+            plot += if (onlyTiles) {
+                coordCartesian(xlim = xLim, ylim = yLim)
             } else {
-                plot += coordFixed(xlim = xLim, ylim = yLim)
+                coordFixed(xlim = xLim, ylim = yLim)
             }
             return plot
         }

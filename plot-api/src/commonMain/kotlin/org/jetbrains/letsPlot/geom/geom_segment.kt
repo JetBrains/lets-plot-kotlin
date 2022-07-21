@@ -7,7 +7,6 @@ package org.jetbrains.letsPlot.geom
 
 import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.Geom.segment
-import org.jetbrains.letsPlot.Pos.identity
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.LayerBase
@@ -16,6 +15,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.SegmentAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.SegmentMapping
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -64,7 +64,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomSegment(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

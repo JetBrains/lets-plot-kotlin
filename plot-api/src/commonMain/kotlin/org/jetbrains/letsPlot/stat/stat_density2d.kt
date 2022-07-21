@@ -18,12 +18,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Density2dStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 class statDensity2D(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.DENSITY2D),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

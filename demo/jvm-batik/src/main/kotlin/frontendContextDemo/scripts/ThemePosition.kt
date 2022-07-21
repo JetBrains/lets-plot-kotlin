@@ -9,7 +9,7 @@ import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.ggsize
-import org.jetbrains.letsPlot.theme
+import org.jetbrains.letsPlot.themes.theme
 
 object ThemePosition {
     @JvmStatic

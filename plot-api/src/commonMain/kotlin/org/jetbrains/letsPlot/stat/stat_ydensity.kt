@@ -17,12 +17,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.ViolinAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.ViolinMapping
 import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatParameters
+import org.jetbrains.letsPlot.pos.positionDodge
 
 @Suppress("ClassName", "SpellCheckingInspection")
 class statYDensity(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.VIOLIN),
-    position: PosOptions = Pos.dodge,
+    position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

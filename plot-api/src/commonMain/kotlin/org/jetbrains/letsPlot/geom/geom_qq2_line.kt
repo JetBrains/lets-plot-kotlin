@@ -15,6 +15,7 @@ import org.jetbrains.letsPlot.intern.layer.stat.QQ2LineStatParameters
 import org.jetbrains.letsPlot.intern.layer.stat.QQ2StatAesthetics
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 /**
@@ -62,7 +63,7 @@ import org.jetbrains.letsPlot.intern.layer.*
 class geomQQ2Line(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.qq2Line(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

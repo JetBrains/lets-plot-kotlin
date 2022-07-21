@@ -5,7 +5,6 @@
 
 package org.jetbrains.letsPlot.stat
 
-import org.jetbrains.letsPlot.Pos.stack
 import org.jetbrains.letsPlot.Stat.density
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Options
@@ -17,12 +16,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.DensityMapping
 import org.jetbrains.letsPlot.intern.layer.stat.DensityStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.DensityStatParameters
+import org.jetbrains.letsPlot.pos.positionStack
 
 @Suppress("ClassName")
 class statDensity(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.DENSITY),
-    position: PosOptions = stack,
+    position: PosOptions = positionStack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

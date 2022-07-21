@@ -6,10 +6,14 @@
 package org.jetbrains.letsPlot
 
 import jetbrains.datalore.plot.config.Option
+import junit.framework.TestCase.assertEquals
 import org.jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
 import org.jetbrains.letsPlot.intern.toSpec
-import junit.framework.TestCase.assertEquals
-import org.jetbrains.letsPlot.*
+import org.jetbrains.letsPlot.themes.elementBlank
+import org.jetbrains.letsPlot.themes.elementLine
+import org.jetbrains.letsPlot.themes.theme
+import org.jetbrains.letsPlot.themes.themeGrey
+import org.jetbrains.letsPlot.themes.themeNone
 import org.junit.Test
 import java.awt.Color
 import kotlin.test.assertNull
@@ -61,7 +65,8 @@ class ThemeTest {
 
     @Test
     fun `plot with sum of themes`() {
-        val themes = theme(axisTitleY = "blank") + theme().legendPositionNone()
+        val themes = theme(axisTitleY = "blank") + theme()
+            .legendPositionNone()
         val p = ggplot() + themes
 
         assertThat(p).features().length(2)
@@ -97,7 +102,8 @@ class ThemeTest {
 
     @Test
     fun `named theme overrides other theme`() {
-        val themes = theme(line = elementLine(color = "#000000")) + themeNone()
+        val themes =
+            theme(line = elementLine(color = "#000000")) + themeNone()
         val p = ggplot() + themes
 
         assertThat(p).features().length(2)

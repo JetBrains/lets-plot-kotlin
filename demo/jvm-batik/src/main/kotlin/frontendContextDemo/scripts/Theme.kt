@@ -7,17 +7,15 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.datalore.base.values.Color
-import org.jetbrains.letsPlot.coordFixed
-import org.jetbrains.letsPlot.elementBlank
-import org.jetbrains.letsPlot.elementRect
-import org.jetbrains.letsPlot.elementText
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomTile
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.label.labs
-import org.jetbrains.letsPlot.theme
-import org.jetbrains.letsPlot.themeGrey
+import org.jetbrains.letsPlot.themes.elementRect
+import org.jetbrains.letsPlot.themes.elementText
+import org.jetbrains.letsPlot.themes.theme
+import org.jetbrains.letsPlot.themes.themeGrey
 import org.jetbrains.letsPlot.tooltips.layerTooltips
 import java.awt.Dimension
 
@@ -41,7 +39,7 @@ object Theme {
 
                 (p + theme(
                     axisTextY = "blank",
-                    axisTicksY = elementBlank(),
+                    axisTicksY = org.jetbrains.letsPlot.themes.elementBlank(),
                     axisTitleY = "blank"
                 ).legendPositionNone()).show()
 
@@ -75,7 +73,7 @@ object Theme {
                     x = "X axis title",
                     y = "Y axis title",
                     size = "Legend title",
-                ) + coordFixed(ylim = -0.3 to 0.3)
+                ) + org.jetbrains.letsPlot.coord.coordFixed(ylim = -0.3 to 0.3)
 
                 (p + ggtitle("Default")).show()
 
@@ -93,7 +91,7 @@ object Theme {
 
                 // Change tooltip colors
                 val tooltipOpts = theme(
-                    tooltip = elementRect(color = "#225e32", fill = "#238b45", size = 2),
+                    tooltip = elementRect(fill = "#238b45", color = "#225e32", size = 2),
                     tooltipText = elementText(color = "#bae4b3"),
                     tooltipTitleText = elementText(color = "#edf8e9"),
                     axisTooltipTextX = elementText(color = "green")
@@ -102,7 +100,11 @@ object Theme {
 
                 // Add panel background and border
                 (p + ggtitle("Borders") + theme(
-                    panelBackground = elementRect(fill = "#f0f8ff", color = "#9e9eff", size = 5),
+                    panelBackground = elementRect(
+                        fill = "#f0f8ff",
+                        color = "#9e9eff",
+                        size = 5
+                    ),
                     panelBorder = elementRect(color = "white", size = 2),
                     plotBackground = elementRect(color = "black", size = 2)
                 )).show()

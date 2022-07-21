@@ -16,6 +16,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.HistogramAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramMapping
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatParameters
+import org.jetbrains.letsPlot.pos.positionStack
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -58,7 +59,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomHistogram(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin(),
-    position: PosOptions = Pos.stack,
+    position: PosOptions = positionStack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

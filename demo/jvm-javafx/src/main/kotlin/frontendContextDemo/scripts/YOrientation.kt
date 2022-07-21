@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts;
 
 import frontendContextDemo.ScriptInJfxContext
-import org.jetbrains.letsPlot.coordFlip
+import org.jetbrains.letsPlot.coord.coordFlip
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.ggplot
 
@@ -21,7 +21,7 @@ object YOrientation {
             )
 
             val p = ggplot(data)
-            (p + geomBar { x = varName } ).show()
+            (p + geomBar { x = varName }).show()
             (p + geomBar { x = varName } + coordFlip()).show()
             (p + geomBar(orientation = "y") { y = varName }).show()
         }

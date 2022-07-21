@@ -14,6 +14,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.LineRangeAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineRangeMapping
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName", "SpellCheckingInspection")
@@ -53,7 +54,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomLineRange(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

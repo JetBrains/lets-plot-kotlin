@@ -7,7 +7,6 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.datalore.base.values.Color
-import org.jetbrains.letsPlot.elementBlank
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggsize
 import org.jetbrains.letsPlot.label.ggtitle
@@ -15,7 +14,7 @@ import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.scale.scaleColorDiscrete
 import org.jetbrains.letsPlot.scale.scaleXDiscrete
 import org.jetbrains.letsPlot.scale.xlim
-import org.jetbrains.letsPlot.theme
+import org.jetbrains.letsPlot.themes.elementBlank
 
 object ScaleLimitsDiscrete {
     @JvmStatic
@@ -26,7 +25,7 @@ object ScaleLimitsDiscrete {
                 "x" to ('a'..'h')
             )
 
-            val settings = theme(
+            val settings = org.jetbrains.letsPlot.themes.theme(
                 axisLine = elementBlank(),
                 axisTitleY = elementBlank(),
                 axisTextY = elementBlank(),

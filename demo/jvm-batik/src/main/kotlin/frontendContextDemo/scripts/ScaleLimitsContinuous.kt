@@ -6,11 +6,15 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import org.jetbrains.letsPlot.*
+import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.ggsize
+import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.scale.scaleColorContinuous
 import org.jetbrains.letsPlot.scale.scaleSize
 import org.jetbrains.letsPlot.scale.scaleXContinuous
+import org.jetbrains.letsPlot.themes.elementBlank
+import org.jetbrains.letsPlot.themes.theme
 
 object ScaleLimitsContinuous {
     @JvmStatic

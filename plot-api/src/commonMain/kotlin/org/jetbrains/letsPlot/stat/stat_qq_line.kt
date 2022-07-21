@@ -17,12 +17,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.QQLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.QQLineMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQLineStatParameters
 import org.jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 class statQQLine(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.qqLine(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val sample: Number? = null,

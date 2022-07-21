@@ -14,7 +14,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.CrossBarAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
-import org.jetbrains.letsPlot.positionDodge
+import org.jetbrains.letsPlot.pos.positionDodge
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")

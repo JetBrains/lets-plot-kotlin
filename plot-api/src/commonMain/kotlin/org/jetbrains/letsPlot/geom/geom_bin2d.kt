@@ -17,6 +17,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 
@@ -64,7 +65,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomBin2D(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin2D(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

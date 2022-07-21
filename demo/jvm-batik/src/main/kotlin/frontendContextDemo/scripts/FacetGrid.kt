@@ -7,12 +7,12 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
-import org.jetbrains.letsPlot.coordFixed
+import org.jetbrains.letsPlot.coord.coordFixed
 import org.jetbrains.letsPlot.facet.facetGrid
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
-import org.jetbrains.letsPlot.themeGrey
+import org.jetbrains.letsPlot.themes.themeGrey
 import java.awt.Dimension
 
 object FacetGrid {

@@ -6,11 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.pos.positionStack
 
 object PointsOverBars {
     @JvmStatic
@@ -30,7 +30,7 @@ object PointsOverBars {
             }
 
             // points with count stat and `stack` position adjustment
-            val points = geomPoint(stat = Stat.count(), position = Pos.stack, size = 15.0) {
+            val points = geomPoint(stat = Stat.count(), position = positionStack, size = 15.0) {
                 x = "cat1"
                 color = "cat2"
             }

@@ -17,12 +17,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.HistogramAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramMapping
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatParameters
+import org.jetbrains.letsPlot.pos.positionStack
 
 @Suppress("ClassName")
 class statBin(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.histogram(),
-    position: PosOptions = Pos.stack,
+    position: PosOptions = positionStack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

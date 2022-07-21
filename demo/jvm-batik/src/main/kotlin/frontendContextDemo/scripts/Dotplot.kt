@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.geom.geomDotplot
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
-import org.jetbrains.letsPlot.themeGrey
+import org.jetbrains.letsPlot.themes.themeGrey
 
 object Dotplot {
     @JvmStatic
@@ -35,7 +35,11 @@ object Dotplot {
             (p + geomDotplot(binWidth = 0.2) + coordFlip() + ggtitle("binWidth = 0.2, coord flip")).show()
 
             // facets
-            (p + geomDotplot { fill = "target" } + facetGrid(x = "target", xOrder = 1, yOrder = 1) + themeGrey() +
+            (p + geomDotplot { fill = "target" } + facetGrid(
+                x = "target",
+                xOrder = 1,
+                yOrder = 1
+            ) + themeGrey() +
                     ggtitle("Facets")).show()
 
             // stack groups

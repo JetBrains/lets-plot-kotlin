@@ -10,7 +10,6 @@ import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomSmooth
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.stat.statSmooth
-import org.jetbrains.letsPlot.theme
 
 object Smooth {
     @JvmStatic
@@ -24,7 +23,7 @@ object Smooth {
             )
             run {
                 val p = letsPlot(data) { x = "x"; y = "y" } +
-                        theme().legendPositionNone() +
+                        org.jetbrains.letsPlot.themes.theme().legendPositionNone() +
                         geomPoint(shape = 21, fill = "yellow", color = "blue") +
                         geomSmooth(method = "lm", deg = 5, size = 1.2)
 
@@ -34,7 +33,7 @@ object Smooth {
             run {
                 // the same
                 val p = letsPlot(data) { x = "x"; y = "y" } +
-                        theme().legendPositionNone() +
+                        org.jetbrains.letsPlot.themes.theme().legendPositionNone() +
                         geomPoint(shape = 21, fill = "yellow", color = "blue") +
                         statSmooth(method = "lm", deg = 5, size = 1.2)
 

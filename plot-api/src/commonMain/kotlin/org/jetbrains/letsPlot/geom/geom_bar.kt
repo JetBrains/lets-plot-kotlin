@@ -16,6 +16,7 @@ import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.BarAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.BarMapping
 import org.jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
+import org.jetbrains.letsPlot.pos.positionStack
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -57,7 +58,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomBar(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.count(),
-    position: PosOptions = Pos.stack,
+    position: PosOptions = positionStack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

@@ -6,11 +6,11 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.point
-import org.jetbrains.letsPlot.Pos.identity
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointMapping
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -71,7 +71,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomPoint(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

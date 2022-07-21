@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.stat
 
 import org.jetbrains.letsPlot.Geom
-import org.jetbrains.letsPlot.Pos.dodge
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
@@ -18,12 +17,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
+import org.jetbrains.letsPlot.pos.positionDodge
 
 @Suppress("ClassName")
 class statBoxplot(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.boxplot(),
-    position: PosOptions = dodge,
+    position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

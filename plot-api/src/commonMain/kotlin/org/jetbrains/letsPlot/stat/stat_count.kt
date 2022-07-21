@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.stat
 
 import org.jetbrains.letsPlot.Geom
-import org.jetbrains.letsPlot.Pos.stack
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
@@ -16,12 +15,13 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.geom.BarAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.BarMapping
 import org.jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
+import org.jetbrains.letsPlot.pos.positionStack
 
 @Suppress("ClassName")
 class statCount(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.bar(),
-    position: PosOptions = stack,
+    position: PosOptions = positionStack,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

@@ -6,12 +6,11 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.*
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
-import org.jetbrains.letsPlot.positionDodge
+import org.jetbrains.letsPlot.pos.positionDodge
 import org.jetbrains.letsPlot.scale.scaleColorManual
 
 object ErrorBar {
@@ -88,7 +87,7 @@ object ErrorBar {
 
             fun withBars() {
                 val geom = geomBar(
-                    position = Pos.dodge,
+                    position = positionDodge(),
                     color = "black",
                     stat = Stat.identity
                 ) { fill = "supp" } +
@@ -103,11 +102,11 @@ object ErrorBar {
                 p.show()
             }
 
-//            withLinesAndPoints()
-//            errorbar()
-//            pointrange()
+            withLinesAndPoints()
+            errorbar()
+            pointrange()
             linerange()
-//            withBars()
+            withBars()
         }
     }
 }

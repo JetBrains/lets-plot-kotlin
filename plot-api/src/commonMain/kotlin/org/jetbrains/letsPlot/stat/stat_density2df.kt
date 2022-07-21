@@ -17,12 +17,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.Density2dfMapping
 import org.jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Density2dStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 class statDensity2DFilled(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.DENSITY2DF),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

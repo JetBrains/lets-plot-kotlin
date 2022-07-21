@@ -14,6 +14,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.TileMapping
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -56,7 +57,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomTile(
     data: Map<*, *>? = null,
     stat: StatOptions = identity,
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

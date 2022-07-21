@@ -14,6 +14,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.SmoothMapping
 import org.jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 /**
@@ -68,7 +69,7 @@ import org.jetbrains.letsPlot.intern.layer.*
 class geomSmooth(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.smooth(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

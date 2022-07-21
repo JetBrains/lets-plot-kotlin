@@ -8,7 +8,7 @@ package frontendContextDemo.scripts
 import demoData.Iris
 import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.coordFlip
+import org.jetbrains.letsPlot.coord.coordFlip
 import org.jetbrains.letsPlot.geom.geomViolin
 import org.jetbrains.letsPlot.geom.geomYDotplot
 import org.jetbrains.letsPlot.ggplot

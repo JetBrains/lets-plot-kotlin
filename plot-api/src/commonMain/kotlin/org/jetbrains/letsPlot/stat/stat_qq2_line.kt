@@ -17,12 +17,13 @@ import org.jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PathMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQ2LineStatParameters
 import org.jetbrains.letsPlot.intern.layer.stat.QQ2StatAesthetics
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 class statQQ2Line(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.path(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

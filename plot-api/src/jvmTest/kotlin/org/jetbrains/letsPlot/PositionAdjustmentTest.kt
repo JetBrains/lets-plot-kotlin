@@ -6,11 +6,11 @@
 package org.jetbrains.letsPlot
 
 import jetbrains.datalore.plot.config.Option
-import org.jetbrains.letsPlot.Pos.dodge
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.LayerAssert
 import org.jetbrains.letsPlot.intern.PosKind
 import org.jetbrains.letsPlot.intern.toSpec
+import org.jetbrains.letsPlot.pos.positionDodge
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -27,7 +27,7 @@ class PositionAdjustmentTest {
 
     @Test
     fun `layer with overridden pos`() {
-        val l = geomPoint(position = dodge)
+        val l = geomPoint(position = positionDodge())
 
         LayerAssert.assertThat(l)
             .position(PosKind.DODGE)

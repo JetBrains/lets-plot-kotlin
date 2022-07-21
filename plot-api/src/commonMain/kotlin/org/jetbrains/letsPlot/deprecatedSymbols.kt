@@ -153,7 +153,9 @@ fun coordFlip(
 // Pos.kt was moved to sub-package org.jetbrains.letsPlot.pos.
 //
 
-@Deprecated("Moved to package \"org.jetbrains.letsPlot.pos\"")
+/**
+ * @suppress
+ */
 object Pos {
     @Deprecated(
         "",

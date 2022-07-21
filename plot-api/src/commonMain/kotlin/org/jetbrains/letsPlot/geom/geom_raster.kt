@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.raster
-import org.jetbrains.letsPlot.Pos.identity
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
@@ -14,6 +13,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.RasterAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.RasterMapping
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 /**
@@ -48,7 +48,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.RasterMapping
 class geomRaster(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

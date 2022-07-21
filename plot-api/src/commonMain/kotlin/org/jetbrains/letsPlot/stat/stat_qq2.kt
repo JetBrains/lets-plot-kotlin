@@ -16,12 +16,13 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQ2StatAesthetics
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 class statQQ2(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.point(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

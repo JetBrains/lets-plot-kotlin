@@ -8,13 +8,13 @@ package org.jetbrains.letsPlot.geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Options
+import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.ViolinAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.ViolinMapping
 import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatParameters
-import org.jetbrains.letsPlot.positionDodge
+import org.jetbrains.letsPlot.pos.positionDodge
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
-import org.jetbrains.letsPlot.intern.layer.*
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**

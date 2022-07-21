@@ -15,6 +15,7 @@ import org.jetbrains.letsPlot.intern.layer.stat.Density2dStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 
 @Suppress("ClassName")
@@ -67,7 +68,7 @@ import org.jetbrains.letsPlot.intern.layer.*
 class geomDensity2DFilled(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.density2DFilled(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

@@ -6,13 +6,13 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.text
-import org.jetbrains.letsPlot.Pos.identity
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.TextAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.TextMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TextParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -92,7 +92,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomText(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

@@ -11,6 +11,7 @@ import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PolygonMapping
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -68,7 +69,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomMap(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

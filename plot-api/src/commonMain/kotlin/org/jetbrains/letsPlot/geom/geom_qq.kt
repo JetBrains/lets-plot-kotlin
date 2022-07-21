@@ -17,6 +17,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.QQAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.QQMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.QQStatParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
@@ -72,7 +73,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomQQ(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.qq(),
-    position: PosOptions = Pos.identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

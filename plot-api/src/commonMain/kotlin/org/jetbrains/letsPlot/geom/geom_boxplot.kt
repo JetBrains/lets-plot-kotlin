@@ -17,7 +17,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
-import org.jetbrains.letsPlot.positionDodge
+import org.jetbrains.letsPlot.pos.positionDodge
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
