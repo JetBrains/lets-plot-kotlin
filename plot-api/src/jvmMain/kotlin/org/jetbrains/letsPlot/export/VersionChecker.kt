@@ -7,6 +7,9 @@ package org.jetbrains.letsPlot.export
 
 import java.util.*
 
+/**
+ * @suppress
+ */
 object VersionChecker {
     private const val PROP_FILE = "letsPlotKotlinAPI/version.properties"
     private const val KEY_LETS_PLOT_VER = "lets_plot.version"
