@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.abline
-import org.jetbrains.letsPlot.Pos.identity
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
@@ -14,6 +13,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.ABLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.ABLineMapping
+import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
@@ -54,7 +54,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.ABLineMapping
 class geomABLine(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = identity,
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val slope: Number? = null,

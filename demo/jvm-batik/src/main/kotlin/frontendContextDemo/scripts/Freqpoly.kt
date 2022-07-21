@@ -6,12 +6,12 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomFreqpoly
 import org.jetbrains.letsPlot.geom.geomHistogram
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.pos.positionDodge
 
 object Freqpoly {
     @JvmStatic
@@ -44,7 +44,9 @@ object Freqpoly {
                 // line + bin stat ==> Same
                 val stat = Stat.bin(binWidth = 1.0)
                 val geom =
-                    geomHistogram(stat = stat, position = Pos.dodge, alpha = .3, size = 0.0) { x = "x"; fill = "c" } +
+                    geomHistogram(stat = stat, position = positionDodge(), alpha = .3, size = 0.0) {
+                        x = "x"; fill = "c"
+                    } +
                             geomLine(stat = stat) { x = "x"; color = "c" }
                 val p = ggplot(data) + geom
                 p.show()

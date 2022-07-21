@@ -1,9 +1,11 @@
 /*
- * Copyright (c) 2021. JetBrains s.r.o.
+ * Copyright (c) 2022. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package org.jetbrains.letsPlot
+@file:Suppress("unused")
+
+package org.jetbrains.letsPlot.pos
 
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.PosKind
@@ -25,27 +27,33 @@ import org.jetbrains.letsPlot.intern.layer.PosOptions
  *     geomBar(position=Pos.dodge) { x="v"; fill=asDiscrete("c") }
  * ```
  */
-object Pos {
-    val identity = PosOptions(PosKind.IDENTITY)
-    val stack = PosOptions(PosKind.STACK)
-    val dodge = PosOptions(PosKind.DODGE)
-    val fill = PosOptions(PosKind.FILL)
-    val nudge = PosOptions(PosKind.NUDGE)
-    val jitter = PosOptions(PosKind.JITTER)
+private object Pos {
+//    val identity = PosOptions(PosKind.IDENTITY)
+//    val stack = PosOptions(PosKind.STACK)
+//    val dodge = PosOptions(PosKind.DODGE)
+//    val fill = PosOptions(PosKind.FILL)
+//    val nudge = PosOptions(PosKind.NUDGE)
+//    val jitter = PosOptions(PosKind.JITTER)
 
-    @Suppress("SpellCheckingInspection")
-    val jitterdodge = PosOptions(PosKind.JITTER_DODGE)
+//    @Suppress("SpellCheckingInspection")
+//    val jitterdodge = PosOptions(PosKind.JITTER_DODGE)
 
+    // ToDo: use constants form LP (when become available)
     // parameter names
-    internal const val DODGE_WIDTH = "width"
-    internal const val JITTER_WIDTH = "width"
-    internal const val JITTER_HEIGHT = "height"
-    internal const val NUDGE_WIDTH = "x"
-    internal const val NUDGE_HEIGHT = "y"
-    internal const val JD_DODGE_WIDTH = "dodge_width"
-    internal const val JD_JITTER_WIDTH = "jitter_width"
-    internal const val JD_JITTER_HEIGHT = "jitter_height"
+    const val DODGE_WIDTH = "width"
+    const val JITTER_WIDTH = "width"
+    const val JITTER_HEIGHT = "height"
+    const val NUDGE_WIDTH = "x"
+    const val NUDGE_HEIGHT = "y"
+    const val JD_DODGE_WIDTH = "dodge_width"
+    const val JD_JITTER_WIDTH = "jitter_width"
+    const val JD_JITTER_HEIGHT = "jitter_height"
 }
+
+val positionIdentity = PosOptions(PosKind.IDENTITY)
+val positionStack = PosOptions(PosKind.STACK)
+val positionFill = PosOptions(PosKind.FILL)
+
 
 /**
  * Adjust position by dodging overlaps to the side.
