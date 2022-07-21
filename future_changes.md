@@ -4,8 +4,9 @@
 
 ### Changed
 
+- Remove all API deprecated in v3.3.0
 - Rename Lets-Plot Kotlin API packages: `jetbrains.letsPlot...`
   to `org.jetbrains.letsPlot...` [[#115](https://github.com/JetBrains/lets-plot-kotlin/issues/115)].
-- Remove all API deprecated in v3.3.0
+- Move `theme` and related functions to the `themes` sub-package.
 
 ### Fixed

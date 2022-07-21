@@ -10,7 +10,7 @@ import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.facet.facetWrap
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.letsPlot
-import org.jetbrains.letsPlot.themeGrey
+import org.jetbrains.letsPlot.themes.themeGrey
 import java.awt.Dimension
 
 object FacetWrap {
