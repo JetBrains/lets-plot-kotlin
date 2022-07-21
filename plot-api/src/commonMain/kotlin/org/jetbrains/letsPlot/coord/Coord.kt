@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2021. JetBrains s.r.o.
+ * Copyright (c) 2022. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-@file:Suppress("SpellCheckingInspection")
+@file:Suppress("SpellCheckingInspection", "unused")
 
-package org.jetbrains.letsPlot
+package org.jetbrains.letsPlot.coord
 
 import jetbrains.datalore.plot.config.Option
 
