@@ -22,7 +22,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * ## Examples
  *
- * - [ribbon.ipynb](https://nbviewer.jupyter.org/github/HIL-HK/lets-plot-examples/blob/master/kotlin/ribbon.ipynb)
+ * - [ribbon.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ribbon.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data

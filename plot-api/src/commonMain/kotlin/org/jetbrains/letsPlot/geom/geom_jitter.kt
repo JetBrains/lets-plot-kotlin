@@ -25,7 +25,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * ## Examples
  *
- * - [jittered_points.ipynb](https://nbviewer.jupyter.org/github/HIL-HK/lets-plot-examples/blob/master/kotlin/jittered_points.ipynb)
+ * - [jittered_points.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/jittered_points.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data

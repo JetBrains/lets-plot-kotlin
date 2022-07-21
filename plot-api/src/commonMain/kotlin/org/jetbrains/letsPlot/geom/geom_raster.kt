@@ -23,7 +23,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.RasterMapping
  *
  * ## Examples
  *
- * - [algebraic_curve.ipynb](https://nbviewer.jupyter.org/github/HIL-HK/lets-plot-examples/blob/master/kotlin/algebraic_curve.ipynb)
+ * - [algebraic_curve.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/algebraic_curve.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
