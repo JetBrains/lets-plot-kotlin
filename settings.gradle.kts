@@ -37,4 +37,4 @@ project(":js-frontend-app").projectDir = File("./demo/js-frontend-app")
 project(":geotools").projectDir = File("./toolkit/geotools")
 project(":geotools-batik").projectDir = File("./demo/geotools-batik")
 
-project(":dokka").projectDir = File("./docs")
+project(":dokka").projectDir = File("./docs/dokka")
