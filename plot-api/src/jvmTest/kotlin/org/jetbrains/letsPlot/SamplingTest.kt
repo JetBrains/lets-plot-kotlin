@@ -8,7 +8,6 @@ package org.jetbrains.letsPlot
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.sampling.*
-import org.jetbrains.letsPlot.sampling.*
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

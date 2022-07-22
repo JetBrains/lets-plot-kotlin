@@ -5,7 +5,6 @@
 
 package org.jetbrains.letsPlot.export
 
-import org.jetbrains.letsPlot.export.VersionChecker
 import org.junit.Test
 
 /**

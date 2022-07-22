@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot
 
+import junit.framework.TestCase.assertEquals
 import org.jetbrains.letsPlot.Geom.point
 import org.jetbrains.letsPlot.Stat.density
 import org.jetbrains.letsPlot.geom.geomArea
@@ -13,7 +14,6 @@ import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.LayerAssert
 import org.jetbrains.letsPlot.intern.StatKind
 import org.jetbrains.letsPlot.stat.statDensity
-import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 class OptionsMergingTest {

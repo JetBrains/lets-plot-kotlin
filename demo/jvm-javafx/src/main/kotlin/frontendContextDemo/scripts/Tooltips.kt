@@ -7,11 +7,12 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInJfxContext
-import org.jetbrains.letsPlot.*
+import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomErrorBar
 import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.pos.positionDodge
 import org.jetbrains.letsPlot.themes.theme
 import org.jetbrains.letsPlot.tooltips.layerTooltips

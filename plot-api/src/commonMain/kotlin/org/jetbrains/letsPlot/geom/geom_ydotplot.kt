@@ -7,13 +7,13 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
+import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.YDotplotAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.YDotplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.YDotplotParameters
 import org.jetbrains.letsPlot.intern.layer.stat.YDotplotStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.YDotplotStatParameters
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
-import org.jetbrains.letsPlot.intern.layer.*
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**

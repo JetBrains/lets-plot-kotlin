@@ -5,17 +5,16 @@
 
 package org.jetbrains.letsPlot.geom
 
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Options
+import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.ContourfMapping
 import org.jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatParameters
-import org.jetbrains.letsPlot.tooltips.TooltipOptions
-import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.pos.positionIdentity
+import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 
 @Suppress("ClassName")

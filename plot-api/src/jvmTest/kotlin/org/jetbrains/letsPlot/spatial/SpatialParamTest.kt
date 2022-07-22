@@ -5,12 +5,12 @@
 
 package org.jetbrains.letsPlot.spatial
 
+import junit.framework.TestCase.assertEquals
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
 import org.jetbrains.letsPlot.intern.toSpec
-import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 class SpatialParamTest {

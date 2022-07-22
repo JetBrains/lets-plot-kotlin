@@ -6,7 +6,6 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.geom.geomPoint

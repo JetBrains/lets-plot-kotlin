@@ -8,11 +8,9 @@ package org.jetbrains.letsPlot
 import jetbrains.datalore.plot.base.Aes
 import jetbrains.datalore.plot.config.Option.Meta.DATA_META
 import jetbrains.datalore.plot.config.Option.Meta.MappingAnnotation
-import org.jetbrains.letsPlot.asDiscrete
-import org.jetbrains.letsPlot.geom.geomPoint
-import org.jetbrains.letsPlot.ggplot
-import org.jetbrains.letsPlot.intern.toSpec
 import junit.framework.TestCase.assertEquals
+import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Test
 
 class MappingAsDiscreteTest {

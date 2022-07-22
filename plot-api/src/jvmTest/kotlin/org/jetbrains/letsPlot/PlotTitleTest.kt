@@ -5,10 +5,10 @@
 
 package org.jetbrains.letsPlot
 
+import junit.framework.TestCase.assertEquals
 import org.jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
 import org.jetbrains.letsPlot.intern.toSpec
 import org.jetbrains.letsPlot.label.ggtitle
-import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 class PlotTitleTest {

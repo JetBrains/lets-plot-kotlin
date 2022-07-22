@@ -5,20 +5,19 @@
 
 package org.jetbrains.letsPlot.geom
 
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
+import org.jetbrains.letsPlot.intern.layer.GeomOptions
+import org.jetbrains.letsPlot.intern.layer.LayerBase
+import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotParameters
 import org.jetbrains.letsPlot.intern.layer.stat.DotplotStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.DotplotStatParameters
-import org.jetbrains.letsPlot.tooltips.TooltipOptions
-import org.jetbrains.letsPlot.intern.layer.GeomOptions
-import org.jetbrains.letsPlot.intern.layer.LayerBase
-import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.pos.positionIdentity
+import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**

@@ -6,9 +6,9 @@
 package org.jetbrains.letsPlot
 
 import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.toSpec
 import org.jetbrains.letsPlot.sampling.samplingNone
-import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

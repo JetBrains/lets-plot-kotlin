@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.area
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat.identity
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions

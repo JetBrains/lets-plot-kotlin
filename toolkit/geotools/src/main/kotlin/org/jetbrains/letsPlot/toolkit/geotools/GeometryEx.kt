@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot.toolkit.geotools
 
-import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.geotools.geojson.geom.GeometryJSON
+import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.locationtech.jts.geom.Geometry
 
 /**

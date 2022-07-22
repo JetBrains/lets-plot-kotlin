@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.stat
 
 import org.jetbrains.letsPlot.Geom
-import org.jetbrains.letsPlot.Pos
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.GeomOptions

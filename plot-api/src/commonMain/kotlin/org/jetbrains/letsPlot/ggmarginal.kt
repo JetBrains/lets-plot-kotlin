@@ -7,7 +7,6 @@ package org.jetbrains.letsPlot
 
 import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.intern.*
-import org.jetbrains.letsPlot.intern.DummyFeature
 import org.jetbrains.letsPlot.intern.layer.MarginalLayer
 
 

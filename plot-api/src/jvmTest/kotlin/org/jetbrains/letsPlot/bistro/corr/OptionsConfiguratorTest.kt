@@ -5,8 +5,6 @@
 
 package org.jetbrains.letsPlot.bistro.corr
 
-import org.jetbrains.letsPlot.bistro.corr.LayerParams
-import org.jetbrains.letsPlot.bistro.corr.OptionsConfigurator
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

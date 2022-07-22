@@ -3,11 +3,11 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
+import kotlinx.browser.document
+import kotlinx.browser.window
 import org.jetbrains.letsPlot.frontend.JsFrontendUtil
 import org.jetbrains.letsPlot.geom.geomDensity
 import org.jetbrains.letsPlot.letsPlot
-import kotlinx.browser.document
-import kotlinx.browser.window
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.ln

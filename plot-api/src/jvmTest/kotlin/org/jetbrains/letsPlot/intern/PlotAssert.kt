@@ -5,11 +5,11 @@
 
 package org.jetbrains.letsPlot.intern
 
+import junit.framework.AssertionFailedError
+import junit.framework.TestCase.*
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import junit.framework.AssertionFailedError
-import junit.framework.TestCase.*
 
 internal class PlotAssert(private val plot: Plot) : MappingAssert<PlotAssert> {
     companion object {

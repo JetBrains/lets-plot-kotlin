@@ -6,14 +6,14 @@
 package naturalEarth
 
 import jetbrains.datalore.base.geometry.DoubleVector
+import org.geotools.geometry.jts.ReferencedEnvelope
+import org.geotools.referencing.crs.DefaultGeographicCRS
 import org.jetbrains.letsPlot.geom.geomPolygon
 import org.jetbrains.letsPlot.geom.geomRect
 import org.jetbrains.letsPlot.intern.toSpec
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.toolkit.geotools.toSpatialDataset
-import org.geotools.geometry.jts.ReferencedEnvelope
-import org.geotools.referencing.crs.DefaultGeographicCRS
 
 fun main() {
     // GeoTools
