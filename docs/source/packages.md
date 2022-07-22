@@ -1,4 +1,4 @@
-# Package jetbrains.letsPlot
+# Package org.jetbrains.letsPlot
 
 ## Examples
 
@@ -10,7 +10,7 @@
 
 More examples you can find [here](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md).
 
-# Package jetbrains.letsPlot.bistro.corr
+# Package org.jetbrains.letsPlot.bistro.corr
 
 The `CorrPlot` class produces a correlation matrix plot.
 
@@ -18,7 +18,7 @@ The `CorrPlot` class produces a correlation matrix plot.
 
 - [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
 
-# Package jetbrains.letsPlot.bistro.qq
+# Package org.jetbrains.letsPlot.bistro.qq
 
 The `qqPlot()` function produces a Q-Q plot (quantile-quantile plot).
 
@@ -26,7 +26,7 @@ The `qqPlot()` function produces a Q-Q plot (quantile-quantile plot).
 
 - [qq_plots.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
 
-# Package jetbrains.letsPlot.export
+# Package org.jetbrains.letsPlot.export
 
 The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or raster formats.
 
@@ -34,7 +34,7 @@ The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or 
 
 - [export_to_file.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/export_to_file.ipynb)
 
-# Package jetbrains.letsPlot.geom.extras
+# Package org.jetbrains.letsPlot.geom.extras
 
 Functions to pass as a value of a parameter of layer functions like:
 
@@ -52,7 +52,7 @@ letsPlot(data) +
     coordFixed()
 ```
 
-# Package jetbrains.letsPlot.facet
+# Package org.jetbrains.letsPlot.facet
 
 ## Examples
 
@@ -60,7 +60,7 @@ letsPlot(data) +
 
 - [facets_free_scales.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb)
 
-# Package jetbrains.letsPlot.geom
+# Package org.jetbrains.letsPlot.geom
 
 ## Examples
 
@@ -84,7 +84,7 @@ letsPlot(data) +
 
 - `geomQQ()`, `geomQQLine()`, `geomQQ2()`, `geomQQ2Line()`, `qqPlot()`: [qq_plots.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
 
-# Package jetbrains.letsPlot.label
+# Package org.jetbrains.letsPlot.label
 
 See [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md).
 
@@ -94,7 +94,7 @@ See [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/
 
 - [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
 
-# Package jetbrains.letsPlot.sampling
+# Package org.jetbrains.letsPlot.sampling
 
 Sampling options to pass as a value of `sampling` parameter of layer functions like:
 
@@ -115,7 +115,7 @@ For more information, see [sampling.md](https://github.com/JetBrains/lets-plot-k
 
 - [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
 
-# Package jetbrains.letsPlot.scale
+# Package org.jetbrains.letsPlot.scale
 
 ## Examples
 
@@ -127,7 +127,7 @@ For more information, see [sampling.md](https://github.com/JetBrains/lets-plot-k
 
 - `scaleFillHue()`, `scaleFillGrey()`, `scaleColorGradient()`: [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
 
-# Package jetbrains.letsPlot.spatial
+# Package org.jetbrains.letsPlot.spatial
 
 [GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit, supported by the Lets-Plot library.
 
@@ -137,13 +137,13 @@ For more information, see [geotools.md](https://github.com/JetBrains/lets-plot-k
 
 - [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
 
-# Package jetbrains.letsPlot.stat
+# Package org.jetbrains.letsPlot.stat
 
 ## Examples
 
 - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
-# Package jetbrains.letsPlot.tooltips
+# Package org.jetbrains.letsPlot.tooltips
 
 See [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
 
