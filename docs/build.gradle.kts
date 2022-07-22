@@ -34,7 +34,7 @@ tasks.dokkaHtml {
         }
         register("plotAPI") {
             displayName.set("Plot API")
-            sourceRoots.from("$rootDir/plot-api/src/commonMain")
+            sourceRoots.from("$rootDir/plot-api/src/commonMain", "$rootDir/plot-api/src/jvmMain")
         }
     }
 }
