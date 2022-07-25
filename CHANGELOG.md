@@ -33,8 +33,8 @@ the Lets-Plot Kotlin API.
 
 **In Kotlin project**
 
-- Update import statements: `import jetbrains.letsPlot..` &rarr; `import org.jetbrains.letsPlot..`
-- In all the other places where the code need to be updated, IntelliJ will show `WARNING` and will offer you to fix this
+- Update all `import` statements: `import jetbrains.letsPlot..` &rarr; `import org.jetbrains.letsPlot..`
+- In all the other places where the code needs to be updated, IntelliJ will show you a `deprecation WARNING` and will offer to fix this
   automatically.
 
 **In Jupyter notebook**
