@@ -302,7 +302,7 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 
 ### Migrating to 4.0.0
                                         
-For migration instructions see [Migrating to 4.0.0]() section in the CHANGELOG.
+For migration instructions see [Migrating to 4.0.0](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#migrating-to-400) section in the CHANGELOG.
 
 
 <a id="new"></a>
