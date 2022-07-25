@@ -4,6 +4,55 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
+        
+
+## [4.0.0] - 2022-07-25
+
+**BREAKING CHANGES:** Due to refactorings performed in the source code, the v4.0.0 is no longer backward compatible with
+earlier versions of
+the Lets-Plot Kotlin API.
+
+### Changed
+
+- All previously deprecated API were removed.
+
+* The prefix "**org**" was added to all package names in the
+  project.
+
+- Some API elements were moved from package `org.jetbrains.letsPlot` to a more specific subpackages:
+  - _**Plot theme**_ elements were moved to subpackage `themes` 
+  - _**Coordinate system**_ functions were moved to subpackage `coord`
+  - _**Position adjustment**_ functions were moved to subpackage `pos`
+
+* **Deprecated API**:
+  - Position adjustment constants: `identity, stack, fill, dodge, nudge` and `jitterdodge` (defined in the `Pos` object),
+    are now deprecated in favor of the correspondent top level elements defined in the (new) `org.jetbrains.letsPlot.pos` package:
+    `positionIdentity, positionStack, positionFill, positionDodge(), positionNudge()` and `positionJitterDodge()`.
+
+### Migrating to 4.0.0
+
+**In Kotlin project**
+
+- Update import statements: `import jetbrains.letsPlot..` &rarr; `import org.jetbrains.letsPlot..`
+- In all the other places where the code need to be updated, IntelliJ will show `WARNING` and will offer you to fix this
+  automatically.
+
+**In Jupyter notebook**
+
+- As soon as you start using 4.0.0 in you notebook, the only thing you will want to do is to manually replace all
+  deprecated `Pos.abc` expressions with their new equivalents:
+  - `Pos.identity` &rarr; `positionIdentity`
+  - `Pos.stack` &rarr; `positionStack`
+  - `Pos.fill` &rarr; `positionFill`
+  - `Pos.dodge` &rarr; `positionDodge()`
+  - `Pos.nudge` &rarr; `positionNudge()`
+  - `Pos.jitterdodge` &rarr; `positionJitterDodge()`
+
+> **NOTE:** If your notebook also uses another Kotlin library which depends on an older version of Lets-Plot, then the
+> classloader may refuse to load classes from both libraries.
+> If this is the case, then you will want to do **NOT** update your notebook to Lets-Plot v4.0.0 as yet:
+>   - Make sure your notebook doesn't use the `%useLatestDescriptors` line magic
+>   - Make sure you are using Kotlin Jupyter Kernel version 0.11.0.95 (or earlier), which bundles a previous version of Lets-Plot.
 
 ## [3.3.0] - 2022-06-27
 
