@@ -51,7 +51,7 @@ the Lets-Plot Kotlin API.
 > **NOTE:** If your notebook also uses another Kotlin library which depends on an older version of Lets-Plot, then the
 > classloader may refuse to load classes from both libraries.
 > If this is the case, then you will want to do **NOT** update your notebook to Lets-Plot v4.0.0 as yet:
->   - Make sure your notebook doesn't use the `%useLatestDescriptors` line magic
+>   - Make sure your notebook is not using the `%useLatestDescriptors` line magic
 >   - Make sure you are using Kotlin Jupyter Kernel version 0.11.0.95 (or earlier), which bundles a previous version of Lets-Plot.
 
 ## [3.3.0] - 2022-06-27
