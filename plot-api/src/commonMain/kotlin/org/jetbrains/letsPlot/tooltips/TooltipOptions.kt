@@ -167,7 +167,7 @@ class layerTooltips(vararg variables: String) {
     /**
      * Specifies a minimum width of a general tooltip in pixels.
 
-     * @param value Minimum width of the general tooltip.
+     * @param value Minimum width of the general tooltip in px.
      */
     fun minWidth(value: Number): layerTooltips {
         return setOption(TOOLTIP_MIN_WIDTH, value)

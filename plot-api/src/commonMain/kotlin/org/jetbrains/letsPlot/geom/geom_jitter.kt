@@ -41,9 +41,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param width double, optional.
- *     width for jitter, default=0.4
+ *     width for jitter, default=0.4. Typically ranges between 0 and 0.5. Values that are greater than 0.5 lead to overlapping of the points.
  * @param height double, optional.
- *     height for jitter, default=0.4
+ *     height for jitter, default=0.4. Typically ranges between 0 and 0.5. Values that are greater than 0.5 lead to overlapping of the points.
  * @param x x-axis value.
  * @param y y-axis value.
  * @param alpha transparency level of the point

@@ -41,7 +41,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param x x-axis coordinates.
  * @param ymin lower bound for error bar.
  * @param ymax upper bound for error bar.
- * @param width width of a bar.
+ * @param width width of a bar. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the bars.
  * @param alpha transparency level of a point
  *     Understands numbers between 0 and 1.
  * @param color (colour) color of a geometry lines.

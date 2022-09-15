@@ -61,7 +61,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param upper upper hinge, 75% quantile
  * @param ymin lower whisker = smallest observation greater than or equal to lower hinge - 1.5 * IQR
  * @param ymax upper whisker = largest observation less than or equal to upper hinge + 1.5 * IQR
- * @param width width of boxplot (0..1)
+ * @param width width of boxplot. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the boxes.
  * @param alpha transparency level of a layer
  *     Understands numbers between 0 and 1.
  * @param color color of a geometry lines

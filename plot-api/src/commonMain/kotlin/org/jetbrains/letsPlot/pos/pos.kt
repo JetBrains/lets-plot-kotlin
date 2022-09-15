@@ -63,6 +63,7 @@ val positionFill = PosOptions(PosKind.FILL)
  * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
  *
  * @param width Dodging width, when different to the width of the individual elements. This is useful when you want to align narrow geoms with wider geoms.
+ * The value of width is relative and typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the objects.
  */
 fun positionDodge(width: Number? = null) =
     PosOptions(
@@ -77,8 +78,10 @@ fun positionDodge(width: Number? = null) =
  *
  * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
  *
- * @param width Jittering width.
- * @param height Jittering height.
+ * @param width Jittering width. The value of width is relative and typically ranges between 0 and 0.5.
+ * Values that are greater than 0.5 lead to overlapping of the points.
+ * @param height Jittering height. The value of height is relative and typically ranges between 0 and 0.5.
+ * Values that are greater than 0.5 lead to overlapping of the points.
  */
 fun positionJitter(width: Number? = null, height: Number? = null) =
     PosOptions(

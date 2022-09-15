@@ -40,8 +40,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Specifies appearance, style and content.
  * @param x x-axis coordinates of the center of rectangles.
  * @param y y-axis coordinates of the center of rectangles.
- * @param width width of a tile.
- * @param height height of a tile.
+ * @param width width of a tile. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the tiles.
+ * @param height height of a tile. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the tiles.
  * @param alpha transparency level of a layer.
  * @param color (colour) color of a geometry lines.
  * @param fill color of geometry filling.
