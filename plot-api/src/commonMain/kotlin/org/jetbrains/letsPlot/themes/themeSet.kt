@@ -17,7 +17,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
  */
 fun themeGrey() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -27,11 +27,25 @@ fun themeGrey() = OptionsMap(
 
 
 /**
+ * The classic dark-on-light ggplot2 theme.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
+ */
+fun themeBW() = OptionsMap(
+    kind = Option.Plot.THEME,
+    name = ThemeOption.Name.R_BW,
+    emptyMap()
+)
+
+
+/**
  * Light grey lines of various widths on white backgrounds.
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
  */
 fun themeLight() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -45,7 +59,7 @@ fun themeLight() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
  */
 fun themeClassic() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -59,7 +73,7 @@ fun themeClassic() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
  */
 fun themeMinimal() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -73,7 +87,7 @@ fun themeMinimal() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
  */
 fun themeMinimal2() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -87,7 +101,7 @@ fun themeMinimal2() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
  */
 fun themeNone() = OptionsMap(
     kind = Option.Plot.THEME,
