@@ -10,8 +10,6 @@ import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 import jetbrains.datalore.plot.PlotImageExport
 import jetbrains.datalore.plot.PlotSvgExport
 import org.jetbrains.letsPlot.Figure
-import org.jetbrains.letsPlot.GGBunch
-import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.intern.toSpec
 import java.io.File
 import java.lang.Double.NaN
@@ -67,11 +65,12 @@ fun ggsave(
     val file = File(dir.canonicalPath, filename)
 
     // Plot specs
-    val spec: MutableMap<String, Any> = when (plot) {
-        is Plot -> plot.toSpec()
-        is GGBunch -> plot.toSpec()
-        else -> throw IllegalArgumentException("Unsupported figure type: ${plot::class.simpleName}")
-    }
+//    val spec: MutableMap<String, Any> = when (plot) {
+//        is Plot -> plot.toSpec()
+//        is GGBunch -> plot.toSpec()
+//        else -> throw IllegalArgumentException("Unsupported figure type: ${plot::class.simpleName}")
+//    }
+    val spec: MutableMap<String, Any> = plot.toSpec()
 
     when (ext) {
         "svg" -> {

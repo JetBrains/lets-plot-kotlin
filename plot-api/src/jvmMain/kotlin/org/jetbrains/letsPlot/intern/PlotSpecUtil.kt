@@ -7,7 +7,6 @@ package org.jetbrains.letsPlot.intern
 
 import jetbrains.datalore.base.json.JsonSupport
 import org.jetbrains.letsPlot.Figure
-import org.jetbrains.letsPlot.GGBunch
 
 /**
  * Used in IDEA Plugin
@@ -15,11 +14,12 @@ import org.jetbrains.letsPlot.GGBunch
 object PlotSpecUtil {
     @JvmStatic
     fun toSpecJson(fig: Figure): String {
-        val spec: Map<String, Any> = when (fig) {
-            is Plot -> fig.toSpec()
-            is GGBunch -> fig.toSpec()
-            else -> throw IllegalArgumentException("Unexpected Lets-Plot figure type: ${fig::class.simpleName}")
-        }
+//        val spec: Map<String, Any> = when (fig) {
+//            is Plot -> fig.toSpec()
+//            is GGBunch -> fig.toSpec()
+//            else -> throw IllegalArgumentException("Unexpected Lets-Plot figure type: ${fig::class.simpleName}")
+//        }
+        val spec = fig.toSpec()
         return JsonSupport.formatJson(spec)
     }
 

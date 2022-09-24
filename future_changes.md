@@ -6,6 +6,10 @@
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb).
 
+- Viridis color scales: `scaleColorViridis()`, `scaleFillViridis()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/colors_viridis.ipynb).
+
 ### Changed
 
 ### Fixed

@@ -20,6 +20,8 @@ import jetbrains.datalore.plot.config.Option.Scale.LABELS
 import jetbrains.datalore.plot.config.Option.Scale.LIMITS
 import jetbrains.datalore.plot.config.Option.Scale.NAME
 import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
+import org.jetbrains.letsPlot.Figure
+import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.MappingMeta
 import org.jetbrains.letsPlot.intern.layer.WithSpatialParameters
 import org.jetbrains.letsPlot.intern.standardizing.JvmStandardizing
@@ -28,6 +30,14 @@ import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.toList
 import org.jetbrains.letsPlot.spatial.GeometryFormat
 import org.jetbrains.letsPlot.spatial.SpatialDataset
+
+fun Figure.toSpec(): MutableMap<String, Any> {
+    return when (this) {
+        is Plot -> this.toSpec()
+        is GGBunch -> this.toSpec()
+        else -> throw IllegalArgumentException("Unsupported figure type ${this::class.simpleName}")
+    }
+}
 
 fun Plot.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()

@@ -9,17 +9,16 @@ import jetbrains.datalore.plot.PlotHtmlHelper
 import kotlinx.browser.document
 import kotlinx.dom.createElement
 import org.jetbrains.letsPlot.Figure
-import org.jetbrains.letsPlot.GGBunch
-import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.intern.toSpec
 import org.w3c.dom.*
 
 object JsFrontendUtil {
     fun createPlotDiv(plot: Figure): HTMLDivElement {
-        val spec = when (plot) {
-            is Plot -> plot.toSpec()
-            else -> (plot as GGBunch).toSpec()
-        }
+//        val spec = when (plot) {
+//            is Plot -> plot.toSpec()
+//            else -> (plot as GGBunch).toSpec()
+//        }
+        val spec = plot.toSpec()
         val html = PlotHtmlHelper.getStaticDisplayHtmlForRawSpec(spec)
         val divElement = document.createElement("div")
         setInnerHtml(divElement, html)
