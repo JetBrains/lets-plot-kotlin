@@ -10,6 +10,16 @@
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/colors_viridis.ipynb).
 
+- Color schemes (flavors) applicable to existing themes:
+  - `flavorDarcula()`
+  - `flavorSolarizedLight()`
+  - `flavorSolarizedDark()`
+  - `flavorHigh_contrastLight()`
+  - `flavorHigh_contrastDark()`
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb).
+
+
 ### Changed
 
 ### Fixed

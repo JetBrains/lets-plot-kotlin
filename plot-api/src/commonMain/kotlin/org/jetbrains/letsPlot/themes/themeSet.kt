@@ -109,3 +109,63 @@ fun themeNone() = OptionsMap(
     emptyMap()
 )
 
+
+/**
+ * Darcula color scheme.
+ *
+ * ## Examples
+ *
+ * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ */
+fun flavorDarcula() = OptionsMap(
+    kind = Option.Plot.THEME,
+    options = mapOf(Option.Theme.FLAVOR to ThemeOption.Flavor.DARCULA)
+)
+
+/**
+ * Solarized light color scheme.
+ *
+ * ## Examples
+ *
+ * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ */
+fun flavorSolarizedLight() = OptionsMap(
+    kind = Option.Plot.THEME,
+    options = mapOf(Option.Theme.FLAVOR to ThemeOption.Flavor.SOLARIZED_LIGHT)
+)
+
+/**
+ * Solarized dark color scheme.
+ *
+ * ## Examples
+ *
+ * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ */
+fun flavorSolarizedDark() = OptionsMap(
+    kind = Option.Plot.THEME,
+    options = mapOf(Option.Theme.FLAVOR to ThemeOption.Flavor.SOLARIZED_DARK)
+)
+
+/**
+ * High contrast light color scheme.
+ *
+ * ## Examples
+ *
+ * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ */
+fun flavorHighContrastLight() = OptionsMap(
+    kind = Option.Plot.THEME,
+    options = mapOf(Option.Theme.FLAVOR to ThemeOption.Flavor.HIGH_CONTRAST_LIGHT)
+)
+
+/**
+ * High contrast dark color scheme.
+ *
+ * ## Examples
+ *
+ * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ */
+fun flavorHighContrastDark() = OptionsMap(
+    kind = Option.Plot.THEME,
+    options = mapOf(Option.Theme.FLAVOR to ThemeOption.Flavor.HIGH_CONTRAST_DARK)
+)
