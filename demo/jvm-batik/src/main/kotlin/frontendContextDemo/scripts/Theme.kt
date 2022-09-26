@@ -12,7 +12,11 @@ import org.jetbrains.letsPlot.geom.geomTile
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.label.labs
-import org.jetbrains.letsPlot.themes.*
+import org.jetbrains.letsPlot.themes.elementRect
+import org.jetbrains.letsPlot.themes.elementText
+import org.jetbrains.letsPlot.themes.flavorDarcula
+import org.jetbrains.letsPlot.themes.theme
+import org.jetbrains.letsPlot.themes.themeGrey
 import org.jetbrains.letsPlot.tooltips.layerTooltips
 import java.awt.Dimension
 
