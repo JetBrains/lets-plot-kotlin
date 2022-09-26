@@ -14,6 +14,7 @@ import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.label.labs
 import org.jetbrains.letsPlot.themes.elementRect
 import org.jetbrains.letsPlot.themes.elementText
+import org.jetbrains.letsPlot.themes.flavorDarcula
 import org.jetbrains.letsPlot.themes.theme
 import org.jetbrains.letsPlot.themes.themeGrey
 import org.jetbrains.letsPlot.tooltips.layerTooltips
@@ -76,6 +77,9 @@ object Theme {
                 ) + org.jetbrains.letsPlot.coord.coordFixed(ylim = -0.3 to 0.3)
 
                 (p + ggtitle("Default")).show()
+
+                // change color scheme
+                (p + ggtitle("Flavor 'Darcula' ") + flavorDarcula()).show()
 
                 // Change font faces
                 val fontFaceOpts = theme(
