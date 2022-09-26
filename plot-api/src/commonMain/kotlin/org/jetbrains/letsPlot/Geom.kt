@@ -309,6 +309,7 @@ object Geom {
         override val outlierShape: Any? = null,
         override val outlierSize: Number? = null,
         override val fatten: Number? = null,
+        override val whiskerWidth: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,

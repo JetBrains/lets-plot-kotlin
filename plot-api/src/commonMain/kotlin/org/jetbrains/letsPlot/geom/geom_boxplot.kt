@@ -54,8 +54,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     if FALSE (default) make a standard box plot.
  *     If TRUE, boxes are drawn with widths proportional to the square-roots of the number of
  *     observations in the groups.
- *  @param fatten : number, default: 1.0
- *     A multiplicative factor applied to size of the middle bar
+ * @param fatten : number, default: 1.0
+ *     A multiplicative factor applied to size of the middle bar.
+ * @param whiskerWidth: number, default: 0.0
+ *     A multiplicative factor applied to the box width to draw horizontal segments on whiskers.
  * @param lower lower hinge, 25% quantile
  * @param middle median, 50% quantile
  * @param upper upper hinge, 75% quantile
@@ -111,6 +113,7 @@ class geomBoxplot(
     override val outlierShape: Any? = null,
     override val outlierSize: Number? = null,
     override val fatten: Number? = null,
+    override val whiskerWidth: Number? = null,
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Number? = null,
