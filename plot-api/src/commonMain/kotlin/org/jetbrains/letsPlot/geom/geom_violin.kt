@@ -79,9 +79,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomViolin(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.yDensity(),
-    // ToDo: fix in lets-plot: see comments in `geomBoxplot`.
-//    position: PosOptions = Pos.dodge,
-    position: PosOptions = positionDodge(0.95), // tmp fix
+    position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

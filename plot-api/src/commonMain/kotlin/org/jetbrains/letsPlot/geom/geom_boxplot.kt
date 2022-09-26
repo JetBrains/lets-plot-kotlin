@@ -79,16 +79,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomBoxplot(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.boxplot(),
-    // ToDo: fix in lets-plot:
-    //  - Pos.dodge
-    //  - positionDodge()
-    //  - positionDodge(0.95)
-    //  should be equivalent as `width = 0.95` is the default for box-plot
-    //  see: GeomProto.boxplotDefaults()
-    //  The problem manifest itself on the "marginal_layers" demo notebook in
-    //  both Kotlin and Python (with added position="dodge" parameter)
-//    position: PosOptions = Pos.dodge,
-    position: PosOptions = positionDodge(0.95), // tmp fix
+    position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
