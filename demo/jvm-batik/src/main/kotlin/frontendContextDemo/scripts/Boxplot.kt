@@ -34,6 +34,7 @@ object Boxplot {
             (p + geomBoxplot(outlierColor = "red")).show()
             (p + geomBoxplot(outlierColor = "red", varWidth = true)).show()
             (p + statBoxplot(outlierColor = "red", varWidth = true, fatten = 2, color = "dark-magenta")).show()
+            (p + geomBoxplot(whiskerWidth = 0.5)).show()
         }
     }
 }

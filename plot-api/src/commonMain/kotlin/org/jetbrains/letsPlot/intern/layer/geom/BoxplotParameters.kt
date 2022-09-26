@@ -15,12 +15,14 @@ interface BoxplotParameters : OptionsCapsule {
     val outlierShape: Any?
     val outlierSize: Number?
     val fatten: Number?
+    val whiskerWidth: Number?
 
     override fun seal() = Options.of(
         Option.Geom.BoxplotOutlier.COLOR to outlierColor,
         Option.Geom.BoxplotOutlier.FILL to outlierFill,
         Option.Geom.BoxplotOutlier.SHAPE to outlierShape,
         Option.Geom.BoxplotOutlier.SIZE to outlierSize,
-        Option.Geom.Boxplot.FATTEN to fatten
+        Option.Geom.Boxplot.FATTEN to fatten,
+        Option.Geom.Boxplot.WHISKER_WIDTH to whiskerWidth
     )
 }
