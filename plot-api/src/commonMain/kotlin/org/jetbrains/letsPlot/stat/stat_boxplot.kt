@@ -46,6 +46,7 @@ class statBoxplot(
     override val outlierShape: Any? = null,
     override val outlierSize: Number? = null,
     override val fatten: Number? = null,
+    override val whiskerWidth: Number? = null,
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Number? = null,
