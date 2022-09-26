@@ -14,6 +14,7 @@ import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.label.labs
 import org.jetbrains.letsPlot.themes.elementRect
 import org.jetbrains.letsPlot.themes.elementText
+import org.jetbrains.letsPlot.themes.margin
 import org.jetbrains.letsPlot.themes.flavorDarcula
 import org.jetbrains.letsPlot.themes.theme
 import org.jetbrains.letsPlot.themes.themeGrey
@@ -71,8 +72,8 @@ object Theme {
                         .line("label|value")
                         .line("Static text")
                 ) + labs(
-                    x = "X axis title",
-                    y = "Y axis title",
+                    x = "X\naxis title",
+                    y = "Y\naxis title",
                     size = "Legend title",
                 ) + org.jetbrains.letsPlot.coord.coordFixed(ylim = -0.3 to 0.3)
 
@@ -82,15 +83,17 @@ object Theme {
                 (p + ggtitle("Flavor 'Darcula' ") + flavorDarcula()).show()
 
                 // Change font faces
-                val fontFaceOpts = theme(
-                    plotTitle = elementText(face = "bold_italic"),
+                val fontOpts = theme(
+                    title = elementText(family = "Times New Roman"),
+                    text = elementText(family = "Courier"),
+                    plotTitle = elementText(face = "bold_italic", size = 18),
                     legendTitle = elementText(face = "bold"),
-                    legendText = elementText(face = "italic"),
-                    axisTitle = elementText(face = "bold"),
-                    axisText = elementText(face = "bold_italic"),
-                    tooltipText = elementText(face = "italic")
+                    legendText = elementText(face = "italic", size = 10),
+                    axisTitle = elementText(face = "bold", size = 16),
+                    axisText = elementText(face = "italic", size = 10),
+                    tooltipText = elementText(face = "italic", family = "Arial")
                 )
-                (p + fontFaceOpts + ggtitle("Change font faces")).show()
+                (p + fontOpts + ggtitle("Change font families, faces and sizes")).show()
 
 
                 // Change tooltip colors
@@ -111,6 +114,13 @@ object Theme {
                     ),
                     panelBorder = elementRect(color = "white", size = 2),
                     plotBackground = elementRect(color = "black", size = 2)
+                )).show()
+
+                // justifications and margins
+                (p + ggtitle("Justifications and margins") + theme(
+                    plotTitle = elementText(hjust = 0.5),
+                    axisTitleX = elementText(hjust = 1, margin = margin(t = 20)),
+                    axisTitleY = elementText(hjust = 0, margin = margin(r = 20))
                 )).show()
             }
         }

@@ -363,15 +363,42 @@ fun elementLine(
  * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  *
  * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param family Font family.
  * @param face Font face ("plain", "italic", "bold", "bold_italic").
+ * @param size Text size in pt.
+ * @param hjust Horizontal justification (in [0, 1]).
+ *     0 - left-justified
+ *     1 - right-justified
+ *     0.5 - center-justified
+ *     Can be used with values out of range, but behaviour is not specified.
+ * @param vjust Vertical justification (in [0, 1]).
+ *     0 - bottom-justified
+ *     1 - top-justified
+ *     0.5 - middle-justified
+ *     Can be used with values out of range, but behaviour is not specified.
+ * @param margin Margins around the text.
+ *     See `margin()` for more details.
  * @param blank Mark as a 'blank' element.
  */
 fun elementText(
     color: Any? = null,
+    family: Any? = null,
     face: Any? = null,
+    size: Number? = null,
+    hjust: Number? = null,
+    vjust: Number? = null,
+    margin: Any? = null,
     blank: Boolean = false,
 ) = mapOf(
     ThemeOption.Elem.COLOR to color,
+    ThemeOption.Elem.FONT_FAMILY to family,
     ThemeOption.Elem.FONT_FACE to face,
+    ThemeOption.Elem.SIZE to size,
+    ThemeOption.Elem.HJUST to hjust,
+    ThemeOption.Elem.VJUST to vjust,
+    ThemeOption.Elem.MARGIN to margin,
     ThemeOption.Elem.BLANK to blank,
 ).filterNonNullValues()
+
+fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) =
+    mapOf("t" to t, "r" to r, "b" to b, "l" to l).filterNonNullValues()
