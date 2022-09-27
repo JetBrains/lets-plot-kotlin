@@ -252,8 +252,8 @@ val data = mapOf (
     "cond" to List(n/2) { "A" } + List(n/2) { "B" }
 )
 
-var p = lets_plot(data) +
-        geom_density { x = "rating"; color = "cond" } + ggsize(500, 250)
+var p = letsPlot(data) +
+        geomDensity { x = "rating"; color = "cond" } + ggsize(500, 250)
         
 ggsave(p, "density.png")        
 ``` 
