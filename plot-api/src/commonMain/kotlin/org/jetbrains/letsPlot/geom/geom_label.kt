@@ -23,7 +23,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * ## Examples
  *
- * - ToDo
+ * - [geom_label.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
@@ -65,12 +65,18 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fontface ('plain' | 'bold' | 'italic' | 'bold italic')
  *     Font style and weight. The default is 'plain'
  * @param hjust ('left', 'middle', 'right') or number between 0 ('left') and 1 ('right').
- *     Horizontal text alignment.
+ *     Horizontal label alignment.
  * @param vjust ('bottom', 'center', 'top') or number between 0 ('bottom') and 1 ('top').
- *     Vertical text alignment.
- * @param angle text rotation angle in degrees.
+ *     Vertical label alignment.
+ * @param angle label rotation angle in degrees.
  * @param labelFormat string.
  *     Specifies the format pattern for displaying mapped values.
+ * @param labelPadding double, optional.
+ *     Amount of padding around label. Defaults to 0.25 of font size.
+ * @param labelR: double, optional.
+ *     Radius of rounded corners. Defaults to 0.15 of label height.
+ * @param labelSize: double, optional, default = 1.0
+ *     Size of label border.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
