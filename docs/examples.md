@@ -73,7 +73,7 @@ Try the following tutorials and examples to learn and evaluate various features 
 [qq_plots.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
 
 <a id="marginal_plot"></a>
-#### Marginal Plot
+#### Marginal Plot, **ggmarginal()**
 
 * [marginal_layers.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb)
 
@@ -176,7 +176,7 @@ Use the `theme()` function to modify components of a theme.
 
 <a id="sampling"></a>
 
-#### Data sampling
+#### Data Sampling
 
 Sampling is a special technique of data transformation, which helps dealing with large datasets and overplotting.
 
