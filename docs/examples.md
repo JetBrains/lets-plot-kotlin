@@ -4,6 +4,9 @@ Try the following tutorials and examples to learn and evaluate various features 
 
 - [Quickstart and User Guide](#quickstart)
 - [Geoms and Stats](#geoms_n_stats)
+- [Correlation Plot](#corrplot)
+- [Q-Q Plot](#qq-plot)
+- [Marginal Plot](#marginal_plot)
 - [Position Adjustment](#pos)
 - [Scales](#scales)
 - [Time Series](#time-series)
@@ -16,7 +19,6 @@ Try the following tutorials and examples to learn and evaluate various features 
 - [Themes](#theme)
 - [Data Sampling](#sampling)
 - [Tooltip Customization](#tooltip)
-- [Correlation Plot](#corrplot)
 - [GeoTools Support](#geotools)
 
 <a id="quickstart"></a>
@@ -29,40 +31,51 @@ Try the following tutorials and examples to learn and evaluate various features 
 #### Geoms and Stats
 
 `geomHistogram, geomDensity, geomVLine, geomFreqpoly, geomBoxplot`:
-
 [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
 
-`geomViolin()`
+`geomViolin`:
 [geom_violin.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb)
 
-`geomDotplot()`
+`geomDotplot`:
 [geom_dotplot](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_dotplot.ipynb)
 
-`geomYDotplot()`
+`geomYDotplot`:
 [geom_ydotplot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb)
 
 `geomErrorBar, geomLine, geomPoint, geomBar, geomCrossbar, geomLineRange, geomPointRange`:
-
 [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
 
 `geomPoint, geomSmooth (statSmooth)`:
 
-[scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
+ - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
+ - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
 
-[geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
-
-`geomDensity2D, geomDensity2DFilled, geomBin2D, geomPolygon, geomPoint` :
-
+`geomDensity2D, geomDensity2DFilled, geomBin2D, geomPolygon, geomPoint`:
 [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
 
-`geomTile, geomContour, geomPolygon (Stat.contour), geomContourFilled` :
-
+`geomTile, geomContour, geomPolygon (Stat.contour), geomContourFilled`:
 [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
 
-`geomText`, label format
-
+`geomText`, label format:
 [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
 
+<a id="corrplot"></a>
+#### Correlation Plot
+
+* [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+
+<a id="qq-plot"></a>
+#### Q-Q Plot
+
+ - Geometries: `geomQQ, geomQQLine, geomQQ2, geomQQ2Line`
+ - Quick Q-Q plot: `qqPlot()`
+
+[qq_plots.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
+
+<a id="marginal_plot"></a>
+#### Marginal Plot
+
+* [marginal_layers.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb)
 
 <a id="pos"></a>
 #### Position Adjustment
@@ -85,7 +98,7 @@ Try the following tutorials and examples to learn and evaluate various features 
 <a id="time-series"></a>
 #### Time Series
 
-`scaleXDatetime(), scaleYDatetime(), scaleYTime(), scaleYTime()`
+`scaleXDatetime, scaleYDatetime, scaleYTime, scaleYTime`
 
 * [scale_time.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scale_time.ipynb)
 * [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
@@ -154,7 +167,7 @@ The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or 
 
 #### Themes
                    
-Named themes: `themeGrey(), themeLight(), themeClassic(), themeMinimal()` and `themeMinimal2()` (used by default).
+Named themes: `themeGrey, themeLight, themeClassic, themeMinimal` and `themeMinimal2` (used by default).
 Use the `theme()` function to modify components of a theme.
 
 * [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
@@ -179,12 +192,7 @@ See: [Sampling in Lets-Plot](https://github.com/JetBrains/lets-plot-kotlin/blob/
 #### Tooltip Customization
 
 * [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
-
-<a id="corrplot"></a>
-
-#### Correlation Plot
-
-* [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+* [tooltips_theme.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb)
 
 <a id="geotools"></a>
 
