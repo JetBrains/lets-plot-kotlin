@@ -137,14 +137,14 @@ more details.
 
 ```
 val rand = java.util.Random()
-val data = mapOf<String, Any>(
+val data = mapOf (
     "rating" to List(200) { rand.nextGaussian() } + List(200) { rand.nextGaussian() * 1.5 + 1.5 },
     "cond" to List(200) { "A" } + List(200) { "B" }
 )
 
-var p = lets_plot(data)
-p += geom_density(color="dark_green", alpha=.3) {x="rating"; fill="cond"}
-p + ggsize(500, 250)
+var p = letsPlot(data)
+p += geomDensity(color="dark_green", alpha=.3) {x="rating"; fill="cond"}
+p + ggsize(700, 350)
 ```
 
 - Execute the added code to evaluate the plotting capabilities of Lets-Plot.
