@@ -296,6 +296,40 @@ object Geom {
     }
 
     @Suppress("ClassName")
+    class label(
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val label: String? = null,
+        override val alpha: Number? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val size: Number? = null,
+        override val family: String? = null,
+        override val fontface: String? = null,
+        override val hjust: Any? = null,
+        override val vjust: Any? = null,
+        override val angle: Number? = null,
+        override val labelFormat: String? = null,
+        override val naText: String? = null,
+        override val labelPadding: Number? = null,
+        override val labelR: Number? = null,
+        override val labelSize: Number? = null,
+        override val sizeUnit: String? = null,
+        mapping: LabelMapping.() -> Unit = {}
+    ) : LabelAesthetics,
+        LabelParameters,
+        WithSizeUnitOption,
+        GeomOptions(
+            GeomKind.LABEL,
+            LabelMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+
+        override fun seal() = super<LabelAesthetics>.seal() +
+                super<LabelParameters>.seal() + super<WithSizeUnitOption>.seal()
+    }
+
+    @Suppress("ClassName")
     class boxplot(
         override val x: Number? = null,
         override val y: Number? = null,

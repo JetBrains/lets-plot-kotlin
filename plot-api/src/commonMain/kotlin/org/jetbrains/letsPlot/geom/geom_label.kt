@@ -1,32 +1,29 @@
 /*
- * Copyright (c) 2021. JetBrains s.r.o.
+ * Copyright (c) 2022. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
 package org.jetbrains.letsPlot.geom
 
-import org.jetbrains.letsPlot.Geom.text
+import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
-import org.jetbrains.letsPlot.intern.layer.geom.TextAesthetics
-import org.jetbrains.letsPlot.intern.layer.geom.TextMapping
-import org.jetbrains.letsPlot.intern.layer.geom.TextParameters
+import org.jetbrains.letsPlot.intern.layer.geom.LabelAesthetics
+import org.jetbrains.letsPlot.intern.layer.geom.LabelMapping
+import org.jetbrains.letsPlot.intern.layer.geom.LabelParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
+
 @Suppress("ClassName")
 /**
- * Add a text directly to the plot.
+ *  Add a text directly to the plot with a rectangle behind the text.
  *
  * ## Examples
  *
- * - [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
- *
- * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
- *
- * - [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
+ * - [geom_label.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
@@ -61,18 +58,25 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Understands numbers between 0 and 1.
  * @param color (colour) color of a geometry.
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
+ * @param fill background color of the label.
  * @param size font size.
  * @param family ('sans' | 'serif' | 'mono' | any other like: "Times New Roman")
  *     Font family. The default is 'sans'
  * @param fontface ('plain' | 'bold' | 'italic' | 'bold italic')
  *     Font style and weight. The default is 'plain'
  * @param hjust ('left', 'middle', 'right') or number between 0 ('left') and 1 ('right').
- *     Horizontal text alignment.
+ *     Horizontal label alignment.
  * @param vjust ('bottom', 'center', 'top') or number between 0 ('bottom') and 1 ('top').
- *     Vertical text alignment.
- * @param angle text rotation angle in degrees.
+ *     Vertical label alignment.
+ * @param angle label rotation angle in degrees.
  * @param labelFormat string.
  *     Specifies the format pattern for displaying mapped values.
+ * @param labelPadding double, optional.
+ *     Amount of padding around label. Defaults to 0.25 of font size.
+ * @param labelR: double, optional.
+ *     Radius of rounded corners. Defaults to 0.15 of label height.
+ * @param labelSize: double, optional, default = 1.0
+ *     Size of label border.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -89,7 +93,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * "Score: {}" -> "Score: 12.454789"
  *
  */
-class geomText(
+class geomLabel(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = positionIdentity,
@@ -103,6 +107,7 @@ class geomText(
     override val label: String? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
+    override val fill: Any? = null,
     override val size: Number? = null,
     override val family: String? = null,
     override val fontface: String? = null,
@@ -111,17 +116,20 @@ class geomText(
     override val angle: Number? = null,
     override val labelFormat: String? = null,
     override val naText: String? = null,
+    override val labelPadding: Number? = null,
+    override val labelR: Number? = null,
+    override val labelSize: Number? = null,
     override val sizeUnit: String? = null,
-    mapping: TextMapping.() -> Unit = {}
+    mapping: LabelMapping.() -> Unit = {}
 
-) : TextAesthetics,
-    TextParameters,
+) : LabelAesthetics,
+    LabelParameters,
     WithSizeUnitOption,
     WithSpatialParameters,
     LayerBase(
-        mapping = TextMapping().apply(mapping).seal(),
+        mapping = LabelMapping().apply(mapping).seal(),
         data = data,
-        geom = text(),
+        geom = Geom.label(),
         stat = stat,
         position = position,
         showLegend = showLegend,
@@ -129,7 +137,8 @@ class geomText(
         tooltips = tooltips
     ) {
     override fun seal(): Options {
-        return super<TextAesthetics>.seal() +
-                super<TextParameters>.seal() + super<WithSizeUnitOption>.seal()
+        return super<LabelAesthetics>.seal() +
+                super<LabelParameters>.seal() +
+                super<WithSizeUnitOption>.seal()
     }
 }
