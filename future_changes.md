@@ -48,4 +48,4 @@
 - Unclear size unit of width [[#589](https://github.com/JetBrains/lets-plot/issues/589)].
 - No tooltips for `geomBoxplot` with zero height [[#563](https://github.com/JetBrains/lets-plot/issues/563)].
 - `geomText`: wrong label alignment with `hjust` 0 and 1 [[#592](https://github.com/JetBrains/lets-plot/issues/592)].
-- Fix documentation for the `breaks` parameter in scales [[#507](https://github.com/JetBrains/lets-plot/issues/507)]
+- Documentation for the `breaks` parameter in scales [[#507](https://github.com/JetBrains/lets-plot/issues/507)]
