@@ -23,11 +23,11 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
  * @param breaks
- *     A numeric vector of positions (of ticks).
+ *      A vector specifying values to display as ticks on axis.
  * @param labels
  *      A vector of labels (on ticks).
- * @param limits
- *      A numeric vector of length two providing limits of the scale.
+ * @param limits data range for this scale.
+ *      A pair of values providing limits of the scale. Use `null` to refer to default min/max.
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
@@ -87,11 +87,11 @@ fun scaleXDateTime(
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
  * @param breaks
- *     A numeric vector of positions (of ticks).
+ *      A vector specifying values to display as ticks on axis.
  * @param labels
  *      A vector of labels (on ticks).
- * @param limits
- *      A numeric vector of length two providing limits of the scale.
+ * @param limits data range for this scale.
+ *      A pair of values providing limits of the scale. Use `null` to refer to default min/max.
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
@@ -166,7 +166,7 @@ fun scaleYDateTime(
  */
 fun scaleXTime(
     name: String? = null,
-    breaks: List<Any>? = null,
+    breaks: List<Any>? = null,       // ToDo: List<Number>?
     labels: List<String>? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,

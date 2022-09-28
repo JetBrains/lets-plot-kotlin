@@ -24,10 +24,10 @@ import org.jetbrains.letsPlot.intern.Scale
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
- * @param trans string
+ * @param trans
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -81,10 +81,10 @@ fun scaleSize(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  * @param guide A result returned by guideLegend() function or "none" to hide the guide.
- * @param trans string
+ * @param trans
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or

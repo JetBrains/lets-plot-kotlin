@@ -25,14 +25,14 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
- * @param trans string
+ * @param trans
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -86,14 +86,14 @@ fun scaleXContinuous(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
- * @param trans string
+ * @param trans
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -143,12 +143,12 @@ fun scaleYContinuous(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -193,12 +193,12 @@ fun scaleXLog10(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -243,12 +243,12 @@ fun scaleYLog10(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -293,12 +293,12 @@ fun scaleXReverse(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -343,12 +343,12 @@ fun scaleYReverse(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -393,12 +393,12 @@ fun scaleXSqrt(
  *      Use null to refer to default min/max.
  *      Set limits if you want values to be consistent across multiple plots.
  *      Setting limits will remove data outside of the limits.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or

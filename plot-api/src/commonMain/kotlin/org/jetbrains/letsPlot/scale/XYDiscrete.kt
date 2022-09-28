@@ -17,13 +17,13 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
  *              is taken from the first mapping used for that aesthetic.
- * @param breaks list of data values.
+ * @param breaks
  *      A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
- * @param limits list of data values
+ * @param limits
  *      A vector specifying values to display on the axis and their order.
  *      Setting limits will remove data not included in the list.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
@@ -77,13 +77,13 @@ fun scaleXDiscrete(
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
  *              is taken from the first mapping used for that aesthetic.
- * @param breaks list of data values.
+ * @param breaks
  *      A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
- * @param limits list of data values
+ * @param limits
  *      A vector specifying values to display on the axis and their order.
  *      Setting limits will remove data not included in the list.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
@@ -137,13 +137,13 @@ fun scaleYDiscrete(
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
  *              is taken from the first mapping used for that aesthetic.
- * @param breaks list of data values.
+ * @param breaks
  *      A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
- * @param limits list of data values
+ * @param limits
  *      A vector specifying values to display on the axis and their order.
  *      Setting limits will remove data not included in the list.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.
@@ -189,13 +189,13 @@ fun scaleXDiscreteReversed(
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
  *              is taken from the first mapping used for that aesthetic.
- * @param breaks list of data values.
+ * @param breaks
  *      A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
- * @param limits list of data values
+ * @param limits
  *      A vector specifying values to display on the axis and their order.
  *      Setting limits will remove data not included in the list.
- * @param expand list of numbers
+ * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
  *      Defaults: multiplicative = 0, additive = 0.6.

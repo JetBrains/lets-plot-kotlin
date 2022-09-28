@@ -13,13 +13,13 @@ import org.jetbrains.letsPlot.intern.Scale
 /**
  * Scale for shapes
  *
- * @param solid boolean
+ * @param solid
  *      Are the shapes solid (default) True, or hollow (False)?
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numbers
- *      A numeric vector of positions (of ticks)
+ * @param breaks
+ *      A vector specifying values to display as ticks on axis.
  * @param labels : list of strings
  *      A vector of labels (on ticks)
  * @param limits list

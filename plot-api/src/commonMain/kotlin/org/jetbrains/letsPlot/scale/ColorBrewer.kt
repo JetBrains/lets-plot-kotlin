@@ -24,8 +24,8 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numbers
- *      A numeric vector of positions (of ticks)
+ * @param breaks list of data values.
+ *      A vector specifying values to display as ticks on axis.
  * @param labels list of strings
  *      A vector of labels (on ticks)
  * @param limits data range for this scale.
@@ -99,8 +99,8 @@ fun scaleFillBrewer(
  * @param name string
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numbers
- *      A numeric vector of positions (of ticks)
+ * @param breaks list of data values.
+ *      A vector specifying values to display as ticks on axis.
  * @param labels list of strings
  *      A vector of labels (on ticks)
  * @param limits data range for this scale.

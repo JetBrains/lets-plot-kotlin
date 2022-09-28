@@ -20,18 +20,18 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param values list of strings (encoding colors) or color values
  *      A set of aesthetic values to map data values to.
  *      Values will be matched with the limits of the scale (if specified).
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numbers
- *      A numeric vector of positions (of ticks)
- * @param labels : list of strings
+ * @param breaks
+ *      A vector specifying values to display as ticks on axis.
+ * @param labels
  *      A vector of labels (on ticks)
- * @param limits list
+ * @param limits
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
@@ -85,14 +85,14 @@ fun scaleColorManual(
  * @param values list of strings (encoding colors) or color values
  *      A set of aesthetic values to map data values to.
  *      Values will be matched with the limits of the scale (if specified).
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numbers
- *      A numeric vector of positions (of ticks)
- * @param labels : list of strings
+ * @param breaks
+ *      A vector specifying values to display as ticks on axis.
+ * @param labels
  *      A vector of labels (on ticks)
- * @param limits list
+ * @param limits
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
@@ -146,18 +146,18 @@ fun scaleFillManual(
  * @param values list of numbers encoding size.
  *      A set of aesthetic values to map data values to.
  *      Values will be matched with the limits of the scale (if specified).
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numbers
- *      A numeric vector of positions (of ticks)
- * @param labels : list of strings
+ * @param breaks
+ *      A vector specifying values to display as ticks on axis.
+ * @param labels
  *      A vector of labels (on ticks)
- * @param limits list
+ * @param limits
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
@@ -211,18 +211,18 @@ fun scaleSizeManual(
  * @param values list of numbers encoding shape.
  *      A set of aesthetic values to map data values to.
  *      Values will be matched with the limits of the scale (if specified).
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numbers
- *      A numeric vector of positions (of ticks)
- * @param labels : list of strings
+ * @param breaks
+ *      A vector specifying values to display as ticks on axis.
+ * @param labels
  *      A vector of labels (on ticks)
- * @param limits list
+ * @param limits
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
@@ -272,18 +272,18 @@ fun scaleShapeManual(
  * @param values list of numbers encoding linetype.
  *      A set of aesthetic values to map data values to.
  *      Values will be matched with the limits of the scale (if specified).
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numbers
- *      A numeric vector of positions (of ticks)
- * @param labels : list of strings
+ * @param breaks
+ *      A vector specifying values to display as ticks on axis.
+ * @param labels
  *      A vector of labels (on ticks)
- * @param limits list
+ * @param limits
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
@@ -334,18 +334,18 @@ fun scaleLinetypeManual(
  * @param values list of alpha values.
  *      A set of aesthetic values to map data values to.
  *      Values will be matched with the limits of the scale (if specified).
- * @param name string
+ * @param name
  *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
  *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of numbers
- *      A numeric vector of positions (of ticks)
- * @param labels : list of strings
+ * @param breaks
+ *      A vector specifying values to display as ticks on axis.
+ * @param labels
  *      A vector of labels (on ticks)
- * @param limits list
+ * @param limits
  *      Continuous scale: a numeric vector of length two providing limits of the scale.
  *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue an aesthetic value which is used when data in not available.
- * @param format string
+ * @param format
  *      Specifies the format pattern for labels on the scale.
  * @param guide
  *      Guide to use for this scale.
