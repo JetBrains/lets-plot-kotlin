@@ -43,15 +43,15 @@
     - [Saving plot to file](#export)
     - [GeoTools support](#geotools)
 
+- [What is new in 4.1.0](#new)
 - [What is new in 4.0.0](#new4)
     - [Migrating to 4.0.0](#migrating4)
 
-- [What is new in 3.3.0](#new)
 - [Change log](#change_log)
 - [License](#license)
+                      
 
 <a name="Overview" id="overview"></a>
-
 ## Overview
 
 **Lets-Plot for Kotlin** is a Kotlin API for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
@@ -71,11 +71,9 @@ Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-
 for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
 
 <a id="jupyter"></a>
-
 ## Lets-Plot in Jupyter with Kotlin Kernel
 
 <a id="inst"></a>
-
 #### Installation
 
 In Jupyter notebook with a Kotlin Kernel, Lets-Plot library is available out-of-the-box. To install Kotlin Kernel and
@@ -89,7 +87,6 @@ For more information about Jupyter Kotlin kernel, see
 the [Kotlin kernel for Jupyter/iPython](https://github.com/Kotlin/kotlin-jupyter) project.
 
 <a id="line-magics"></a>
-
 #### "Line Magics"
 
 You can include all the necessary Lets-Plot boilerplate code to a notebook using the following "line magic":
@@ -121,7 +118,6 @@ See: [Line Magics](https://github.com/Kotlin/kotlin-jupyter#line-magics) documen
 more details.
 
 <a id="start"></a>
-
 #### Quickstart in Jupyter
 
 - In [Jupyter](https://jupyter-notebook.readthedocs.io/en/stable/index.html), create a new notebook and choose the
@@ -158,15 +154,15 @@ p + ggsize(700, 350)
 </a>
 <br/>
 
-<a id="jupyter-examples"></a>
 
+<a id="jupyter-examples"></a>
 #### Example of notebooks
 
 Try the following [examples](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md) to study
 features of the `Lets-Plot` library.
+     
 
 <a id="datalore"></a>
-
 ## Lets-Plot-Kotlin in Datalore notebooks
 
 [Datalore](https://datalore.jetbrains.com/) is an online data science notebook by JetBrains.
@@ -180,8 +176,8 @@ about Kotlin support in Datalore.
 
 Watch the [Datalore Getting Started Tutorial](https://youtu.be/MjvFQxqNSe0) video for a quick introduction to Datalore.
 
-<a id="jvm"></a>
 
+<a id="jvm"></a>
 ## Lets-Plot in JVM and Kotlin/JS application
 
 Apart from Jupyter notebooks, Lets-Plot library and Kotlin API enables embedding plots into a JVM and a Kotlin/JS
@@ -193,12 +189,11 @@ creating plots in JVM or Kotlin/JS environment.
 In the [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository you will find examples of
 using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
-<a id="further_reading"></a>
 
+<a id="further_reading"></a>
 ## Further Reading
 
 <a id="guide"></a>
-
 #### User guide and API reference
 
 - The User Guide in the form of Jupyter
@@ -209,7 +204,6 @@ using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
   API [reference](https://lets-plot.org/kotlin/index.html).
 
 <a id="tooltip-customization"></a>
-
 #### Tooltip customization
 
 You can customize the content, values formatting and appearance of tooltip for any geometry layer in your plot.
@@ -217,7 +211,6 @@ You can customize the content, values formatting and appearance of tooltip for a
 Learn more: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
 
 <a id="formatting"></a>
-
 #### Formatting
 
 Formatting of numeric and date-time values in tooltips, legends, on the axes and *text geometry* layer.
@@ -225,7 +218,6 @@ Formatting of numeric and date-time values in tooltips, legends, on the axes and
 Learn more: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md).
 
 <a id="sampling"></a>
-
 #### Data sampling
 
 Sampling is a special technique of data transformation, which helps to deal with large datasets and overplotting.
@@ -233,7 +225,6 @@ Sampling is a special technique of data transformation, which helps to deal with
 Learn more: [Data Sampling](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
 
 <a id="export"></a>
-
 #### Saving plot to a file
 
 The `ggsave()` function is a convenient way of saving a plot or a GGBunch object to a file.
@@ -265,7 +256,6 @@ See `ggsave()` [documentation](https://lets-plot.org/kotlin/-lets--plot--kotlin/
 for more information about the function arguments and default values.
 
 <a id="geotools"></a>
-
 #### GeoTools support
 
 [GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
@@ -275,8 +265,70 @@ individual `Geometry` and `ReferencedEnvelope` objects.
 
 Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
 
-<a id="new4"></a>
 
+<a id="new"></a>
+## What is new in 4.1.0
+
+- ### Plot Theme
+
+    - #### `themeBW()`
+
+      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb).
+
+    - #### Theme Flavors
+
+      Theme flavor offers an easy way to change the colors of all elements in a theme to match a specific color scheme.
+
+      In this release, we have added the following flavors:
+        - _darcula_
+        - _solarized_light_
+        - _solarized_dark_
+        - _high_contrast_light_
+        - _high_contrast_dark_
+
+  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22c/images/theme_flavors.png" alt="f-22c/images/theme_flavors.png" width="1000" height="133">
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb).
+
+    - #### New parameters in `elementText()`
+        - `size, family`
+          ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/font_size_and_family.ipynb))
+        - `hjust, vjust` for plot title, subtitle, caption, legend and axis titles
+          ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/hjust_vjust.ipynb))
+        - `margin` for plot title, subtitle, caption, axis titles and tick labels
+          ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/text_margins.ipynb))
+
+- ### New Plot Types
+
+  `geomLabel()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb).
+
+- ### Color Scales
+
+  Viridis color scales: `scaleColorViridis()`, `scaleFillViridis()`.
+
+  Supported colormaps:
+    - _magma_
+    - _inferno_
+    - _plasma_
+    - _viridis_
+    - _cividis_
+    - _turbo_
+    - _twilight_
+
+  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22c/images/viridis_plasma.png" alt="f-22c/images/viridis_plasma.png" width="439" height="132">
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/colors_viridis.ipynb).
+
+- ### Other improvements and fixes
+  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#410---2022-09-30)
+  for details.
+
+
+<a id="new4"></a>
 ## What is new in 4.0.0
 
 - ### Improvements in the [API reference](https://lets-plot.org/kotlin) documentation
@@ -305,79 +357,13 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 For migration instructions see [Migrating to 4.0.0](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#migrating-to-400) section in the CHANGELOG.
 
 
-<a id="new"></a>
-
-## What is new in 3.3.0
-
-- ### New Plot Types
-
-    - #### Quantile-Quantile (Q-Q) plot.
-        - geometries:
-            - `geomQQ()`
-            - `geomQQLine()`
-            - `geomQQ2()`
-            - `geomQQ2Line()`
-        - stats:
-            - `statQQ()`
-            - `statQQLine()`
-            - `statQQ2()`
-            - `statQQ2Line()`
-        - quick Q-Q: `qqPlot()`
-
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
-      .
-
-    - #### Marginal plots.
-
-      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22b/images/marginal_layers.png" alt="f-22b/images/marginal_layers.png" width="360" height="276">
-
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb)
-      .
-
-- ### Plot Theme
-
-    - `face` parameter in `elementText()`.
-
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/set_font_faces.ipynb)
-      .
-
-    - `panelBorder` parameter in `theme()`.
-
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/panel_border.ipynb)
-      .
-
-    - New options for configuring tooltip appearance.
-
-      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22b/images/tooltip_theme.png" alt="f-22b/images/tooltip_theme.png" width="150" height="114">
-
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb)
-      .
-
-- ### Color Scales
-
-  `scaleColorGradientN()` and `scaleFillGradientN()` functions.
-
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/scale_color_gradientn.ipynb)
-  .
-
-- ### Deprecated API
-
->
->  **(!)** Potentially **breaking change**: deprecation level for all deprecated API raised to the **ERROR** level.
->
-
-- ### Other improvements and fixes
-  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#330---2022-07-25)
-  for details.
-
 <a id="change_log"></a>
-
 ## Change Log
 
 See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md).
 
-<a id="license"></a>
 
+<a id="license"></a>
 ## License
 
 Code and documentation released under
