@@ -4,7 +4,7 @@ https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md
 
 ### Explore example notebooks in Binder:
 
-https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/v4.0.0demos1?filepath=docs/examples/jupyter-notebooks/
+https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/v4.1.0demos1?filepath=docs/examples/jupyter-notebooks/
 
 ### Browse Lets-Plot Kotlin API:
 
