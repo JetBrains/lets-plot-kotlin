@@ -10,8 +10,8 @@
   - `flavorDarcula()`
   - `flavorSolarizedLight()`
   - `flavorSolarizedDark()`
-  - `flavorHigh_contrastLight()`
-  - `flavorHigh_contrastDark()`
+  - `flavorHighContrastLight()`
+  - `flavorHighContrastDark()`
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb).
 

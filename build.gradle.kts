@@ -25,8 +25,8 @@ project.extra["buildSettings"] = settings
 allprojects {
     group = "org.jetbrains.lets-plot"
     version = when (name) {
-        "dokka" -> "4.0.0"
-        else -> "4.1.0-alpha7"
+        "dokka" -> "4.1.0"
+        else -> "4.1.1-alpha1"
     }
 
     val version = version as String

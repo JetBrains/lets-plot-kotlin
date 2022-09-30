@@ -31,7 +31,8 @@ Try the following tutorials and examples to learn and evaluate various features 
 #### Geoms and Stats
 
 `geomHistogram, geomDensity, geomVLine, geomFreqpoly, geomBoxplot`:
-[distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
+* [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
+* [boxplot_whisker_width.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/boxplot_whisker_width.ipynb) 
 
 `geomViolin`:
 [geom_violin.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb)
@@ -56,8 +57,9 @@ Try the following tutorials and examples to learn and evaluate various features 
 `geomTile, geomContour, geomPolygon (Stat.contour), geomContourFilled`:
 [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
 
-`geomText`, label format:
-[label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
+`geomText, geomLabel`, label format:
+* [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
+* [geom_label.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb)
 
 <a id="corrplot"></a>
 #### Correlation Plot
@@ -93,6 +95,7 @@ Try the following tutorials and examples to learn and evaluate various features 
   [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
 * `scaleColorGradient` : [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
 * `scaleFillHue, scaleFillGrey, scaleColorGradient` : [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
+* `Viridis scales` : [colors_viridis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/colors_viridis.ipynb)
 
 
 <a id="time-series"></a>
@@ -114,7 +117,6 @@ Try the following tutorials and examples to learn and evaluate various features 
 
 
 <a id="coord-sys"></a>
-
 #### Coordinate Systems
 
 `coordCartesian(), coordFixed(), coordMap(), coordFlip()`
@@ -141,7 +143,6 @@ A simple utility which you can use to arrange plots in a regular grid.
                          
 
 <a id="as_discrete"></a>
-
 #### Ordering categories, `asDiscrete()` function
                           
 * [ordering_examples.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ordering_examples.ipynb)
@@ -149,33 +150,42 @@ A simple utility which you can use to arrange plots in a regular grid.
 
 
 <a id="export"></a>
-
 #### Export to File
 
 The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or raster formats.
 
 * [export_to_file.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/export_to_file.ipynb)
+      
 
 <a id="formatting"></a>
-
 #### Formatting
 
 * [formatting_axes_etc](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
 * [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
 
 <a id="theme"></a>
-
 #### Themes
                    
-Named themes: `themeGrey, themeLight, themeClassic, themeMinimal` and `themeMinimal2` (used by default).
-Use the `theme()` function to modify components of a theme.
+Complete themes: `themeBW, themeGrey, themeLight, themeClassic, themeMinimal` and `themeMinimal2` (used by default).
 
+[complete_themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
+
+Use the `theme()` function to modify components of a theme.
+                           
 * [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
 * [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
 * [Title, subtitle, caption](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb)
+* [font size and family](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/font_size_and_family.ipynb)
+* [label hjust, vjust](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/hjust_vjust.ipynb)
+* [label margins](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/text_margins.ipynb)
+         
+                        
+Color schemes (flavors): `flavorDarcula, flavorSolarizedLight, flavorSolarizedDark, flavorHighContrastLight, flavorHighContrastDark`. 
+
+[theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb).
+
 
 <a id="sampling"></a>
-
 #### Data Sampling
 
 Sampling is a special technique of data transformation, which helps dealing with large datasets and overplotting.
@@ -186,16 +196,16 @@ See: [Sampling in Lets-Plot](https://github.com/JetBrains/lets-plot-kotlin/blob/
   Bar-chart: [sampling_pick.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_pick.ipynb)
 * Stratified
   sampling: [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
+         
 
 <a id="tooltip"></a>
-
 #### Tooltip Customization
 
 * [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
 * [tooltips_theme.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb)
+     
 
 <a id="geotools"></a>
-
 #### GeoTools Support
 
 See [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
