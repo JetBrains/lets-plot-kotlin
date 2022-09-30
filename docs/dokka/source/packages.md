@@ -6,7 +6,7 @@
 
 - [user_guide.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
 
-- [y_orientation.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/y_orientation.ipynb)
+- [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
 
 More examples you can find [here](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md).
 
@@ -82,6 +82,8 @@ letsPlot(data) +
 
 - `geomText()`: [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
 
+- `geomLabel()`: [geom_label.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb)
+
 - `geomQQ()`, `geomQQLine()`, `geomQQ2()`, `geomQQ2Line()`, `qqPlot()`: [qq_plots.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
 
 # Package org.jetbrains.letsPlot.label
@@ -126,6 +128,8 @@ For more information, see [sampling.md](https://github.com/JetBrains/lets-plot-k
 - `scaleColorGradient()`: [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
 
 - `scaleFillHue()`, `scaleFillGrey()`, `scaleColorGradient()`: [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
+
+- `Viridis color scales` : [colors_viridis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/colors_viridis.ipynb)
 
 # Package org.jetbrains.letsPlot.spatial
 
