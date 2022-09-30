@@ -60,8 +60,8 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     }
 
     spec[Option.PlotBase.MAPPING] = asMappingData(plot.mapping.map)
-    spec[Option.Plot.LAYERS] = plot.layers().map(org.jetbrains.letsPlot.intern.Layer::toSpec)
-    spec[Option.Plot.SCALES] = plot.scales().map(org.jetbrains.letsPlot.intern.Scale::toSpec)
+    spec[Option.Plot.LAYERS] = plot.layers().map(Layer::toSpec)
+    spec[Option.Plot.SCALES] = plot.scales().map(Scale::toSpec)
 
     // Width of plot in percents of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
@@ -79,6 +79,11 @@ fun Plot.toSpec(): MutableMap<String, Any> {
             }
 
             spec[Option.Plot.THEME] = newThemeOptions
+        } else if (plotFeature.kind == Option.Plot.METAINFO) {
+            @Suppress("UNCHECKED_CAST")
+            val metaInfoList: MutableList<Map<String, Any>> =
+                spec.getOrPut(Option.Plot.METAINFO_LIST) { ArrayList<Map<String, Any>>() } as MutableList<Map<String, Any>>
+            metaInfoList.add(plotFeature.toSpec())
         } else {
             spec[plotFeature.kind] = plotFeature.toSpec()
         }
