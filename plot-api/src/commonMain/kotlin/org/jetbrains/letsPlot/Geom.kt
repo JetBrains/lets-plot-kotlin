@@ -547,19 +547,4 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
-
-    @Suppress("ClassName")
-    class image(
-        override val xmin: Any? = null,
-        override val xmax: Any? = null,
-        override val ymin: Any? = null,
-        override val ymax: Any? = null,
-        mapping: ImageMapping.() -> Unit = {}
-    ) : ImageAesthetics,
-        GeomOptions(
-            GeomKind.IMAGE,
-            ImageMapping().apply(mapping).seal()
-        ) {
-        override val parameters = this.seal()
-    }
 }
