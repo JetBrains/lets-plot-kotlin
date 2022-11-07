@@ -70,8 +70,15 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param vjust ('bottom', 'center', 'top') or number between 0 ('bottom') and 1 ('top').
  *     Vertical label alignment.
  * @param angle label rotation angle in degrees.
+ * @param lineheight line height multiplier applied to the font size in the case of multi-line text.
  * @param labelFormat string.
  *     Specifies the format pattern for displaying mapped values.
+ * @param naText string, default="n/a"
+ *     Text to show for missing values.
+ * @param nudgeX number.
+ *     Horizontal adjustment to nudge labels by.
+ * @param nudgeY number.
+ *     Vertical adjustment to nudge labels by.
  * @param labelPadding double, optional.
  *     Amount of padding around label. Defaults to 0.25 of font size.
  * @param labelR: double, optional.
