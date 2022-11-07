@@ -109,6 +109,7 @@ class geomText(
     override val hjust: Any? = null,
     override val vjust: Any? = null,
     override val angle: Number? = null,
+    override val lineheight: Number? = null,
     override val labelFormat: String? = null,
     override val naText: String? = null,
     override val sizeUnit: String? = null,
