@@ -281,6 +281,8 @@ object Geom {
         override val lineheight: Number? = null,
         override val labelFormat: String? = null,
         override val naText: String? = null,
+        override val nudgeX: Number? = null,
+        override val nudgeY: Number? = null,
         override val sizeUnit: String? = null,
         mapping: TextMapping.() -> Unit = {}
     ) : TextAesthetics,
@@ -313,6 +315,8 @@ object Geom {
         override val lineheight: Number? = null,
         override val labelFormat: String? = null,
         override val naText: String? = null,
+        override val nudgeX: Number? = null,
+        override val nudgeY: Number? = null,
         override val labelPadding: Number? = null,
         override val labelR: Number? = null,
         override val labelSize: Number? = null,

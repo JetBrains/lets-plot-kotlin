@@ -13,6 +13,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.TextAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.TextMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TextParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
+import org.jetbrains.letsPlot.pos.positionNudge
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -112,6 +113,8 @@ class geomText(
     override val lineheight: Number? = null,
     override val labelFormat: String? = null,
     override val naText: String? = null,
+    override val nudgeX: Number? = null,
+    override val nudgeY: Number? = null,
     override val sizeUnit: String? = null,
     mapping: TextMapping.() -> Unit = {}
 
@@ -124,7 +127,10 @@ class geomText(
         data = data,
         geom = text(),
         stat = stat,
-        position = position,
+        position = when {
+            nudgeX != null || nudgeY != null -> positionNudge(nudgeX, nudgeY)
+            else -> position
+        },
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips

@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 interface TextParameters : OptionsCapsule {
     val labelFormat: String?
     val naText: String?
+    val nudgeX: Number?
+    val nudgeY: Number?
 
     override fun seal() = Options.of(
         Option.Geom.Text.LABEL_FORMAT to labelFormat,
