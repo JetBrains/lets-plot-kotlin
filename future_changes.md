@@ -11,6 +11,9 @@
     
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_text_and_label_new_features.ipynb).
 
+- `vjust` parameter in `positionStack()` and `positionFill()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb).
 
 ### Changed
 
