@@ -7,6 +7,7 @@
 
 package org.jetbrains.letsPlot.pos
 
+import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.PosKind
 import org.jetbrains.letsPlot.intern.layer.PosOptions
@@ -38,21 +39,11 @@ private object Pos {
 //    @Suppress("SpellCheckingInspection")
 //    val jitterdodge = PosOptions(PosKind.JITTER_DODGE)
 
-    // ToDo: use constants form LP (when become available)
-    // parameter names
-    const val DODGE_WIDTH = "width"
-    const val JITTER_WIDTH = "width"
-    const val JITTER_HEIGHT = "height"
-    const val NUDGE_WIDTH = "x"
-    const val NUDGE_HEIGHT = "y"
-    const val JD_DODGE_WIDTH = "dodge_width"
-    const val JD_JITTER_WIDTH = "jitter_width"
-    const val JD_JITTER_HEIGHT = "jitter_height"
 }
 
 val positionIdentity = PosOptions(PosKind.IDENTITY)
-val positionStack = PosOptions(PosKind.STACK)
-val positionFill = PosOptions(PosKind.FILL)
+val positionStack = positionStack()
+val positionFill = positionFill()
 
 
 /**
@@ -68,7 +59,7 @@ val positionFill = PosOptions(PosKind.FILL)
 fun positionDodge(width: Number? = null) =
     PosOptions(
         PosKind.DODGE,
-        Options.of(Pos.DODGE_WIDTH to width)
+        Options.of(Option.Pos.Dodge.WIDTH to width)
     )
 
 /**
@@ -87,8 +78,8 @@ fun positionJitter(width: Number? = null, height: Number? = null) =
     PosOptions(
         PosKind.JITTER,
         Options.of(
-            Pos.JITTER_WIDTH to width,
-            Pos.JITTER_HEIGHT to height
+            Option.Pos.Jitter.WIDTH to width,
+            Option.Pos.Jitter.HEIGHT to height
         )
     )
 
@@ -96,8 +87,8 @@ fun positionNudge(x: Number? = null, y: Number? = null) =
     PosOptions(
         PosKind.NUDGE,
         Options.of(
-            Pos.NUDGE_WIDTH to x,
-            Pos.NUDGE_HEIGHT to y
+            Option.Pos.Nudge.WIDTH to x,
+            Option.Pos.Nudge.HEIGHT to y
         )
     )
 
@@ -109,8 +100,41 @@ fun positionJitterDodge(
     PosOptions(
         PosKind.JITTER_DODGE,
         Options.of(
-            Pos.JD_DODGE_WIDTH to dodgeWidth,
-            Pos.JD_JITTER_WIDTH to jitterWidth,
-            Pos.JD_JITTER_HEIGHT to jitterHeight
+            Option.Pos.JitterDodge.DODGE_WIDTH to dodgeWidth,
+            Option.Pos.JitterDodge.JITTER_WIDTH to jitterWidth,
+            Option.Pos.JitterDodge.JITTER_HEIGHT to jitterHeight
         )
+    )
+
+/**
+ * Adjust position by stacking overlapping objects on top of each other.
+ *
+ * ## Examples
+ *
+ * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
+ *
+ * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
+ * Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
+ */
+fun positionStack(vjust: Number? = null) =
+    PosOptions(
+        PosKind.STACK,
+        Options.of(Option.Pos.Stack.VJUST to vjust)
+    )
+
+/**
+ * Adjust position by stacking overlapping objects on top of each other
+ * and standardise each stack to have constant height.
+ *
+ * ## Examples
+ *
+ * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
+ *
+ * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
+ * Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
+ */
+fun positionFill(vjust: Number? = null) =
+    PosOptions(
+        PosKind.FILL,
+        Options.of(Option.Pos.Fill.VJUST to vjust)
     )
