@@ -20,6 +20,7 @@ class LabelMapping(
     override var hjust: Any? = null,
     override var vjust: Any? = null,
     override var angle: Any? = null,
+    override var lineheight: Any? = null,
     override var group: Any? = null
 ) : LabelAesthetics, WithGroupOption {
     override fun seal() = super.seal() + groupOption()

@@ -13,6 +13,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.LabelAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LabelMapping
 import org.jetbrains.letsPlot.intern.layer.geom.LabelParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
+import org.jetbrains.letsPlot.pos.positionNudge
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -69,8 +70,15 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param vjust ('bottom', 'center', 'top') or number between 0 ('bottom') and 1 ('top').
  *     Vertical label alignment.
  * @param angle label rotation angle in degrees.
+ * @param lineheight line height multiplier applied to the font size in the case of multi-line text.
  * @param labelFormat string.
  *     Specifies the format pattern for displaying mapped values.
+ * @param naText string, default="n/a"
+ *     Text to show for missing values.
+ * @param nudgeX number.
+ *     Horizontal adjustment to nudge labels by.
+ * @param nudgeY number.
+ *     Vertical adjustment to nudge labels by.
  * @param labelPadding double, optional.
  *     Amount of padding around label. Defaults to 0.25 of font size.
  * @param labelR: double, optional.
@@ -114,8 +122,11 @@ class geomLabel(
     override val hjust: Any? = null,
     override val vjust: Any? = null,
     override val angle: Number? = null,
+    override val lineheight: Number? = null,
     override val labelFormat: String? = null,
     override val naText: String? = null,
+    override val nudgeX: Number? = null,
+    override val nudgeY: Number? = null,
     override val labelPadding: Number? = null,
     override val labelR: Number? = null,
     override val labelSize: Number? = null,
@@ -131,7 +142,10 @@ class geomLabel(
         data = data,
         geom = Geom.label(),
         stat = stat,
-        position = position,
+        position = when {
+            nudgeX != null || nudgeY != null -> positionNudge(nudgeX, nudgeY)
+            else -> position
+        },
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips

@@ -20,6 +20,7 @@ interface TextAesthetics : OptionsCapsule {
     val hjust: Any?
     val vjust: Any?
     val angle: Any?
+    val lineheight: Any?
 
     override fun seal() = Options.of(
         "x" to x,
@@ -32,6 +33,7 @@ interface TextAesthetics : OptionsCapsule {
         "fontface" to fontface,
         "hjust" to hjust,
         "vjust" to vjust,
-        "angle" to angle
+        "angle" to angle,
+        "lineheight" to lineheight
     )
 }
