@@ -169,14 +169,14 @@ object Pos {
         ReplaceWith("positionStack", imports = ["org.jetbrains.letsPlot.pos.positionStack"]),
         level = DeprecationLevel.WARNING
     )
-    val stack = positionStack
+    val stack = positionStack()
 
     @Deprecated(
         "",
         ReplaceWith("positionFill", imports = ["org.jetbrains.letsPlot.pos.positionFill"]),
         level = DeprecationLevel.WARNING
     )
-    val fill = positionFill
+    val fill = positionFill()
 
     @Deprecated(
         "",

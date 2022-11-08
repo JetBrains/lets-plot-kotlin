@@ -17,6 +17,10 @@
 
 ### Changed
 
+- Deprecated API:
+  - `positionStack`, new usage: `positionStack()`
+  - `positionFill`, new usage: `positionFill()`
+
 - Upgraded Kotlin version to 1.7.20 (was 1.6.21).                    
 - Upgraded Lets-Plot version to 2.5.1 (was 2.5.0).
 

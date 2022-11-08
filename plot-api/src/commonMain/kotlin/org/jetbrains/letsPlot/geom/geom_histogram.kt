@@ -58,7 +58,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomHistogram(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.bin(),
-    position: PosOptions = positionStack,
+    position: PosOptions = positionStack(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

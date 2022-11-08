@@ -12,37 +12,20 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.PosKind
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 
-/**
- * Pos options to pass as a value of `position` parameter of layer functions like:
- *
- * ```kotlin
- * val n = 100
- * val m = 5
- * val k = 2
- * val rand = java.util.Random(42)
- * val data = mapOf(
- *     "v" to List(n) { rand.nextInt(m) },
- *     "c" to List(n) { rand.nextInt(k) }
- * )
- * letsPlot(data) +
- *     geomBar(position=Pos.dodge) { x="v"; fill=asDiscrete("c") }
- * ```
- */
-private object Pos {
-//    val identity = PosOptions(PosKind.IDENTITY)
-//    val stack = PosOptions(PosKind.STACK)
-//    val dodge = PosOptions(PosKind.DODGE)
-//    val fill = PosOptions(PosKind.FILL)
-//    val nudge = PosOptions(PosKind.NUDGE)
-//    val jitter = PosOptions(PosKind.JITTER)
-
-//    @Suppress("SpellCheckingInspection")
-//    val jitterdodge = PosOptions(PosKind.JITTER_DODGE)
-
-}
-
 val positionIdentity = PosOptions(PosKind.IDENTITY)
+
+@Deprecated(
+    "",
+    ReplaceWith("positionStack()", imports = ["org.jetbrains.letsPlot.pos.positionStack()"]),
+    level = DeprecationLevel.WARNING
+)
 val positionStack = positionStack()
+
+@Deprecated(
+    "",
+    ReplaceWith("positionFill()", imports = ["org.jetbrains.letsPlot.pos.positionFill()"]),
+    level = DeprecationLevel.WARNING
+)
 val positionFill = positionFill()
 
 

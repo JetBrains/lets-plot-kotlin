@@ -57,7 +57,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomBar(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.count(),
-    position: PosOptions = positionStack,
+    position: PosOptions = positionStack(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,

@@ -22,7 +22,7 @@ import org.jetbrains.letsPlot.pos.positionStack
 class statDensity(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.DENSITY),
-    position: PosOptions = positionStack,
+    position: PosOptions = positionStack(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

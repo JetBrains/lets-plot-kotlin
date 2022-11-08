@@ -21,7 +21,7 @@ import org.jetbrains.letsPlot.pos.positionStack
 class statCount(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.bar(),
-    position: PosOptions = positionStack,
+    position: PosOptions = positionStack(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

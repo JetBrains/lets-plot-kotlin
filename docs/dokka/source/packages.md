@@ -98,7 +98,10 @@ See [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/
 
 # Package org.jetbrains.letsPlot.sampling
 
-Sampling options to pass as a value of `sampling` parameter of layer functions like:
+Sampling options.                
+
+Used as a value of the `sampling` parameter in `geom_xyz()` functions.
+
 
 ```kotlin
 val n = 100
@@ -158,3 +161,26 @@ See [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs
 - [tooltip_title.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_title.ipynb)
 
 - [tooltips_theme.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb)
+
+# Package org.jetbrains.letsPlot.pos
+
+Position adjustment options.
+
+Used as a value of the `position` parameter in `geom_xyz()` functions.
+
+```kotlin
+val n = 100
+val m = 5
+val k = 2
+val rand = java.util.Random(42)
+val data = mapOf(
+    "v" to List(n) { rand.nextInt(m) },
+    "c" to List(n) { rand.nextInt(k) }
+)
+letsPlot(data) +
+    geomBar(position = positionDodge()) { x="v"; fill=asDiscrete("c") }
+```
+
+## Examples
+
+- [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)

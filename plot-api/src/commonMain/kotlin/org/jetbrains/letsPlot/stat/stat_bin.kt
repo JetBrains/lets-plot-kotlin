@@ -22,7 +22,7 @@ import org.jetbrains.letsPlot.pos.positionStack
 class statBin(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.histogram(),
-    position: PosOptions = positionStack,
+    position: PosOptions = positionStack(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,

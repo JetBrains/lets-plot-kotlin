@@ -29,7 +29,7 @@ object PositionStackFill {
             (p + geomBar(stat = Stat.identity, color = "black") { fill = "grp" } +
                     geomLabel(position = positionStack(0.5)) { label = "y" }).show()
 
-            (p + geomBar(stat = Stat.identity, position = positionFill, color = "black") { fill = "grp" } +
+            (p + geomBar(stat = Stat.identity, position = positionFill(), color = "black") { fill = "grp" } +
                     geomText(position = positionFill(0.5)) { label = "y" }).show()
         }
     }
