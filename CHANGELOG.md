@@ -5,6 +5,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
+## [4.1.1] - 2022-11-08
+
+### Added
+
+- In `geomText(), geomLabel()`:
+
+  - the 'newline' character (`\n`) now works as `line break`
+  - `lineheight` aesthetic
+  - `nudgeX, nudgeY` parameters
+  - special text alignments (`vjust` and `hjust`): `"inward"` and `"outward"`
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.1.1/geom_text_and_label_new_features.ipynb).
+
+- `vjust` parameter in `positionStack()` and `positionFill()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb).
+
+### Changed
+
+- Deprecated API:
+  - `positionStack`, new usage: `positionStack()`
+  - `positionFill`, new usage: `positionFill()`
+
+- `geomBoxplot()`: default value for parameter `whiskerWidth` is 0.5.
+
+- Upgraded Kotlin version to 1.7.20 (was 1.6.21).
+- Upgraded Lets-Plot version to 2.5.1 (was 2.5.0).
+
+  See Lets-Plot [What is new in 2.5.1](https://github.com/JetBrains/lets-plot#what-is-new-in-251)
+  for more details.
+
+### Fixed
+
+- `elementBlank()` has no effect in theme `legendTitle` [[#608](https://github.com/JetBrains/lets-plot/issues/608)].
+- Tooltip: different formats for same aesthetic Y [[#579](https://github.com/JetBrains/lets-plot/issues/579)].
+- Positioning with "constant" x/y doesn't work on axis with log10 transform [[#618](https://github.com/JetBrains/lets-plot/issues/618)].
+- Positional "constant" doesn't honor axis limits [[#619](https://github.com/JetBrains/lets-plot/issues/619)].
+- Several issues leading to crush in Swing/Batik apps. Related to [[discussions](https://github.com/JetBrains/lets-plot-kotlin/discussions/138)]
+- Text labels got trimmed occasionally, when symbols `-`, `/`, `\` or `|` present.
+
+
 ## [4.1.0] - 2022-09-30
 
 ### Added

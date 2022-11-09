@@ -43,9 +43,9 @@
     - [Saving plot to file](#export)
     - [GeoTools support](#geotools)
 
+- [What is new in 4.1.1](#new411)
 - [What is new in 4.1.0](#new)
-- [What is new in 4.0.0](#new4)
-    - [Migrating to 4.0.0](#migrating4)
+- [Migrating from v3 to v4](#migrating4)
 
 - [Change log](#change_log)
 - [License](#license)
@@ -266,6 +266,16 @@ individual `Geometry` and `ReferencedEnvelope` objects.
 Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
 
 
+<a id="new411"></a>
+## What is new in 4.1.1
+
+- New rendering options in `geomText(), geomLabel()`
+- `vjust` parameter in `positionStack()` and `positionFill()` 
+
+See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)
+for more details.
+
+
 <a id="new"></a>
 ## What is new in 4.1.0
 
@@ -328,31 +338,8 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
   for details.
 
 
-<a id="new4"></a>
-## What is new in 4.0.0
-
-- ### Improvements in the [API reference](https://lets-plot.org/kotlin) documentation
-
-    - Clean navigation tree - non-API elements were removed; improved packages structure
-    - References on external documentation, demo-notebooks and, sometimes, code examples were added to many API elements
-      and
-      packages:
-        - [org.jetbrains.letsPlot.sampling](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.sampling/index.html)
-        - [geomBin2D](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-bin2-d/index.html) (
-          see "Examples" section)
-
-- ### (!) Breaking Changes
-
-  Due to refactorings performed in the source code, the v4.0.0 is no longer backward compatible with earlier versions of
-  the Lets-Plot Kotlin API.
-
-  Most notably, all packages were renamed to include the "**org**" prefix in their names.
-
-  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#400---2022-07-25) for more information.  
-
 <a id="migrating4"></a>
-
-### Migrating to 4.0.0
+## Migrating from v3 to v4
                                         
 For migration instructions see [Migrating to 4.0.0](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#migrating-to-400) section in the CHANGELOG.
 
