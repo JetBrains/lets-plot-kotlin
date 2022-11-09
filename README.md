@@ -272,7 +272,7 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 - New rendering options in `geomText(), geomLabel()`
 - `vjust` parameter in `positionStack()` and `positionFill()` 
 
-See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)
+See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#411---2022-11-08)
 for more details.
 
 
