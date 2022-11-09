@@ -82,9 +82,9 @@ Try the following tutorials and examples to learn and evaluate various features 
 <a id="pos"></a>
 #### Position Adjustment
 
-* `positionDodge` : [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
-* `positionJitter` : [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
-
+* `positionDodge()` : [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+* `positionJitter()` : [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
+* `positionStack(), positionFill()` : [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
 
 <a id="scales"></a>
 #### Scales
@@ -211,3 +211,4 @@ See: [Sampling in Lets-Plot](https://github.com/JetBrains/lets-plot-kotlin/blob/
 See [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
 
 * [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
+* [geom_label.ipynb](http://localhost:8888/notebooks/examples/jupyter-notebooks/geom_label.ipynb)
