@@ -92,7 +92,7 @@ It will publish `lets-plot-kotlin-api-kernel-<version>` artifact to the `<projec
 **Note:** when editing descriptor in "~/.jupyter_kotlin/cache" always check that you are using the latest descriptor.  
 The kernel can download a newer descriptor at any moment.
 
-Modified descriptor can be used for notebook explicitly via **_line magic_**:  
+Modified descriptor can be used in notebook explicitly via **_line magic_**:  
 ```
 %use @/Users/me/Projects/lets-plot-kotlin/lets-plot-dev.json
 ```
