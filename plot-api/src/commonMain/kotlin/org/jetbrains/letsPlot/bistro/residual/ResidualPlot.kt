@@ -10,9 +10,11 @@ fun residualPlot(
     x: String,
     y: String,
     method: String? = null,
+    deg: Int? = null
 ) = ResidualPlotBuilder(
     data,
     x,
     y,
-    method
+    method,
+    deg
 ).build()

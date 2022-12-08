@@ -16,6 +16,7 @@ internal class ResidualPlotBuilder(
     private val x: String,
     private val y: String,
     private val method: String?,
+    private val polynomialDegree: Int?,
 ) {
     fun build(): Plot {
         val statData = ResidualUtil.appendResiduals(data, x, y, getModel())
@@ -27,7 +28,9 @@ internal class ResidualPlotBuilder(
     }
 
     private fun getModel(): Model {
-        val modelMethod = if (method != null) Model.Method.safeValueOf(method) else Model.METHOD_DEF
-        return Model(modelMethod)
+        return Model(
+            if (method != null) Model.Method.safeValueOf(method) else Model.METHOD_DEF,
+            polynomialDegree ?: Model.POLYNOMIAL_DEGREE_DEF
+        )
     }
 }
