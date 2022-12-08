@@ -10,11 +10,17 @@ fun residualPlot(
     x: String,
     y: String,
     method: String? = null,
-    deg: Int? = null
+    deg: Int? = null,
+    span: Double? = null,
+    seed: Long = ResidualPlotBuilder.SAMPLING_SEED_DEF,
+    maxN: Int = ResidualPlotBuilder.LOESS_CRITICAL_SIZE_DEF
 ) = ResidualPlotBuilder(
     data,
     x,
     y,
     method,
-    deg
+    deg,
+    span,
+    maxN,
+    seed
 ).build()
