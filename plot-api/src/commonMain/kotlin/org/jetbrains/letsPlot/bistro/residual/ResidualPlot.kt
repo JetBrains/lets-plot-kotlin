@@ -9,8 +9,10 @@ fun residualPlot(
     data: Map<*, *>,
     x: String,
     y: String,
+    method: String? = null,
 ) = ResidualPlotBuilder(
     data,
     x,
-    y
+    y,
+    method
 ).build()

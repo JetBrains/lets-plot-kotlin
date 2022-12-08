@@ -5,7 +5,6 @@
 
 package org.jetbrains.letsPlot.bistro.residual
 
-import jetbrains.datalore.plot.server.config.transform.bistro.corr.DataUtil
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.GenericAesMapping
 import org.jetbrains.letsPlot.intern.Plot
@@ -16,13 +15,19 @@ internal class ResidualPlotBuilder(
     private val data: Map<*, *>,
     private val x: String,
     private val y: String,
+    private val method: String?,
 ) {
     fun build(): Plot {
-        val statData = ResidualUtil.appendResiduals(DataUtil.standardiseData(data), x, y)
+        val statData = ResidualUtil.appendResiduals(data, x, y, getModel())
         val mapping: GenericAesMapping.() -> Unit = {
             x = this@ResidualPlotBuilder.x
             y = ResidualVar.RESIDUAL
         }
         return letsPlot(asPlotData(statData), mapping) + geomPoint()
+    }
+
+    private fun getModel(): Model {
+        val modelMethod = if (method != null) Model.Method.safeValueOf(method) else Model.METHOD_DEF
+        return Model(modelMethod)
     }
 }
