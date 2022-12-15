@@ -20,6 +20,18 @@ object Residual {
                 val p = residualPlot(irisData, x = "petal length (cm)", y = "petal width (cm)") + ggtitle("Basic demo")
                 p.show()
             }
+
+            run {
+                val p = residualPlot(
+                    irisData,
+                    x = "petal length (cm)",
+                    y = "petal width (cm)",
+                    method = "loess",
+                    span = .25,
+                    maxN = 25
+                ) + ggtitle("Change method")
+                p.show()
+            }
         }
     }
 }
