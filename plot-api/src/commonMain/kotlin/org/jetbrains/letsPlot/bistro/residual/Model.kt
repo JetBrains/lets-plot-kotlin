@@ -19,6 +19,7 @@ internal class Model(
         return when (method) {
             Method.LM -> getLMPredictor(xs, ys)
             Method.LOESS, Method.LOWESS -> getLoessPredictor(xs, ys)
+            Method.NONE -> { _ -> 0.0 }
         }
     }
 
@@ -41,7 +42,7 @@ internal class Model(
     }
 
     enum class Method {
-        LM, LOESS, LOWESS;
+        LM, LOESS, LOWESS, NONE;
 
         companion object {
 

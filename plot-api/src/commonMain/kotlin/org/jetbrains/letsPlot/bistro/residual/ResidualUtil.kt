@@ -5,69 +5,62 @@
 
 package org.jetbrains.letsPlot.bistro.residual
 
+import jetbrains.datalore.plot.base.DataFrame
+import jetbrains.datalore.plot.base.data.DataFrameUtil
 import jetbrains.datalore.plot.base.util.SamplingUtil
-import org.jetbrains.letsPlot.intern.asPlotData
+import jetbrains.datalore.plot.common.data.SeriesUtil
 import kotlin.random.Random
 
 internal object ResidualUtil {
     fun appendResiduals(
-        data: Map<*, *>,
-        x: String,
-        y: String,
+        df: DataFrame,
+        xVar: DataFrame.Variable,
+        yVar: DataFrame.Variable,
         model: Model,
         loessCriticalSize: Int,
         samplingSeed: Long
     ): Map<*, *> {
-        val plotData = asPlotData(data)
-        val result = applySampling(plotData, model, loessCriticalSize, samplingSeed).toMutableMap()
-        result[ResidualVar.RESIDUAL] = if (plotData.isEmpty() || plotData.values.first().isEmpty())
+        val data = applySampling(df, model, loessCriticalSize, samplingSeed)
+
+        val residuals = if (data.isEmpty || data[data.variables().first()].isEmpty()) {
             emptyList()
-        else
-            calculateResiduals(plotData, x, y, model)
+        } else {
+            calculateResiduals(
+                xs = data.getNumeric(xVar),
+                ys = data.getNumeric(yVar),
+                model
+            )
+        }
+        val result = DataFrameUtil.toMap(data).toMutableMap()
+        result[ResidualVar.RESIDUAL] = residuals
         return result
     }
 
     private fun calculateResiduals(
-        data: Map<String, List<Any?>>,
-        x: String,
-        y: String,
+        xs: List<Double?>,
+        ys: List<Double?>,
         model: Model
     ): List<Double?> {
-        val xs = data.getValue(x) as List<Double?>
-        val ys = data.getValue(y) as List<Double?>
         val predictor = model.getPredictor(xs, ys)
-        return (xs zip ys).map { p ->
-            if (p.first?.isFinite() == true && p.second?.isFinite() == true) {
-                p.second!! - predictor(p.first!!)
-            } else null
+        return (xs zip ys).map { (x, y) ->
+            if (SeriesUtil.allFinite(x, y)) {
+                y!! - predictor(x!!)
+            } else {
+                null
+            }
         }
     }
 
     private fun applySampling(
-        data: Map<String, List<Any?>>,
+        df: DataFrame,
         model: Model,
         loessCriticalSize: Int,
         samplingSeed: Long
-    ): Map<String, List<Any?>> {
-        val rowCount = data.values.first().size
-        val onPick: (Set<Int>) -> Map<String, List<Any?>> = { indices ->
-            val result: MutableMap<String, List<Any?>> = mutableMapOf()
-            data.forEach { (variable, values) ->
-                result[variable] = values.slice(indices)
-            }
-            result
+    ): DataFrame {
+        return if (model.method == Model.Method.LOESS && df.rowCount() > loessCriticalSize) {
+            SamplingUtil.sampleWithoutReplacement(loessCriticalSize, Random(samplingSeed), df)
+        } else {
+            df
         }
-        val onDrop: (Set<Int>) -> Map<String, List<Any?>> = { indices ->
-            val oppositeIndices = data.values.first().indices.subtract(indices)
-            val result: MutableMap<String, List<Any?>> = mutableMapOf()
-            data.forEach { (variable, values) ->
-                result[variable] = values.slice(oppositeIndices)
-            }
-            result
-        }
-        return if (model.method == Model.Method.LOESS && rowCount > loessCriticalSize)
-            SamplingUtil.sampleWithoutReplacement(rowCount, loessCriticalSize, Random(samplingSeed), onPick, onDrop)
-        else
-            data
     }
 }
