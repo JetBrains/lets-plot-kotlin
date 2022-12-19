@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot.bistro.residual
 
+import jetbrains.datalore.base.interval.DoubleSpan
 import jetbrains.datalore.plot.base.DataFrame
 import jetbrains.datalore.plot.base.data.DataFrameUtil
 import jetbrains.datalore.plot.base.util.SamplingUtil
@@ -13,37 +14,43 @@ import kotlin.random.Random
 
 internal object ResidualUtil {
     fun appendResiduals(
-        df: DataFrame,
-        xVar: DataFrame.Variable,
-        yVar: DataFrame.Variable,
+        data: Map<String, List<Any?>>,
+        x: String,
+        y: String,
         model: Model,
         loessCriticalSize: Int,
         samplingSeed: Long
     ): Map<*, *> {
-        val data = applySampling(df, model, loessCriticalSize, samplingSeed)
-
-        val residuals = if (data.isEmpty || data[data.variables().first()].isEmpty()) {
+        val result = data.toMutableMap()
+        result[ResidualVar.RESIDUAL] = if (data.isEmpty() || data.values.first().isEmpty()) {
             emptyList()
         } else {
+            val df = DataFrameUtil.fromMap(data)
+            val afterSampling = applySampling(df, model, loessCriticalSize, samplingSeed)
+            val xs = extractDataSeries(afterSampling, x)
+            val xRange = SeriesUtil.range(xs)
+            val predictor: (Double) -> Double = model.getPredictor(
+                xs = xs,
+                ys = extractDataSeries(afterSampling, y)
+            )
             calculateResiduals(
-                xs = data.getNumeric(xVar),
-                ys = data.getNumeric(yVar),
-                model
+                xs = extractDataSeries(df, x),
+                ys = extractDataSeries(df, y),
+                predictor,
+                range = xRange
             )
         }
-        val result = DataFrameUtil.toMap(data).toMutableMap()
-        result[ResidualVar.RESIDUAL] = residuals
         return result
     }
 
     private fun calculateResiduals(
         xs: List<Double?>,
         ys: List<Double?>,
-        model: Model
+        predictor: (Double) -> Double,
+        range: DoubleSpan?
     ): List<Double?> {
-        val predictor = model.getPredictor(xs, ys)
         return (xs zip ys).map { (x, y) ->
-            if (SeriesUtil.allFinite(x, y)) {
+            if (SeriesUtil.allFinite(x, y) && range?.contains(x!!) == true) {
                 y!! - predictor(x!!)
             } else {
                 null
@@ -62,5 +69,10 @@ internal object ResidualUtil {
         } else {
             df
         }
+    }
+
+    private fun extractDataSeries(df: DataFrame, varName: String): List<Double?> {
+        val v = DataFrameUtil.findVariableOrFail(df, varName)
+        return df.getNumeric(v)
     }
 }

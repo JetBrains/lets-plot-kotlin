@@ -47,12 +47,10 @@ internal class ResidualPlotBuilder(
     private val hline: Boolean,
     private val marginal: String?
 ) {
-    private val df = DataFrameUtil.fromMap(asPlotData(data))
-    private val xVar = DataFrameUtil.findVariableOrFail(df, x)
-    private val yVar = DataFrameUtil.findVariableOrFail(df, y)
+    private val myData = asPlotData(data)
 
     fun build(): Plot {
-        val statData = ResidualUtil.appendResiduals(df, xVar, yVar, getModel(), loessCriticalSize, samplingSeed)
+        val statData = ResidualUtil.appendResiduals(myData, x, y, getModel(), loessCriticalSize, samplingSeed)
 
         val mapping: GenericAesMapping.() -> Unit = {
             x = this@ResidualPlotBuilder.x
@@ -75,9 +73,9 @@ internal class ResidualPlotBuilder(
 
     private fun getModel(): Model {
         return Model(
-            if (method != null) Model.Method.safeValueOf(method) else Model.METHOD_DEF,
-            polynomialDegree ?: Model.POLYNOMIAL_DEGREE_DEF,
-            span ?: Model.SPAN_DEF
+            method = if (method != null) Model.Method.safeValueOf(method) else Model.METHOD_DEF,
+            polynomialDegree = polynomialDegree ?: Model.POLYNOMIAL_DEGREE_DEF,
+            span = span ?: Model.SPAN_DEF
         )
     }
 
@@ -92,13 +90,18 @@ internal class ResidualPlotBuilder(
     private fun layers(): Feature {
         var layers: Feature = DummyFeature
 
-        val myBins: Pair<Int, Int>? = toPairOfNumbers(bins)?.let { it.first.toInt() to it.second.toInt() }
-        val myBinWidth: Pair<Number, Number>? = getBinWidth(
-            xs = df.getNumeric(xVar),
-            ys = df.getNumeric(yVar),
-            binWidth = toPairOfNumbers(binWidth),
-            bins = myBins
-        )
+        val bins: Pair<Int, Int>? = toPairOfNumbers(bins)?.let { it.first.toInt() to it.second.toInt() }
+        val binWidth: Pair<Number, Number>? = run {
+            val df = DataFrameUtil.fromMap(myData)
+            val xVar = DataFrameUtil.findVariableOrFail(df, x)
+            val yVar = DataFrameUtil.findVariableOrFail(df, y)
+            getBinWidth(
+                xs = df.getNumeric(xVar),
+                ys = df.getNumeric(yVar),
+                binWidth = toPairOfNumbers(binWidth),
+                bins = bins
+            )
+        }
 
         // main layer
         when (geom) {
@@ -107,8 +110,8 @@ internal class ResidualPlotBuilder(
             }
             "tile" -> {
                 layers += geomBin2D(
-                    bins = myBins,
-                    binWidth = myBinWidth,
+                    bins = bins,
+                    binWidth = binWidth,
                     color = color,
                     size = size,
                     alpha = alpha,
@@ -126,7 +129,7 @@ internal class ResidualPlotBuilder(
 
         // marginals
         if (marginal != "none") {
-            layers += parseMarginal(marginal, color, colorBy, showLegend, myBins, myBinWidth)
+            layers += parseMarginal(marginal, color, colorBy, showLegend, bins, binWidth)
         }
 
         return layers
