@@ -159,7 +159,11 @@ internal class ResidualPlotBuilder(
                         side == 't' || side == 'b' -> binWidth2d.first
                         else -> binWidth2d.second
                     }
-                    val marginalColor = if (colorBy != null) null else (color ?: COLOR_DEFAULT)
+                    val marginalColor = when {
+                        colorBy != null -> null
+                        color != null -> color
+                        else -> COLOR_DEFAULT
+                    }
                     geomHistogram(
                         color = marginalColor,
                         alpha = 0,
@@ -182,9 +186,9 @@ internal class ResidualPlotBuilder(
         marginal?.split(",")?.forEach { layerDescription ->
             val params = layerDescription.trim().split(":")
             val geomName = params[0]
-            val sides = params[1]
+            val sides = params.getOrNull(1)
             val size = params.getOrNull(2)?.toDouble()
-            for (side in sides) {
+            sides?.forEach { side ->
                 marginals += parseMarginalLayer(geomName, side.lowercaseChar(), size)
             }
         }
