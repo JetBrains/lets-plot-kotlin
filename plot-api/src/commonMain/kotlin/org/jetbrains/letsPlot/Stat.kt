@@ -52,6 +52,14 @@ object Stat {
     }
 
     @Suppress("ClassName")
+    class count2d(
+        mapping: Count2dStatMapping.() -> Unit = {}
+    ) : StatOptions(
+        StatKind.COUNT2D,
+        mapping = Count2dStatMapping().apply(mapping).seal()
+    )
+
+    @Suppress("ClassName")
     class bin(
         override val bins: Int? = null,
         override val binWidth: Number? = null,
