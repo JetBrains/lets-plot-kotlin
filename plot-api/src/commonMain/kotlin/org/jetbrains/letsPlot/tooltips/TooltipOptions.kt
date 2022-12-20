@@ -34,7 +34,7 @@ val tooltipsNone = layerTooltips().none()
  *     ) { x="x" }
  * ```
  *
- * @param variables Variable names to crete a general multiline tooltip with.
+ * @param variables Variable names to create a general multiline tooltip with.
  *      Useful for specifying the tooltip content quickly, instead of
  *      configuring it via the `line()` method.
  *
@@ -182,16 +182,15 @@ class layerTooltips(vararg variables: String) {
     }
 
     private companion object {
-        private const val TOOLTIP_VARIABLES = Option.Layer.TOOLTIP_VARIABLES
-        private const val TOOLTIP_FORMATS = Option.Layer.TOOLTIP_FORMATS
+        private const val TOOLTIP_VARIABLES = Option.LinesSpec.VARIABLES
+        private const val TOOLTIP_FORMATS = Option.LinesSpec.FORMATS
         private const val TOOLTIP_ANCHOR = Option.Layer.TOOLTIP_ANCHOR
-        private const val FIELD = Option.TooltipFormat.FIELD
-        private const val FORMAT = Option.TooltipFormat.FORMAT
+        private const val FIELD = Option.LinesSpec.Format.FIELD
+        private const val FORMAT = Option.LinesSpec.Format.FORMAT
 
-        private const val TOOLTIP_LINES = Option.Layer.TOOLTIP_LINES
-        private const val TOOLTIP_TITLE = Option.Layer.TOOLTIP_TITLE
+        private const val TOOLTIP_LINES = Option.LinesSpec.LINES
+        private const val TOOLTIP_TITLE = Option.LinesSpec.TITLE
         private const val TOOLTIP_MIN_WIDTH = Option.Layer.TOOLTIP_MIN_WIDTH
-//        private const val TOOLTIP_COLOR = Option.Layer.TOOLTIP_COLOR
 
         private const val NO_TOOLTIPS = Option.Layer.NONE
     }
