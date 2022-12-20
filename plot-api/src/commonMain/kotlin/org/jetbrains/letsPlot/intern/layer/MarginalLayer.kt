@@ -21,6 +21,7 @@ internal class MarginalLayer(
     showLegend = geomLayer.showLegend,
     sampling = geomLayer.sampling,
     tooltips = geomLayer.tooltips,
+    labels = null,
     orientation = geomLayer.orientation
 ) {
     private val allGeomLayerParameters = geomLayer.seal()

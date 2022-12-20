@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.annotations.AnnotationOptions
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.PieAesthetics
@@ -35,6 +36,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
+ * @param labels result of the call to the layerLabels() function.
+ *     Specifies style and content of the annotations.
  * @param map SpatialDataset.
  *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
  *     names of States and their boundaries).
@@ -78,6 +81,7 @@ class geomPie(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    labels: AnnotationOptions? = null,
     override val map: SpatialDataset? = null,
     override val mapJoin: Pair<Any, Any>? = null,
     override val x: Number? = null,
@@ -106,7 +110,8 @@ class geomPie(
         position = position,
         showLegend = showLegend,
         sampling = sampling,
-        tooltips = tooltips
+        tooltips = tooltips,
+        labels = labels
     ) {
     override fun seal(): Options {
         return super<PieAesthetics>.seal() +
