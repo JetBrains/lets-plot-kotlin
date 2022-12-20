@@ -67,9 +67,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Font family. The default is 'sans'
  * @param fontface ('plain' | 'bold' | 'italic' | 'bold italic')
  *     Font style and weight. The default is 'plain'
- * @param hjust ('left', 'middle', 'right') or number between 0 ('left') and 1 ('right').
+ * @param hjust ('left', 'middle', 'right') or number between 0 ('left') and 1 ('right')
+ *     or 'inward' (aligns text towards the plot center), 'outward' (away from the plot center).
  *     Horizontal text alignment.
- * @param vjust ('bottom', 'center', 'top') or number between 0 ('bottom') and 1 ('top').
+ * @param vjust ('bottom', 'center', 'top') or number between 0 ('bottom') and 1 ('top')
+ *     or 'inward' (aligns text towards the plot center), 'outward' (away from the plot center).
  *     Vertical text alignment.
  * @param angle text rotation angle in degrees.
  * @param lineheight line height multiplier applied to the font size in the case of multi-line text.
