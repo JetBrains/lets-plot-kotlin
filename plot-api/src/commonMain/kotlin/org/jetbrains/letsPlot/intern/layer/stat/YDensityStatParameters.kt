@@ -5,12 +5,15 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+import jetbrains.datalore.plot.config.Option.Stat
 import org.jetbrains.letsPlot.intern.Options
 
 interface YDensityStatParameters : DensityStatParameters {
     val scale: String?
+    val tailsCutoff: Number?
 
     override fun seal() = super.seal() + Options.of(
-        "scale" to scale
+        Stat.YDensity.TAILS_CUTOFF to tailsCutoff,
+        Stat.YDensity.SCALE to scale
     )
 }

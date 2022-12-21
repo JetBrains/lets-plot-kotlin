@@ -159,6 +159,7 @@ object Stat {
     @Suppress("ClassName")
     class yDensity(
         override val scale: String? = null,
+        override val tailsCutoff: Number? = null,
         override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Int? = null,
