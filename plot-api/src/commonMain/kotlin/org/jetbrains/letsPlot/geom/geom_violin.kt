@@ -24,6 +24,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [geom_violin.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb)
  *
+ * - [violin_tails_cutoff.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/violin_tails_cutoff.ipynb)
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
