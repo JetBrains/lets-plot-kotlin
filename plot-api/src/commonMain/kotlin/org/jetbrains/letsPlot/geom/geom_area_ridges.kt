@@ -24,7 +24,6 @@ class geomAreaRidges(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
-    orientation: String? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val height: Number? = null,
@@ -59,8 +58,7 @@ class geomAreaRidges(
         position = position,
         showLegend = showLegend,
         sampling = sampling,
-        tooltips = tooltips,
-        orientation = orientation
+        tooltips = tooltips
     ) {
 
     override fun seal() = super<AreaRidgesAesthetics>.seal() +
