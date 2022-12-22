@@ -162,7 +162,7 @@ internal class ResidualPlotBuilder(
                     val marginalColor = when {
                         colorBy != null -> null
                         color != null -> color
-                        else -> COLOR_DEFAULT
+                        else -> DEF_COLOR
                     }
                     geomHistogram(
                         color = marginalColor,
@@ -236,7 +236,7 @@ internal class ResidualPlotBuilder(
         const val SAMPLING_SEED_DEF = 37L
         const val DEF_BINS = 30
         const val DEF_GEOM = "point"
-        const val MARGINAL_DEFAULT = "dens:r"
-        const val COLOR_DEFAULT = "#118ed8"
+        const val DEF_MARGINAL = "dens:r"
+        const val DEF_COLOR = "#118ed8"
     }
 }

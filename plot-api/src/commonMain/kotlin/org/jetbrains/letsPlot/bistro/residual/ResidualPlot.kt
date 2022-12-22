@@ -52,9 +52,9 @@ package org.jetbrains.letsPlot.bistro.residual
  * @param colorBy string
  *     Name of grouping variable.
  * @param showLegend boolean, optional, default=true
- *     False - do not show legend the main layer.
- * @param hline boolean, default=True
- *     False - do not show horizontal line passing through 0.
+ *     false - do not show legend the main layer.
+ * @param hline boolean, default=true
+ *     false - do not show horizontal line passing through 0.
  * @param marginal string, default="dens:r"
  *     Description of marginal layers packed to string value.
  *     Different marginals are separated by the ',' char.
@@ -88,7 +88,7 @@ fun residualPlot(
     colorBy: String? = null,
     showLegend: Boolean = true,
     hline: Boolean = true,
-    marginal: String = ResidualPlotBuilder.MARGINAL_DEFAULT
+    marginal: String = ResidualPlotBuilder.DEF_MARGINAL
 ) = ResidualPlotBuilder(
     data,
     x,

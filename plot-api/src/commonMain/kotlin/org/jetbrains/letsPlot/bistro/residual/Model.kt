@@ -52,7 +52,7 @@ internal class Model(
                 return ENUM_INFO.safeValueOf(v) ?:
                 throw IllegalArgumentException(
                     "Unsupported method: '$v'\n" +
-                    "Use one of: lm, loess, lowess."
+                    "Use one of: lm, loess, lowess, none."
                 )
             }
         }
