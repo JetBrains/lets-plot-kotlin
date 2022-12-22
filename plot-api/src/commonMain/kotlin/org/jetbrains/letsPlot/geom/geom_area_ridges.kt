@@ -32,14 +32,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     "identity" (leaves the data unchanged), "densityridges" (computes and draws kernel density estimate for each ridge).
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
- * @param showLegend default=True.
- *      False - do not show legend for this layer.
+ * @param showLegend default=true.
+ *     false - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param x x-axis coordinates.
  * @param y y-axis coordinates.
  * @param height height of the ridge. Assumed to be between 0 and 1, though this is not required.
- * @param quantile todo
+ * @param quantile quantile values to draw quantile lines and fill quantiles of the geometry by color.
  * @param alpha transparency level of a layer
  *     Understands numbers between 0 and 1.
  * @param color (colour) color of a geometry lines.
@@ -51,19 +51,19 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param size lines width.
  *     Defines line width
  * @param weight used by "densityridges" stat to compute weighted density.
- * @param scale number, default: 1.0
+ * @param scale number, default=1.0
  *     A multiplicative factor applied to height aesthetic.
  *     If `scale = 1.0`, the heights of a ridges are automatically scaled
  *     such that the ridge with `height = 1.0` just touches the one above.
- * @param minHeight number, default: 0.0
+ * @param minHeight number, default=0.0
  *     A height cutoff on the drawn ridges.
  *     All values that fall below this cutoff will be removed.
- * @param quantileLines boolean, default: false
+ * @param quantileLines boolean, default=false
  *     Show the quantile lines.
  * @param tailsCutoff number
  *     Extend domain of each ridge on `tailsCutoff * bw` if `trim=false`.
  *    `tailsCutoff=null` (default) extends domain to maximum (domain overall ridges).
- * @param quantiles list of numbers, default: [0.25, 0.5, 0.75]
+ * @param quantiles list of numbers, default=[0.25, 0.5, 0.75]
  *     Draw horizontal lines at the given quantiles of the density estimate.
  * @param bw string or double.
  *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
