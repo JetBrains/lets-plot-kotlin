@@ -6,16 +6,16 @@
 package org.jetbrains.letsPlot.geom
 
 import jetbrains.datalore.base.encoding.Base64
-import jetbrains.datalore.base.png.pngj.ImageInfo
-import jetbrains.datalore.base.png.pngj.ImageLineByte
-import jetbrains.datalore.base.png.pngj.PngWriter
-import jetbrains.datalore.base.png.pngj.utils.OutputStream
 import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.intern.pngj.ImageInfo
+import org.jetbrains.letsPlot.intern.pngj.ImageLineByte
+import org.jetbrains.letsPlot.intern.pngj.PngWriter
+import org.jetbrains.letsPlot.intern.pngj.utils.OutputStream
 
 
 fun geomImshow(
