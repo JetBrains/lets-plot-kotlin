@@ -26,7 +26,7 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0, additive = 0.6.
+ *      Defaults: multiplicative = 0, additive = 0.2.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param reverse When True the scale reversed.
@@ -86,7 +86,7 @@ fun scaleXDiscrete(
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0, additive = 0.6.
+ *      Defaults: multiplicative = 0, additive = 0.2.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param reverse When True the scale reversed.
@@ -146,7 +146,7 @@ fun scaleYDiscrete(
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0, additive = 0.6.
+ *      Defaults: multiplicative = 0, additive = 0.2.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  *
@@ -198,7 +198,7 @@ fun scaleXDiscreteReversed(
  * @param expand
  *      A numeric vector of length two giving multiplicative and additive expansion constants.
  *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0, additive = 0.6.
+ *      Defaults: multiplicative = 0, additive = 0.2.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  *
