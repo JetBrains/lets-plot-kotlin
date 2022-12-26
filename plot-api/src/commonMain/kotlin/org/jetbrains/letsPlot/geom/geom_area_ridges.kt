@@ -7,49 +7,39 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
-import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
-import org.jetbrains.letsPlot.intern.layer.geom.ViolinAesthetics
-import org.jetbrains.letsPlot.intern.layer.geom.ViolinMapping
-import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatAesthetics
-import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatParameters
-import org.jetbrains.letsPlot.pos.positionDodge
+import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesAesthetics
+import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesMapping
+import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesParameters
+import org.jetbrains.letsPlot.intern.layer.stat.DensityRidgesStatAesthetics
+import org.jetbrains.letsPlot.intern.layer.stat.DensityRidgesStatParameters
+import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
- * A violin plot is a mirrored density plot with an additional grouping as for a boxplot.
+ * Plots the sum of the `y` and `height` aesthetics versus `x`. Heights of the ridges are relatively scaled.
  *
  * ## Examples
  *
- * - [geom_violin.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb)
- *
- * - [violin_tails_cutoff.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/violin_tails_cutoff.ipynb)
- *
- * - [violin_show_half.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/violin_show_half.ipynb)
+ * - [ridgeline_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ridgeline_plot.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default="ydensity".
- *     The statistical transformation to use on the data for this layer.
+ * @param stat default="densityridges".
+ *     The statistical transformation to use on the data for this layer. Supported transformations:
+ *     "identity" (leaves the data unchanged), "densityridges" (computes and draws kernel density estimate for each ridge).
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
- * @param showLegend default=True.
- *      False - do not show legend for this layer.
+ * @param showLegend default=true.
+ *     false - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
- * @param orientation Specifies the axis that the layer' stat and geom should run along.
- *     Possible values: 'x' (default), 'y'.
- * @param drawQuantiles list of float.
- *     Draw horizontal lines at the given quantiles of the density estimate.
- * @param showHalf number, default: 0
- *     If -1 then it's drawing only half of each violin.
- *     If 1 then it's drawing other half.
- *     If 0 then violins looking as usual.
  * @param x x-axis coordinates.
  * @param y y-axis coordinates.
- * @param violinWidth density scaled for the violin plot, according to area, counts or to a constant maximum width.
+ * @param height height of the ridge. Assumed to be between 0 and 1, though this is not required.
+ * @param quantile quantile values to draw quantile lines and fill quantiles of the geometry by color.
  * @param alpha transparency level of a layer
  *     Understands numbers between 0 and 1.
  * @param color (colour) color of a geometry lines.
@@ -60,14 +50,21 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     5 = "longdash", 6 = "twodash".
  * @param size lines width.
  *     Defines line width
- * @param width width of violin bounding box
- * @param weight used by "ydensity" stat to compute weighted density.
- * @param scale
- *     If "area" (default), all violins have the same area.
- *     If "count", areas are scaled proportionally to the number of observations.
- *     If "width", all violins have the same maximum width.
- * @param tailsCutoff number, default: 3.0
- *     Extend domain of each violin on `tailsCutoff * bw` if `trim = false`.
+ * @param weight used by "densityridges" stat to compute weighted density.
+ * @param scale number, default=1.0
+ *     A multiplicative factor applied to height aesthetic.
+ *     If `scale = 1.0`, the heights of a ridges are automatically scaled
+ *     such that the ridge with `height = 1.0` just touches the one above.
+ * @param minHeight number, default=0.0
+ *     A height cutoff on the drawn ridges.
+ *     All values that fall below this cutoff will be removed.
+ * @param quantileLines boolean, default=false
+ *     Show the quantile lines.
+ * @param tailsCutoff number
+ *     Extend domain of each ridge on `tailsCutoff * bw` if `trim=false`.
+ *    `tailsCutoff=null` (default) extends domain to maximum (domain overall ridges).
+ * @param quantiles list of numbers, default=[0.25, 0.5, 0.75]
+ *     Draw horizontal lines at the given quantiles of the density estimate.
  * @param bw string or double.
  *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
  * @param kernel
@@ -75,8 +72,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic")
  * @param n
  *     The number of sampled points for plotting the function.
- * @param trim default=true.
- *     Trim the tails of the violins to the range of the data.
+ * @param trim boolean, default=false
+ *   Trim the tails of the ridges to the range of the data.
  * @param adjust
  *     Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
  * @param fullScanMax
@@ -86,55 +83,52 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
  */
-class geomViolin(
+class geomAreaRidges(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.yDensity(),
-    position: PosOptions = positionDodge(),
+    stat: StatOptions = Stat.densityRidges(),
+    position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
-    orientation: String? = null,
-    private val drawQuantiles: Any? = null,
-    private val showHalf: Number? = null,
     override val x: Number? = null,
     override val y: Number? = null,
-    override val violinWidth: Number? = null,
+    override val height: Number? = null,
+    override val quantile: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
-    override val width: Number? = null,
     override val weight: Number? = null,
-    override val scale: String? = null,
+    override val scale: Number? = null,
+    override val minHeight: Number? = null,
+    override val quantileLines: Boolean? = null,
     override val tailsCutoff: Number? = null,
+    override val quantiles: List<Number>? = null,
     override val bw: Any? = null,
     override val kernel: String? = null,
     override val n: Int? = null,
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
     override val fullScanMax: Int? = null,
-    mapping: ViolinMapping.() -> Unit = {}
-) : ViolinAesthetics,
-    YDensityStatAesthetics,
-    YDensityStatParameters,
+    mapping: AreaRidgesMapping.() -> Unit = {}
+) : AreaRidgesAesthetics,
+    AreaRidgesParameters,
+    DensityRidgesStatAesthetics,
+    DensityRidgesStatParameters,
     LayerBase(
-        mapping = ViolinMapping().apply(mapping).seal(),
+        mapping = AreaRidgesMapping().apply(mapping).seal(),
         data = data,
-        geom = GeomOptions(GeomKind.VIOLIN),
+        geom = GeomOptions(GeomKind.AREA_RIDGES),
         stat = stat,
         position = position,
         showLegend = showLegend,
         sampling = sampling,
-        tooltips = tooltips,
-        orientation = orientation
+        tooltips = tooltips
     ) {
 
-    override fun seal() = super<ViolinAesthetics>.seal() +
-            super<YDensityStatAesthetics>.seal() +
-            super<YDensityStatParameters>.seal() +
-            Options.of(
-                "draw_quantiles" to drawQuantiles,
-                "show_half" to showHalf
-            )
+    override fun seal() = super<AreaRidgesAesthetics>.seal() +
+            super<AreaRidgesParameters>.seal() +
+            super<DensityRidgesStatAesthetics>.seal() +
+            super<DensityRidgesStatParameters>.seal()
 }

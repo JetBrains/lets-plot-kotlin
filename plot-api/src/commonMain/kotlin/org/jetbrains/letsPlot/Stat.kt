@@ -159,6 +159,7 @@ object Stat {
     @Suppress("ClassName")
     class yDensity(
         override val scale: String? = null,
+        override val tailsCutoff: Number? = null,
         override val bw: Any? = null,
         override val kernel: String? = null,
         override val n: Int? = null,
@@ -170,6 +171,25 @@ object Stat {
         StatOptions(
             StatKind.YDENSITY,
             mapping = YDensityStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class densityRidges(
+        override val tailsCutoff: Number? = null,
+        override val quantiles: List<Number>? = null,
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Int? = null,
+        override val trim: Boolean? = null,
+        override val adjust: Number? = null,
+        override val fullScanMax: Int? = null,
+        mapping: DensityRidgesStatMapping.() -> Unit = {}
+    ) : DensityRidgesStatParameters,
+        StatOptions(
+            StatKind.DENSITYRIDGES,
+            mapping = DensityRidgesStatMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
     }
