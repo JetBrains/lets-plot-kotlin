@@ -14,7 +14,6 @@ import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesMapping
-import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesParameters
 import org.jetbrains.letsPlot.intern.layer.stat.DensityRidgesStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.DensityRidgesStatParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -36,9 +35,6 @@ class statDensityRidges(
     override val linetype: Any? = null,
     override val size: Number? = null,
     override val weight: Number? = null,
-    override val scale: Number? = null,
-    override val minHeight: Number? = null,
-    override val quantileLines: Boolean? = null,
     override val tailsCutoff: Number? = null,
     override val quantiles: List<Number>? = null,
     override val bw: Any? = null,
@@ -49,7 +45,6 @@ class statDensityRidges(
     override val fullScanMax: Int? = null,
     mapping: AreaRidgesMapping.() -> Unit = {}
 ) : AreaRidgesAesthetics,
-    AreaRidgesParameters,
     DensityRidgesStatAesthetics,
     DensityRidgesStatParameters,
     LayerBase(
@@ -63,7 +58,6 @@ class statDensityRidges(
     ) {
     override fun seal(): Options {
         return super<AreaRidgesAesthetics>.seal() +
-                super<AreaRidgesParameters>.seal() +
                 super<DensityRidgesStatAesthetics>.seal() +
                 super<DensityRidgesStatParameters>.seal()
     }
