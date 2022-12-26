@@ -145,6 +145,8 @@ fun Layer.toSpec(): MutableMap<String, Any> {
             spec[Option.Geom.Choropleth.GEO_POSITIONS] = this
             spec[Option.Meta.MAP_DATA_META] = createGeoDataframeAnnotation(this)
 
+            useCRS?.let { spec[Option.Layer.USE_CRS] = it }
+
             mapJoin?.let {
                 val (first, second) = it
                 when (first) {
