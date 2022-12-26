@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.intern
 
 import jetbrains.datalore.plot.base.Aes
 import org.jetbrains.letsPlot.Figure
+import org.jetbrains.letsPlot.annotations.AnnotationOptions
 import org.jetbrains.letsPlot.frontend.CurrentFrontendContext
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.PosOptions
@@ -108,6 +109,7 @@ abstract class Layer(
     val showLegend: Boolean,
     val sampling: SamplingOptions?,
     val tooltips: TooltipOptions?,
+    val labels: AnnotationOptions?, // currently supported for Pie chart only
     val orientation: String?
 ) : OptionsCapsule, Feature() {
 

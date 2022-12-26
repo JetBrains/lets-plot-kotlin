@@ -8,12 +8,12 @@ package org.jetbrains.letsPlot.intern.layer.stat
 import jetbrains.datalore.plot.config.Option.Stat
 import org.jetbrains.letsPlot.intern.Options
 
-interface YDensityStatParameters : DensityStatParameters {
-    val scale: String?
+interface DensityRidgesStatParameters: DensityStatParameters {
     val tailsCutoff: Number?
+    val quantiles: List<Number>?
 
     override fun seal() = super.seal() + Options.of(
-        Stat.YDensity.TAILS_CUTOFF to tailsCutoff,
-        Stat.YDensity.SCALE to scale
+        Stat.DensityRidges.TAILS_CUTOFF to tailsCutoff,
+        Stat.DensityRidges.QUANTILES to quantiles
     )
 }

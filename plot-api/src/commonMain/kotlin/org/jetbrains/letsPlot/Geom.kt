@@ -553,4 +553,32 @@ object Geom {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class pie(
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val slice: Number? = null,
+        override val explode: Number? = null,
+        override val size: Number? = null,
+        override val fill: Any? = null,
+        override val color: Any? = null,
+        override val alpha: Number? = null,
+        override val hole: Number? = null,
+        override val fillBy: String? = null,
+        override val stroke: Number? = null,
+        override val strokeColor: Any? = null,
+        mapping: PieMapping.() -> Unit = {}
+    ) : PieAesthetics,
+        PieParameters,
+        GeomOptions(
+            GeomKind.PIE,
+            PieMapping().apply(mapping).seal()
+        ) {
+
+        override val parameters = this.seal()
+
+        override fun seal() = super<PieAesthetics>.seal() +
+                super<PieParameters>.seal()
+    }
 }
