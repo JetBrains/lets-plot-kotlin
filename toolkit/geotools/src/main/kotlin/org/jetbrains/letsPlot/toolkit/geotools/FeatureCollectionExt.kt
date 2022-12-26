@@ -35,11 +35,6 @@ private fun getDataAndGeometries(
         ?: throw IllegalArgumentException("No geometry attribute")
 
 
-    val crs = (geometryAttribute as GeometryDescriptor).coordinateReferenceSystem
-    require(CRSUtil.isWGS84_2D(crs)) {
-        "Geometry must use WGS84 coordinate reference system but was: ${crs.name} ."
-    }
-
     val data = dataAttributes.map { it.localName to ArrayList<Any?>() }.toMap()
     val geometries = ArrayList<String>()
 
