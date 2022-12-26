@@ -46,6 +46,7 @@ class ImshowTest {
             imshow.seal().map[HREF]
         )
     }
+
     @Test
     fun `gray 2 x 3 matrix of int`() {
         val imshow = geomImshow(
@@ -136,6 +137,24 @@ class ImshowTest {
     }
 
     @Test
+    fun `gray 2 x 3 IntArray`() {
+        val imshow = geomImshow(
+            ImageData.fromArray(
+                intArrayOf(
+                    0x00, 0x00, 0x00, 0xFF, 0xFF, 0xFF
+                ),
+                width = 3,
+                height = 2,
+                nChannels = 1
+            )
+        )
+        assertEquals(
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
+            imshow.seal().map[HREF]
+        )
+    }
+
+    @Test
     fun `rgb 1 x 2 x 3 matrix of ints`() {
         val imshow = geomImshow(
             ImageData.fromMatrix(
@@ -175,7 +194,7 @@ class ImshowTest {
     fun `rgb 1 x 2 x 3 array of ints`() {
         val imshow = geomImshow(
             ImageData.fromArray(
-                img = arrayOf(
+                pixels = arrayOf(
                     0, 0, 0,
                     255, 255, 255
                 ),
@@ -194,9 +213,27 @@ class ImshowTest {
     fun `rgb 1 x 2 x 3 array of floats`() {
         val imshow = geomImshow(
             ImageData.fromArray(
-                img = arrayOf(
+                pixels = arrayOf(
                     0.0, 0.0, 0.0,
                     1.0, 1.0, 1.0
+                ),
+                width = 2,
+                height = 1,
+                nChannels = 3
+            )
+        )
+        assertEquals(
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
+            imshow.seal().map[HREF]
+        )
+    }
+
+    @Test
+    fun `rgb 1 x 2 x 3 IntArray`() {
+        val imshow = geomImshow(
+            ImageData.fromArray(
+                pixels = intArrayOf(
+                    0x0, 0xFFFFFF
                 ),
                 width = 2,
                 height = 1,
@@ -249,7 +286,7 @@ class ImshowTest {
     fun `rgba 1 x 2 x 4 array of ints`() {
         val imshow = geomImshow(
             ImageData.fromArray(
-                img = arrayOf(
+                pixels = arrayOf(
                     0, 0, 0, 128,
                     255, 255, 255, 128
                 ),
@@ -268,7 +305,7 @@ class ImshowTest {
     fun `rgba 1 x 2 x 4 array of floats`() {
         val imshow = geomImshow(
             ImageData.fromArray(
-                img = arrayOf(
+                pixels = arrayOf(
                     0.0, 0.0, 0.0, 0.5,
                     1.0, 1.0, 1.0, 0.5
                 ),
@@ -278,6 +315,24 @@ class ImshowTest {
             )
         )
 
+        assertEquals(
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
+            imshow.seal().map[HREF]
+        )
+    }
+
+    @Test
+    fun `rgba 1 x 2 x 4 IntArray`() {
+        val imshow = geomImshow(
+            ImageData.fromArray(
+                pixels = intArrayOf(
+                    0x80000000.toInt(), 0x80FFFFFF.toInt()
+                ),
+                width = 2,
+                height = 1,
+                nChannels = 4
+            )
+        )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
             imshow.seal().map[HREF]
@@ -304,7 +359,7 @@ class ImshowTest {
     fun `nan 2 x 3 array of floats`() {
         val imshow = geomImshow(
             ImageData.fromArray(
-                img = arrayOf(
+                pixels = arrayOf(
                     50.0, Double.NaN, 200.0,
                     Double.NaN, 100.0, 50.0
                 ),
@@ -564,7 +619,6 @@ class ImshowTest {
     @Test
     fun `perf array - rgb 1_000 x 1_000 px`() {
         val resolution = 1_000
-        val rnd = Random(1)
         val img = ByteArray(resolution * resolution * 3)
 
         for (j in 0 until resolution) {

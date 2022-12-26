@@ -5,17 +5,17 @@
 
 package org.jetbrains.letsPlot.geom
 
-import jetbrains.datalore.base.encoding.Base64
 import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
-import org.jetbrains.letsPlot.intern.pngj.ImageInfo
-import org.jetbrains.letsPlot.intern.pngj.ImageLineByte
-import org.jetbrains.letsPlot.intern.pngj.PngWriter
-import org.jetbrains.letsPlot.intern.pngj.utils.OutputStream
+import org.jetbrains.letsPlot.util.Base64
+import org.jetbrains.letsPlot.util.pngj.ImageInfo
+import org.jetbrains.letsPlot.util.pngj.ImageLineByte
+import org.jetbrains.letsPlot.util.pngj.OutputPngStream
+import org.jetbrains.letsPlot.util.pngj.PngWriter
 
 
 fun geomImshow(
@@ -76,7 +76,7 @@ fun geomImshow(
         extY0 = extY1.also { extY1 = extY0 }
     }
 
-    val outputStream = OutputStream()
+    val outputStream = OutputPngStream()
     val png = PngWriter(
         outputStream, ImageInfo(
             raster.width,
@@ -151,7 +151,7 @@ private fun normalize2d(raster: Raster, norm: Boolean?, vMin: Float?, vMax: Floa
 }
 
 class ImageData private constructor(
-    val data: Any,
+    val pixels: Any,
     val shape: Shape?
 ) {
     class Shape(
@@ -161,13 +161,19 @@ class ImageData private constructor(
     )
 
     companion object {
-        fun fromArray(img: Any, width: Int, height: Int, nChannels: Int): ImageData {
-            return ImageData(img, Shape(width, height, nChannels))
+        fun fromArray(pixels: Any, width: Int, height: Int, nChannels: Int): ImageData {
+            return ImageData(pixels, Shape(width, height, nChannels))
         }
 
-        fun fromMatrix(img: List<*>): ImageData {
-            return ImageData(img, null)
+        fun fromMatrix(pixels: List<*>): ImageData {
+            return ImageData(pixels, null)
         }
+    }
+
+    override fun toString(): String =
+        "ImageData: ${pixels::class.simpleName}, shape: " + when (shape) {
+        null -> "null"
+        else -> "${shape.width} x ${shape.height} x ${shape.nChannels}"
     }
 }
 
@@ -242,26 +248,26 @@ internal class Raster(
                 val width: Int
                 val nch: Int
 
-                if ((imageData.data as? List<*>)?.isNotEmpty() == true) {
-                    if ((imageData.data[0] as? List<*>)?.isNotEmpty() == true) {
+                if ((imageData.pixels as? List<*>)?.isNotEmpty() == true) {
+                    if ((imageData.pixels[0] as? List<*>)?.isNotEmpty() == true) {
                         @Suppress("UNCHECKED_CAST")
-                        imageData.data as List<List<*>>
+                        imageData.pixels as List<List<*>>
 
-                        height = imageData.data.size
-                        width = imageData.data[0].size
+                        height = imageData.pixels.size
+                        width = imageData.pixels[0].size
 
-                        if ((imageData.data[0][0] as? List<*>)?.isNotEmpty() == true) {
+                        if ((imageData.pixels[0][0] as? List<*>)?.isNotEmpty() == true) {
                             @Suppress("UNCHECKED_CAST")
-                            imageData.data as List<List<List<Number>>>
+                            imageData.pixels as List<List<List<Number>>>
 
-                            nch = imageData.data[0][0].size
-                            val isDTypeF = imageData.data[0][0][0].let { it is Double || it is Float }
+                            nch = imageData.pixels[0][0].size
+                            val isDTypeF = imageData.pixels[0][0][0].let { it is Double || it is Float }
 
                             return Raster(width, height, nch, isDTypeF) {
                                 val arr = FloatArray(height * width * nch)
 
                                 var i = 0
-                                for (row in imageData.data) {
+                                for (row in imageData.pixels) {
                                     for (pix in row) {
                                         for (ch in pix) {
                                             arr[i++] = toFloat(ch)
@@ -271,18 +277,18 @@ internal class Raster(
 
                                 arr
                             }
-                        } else if (imageData.data[0][0] is Number) {
+                        } else if (imageData.pixels[0][0] is Number) {
                             @Suppress("UNCHECKED_CAST")
-                            imageData.data as List<List<Number>>
+                            imageData.pixels as List<List<Number>>
 
                             nch = 1
-                            val isDTypeF = imageData.data[0][0].let { it is Double || it is Float }
+                            val isDTypeF = imageData.pixels[0][0].let { it is Double || it is Float }
 
                             return Raster(width, height, nch, isDTypeF) {
                                 val arr = FloatArray(height * width * nch)
 
                                 var i = 0
-                                for (row in imageData.data) {
+                                for (row in imageData.pixels) {
                                     for (ch in row) {
                                         arr[i++] = toFloat(ch)
                                     }
@@ -295,13 +301,16 @@ internal class Raster(
                 error("Invalid bitmap: without shape a 2d or 3d array is expected")
             } else {
                 val isDTypeF: Boolean
-                val pixelDataProvider: () -> FloatArray = when (imageData.data) {
+                val nChannels = imageData.shape.nChannels
+                val height = imageData.shape.height
+                val width = imageData.shape.width
+                val pixelDataProvider: () -> FloatArray = when (imageData.pixels) {
                     is FloatArray -> {
                         isDTypeF = true
 
                         fun(): FloatArray {
-                            val arr = FloatArray(imageData.shape.height * imageData.shape.width * imageData.shape.nChannels)
-                            imageData.data.copyInto(arr)
+                            val arr = FloatArray(height * width * nChannels)
+                            imageData.pixels.copyInto(arr)
                             return arr
                         }
                     }
@@ -310,8 +319,8 @@ internal class Raster(
                         isDTypeF = false
 
                         fun(): FloatArray {
-                            val arr = FloatArray(imageData.shape.height * imageData.shape.width * imageData.shape.nChannels)
-                            imageData.data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                            val arr = FloatArray(height * width * nChannels)
+                            imageData.pixels.forEachIndexed { i, v -> arr[i] = toFloat(v) }
                             return arr
                         }
                     }
@@ -320,8 +329,22 @@ internal class Raster(
                         isDTypeF = false
 
                         fun(): FloatArray {
-                            val arr = FloatArray(imageData.shape.height * imageData.shape.width * imageData.shape.nChannels)
-                            imageData.data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                            val arr = FloatArray(height * width * nChannels)
+                            imageData.pixels.forEachIndexed { i, v ->
+                                var offset = i * nChannels
+                                if (nChannels >= 3) {
+                                    arr[offset++] = toFloat((v shr 16) and 0xFF)
+                                }
+                                if (nChannels >= 2) {
+                                    arr[offset++] = toFloat((v shr 8) and 0xFF)
+                                }
+                                if (nChannels >= 1) {
+                                    arr[offset++] = toFloat(v and 0xFF)
+                                }
+                                if (nChannels == 4) {
+                                    arr[offset] = toFloat((v shr 24) and 0xFF)
+                                }
+                            }
                             return arr
                         }
                     }
@@ -330,42 +353,36 @@ internal class Raster(
                         isDTypeF = true
 
                         fun(): FloatArray {
-                            val arr = FloatArray(imageData.shape.height * imageData.shape.width * imageData.shape.nChannels)
-                            imageData.data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                            val arr = FloatArray(height * width * nChannels)
+                            imageData.pixels.forEachIndexed { i, v -> arr[i] = toFloat(v) }
                             return arr
                         }
                     }
 
                     is List<*> -> {
-                        isDTypeF = imageData.data[0].let { it is Float || it is Double }
+                        isDTypeF = imageData.pixels[0].let { it is Float || it is Double }
 
                         fun(): FloatArray {
-                            val arr = FloatArray(imageData.shape.height * imageData.shape.width * imageData.shape.nChannels)
-                            imageData.data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                            val arr = FloatArray(height * width * nChannels)
+                            imageData.pixels.forEachIndexed { i, v -> arr[i] = toFloat(v) }
                             return arr
                         }
                     }
 
                     is Array<*> -> {
-                        isDTypeF = imageData.data[0].let { it is Float || it is Double }
+                        isDTypeF = imageData.pixels[0].let { it is Float || it is Double }
                         fun(): FloatArray {
-                            val arr = FloatArray(imageData.shape.height * imageData.shape.width * imageData.shape.nChannels)
-                            imageData.data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                            val arr = FloatArray(height * width * nChannels)
+                            imageData.pixels.forEachIndexed { i, v -> arr[i] = toFloat(v) }
                             return arr
                         }
 
                     }
 
-                    else -> error("Invalid bitmap: unsupported data type `${imageData.data::class.simpleName}`")
+                    else -> error("Invalid bitmap: unsupported data type `${imageData.pixels::class.simpleName}`")
                 }
 
-                return Raster(
-                    imageData.shape.width,
-                    imageData.shape.height,
-                    imageData.shape.nChannels,
-                    isDTypeF,
-                    pixelDataProvider
-                )
+                return Raster(width, height, nChannels, isDTypeF, pixelDataProvider)
             }
         }
 
