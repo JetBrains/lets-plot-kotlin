@@ -30,13 +30,8 @@ class statCount2d(
     override val color: Any? = null,
     override val alpha: Number? = null,
     override val weight: Number? = null,
-    override val hole: Number? = null,
-    override val fillBy: String? = null,
-    override val stroke: Number? = null,
-    override val strokeColor: Any? = null,
     mapping: PieMapping.() -> Unit = {}
 ) : PieAesthetics,
-    PieParameters,
     Count2dStatAesthetics,
     LayerBase(
         mapping = PieMapping().apply(mapping).seal(),
@@ -50,7 +45,6 @@ class statCount2d(
 
     override fun seal(): Options {
         return super<PieAesthetics>.seal() +
-                super<PieParameters>.seal() +
                 super<Count2dStatAesthetics>.seal()
     }
 }
