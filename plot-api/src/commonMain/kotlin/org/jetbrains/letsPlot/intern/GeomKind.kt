@@ -77,7 +77,8 @@ enum class GeomKind {
     TEXT,
     LABEL,
     RASTER,
-    IMAGE;
+    IMAGE,
+    PIE;
 
     open fun optionName() = name.lowercase()
 }

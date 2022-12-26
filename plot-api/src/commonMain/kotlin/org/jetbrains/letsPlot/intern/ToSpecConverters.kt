@@ -134,6 +134,9 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     tooltips?.let {
         spec[Option.Layer.TOOLTIPS] = it.options
     }
+    labels?.let {
+        spec[Option.Layer.ANNOTATIONS] = it.options
+    }
 
     orientation?.let {
         spec[Option.Layer.ORIENTATION] = it
