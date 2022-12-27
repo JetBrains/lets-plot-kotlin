@@ -28,6 +28,7 @@ import org.jetbrains.letsPlot.intern.standardizing.JvmStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.MapStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.toList
+import org.jetbrains.letsPlot.spatial.CRSCode.checkCRS
 import org.jetbrains.letsPlot.spatial.GeometryFormat
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 
@@ -142,10 +143,13 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     // parameters 'map', 'mapJoin'
     if (this is WithSpatialParameters) {
         map?.run {
+            if (useCRS != "provided") {
+                this.CRS?.let { checkCRS(it) }
+            }
+            useCRS?.let { spec[Option.Layer.USE_CRS] = it }
+
             spec[Option.Geom.Choropleth.GEO_POSITIONS] = this
             spec[Option.Meta.MAP_DATA_META] = createGeoDataframeAnnotation(this)
-
-            useCRS?.let { spec[Option.Layer.USE_CRS] = it }
 
             mapJoin?.let {
                 val (first, second) = it
