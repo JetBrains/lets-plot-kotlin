@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.layer
 
+import org.jetbrains.letsPlot.annotations.AnnotationOptions
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
@@ -19,6 +20,7 @@ abstract class LayerBase(
     showLegend: Boolean,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    labels: AnnotationOptions? = null,
     orientation: String? = null
 ) : Layer(
     mapping = mapping,
@@ -29,6 +31,7 @@ abstract class LayerBase(
     showLegend = showLegend,
     sampling = sampling,
     tooltips = tooltips,
+    labels = labels,
     orientation = orientation
 )
 //), OptionsCapsule {

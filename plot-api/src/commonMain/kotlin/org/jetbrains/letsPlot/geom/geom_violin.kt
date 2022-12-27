@@ -24,6 +24,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [geom_violin.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb)
  *
+ * - [violin_tails_cutoff.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/violin_tails_cutoff.ipynb)
+ *
+ * - [violin_show_half.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/violin_show_half.ipynb)
+ *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
  *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
@@ -39,6 +43,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Possible values: 'x' (default), 'y'.
  * @param drawQuantiles list of float.
  *     Draw horizontal lines at the given quantiles of the density estimate.
+ * @param showHalf number, default: 0
+ *     If -1 then it's drawing only half of each violin.
+ *     If 1 then it's drawing other half.
+ *     If 0 then violins looking as usual.
  * @param x x-axis coordinates.
  * @param y y-axis coordinates.
  * @param violinWidth density scaled for the violin plot, according to area, counts or to a constant maximum width.
@@ -58,6 +66,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     If "area" (default), all violins have the same area.
  *     If "count", areas are scaled proportionally to the number of observations.
  *     If "width", all violins have the same maximum width.
+ * @param tailsCutoff number, default: 3.0
+ *     Extend domain of each violin on `tailsCutoff * bw` if `trim = false`.
  * @param bw string or double.
  *     The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
  * @param kernel
@@ -85,6 +95,7 @@ class geomViolin(
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
     private val drawQuantiles: Any? = null,
+    private val showHalf: Number? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val violinWidth: Number? = null,
@@ -96,6 +107,7 @@ class geomViolin(
     override val width: Number? = null,
     override val weight: Number? = null,
     override val scale: String? = null,
+    override val tailsCutoff: Number? = null,
     override val bw: Any? = null,
     override val kernel: String? = null,
     override val n: Int? = null,
@@ -121,5 +133,8 @@ class geomViolin(
     override fun seal() = super<ViolinAesthetics>.seal() +
             super<YDensityStatAesthetics>.seal() +
             super<YDensityStatParameters>.seal() +
-            Options.of("draw_quantiles" to drawQuantiles)
+            Options.of(
+                "draw_quantiles" to drawQuantiles,
+                "show_half" to showHalf
+            )
 }

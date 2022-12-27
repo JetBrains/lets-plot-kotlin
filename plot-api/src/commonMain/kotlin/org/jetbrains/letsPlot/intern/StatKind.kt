@@ -8,9 +8,11 @@ package org.jetbrains.letsPlot.intern
 enum class StatKind {
     IDENTITY,
     COUNT,
+    COUNT2D,
     DENSITY,
     DENSITY2D,
     DENSITY2DF,
+    DENSITYRIDGES,
     YDENSITY,
     DOTPLOT,
     YDOTPLOT,

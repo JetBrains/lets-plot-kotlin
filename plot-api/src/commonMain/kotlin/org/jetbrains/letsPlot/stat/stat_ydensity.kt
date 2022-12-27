@@ -36,6 +36,7 @@ class statYDensity(
     override val width: Number? = null,
     override val weight: Number? = null,
     override val scale: String? = null,
+    override val tailsCutoff: Number? = null,
     override val bw: Any? = null,
     override val kernel: String? = null,
     override val n: Int? = null,

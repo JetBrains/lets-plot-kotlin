@@ -1,0 +1,579 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+
+<HEAD>
+<TITLE>PngSuite - the official set of PNG test images</TITLE>
+<META NAME="description" CONTENT="The PngSuite consists of a two hundred 
+    PNG images in all possible formats to support the development of PNG 
+    viewing and conversion software">
+<META NAME="keywords" CONTENT="PngSuite, pngsuite, PNG, png, png-group, 
+    graphics, images, format, filter, viewer, browser, web-browser, 
+    pnglib, zlib, compression, pnmtopng, pngtopnm, 
+    interlacing, gamma, alpha, transparency, palette, chunk">
+</HEAD>
+
+<BODY BGCOLOR="#CCCCCC" BACKGROUND="../images/rooster.gif"
+    MARGINWIDTH="12" MARGINHEIGHT="12" LEFTMARGIN="12" TOPMARGIN="12">
+
+<TABLE WIDTH="648" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+    <TD WIDTH="72" VALIGN="TOP">
+    <IMG SRC="pngsuite_icon.gif" ALT="[PngSuite]" WIDTH="48" HEIGHT="48">
+    </TD><TD WIDTH="576" VALIGN="TOP">
+    <FONT SIZE="+3"><B>PngSuite</B></FONT>
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="1" HEIGHT="48">
+    <BR>
+    <B>created by Willem van Schaik</B>
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="1" HEIGHT="24">
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE WIDTH="648" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+    <TD WIDTH="72"></TD><TD WIDTH="576">
+    <H2>The "official" test-suite for PNG</H2>
+    <P>
+    This is a collection of graphics images created to test PNG applications
+    like viewers, converters and editors. As far as that is possible, all formats
+    supported by the PNG standard are represented.
+    <P>
+    <H3>Web pages</H3>
+    For each test-set there is an html-page containing the PNG images. And for reference
+    purposes another page is provided with the same pictures in a GIF-format.
+    <P>
+    <TABLE WIDTH="576" BORDER="0" CELLPADDING="0" CELLSPACING="12">
+    <TR>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#basic"><IMG SRC="basn2c16.gif" ALT="basic" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#basic"><FONT SIZE="-1">basic<BR>formats</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#interlacing"><IMG SRC="cdsn2c08.gif" ALT="interlacing" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#interlacing"><FONT SIZE="-1">interlacing</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#sizes"><IMG SRC="s32i3p04.gif" ALT="sizes" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#sizes"><FONT SIZE="-1">odd<BR>sizes</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#background"><IMG SRC="bgyn6a16.gif" ALT="background" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#background"><FONT SIZE="-1">background<BR>colors</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#transparency"><IMG SRC="tbgn3p08.gif" ALT="transparency" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#transparency"><FONT SIZE="-1">transparency</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#gamma"><IMG SRC="g10n2c08.gif" ALT="gamma" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#gamma"><FONT SIZE="-1">gamma<BR>values</FONT></A><CENTER></TD>
+    </TR><TR>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#filtering"><IMG SRC="f01n2c08.gif" ALT="filtering" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#filtering"><FONT SIZE="-1">image<BR>filtering</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#palette"><IMG SRC="basn3p04.gif" ALT="palette" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#palette"><FONT SIZE="-1">additional<BR>palettes</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#ancillary"><IMG SRC="ccwn2c08.gif" ALT="ancillary" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#ancillary"><FONT SIZE="-1">ancillary<BR>chunks</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#order"><IMG SRC="oi1n0g16.gif" ALT="order" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#order"><FONT SIZE="-1">chunk<BR>order</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#compression"><IMG SRC="basn3p08.gif" ALT="compression" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#compression"><FONT SIZE="-1">zlib<BR>compression</FONT></A><CENTER></TD>
+        <TD WIDTH="96" VALIGN="TOP"><CENTER><A HREF="#corrupted"><IMG SRC="xxxn0g01.gif" ALT="corrupted" WIDTH="32" HEIGHT="32" BORDER="0"></A><BR><A HREF="#corrupted"><FONT SIZE="-1">corrupted<BR>files</FONT></A><CENTER></TD>
+    </TR>
+    </TABLE>
+    <P>
+    <H3><A NAME="download">Downloading</H3>
+    For off-line testing you better download the whole suite as a
+    <A HREF="PngSuite-2013jan13.tgz">Unix tar-ball</A> or in a
+    <A HREF="PngSuite-2013jan13.zip">Windows zip-file</A>.
+    <P>
+    Here are the
+    <A HREF="PngSuite.README">README</A> and 
+    <A HREF="PngSuite.LICENSE">LICENSE</A> files.
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE WIDTH="648" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+    <TD WIDTH="72"></TD><TD WIDTH="576">
+    <H2>PNG capabilities</H2>
+    Supported color-types are:
+    <UL>
+        <LI> grayscale
+        <LI> grayscale + alpha-channel
+        <LI> color palettes
+        <LI> rgb
+        <LI> rgb + alpha-channel
+    </UL>
+    <P>
+    Allowed bit-depths are depending on the color-type, but are in the range
+    of 1-bit (grayscale, which is b&w) upto 16-bits.
+    <P>
+    Special features are:
+    <UL>
+        <LI> interlacing (Adam-7)
+        <LI> gamma-support
+        <LI> transparency (a poor-man's alpha solution)
+    </UL>
+    <P>
+    <H3>File naming</H3>
+    Where possible, the test-files are 32x32 bits icons. This results in a still
+    reasonable size of the suite even with a large number of tests. The name 
+    of each test-file reflects the type in the following way:
+    <BR>
+    <PRE>
+    filename:                               g04i2c08.png
+                                            || ||||
+    test feature (in this case gamma) ------+| ||||
+    parameter of test (here gamma-value) ----+ ||||
+    interlaced or non-interlaced --------------+|||
+    color-type (numerical) ---------------------+||
+    color-type (descriptive) --------------------+|
+    bit-depth ------------------------------------+
+    </PRE>
+    <P>
+    color-type:
+    <UL>
+        <LI> 0g - grayscale
+        <LI> 2c - rgb color
+        <LI> 3p - paletted
+        <LI> 4a - grayscale + alpha channel
+        <LI> 6a - rgb color + alpha channel
+    </UL>
+    bit-depth:
+    <UL>
+        <LI> 01 - with color-type 0, 3
+        <LI> 02 - with color-type 0, 3
+        <LI> 04 - with color-type 0, 3
+        <LI> 08 - with color-type 0, 2, 3, 4, 6
+        <LI> 16 - with color-type 0, 2, 4, 6
+    </UL>
+    interlacing:
+    <UL>
+        <LI> n  - non-interlaced
+        <LI> i  - interlaced
+    </UL>
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="basn2c16.gif" ALT="basic" WIDTH="32" HEIGHT="32" BORDER="0">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="basic">Basic formats</H2>
+    These are basic test images in all of the standard PNG b/w, color and paletted 
+    formats.
+    <P>
+    [ <A HREF="pngsuite_bas_png.html">PngSuite - basic / PNG-files</A>
+    | <A HREF="pngsuite_bas_gif.html">PngSuite - basic / GIF-files</A> ]
+    </TD></TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="cdsn2c08.gif" ALT="interlacing" WIDTH="32" HEIGHT="32" BORDER="0">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="interlacing">Interlacing</H2>
+    These are the same basic test images but now using Adam-7 interlacing.
+    <P>
+    [ <A HREF="pngsuite_int_png.html">PngSuite - interlaced / PNG-files</A>
+    | <A HREF="pngsuite_int_gif.html">PngSuite - interlaced / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="s32i3p04.gif" ALT="sizes" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="sizes">Odd sizes</H2>
+    These tests are there to check if your software handles pictures well, with
+    less obvious picture sizes. This is particularly important with Adam-7 type
+    interlacing. In the same way these tests check if pictures size 1 x 1 and 
+    similar are ok.
+    <P>
+    [ <A HREF="pngsuite_siz_png.html">PngSuite - sizes / PNG-files</A>
+    | <A HREF="pngsuite_siz_gif.html">PngSuite - sizes / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="bgyn6a16.gif" ALT="background" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="background">Background colors</H2>
+    When the PNG file contains a background chunk, this should be used for
+    pictures with alpha-channel or pictures with a transparency chunk. For
+    pictures without this background-chunk, but with alpha, this test-set 
+    assumes a black background.
+    <P>
+    For the images in this test, the left-side should be 100% the background
+    color, where moving to the right the color should gradually become the
+    image pattern.
+    <P>
+    <UL>
+        <LI> bga - alpha + no background
+        <LI> bgw - alpha + white background
+        <LI> bgg - alpha + gray background
+        <LI> bgb - alpha + black background
+        <LI> bgy - alpha + yellow background
+    </UL>
+    <P>
+    [ <A HREF="pngsuite_bck_png.html">PngSuite - background / PNG-files</A>
+    | <A HREF="pngsuite_bck_gif.html">PngSuite - background / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="tp1n3p08.gif" ALT="transparency" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="transparency">Transparency</H2>
+    Transparency should be used together with a background chunk. To test the
+    combination of the two the latter 4 tests are there. How to handle pictures
+    with transparency, but without a background, opinions can differ. Here we
+    use black, but especially in the case of paletted images, the normal color
+    would maybe even be better.
+    <P>
+    <UL>
+        <LI> tbw - transparent + white background
+        <LI> tbg - transparent + gray background
+        <LI> tbb - transparent + black background
+        <LI> tby - transparent + yellow background
+        <LI> tp0 - not transparent for reference
+        <LI> tp1 - transparent, but no background chunk
+        <LI> tm3 - multiple levels of transparency, 3 entries
+    </UL>
+    <P>
+    [ <A HREF="pngsuite_trn_png.html">PngSuite - transparency / PNG-files</A>
+    | <A HREF="pngsuite_trn_gif.html">PngSuite - transparency / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="g10n2c08.gif" ALT="gamma" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="gamma">Gamma values</H2>
+    To test if your viewer handles gamma-correction, (3x) 6 test-files are available.
+    They contain corrected color-ramps and a corresponding gamma-chunk with the
+    file-gamma value. These are created in such a way that when the viewer does 
+    the gamma correction right, all 6 should be displayed identical.
+    <P>
+    If they are different, probably the gamma correction is omitted. In that
+    case, have a look at the two right columns in the 6 pictures. The image
+    where those two look the same (when looked from far) reflects the gamma of 
+    your system. However, because of the limited size of the image, you should
+    do more elaborate tests to determine your display gamma.
+    <P>
+    For comparisons, three pages with GIF images are available. Depending
+    on the display gamma of your system, select the NeXT-, the Mac- or the
+    PC-version.
+    <P>
+    <UL>
+        <LI> g03 - file-gamma = 0.35, for display with gamma = 2.8
+        <LI> g04 - file-gamma = 0.45, for display with gamma = 2.2 (PC)
+        <LI> g05 - file-gamma = 0.55, for display with gamma = 1.8 (Mac)
+        <LI> g07 - file-gamma = 0.70, for display with gamma = 1.4
+        <LI> g10 - file-gamma = 1.00, for display with gamma = 1.0 (NeXT)
+        <LI> g25 - file-gamma = 2.50, for display with gamma = 0.4
+    </UL>
+    <P>
+    [ <A HREF="pngsuite_gam_png.html">PngSuite - gamma / PNG-files</A>
+    | <A HREF="pngsuite_gam_gif.html">PngSuite - gamma / GIF-files (PC)</A> |
+    <BR>
+    | <A HREF="pngsuite_gam_gif_mac.html">PngSuite - gamma / GIF-files (Mac)</A>
+    | <A HREF="pngsuite_gam_gif_next.html">PngSuite - gamma / GIF-files (NeXT)</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="f01n2c08.gif" ALT="filtering" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="filtering">Image filtering</H2>
+    PNG uses file-filtering, for optimal compression. Normally the type is of
+    filtering is adjusted to the contents of the picture, but here each file
+    has the same picture, with a different filtering.
+    <P>
+    <UL>
+        <LI> f0 - no filtering
+        <LI> f1 - sub filtering
+        <LI> f2 - up filtering
+        <LI> f3 - average filtering
+        <LI> f4 - paeth filtering
+    </UL>
+    <P>
+    [ <A HREF="pngsuite_fil_png.html">PngSuite - filters / PNG-files</A>
+    | <A HREF="pngsuite_fil_gif.html">PngSuite - filters / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="basn3p04.gif" ALT="palette" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="palette">Additional palettes</H2>
+    Besides the normal use of paletted images, palette chunks can in combination
+    with true-color (and other) images also be used to select color lookup-tables
+    when the video system is of limited capabilities. The suggested palette chunk
+    is specially created for this purpose.
+    <P>
+    <UL>
+        <LI> pp - normal palette chunk
+        <LI> ps - suggested palette chunk
+    </UL>
+    <P>
+    [ <A HREF="pngsuite_pal_png.html">PngSuite - filters / PNG-files</A>
+    | <A HREF="pngsuite_pal_gif.html">PngSuite - filters / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="ccwn2c08.gif" ALT="ancillary" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="ancillary">Ancillary chunks</H2>
+    To test the correct decoding of ancillary chunks, these test-files contain
+    one or more examples of these chunks. Depending on the type of chunk, a
+    number of typical values are selected to test. Unluckily, the test-set can
+    not contain all combinations, because that would be an endless set.
+    <P>
+    The significant bits are used in files with the next higher bit-depth. They
+    indicate how many bits are valid.
+    <P>
+    <UL>
+        <LI> cs3 - 3 significant bits
+        <LI> cs5 - 5 significant bits
+        <LI> cs8 - 8 significant bits (reference)
+        <LI> cs3 - 13 significant bits
+    </UL>
+    <P>
+    For the physical pixel dimensions, the result of each decoding should be
+    a square picture. The first (cdf) image is an example of flat (horizontal)
+    pixels, where the pHYS chunk (x is 1 per unit, y = 4 per unit) must take
+    care of the correction. The second is just the other way round. The last
+    example uses the unit specifier, for 1000 pixels per meter. This should
+    result in a picture of 3.2 cm square.
+    <P>
+    <UL>
+        <LI> cdf - physical pixel dimensions, 8x32 flat pixels
+        <LI> cdh - physical pixel dimensions, 32x8 high pixels
+        <LI> cds - physical pixel dimensions, 8x8 square pixels
+        <LI> cdu - physical pixel dimensions, with unit-specifier
+    </UL>
+    <P>
+    The chromaticity chunk defines the rgb and whitepoint coordinates according to
+    the 1931 CIE Committee XYZ color space.
+    <P>
+    <UL>
+        <LI> ccw - primary chromaticities and white point
+    </UL>
+    <P>
+    PNG files can contain a chunk giving a histogram of the colors in the image.
+    <P>
+    <UL>
+        <LI> ch1 - histogram 15 colors
+        <LI> ch2 - histogram 256 colors
+    </UL>
+    <P>
+    The time chunk specifies when the picture last was modified (or created).
+    <P>
+    <UL>
+        <LI> cm7 - modification time, 01-jan-1970
+        <LI> cm9 - modification time, 31-dec-1999
+        <LI> cm0 - modification time, 01-jan-2000
+    </UL>
+    <P>
+    In the textual chunk, a number of the standard and some non-standard 
+    text items are included. Text can optionally be compressed.
+    <P>
+    <UL>
+        <LI> ct0 - no textual data
+        <LI> ct1 - with textual data
+        <LI> ctz - with compressed textual data
+        <LI> cte - UTF-8 international text - english
+        <LI> ctf - UTF-8 international text - finnish
+        <LI> ctg - UTF-8 international text - greek
+        <LI> cth - UTF-8 international text - hindi
+        <LI> ctj - UTF-8 international text - japanese
+    </UL>
+    <P>
+    [ <A HREF="pngsuite_cnk_png.html">PngSuite - chunks / PNG-files</A>
+    | <A HREF="pngsuite_cnk_gif.html">PngSuite - chunks / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="oi1n0g16.gif" ALT="order" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="order">Chunk ordering</H2>
+    These testfiles will test the obligatory ordering relations between various
+    chunk types (not yet) as well as the number of data chunks used for the image.
+    <P>
+    <UL>
+        <LI> oi1 - mother image with 1 idat-chunk
+        <LI> oi2 - image with 2 idat-chunks
+        <LI> oi4 - image with 4 unequal sized idat-chunks
+        <LI> oi9 - all idat-chunks of length one
+    </UL>
+    <P>
+    [ <A HREF="pngsuite_ord_png.html">PngSuite - order / PNG-files</A>
+    | <A HREF="pngsuite_ord_gif.html">PngSuite - order / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="basn3p08.gif" ALT="compression" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="compression">Zlib compression level</H2>
+    Here you will find a set of images compressed by zlib, ranging from
+    level 0 for no compression at maximum speed upto level 9 for maximum
+    compression.
+    <P>
+    <UL>
+        <LI> z00 - zlib compression level 0 - none
+        <LI> z03 - zlib compression level 1
+        <LI> z06 - zlib compression level 2 - default
+        <LI> z09 - zlib compression level 9 - maximum
+    </UL>
+    <P>
+    [ <A HREF="pngsuite_zlb_png.html">PngSuite - compression / PNG-files</A>
+    | <A HREF="pngsuite_zlb_gif.html">PngSuite - compression / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72" VALIGN="BOTTOM">
+    <IMG SRC="../images/trans.gif" ALT="" WIDTH="4" HEIGHT="1">
+    <IMG SRC="xxxn0g01.gif" ALT="corrupted" WIDTH="32" HEIGHT="32">
+    </TD><TD WIDTH="576">
+    <H2><A NAME="corrupted">Corrupted files</H2>
+    All these files are invalid PNG images. When decoding they should generate
+    appropriate error-messages.
+    <P>
+    <UL>
+        <LI> xs1 - signature byte 1 MSBit reset to zero
+        <LI> xs2 - signature byte 2 is a 'Q'
+        <LI> xs4 - signature byte 4 lowercase
+        <LI> xs7 - 7th byte a space instead of control-Z
+        <LI> xcr - added cr bytes
+        <LI> xlf - added lf bytes
+        <LI> xhd - incorrect IHDR checksum
+        <LI> xc1 - color type 1
+        <LI> xc9 - color type 9
+        <LI> xd0 - bit-depth 0
+        <LI> xd3 - bit-depth 3
+        <LI> xd9 - bit-depth 99
+        <LI> xdt - missing IDAT chunk
+        <LI> xcs - incorrect IDAT checksum
+    </UL>
+    <P>
+    [ <A HREF="pngsuite_xxx_png.html">PngSuite - corrupt / PNG-files</A>
+    | <A HREF="pngsuite_xxx_gif.html">PngSuite - corrupt / GIF-files</A> ]
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="648">
+<TR>
+    <TD WIDTH="72"><A
+    HREF="../wwwillem.html"><IMG SRC="../images/back_button.gif" ALT="[back home]" WIDTH="48" HEIGHT="48" BORDER="0"></A>
+    </TD><TD WIDTH="576"><A
+    HREF="../png/png.html"><IMG SRC="../png/png_button.gif" ALT="[PNG]" WIDTH="48" HEIGHT="48" BORDER="0" HSPACE="4"></A><A
+    HREF="../pingpong/pingpong.html"><IMG SRC="../pingpong/pingpong_button.gif" ALT="[PingPong]" WIDTH="48" HEIGHT="48" BORDER="0" HSPACE="4"></A>
+    </TD>
+</TR>
+</TABLE>
+
+<P>
+<HR>
+<P>
+
+<CENTER><FONT SIZE="-1"><B>
+<IMG SRC="../images/block.gif" ALT="" WIDTH="8" HEIGHT="8">
+&nbsp; Willem van Schaik, Calgary, April 2011 &nbsp;
+<IMG SRC="../images/block.gif" ALT="" WIDTH="8" HEIGHT="8">
+&nbsp; http://www.schaik.com/wwwillem.html &nbsp;
+<IMG SRC="../images/block.gif" ALT="" WIDTH="8" HEIGHT="8">
+</B></FONT></CENTER>
+
+<P>
+</BODY>
+
+</HTML>
+

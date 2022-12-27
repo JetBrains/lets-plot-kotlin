@@ -46,6 +46,7 @@ enum class GeomKind {
     BOX_PLOT {
         override fun optionName() = "boxplot"
     },
+    AREA_RIDGES,
     VIOLIN,
     LIVE_MAP,
     POINT,
@@ -76,7 +77,8 @@ enum class GeomKind {
     TEXT,
     LABEL,
     RASTER,
-    IMAGE;
+    IMAGE,
+    PIE;
 
     open fun optionName() = name.lowercase()
 }
