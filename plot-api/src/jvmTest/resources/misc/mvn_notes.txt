@@ -1,0 +1,57 @@
+
+
+To update version (normally not needed)
+  mvn versions:set -DnewVersion=1.0.3-SNAPSHOT
+
+RUN mvn from GIT bash, from inside pngj/
+
+javadoc:  
+  mvn javadoc:javadoc
+  mvn javadoc:jar
+
+jar:
+  mvn install
+  mvn install -DskipTests
+  mvn source:test-jar
+  mvn source:jar
+  mvn source:test-jar
+
+dist:
+  mvn assembly:single
+
+===  uploads snapshot  (see first that you have GPG + GIT working)
+( git push should work without password )
+( gpg --list-keys should work)
+
+mvn clean deploy
+
+=== upload releASE to sonatype:
+https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide#SonatypeOSSMavenRepositoryUsageGuide-7a.DeploySnapshotsandStageReleaseswithMaven
+
+ mvn release:clean
+ mvn release:prepare  WARNING: this uploads to git!!!
+ mvn release:perform
+
+After this, the artifacts are deployed to sonatype
+https://oss.sonatype.org/content/repositories/snapshots/ar/com/hjg/pngj/
+
+To release to central repository: http://central.sonatype.org/pages/releasing-the-deployment.html
+
+
+ https://oss.sonatype.org/
+
+Login at
+
+https://oss.sonatype.org
+
+(don't be fooled by the 2.1.0.SNAPSHOT repository, that does not matter)
+Look into "Staging Repositories", check that the latest included the three artifacts (jar,source, javadocs), and "close" it
+(to "close" it means that you can't add artifacts (jars) to it)
+YOu should receive a mail when done.
+
+Then, release it. One it appears in the main list, to should be sync with central Maven automatically in several hours
+
+---------
+Problem:; CLM data is not available for this artifact
+(this is not to worry)
+

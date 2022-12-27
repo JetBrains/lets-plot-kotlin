@@ -1,0 +1,36 @@
+        PNGSUITE
+----------------
+
+        testset for PNG-(de)coders
+        created by Willem van Schaik
+------------------------------------
+
+This is a collection of graphics images created to test the png applications
+like viewers, converters and editors. All (as far as that is possible)
+formats supported by the PNG standard are represented.
+
+The suite consists of the following files:
+
+-	PngSuite.README		- this file
+-	PngSuite.LICENSE	- the PngSuite is freeware
+-	PngSuite.png		- image with PngSuite logo
+-	PngSuite.tgz		- archive of all PNG testfiles
+-	PngSuite.zip		- same in .zip format for PCs
+
+
+--------
+    (c) Willem van Schaik
+	willem@schaik.com
+        Calgary, April 2011
+
+
+
+---------------------
+
+Added by Hernan J Gonzalez  hgonzalez@gmail.com
+
+For every interlaced image the same non-interlaced version with the suffix _ni  
+Eg: s40i3p04.png s40i3p04_ni.png
+
+For a few paletted images, the same true color with the suffix _tc 
+Eg: ch2n3p08.png -> ch2n3p08_tc.png

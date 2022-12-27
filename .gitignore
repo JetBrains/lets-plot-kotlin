@@ -9,6 +9,7 @@
 **/out
 
 build_settings.yml
+lets-plot-dev.json
 
 kotlin-js-store/*
 .maven-publish-dev-repo/*
