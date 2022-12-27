@@ -29,12 +29,15 @@
     ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/violin_show_half.ipynb)) 
 
 - Static maps:
-  - `use_crs` parameter with value "provided" for `geomMap()` and other geoms, working with `SpatialDataset`.
+  - `useCRS` parameter with value "provided" for `geomMap()` and other geoms, working with `SpatialDataset`.
 
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/projection_provided.ipynb).
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/projection_provided.ipynb).
 
 
 ### Changed
+
+- Upgraded Lets-Plot version to 3.0.0 (was 2.5.1).
+
 
 ### Fixed
 
