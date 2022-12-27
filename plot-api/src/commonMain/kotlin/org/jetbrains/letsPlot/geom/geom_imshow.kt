@@ -111,7 +111,8 @@ fun geomImshow(
         showLegend = false,
         sampling = null,
         orientation = null,
-        tooltips = null
+        tooltips = null,
+        labels = null
     ) {
         override fun seal(): Options {
             return Options.of(

@@ -54,12 +54,11 @@ allprojects {
         maven(url = "https://repo.osgeo.org/repository/release")
 
         mavenCentral()
-        mavenLocal()
 
         // local
-        maven {
-            url = uri("/Users/ikupriyanov/Projects/lets-plot/.maven-publish-dev-repo")
-        }
+//        maven {
+//            url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
+//        }
 
         // SNAPSHOTS
         maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
