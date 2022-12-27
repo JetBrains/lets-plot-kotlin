@@ -28,7 +28,7 @@ import org.jetbrains.letsPlot.intern.standardizing.JvmStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.MapStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.toList
-import org.jetbrains.letsPlot.spatial.CRSCode.checkCRS
+import org.jetbrains.letsPlot.spatial.CRSCode.isWGS84Code
 import org.jetbrains.letsPlot.spatial.GeometryFormat
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 
@@ -147,7 +147,11 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     if (this is WithSpatialParameters) {
         map?.run {
             if (useCRS != "provided") {
-                this.crs?.let { checkCRS(it) }
+                this.crs?.let {
+                    require(isWGS84Code(it)) {
+                        "Geometry must use WGS84 coordinate reference system but was: $it."
+                    }
+                }
             }
             useCRS?.let { spec[Option.Layer.USE_CRS] = it }
 
