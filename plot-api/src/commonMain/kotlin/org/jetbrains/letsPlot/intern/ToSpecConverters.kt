@@ -147,7 +147,7 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     if (this is WithSpatialParameters) {
         map?.run {
             if (useCRS != "provided") {
-                this.CRS?.let { checkCRS(it) }
+                this.crs?.let { checkCRS(it) }
             }
             useCRS?.let { spec[Option.Layer.USE_CRS] = it }
 

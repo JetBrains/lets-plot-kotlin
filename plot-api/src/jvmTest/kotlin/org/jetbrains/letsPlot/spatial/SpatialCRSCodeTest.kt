@@ -20,7 +20,7 @@ class SpatialCRSCodeTest {
         val dat = SpatialDataset.withGEOJSON(
             data = emptyMap(),
             geometry = polygons,
-            CRS = WGS84
+            crs = WGS84
         )
         val p = ggplot() + geomMap(map = dat)
         assertTrue(p.toSpec().isNotEmpty())
@@ -31,7 +31,7 @@ class SpatialCRSCodeTest {
         val dat = SpatialDataset.withGEOJSON(
             data = emptyMap(),
             geometry = polygons,
-            CRS = NAD83
+            crs = NAD83
         )
         assertFailsWith(IllegalArgumentException::class) {
             (ggplot() + geomMap(map = dat)).toSpec()
@@ -48,7 +48,7 @@ class SpatialCRSCodeTest {
         val dat = SpatialDataset.withGEOJSON(
             data = emptyMap(),
             geometry = polygons,
-            CRS = NAD83
+            crs = NAD83
         )
         val p = ggplot() + geomMap(map = dat, useCRS = "provided")
         assertTrue(p.toSpec().isNotEmpty())

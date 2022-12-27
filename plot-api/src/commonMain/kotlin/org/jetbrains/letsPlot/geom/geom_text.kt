@@ -58,7 +58,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param useCRS string
  *     By default, all coordinates are converted into degrees of longitude and latitude,
  *     and these map coordinates are projected onto the screen coordinates using Mercator projection.
- *     Specify useCRS="provided" to keep the GeoDataFrame’s original coordinate reference system (CRS).
+ *     Specify useCRS="provided" to keep the SpatialDataset’s original coordinate reference system (CRS).
  * @param x x-axis value.
  * @param y y-axis value.
  * @param label text to add to plot.
