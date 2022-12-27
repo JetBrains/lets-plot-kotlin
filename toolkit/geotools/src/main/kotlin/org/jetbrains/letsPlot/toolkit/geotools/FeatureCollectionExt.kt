@@ -36,7 +36,7 @@ private fun getDataAndGeometries(
 
     val crs = (geometryAttribute as GeometryDescriptor).coordinateReferenceSystem
 
-    val data = dataAttributes.associate { it.localName to ArrayList<Any?>() }.toMutableMap()
+    val data = dataAttributes.associate { it.localName to ArrayList<Any?>() }
     val geometries = ArrayList<String>()
 
     featureCollection.features().use {

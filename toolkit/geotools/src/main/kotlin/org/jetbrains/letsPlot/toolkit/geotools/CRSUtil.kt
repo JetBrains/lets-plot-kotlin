@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot.toolkit.geotools
 
+import org.jetbrains.letsPlot.spatial.CRSCode
 import org.opengis.referencing.crs.CoordinateReferenceSystem
 import org.opengis.referencing.cs.CoordinateSystem
 
@@ -22,7 +23,10 @@ internal object CRSUtil {
     }
 
     fun isWGS84Code(code: String?): Boolean {
-        // matches "GCS_WGS_1984", ""WGS84(DD)
-        return code?.contains(Regex(".*WGS[ _]{0,1}(19){0,1}84.*")) ?: false
+        if (code == null) {
+            return false
+        }
+
+        return CRSCode.isWGS84Code(code)
     }
 }
