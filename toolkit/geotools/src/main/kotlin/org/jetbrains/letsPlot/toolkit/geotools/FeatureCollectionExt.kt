@@ -18,29 +18,25 @@ import org.opengis.feature.type.GeometryDescriptor
  */
 fun SimpleFeatureCollection.toSpatialDataset(decimals: Int = 10): SpatialDataset {
     val geojson = GeometryJSON(decimals)
-    val (data, geometries) = getDataAndGeometries(this) {
+    val (data, geometries, CRS) = getDataAndGeometries(this) {
         geojson.toString(it)
     }
-    return SpatialDataset.withGEOJSON(data, geometries)
+    return SpatialDataset.withGEOJSON(data, geometries, CRS)
 }
 
 private fun getDataAndGeometries(
     featureCollection: SimpleFeatureCollection,
     geometryToString: (Geometry) -> String
-): Pair<Map<String, List<Any?>>, List<String>> {
+): Triple<Map<String, List<Any?>>, List<String>, String> {
     val attributeDescriptors = featureCollection.schema.attributeDescriptors
 
     val dataAttributes = attributeDescriptors?.filter { it !is GeometryDescriptor }?.map { it!! } ?: emptyList()
     val geometryAttribute = attributeDescriptors?.find { it is GeometryDescriptor }
         ?: throw IllegalArgumentException("No geometry attribute")
 
-
     val crs = (geometryAttribute as GeometryDescriptor).coordinateReferenceSystem
-    require(CRSUtil.isWGS84_2D(crs)) {
-        "Geometry must use WGS84 coordinate reference system but was: ${crs.name} ."
-    }
 
-    val data = dataAttributes.map { it.localName to ArrayList<Any?>() }.toMap()
+    val data = dataAttributes.associate { it.localName to ArrayList<Any?>() }
     val geometries = ArrayList<String>()
 
     featureCollection.features().use {
@@ -55,9 +51,8 @@ private fun getDataAndGeometries(
             for (dataAttribute in dataAttributes) {
                 data[dataAttribute.localName]?.add(feature.getAttribute(dataAttribute.name))
             }
-
             geometries.add(geometryToString(featureGeometry))
         }
     }
-    return Pair(data, geometries)
+    return Triple(data, geometries, crs.name.code)
 }

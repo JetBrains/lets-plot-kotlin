@@ -10,11 +10,12 @@ import org.jetbrains.letsPlot.intern.asPlotData
 class SpatialDataset private constructor(
     private val map: Map<String, List<Any?>>,
     val geometryKey: String,
-    val geometryFormat: GeometryFormat
+    val geometryFormat: GeometryFormat,
+    val crs: String?
 ) : Map<String, List<Any?>> by map {
 
     override fun toString(): String {
-        return "SpatialDataset($geometryFormat, key='$geometryKey', map=${this.map})"
+        return "SpatialDataset($geometryFormat, key='$geometryKey', map=${this.map}, crs=${this.crs})"
     }
 
     companion object {
@@ -24,9 +25,10 @@ class SpatialDataset private constructor(
 
         fun withGEOJSON(
             data: Map<String, Any>,
-            geometry: List<String>
+            geometry: List<String>,
+            crs: String? = null
         ): SpatialDataset {
-            return create(data, geometry, GeometryFormat.GEOJSON)
+            return create(data, geometry, GeometryFormat.GEOJSON, crs)
         }
 
         /**
@@ -34,9 +36,10 @@ class SpatialDataset private constructor(
          */
         fun withWKT(
             data: Map<String, Any>,
-            geometry: List<String>
+            geometry: List<String>,
+            crs: String? = null
         ): SpatialDataset {
-            return create(data, geometry, GeometryFormat.WKT)
+            return create(data, geometry, GeometryFormat.WKT, crs)
         }
 
         /**
@@ -44,15 +47,17 @@ class SpatialDataset private constructor(
          */
         fun withWKB(
             data: Map<String, Any>,
-            geometry: List<String>
+            geometry: List<String>,
+            crs: String? = null
         ): SpatialDataset {
-            return create(data, geometry, GeometryFormat.WKB)
+            return create(data, geometry, GeometryFormat.WKB, crs)
         }
 
         private fun create(
             data: Map<String, Any>,
             geometry: List<String>,
-            geometryFormat: GeometryFormat
+            geometryFormat: GeometryFormat,
+            crs: String?
         ): SpatialDataset {
             @Suppress("NAME_SHADOWING")
             val data: Map<String, List<Any?>> = asPlotData(data)
@@ -67,7 +72,7 @@ class SpatialDataset private constructor(
 
             val geometryKey = chooseGeometryColName(data.keys)
             val map = data + mapOf(geometryKey to geometry)
-            return SpatialDataset(map, geometryKey, geometryFormat)
+            return SpatialDataset(map, geometryKey, geometryFormat, crs)
         }
 
         private fun chooseGeometryColName(usedNames: Set<String>): String {

@@ -89,6 +89,7 @@ class geomPie(
     labels: AnnotationOptions? = null,
     override val map: SpatialDataset? = null,
     override val mapJoin: Pair<Any, Any>? = null,
+    override val useCRS: String? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val slice: Number? = null,

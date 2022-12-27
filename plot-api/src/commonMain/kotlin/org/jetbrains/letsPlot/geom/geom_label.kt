@@ -52,6 +52,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Specifies column names to join the 'data' and the 'map' coordinates on.
  *     Pair.first: column name or list of column names in the 'data' dataframe.
  *     Pair.second: column name or list of column names in the 'map' dataframe.
+ * @param useCRS string
+ *     By default, all coordinates are converted into degrees of longitude and latitude,
+ *     and these map coordinates are projected onto the screen coordinates using Mercator projection.
+ *     Specify useCRS="provided" to keep the SpatialDataset’s original coordinate reference system (CRS).
  * @param x x-axis value.
  * @param y y-axis value.
  * @param label text to add to plot.
@@ -112,6 +116,7 @@ class geomLabel(
     tooltips: TooltipOptions? = null,
     override val map: SpatialDataset? = null,
     override val mapJoin: Pair<Any, Any>? = null,
+    override val useCRS: String? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val label: String? = null,
