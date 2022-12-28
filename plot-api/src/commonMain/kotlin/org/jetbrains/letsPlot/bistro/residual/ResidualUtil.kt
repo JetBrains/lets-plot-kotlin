@@ -24,18 +24,27 @@ internal object ResidualUtil {
     ): Map<*, *> {
 
         if (data.isEmpty() || data.values.first().isEmpty()) {
-            return data
+            return data.toMutableMap().apply {
+                this[ResidualVar.RESIDUAL] = emptyList()
+            }
         }
 
         val groupResults = splitByGroup(data, colorBy).mapNotNull { groupData ->
-            if (groupData.isEmpty()) return@mapNotNull null
-
+            if (groupData.isEmpty() || !groupData.containsKey(x) || !groupData.containsKey(y)) {
+                return@mapNotNull null
+            }
+            val nonNanValues = groupData[x]!!.zip(groupData[y]!!).withIndex().filter { (_, xy) ->
+                xy.first != null && xy.second != null
+            }
+            if (nonNanValues.isEmpty()) {
+                return@mapNotNull null
+            }
             // FIXME: Ensure data size is 3 - currently regressions need at least 3 points
             // FIXME: jetbrains/datalore/plot/base/stat/regression/LinearRegression.kt:44
             //        jetbrains/datalore/plot/base/stat/regression/LocalPolynomialRegression.kt:41
-            val dataSize = groupData.values.first().size
-            val corrected = if (dataSize == 2) {
-                groupData.entries.associate { (key, values) -> key to values + values.last() }
+            val corrected = if (nonNanValues.size == 2) {
+                val lastNonNanIndex = nonNanValues.last().index
+                groupData.entries.associate { (key, values) -> key to values + values[lastNonNanIndex] }
             } else {
                 groupData
             }

@@ -222,10 +222,13 @@ internal class ResidualPlotBuilder(
         }
 
         val binWidthX = with(xs.filterNotNull()) {
-            (max() - min()) / DEF_BINS
+            if (isEmpty()) null else (max() - min()) / DEF_BINS
         }
         val binWidthY = with(ys.filterNotNull()) {
-            (max() - min()) / DEF_BINS
+            if (isEmpty()) null else (max() - min()) / DEF_BINS
+        }
+        if (binWidthX == null || binWidthY == null) {
+            return null
         }
         val binWidthMax = max(binWidthX, binWidthY)
         return binWidthMax to binWidthMax
