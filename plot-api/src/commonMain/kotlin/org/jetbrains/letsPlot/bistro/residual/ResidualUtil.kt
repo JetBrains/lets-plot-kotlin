@@ -37,24 +37,23 @@ internal object ResidualUtil {
             val ys = groupData[y]!!
             val filteredIndices = xs.zip(ys)
                 .withIndex()
-                .filter { (_, pair) -> pair.first != null && pair.second != null }
+                .filter { (_, pair) -> SeriesUtil.allFinite(pair.first as? Double, pair.second as? Double) }
                 .map { it.index }
 
-            if (filteredIndices.size < 2) {
-                return@map emptyDataWithResiduals()
-            }
-            // FIXME: Ensure data size is 3 - currently regressions need at least 3 points
-            // FIXME: jetbrains/datalore/plot/base/stat/regression/LinearRegression.kt:44
-            //        jetbrains/datalore/plot/base/stat/regression/LocalPolynomialRegression.kt:41
-            val indices = if (filteredIndices.size == 2) {
-                filteredIndices + filteredIndices.last()
-            } else {
-                filteredIndices
-            }
-            val values = groupData.mapValues { (_, values) -> SeriesUtil.pickAtIndices(values, indices ) }
+                if (filteredIndices.size < 2) {
+                    return@map emptyDataWithResiduals()
+                }
 
-            appendResidualsToGroup(values, x, y, model, loessCriticalSize, samplingSeed)
-        }
+                val indices = when (filteredIndices.size) {
+                    // FIXME: Ensure data size is 3 - currently regressions need at least 3 points
+                    // FIXME: jetbrains/datalore/plot/base/stat/regression/LinearRegression.kt:44
+                    //        jetbrains/datalore/plot/base/stat/regression/LocalPolynomialRegression.kt:41
+                    2 -> filteredIndices + filteredIndices.last()
+                    else -> filteredIndices
+                }
+                val values= groupData.mapValues { SeriesUtil.pickAtIndices(it.value, indices) }
+                appendResidualsToGroup(values, x, y, model, loessCriticalSize, samplingSeed)
+            }
 
         // merge maps
         return groupResults.fold(mutableMapOf<String, MutableList<Any?>>()) { mergedMap, map ->
@@ -75,17 +74,17 @@ internal object ResidualUtil {
     ): Map<String, List<Any?>> {
         val df = DataFrameUtil.fromMap(groupData)
         val afterSampling = applySampling(df, model, loessCriticalSize, samplingSeed)
-        val xs = extractDataSeries(afterSampling, x)
+        val xs = getNumeric(afterSampling, x)
         val xRange = SeriesUtil.range(xs)
         val predictor: (Double) -> Double = model.getPredictor(
             xs = xs,
-            ys = extractDataSeries(afterSampling, y)
+            ys = getNumeric(afterSampling, y)
         )
 
         val result = groupData.toMutableMap()
         result[ResidualVar.RESIDUAL] = calculateResiduals(
-            xs = extractDataSeries(df, x),
-            ys = extractDataSeries(df, y),
+            xs = getNumeric(df, x),
+            ys = getNumeric(df, y),
             predictor,
             range = xRange
         )
@@ -120,9 +119,8 @@ internal object ResidualUtil {
         }
     }
 
-    private fun extractDataSeries(df: DataFrame, varName: String): List<Double?> {
-        val v = DataFrameUtil.findVariableOrFail(df, varName)
-        return df.getNumeric(v)
+    private fun getNumeric(df: DataFrame, varName: String): List<Double?> {
+        return df.getNumeric(DataFrameUtil.findVariableOrFail(df, varName))
     }
 
     private fun splitByGroup(data: Map<String, List<Any?>>, groupName: String?): List<Map<String, List<Any?>>> {
