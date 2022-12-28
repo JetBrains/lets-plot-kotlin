@@ -18,6 +18,43 @@ import org.jetbrains.letsPlot.util.pngj.OutputPngStream
 import org.jetbrains.letsPlot.util.pngj.PngWriter
 
 
+/**
+ * Displays image specified by ImageData.
+ *
+ * This geom is not as flexible as `geomRaster()` or `geomTile()`
+ * but vastly superior in the terms of rendering efficiency.
+ *
+ * Notes
+ * -----
+ * This geom doesn't understand any aesthetics.
+ * It doesn't support color scales either.
+ *
+ * ## Examples
+ *
+ * - [image_101.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_101.ipynb)
+ * - [image_extent.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_extent.ipynb)
+ * - [image_fisher_boat.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_fisher_boat.ipynb)
+ * - [image_grayscale.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_grayscale.ipynb)
+ *
+ * @param imageData
+ * Specifies image type, size and pixel values. See [ImageData.fromArray] and [ImageData.fromMatrix].
+ *
+ * @param norm Default: True.
+ *      True - luminance values in grey-scale image will be scaled to [0-255] range using a linear scaler.
+ *      False - disables scaling of luminance values in grey-scale image.
+ *      This parameter is ignored for RGB(A) images.
+ *  @param vmin Default: null.
+ *      Define the data range used for luminance normalization in grey-scale images.
+ *      This parameter is ignored for RGB(A) images or if parameter `norm=False`.
+ *  @param vmax Default: null.
+ *      Define the data range used for luminance normalization in grey-scale images.
+ *      This parameter is ignored for RGB(A) images or if parameter `norm=False`.
+ *  @param extent Default: [-0.5, ncol-0.5, -0.5, nrow-0.5].
+ *      list of 4 numbers: [left, right, bottom, top], optional
+ *      Define image's bounding box in terms of the "data coordinates".
+ *      - `left, right`: coordinates of pixels' outer edge along the x-axis for pixels in the 1-st and the last column.
+ *      - `bottom, top`: coordinates of pixels' outer edge along the y-axis for pixels in the 1-st and the last row.
+ */
 fun geomImshow(
     imageData: ImageData,
     norm: Boolean? = null,
@@ -162,10 +199,28 @@ class ImageData private constructor(
     )
 
     companion object {
+        /**
+         * Create ImageData from 1D array with pixel data.
+         * @param pixels Array of numbers (0-1 float or 0-255 int).
+         * Expected size width * height * nChannels.
+         * @param width Width of the image in pixels.
+         * @param height Height of the image in pixels.
+         * @param nChannels Number of channels per pixel.
+         * 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`
+         * 3: an image with RGB values (0-1 float or 0-255 int).
+         * 4: an image with RGBA values (0-1 float or 0-255 int).
+         */
         fun fromArray(pixels: Any, width: Int, height: Int, nChannels: Int): ImageData {
             return ImageData(pixels, Shape(width, height, nChannels))
         }
 
+        /**
+         * Create ImageData from 2D or 3D array.
+         * @param pixels 2D or 3D array
+         * - (M, N): an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         * - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).
+         * - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
+         */
         fun fromMatrix(pixels: List<*>): ImageData {
             return ImageData(pixels, null)
         }
