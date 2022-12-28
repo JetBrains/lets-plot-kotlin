@@ -50,7 +50,7 @@ internal class ResidualPlotBuilder(
     private val myData = asPlotData(data)
 
     fun build(): Plot {
-        val statData = ResidualUtil.appendResiduals(myData, x, y, getModel(), loessCriticalSize, samplingSeed)
+        val statData = ResidualUtil.appendResiduals(myData, x, y, colorBy, getModel(), loessCriticalSize, samplingSeed)
 
         val mapping: GenericAesMapping.() -> Unit = {
             x = this@ResidualPlotBuilder.x
