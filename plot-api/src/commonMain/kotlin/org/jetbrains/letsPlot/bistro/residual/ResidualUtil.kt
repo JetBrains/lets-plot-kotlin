@@ -23,32 +23,37 @@ internal object ResidualUtil {
         samplingSeed: Long
     ): Map<*, *> {
 
+        fun emptyDataWithResiduals() = (data.keys + ResidualVar.RESIDUAL).associateWith { emptyList<Any>() }
+
         if (data.isEmpty() || data.values.first().isEmpty()) {
-            return data.toMutableMap().apply {
-                this[ResidualVar.RESIDUAL] = emptyList()
-            }
+            return emptyDataWithResiduals()
         }
 
-        val groupResults = splitByGroup(data, colorBy).mapNotNull { groupData ->
+        val groupResults = splitByGroup(data, colorBy).map { groupData ->
             if (groupData.isEmpty() || !groupData.containsKey(x) || !groupData.containsKey(y)) {
-                return@mapNotNull null
+                return@map emptyDataWithResiduals()
             }
-            val nonNanValues = groupData[x]!!.zip(groupData[y]!!).withIndex().filter { (_, xy) ->
-                xy.first != null && xy.second != null
-            }
-            if (nonNanValues.isEmpty()) {
-                return@mapNotNull null
+            val xs = groupData[x]!!
+            val ys = groupData[y]!!
+            val filteredIndices = xs.zip(ys)
+                .withIndex()
+                .filter { (_, pair) -> pair.first != null && pair.second != null }
+                .map { it.index }
+
+            if (filteredIndices.size < 2) {
+                return@map emptyDataWithResiduals()
             }
             // FIXME: Ensure data size is 3 - currently regressions need at least 3 points
             // FIXME: jetbrains/datalore/plot/base/stat/regression/LinearRegression.kt:44
             //        jetbrains/datalore/plot/base/stat/regression/LocalPolynomialRegression.kt:41
-            val corrected = if (nonNanValues.size == 2) {
-                val lastNonNanIndex = nonNanValues.last().index
-                groupData.entries.associate { (key, values) -> key to values + values[lastNonNanIndex] }
+            val indices = if (filteredIndices.size == 2) {
+                filteredIndices + filteredIndices.last()
             } else {
-                groupData
+                filteredIndices
             }
-            appendResidualsToGroup(corrected, x, y, model, loessCriticalSize, samplingSeed)
+            val values = groupData.mapValues { (_, values) -> SeriesUtil.pickAtIndices(values, indices ) }
+
+            appendResidualsToGroup(values, x, y, model, loessCriticalSize, samplingSeed)
         }
 
         // merge maps
@@ -130,12 +135,8 @@ internal object ResidualUtil {
             groupIndices.getOrPut(v, ::mutableListOf).add(index)
         }
 
-        val result = groupIndices.map { (_, groupIndices) ->
-            val group = mutableMapOf<String, List<Any?>>()
-            data.forEach { (key, values) ->
-                group[key] = SeriesUtil.pickAtIndices(values, groupIndices)
-            }
-            group
+        val result = groupIndices.map { (_, indices) ->
+            data.mapValues { (_, values) -> SeriesUtil.pickAtIndices(values, indices) }
         }
         return result
     }
