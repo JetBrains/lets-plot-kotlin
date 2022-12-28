@@ -34,13 +34,12 @@ internal object ResidualUtil {
             // FIXME: jetbrains/datalore/plot/base/stat/regression/LinearRegression.kt:44
             //        jetbrains/datalore/plot/base/stat/regression/LocalPolynomialRegression.kt:41
             val dataSize = groupData.values.first().size
-            val groupData = if (dataSize <= 2) {
-                groupData.entries.associate { (key, values) -> key to values + List(3 - dataSize) { values.last() } }
+            val corrected = if (dataSize == 2) {
+                groupData.entries.associate { (key, values) -> key to values + values.last() }
             } else {
                 groupData
             }
-
-            appendResidualsToGroup(groupData, x, y, model, loessCriticalSize, samplingSeed)
+            appendResidualsToGroup(corrected, x, y, model, loessCriticalSize, samplingSeed)
         }
 
         // merge maps
@@ -122,13 +121,12 @@ internal object ResidualUtil {
             groupIndices.getOrPut(v, ::mutableListOf).add(index)
         }
 
-        val result = mutableListOf<Map<String, List<Any?>>>()
-        groupIndices.forEach { (_, groupIndices) ->
+        val result = groupIndices.map { (_, groupIndices) ->
             val group = mutableMapOf<String, List<Any?>>()
             data.forEach { (key, values) ->
                 group[key] = SeriesUtil.pickAtIndices(values, groupIndices)
             }
-            result.add(group)
+            group
         }
         return result
     }
