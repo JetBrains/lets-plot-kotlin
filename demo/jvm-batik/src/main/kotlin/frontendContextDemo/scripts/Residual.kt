@@ -75,6 +75,13 @@ object Residual {
 
             // Grouping
             (residualPlot(irisData, "petal length (cm)", "petal width (cm)", colorBy = "target")).show()
+
+            val data = mapOf(
+                "x" to listOf(0, 1, 0, 1),
+                "y" to listOf(0, 1, 0, -1),
+                "g" to listOf("a", "a", "b", "b")
+             )
+             residualPlot(data, x = "x", y = "y", colorBy = "g").show()
         }
     }
 }

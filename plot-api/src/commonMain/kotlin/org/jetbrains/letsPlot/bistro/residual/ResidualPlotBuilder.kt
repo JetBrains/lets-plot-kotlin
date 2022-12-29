@@ -50,7 +50,7 @@ internal class ResidualPlotBuilder(
     private val myData = asPlotData(data)
 
     fun build(): Plot {
-        val statData = ResidualUtil.appendResiduals(myData, x, y, getModel(), loessCriticalSize, samplingSeed)
+        val statData = ResidualUtil.appendResiduals(myData, x, y, colorBy, getModel(), loessCriticalSize, samplingSeed)
 
         val mapping: GenericAesMapping.() -> Unit = {
             x = this@ResidualPlotBuilder.x
@@ -222,10 +222,13 @@ internal class ResidualPlotBuilder(
         }
 
         val binWidthX = with(xs.filterNotNull()) {
-            (max() - min()) / DEF_BINS
+            if (isEmpty()) null else (max() - min()) / DEF_BINS
         }
         val binWidthY = with(ys.filterNotNull()) {
-            (max() - min()) / DEF_BINS
+            if (isEmpty()) null else (max() - min()) / DEF_BINS
+        }
+        if (binWidthX == null || binWidthY == null) {
+            return null
         }
         val binWidthMax = max(binWidthX, binWidthY)
         return binWidthMax to binWidthMax
