@@ -6,7 +6,7 @@
 package org.jetbrains.letsPlot
 
 import jetbrains.datalore.plot.config.Option.Geom.Image.HREF
-import org.jetbrains.letsPlot.geom.ImageData
+import org.jetbrains.letsPlot.geom.RasterData
 import org.jetbrains.letsPlot.geom.geomImshow
 import org.junit.Test
 import java.util.*
@@ -18,7 +18,7 @@ class ImshowTest {
     @Test
     fun `simple test`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(listOf(150, 0, 0), listOf(0, 150, 0)),
                     listOf(listOf(0, 0, 150), listOf(150, 150, 0)),
@@ -34,7 +34,7 @@ class ImshowTest {
     @Test
     fun `gray 2 x 3 matrix of byte`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0.toByte(), 0.toByte(), 0.toByte()),
                     listOf(255.toByte(), 255.toByte(), 255.toByte())
@@ -50,7 +50,7 @@ class ImshowTest {
     @Test
     fun `gray 2 x 3 matrix of int`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0, 0, 0),
                     listOf(255, 255, 255)
@@ -66,7 +66,7 @@ class ImshowTest {
     @Test
     fun `gray 2 x 3 matrix of float`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0.0, 0.0, 0.0),
                     listOf(1.0, 1.0, 1.0)
@@ -82,7 +82,7 @@ class ImshowTest {
     @Test
     fun `gray 2 x 3 array of float`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
+            RasterData.create(
                 arrayOf(
                     0.0, 0.0, 0.0,
                     1.0, 1.0, 1.0
@@ -101,7 +101,7 @@ class ImshowTest {
     @Test
     fun `gray 2 x 3 array of byte`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
+            RasterData.create(
                 arrayOf(
                     0, 0, 0,
                     255.toByte(), 255.toByte(), 255.toByte()
@@ -120,7 +120,7 @@ class ImshowTest {
     @Test
     fun `gray 2 x 3 array of int`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
+            RasterData.create(
                 arrayOf(
                     0, 0, 0,
                     255, 255, 255
@@ -137,9 +137,29 @@ class ImshowTest {
     }
 
     @Test
+    fun `DEM 2 x 3 array of int `() {
+        // Values higher than 255. normalization expected.
+        val imshow = geomImshow(
+            RasterData.create(
+                arrayOf(
+                    0, 0, 0,
+                    255 * 4, 255 * 4, 255 * 4
+                ),
+                width = 3,
+                height = 2,
+                nChannels = 1
+            )
+        )
+        assertEquals(
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
+            imshow.seal().map[HREF]
+        )
+    }
+
+    @Test
     fun `gray 2 x 3 IntArray`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
+            RasterData.create(
                 intArrayOf(
                     0x00, 0x00, 0x00, 0xFF, 0xFF, 0xFF
                 ),
@@ -157,7 +177,7 @@ class ImshowTest {
     @Test
     fun `rgb 1 x 2 x 3 matrix of ints`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(
                         listOf(0, 0, 0),
@@ -175,7 +195,7 @@ class ImshowTest {
     @Test
     fun `rgb 1 x 2 x 3 matrix of floats`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(
                         listOf(0.0, 0.0, 0.0),
@@ -193,8 +213,8 @@ class ImshowTest {
     @Test
     fun `rgb 1 x 2 x 3 array of ints`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
-                pixels = arrayOf(
+            RasterData.create(
+                arr = arrayOf(
                     0, 0, 0,
                     255, 255, 255
                 ),
@@ -212,8 +232,8 @@ class ImshowTest {
     @Test
     fun `rgb 1 x 2 x 3 array of floats`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
-                pixels = arrayOf(
+            RasterData.create(
+                arr = arrayOf(
                     0.0, 0.0, 0.0,
                     1.0, 1.0, 1.0
                 ),
@@ -231,9 +251,10 @@ class ImshowTest {
     @Test
     fun `rgb 1 x 2 x 3 IntArray`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
-                pixels = intArrayOf(
-                    0x0, 0xFFFFFF
+            RasterData.create(
+                arr = intArrayOf(
+                    0x0, 0x00, 0x00,
+                    0xFF, 0xFF, 0xFF
                 ),
                 width = 2,
                 height = 1,
@@ -249,7 +270,7 @@ class ImshowTest {
     @Test
     fun `rgba 1 x 2 x 4 matrix of ints`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(
                         listOf(0, 0, 0, 128),
@@ -267,7 +288,7 @@ class ImshowTest {
     @Test
     fun `rgba 1 x 2 x 4 matrix of floats`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(
                         listOf(0.0, 0.0, 0.0, 0.5),
@@ -285,8 +306,8 @@ class ImshowTest {
     @Test
     fun `rgba 1 x 2 x 4 array of ints`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
-                pixels = arrayOf(
+            RasterData.create(
+                arr = arrayOf(
                     0, 0, 0, 128,
                     255, 255, 255, 128
                 ),
@@ -304,8 +325,8 @@ class ImshowTest {
     @Test
     fun `rgba 1 x 2 x 4 array of floats`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
-                pixels = arrayOf(
+            RasterData.create(
+                arr = arrayOf(
                     0.0, 0.0, 0.0, 0.5,
                     1.0, 1.0, 1.0, 0.5
                 ),
@@ -324,9 +345,10 @@ class ImshowTest {
     @Test
     fun `rgba 1 x 2 x 4 IntArray`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
-                pixels = intArrayOf(
-                    0x80000000.toInt(), 0x80FFFFFF.toInt()
+            RasterData.create(
+                arr = intArrayOf(
+                    0x00, 0x00, 0x00, 0x80,
+                    0xFF, 0xFF, 0xFF, 0x80
                 ),
                 width = 2,
                 height = 1,
@@ -342,7 +364,7 @@ class ImshowTest {
     @Test
     fun `nan 2 x 3 matrix of floats`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(50.0, Double.NaN, 200.0),
                     listOf(Double.NaN, 100.0, 50.0)
@@ -358,8 +380,8 @@ class ImshowTest {
     @Test
     fun `nan 2 x 3 array of floats`() {
         val imshow = geomImshow(
-            ImageData.fromArray(
-                pixels = arrayOf(
+            RasterData.create(
+                arr = arrayOf(
                     50.0, Double.NaN, 200.0,
                     Double.NaN, 100.0, 50.0
                 ),
@@ -377,7 +399,7 @@ class ImshowTest {
     @Test
     fun `normalization - gray 2 x 3 matrix of ints - normalized (default)`() {
         val s1 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0, 0, 0),
                     listOf(255, 255, 255)
@@ -386,7 +408,7 @@ class ImshowTest {
         ).seal().map
 
         val s2 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0, 0, 0),
                     listOf(100, 100, 100)
@@ -400,7 +422,7 @@ class ImshowTest {
     @Test
     fun `normalization - gray 2 x 3 matrix of ints - no normalization`() {
         val s1 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0, 0, 0),
                     listOf(255, 255, 255)
@@ -410,7 +432,7 @@ class ImshowTest {
         ).seal().map
 
         val s2 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0, 0, 0),
                     listOf(100, 100, 100)
@@ -426,7 +448,7 @@ class ImshowTest {
     @Test
     fun `normalization - gray 2 x 3 matrix of floats - normalized (default)`() {
         val s1 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0.0, 0.0, 0.0),
                     listOf(0.1, 0.1, 0.1)
@@ -435,7 +457,7 @@ class ImshowTest {
         ).seal().map
 
         val s2 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0.0, 0.0, 0.0),
                     listOf(100.0, 100.0, 100.0)
@@ -449,7 +471,7 @@ class ImshowTest {
     @Test
     fun `normalization - rgb _ ints`() {
         val s1 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(
                         listOf(0, 0, 0),
@@ -460,7 +482,7 @@ class ImshowTest {
         ).seal().map
 
         val s2 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(
                         listOf(0, 0, 0),
@@ -476,7 +498,7 @@ class ImshowTest {
     @Test
     fun `normalization - rgb _ floats and ints`() {
         val s1 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(
                         listOf(0.0, 0.0, 0.0),
@@ -487,7 +509,7 @@ class ImshowTest {
         ).seal().map
 
         val s2 = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(
                         listOf(0, 0, 0),
@@ -505,7 +527,7 @@ class ImshowTest {
     @Test
     fun `extent - gray 2 x 3 int`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0, 50, 100),
                     listOf(150, 200, 250)
@@ -522,7 +544,7 @@ class ImshowTest {
     @Test
     fun `extent - gray 2 x 3 float`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(0.0, 50 / 255.0, 100 / 255.0),
                     listOf(150 / 255.0, 200 / 255.0, 250 / 255.0)
@@ -539,7 +561,7 @@ class ImshowTest {
     @Test
     fun `extent - rgb 2 x 2 int`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(listOf(150, 0, 0), listOf(0, 150, 0)),
                     listOf(listOf(0, 0, 150), listOf(150, 150, 0))
@@ -556,7 +578,7 @@ class ImshowTest {
     @Test
     fun `extent - rgb 2 x 2 float`() {
         val imshow = geomImshow(
-            ImageData.fromMatrix(
+            RasterData.create(
                 listOf(
                     listOf(listOf(150 / 255.0, 0 / 255.0, 0 / 255.0), listOf(0 / 255.0, 150 / 255.0, 0 / 255.0)),
                     listOf(listOf(0 / 255.0, 0 / 255.0, 150 / 255.0), listOf(150 / 255.0, 150 / 255.0, 0 / 255.0))
@@ -582,8 +604,8 @@ class ImshowTest {
             img.add(row)
         }
 
-        val imageData = ImageData.fromMatrix(img)
-        geomImshow(imageData)
+        val rasterData = RasterData.create(img)
+        geomImshow(rasterData)
     }
 
     @Test
@@ -594,8 +616,8 @@ class ImshowTest {
             img[i] = Random().nextInt(255).toFloat()
         }
 
-        val imageData = ImageData.fromArray(img, resolution, resolution, 1)
-        geomImshow(imageData)
+        val rasterData = RasterData.create(img, resolution, resolution, 1)
+        geomImshow(rasterData)
     }
 
     @Test
@@ -612,8 +634,8 @@ class ImshowTest {
             img.add(row)
         }
 
-        val imageData = ImageData.fromMatrix(img)
-        geomImshow(imageData)
+        val rasterData = RasterData.create(img)
+        geomImshow(rasterData)
     }
 
     @Test
@@ -630,7 +652,7 @@ class ImshowTest {
             }
         }
 
-        val imageData = ImageData.fromArray(img, resolution, resolution, 3)
-        geomImshow(imageData)
+        val rasterData = RasterData.create(img, resolution, resolution, 3)
+        geomImshow(rasterData)
     }
 }

@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
 
 
 /**
- * Displays image specified by ImageData.
+ * Displays image specified by RasterData.
  *
  * This geom is not as flexible as `geomRaster()` or `geomTile()`
  * but vastly superior in the terms of rendering efficiency.
@@ -36,8 +36,8 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
  * - [image_fisher_boat.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_fisher_boat.ipynb)
  * - [image_grayscale.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_grayscale.ipynb)
  *
- * @param imageData
- * Specifies image type, size and pixel values. See [ImageData.fromArray] and [ImageData.fromMatrix].
+ * @param rasterData
+ * Specifies image type, size and pixel values. See [RasterData.create].
  *
  * @param norm Default: True.
  *      True - luminance values in grey-scale image will be scaled to [0-255] range using a linear scaler.
@@ -56,14 +56,14 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
  *      - `bottom, top`: coordinates of pixels' outer edge along the y-axis for pixels in the 1-st and the last row.
  */
 fun geomImshow(
-    imageData: ImageData,
+    rasterData: RasterData,
     norm: Boolean? = null,
     vmin: Number? = null,
     vmax: Number? = null,
     extent: List<Number>? = null,
 ): Layer {
     require(extent == null || extent.size == 4) { "Invalid `extent`: list of 4 numbers expected: ${extent!!.size}" }
-    var raster = Raster.fromImageData(imageData)
+    var raster = rasterData.createRaster()
 
     require(raster.nChannels in 1..4) {
         "Invalid image_data: num of channels expected to be 1 (G) or 2 (GA) for greyscale image, 3 (RGB) or 4 (RGBA) for color image, but was ${raster.nChannels}"
@@ -188,20 +188,61 @@ private fun normalize2d(raster: Raster, norm: Boolean?, vMin: Float?, vMax: Floa
     }
 }
 
-class ImageData private constructor(
-    val pixels: Any,
-    val shape: Shape?
+class RasterData private constructor(
+    private val data: Any,
+    private val width: Int,
+    private val height: Int,
+    private val nChannels: Int
 ) {
-    class Shape(
-        val width: Int,
-        val height: Int,
-        val nChannels: Int
-    )
-
     companion object {
         /**
-         * Create ImageData from 1D array with pixel data.
-         * @param pixels Array of numbers (0-1 float or 0-255 int).
+         * Create [RasterData] from 2D or 3D collection.
+         * @param iterable 2D or 3D collection
+         * - (M, N): an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         * - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).
+         * - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
+         */
+        fun create(iterable: Iterable<Iterable<*>>): RasterData {
+            val l0 = if (iterable is Collection) iterable else iterable.toList()
+            val l1 = l0.flatten()
+
+            @Suppress("UNCHECKED_CAST")
+            val l2: List<Number> = when(l1[0] is Iterable<*>) {
+                true -> (l1 as Iterable<Iterable<*>>).flatten() as List<Number>
+                false -> l1 as List<Number>
+            }
+
+            val height = l0.size
+            val width = l1.size / height
+            val nChannels = l2.size / (width * height)
+            return RasterData(l2, width, height, nChannels)
+        }
+
+        /**
+         * Create [RasterData] from 2D or 3D array.
+         * @param arr 2D or 3D array
+         * - (M, N): an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         * - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).
+         * - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
+         */
+        fun create(arr: Array<out Array<*>>): RasterData {
+            val l0 = arr.flatten()
+
+            @Suppress("UNCHECKED_CAST")
+            val l1: List<Number> = when(l0[0] is Array<*>) {
+                true -> (l0 as List<Array<*>>).map(Array<*>::asList).flatten() as List<Number>
+                false -> l0 as List<Number>
+            }
+
+            val height = arr.size
+            val width = l0.size / height
+            val nChannels = l1.size / (width * height)
+            return RasterData(l1, width, height, nChannels)
+        }
+
+        /**
+         * Create RasterData from 1D array with pixel data.
+         * @param arr Array of numbers (0-1 float or 0-255 int).
          * Expected size width * height * nChannels.
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
@@ -210,26 +251,118 @@ class ImageData private constructor(
          * 3: an image with RGB values (0-1 float or 0-255 int).
          * 4: an image with RGBA values (0-1 float or 0-255 int).
          */
-        fun fromArray(pixels: Any, width: Int, height: Int, nChannels: Int): ImageData {
-            return ImageData(pixels, Shape(width, height, nChannels))
-        }
+        fun create(arr: ByteArray, width: Int, height: Int, nChannels: Int) = RasterData(arr, width, height, nChannels)
 
         /**
-         * Create ImageData from 2D or 3D array.
-         * @param pixels 2D or 3D array
-         * - (M, N): an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
-         * - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).
-         * - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
+         * Create RasterData from 1D array with pixel data.
+         * @param arr Array of numbers (0-1 float or 0-255 int).
+         * Expected size width * height * nChannels.
+         * @param width Width of the image in pixels.
+         * @param height Height of the image in pixels.
+         * @param nChannels Number of channels per pixel.
+         * 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`
+         * 3: an image with RGB values (0-1 float or 0-255 int).
+         * 4: an image with RGBA values (0-1 float or 0-255 int).
          */
-        fun fromMatrix(pixels: List<*>): ImageData {
-            return ImageData(pixels, null)
-        }
+        fun create(arr: IntArray, width: Int, height: Int, nChannels: Int) = RasterData(arr, width, height, nChannels)
+
+        /**
+         * Create RasterData from 1D array with pixel data.
+         * @param arr Array of numbers (0-1 float or 0-255 int).
+         * Expected size width * height * nChannels.
+         * @param width Width of the image in pixels.
+         * @param height Height of the image in pixels.
+         * @param nChannels Number of channels per pixel.
+         * 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`
+         * 3: an image with RGB values (0-1 float or 0-255 int).
+         * 4: an image with RGBA values (0-1 float or 0-255 int).
+         */
+        fun create(arr: FloatArray, width: Int, height: Int, nChannels: Int) = RasterData(arr, width, height, nChannels)
+
+        /**
+         * Create RasterData from 1D array with pixel data.
+         * @param arr Array of numbers (0-1 float or 0-255 int).
+         * Expected size width * height * nChannels.
+         * @param width Width of the image in pixels.
+         * @param height Height of the image in pixels.
+         * @param nChannels Number of channels per pixel.
+         * 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`
+         * 3: an image with RGB values (0-1 float or 0-255 int).
+         * 4: an image with RGBA values (0-1 float or 0-255 int).
+         */
+        fun create(arr: DoubleArray, width: Int, height: Int, nChannels: Int) = RasterData(arr, width, height, nChannels)
+
+        /**
+         * Create RasterData from 1D array with pixel data.
+         * @param arr Array of numbers (0-1 float or 0-255 int).
+         * Expected size width * height * nChannels.
+         * @param width Width of the image in pixels.
+         * @param height Height of the image in pixels.
+         * @param nChannels Number of channels per pixel.
+         * 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`
+         * 3: an image with RGB values (0-1 float or 0-255 int).
+         * 4: an image with RGBA values (0-1 float or 0-255 int).
+         */
+        fun create(arr: Array<Number>, width: Int, height: Int, nChannels: Int) = RasterData(arr, width, height, nChannels)
     }
 
-    override fun toString(): String =
-        "ImageData: ${pixels::class.simpleName}, shape: " + when (shape) {
-        null -> "null"
-        else -> "${shape.width} x ${shape.height} x ${shape.nChannels}"
+    override fun toString() = "RasterData($width x $height x $nChannels)"
+
+    internal fun createRaster(): Raster {
+        val isDTypeF: Boolean
+        val pixelData: FloatArray = when (data) {
+            is Array<*> -> {
+                isDTypeF = data[0].let { it is Float || it is Double }
+                FloatArray(height * width * nChannels).also { arr ->
+                    data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                }
+            }
+
+            is FloatArray -> {
+                isDTypeF = true
+                FloatArray(height * width * nChannels).also(data::copyInto)
+            }
+
+            is ByteArray -> {
+                isDTypeF = false
+                FloatArray(height * width * nChannels).also { arr ->
+                    data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                }
+            }
+
+            is IntArray -> {
+                isDTypeF = false
+                FloatArray(height * width * nChannels).also { arr ->
+                    data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                }
+            }
+
+            is DoubleArray -> {
+                isDTypeF = true
+                FloatArray(height * width * nChannels).also { arr ->
+                    data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                }
+            }
+
+            is List<*> -> {
+                isDTypeF = data[0].let { it is Float || it is Double }
+                FloatArray(height * width * nChannels).also { arr ->
+                    data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
+                }
+            }
+            else -> error("Invalid bitmap: unsupported data type `${data::class.simpleName}`")
+        }
+
+        return Raster(width, height, nChannels, isDTypeF, pixelData)
+    }
+
+    private fun toFloat(v: Any?): Float {
+        return when (v) {
+            is Float -> v
+            is Byte -> v.toUByte().toFloat() // for bytes 128, 129 method .toFloat() returns -1f, -2f etc
+            is Number -> v.toFloat()
+            else -> error("Invalid bitmap: should contain only numbers")
+        }
     }
 }
 
@@ -238,10 +371,8 @@ internal class Raster(
     val height: Int,
     val nChannels: Int,
     val isDTypeF: Boolean,
-    pixelDataProvider: () -> FloatArray
+    val pixels: FloatArray
 ) {
-    val pixels: FloatArray by lazy { pixelDataProvider() }
-
     inner class Pixel {
         private var pxIndex: Int = 0
 
@@ -282,7 +413,7 @@ internal class Raster(
         }
     }
 
-    fun addChannel() = Raster(width, height, nChannels + 1, isDTypeF) {
+    fun addChannel(): Raster {
         val newPixels = FloatArray(width * height * (nChannels + 1))
         var newI = 0
         for (i in pixels.indices) {
@@ -291,164 +422,9 @@ internal class Raster(
                 newPixels[newI++] = Float.NaN
             }
         }
-        newPixels
+        return Raster(width, height, nChannels + 1, isDTypeF, newPixels)
     }
 
     fun pixel() = Pixel()
     fun hasNan() = pixels.any(Float::isNaN)
-
-    internal companion object {
-        fun fromImageData(imageData: ImageData): Raster {
-            if (imageData.shape == null) {
-                val height: Int
-                val width: Int
-                val nch: Int
-
-                if ((imageData.pixels as? List<*>)?.isNotEmpty() == true) {
-                    if ((imageData.pixels[0] as? List<*>)?.isNotEmpty() == true) {
-                        @Suppress("UNCHECKED_CAST")
-                        imageData.pixels as List<List<*>>
-
-                        height = imageData.pixels.size
-                        width = imageData.pixels[0].size
-
-                        if ((imageData.pixels[0][0] as? List<*>)?.isNotEmpty() == true) {
-                            @Suppress("UNCHECKED_CAST")
-                            imageData.pixels as List<List<List<Number>>>
-
-                            nch = imageData.pixels[0][0].size
-                            val isDTypeF = imageData.pixels[0][0][0].let { it is Double || it is Float }
-
-                            return Raster(width, height, nch, isDTypeF) {
-                                val arr = FloatArray(height * width * nch)
-
-                                var i = 0
-                                for (row in imageData.pixels) {
-                                    for (pix in row) {
-                                        for (ch in pix) {
-                                            arr[i++] = toFloat(ch)
-                                        }
-                                    }
-                                }
-
-                                arr
-                            }
-                        } else if (imageData.pixels[0][0] is Number) {
-                            @Suppress("UNCHECKED_CAST")
-                            imageData.pixels as List<List<Number>>
-
-                            nch = 1
-                            val isDTypeF = imageData.pixels[0][0].let { it is Double || it is Float }
-
-                            return Raster(width, height, nch, isDTypeF) {
-                                val arr = FloatArray(height * width * nch)
-
-                                var i = 0
-                                for (row in imageData.pixels) {
-                                    for (ch in row) {
-                                        arr[i++] = toFloat(ch)
-                                    }
-                                }
-                                arr
-                            }
-                        }
-                    }
-                }
-                error("Invalid bitmap: without shape a 2d or 3d array is expected")
-            } else {
-                val isDTypeF: Boolean
-                val nChannels = imageData.shape.nChannels
-                val height = imageData.shape.height
-                val width = imageData.shape.width
-                val pixelDataProvider: () -> FloatArray = when (imageData.pixels) {
-                    is FloatArray -> {
-                        isDTypeF = true
-
-                        fun(): FloatArray {
-                            val arr = FloatArray(height * width * nChannels)
-                            imageData.pixels.copyInto(arr)
-                            return arr
-                        }
-                    }
-
-                    is ByteArray -> {
-                        isDTypeF = false
-
-                        fun(): FloatArray {
-                            val arr = FloatArray(height * width * nChannels)
-                            imageData.pixels.forEachIndexed { i, v -> arr[i] = toFloat(v) }
-                            return arr
-                        }
-                    }
-
-                    is IntArray -> {
-                        isDTypeF = false
-
-                        fun(): FloatArray {
-                            val arr = FloatArray(height * width * nChannels)
-                            imageData.pixels.forEachIndexed { i, v ->
-                                var offset = i * nChannels
-                                if (nChannels >= 3) {
-                                    arr[offset++] = toFloat((v shr 16) and 0xFF)
-                                }
-                                if (nChannels >= 2) {
-                                    arr[offset++] = toFloat((v shr 8) and 0xFF)
-                                }
-                                if (nChannels >= 1) {
-                                    arr[offset++] = toFloat(v and 0xFF)
-                                }
-                                if (nChannels == 4) {
-                                    arr[offset] = toFloat((v shr 24) and 0xFF)
-                                }
-                            }
-                            return arr
-                        }
-                    }
-
-                    is DoubleArray -> {
-                        isDTypeF = true
-
-                        fun(): FloatArray {
-                            val arr = FloatArray(height * width * nChannels)
-                            imageData.pixels.forEachIndexed { i, v -> arr[i] = toFloat(v) }
-                            return arr
-                        }
-                    }
-
-                    is List<*> -> {
-                        isDTypeF = imageData.pixels[0].let { it is Float || it is Double }
-
-                        fun(): FloatArray {
-                            val arr = FloatArray(height * width * nChannels)
-                            imageData.pixels.forEachIndexed { i, v -> arr[i] = toFloat(v) }
-                            return arr
-                        }
-                    }
-
-                    is Array<*> -> {
-                        isDTypeF = imageData.pixels[0].let { it is Float || it is Double }
-                        fun(): FloatArray {
-                            val arr = FloatArray(height * width * nChannels)
-                            imageData.pixels.forEachIndexed { i, v -> arr[i] = toFloat(v) }
-                            return arr
-                        }
-
-                    }
-
-                    else -> error("Invalid bitmap: unsupported data type `${imageData.pixels::class.simpleName}`")
-                }
-
-                return Raster(width, height, nChannels, isDTypeF, pixelDataProvider)
-            }
-        }
-
-        private fun toFloat(v: Any?): Float {
-            return when (v) {
-                is Float -> v
-                is Byte -> v.toUByte().toFloat() // for bytes 128, 129 method .toFloat() returns -1f, -2f etc
-                is Number -> v.toFloat()
-                else -> error("Invalid bitmap: should contain only numbers")
-            }
-        }
-    }
 }
