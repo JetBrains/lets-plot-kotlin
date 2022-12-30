@@ -98,7 +98,6 @@ This is optional - needed only if newer version of 'kotlin-jupyter-kernel' is re
 
 ##### 2. Update demo notebooks
 
-- move from 'docs/examples/jupyter-notebooks-dev' to 'docs/examples/jupyter-notebooks'.
 - Make sure the `%useLatestDescriptors` line magic is present.
 - Remove parameters in the `%use lets-plot` line magic.
 - Re-run all notebooks.
