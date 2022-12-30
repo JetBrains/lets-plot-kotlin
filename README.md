@@ -43,8 +43,7 @@
     - [Saving plot to file](#export)
     - [GeoTools support](#geotools)
 
-- [What is new in 4.1.1](#new411)
-- [What is new in 4.1.0](#new)
+- [What is new in 4.2.0](#new)
 - [Migrating from v3 to v4](#migrating4)
 
 - [Change log](#change_log)
@@ -266,72 +265,44 @@ individual `Geometry` and `ReferencedEnvelope` objects.
 Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
 
 
-<a id="new411"></a>
-## What is new in 4.1.1
-
-- New rendering options in `geomText(), geomLabel()`
-- `vjust` parameter in `positionStack()` and `positionFill()` 
-
-See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#411---2022-11-08)
-for more details.
-
-
 <a id="new"></a>
-## What is new in 4.1.0
-
-- ### Plot Theme
-
-    - #### `themeBW()`
-
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb).
-
-    - #### Theme Flavors
-
-      Theme flavor offers an easy way to change the colors of all elements in a theme to match a specific color scheme.
-
-      In this release, we have added the following flavors:
-        - _darcula_
-        - _solarized_light_
-        - _solarized_dark_
-        - _high_contrast_light_
-        - _high_contrast_dark_
-
-  <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22c/images/theme_flavors.png" alt="f-22c/images/theme_flavors.png" width="1000" height="133">
-
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb).
-
-    - #### New parameters in `elementText()`
-        - `size, family`
-          ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/font_size_and_family.ipynb))
-        - `hjust, vjust` for plot title, subtitle, caption, legend and axis titles
-          ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/hjust_vjust.ipynb))
-        - `margin` for plot title, subtitle, caption, axis titles and tick labels
-          ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/text_margins.ipynb))
+## What is new in 4.2.0
 
 - ### New Plot Types
 
-  `geomLabel()`.
+    - #### `residualPlot()`
+      <br>
+      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/residual-light.png" alt="f-22e/images/residual-light.png" width="200" height="133">
+      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/residual-dark.png" alt="f-22e/images/residual-dark.png" width="200" height="133">
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb).
+      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/residual_plot.ipynb).
 
-- ### Color Scales
+    - #### `geomAreaRidges()`
+      <br>
+      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/ridges-dark.png" alt="f-22e/images/ridges-dark.png" width="400" height="130">
 
-  Viridis color scales: `scaleColorViridis()`, `scaleFillViridis()`.
+      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/ridgeline_plot.ipynb).
 
-  Supported colormaps:
-    - _magma_
-    - _inferno_
-    - _plasma_
-    - _viridis_
-    - _cividis_
-    - _turbo_
-    - _twilight_
+    - #### `geomPie()`
+      <br>
+      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/pie.png" alt="f-22e/images/pie.png" width="379" height="106">
 
-  <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22c/images/viridis_plasma.png" alt="f-22c/images/viridis_plasma.png" width="439" height="132">
+      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/geom_pie.ipynb).
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/colors_viridis.ipynb).
+    - #### Annotation Labels on Pie-Chart
+      <br>
+      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/pie-labels-explode.png" alt="f-22e/images/pie-labels-explode.png" width="195" height="133">
+      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/pie-labels-titanic.png" alt="f-22e/images/pie-labels-titanic.png" width="366" height="133">
+
+      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/annotations_for_pie.ipynb).
+
+    - #### `geomImshow()`
+
+        See: [image_101](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_101.ipynb),
+  [image_fisher_boat](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_fisher_boat.ipynb),
+  [image_grayscale](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_grayscale.ipynb),
+  [image_extent](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_extent.ipynb)
+                                  
 
 - ### Other improvements and fixes
   See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#410---2022-09-30)
