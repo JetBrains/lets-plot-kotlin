@@ -26,6 +26,14 @@ The `qqPlot()` function produces a Q-Q plot (quantile-quantile plot).
 
 - [qq_plots.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
 
+# Package org.jetbrains.letsPlot.bistro.residual
+
+The `residualPlot()` function produces a residual plot with an optional density summary on margins.
+
+## Examples
+
+- [residual_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/residual_plot.ipynb)
+
 # Package org.jetbrains.letsPlot.export
 
 The `ggsave()` function is an easy way to export plot to a file in SVG, HTML or raster formats.
@@ -161,6 +169,12 @@ See [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs
 - [tooltip_title.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_title.ipynb)
 
 - [tooltips_theme.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb)
+
+# Package org.jetbrains.letsPlot.annotations
+
+## Examples
+
+- [annotations_for_pie.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/annotations_for_pie.ipynb)
 
 # Package org.jetbrains.letsPlot.pos
 

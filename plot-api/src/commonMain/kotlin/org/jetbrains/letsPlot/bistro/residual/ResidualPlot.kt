@@ -11,7 +11,7 @@ package org.jetbrains.letsPlot.bistro.residual
  *
  * ## Examples
  *
- * - [residual_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/residual_plot.ipynb)
+ * - [residual_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/residual_plot.ipynb)
  *
  * @param data
  *     The data to be displayed.

@@ -66,7 +66,7 @@ fun geomImshow(
     var raster = rasterData.createRaster()
 
     require(raster.nChannels in 1..4) {
-        "Invalid image_data: num of channels expected to be 1 (G) or 2 (GA) for greyscale image, 3 (RGB) or 4 (RGBA) for color image, but was ${raster.nChannels}"
+        "Invalid rasterData: num of channels expected to be 1 (G) or 2 (GA) for greyscale image, 3 (RGB) or 4 (RGBA) for color image, but was ${raster.nChannels}"
     }
 
     val cmap: String? = null // TODO: add palettes support
