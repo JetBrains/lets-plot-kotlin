@@ -174,7 +174,7 @@ See [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs
 
 ## Examples
 
-- [annotations_for_pie.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/annotations_for_pie.ipynb)
+- [annotations_for_pie.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/annotations_for_pie.ipynb)
 
 # Package org.jetbrains.letsPlot.pos
 
