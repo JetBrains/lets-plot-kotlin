@@ -45,7 +45,7 @@ import kotlin.math.min
  * @param data Dataframe to compute correlations on.
  * @param title Plot title.
  * @param showLegend Boolean, default = true.
- *     False - do not show legend for this layer.
+ *     false - do not show legend for this layer.
  * @param flip Boolean, default = true. Whether to flip the y-axis.
  * @param threshold Minimal correlation abs value to be included in result. Must be in interval `[0.0, 1.0]`.
  * @param adjustSize A scaler to adjust the plot size which was computed by `CorrPlot` automatically.

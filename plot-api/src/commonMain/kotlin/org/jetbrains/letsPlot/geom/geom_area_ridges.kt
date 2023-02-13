@@ -31,7 +31,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param position PosOptions, optional, default = `positionIdentity`.
  *     Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
  * @param showLegend Boolean, default = true.
- *     False - do not show legend for this layer.
+ *     false - do not show legend for this layer.
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *     Specifies appearance, style and content.
  * @param x X-axis coordinates.
