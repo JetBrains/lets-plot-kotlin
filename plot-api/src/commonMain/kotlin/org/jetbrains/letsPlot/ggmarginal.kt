@@ -22,14 +22,14 @@ import org.jetbrains.letsPlot.intern.layer.MarginalLayer
  * - [marginal_layers.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb)
  *
  * @param sides Which sides of the plot the marginal layer will appear on.
- *     It should be set to a string containing any of "trbl", for top, right, bottom and left.
+ *  It should be set to a string containing any of "trbl", for top, right, bottom and left.
  * @param size Number or List of Numbers.
- *     Size of marginal geometry (width or height, depending on the margin side) as a fraction of the entire
- *     plotting area of the plot.
- *     The value should be in range `[0.01..0.95]`, default = 0.1.
+ *  Size of marginal geometry (width or height, depending on the margin side) as a fraction of the entire
+ *  plotting area of the plot.
+ *  The value should be in range `[0.01..0.95]`, default = 0.1.
  * @param layer A marginal geometry layer.
- *     The result of calling of the `geomXxx()` / `statXxx()` function.
- *     Marginal plot works best with `density`, `histogram`, `boxplot`, `violin` and `freqpoly` geometry layers.
+ *  The result of calling of the `geomXxx()` / `statXxx()` function.
+ *  Marginal plot works best with `density`, `histogram`, `boxplot`, `violin` and `freqpoly` geometry layers.
  *
  * @return An object specifying a marginal geometry layer or a list of marginal geometry layers.
  */
