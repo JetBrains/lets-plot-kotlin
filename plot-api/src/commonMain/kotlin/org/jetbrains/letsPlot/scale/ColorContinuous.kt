@@ -612,7 +612,6 @@ fun scaleColorGradientN(
 fun scaleFillGrey(
     start: Number? = null,
     end: Number? = null,
-    direction: Int? = null,        // direction < 0 - reversed
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -637,7 +636,6 @@ fun scaleFillGrey(
             mapOf(
                 START to start,
                 END to end,
-                DIRECTION to direction,
                 SCALE_MAPPER_KIND to "color_grey"
             )
         )
@@ -687,7 +685,6 @@ fun scaleFillGrey(
 fun scaleColorGrey(
     start: Number? = null,
     end: Number? = null,
-    direction: Int? = null,         // direction < 0 - reversed
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
@@ -712,7 +709,6 @@ fun scaleColorGrey(
             mapOf(
                 START to start,
                 END to end,
-                DIRECTION to direction,
                 SCALE_MAPPER_KIND to "color_grey"
             )
         )
