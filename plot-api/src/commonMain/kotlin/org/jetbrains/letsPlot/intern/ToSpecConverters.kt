@@ -118,11 +118,11 @@ fun Layer.toSpec(): MutableMap<String, Any> {
             if (it.parameters.isEmpty()) {
                 it.kind.optionName()
             } else {
-                OptionsMap(
-                    Option.Meta.Kind.POS,
+               OptionsMap(
+                    "pos",
                     it.kind.optionName(),
                     it.parameters.map
-                ).toSpec(true)
+                ).toSpec()
             }
     }
 

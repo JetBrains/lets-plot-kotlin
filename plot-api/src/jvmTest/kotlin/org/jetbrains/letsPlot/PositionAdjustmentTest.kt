@@ -45,7 +45,6 @@ class PositionAdjustmentTest {
 
         val expectedSpec = HashMap(geomPoint().toSpec())
         expectedSpec[Option.Layer.POS] = mapOf(
-            Option.Meta.KIND to Option.Meta.Kind.POS,
             "name" to "dodge",
             "width" to 10.0
         )
