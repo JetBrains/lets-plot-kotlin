@@ -51,7 +51,8 @@ fun scaleXDiscrete(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-    reverse: Boolean? = null
+    reverse: Boolean? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -63,6 +64,7 @@ fun scaleXDiscrete(
         expand = expand,
         naValue = naValue,
         format = format,
+        position = position,
         otherOptions = Options(
             mapOf(
                 Option.Guide.REVERSE to reverse
@@ -111,7 +113,8 @@ fun scaleYDiscrete(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-    reverse: Boolean? = null
+    reverse: Boolean? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -123,6 +126,7 @@ fun scaleYDiscrete(
         expand = expand,
         naValue = naValue,
         format = format,
+        position = position,
         otherOptions = Options(
             mapOf(
                 Option.Guide.REVERSE to reverse
@@ -170,6 +174,7 @@ fun scaleXDiscreteReversed(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ): Scale {
     return scaleXDiscrete(
         name = name,
@@ -179,7 +184,8 @@ fun scaleXDiscreteReversed(
         expand = expand,
         naValue = naValue,
         format = format,
-        reverse = true
+        reverse = true,
+        position = position
     )
 }
 
@@ -222,6 +228,7 @@ fun scaleYDiscreteReversed(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ): Scale {
     return scaleYDiscrete(
         name = name,
@@ -231,6 +238,7 @@ fun scaleYDiscreteReversed(
         expand = expand,
         naValue = naValue,
         format = format,
-        reverse = true
+        reverse = true,
+        position = position
     )
 }

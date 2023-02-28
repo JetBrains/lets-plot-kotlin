@@ -55,6 +55,7 @@ fun scaleXContinuous(
     naValue: Number? = null,
     format: String? = null,
     trans: String? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -66,7 +67,8 @@ fun scaleXContinuous(
         expand = expand,
         naValue = naValue,
         format = format,
-        trans = trans
+        trans = trans,
+        position = position
     )
 }
 
@@ -116,6 +118,7 @@ fun scaleYContinuous(
     naValue: Number? = null,
     format: String? = null,
     trans: String? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -128,6 +131,7 @@ fun scaleYContinuous(
         naValue = naValue,
         format = format,
         trans = trans,
+        position = position
     )
 }
 
@@ -170,6 +174,7 @@ fun scaleXLog10(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleXContinuous(
     name = name,
     breaks = breaks,
@@ -179,6 +184,7 @@ fun scaleXLog10(
     naValue = naValue,
     format = format,
     trans = "log10",
+    position = position
 )
 
 /**
@@ -220,6 +226,7 @@ fun scaleYLog10(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleYContinuous(
     name = name,
     breaks = breaks,
@@ -229,6 +236,7 @@ fun scaleYLog10(
     naValue = naValue,
     format = format,
     trans = "log10",
+    position = position
 )
 
 /**
@@ -270,6 +278,7 @@ fun scaleXReverse(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleXContinuous(
     name = name,
     breaks = breaks,
@@ -279,6 +288,7 @@ fun scaleXReverse(
     naValue = naValue,
     format = format,
     trans = "reverse",
+    position = position
 )
 
 /**
@@ -320,6 +330,7 @@ fun scaleYReverse(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleYContinuous(
     name = name,
     breaks = breaks,
@@ -329,6 +340,7 @@ fun scaleYReverse(
     naValue = naValue,
     format = format,
     trans = "reverse",
+    position = position
 )
 
 /**
@@ -370,6 +382,7 @@ fun scaleXSqrt(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleXContinuous(
     name = name,
     breaks = breaks,
@@ -379,6 +392,7 @@ fun scaleXSqrt(
     naValue = naValue,
     format = format,
     trans = "sqrt",
+    position = position
 )
 
 /**
@@ -420,6 +434,7 @@ fun scaleYSqrt(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleYContinuous(
     name = name,
     breaks = breaks,
@@ -429,4 +444,5 @@ fun scaleYSqrt(
     naValue = naValue,
     format = format,
     trans = "sqrt",
+    position = position
 )

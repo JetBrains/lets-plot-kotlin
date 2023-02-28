@@ -57,6 +57,7 @@ fun scaleXDateTime(
     expand: List<Number>? = null,
     naValue: Any? = null,
     format: String? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -68,6 +69,7 @@ fun scaleXDateTime(
         expand = expand,
         naValue = naValue,
         format = format,
+        position = position,
         otherOptions = Options(
             mapOf(
                 DATE_TIME to true
@@ -121,6 +123,7 @@ fun scaleYDateTime(
     expand: List<Number>? = null,
     naValue: Any? = null,
     format: String? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -132,6 +135,7 @@ fun scaleYDateTime(
         expand = expand,
         naValue = naValue,
         format = format,
+        position = position,
         otherOptions = Options(
             mapOf(
                 DATE_TIME to true
@@ -171,6 +175,7 @@ fun scaleXTime(
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -181,6 +186,7 @@ fun scaleXTime(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        position = position,
         otherOptions = Options(
             mapOf(
                 TIME to true
@@ -220,6 +226,7 @@ fun scaleYTime(
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -230,6 +237,7 @@ fun scaleYTime(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        position = position,
         otherOptions = Options(
             mapOf(
                 TIME to true
