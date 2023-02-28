@@ -234,15 +234,9 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     return spec
 }
 
-fun OptionsMap.toSpec(includeKind: Boolean = false): MutableMap<String, Any> {
+fun OptionsMap.toSpec(): MutableMap<String, Any> {
     return HashMap(
-        MapStandardizing.standardize(
-            if (includeKind) {
-                mapOf(KIND to kind) + options
-            } else {
-                options
-            }
-        )
+        MapStandardizing.standardize(options)
     )
 }
 
