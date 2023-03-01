@@ -63,7 +63,7 @@ fun Plot.toSpec(): MutableMap<String, Any> {
 
     spec[Option.PlotBase.MAPPING] = asMappingData(plot.mapping.map)
     spec[Option.Plot.LAYERS] = plot.layers().map(Layer::toSpec)
-    spec[Option.Plot.SCALES] = plot.scales().map(Scale::toSpec)
+    spec[Option.Plot.SCALES] = plot.scales().flatMap(Scale::toSpec)
 
     // Width of plot in percents of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
@@ -217,10 +217,9 @@ fun Map<String, Any?>.filterNonNullValues(): Map<String, Any> {
 }
 
 
-fun Scale.toSpec(): MutableMap<String, Any> {
+fun Scale.toSpec(): List<Map<String, Any>> {
     val spec = HashMap<String, Any>()
 
-    spec[AES] = aesthetic.name
     name?.let { spec[NAME] = name }
     breaks?.let { spec[BREAKS] = toList(breaks, BREAKS) }
     labels?.let { spec[LABELS] = labels }
@@ -233,7 +232,10 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     position?.let { spec[POSITION] = position }
 
     spec.putAll(otherOptions.map)
-    return spec
+
+    return aesthetic.map {
+        mapOf(AES to it.name) + spec
+    }
 }
 
 fun OptionsMap.toSpec(): MutableMap<String, Any> {

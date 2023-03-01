@@ -126,7 +126,7 @@ abstract class Layer(
 }
 
 class Scale(
-    val aesthetic: Aes<*>,
+    aesthetic: Any,
     val name: String? = null,
     val breaks: List<Any>? = null,
     val labels: List<String>? = null,
@@ -139,7 +139,17 @@ class Scale(
     val position: String? = null,
     val otherOptions: Options = Options.empty()
 
-) : Feature()
+) : Feature() {
+    val aesthetic: List<Aes<*>> = when (aesthetic) {
+        is Aes<*> -> listOf(aesthetic)
+        is List<*> -> {
+            require(aesthetic.all { it is Aes<*> }) { "'aesthetic' must contain aesthetics: $aesthetic" }
+            @Suppress("UNCHECKED_CAST")
+            aesthetic as List<Aes<*>>
+        }
+        else -> error("Wrong 'aesthetic' parameter: aesthetics or list of aesthetics expected but was $aesthetic")
+    }
+}
 
 open class OptionsMap internal constructor(
     val kind: String,
