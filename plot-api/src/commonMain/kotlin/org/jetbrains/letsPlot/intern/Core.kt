@@ -6,6 +6,7 @@
 package org.jetbrains.letsPlot.intern
 
 import jetbrains.datalore.plot.base.Aes
+import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.annotations.AnnotationOptions
 import org.jetbrains.letsPlot.frontend.CurrentFrontendContext
@@ -141,13 +142,16 @@ class Scale(
 
 ) : Feature() {
     val aesthetic: List<Aes<*>> = when (aesthetic) {
-        is Aes<*> -> listOf(aesthetic)
-        is List<*> -> {
-            require(aesthetic.all { it is Aes<*> }) { "'aesthetic' must contain aesthetics: $aesthetic" }
-            @Suppress("UNCHECKED_CAST")
-            aesthetic as List<Aes<*>>
+        is List<*> -> aesthetic.map(::toAes)
+        else -> listOf(toAes(aesthetic))
+    }
+
+    private fun toAes(option: Any?): Aes<*> {
+        return when (option) {
+            is Aes<*> -> option
+            is String -> Option.Mapping.toAes(option.lowercase())
+            else -> error("Wrong 'aesthetic' parameter: should contain aesthetic or its name but was $option")
         }
-        else -> error("Wrong 'aesthetic' parameter: aesthetics or list of aesthetics expected but was $aesthetic")
     }
 }
 
