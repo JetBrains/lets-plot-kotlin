@@ -13,14 +13,19 @@ class ContourMapping(
     override var y: Any? = null,
     override var z: Any? = null,
     override var alpha: Any? = null,
-    override var color: Any? = null,
     override var linetype: Any? = null,
     override var size: Any? = null,
     override var speed: Any? = null,
     override var flow: Any? = null,
-    override var group: Any? = null
-) : PathAesthetics, ContourStatAesthetics, WithGroupOption {
+    override var group: Any? = null,
+    override var fill: Any? = null,
+    override var color: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : PathAesthetics, ContourStatAesthetics, WithGroupOption, ColorAesthetics {
     override fun seal() = super<PathAesthetics>.seal() +
             super<ContourStatAesthetics>.seal() +
-            groupOption()
+            groupOption() +
+            super<ColorAesthetics>.seal()
 }
