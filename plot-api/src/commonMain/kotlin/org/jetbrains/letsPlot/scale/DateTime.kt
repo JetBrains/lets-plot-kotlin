@@ -36,6 +36,10 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *       Missing values will be replaced with this value.
  * @param format
  *      Defines the format for labels on the scale. Also applies to `breaks`.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -102,6 +106,10 @@ fun scaleXDateTime(
  *       Missing values will be replaced with this value.
  * @param format
  *      Defines the format for labels on the scale. Also applies to `breaks`.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -166,6 +174,10 @@ fun scaleYDateTime(
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  */
 fun scaleXTime(
@@ -217,6 +229,10 @@ fun scaleXTime(
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  */
 fun scaleYTime(

@@ -30,7 +30,10 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param reverse When True the scale reversed.
- *
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -92,6 +95,10 @@ fun scaleXDiscrete(
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param reverse When True the scale reversed.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -153,6 +160,10 @@ fun scaleYDiscrete(
  *      Defaults: multiplicative = 0, additive = 0.2.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -207,6 +218,10 @@ fun scaleXDiscreteReversed(
  *      Defaults: multiplicative = 0, additive = 0.2.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or

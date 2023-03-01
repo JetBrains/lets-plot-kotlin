@@ -34,6 +34,10 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *      Specifies the format pattern for labels on the scale.
  * @param trans
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -97,6 +101,10 @@ fun scaleXContinuous(
  *      Specifies the format pattern for labels on the scale.
  * @param trans
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -154,6 +162,10 @@ fun scaleYContinuous(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -206,6 +218,10 @@ fun scaleXLog10(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -258,6 +274,10 @@ fun scaleYLog10(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -310,6 +330,10 @@ fun scaleXReverse(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -362,6 +386,10 @@ fun scaleYReverse(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -414,6 +442,10 @@ fun scaleXSqrt(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
