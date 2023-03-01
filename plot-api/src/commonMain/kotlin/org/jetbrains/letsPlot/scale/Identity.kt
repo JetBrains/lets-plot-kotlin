@@ -10,47 +10,44 @@ import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
+
 /**
  * Use this scale when your data has already been scaled.
  * I.e. it already represents aesthetic values that ggplot2 can handle directly.
  * This will not produce a legend unless you also supply the breaks and labels.
  *
- * Input data expected: list of strings containing
- *   a) names of colors (i.e. 'green')
- *   b) hex codes of colors (i.e 'x00ff00')
- *   c) css colors (i.e 'rgb(0,255,0)')
+ * Input data expected: List of Strings containing
+ * - names of colors (i.e. "green")
+ * - hex codes of colors (i.e "x00ff00")
+ * - css colors (i.e "rgb(0,255,0)")
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels
- *      A vector of labels (on ticks)
- * @param limits
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param guide
- *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
- *      specifying additional arguments.
- *      "none" will hide the guide.
+ * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
+ *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
-fun scaleColorIdentity(
+fun scaleIdentity(
+    aesthetic: Any,
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
@@ -59,7 +56,7 @@ fun scaleColorIdentity(
     format: String? = null,
     guide: Any? = null
 ) = Scale(
-    aesthetic = Aes.COLOR,
+    aesthetic = aesthetic,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -114,6 +111,65 @@ fun scaleColorIdentity(
  * "Score: {}" -> "Score: 12.454789"
  *
  */
+fun scaleColorIdentity(
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null
+) = scaleIdentity(
+    aesthetic = Aes.COLOR,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide
+)
+
+/**
+ * Use this scale when your data has already been scaled.
+ * I.e. it already represents aesthetic values that ggplot2 can handle directly.
+ * This will not produce a legend unless you also supply the breaks and labels.
+ *
+ * Input data expected: list of strings containing
+ *   a) names of colors (i.e. 'green')
+ *   b) hex codes of colors (i.e 'x00ff00')
+ *   c) css colors (i.e 'rgb(0,255,0)')
+ *
+ * @param name
+ *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
+ *      is taken from the first mapping used for that aesthetic.
+ * @param breaks
+ *      A vector specifying values to display as ticks on axis.
+ * @param labels
+ *      A vector of labels (on ticks)
+ * @param limits
+ *      Continuous scale: a numeric vector of length two providing limits of the scale.
+ *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
+ * @param naValue an aesthetic value which is used when data in not available.
+ * @param format
+ *      Specifies the format pattern for labels on the scale.
+ * @param guide
+ *      Guide to use for this scale.
+ *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
+ *      specifying additional arguments.
+ *      "none" will hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ *
+ * Examples:
+ * ".2f" -> "12.45"
+ * "Score: {.2f}" -> "Score: 12.45"
+ * "Score: {}" -> "Score: 12.454789"
+ *
+ */
 fun scaleFillIdentity(
     name: String? = null,
     breaks: List<Any>? = null,
@@ -122,7 +178,7 @@ fun scaleFillIdentity(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
+) = scaleIdentity(
     aesthetic = Aes.FILL,
     name = name,
     breaks = breaks,
@@ -130,12 +186,7 @@ fun scaleFillIdentity(
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.SCALE_MAPPER_KIND to "identity"
-        )
-    )
+    guide = guide
 )
 
 /**
@@ -300,7 +351,7 @@ fun scaleAlphaIdentity(
     naValue: Number? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
+) = scaleIdentity(
     aesthetic = Aes.ALPHA,
     name = name,
     breaks = breaks,
@@ -308,12 +359,7 @@ fun scaleAlphaIdentity(
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.SCALE_MAPPER_KIND to "identity"
-        )
-    )
+    guide = guide
 )
 
 /**
@@ -358,7 +404,7 @@ fun scaleSizeIdentity(
     naValue: Number? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
+) = scaleIdentity(
     aesthetic = Aes.SIZE,
     name = name,
     breaks = breaks,
@@ -366,10 +412,5 @@ fun scaleSizeIdentity(
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.SCALE_MAPPER_KIND to "identity"
-        )
-    )
+    guide = guide
 )

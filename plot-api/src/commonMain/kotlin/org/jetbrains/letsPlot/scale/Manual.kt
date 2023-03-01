@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
 /**
- * Create your own discrete scale for the specified aesthetics.
+ * Creates your own discrete scale for the specified aesthetics.
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
  * @param values List of Strings (encoding colors) or color values.
