@@ -27,12 +27,13 @@ class statCount2d(
     override val explode: Number? = null,
     override val size: Number? = null,
     override val fill: Any? = null,
-    override val color: Any? = null,
     override val alpha: Number? = null,
     override val weight: Number? = null,
+    override val fillBy: String? = null,
     mapping: PieMapping.() -> Unit = {}
 ) : PieAesthetics,
     Count2dStatAesthetics,
+    WithFillByParameter,
     LayerBase(
         mapping = PieMapping().apply(mapping).seal(),
         data = data,
@@ -45,6 +46,7 @@ class statCount2d(
 
     override fun seal(): Options {
         return super<PieAesthetics>.seal() +
-                super<Count2dStatAesthetics>.seal()
+                super<Count2dStatAesthetics>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

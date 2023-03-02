@@ -69,12 +69,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param hole number, default=0.0.
  *     A multiplicative factor applied to the pie diameter to draw donut-like chart.
  *     Accepts numbers between 0 and 1.
- * @param fillBy string: {'fill', 'color'}, default='fill'
- *     Defines the source aesthetic for geometry filling.
  * @param stroke number, default=0.0.
  *     Width of slice borders.
  * @param strokeColor string, default="white".
  *     Color of slice borders.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -96,17 +96,18 @@ class geomPie(
     override val explode: Number? = null,
     override val size: Number? = null,
     override val fill: Any? = null,
-    override val color: Any? = null,
     override val alpha: Number? = null,
     override val weight: Number? = null,
     override val hole: Number? = null,
     override val stroke: Number? = null,
     override val strokeColor: Any? = null,
+    override val fillBy: String? = null,
     mapping: PieMapping.() -> Unit = {}
 ) : PieAesthetics,
     PieParameters,
     Count2dStatAesthetics,
     WithSpatialParameters,
+    WithFillByParameter,
     LayerBase(
         mapping = PieMapping().apply(mapping).seal(),
         data = data,
@@ -120,6 +121,8 @@ class geomPie(
     ) {
     override fun seal(): Options {
         return super<PieAesthetics>.seal() +
-                super<PieParameters>.seal() + super<Count2dStatAesthetics>.seal()
+                super<PieParameters>.seal() +
+                super<Count2dStatAesthetics>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

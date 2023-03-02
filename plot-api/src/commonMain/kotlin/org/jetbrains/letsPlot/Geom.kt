@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot
 
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.WithSizeUnitOption
 import org.jetbrains.letsPlot.intern.layer.geom.*
 
@@ -562,14 +563,15 @@ object Geom {
         override val explode: Number? = null,
         override val size: Number? = null,
         override val fill: Any? = null,
-        override val color: Any? = null,
         override val alpha: Number? = null,
         override val hole: Number? = null,
         override val stroke: Number? = null,
         override val strokeColor: Any? = null,
+        override val fillBy: String? = null,
         mapping: PieMapping.() -> Unit = {}
     ) : PieAesthetics,
         PieParameters,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.PIE,
             PieMapping().apply(mapping).seal()
@@ -578,6 +580,7 @@ object Geom {
         override val parameters = this.seal()
 
         override fun seal() = super<PieAesthetics>.seal() +
-                super<PieParameters>.seal()
+                super<PieParameters>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }
