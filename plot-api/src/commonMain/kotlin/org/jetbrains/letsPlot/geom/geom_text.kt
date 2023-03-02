@@ -87,6 +87,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Horizontal adjustment to nudge labels by.
  * @param nudgeY number.
  *     Vertical adjustment to nudge labels by.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -130,12 +132,14 @@ class geomText(
     override val nudgeX: Number? = null,
     override val nudgeY: Number? = null,
     override val sizeUnit: String? = null,
+    override val colorBy: String? = null,
     mapping: TextMapping.() -> Unit = {}
 
 ) : TextAesthetics,
     TextParameters,
     WithSizeUnitOption,
     WithSpatialParameters,
+    WithColorByParameter,
     LayerBase(
         mapping = TextMapping().apply(mapping).seal(),
         data = data,
@@ -151,6 +155,8 @@ class geomText(
     ) {
     override fun seal(): Options {
         return super<TextAesthetics>.seal() +
-                super<TextParameters>.seal() + super<WithSizeUnitOption>.seal()
+                super<TextParameters>.seal() +
+                super<WithSizeUnitOption>.seal() +
+                super<WithColorByParameter>.seal()
     }
 }

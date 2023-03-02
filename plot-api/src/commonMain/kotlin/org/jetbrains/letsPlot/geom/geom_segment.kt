@@ -13,6 +13,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.SegmentAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.SegmentMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -57,6 +58,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     The number of pixels covered by animation object per second. Default value is 10.
  * @param flow animation flow.
  *     The number of animation objects passing a reference point per second. Default value is 0.1.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -79,9 +82,11 @@ class geomSegment(
     override val size: Number? = null,
     override val speed: Number? = null,
     override val flow: Number? = null,
+    override val colorBy: String? = null,
     mapping: SegmentMapping.() -> Unit = {}
 
 ) : SegmentAesthetics,
+    WithColorByParameter,
     LayerBase(
         mapping = SegmentMapping().apply(mapping).seal(),
         data = data,
@@ -93,6 +98,8 @@ class geomSegment(
         tooltips = tooltips
     ) {
     override fun seal(): Options {
-        return super.seal() + Options.of(Option.Geom.Segment.ARROW to arrow)
+        return super<SegmentAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                Options.of(Option.Geom.Segment.ARROW to arrow)
     }
 }

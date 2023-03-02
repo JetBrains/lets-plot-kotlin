@@ -91,6 +91,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Radius of rounded corners. Defaults to 0.15 of label height.
  * @param labelSize: double, optional, default = 1.0
  *     Size of label border.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -138,12 +142,16 @@ class geomLabel(
     override val labelR: Number? = null,
     override val labelSize: Number? = null,
     override val sizeUnit: String? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: LabelMapping.() -> Unit = {}
 
 ) : LabelAesthetics,
     LabelParameters,
     WithSizeUnitOption,
     WithSpatialParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = LabelMapping().apply(mapping).seal(),
         data = data,
@@ -160,6 +168,8 @@ class geomLabel(
     override fun seal(): Options {
         return super<LabelAesthetics>.seal() +
                 super<LabelParameters>.seal() +
-                super<WithSizeUnitOption>.seal()
+                super<WithSizeUnitOption>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

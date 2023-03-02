@@ -11,6 +11,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotParameters
@@ -67,6 +69,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
  * @param fill color of geometry filling.
  * @param size lines width.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -92,11 +98,15 @@ class geomDotplot(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val size: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: DotplotMapping.() -> Unit = {},
 ) : DotplotAesthetics,
     DotplotParameters,
     DotplotStatAesthetics,
     DotplotStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = DotplotMapping().apply(mapping).seal(),
         data = data,
@@ -111,5 +121,7 @@ class geomDotplot(
     override fun seal() = super<DotplotAesthetics>.seal() +
             super<DotplotParameters>.seal() +
             super<DotplotStatAesthetics>.seal() +
-            super<DotplotStatParameters>.seal()
+            super<DotplotStatParameters>.seal() +
+            super<WithColorByParameter>.seal() +
+            super<WithFillByParameter>.seal()
 }

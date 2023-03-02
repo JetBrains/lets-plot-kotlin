@@ -10,6 +10,8 @@ import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointMapping
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
@@ -68,6 +70,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Is applied only to the points of shapes having inner points.
  * @param shape shape of the point.
  * @param size size of the point.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -91,11 +97,15 @@ class geomPoint(
     override val size: Number? = null,
     override val stroke: Number? = null,
     override val sizeUnit: String? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: PointMapping.() -> Unit = {}
 
 ) : PointAesthetics,
     WithSizeUnitOption,
     WithSpatialParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
@@ -106,7 +116,10 @@ class geomPoint(
         sampling = sampling,
         tooltips = tooltips
     ) {
-    override fun seal() = super<PointAesthetics>.seal() + super<WithSizeUnitOption>.seal()
+    override fun seal() = super<PointAesthetics>.seal() +
+            super<WithSizeUnitOption>.seal() +
+            super<WithColorByParameter>.seal() +
+            super<WithFillByParameter>.seal()
 }
 
 

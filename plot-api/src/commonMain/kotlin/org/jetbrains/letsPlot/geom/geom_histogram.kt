@@ -11,6 +11,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramMapping
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
@@ -51,6 +53,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fill color of geometry filling.
  * @param size line width.
  *     Defines bar line width.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -74,11 +80,15 @@ class geomHistogram(
     override val binWidth: Number? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: HistogramMapping.() -> Unit = {}
 
 ) : HistogramAesthetics,
     BinStatAesthetics,
     BinStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = HistogramMapping().apply(mapping).seal(),
         data = data,
@@ -92,7 +102,9 @@ class geomHistogram(
     ) {
     override fun seal() = super<HistogramAesthetics>.seal() +
             super<BinStatAesthetics>.seal() +
-            super<BinStatParameters>.seal()
+            super<BinStatParameters>.seal() +
+            super<WithColorByParameter>.seal() +
+            super<WithFillByParameter>.seal()
 }
 
 

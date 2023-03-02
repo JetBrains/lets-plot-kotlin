@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
@@ -45,6 +47,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     The default is to use bin widths that cover the entire range of the data.
  * @param drop : bool, optional, default: True
  *     Specifies whether to remove all bins with 0 counts.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
+ *
  * @param x x-axis value.
  * @param y y-axis value.
  * @param width width of a tile.
@@ -81,10 +88,14 @@ class geomBin2D(
     override val bins: Pair<Int, Int>? = null,
     override val binWidth: Pair<Number?, Number?>? = null,
     override val drop: Boolean? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: Bin2dMapping.() -> Unit = {}
 ) : TileAesthetics,
     Bin2dStatAesthetics,
     Bin2dStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = Bin2dMapping().apply(mapping).seal(),
         data = data,
@@ -98,6 +109,8 @@ class geomBin2D(
     override fun seal(): Options {
         return super<TileAesthetics>.seal() +
                 super<Bin2dStatAesthetics>.seal() +
-                super<Bin2dStatParameters>.seal()
+                super<Bin2dStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

@@ -68,6 +68,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
  * @param fill color of geometry filling.
  * @param size lines width.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -95,11 +99,15 @@ class geomYDotplot(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val size: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: YDotplotMapping.() -> Unit = {}
 ) : YDotplotAesthetics,
     YDotplotParameters,
     YDotplotStatAesthetics,
     YDotplotStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = YDotplotMapping().apply(mapping).seal(),
         data = data,
@@ -114,5 +122,7 @@ class geomYDotplot(
     override fun seal() = super<YDotplotAesthetics>.seal() +
             super<YDotplotParameters>.seal() +
             super<YDotplotStatAesthetics>.seal() +
-            super<YDotplotStatParameters>.seal()
+            super<YDotplotStatParameters>.seal() +
+            super<WithColorByParameter>.seal() +
+            super<WithFillByParameter>.seal()
 }

@@ -81,6 +81,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fullScanMax
  *     Maximum size of data to use density computation with 'full scan'.
  *     For bigger data, less accurate but more efficient density computation is applied.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -113,11 +117,15 @@ class geomAreaRidges(
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
     override val fullScanMax: Int? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: AreaRidgesMapping.() -> Unit = {}
 ) : AreaRidgesAesthetics,
     AreaRidgesParameters,
     DensityRidgesStatAesthetics,
     DensityRidgesStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = AreaRidgesMapping().apply(mapping).seal(),
         data = data,
@@ -132,5 +140,7 @@ class geomAreaRidges(
     override fun seal() = super<AreaRidgesAesthetics>.seal() +
             super<AreaRidgesParameters>.seal() +
             super<DensityRidgesStatAesthetics>.seal() +
-            super<DensityRidgesStatParameters>.seal()
+            super<DensityRidgesStatParameters>.seal() +
+            super<WithColorByParameter>.seal() +
+            super<WithFillByParameter>.seal()
 }

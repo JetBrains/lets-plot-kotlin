@@ -64,6 +64,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash".
  * @param size line width.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -93,11 +95,13 @@ class geomDensity2D(
     override val contour: Boolean? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,
+    override val colorBy: String? = null,
     mapping: Density2dMapping.() -> Unit = {}
 ) : PathAesthetics,
     ContourStatAesthetics,
     Density2dStatAesthetics,
     Density2dStatParameters,
+    WithColorByParameter,
     LayerBase(
         mapping = Density2dMapping().apply(mapping).seal(),
         data = data,
@@ -112,6 +116,7 @@ class geomDensity2D(
         return super<PathAesthetics>.seal() +
                 super<ContourStatAesthetics>.seal() +
                 super<Density2dStatAesthetics>.seal() +
-                super<Density2dStatParameters>.seal()
+                super<Density2dStatParameters>.seal() +
+                super<WithColorByParameter>.seal()
     }
 }

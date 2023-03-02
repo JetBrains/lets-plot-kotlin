@@ -11,6 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.ABLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.ABLineMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -47,6 +48,8 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash".
  * @param size line width.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -63,8 +66,10 @@ class geomABLine(
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
+    override val colorBy: String? = null,
     mapping: ABLineMapping.() -> Unit = {}
 ) : ABLineAesthetics,
+    WithColorByParameter,
     LayerBase(
         mapping = ABLineMapping().apply(mapping).seal(),
         data = data,
@@ -73,5 +78,8 @@ class geomABLine(
         position = position,
         showLegend = showLegend,
         sampling = sampling
-    )
+    ){
+    override fun seal() = super<ABLineAesthetics>.seal() +
+            super<WithColorByParameter>.seal()
+}
 
