@@ -21,7 +21,7 @@ object Violin {
                 val mpgData = AutoMpg.map()
                 val p = ggplot(mpgData) { x = "number of cylinders"; y = "miles per gallon" }
                 (p + geomViolin { fill = asDiscrete(variable = "number of cylinders", order = 1) }).show()
-                (p + geomViolin(scale = "width", drawQuantiles = listOf(0.25, 0.5, 0.75))).show()
+                (p + geomViolin(scale = "width", quantiles = listOf(0.25, 0.5, 0.75))).show()
                 (p + ggtitle("half violins") +
                         geomViolin(showHalf = -1) {
                             fill = asDiscrete(variable = "number of cylinders", order = 1)
@@ -47,7 +47,7 @@ object Violin {
                     "value" to listOf(0, 0, 2, 1, 1, 3, 1, 3, 3, 5, 2, 4)
                 )
                 (ggplot(data) + ggtitle("Additional grouping") +
-                        geomViolin(drawQuantiles = listOf(0.25, 0.5, 0.75)) { x = "class"; y = "value"; fill = "group" }
+                        geomViolin(quantiles = listOf(0.25, 0.5, 0.75)) { x = "class"; y = "value"; fill = "group" }
                         ).show()
             }
         }
