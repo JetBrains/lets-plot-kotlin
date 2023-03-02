@@ -97,7 +97,7 @@ class geomViolin(
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
-    private val quantiles: Any? = null,
+    private val quantiles: List<Number>? = null,
     private val showHalf: Number? = null,
     private val quantileLines: Boolean? = null,
     override val x: Number? = null,
