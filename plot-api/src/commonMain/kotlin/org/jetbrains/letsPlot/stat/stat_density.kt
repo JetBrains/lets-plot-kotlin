@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.DensityMapping
 import org.jetbrains.letsPlot.intern.layer.stat.DensityStatAesthetics
@@ -39,11 +41,15 @@ class statDensity(
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
     override val fullScanMax: Int? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: DensityMapping.() -> Unit = {}
 
 ) : AreaAesthetics,
     DensityStatAesthetics,
     DensityStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = DensityMapping().apply(mapping).seal(),
         data = data,
@@ -57,7 +63,9 @@ class statDensity(
     override fun seal(): Options {
         return super<AreaAesthetics>.seal() +
                 super<DensityStatAesthetics>.seal() +
-                super<DensityStatParameters>.seal()
+                super<DensityStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }
 

@@ -12,6 +12,7 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PathMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQ2LineStatParameters
@@ -34,10 +35,12 @@ class statQQ2Line(
     override val speed: Number? = null,
     override val flow: Number? = null,
     override val quantiles: Pair<Number, Number>? = null,
+    override val colorBy: String? = null,
     mapping: PathMapping.() -> Unit = {}
 ) : PathAesthetics,
     QQ2StatAesthetics,
     QQ2LineStatParameters,
+    WithColorByParameter,
     LayerBase(
         mapping = PathMapping().apply(mapping).seal(),
         data = data,
@@ -51,6 +54,7 @@ class statQQ2Line(
     override fun seal(): Options {
         return super<PathAesthetics>.seal() +
                 super<QQ2StatAesthetics>.seal() +
-                super<QQ2LineStatParameters>.seal()
+                super<QQ2LineStatParameters>.seal() +
+                super<WithColorByParameter>.seal()
     }
 }
