@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot.geom
 
+import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Options
@@ -41,8 +42,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Specifies appearance, style and content.
  * @param orientation Specifies the axis that the layer' stat and geom should run along.
  *     Possible values: 'x' (default), 'y'.
- * @param drawQuantiles list of float.
+ * @param quantiles list of Numbers.
  *     Draw horizontal lines at the given quantiles of the density estimate.
+ * @param quantileLines Boolean, default = false.
+ *     Show the quantile lines.
  * @param showHalf number, default: 0
  *     If -1 then it's drawing only half of each violin.
  *     If 1 then it's drawing other half.
@@ -94,8 +97,9 @@ class geomViolin(
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
-    private val drawQuantiles: Any? = null,
+    private val quantiles: Any? = null,
     private val showHalf: Number? = null,
+    private val quantileLines: Boolean? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val violinWidth: Number? = null,
@@ -134,7 +138,8 @@ class geomViolin(
             super<YDensityStatAesthetics>.seal() +
             super<YDensityStatParameters>.seal() +
             Options.of(
-                "draw_quantiles" to drawQuantiles,
-                "show_half" to showHalf
+                Option.Stat.YDensity.QUANTILES to quantiles,
+                Option.Geom.Violin.QUANTILE_LINES to quantileLines,
+                Option.Geom.Violin.SHOW_HALF to showHalf
             )
 }
