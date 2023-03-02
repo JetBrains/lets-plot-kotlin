@@ -5,8 +5,10 @@
 
 package org.jetbrains.letsPlot.geom
 
+import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
+import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.DensityMapping
@@ -66,6 +68,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fullScanMax
  *     Maximum size of data to use density computation with 'full scan'.
  *     For bigger data, less accurate but more efficient density computation is applied.
+ * @param quantiles List of Numbers, default = listOf(0.25, 0.5, 0.75).
+ *  Draws horizontal lines at the given quantiles of the density estimate.
+ * @param quantileLines Boolean, default = false.
+ *  Shows the quantile lines.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -92,6 +98,8 @@ class geomDensity(
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
     override val fullScanMax: Int? = null,
+    private val quantiles: List<Number>? = null,
+    private val quantileLines: Boolean? = null,
     mapping: DensityMapping.() -> Unit = {}
 
 ) : AreaAesthetics,
@@ -111,7 +119,11 @@ class geomDensity(
 
     override fun seal() = super<AreaAesthetics>.seal() +
             super<DensityStatAesthetics>.seal() +
-            super<DensityStatParameters>.seal()
+            super<DensityStatParameters>.seal() +
+            Options.of(
+                Option.Stat.Density.QUANTILES to quantiles,
+                Option.Geom.Density.QUANTILE_LINES to quantileLines
+            )
 }
 
 
