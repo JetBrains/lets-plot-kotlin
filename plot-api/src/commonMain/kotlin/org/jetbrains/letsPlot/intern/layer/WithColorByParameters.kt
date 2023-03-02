@@ -3,13 +3,13 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package org.jetbrains.letsPlot.intern.layer.geom
+package org.jetbrains.letsPlot.intern.layer
 
 import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
-interface ColorByParameter : OptionsCapsule {
+interface WithColorByParameter : OptionsCapsule {
     val colorBy: String?
 
     override fun seal() = Options.of(
@@ -17,7 +17,7 @@ interface ColorByParameter : OptionsCapsule {
     )
 }
 
-interface FillByParameter : OptionsCapsule {
+interface WithFillByParameter : OptionsCapsule {
     val fillBy: String?
 
     override fun seal() = Options.of(
