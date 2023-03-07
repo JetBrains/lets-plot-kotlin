@@ -14,6 +14,10 @@ import org.jetbrains.letsPlot.intern.Scale
  * Sequential, diverging and qualitative color scales from colorbrewer.org for the specified aesthetics.
  * Color schemes provided are particularly suited to display discrete values (levels of factors) on a map.
  *
+ * ## Examples
+ *
+ * - [scale_functions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/scale_functions.ipynb)
+ *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
  * @param type String,
  *  one of seq (sequential), div (diverging) or qual (qualitative) types of scales.
