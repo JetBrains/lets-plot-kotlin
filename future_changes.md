@@ -2,11 +2,11 @@
 
 ### Added
 
-- `position` parameter in position scales `scaleX*(), scaleY*()`.
+- Axis `position` parameter in position scales `scaleX*(), scaleY*()`.
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/axis_position.ipynb).
 
-- `angle` parameter in `elementText()` for `axisText, axisTextX, axisTextY` in a `theme()` (i.e. to axis labels).
+- `angle` parameter in `elementText()` in `theme()`.
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/axis_text_angle.ipynb).
 

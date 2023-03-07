@@ -16,6 +16,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *
  * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
  *
+ * - [axis_position.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/axis_position.ipynb)
+ *
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
  *              is taken from the first mapping used for that aesthetic.
@@ -82,6 +84,8 @@ fun scaleXContinuous(
  * ## Examples
  *
  * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+ *
+ * - [axis_position.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/axis_position.ipynb)
  *
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
