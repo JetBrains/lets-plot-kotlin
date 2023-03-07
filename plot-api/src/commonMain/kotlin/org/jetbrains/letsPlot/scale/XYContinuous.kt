@@ -16,6 +16,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *
  * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
  *
+ * - [axis_position.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/axis_position.ipynb)
+ *
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
  *              is taken from the first mapping used for that aesthetic.
@@ -34,6 +36,10 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *      Specifies the format pattern for labels on the scale.
  * @param trans
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -55,6 +61,7 @@ fun scaleXContinuous(
     naValue: Number? = null,
     format: String? = null,
     trans: String? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -66,7 +73,8 @@ fun scaleXContinuous(
         expand = expand,
         naValue = naValue,
         format = format,
-        trans = trans
+        trans = trans,
+        position = position
     )
 }
 
@@ -76,6 +84,8 @@ fun scaleXContinuous(
  * ## Examples
  *
  * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+ *
+ * - [axis_position.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/axis_position.ipynb)
  *
  * @param name  The name of the scale - used as the axis label or the legend title.
  *              If None, the default, the name of the scale
@@ -95,6 +105,10 @@ fun scaleXContinuous(
  *      Specifies the format pattern for labels on the scale.
  * @param trans
  *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -116,6 +130,7 @@ fun scaleYContinuous(
     naValue: Number? = null,
     format: String? = null,
     trans: String? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -128,6 +143,7 @@ fun scaleYContinuous(
         naValue = naValue,
         format = format,
         trans = trans,
+        position = position
     )
 }
 
@@ -150,6 +166,10 @@ fun scaleYContinuous(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -170,6 +190,7 @@ fun scaleXLog10(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleXContinuous(
     name = name,
     breaks = breaks,
@@ -179,6 +200,7 @@ fun scaleXLog10(
     naValue = naValue,
     format = format,
     trans = "log10",
+    position = position
 )
 
 /**
@@ -200,6 +222,10 @@ fun scaleXLog10(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -220,6 +246,7 @@ fun scaleYLog10(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleYContinuous(
     name = name,
     breaks = breaks,
@@ -229,6 +256,7 @@ fun scaleYLog10(
     naValue = naValue,
     format = format,
     trans = "log10",
+    position = position
 )
 
 /**
@@ -250,6 +278,10 @@ fun scaleYLog10(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -270,6 +302,7 @@ fun scaleXReverse(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleXContinuous(
     name = name,
     breaks = breaks,
@@ -279,6 +312,7 @@ fun scaleXReverse(
     naValue = naValue,
     format = format,
     trans = "reverse",
+    position = position
 )
 
 /**
@@ -300,6 +334,10 @@ fun scaleXReverse(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -320,6 +358,7 @@ fun scaleYReverse(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleYContinuous(
     name = name,
     breaks = breaks,
@@ -329,6 +368,7 @@ fun scaleYReverse(
     naValue = naValue,
     format = format,
     trans = "reverse",
+    position = position
 )
 
 /**
@@ -350,6 +390,10 @@ fun scaleYReverse(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -370,6 +414,7 @@ fun scaleXSqrt(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleXContinuous(
     name = name,
     breaks = breaks,
@@ -379,6 +424,7 @@ fun scaleXSqrt(
     naValue = naValue,
     format = format,
     trans = "sqrt",
+    position = position
 )
 
 /**
@@ -400,6 +446,10 @@ fun scaleXSqrt(
  * @param naValue Missing values will be replaced with this value.
  * @param format
  *      Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -420,6 +470,7 @@ fun scaleYSqrt(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ) = scaleYContinuous(
     name = name,
     breaks = breaks,
@@ -429,4 +480,5 @@ fun scaleYSqrt(
     naValue = naValue,
     format = format,
     trans = "sqrt",
+    position = position
 )

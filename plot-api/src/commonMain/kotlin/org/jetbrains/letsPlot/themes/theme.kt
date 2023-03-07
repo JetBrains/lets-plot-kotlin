@@ -362,10 +362,13 @@ fun elementLine(
  *
  * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  *
+ * - [axis_text_angle.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/axis_text_angle.ipynb)
+ *
  * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
  * @param family Font family.
  * @param face Font face ("plain", "italic", "bold", "bold_italic").
  * @param size Text size in pt.
+ * @param angle Angle to rotate the text (in degrees).
  * @param hjust Horizontal justification (in [0, 1]).
  *     0 - left-justified
  *     1 - right-justified
@@ -385,6 +388,7 @@ fun elementText(
     family: Any? = null,
     face: Any? = null,
     size: Number? = null,
+    angle: Number? = null,
     hjust: Number? = null,
     vjust: Number? = null,
     margin: Any? = null,
@@ -394,6 +398,7 @@ fun elementText(
     ThemeOption.Elem.FONT_FAMILY to family,
     ThemeOption.Elem.FONT_FACE to face,
     ThemeOption.Elem.SIZE to size,
+    ThemeOption.Elem.ANGLE to angle,
     ThemeOption.Elem.HJUST to hjust,
     ThemeOption.Elem.VJUST to vjust,
     ThemeOption.Elem.MARGIN to margin,

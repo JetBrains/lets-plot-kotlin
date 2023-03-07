@@ -30,7 +30,10 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param reverse When True the scale reversed.
- *
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -51,7 +54,8 @@ fun scaleXDiscrete(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-    reverse: Boolean? = null
+    reverse: Boolean? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -63,6 +67,7 @@ fun scaleXDiscrete(
         expand = expand,
         naValue = naValue,
         format = format,
+        position = position,
         otherOptions = Options(
             mapOf(
                 Option.Guide.REVERSE to reverse
@@ -90,6 +95,10 @@ fun scaleXDiscrete(
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param reverse When True the scale reversed.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -111,7 +120,8 @@ fun scaleYDiscrete(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-    reverse: Boolean? = null
+    reverse: Boolean? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -123,6 +133,7 @@ fun scaleYDiscrete(
         expand = expand,
         naValue = naValue,
         format = format,
+        position = position,
         otherOptions = Options(
             mapOf(
                 Option.Guide.REVERSE to reverse
@@ -149,6 +160,10 @@ fun scaleYDiscrete(
  *      Defaults: multiplicative = 0, additive = 0.2.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -170,6 +185,7 @@ fun scaleXDiscreteReversed(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ): Scale {
     return scaleXDiscrete(
         name = name,
@@ -179,7 +195,8 @@ fun scaleXDiscreteReversed(
         expand = expand,
         naValue = naValue,
         format = format,
-        reverse = true
+        reverse = true,
+        position = position
     )
 }
 
@@ -201,6 +218,10 @@ fun scaleXDiscreteReversed(
  *      Defaults: multiplicative = 0, additive = 0.2.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -222,6 +243,7 @@ fun scaleYDiscreteReversed(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
+    position: String? = null
 ): Scale {
     return scaleYDiscrete(
         name = name,
@@ -231,6 +253,7 @@ fun scaleYDiscreteReversed(
         expand = expand,
         naValue = naValue,
         format = format,
-        reverse = true
+        reverse = true,
+        position = position
     )
 }

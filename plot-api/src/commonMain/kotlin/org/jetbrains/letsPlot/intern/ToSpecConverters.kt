@@ -20,6 +20,7 @@ import jetbrains.datalore.plot.config.Option.Scale.LABELS
 import jetbrains.datalore.plot.config.Option.Scale.LIMITS
 import jetbrains.datalore.plot.config.Option.Scale.NAME
 import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
+import jetbrains.datalore.plot.config.Option.Scale.POSITION
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.MappingMeta
@@ -229,6 +230,7 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     guide?.let { spec[GUIDE] = guide }
     trans?.let { spec[CONTINUOUS_TRANSFORM] = trans }
     format?.let { spec[FORMAT] = format }
+    position?.let { spec[POSITION] = position }
 
     spec.putAll(otherOptions.map)
     return spec

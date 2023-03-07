@@ -136,6 +136,7 @@ class Scale(
     val format: String? = null,
     val guide: Any? = null,
     val trans: String? = null,
+    val position: String? = null,
     val otherOptions: Options = Options.empty()
 
 ) : Feature()
