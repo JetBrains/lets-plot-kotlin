@@ -2,6 +2,10 @@
 
 ### Added
 
+- `jointPlot()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/joint_plot.ipynb). 
+
 - Axis `position` parameter in position scales `scaleX*(), scaleY*()`.
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/axis_position.ipynb).
@@ -14,6 +18,7 @@
 
    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/quantile_parameters.ipynb).
 
+- `density2d` and `density2df` geometry types in `residualPlot()`.
 
 
 ### Changed
