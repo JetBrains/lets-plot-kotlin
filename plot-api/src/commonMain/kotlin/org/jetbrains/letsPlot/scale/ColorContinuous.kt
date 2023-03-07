@@ -23,6 +23,75 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
 
+
+/**
+ * Defines smooth color gradient between two colors for the specified aesthetics.
+ *
+ * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
+ * @param low String,
+ *  color for low end of gradient.
+ * @param high String,
+ *  color for high end of gradient.
+ * @param name String,
+ *  The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
+ * @param breaks List of Numbers.
+ *  A numeric vector of positions (of ticks).
+ * @param labels List of Strings.
+ *  A vector of labels (on ticks).
+ * @param limits A Pair of Numbers specifying the data range for the scale.
+ *  Use null to refer to default min/max.
+ * @param naValue Missing values will be replaced with this value.
+ * @param format String,
+ *  specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
+ * @param trans String,
+ *  name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ *
+ * Examples:
+ * - ".2f" -> "12.45";
+ * - "Score: {.2f}" -> "Score: 12.45";
+ * - "Score: {}" -> "Score: 12.454789".
+ *
+ */
+fun scaleContinuous(
+    aesthetic: Any,
+    low: String? = null, high: String? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = Scale(
+    aesthetic = aesthetic,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
+        mapOf(
+            LOW to low,
+            HIGH to high,
+            SCALE_MAPPER_KIND to "color_gradient"
+        )
+    )
+)
+
 /**
  * Defines smooth color gradient between two colors for fill aesthetic.
  *
@@ -74,8 +143,9 @@ fun scaleFillContinuous(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+) = scaleContinuous(
     aesthetic = Aes.FILL,
+    low = low, high = high,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -83,14 +153,7 @@ fun scaleFillContinuous(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans,
-    otherOptions = Options(
-        mapOf(
-            LOW to low,
-            HIGH to high,
-            SCALE_MAPPER_KIND to "color_gradient"
-        )
-    )
+    trans = trans
 )
 
 /**
@@ -146,8 +209,9 @@ fun scaleColorContinuous(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+) = scaleContinuous(
     aesthetic = Aes.COLOR,
+    low = low, high = high,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -155,14 +219,69 @@ fun scaleColorContinuous(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans,
-    otherOptions = Options(
-        mapOf(
-            LOW to low,
-            HIGH to high,
-            SCALE_MAPPER_KIND to "color_gradient"
-        )
-    )
+    trans = trans
+)
+
+/**
+ * Defines smooth color gradient between two colors for the specified aesthetics.
+ *
+ * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
+ * @param low String,
+ *  color for low end of gradient.
+ * @param high String,
+ *  color for high end of gradient.
+ * @param name String,
+ *  the name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
+ * @param breaks List of Numbers.
+ *  A numeric vector of positions (of ticks).
+ * @param labels List of Strings.
+ *  A vector of labels (on ticks).
+ * @param limits A Pair of Numbers specifying the data range for the scale.
+ *  Use null to refer to default min/max.
+ * @param naValue Missing values will be replaced with this value.
+ * @param format String,
+ *  specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
+ * @param trans String,
+ *  name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ *
+ * Examples:
+ * - ".2f" -> "12.45";
+ * - "Score: {.2f}" -> "Score: 12.45";
+ * - "Score: {}" -> "Score: 12.454789".
+ *
+ */
+fun scaleGradient(
+    aesthetic: Any,
+    low: String, high: String,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = scaleContinuous(
+    aesthetic = aesthetic,
+    low = low, high = high,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    trans = trans
 )
 
 /**
@@ -214,8 +333,9 @@ fun scaleFillGradient(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleFillContinuous(
-    low, high,
+) = scaleGradient(
+    aesthetic = Aes.FILL,
+    low = low, high = high,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -281,8 +401,9 @@ fun scaleColorGradient(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = scaleColorContinuous(
-    low, high,
+) = scaleGradient(
+    aesthetic = Aes.COLOR,
+    low = low, high = high,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -291,6 +412,79 @@ fun scaleColorGradient(
     format = format,
     guide = guide,
     trans = trans
+)
+
+/**
+ * Defines diverging color gradient (low-mid-high) for the specified aesthetics.
+ *
+ * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
+ * @param low String,
+ *  color for low end of gradient.
+ * @param high String,
+ *  color for high end of gradient.
+ * @param midpoint Double, default = 0.0.
+ *  The midpoint (in data value) of the diverging scale.
+ * @param name String,
+ *  the name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
+ * @param breaks List of Numbers.
+ *  A numeric vector of positions (of ticks).
+ * @param labels List of Strings.
+ *  A vector of labels (on ticks).
+ * @param limits A Pair of Numbers specifying the data range for the scale.
+ *  Use null to refer to default min/max.
+ * @param naValue Missing values will be replaced with this value.
+ * @param format String,
+ *  specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
+ * @param trans String,
+ *  name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ *
+ * Examples:
+ * - ".2f" -> "12.45";
+ * - "Score: {.2f}" -> "Score: 12.45";
+ * - "Score: {}" -> "Score: 12.454789".
+ *
+ */
+fun scaleGradient2(
+    aesthetic: Any,
+    low: String, mid: String, high: String,
+    midpoint: Double = 0.0,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = Scale(
+    aesthetic = aesthetic,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
+        mapOf(
+            LOW to low,
+            HIGH to high,
+            MID to mid,
+            MIDPOINT to midpoint,
+            SCALE_MAPPER_KIND to "color_gradient2"
+        )
+    )
 )
 
 /**
@@ -343,8 +537,69 @@ fun scaleFillGradient2(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+) = scaleGradient2(
     aesthetic = Aes.FILL,
+    low = low, mid = mid, high = high,
+    midpoint = midpoint,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    trans = trans
+)
+
+/**
+ * Defines smooth color gradient between multiple colors for the specified aesthetics.
+ *
+ * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
+ * @param colors List of Strings.
+ *  Gradient colors list.
+ * @param name String,
+ *  the name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
+ * @param breaks List of Numbers.
+ *  A numeric vector of positions (of ticks).
+ * @param labels List of Strings.
+ *  A vector of labels (on ticks).
+ * @param limits A Pair of Numbers specifying the data range for the scale.
+ *  Use null to refer to default min/max.
+ * @param naValue Missing values will be replaced with this value.
+ * @param format String,
+ *  specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
+ * @param trans String,
+ *  name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ *
+ * Examples:
+ * - ".2f" -> "12.45";
+ * - "Score: {.2f}" -> "Score: 12.45";
+ * - "Score: {}" -> "Score: 12.454789".
+ *
+ */
+fun scaleGradientN(
+    aesthetic: Any,
+    colors: List<String>,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = Scale(
+    aesthetic = aesthetic,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -355,11 +610,8 @@ fun scaleFillGradient2(
     trans = trans,
     otherOptions = Options(
         mapOf(
-            LOW to low,
-            HIGH to high,
-            MID to mid,
-            MIDPOINT to midpoint,
-            SCALE_MAPPER_KIND to "color_gradient2"
+            COLORS to colors,
+            SCALE_MAPPER_KIND to "color_gradientn"
         )
     )
 )
@@ -411,8 +663,9 @@ fun scaleFillGradientN(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+) = scaleGradientN(
     aesthetic = Aes.FILL,
+    colors = colors,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -420,13 +673,7 @@ fun scaleFillGradientN(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans,
-    otherOptions = Options(
-        mapOf(
-            COLORS to colors,
-            SCALE_MAPPER_KIND to "color_gradientn"
-        )
-    )
+    trans = trans
 )
 
 /**
@@ -479,8 +726,10 @@ fun scaleColorGradient2(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+) = scaleGradient2(
     aesthetic = Aes.COLOR,
+    low = low, mid = mid, high = high,
+    midpoint = midpoint,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -488,16 +737,7 @@ fun scaleColorGradient2(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans,
-    otherOptions = Options(
-        mapOf(
-            LOW to low,
-            HIGH to high,
-            MID to mid,
-            MIDPOINT to midpoint,
-            SCALE_MAPPER_KIND to "color_gradient2"
-        )
-    )
+    trans = trans
 )
 
 /**
@@ -547,8 +787,9 @@ fun scaleColorGradientN(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-)= Scale(
+) = scaleGradientN(
     aesthetic = Aes.COLOR,
+    colors = colors,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -556,14 +797,81 @@ fun scaleColorGradientN(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans,
-    otherOptions = Options(
-        mapOf(
-            COLORS to colors,
-            SCALE_MAPPER_KIND to "color_gradientn"
+    trans = trans
+)
+
+/**
+ * Sequential grey color scale for the specified aesthetics.
+ * The palette is computed using HSV (hue, saturation, value) color model.
+ *
+ * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
+ * @param start Number,
+ *  gray value at low end of palette in range `[0,1]`.
+ * @param end Number,
+ *  gray value at high end of palette in range `[0,1]`.
+ * @param name String,
+ *  the name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
+ * @param breaks List of Numbers.
+ *  A numeric vector of positions (of ticks).
+ * @param labels List of Strings.
+ *  A vector of labels (on ticks).
+ * @param limits A Pair of Numbers specifying the data range for the scale.
+ *  Use null to refer to default min/max.
+ * @param naValue Missing values will be replaced with this value.
+ * @param format String,
+ *  specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
+ * @param trans String,
+ *  name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ *
+ * Examples:
+ * - ".2f" -> "12.45";
+ * - "Score: {.2f}" -> "Score: 12.45";
+ * - "Score: {}" -> "Score: 12.454789".
+ *
+ */
+fun scaleGrey(
+    aesthetic: Any,
+    start: Number? = null,
+    end: Number? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null,
+    trans: String? = null
+): Scale {
+    checkGreyScaleStartEnd(start, end)
+    return Scale(
+        aesthetic = aesthetic,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        limits = limits,
+        naValue = naValue,
+        format = format,
+        guide = guide,
+        trans = trans,
+        otherOptions = Options(
+            mapOf(
+                START to start,
+                END to end,
+                SCALE_MAPPER_KIND to "color_grey"
+            )
         )
     )
-)
+}
 
 /**
  * Sequential grey color scale for fill aesthetic.
@@ -620,27 +928,18 @@ fun scaleFillGrey(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-): Scale {
-    checkGreyScaleStartEnd(start, end)
-    return Scale(
-        aesthetic = Aes.FILL,
-        name = name,
-        breaks = breaks,
-        labels = labels,
-        limits = limits,
-        naValue = naValue,
-        format = format,
-        guide = guide,
-        trans = trans,
-        otherOptions = Options(
-            mapOf(
-                START to start,
-                END to end,
-                SCALE_MAPPER_KIND to "color_grey"
-            )
-        )
-    )
-}
+) = scaleGrey(
+    aesthetic = Aes.FILL,
+    start = start, end = end,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    trans = trans
+)
 
 /**
  * Sequential grey color scale for color aesthetic.
@@ -693,27 +992,100 @@ fun scaleColorGrey(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-): Scale {
-    checkGreyScaleStartEnd(start, end)
-    return Scale(
-        aesthetic = Aes.COLOR,
-        name = name,
-        breaks = breaks,
-        labels = labels,
-        limits = limits,
-        naValue = naValue,
-        format = format,
-        guide = guide,
-        trans = trans,
-        otherOptions = Options(
-            mapOf(
-                START to start,
-                END to end,
-                SCALE_MAPPER_KIND to "color_grey"
-            )
+) = scaleGrey(
+    aesthetic = Aes.COLOR,
+    start = start, end = end,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    trans = trans
+)
+
+/**
+ * Qualitative color scale with evenly spaced hues for the specified aesthetics.
+ *
+ * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
+ * @param h a Pair of Numbers.
+ *  Range of hues, in `[0,360]`.
+ * @param c Number,
+ *  chroma (intensity of color), maximum value varies depending on.
+ * @param l Number,
+ *  luminance (lightness), in `[0,100]`.
+ * @param hstart List of two Numbers.
+ *  Hue to start at.
+ * @param direction Number, default = 1.
+ *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
+ * @param name String,
+ *  the name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
+ * @param breaks List of Numbers.
+ *  A numeric vector of positions (of ticks).
+ * @param labels List of Strings,
+ *  a vector of labels (on ticks).
+ * @param limits A Pair of Numbers specifying the data range for the scale.
+ *  Use null to refer to default min/max.
+ * @param naValue Missing values will be replaced with this value.
+ * @param format String,
+ *  specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
+ * @param trans String,
+ *  name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ *
+ * Examples:
+ * - ".2f" -> "12.45";
+ * - "Score: {.2f}" -> "Score: 12.45";
+ * - "Score: {}" -> "Score: 12.454789".
+ *
+ */
+fun scaleHue(
+    aesthetic: Any,
+    h: Pair<Int, Int>? = null,
+    c: Int? = null,
+    l: Int? = null,
+    @Suppress("SpellCheckingInspection")
+    hstart: Int? = null,
+    direction: Int? = null,
+    name: String? = null,
+    breaks: List<Number>? = null,
+    labels: List<String>? = null,
+    limits: Pair<Number?, Number?>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null,
+    trans: String? = null
+) = Scale(
+    aesthetic = aesthetic,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    trans = trans,
+    otherOptions = Options(
+        mapOf(
+            HUE_RANGE to h,
+            CHROMA to c,
+            LUMINANCE to l,
+            START_HUE to hstart,
+            DIRECTION to direction,
+            SCALE_MAPPER_KIND to "color_hue"
         )
     )
-}
+)
 
 /**
  * Qualitative color scale with evenly spaced hues for fill aesthetic.
@@ -779,8 +1151,11 @@ fun scaleFillHue(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+) = scaleHue(
     aesthetic = Aes.FILL,
+    h = h, c = c, l = l,
+    hstart = hstart,
+    direction = direction,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -788,17 +1163,7 @@ fun scaleFillHue(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans,
-    otherOptions = Options(
-        mapOf(
-            HUE_RANGE to h,
-            CHROMA to c,
-            LUMINANCE to l,
-            START_HUE to hstart,
-            DIRECTION to direction,
-            SCALE_MAPPER_KIND to "color_hue"
-        )
-    )
+    trans = trans
 )
 
 /**
@@ -861,8 +1226,11 @@ fun scaleColorHue(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+) = scaleHue(
     aesthetic = Aes.COLOR,
+    h = h, c = c, l = l,
+    hstart = hstart,
+    direction = direction,
     name = name,
     breaks = breaks,
     labels = labels,
@@ -870,15 +1238,5 @@ fun scaleColorHue(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans,
-    otherOptions = Options(
-        mapOf(
-            HUE_RANGE to h,
-            CHROMA to c,
-            LUMINANCE to l,
-            START_HUE to hstart,
-            DIRECTION to direction,
-            SCALE_MAPPER_KIND to "color_hue"
-        )
-    )
+    trans = trans
 )

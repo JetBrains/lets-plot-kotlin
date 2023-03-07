@@ -11,6 +11,63 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
 /**
+ * Creates your own discrete scale for the specified aesthetics.
+ *
+ * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
+ * @param values List of Strings (encoding colors) or color values.
+ *  A set of aesthetic values to map data values to.
+ *  Values will be matched with the limits of the scale (if specified).
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
+ *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
+ *
+ * Format patterns in the `format` parameter can be just a number format (like "d") or
+ * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * Note: the "$" must be escaped as "\$"
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ *
+ * Examples:
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
+ *
+ */
+fun scaleManual(
+    aesthetic: Any,
+    values: List<Any>,
+    name: String? = null,
+    breaks: List<Any>? = null,
+    labels: List<String>? = null,
+    limits: List<Any>? = null,
+    naValue: Any? = null,
+    format: String? = null,
+    guide: Any? = null
+) = Scale(
+    aesthetic = aesthetic,
+    name = name,
+    breaks = breaks,
+    labels = labels,
+    limits = limits,
+    naValue = naValue,
+    format = format,
+    guide = guide,
+    otherOptions = Options(
+        mapOf(
+            Option.Scale.OUTPUT_VALUES to values
+        )
+    )
+)
+
+/**
  * Create your own discrete scale for color aesthetic.
  *
  * ## Examples
@@ -59,20 +116,16 @@ fun scaleColorManual(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
+) = scaleManual(
     aesthetic = Aes.COLOR,
+    values = values,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.OUTPUT_VALUES to values
-        )
-    )
+    guide = guide
 )
 
 /**
@@ -124,20 +177,16 @@ fun scaleFillManual(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
+) = scaleManual(
     aesthetic = Aes.FILL,
+    values = values,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.OUTPUT_VALUES to values
-        )
-    )
+    guide = guide
 )
 
 /**
@@ -185,20 +234,16 @@ fun scaleSizeManual(
     naValue: Number? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
+) = scaleManual(
     aesthetic = Aes.SIZE,
+    values = values,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.OUTPUT_VALUES to values
-        )
-    )
+    guide = guide
 )
 
 /**
@@ -250,20 +295,16 @@ fun scaleShapeManual(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
+) = scaleManual(
     aesthetic = Aes.SHAPE,
+    values = values,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.OUTPUT_VALUES to values
-        )
-    )
+    guide = guide
 )
 
 /**
@@ -312,20 +353,16 @@ fun scaleLinetypeManual(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
+) = scaleManual(
     aesthetic = Aes.LINETYPE,
+    values = values,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.OUTPUT_VALUES to values
-        )
-    )
+    guide = guide
 )
 
 /**
@@ -373,18 +410,14 @@ fun scaleAlphaManual(
     naValue: Number? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
+) = scaleManual(
     aesthetic = Aes.ALPHA,
+    values = values,
     name = name,
     breaks = breaks,
     labels = labels,
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.OUTPUT_VALUES to values
-        )
-    )
+    guide = guide
 )

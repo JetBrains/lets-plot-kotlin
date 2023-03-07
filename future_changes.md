@@ -18,6 +18,12 @@
 
    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/quantile_parameters.ipynb).
 
+- ...
+
+  Also added a set of related "color scale" functions with the "aesthetic" parameter for configuring of additional color scales.
+
+  See [New "Scale" Functions](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/scale_functions.ipynb) demo.
+
 - `density2d` and `density2df` geometry types in `residualPlot()`.
 
 
