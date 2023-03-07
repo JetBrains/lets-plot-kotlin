@@ -33,7 +33,7 @@ internal class JointPlotBuilder(
     private val marginal: String?
 ) {
     private val myData = asPlotData(data)
-    private val myGeom = geom ?: DEF_GEOM
+    private val myGeomKind = geom ?: DEF_GEOM
 
     fun build(): Plot {
         val mapping: GenericAesMapping.() -> Unit = {
@@ -57,7 +57,7 @@ internal class JointPlotBuilder(
 
         // main layer
         layers += Plot2dUtil.getGeom2dLayer(
-            myGeom,
+            myGeomKind,
             bins2d,
             binWidth2d,
             color,
@@ -68,7 +68,7 @@ internal class JointPlotBuilder(
         )
 
         // smooth layer
-        if (regLine ?: (myGeom == "point")) {
+        if (regLine ?: (myGeomKind == "point")) {
             layers += geomSmooth(
                 method = REG_LINE_METHOD,
                 se = se,
@@ -83,7 +83,7 @@ internal class JointPlotBuilder(
         val definedMarginal = when {
             myData.containsKey(x) && myData[x]!!.isEmpty() -> "none"
             marginal != null -> marginal
-            myGeom in listOf("density2d", "density2df") -> "dens:tr"
+            myGeomKind in listOf("density2d", "density2df") -> "dens:tr"
             colorBy != null -> "dens:tr"
             else -> "hist:tr"
         }
