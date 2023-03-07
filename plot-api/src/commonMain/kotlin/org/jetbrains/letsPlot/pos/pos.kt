@@ -96,6 +96,8 @@ fun positionJitterDodge(
  *
  * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
  *
+ * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/position_stack.ipynb)
+ *
  * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
  * Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
  * @param mode String, {"groups", "all"}, default = "groups".
@@ -121,6 +123,8 @@ fun positionStack(vjust: Number? = null, mode: String? = null) =
  * ## Examples
  *
  * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
+ *
+ * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/position_stack.ipynb)
  *
  * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
  * Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
