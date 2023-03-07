@@ -18,6 +18,7 @@
 
    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/quantile_parameters.ipynb).
 
+- `density2d` and `density2df` geometry types in `residualPlot()`.
 
 
 ### Changed
