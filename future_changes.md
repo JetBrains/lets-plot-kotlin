@@ -18,7 +18,10 @@
 
    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/quantile_parameters.ipynb).
 
-- ...
+- Additional "color" aesthetics: `paint_a, paint_b, paint_c`.
+
+  These aesthetics are flexible and can be used as either "color" or "fill" as needed. 
+  See [Multiple Color Scales](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/multiple_color_scales.ipynb) demo.
 
   Also added a set of related "color scale" functions with the "aesthetic" parameter for configuring of additional color scales.
 
