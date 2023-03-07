@@ -96,13 +96,24 @@ fun positionJitterDodge(
  *
  * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
  *
+ * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/position_stack.ipynb)
+ *
  * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
  * Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
+ * @param mode String, {"groups", "all"}, default = "groups".
+ *  If "groups", objects inside one group are positioned as in `position = positionIdentity`,
+ *  but each group is shifted to sum of heights of previous groups
+ *  (where height of a group is a maximum of it's y values).
+ *  If "all", each object will be shifted.
+ *
  */
-fun positionStack(vjust: Number? = null) =
+fun positionStack(vjust: Number? = null, mode: String? = null) =
     PosOptions(
         PosKind.STACK,
-        Options.of(Option.Pos.Stack.VJUST to vjust)
+        Options.of(
+            Option.Pos.Stack.VJUST to vjust,
+            Option.Pos.Stack.MODE to mode
+        ),
     )
 
 /**
@@ -113,11 +124,21 @@ fun positionStack(vjust: Number? = null) =
  *
  * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
  *
+ * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/position_stack.ipynb)
+ *
  * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
  * Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
+ * @param mode String, {"groups", "all"}, default = "groups".
+ *  If "groups", objects inside one group are positioned as in `position = positionIdentity`,
+ *  but each group is shifted to sum of heights of previous groups
+ *  (where height of a group is a maximum of it's y values).
+ *  If "all", each object will be shifted.
  */
-fun positionFill(vjust: Number? = null) =
+fun positionFill(vjust: Number? = null, mode: String? = null) =
     PosOptions(
         PosKind.FILL,
-        Options.of(Option.Pos.Fill.VJUST to vjust)
+        Options.of(
+            Option.Pos.Fill.VJUST to vjust,
+            Option.Pos.Fill.MODE to mode
+        )
     )
