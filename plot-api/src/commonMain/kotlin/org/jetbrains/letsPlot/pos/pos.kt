@@ -17,14 +17,14 @@ val positionIdentity = PosOptions(PosKind.IDENTITY)
 @Deprecated(
     "",
     ReplaceWith("positionStack()", imports = ["org.jetbrains.letsPlot.pos.positionStack()"]),
-    level = DeprecationLevel.WARNING
+    level = DeprecationLevel.ERROR
 )
 val positionStack = positionStack()
 
 @Deprecated(
     "",
     ReplaceWith("positionFill()", imports = ["org.jetbrains.letsPlot.pos.positionFill()"]),
-    level = DeprecationLevel.WARNING
+    level = DeprecationLevel.ERROR
 )
 val positionFill = positionFill()
 

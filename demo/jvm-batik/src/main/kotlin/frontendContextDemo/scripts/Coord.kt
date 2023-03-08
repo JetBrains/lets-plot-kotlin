@@ -7,8 +7,8 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.coord.coordCartesian
+import org.jetbrains.letsPlot.coord.coordFixed
 import org.jetbrains.letsPlot.coord.coordMap
-import org.jetbrains.letsPlot.coordFixed
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomSmooth
@@ -33,7 +33,7 @@ object Coord {
 
                 println((p + ggtitle("coord_map()") + coordMap()).toSpec())
 
-                (p + ggtitle("coord_fixed()") + org.jetbrains.letsPlot.coord.coordFixed()).show()
+                (p + ggtitle("coord_fixed()") + coordFixed()).show()
                 (p + ggtitle("coord_fixed(x_lim)") + coordFixed(xlim = 7 to 17)).show()
                 (p + ggtitle("coord_fixed(y_lim)") + coordFixed(ylim = 7 to 17)).show()
                 (p + ggtitle("coord_fixed(x_lim+y_lim)") + coordFixed(
