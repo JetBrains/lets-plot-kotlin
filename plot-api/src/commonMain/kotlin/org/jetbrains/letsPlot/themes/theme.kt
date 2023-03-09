@@ -362,7 +362,7 @@ fun elementLine(
  *
  * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  *
- * - [axis_text_angle.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/axis_text_angle.ipynb)
+ * - [axis_text_angle.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_text_angle.ipynb)
  *
  * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
  * @param family Font family.

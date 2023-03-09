@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.intern.Scale
  *
  * ## Examples
  *
- * - [scale_functions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/scale_functions.ipynb)
+ * - [scale_functions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/scale_functions.ipynb)
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
  * @param type String,

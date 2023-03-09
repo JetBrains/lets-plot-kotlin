@@ -29,7 +29,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [violin_show_half.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/violin_show_half.ipynb)
  *
- * - [quantile_parameters.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.1/quantile_parameters.ipynb)
+ * - [quantile_parameters.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/quantile_parameters.ipynb)
  *
  * @param data
  *     The data to be displayed in this layer. If None, the default, the data
