@@ -5,6 +5,7 @@
 - `gggrid()` function, as a replacement for the earlier variant of [gggrid()](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot/gggrid.html).
   - sup-plots alignment
   - nested grids
+  - works well with `ggsize()`
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/plot_grid.ipynb).
          

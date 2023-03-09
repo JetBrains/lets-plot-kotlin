@@ -18,6 +18,14 @@ The `CorrPlot` class produces a correlation matrix plot.
 
 - [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
 
+# Package org.jetbrains.letsPlot.bistro.joint
+
+The `jointPlot()` function produces a joint plot that contains bivariate and univariate graphs at the same time.
+
+## Examples
+
+- [joint_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/joint_plot.ipynb)
+
 # Package org.jetbrains.letsPlot.bistro.qq
 
 The `qqPlot()` function produces a Q-Q plot (quantile-quantile plot).
