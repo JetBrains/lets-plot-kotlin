@@ -19,8 +19,8 @@ class DotplotMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : DotplotAesthetics, WithGroupOption, ColorAesthetics {
+) : DotplotAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<DotplotAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }

@@ -15,13 +15,12 @@ class QQLineMapping(
     override var linetype: Any? = null,
     override var size: Any? = null,
     override var group: Any? = null,
-    override var fill: Any? = null,
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : QQLineAesthetics, QQStatAesthetics, WithGroupOption, ColorAesthetics {
+) : QQLineAesthetics, QQStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<QQLineAesthetics>.seal() +
             super<QQStatAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }

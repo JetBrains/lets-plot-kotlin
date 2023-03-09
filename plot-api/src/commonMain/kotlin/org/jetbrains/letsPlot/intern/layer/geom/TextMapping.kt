@@ -21,14 +21,13 @@ class TextMapping(
     override var angle: Any? = null,
     override var lineheight: Any? = null,
     override var group: Any? = null,
-    override var fill: Any? = null,
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : TextAesthetics, WithGroupOption, ColorAesthetics {
+) : TextAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<TextAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

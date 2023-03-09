@@ -8,16 +8,14 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
-interface ColorAesthetics : OptionsCapsule {
-    val color: Any?
-    val fill: Any?
+// Additional aesthetics related to color
+
+interface AdditionalColorAesthetics : OptionsCapsule {
     val paint_a: Any?
     val paint_b: Any?
     val paint_c: Any?
 
     override fun seal() = Options.of(
-        "color" to color,
-        "fill" to fill,
         "paint_a" to paint_a,
         "paint_b" to paint_b,
         "paint_c" to paint_c

@@ -14,14 +14,13 @@ class HLineMapping(
     override var linetype: Any? = null,
     override var size: Any? = null,
     override var group: Any? = null,
-    override var fill: Any? = null,
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : HLineAesthetics, WithGroupOption, ColorAesthetics {
+) : HLineAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<HLineAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

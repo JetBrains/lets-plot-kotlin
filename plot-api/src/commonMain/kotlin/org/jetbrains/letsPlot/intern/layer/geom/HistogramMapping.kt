@@ -20,9 +20,9 @@ class HistogramMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : HistogramAesthetics, BinStatAesthetics, WithGroupOption, ColorAesthetics {
+) : HistogramAesthetics, BinStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<HistogramAesthetics>.seal() +
             super<BinStatAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }

@@ -15,14 +15,13 @@ class ABLineMapping(
     override var linetype: Any? = null,
     override var size: Any? = null,
     override var group: Any? = null,
-    override var fill: Any? = null,
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : ABLineAesthetics, WithGroupOption, ColorAesthetics {
+) : ABLineAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<ABLineAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

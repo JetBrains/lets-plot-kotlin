@@ -20,8 +20,8 @@ class YDotplotMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : YDotplotAesthetics, WithGroupOption, ColorAesthetics {
+) : YDotplotAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<YDotplotAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }

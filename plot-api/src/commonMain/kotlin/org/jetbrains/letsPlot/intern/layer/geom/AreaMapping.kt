@@ -19,10 +19,10 @@ class AreaMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : AreaAesthetics, WithGroupOption, ColorAesthetics {
+) : AreaAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<AreaAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

@@ -21,10 +21,10 @@ class RectMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : RectAesthetics, WithGroupOption, ColorAesthetics {
+) : RectAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<RectAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

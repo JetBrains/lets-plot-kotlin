@@ -21,15 +21,14 @@ class Density2dMapping(
     override var flow: Any? = null,
     override var weight: Any? = null,
     override var group: Any? = null,
-    override var fill: Any? = null,
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PathAesthetics, ContourStatAesthetics, Density2dStatAesthetics, WithGroupOption, ColorAesthetics {
+) : PathAesthetics, ContourStatAesthetics, Density2dStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<PathAesthetics>.seal() +
             super<ContourStatAesthetics>.seal() +
             super<Density2dStatAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }
 

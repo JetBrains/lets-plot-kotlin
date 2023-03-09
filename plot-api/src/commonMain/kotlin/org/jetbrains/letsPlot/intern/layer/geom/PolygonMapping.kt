@@ -19,8 +19,8 @@ class PolygonMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PolygonAesthetics, WithGroupOption, ColorAesthetics {
+) : PolygonAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<PolygonAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }

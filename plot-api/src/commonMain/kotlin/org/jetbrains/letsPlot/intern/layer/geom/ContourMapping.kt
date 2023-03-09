@@ -18,14 +18,13 @@ class ContourMapping(
     override var speed: Any? = null,
     override var flow: Any? = null,
     override var group: Any? = null,
-    override var fill: Any? = null,
     override var color: Any? = null,
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PathAesthetics, ContourStatAesthetics, WithGroupOption, ColorAesthetics {
+) : PathAesthetics, ContourStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<PathAesthetics>.seal() +
             super<ContourStatAesthetics>.seal() +
             groupOption() +
-            super<ColorAesthetics>.seal()
+            super<AdditionalColorAesthetics>.seal()
 }
