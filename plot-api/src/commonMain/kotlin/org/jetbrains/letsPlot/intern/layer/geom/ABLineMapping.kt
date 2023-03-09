@@ -18,10 +18,10 @@ class ABLineMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : ABLineAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : ABLineAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<ABLineAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }
 
 

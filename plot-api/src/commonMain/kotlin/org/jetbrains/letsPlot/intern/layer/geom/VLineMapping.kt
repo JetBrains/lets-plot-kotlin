@@ -18,10 +18,10 @@ class VLineMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : VLineAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : VLineAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<VLineAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }
 
 

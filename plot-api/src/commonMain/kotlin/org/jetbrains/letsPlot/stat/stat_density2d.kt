@@ -12,7 +12,7 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.Density2dMapping
 import org.jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
@@ -50,7 +50,7 @@ class statDensity2D(
     ContourStatAesthetics,
     Density2dStatAesthetics,
     Density2dStatParameters,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = Density2dMapping().apply(mapping).seal(),
         data = data,
@@ -65,6 +65,6 @@ class statDensity2D(
                 super<ContourStatAesthetics>.seal() +
                 super<Density2dStatAesthetics>.seal() +
                 super<Density2dStatParameters>.seal() +
-                super<WithColorByParameter>.seal()
+                super<WithColorOption>.seal()
     }
 }

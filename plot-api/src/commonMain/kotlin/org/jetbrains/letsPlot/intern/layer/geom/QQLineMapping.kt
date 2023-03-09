@@ -18,9 +18,9 @@ class QQLineMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : QQLineAesthetics, QQStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : QQLineAesthetics, QQStatAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<QQLineAesthetics>.seal() +
             super<QQStatAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

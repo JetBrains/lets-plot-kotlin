@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.HLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.HLineMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -72,7 +72,7 @@ class geomHLine(
     mapping: HLineMapping.() -> Unit = {}
 
 ) : HLineAesthetics,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = HLineMapping().apply(mapping).seal(),
         data = data,
@@ -84,6 +84,6 @@ class geomHLine(
         tooltips = tooltips
     ) {
     override fun seal() = super<HLineAesthetics>.seal() +
-            super<WithColorByParameter>.seal()
+            super<WithColorOption>.seal()
 }
 

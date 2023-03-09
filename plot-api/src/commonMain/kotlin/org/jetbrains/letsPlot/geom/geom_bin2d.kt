@@ -12,8 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
@@ -94,8 +94,8 @@ class geomBin2D(
 ) : TileAesthetics,
     Bin2dStatAesthetics,
     Bin2dStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = Bin2dMapping().apply(mapping).seal(),
         data = data,
@@ -110,7 +110,7 @@ class geomBin2D(
         return super<TileAesthetics>.seal() +
                 super<Bin2dStatAesthetics>.seal() +
                 super<Bin2dStatParameters>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

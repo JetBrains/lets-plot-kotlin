@@ -21,10 +21,10 @@ class PieMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PieAesthetics, Count2dStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : PieAesthetics, Count2dStatAesthetics, WithGroupOption, PaintAesthetics {
 
     override fun seal() = super<PieAesthetics>.seal() +
             super<Count2dStatAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

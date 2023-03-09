@@ -12,7 +12,7 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PathMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQ2LineStatParameters
@@ -40,7 +40,7 @@ class statQQ2Line(
 ) : PathAesthetics,
     QQ2StatAesthetics,
     QQ2LineStatParameters,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = PathMapping().apply(mapping).seal(),
         data = data,
@@ -55,6 +55,6 @@ class statQQ2Line(
         return super<PathAesthetics>.seal() +
                 super<QQ2StatAesthetics>.seal() +
                 super<QQ2LineStatParameters>.seal() +
-                super<WithColorByParameter>.seal()
+                super<WithColorOption>.seal()
     }
 }

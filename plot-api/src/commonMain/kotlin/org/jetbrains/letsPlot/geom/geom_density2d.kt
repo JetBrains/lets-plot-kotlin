@@ -101,7 +101,7 @@ class geomDensity2D(
     ContourStatAesthetics,
     Density2dStatAesthetics,
     Density2dStatParameters,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = Density2dMapping().apply(mapping).seal(),
         data = data,
@@ -117,6 +117,6 @@ class geomDensity2D(
                 super<ContourStatAesthetics>.seal() +
                 super<Density2dStatAesthetics>.seal() +
                 super<Density2dStatParameters>.seal() +
-                super<WithColorByParameter>.seal()
+                super<WithColorOption>.seal()
     }
 }

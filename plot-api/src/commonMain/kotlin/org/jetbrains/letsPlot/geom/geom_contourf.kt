@@ -82,8 +82,8 @@ class geomContourFilled(
 ) : PolygonAesthetics,
     ContourStatAesthetics,
     ContourStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
@@ -98,7 +98,7 @@ class geomContourFilled(
         return super<PolygonAesthetics>.seal() +
                 super<ContourStatAesthetics>.seal() +
                 super<ContourStatParameters>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

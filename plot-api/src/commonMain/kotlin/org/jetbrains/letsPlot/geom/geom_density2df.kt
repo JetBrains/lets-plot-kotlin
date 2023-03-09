@@ -96,8 +96,8 @@ class geomDensity2DFilled(
 ) : PolygonAesthetics,
     Density2dStatAesthetics,
     Density2dStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = Density2dfMapping().apply(mapping).seal(),
         data = data,
@@ -112,7 +112,7 @@ class geomDensity2DFilled(
         return super<PolygonAesthetics>.seal() +
                 super<Density2dStatAesthetics>.seal() +
                 super<Density2dStatParameters>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

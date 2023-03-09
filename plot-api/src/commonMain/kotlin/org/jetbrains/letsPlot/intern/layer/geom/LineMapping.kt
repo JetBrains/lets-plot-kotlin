@@ -18,10 +18,10 @@ class LineMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : LineAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : LineAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<LineAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }
 
 

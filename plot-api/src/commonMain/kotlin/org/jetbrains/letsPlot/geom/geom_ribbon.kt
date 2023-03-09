@@ -11,8 +11,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.RibbonAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.RibbonMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -79,8 +79,8 @@ class geomRibbon(
     override val fillBy: String? = null,
     mapping: RibbonMapping.() -> Unit = {}
 ) : RibbonAesthetics,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = RibbonMapping().apply(mapping).seal(),
         data = data,
@@ -92,6 +92,6 @@ class geomRibbon(
         tooltips = tooltips
     ) {
     override fun seal() = super<RibbonAesthetics>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }

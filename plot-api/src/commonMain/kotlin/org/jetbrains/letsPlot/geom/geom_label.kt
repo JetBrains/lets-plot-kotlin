@@ -150,8 +150,8 @@ class geomLabel(
     LabelParameters,
     WithSizeUnitOption,
     WithSpatialParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = LabelMapping().apply(mapping).seal(),
         data = data,
@@ -169,7 +169,7 @@ class geomLabel(
         return super<LabelAesthetics>.seal() +
                 super<LabelParameters>.seal() +
                 super<WithSizeUnitOption>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

@@ -98,8 +98,8 @@ class geomPolygon(
     mapping: PolygonMapping.() -> Unit = {}
 ) : PolygonAesthetics,
     WithSpatialParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = PolygonMapping().apply(mapping).seal(),
         data = data,
@@ -111,6 +111,6 @@ class geomPolygon(
         tooltips = tooltips
     ) {
     override fun seal() = super<PolygonAesthetics>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }

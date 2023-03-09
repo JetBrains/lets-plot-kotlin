@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.ABLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.ABLineMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -69,7 +69,7 @@ class geomABLine(
     override val colorBy: String? = null,
     mapping: ABLineMapping.() -> Unit = {}
 ) : ABLineAesthetics,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = ABLineMapping().apply(mapping).seal(),
         data = data,
@@ -80,6 +80,6 @@ class geomABLine(
         sampling = sampling
     ){
     override fun seal() = super<ABLineAesthetics>.seal() +
-            super<WithColorByParameter>.seal()
+            super<WithColorOption>.seal()
 }
 

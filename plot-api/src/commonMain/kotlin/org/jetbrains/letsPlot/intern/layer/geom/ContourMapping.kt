@@ -22,9 +22,9 @@ class ContourMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PathAesthetics, ContourStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : PathAesthetics, ContourStatAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<PathAesthetics>.seal() +
             super<ContourStatAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

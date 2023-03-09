@@ -139,7 +139,7 @@ class geomText(
     TextParameters,
     WithSizeUnitOption,
     WithSpatialParameters,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = TextMapping().apply(mapping).seal(),
         data = data,
@@ -157,6 +157,6 @@ class geomText(
         return super<TextAesthetics>.seal() +
                 super<TextParameters>.seal() +
                 super<WithSizeUnitOption>.seal() +
-                super<WithColorByParameter>.seal()
+                super<WithColorOption>.seal()
     }
 }

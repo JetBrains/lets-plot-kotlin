@@ -12,8 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramMapping
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
@@ -44,8 +44,8 @@ class statBin(
 ) : HistogramAesthetics,
     BinStatAesthetics,
     BinStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = HistogramMapping().apply(mapping).seal(),
         data = data,
@@ -59,7 +59,7 @@ class statBin(
         return super<HistogramAesthetics>.seal() +
                 super<BinStatAesthetics>.seal() +
                 super<BinStatParameters>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

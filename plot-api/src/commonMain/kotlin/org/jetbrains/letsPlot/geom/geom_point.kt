@@ -10,8 +10,8 @@ import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointMapping
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
@@ -104,8 +104,8 @@ class geomPoint(
 ) : PointAesthetics,
     WithSizeUnitOption,
     WithSpatialParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
@@ -118,8 +118,8 @@ class geomPoint(
     ) {
     override fun seal() = super<PointAesthetics>.seal() +
             super<WithSizeUnitOption>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }
 
 

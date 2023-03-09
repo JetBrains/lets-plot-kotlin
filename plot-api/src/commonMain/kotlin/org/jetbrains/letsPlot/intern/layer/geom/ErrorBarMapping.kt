@@ -20,7 +20,7 @@ class ErrorBarMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : ErrorBarAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : ErrorBarAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<ErrorBarAesthetics>.seal() + groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

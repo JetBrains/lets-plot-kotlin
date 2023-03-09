@@ -21,8 +21,8 @@ class ViolinMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : ViolinAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : ViolinAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<ViolinAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

@@ -11,8 +11,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.TileMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -80,8 +80,8 @@ class geomTile(
     mapping: TileMapping.() -> Unit = {}
 
 ) : TileAesthetics,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = TileMapping().apply(mapping).seal(),
         data = data,
@@ -93,8 +93,8 @@ class geomTile(
         tooltips = tooltips
     ) {
     override fun seal() = super<TileAesthetics>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }
 
 

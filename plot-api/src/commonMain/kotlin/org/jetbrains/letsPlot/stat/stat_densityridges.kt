@@ -12,8 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesMapping
 import org.jetbrains.letsPlot.intern.layer.stat.DensityRidgesStatAesthetics
@@ -51,8 +51,8 @@ class statDensityRidges(
 ) : AreaRidgesAesthetics,
     DensityRidgesStatAesthetics,
     DensityRidgesStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = AreaRidgesMapping().apply(mapping).seal(),
         data = data,
@@ -66,7 +66,7 @@ class statDensityRidges(
         return super<AreaRidgesAesthetics>.seal() +
                 super<DensityRidgesStatAesthetics>.seal() +
                 super<DensityRidgesStatParameters>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

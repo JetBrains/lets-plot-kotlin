@@ -113,8 +113,8 @@ class geomDensity(
 ) : AreaAesthetics,
     DensityStatAesthetics,
     DensityStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = DensityMapping().apply(mapping).seal(),
         data = data,
@@ -130,8 +130,8 @@ class geomDensity(
     override fun seal() = super<AreaAesthetics>.seal() +
             super<DensityStatAesthetics>.seal() +
             super<DensityStatParameters>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal() +
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal() +
             Options.of(
                 Option.Stat.Density.QUANTILES to quantiles,
                 Option.Geom.Density.QUANTILE_LINES to quantileLines

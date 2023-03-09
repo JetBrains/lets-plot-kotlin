@@ -124,8 +124,8 @@ class geomAreaRidges(
     AreaRidgesParameters,
     DensityRidgesStatAesthetics,
     DensityRidgesStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = AreaRidgesMapping().apply(mapping).seal(),
         data = data,
@@ -141,6 +141,6 @@ class geomAreaRidges(
             super<AreaRidgesParameters>.seal() +
             super<DensityRidgesStatAesthetics>.seal() +
             super<DensityRidgesStatParameters>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }

@@ -20,10 +20,10 @@ class PointMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PointAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : PointAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<PointAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }
 
 

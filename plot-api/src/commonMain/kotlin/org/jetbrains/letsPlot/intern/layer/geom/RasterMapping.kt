@@ -16,10 +16,10 @@ class RasterMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : RasterAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : RasterAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<RasterAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }
 
 

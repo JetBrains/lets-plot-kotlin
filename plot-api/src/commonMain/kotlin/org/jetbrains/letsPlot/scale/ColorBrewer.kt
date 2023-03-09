@@ -12,7 +12,13 @@ import org.jetbrains.letsPlot.intern.Scale
 
 /**
  * Sequential, diverging and qualitative color scales from colorbrewer.org for the specified aesthetics.
- * Color schemes provided are particularly suited to display discrete values (levels of factors) on a map.
+ *
+ * Palettes:
+ *
+ * - Diverging : BrBG, PiYG, PRGn, PuOr, RdBu, RdGy, RdYlBu, RdYlGn, Spectral.
+ * - Qualitative : Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3.
+ * - Sequential : Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges, OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu, YlOrBr, YlOrRd.
+ *
  *
  * ## Examples
  *
@@ -91,8 +97,14 @@ fun scaleBrewer(
 )
 
 /**
- * Sequential, diverging and qualitative color scales from colorbrewer.org for fill aesthetic. Color schemes provided
- * are particularly suited to display discrete values (levels of factors) on a map.
+ * Sequential, diverging and qualitative color scales from colorbrewer.org for "fill" aesthetic.
+ *
+ * Palettes:
+ *
+ * - Diverging : BrBG, PiYG, PRGn, PuOr, RdBu, RdGy, RdYlBu, RdYlGn, Spectral.
+ * - Qualitative : Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3.
+ * - Sequential : Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges, OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu, YlOrBr, YlOrRd.
+ *
  *
  * @param type string
  *      One of seq (sequential), div (diverging) or qual (qualitative) types of scales.
@@ -161,8 +173,14 @@ fun scaleFillBrewer(
 )
 
 /**
- * Sequential, diverging and qualitative color scales from colorbrewer.org for color aesthetic. Color schemes provided
- * are particularly suited to display discrete values (levels of factors) on a map.
+ * Sequential, diverging and qualitative color scales from colorbrewer.org for "color" aesthetic.
+ *
+ * Palettes:
+ *
+ * - Diverging : BrBG, PiYG, PRGn, PuOr, RdBu, RdGy, RdYlBu, RdYlGn, Spectral.
+ * - Qualitative : Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3.
+ * - Sequential : Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges, OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu, YlOrBr, YlOrRd.
+ *
  *
  * @param type string
  *      One of seq (sequential), div (diverging) or qual (qualitative) types of scales.

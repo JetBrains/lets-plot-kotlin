@@ -12,8 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.ViolinAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.ViolinMapping
 import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatAesthetics
@@ -51,8 +51,8 @@ class statYDensity(
 ) : ViolinAesthetics,
     YDensityStatAesthetics,
     YDensityStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = ViolinMapping().apply(mapping).seal(),
         data = data,
@@ -67,7 +67,7 @@ class statYDensity(
         return super<ViolinAesthetics>.seal() +
                 super<YDensityStatAesthetics>.seal() +
                 super<YDensityStatParameters>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

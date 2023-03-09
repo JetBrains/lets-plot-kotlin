@@ -25,8 +25,8 @@ class LabelMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : LabelAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : LabelAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<LabelAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

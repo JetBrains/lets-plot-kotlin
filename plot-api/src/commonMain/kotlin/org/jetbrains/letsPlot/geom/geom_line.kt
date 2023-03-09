@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -75,7 +75,7 @@ class geomLine(
     mapping: LineMapping.() -> Unit = {}
 
 ) : LineAesthetics,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = LineMapping().apply(mapping).seal(),
         data = data,
@@ -87,6 +87,6 @@ class geomLine(
         tooltips = tooltips
     ) {
     override fun seal() = super<LineAesthetics>.seal() +
-            super<WithColorByParameter>.seal()
+            super<WithColorOption>.seal()
 }
 

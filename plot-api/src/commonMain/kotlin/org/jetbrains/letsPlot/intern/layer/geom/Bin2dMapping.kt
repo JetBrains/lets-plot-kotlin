@@ -23,9 +23,9 @@ class Bin2dMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : TileAesthetics, Bin2dStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : TileAesthetics, Bin2dStatAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<TileAesthetics>.seal() +
             super<Bin2dStatAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

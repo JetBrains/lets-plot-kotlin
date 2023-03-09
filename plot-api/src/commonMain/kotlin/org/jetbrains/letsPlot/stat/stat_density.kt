@@ -12,8 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.DensityMapping
 import org.jetbrains.letsPlot.intern.layer.stat.DensityStatAesthetics
@@ -48,8 +48,8 @@ class statDensity(
 ) : AreaAesthetics,
     DensityStatAesthetics,
     DensityStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = DensityMapping().apply(mapping).seal(),
         data = data,
@@ -64,8 +64,8 @@ class statDensity(
         return super<AreaAesthetics>.seal() +
                 super<DensityStatAesthetics>.seal() +
                 super<DensityStatParameters>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }
 

@@ -12,7 +12,7 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.QQLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.QQLineMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQLineStatParameters
@@ -39,7 +39,7 @@ class statQQLine(
 ) : QQLineAesthetics,
     QQStatAesthetics,
     QQLineStatParameters,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = QQLineMapping().apply(mapping).seal(),
         data = data,
@@ -54,6 +54,6 @@ class statQQLine(
         return super<QQLineAesthetics>.seal() +
                 super<QQStatAesthetics>.seal() +
                 super<QQLineStatParameters>.seal() +
-                super<WithColorByParameter>.seal()
+                super<WithColorOption>.seal()
     }
 }

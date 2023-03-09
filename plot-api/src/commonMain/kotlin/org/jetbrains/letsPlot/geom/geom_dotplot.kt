@@ -11,8 +11,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotParameters
@@ -105,8 +105,8 @@ class geomDotplot(
     DotplotParameters,
     DotplotStatAesthetics,
     DotplotStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = DotplotMapping().apply(mapping).seal(),
         data = data,
@@ -122,6 +122,6 @@ class geomDotplot(
             super<DotplotParameters>.seal() +
             super<DotplotStatAesthetics>.seal() +
             super<DotplotStatParameters>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }

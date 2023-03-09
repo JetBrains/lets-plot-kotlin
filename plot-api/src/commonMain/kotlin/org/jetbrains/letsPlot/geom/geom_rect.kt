@@ -98,8 +98,8 @@ class geomRect(
 
 ) : RectAesthetics,
     WithSpatialParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = RectMapping().apply(mapping).seal(),
         data = data,
@@ -111,7 +111,7 @@ class geomRect(
         tooltips = tooltips
     ) {
     override fun seal() = super<RectAesthetics>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }
 

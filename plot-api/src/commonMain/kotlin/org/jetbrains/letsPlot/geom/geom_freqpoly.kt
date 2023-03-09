@@ -12,7 +12,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatParameters
@@ -80,7 +80,7 @@ class geomFreqpoly(
     mapping: LineMapping.() -> Unit = {}
 ) : LineAesthetics,
     BinStatParameters,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = LineMapping().apply(mapping).seal(),
         data = data,
@@ -95,6 +95,6 @@ class geomFreqpoly(
     override fun seal(): Options {
         return super<LineAesthetics>.seal() +
                 super<BinStatParameters>.seal() +
-                super<WithColorByParameter>.seal()
+                super<WithColorOption>.seal()
     }
 }

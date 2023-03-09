@@ -9,7 +9,7 @@ import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
-interface WithColorByParameter : OptionsCapsule {
+interface WithColorOption : OptionsCapsule {
     val colorBy: String?
 
     override fun seal() = Options.of(
@@ -17,7 +17,7 @@ interface WithColorByParameter : OptionsCapsule {
     )
 }
 
-interface WithFillByParameter : OptionsCapsule {
+interface WithFillOption : OptionsCapsule {
     val fillBy: String?
 
     override fun seal() = Options.of(

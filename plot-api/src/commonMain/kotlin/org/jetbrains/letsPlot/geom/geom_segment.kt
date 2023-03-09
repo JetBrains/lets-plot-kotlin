@@ -13,7 +13,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.SegmentAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.SegmentMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -86,7 +86,7 @@ class geomSegment(
     mapping: SegmentMapping.() -> Unit = {}
 
 ) : SegmentAesthetics,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = SegmentMapping().apply(mapping).seal(),
         data = data,
@@ -99,7 +99,7 @@ class geomSegment(
     ) {
     override fun seal(): Options {
         return super<SegmentAesthetics>.seal() +
-                super<WithColorByParameter>.seal() +
+                super<WithColorOption>.seal() +
                 Options.of(Option.Geom.Segment.ARROW to arrow)
     }
 }

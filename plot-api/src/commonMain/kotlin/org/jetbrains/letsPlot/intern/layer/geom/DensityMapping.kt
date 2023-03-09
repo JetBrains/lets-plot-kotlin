@@ -22,11 +22,11 @@ class DensityMapping(
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
 ) : AreaAesthetics,
-    DensityStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    DensityStatAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<AreaAesthetics>.seal() +
             super<DensityStatAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }
 
 

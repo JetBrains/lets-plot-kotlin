@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.LineRangeAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineRangeMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -70,7 +70,7 @@ class geomLineRange(
     override val colorBy: String? = null,
     mapping: LineRangeMapping.() -> Unit = {}
 ) : LineRangeAesthetics,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = LineRangeMapping().apply(mapping).seal(),
         data = data,
@@ -82,5 +82,5 @@ class geomLineRange(
         tooltips = tooltips
     ) {
     override fun seal() = super<LineRangeAesthetics>.seal() +
-            super<WithColorByParameter>.seal()
+            super<WithColorOption>.seal()
 }

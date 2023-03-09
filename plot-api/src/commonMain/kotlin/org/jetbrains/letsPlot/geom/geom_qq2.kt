@@ -80,8 +80,8 @@ class geomQQ2(
     mapping: PointMapping.() -> Unit = {}
 ) : PointAesthetics,
     QQ2StatAesthetics,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
@@ -96,7 +96,7 @@ class geomQQ2(
     override fun seal(): Options {
         return super<PointAesthetics>.seal() +
                 super<QQ2StatAesthetics>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

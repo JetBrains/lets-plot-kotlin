@@ -20,10 +20,10 @@ class PathMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PathAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : PathAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<PathAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }
 
 

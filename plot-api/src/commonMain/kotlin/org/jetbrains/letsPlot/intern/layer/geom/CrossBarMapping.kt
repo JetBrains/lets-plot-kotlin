@@ -23,8 +23,8 @@ class CrossBarMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : CrossBarAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : CrossBarAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<CrossBarAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

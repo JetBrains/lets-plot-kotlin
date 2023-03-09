@@ -33,7 +33,7 @@ class statCount2d(
     mapping: PieMapping.() -> Unit = {}
 ) : PieAesthetics,
     Count2dStatAesthetics,
-    WithFillByParameter,
+    WithFillOption,
     LayerBase(
         mapping = PieMapping().apply(mapping).seal(),
         data = data,
@@ -47,6 +47,6 @@ class statCount2d(
     override fun seal(): Options {
         return super<PieAesthetics>.seal() +
                 super<Count2dStatAesthetics>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithFillOption>.seal()
     }
 }

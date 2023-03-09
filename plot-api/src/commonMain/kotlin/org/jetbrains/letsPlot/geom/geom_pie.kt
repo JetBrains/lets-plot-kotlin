@@ -107,7 +107,7 @@ class geomPie(
     PieParameters,
     Count2dStatAesthetics,
     WithSpatialParameters,
-    WithFillByParameter,
+    WithFillOption,
     LayerBase(
         mapping = PieMapping().apply(mapping).seal(),
         data = data,
@@ -123,6 +123,6 @@ class geomPie(
         return super<PieAesthetics>.seal() +
                 super<PieParameters>.seal() +
                 super<Count2dStatAesthetics>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithFillOption>.seal()
     }
 }

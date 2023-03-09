@@ -82,7 +82,7 @@ class geomQQ2Line(
 ) : PathAesthetics,
     QQ2StatAesthetics,
     QQ2LineStatParameters,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = PathMapping().apply(mapping).seal(),
         data = data,
@@ -98,6 +98,6 @@ class geomQQ2Line(
         return super<PathAesthetics>.seal() +
                 super<QQ2StatAesthetics>.seal() +
                 super<QQ2LineStatParameters>.seal() +
-                super<WithColorByParameter>.seal()
+                super<WithColorOption>.seal()
     }
 }

@@ -99,8 +99,8 @@ class geomSmooth(
     mapping: SmoothMapping.() -> Unit = {}
 ) : SmoothAesthetics,
     SmoothStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = SmoothMapping().apply(mapping).seal(),
         data = data,
@@ -115,7 +115,7 @@ class geomSmooth(
     override fun seal(): Options {
         return super<SmoothAesthetics>.seal() +
                 super<SmoothStatParameters>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal()
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

@@ -24,10 +24,10 @@ class TextMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : TextAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : TextAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<TextAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }
 
 

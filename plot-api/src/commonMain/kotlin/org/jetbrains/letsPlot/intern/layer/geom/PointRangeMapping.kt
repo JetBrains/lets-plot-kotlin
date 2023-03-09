@@ -22,8 +22,8 @@ class PointRangeMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PointRangeAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : PointRangeAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<PointRangeAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

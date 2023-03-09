@@ -20,8 +20,8 @@ class RibbonMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : RibbonAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : RibbonAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<RibbonAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

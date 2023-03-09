@@ -12,8 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.PointRangeAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointRangeMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -84,8 +84,8 @@ class geomPointRange(
     override val fillBy: String? = null,
     mapping: PointRangeMapping.() -> Unit = {}
 ) : PointRangeAesthetics,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = PointRangeMapping().apply(mapping).seal(),
         data = data,
@@ -98,8 +98,8 @@ class geomPointRange(
     ) {
     override fun seal(): Options {
         return super<PointRangeAesthetics>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal() +
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal() +
                 Options.of("fatten" to fatten)
     }
 }

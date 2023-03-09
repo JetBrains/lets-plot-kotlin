@@ -21,9 +21,9 @@ class Density2dfMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PolygonAesthetics, Density2dStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : PolygonAesthetics, Density2dStatAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<PolygonAesthetics>.seal() +
             super<Density2dStatAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

@@ -21,8 +21,8 @@ class AreaRidgesMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : AreaRidgesAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : AreaRidgesAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<AreaRidgesAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

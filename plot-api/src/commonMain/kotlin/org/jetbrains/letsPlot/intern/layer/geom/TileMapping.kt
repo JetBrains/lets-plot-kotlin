@@ -21,10 +21,10 @@ class TileMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : TileAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : TileAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<TileAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }
 
 

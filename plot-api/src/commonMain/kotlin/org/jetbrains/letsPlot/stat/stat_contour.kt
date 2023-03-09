@@ -12,7 +12,7 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.ContourMapping
 import org.jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
@@ -42,7 +42,7 @@ class statContour(
 ) : PathAesthetics,
     ContourStatAesthetics,
     ContourStatParameters,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = ContourMapping().apply(mapping).seal(),
         data = data,
@@ -56,6 +56,6 @@ class statContour(
         return super<PathAesthetics>.seal() +
                 super<ContourStatAesthetics>.seal() +
                 super<ContourStatParameters>.seal() +
-                super<WithColorByParameter>.seal()
+                super<WithColorOption>.seal()
     }
 }

@@ -8,9 +8,12 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
-// Additional aesthetics related to color
-
-interface AdditionalColorAesthetics : OptionsCapsule {
+/**
+ * Additional "color" aesthetics.
+ * Provide support for additional "color" or "fill" scales as needed.
+ */
+@Suppress("PropertyName")
+interface PaintAesthetics : OptionsCapsule {
     val paint_a: Any?
     val paint_b: Any?
     val paint_c: Any?

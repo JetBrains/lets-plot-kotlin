@@ -28,10 +28,10 @@ class BoxplotMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : BoxplotAesthetics, BoxplotStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : BoxplotAesthetics, BoxplotStatAesthetics, WithGroupOption, PaintAesthetics {
 
     override fun seal() = super<BoxplotAesthetics>.seal() +
             super<BoxplotStatAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

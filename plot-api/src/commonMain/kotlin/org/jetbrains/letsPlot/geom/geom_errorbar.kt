@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.ErrorBarAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.ErrorBarMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -75,7 +75,7 @@ class geomErrorBar(
     override val colorBy: String? = null,
     mapping: ErrorBarMapping.() -> Unit = {}
 ) : ErrorBarAesthetics,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = ErrorBarMapping().apply(mapping).seal(),
         data = data,
@@ -87,5 +87,5 @@ class geomErrorBar(
         tooltips = tooltips
     ) {
     override fun seal() = super<ErrorBarAesthetics>.seal() +
-            super<WithColorByParameter>.seal()
+            super<WithColorOption>.seal()
 }

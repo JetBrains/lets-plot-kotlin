@@ -106,8 +106,8 @@ class geomYDotplot(
     YDotplotParameters,
     YDotplotStatAesthetics,
     YDotplotStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = YDotplotMapping().apply(mapping).seal(),
         data = data,
@@ -123,6 +123,6 @@ class geomYDotplot(
             super<YDotplotParameters>.seal() +
             super<YDotplotStatAesthetics>.seal() +
             super<YDotplotStatParameters>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }

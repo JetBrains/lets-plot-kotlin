@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.RasterAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.RasterMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -62,7 +62,7 @@ class geomRaster(
     mapping: RasterMapping.() -> Unit = {}
 
 ) : RasterAesthetics,
-    WithFillByParameter,
+    WithFillOption,
     LayerBase(
         mapping = RasterMapping().apply(mapping).seal(),
         data = data,
@@ -73,7 +73,7 @@ class geomRaster(
         sampling = sampling
     ) {
     override fun seal() = super<RasterAesthetics>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithFillOption>.seal()
 }
 
 

@@ -21,9 +21,9 @@ class ContourfMapping(
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,
     override var paint_c: Any? = null
-) : PolygonAesthetics, ContourStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
+) : PolygonAesthetics, ContourStatAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<PolygonAesthetics>.seal() +
             super<ContourStatAesthetics>.seal() +
             groupOption() +
-            super<AdditionalColorAesthetics>.seal()
+            super<PaintAesthetics>.seal()
 }

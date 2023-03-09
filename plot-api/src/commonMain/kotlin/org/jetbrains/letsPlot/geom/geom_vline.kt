@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.VLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.VLineMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -71,7 +71,7 @@ class geomVLine(
     mapping: VLineMapping.() -> Unit = {}
 
 ) : VLineAesthetics,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = VLineMapping().apply(mapping).seal(),
         data = data,
@@ -83,6 +83,6 @@ class geomVLine(
         tooltips = tooltips
     ) {
     override fun seal() = super<VLineAesthetics>.seal() +
-            super<WithColorByParameter>.seal()
+            super<WithColorOption>.seal()
 }
 

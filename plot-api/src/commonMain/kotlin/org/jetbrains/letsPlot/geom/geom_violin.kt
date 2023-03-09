@@ -130,8 +130,8 @@ class geomViolin(
 ) : ViolinAesthetics,
     YDensityStatAesthetics,
     YDensityStatParameters,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = ViolinMapping().apply(mapping).seal(),
         data = data,
@@ -147,8 +147,8 @@ class geomViolin(
     override fun seal() = super<ViolinAesthetics>.seal() +
             super<YDensityStatAesthetics>.seal() +
             super<YDensityStatParameters>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal() +
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal() +
             Options.of(
                 Option.Stat.YDensity.QUANTILES to quantiles,
                 Option.Geom.Violin.QUANTILE_LINES to quantileLines,

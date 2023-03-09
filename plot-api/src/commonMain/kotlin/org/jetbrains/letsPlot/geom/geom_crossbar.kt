@@ -12,8 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.CrossBarAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
 import org.jetbrains.letsPlot.pos.positionDodge
@@ -85,8 +85,8 @@ class geomCrossbar(
     override val fillBy: String? = null,
     mapping: CrossBarMapping.() -> Unit = {}
 ) : CrossBarAesthetics,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = CrossBarMapping().apply(mapping).seal(),
         data = data,
@@ -99,8 +99,8 @@ class geomCrossbar(
     ) {
     override fun seal(): Options {
         return super<CrossBarAesthetics>.seal() +
-                super<WithColorByParameter>.seal() +
-                super<WithFillByParameter>.seal() +
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal() +
                 Options.of("fatten" to fatten)
     }
 }

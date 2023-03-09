@@ -11,8 +11,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
-import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.AreaAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.AreaMapping
 import org.jetbrains.letsPlot.pos.positionStack
@@ -80,8 +80,8 @@ class geomArea(
     mapping: AreaMapping.() -> Unit = {}
 
 ) : AreaAesthetics,
-    WithColorByParameter,
-    WithFillByParameter,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = AreaMapping().apply(mapping).seal(),
         data = data,
@@ -93,8 +93,8 @@ class geomArea(
         tooltips = tooltips
     ) {
     override fun seal() = super<AreaAesthetics>.seal() +
-            super<WithColorByParameter>.seal() +
-            super<WithFillByParameter>.seal()
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }
 
 

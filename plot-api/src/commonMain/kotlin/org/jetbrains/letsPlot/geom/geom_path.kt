@@ -96,7 +96,7 @@ class geomPath(
 
 ) : PathAesthetics,
     WithSpatialParameters,
-    WithColorByParameter,
+    WithColorOption,
     LayerBase(
         mapping = PathMapping().apply(mapping).seal(),
         data = data,
@@ -109,7 +109,7 @@ class geomPath(
     ) {
     override fun seal(): Options {
         return super<PathAesthetics>.seal() +
-                super<WithColorByParameter>.seal()
+                super<WithColorOption>.seal()
     }
 }
 
