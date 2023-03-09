@@ -17,9 +17,14 @@ class TileMapping(
     override var fill: Any? = null,
     override var linetype: Any? = null,
     override var size: Any? = null,
-    override var group: Any? = null
-) : TileAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + groupOption()
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : TileAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    override fun seal() = super<TileAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

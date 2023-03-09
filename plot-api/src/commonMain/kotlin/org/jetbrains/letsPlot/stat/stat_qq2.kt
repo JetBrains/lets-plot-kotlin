@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQ2StatAesthetics
@@ -32,9 +34,13 @@ class statQQ2(
     override val shape: Any? = null,
     override val size: Number? = null,
     override val stroke: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: PointMapping.() -> Unit = {}
 ) : PointAesthetics,
     QQ2StatAesthetics,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
@@ -47,6 +53,8 @@ class statQQ2(
 
     override fun seal(): Options {
         return super<PointAesthetics>.seal() +
-                super<QQ2StatAesthetics>.seal()
+                super<QQ2StatAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

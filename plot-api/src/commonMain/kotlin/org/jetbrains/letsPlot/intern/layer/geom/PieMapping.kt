@@ -14,12 +14,17 @@ class PieMapping(
     override var slice: Any? = null,
     override var explode: Any? = null,
     override var size: Any? = null,
-    override var fill: Any? = null,
-    override var color: Any? = null,
     override var alpha: Any? = null,
     override var group: Any? = null,
-    override var weight: Any? = null
-) : PieAesthetics, Count2dStatAesthetics, WithGroupOption {
+    override var weight: Any? = null,
+    override var fill: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : PieAesthetics, Count2dStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
+
     override fun seal() = super<PieAesthetics>.seal() +
-            super<Count2dStatAesthetics>.seal() + groupOption()
+            super<Count2dStatAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }

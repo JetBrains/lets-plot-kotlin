@@ -16,9 +16,14 @@ class PointMapping(
     override var shape: Any? = null,
     override var size: Any? = null,
     override var stroke: Any? = null,
-    override var group: Any? = null
-) : PointAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + groupOption()
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : PointAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    override fun seal() = super<PointAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

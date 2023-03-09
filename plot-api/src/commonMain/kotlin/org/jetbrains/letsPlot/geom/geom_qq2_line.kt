@@ -44,6 +44,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Specifies appearance, style and content.
  * @param quantiles pair of numbers, default=[0.25, 0.75]
  *     Pair of quantiles to use when fitting the Q-Q line.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  *
  * @param x x-axis value.
  * @param y y-axis value.
@@ -75,10 +77,12 @@ class geomQQ2Line(
     override val speed: Number? = null,
     override val flow: Number? = null,
     override val quantiles: Pair<Number, Number>? = null,
+    override val colorBy: String? = null,
     mapping: PathMapping.() -> Unit = {}
 ) : PathAesthetics,
     QQ2StatAesthetics,
     QQ2LineStatParameters,
+    WithColorByParameter,
     LayerBase(
         mapping = PathMapping().apply(mapping).seal(),
         data = data,
@@ -93,6 +97,7 @@ class geomQQ2Line(
     override fun seal(): Options {
         return super<PathAesthetics>.seal() +
                 super<QQ2StatAesthetics>.seal() +
-                super<QQ2LineStatParameters>.seal()
+                super<QQ2LineStatParameters>.seal() +
+                super<WithColorByParameter>.seal()
     }
 }

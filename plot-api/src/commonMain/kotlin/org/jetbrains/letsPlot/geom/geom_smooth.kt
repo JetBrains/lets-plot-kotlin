@@ -61,6 +61,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param seed random seed for LOESS sampling.
  * @param maxN maximum number of data-points for LOESS method. Default - 1000.
  *      If this quantity exceeded random sampling is applied to data.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -90,9 +94,13 @@ class geomSmooth(
     override val deg: Int? = null,
     override val seed: Long? = null,
     override val maxN: Int? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: SmoothMapping.() -> Unit = {}
 ) : SmoothAesthetics,
     SmoothStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = SmoothMapping().apply(mapping).seal(),
         data = data,
@@ -106,6 +114,8 @@ class geomSmooth(
     ) {
     override fun seal(): Options {
         return super<SmoothAesthetics>.seal() +
-                super<SmoothStatParameters>.seal()
+                super<SmoothStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

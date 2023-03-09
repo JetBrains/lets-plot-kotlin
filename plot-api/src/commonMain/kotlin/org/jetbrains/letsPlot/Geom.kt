@@ -7,6 +7,8 @@ package org.jetbrains.letsPlot
 
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.WithSizeUnitOption
 import org.jetbrains.letsPlot.intern.layer.geom.*
 
@@ -37,16 +39,23 @@ object Geom {
         override val size: Number? = null,
         override val stroke: Number? = null,
         override val sizeUnit: String? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: PointMapping.() -> Unit = {}
     ) : PointAesthetics,
         WithSizeUnitOption,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.POINT,
             PointMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
 
-        override fun seal() = super<PointAesthetics>.seal() + super<WithSizeUnitOption>.seal()
+        override fun seal() = super<PointAesthetics>.seal() +
+                super<WithSizeUnitOption>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -59,13 +68,17 @@ object Geom {
         override val size: Number? = null,
         override val speed: Number? = null,
         override val flow: Number? = null,
+        override val colorBy: String? = null,
         mapping: PathMapping.() -> Unit = {}
     ) : PathAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.PATH,
             PathMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<PathAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -77,13 +90,21 @@ object Geom {
         override val fill: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: AreaMapping.() -> Unit = {}
     ) : AreaAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.AREA,
             AreaMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<AreaAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -94,13 +115,21 @@ object Geom {
         override val color: Any? = null,
         override val fill: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: HistogramMapping.() -> Unit = {}
     ) : HistogramAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.HISTOGRAM,
             HistogramMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<HistogramAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -111,13 +140,17 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
         mapping: LineMapping.() -> Unit = {}
     ) : LineAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.LINE,
             LineMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<LineAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -129,13 +162,21 @@ object Geom {
         override val fill: Any? = null,
         override val width: Number? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: BarMapping.() -> Unit = {}
     ) : BarAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.BAR,
             BarMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<BarAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -149,13 +190,21 @@ object Geom {
         override val fill: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: TileMapping.() -> Unit = {}
     ) : TileAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.TILE,
             TileMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<TileAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -164,13 +213,17 @@ object Geom {
         override val y: Number? = null,
         override val alpha: Number? = null,
         override val fill: Any? = null,
+        override val fillBy: String? = null,
         mapping: RasterMapping.() -> Unit = {}
     ) : RasterAesthetics,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.RASTER,
             RasterMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<RasterAesthetics>.seal() + super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName", "SpellCheckingInspection")
@@ -181,13 +234,17 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
         mapping: ABLineMapping.() -> Unit = {}
     ) : ABLineAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.AB_LINE,
             ABLineMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<ABLineAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -198,13 +255,17 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
         mapping: HLineMapping.() -> Unit = {}
     ) : HLineAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.H_LINE,
             HLineMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<HLineAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -215,13 +276,17 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
         mapping: VLineMapping.() -> Unit = {}
     ) : VLineAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.V_LINE,
             VLineMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<VLineAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -235,13 +300,21 @@ object Geom {
         override val linetype: Any? = null,
         override val size: Number? = null,
         override val fill: Any? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: RectMapping.() -> Unit = {}
     ) : RectAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.RECT,
             RectMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<RectAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -256,13 +329,17 @@ object Geom {
         override val size: Number? = null,
         override val speed: Number? = null,
         override val flow: Number? = null,
+        override val colorBy: String? = null,
         mapping: SegmentMapping.() -> Unit = {}
     ) : SegmentAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.SEGMENT,
             SegmentMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<SegmentAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -284,10 +361,12 @@ object Geom {
         override val nudgeX: Number? = null,
         override val nudgeY: Number? = null,
         override val sizeUnit: String? = null,
+        override val colorBy: String? = null,
         mapping: TextMapping.() -> Unit = {}
     ) : TextAesthetics,
         TextParameters,
         WithSizeUnitOption,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.TEXT,
             TextMapping().apply(mapping).seal()
@@ -295,7 +374,9 @@ object Geom {
         override val parameters = this.seal()
 
         override fun seal() = super<TextAesthetics>.seal() +
-                super<TextParameters>.seal() + super<WithSizeUnitOption>.seal()
+                super<TextParameters>.seal() +
+                super<WithSizeUnitOption>.seal() +
+                super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -321,10 +402,14 @@ object Geom {
         override val labelR: Number? = null,
         override val labelSize: Number? = null,
         override val sizeUnit: String? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: LabelMapping.() -> Unit = {}
     ) : LabelAesthetics,
         LabelParameters,
         WithSizeUnitOption,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.LABEL,
             LabelMapping().apply(mapping).seal()
@@ -332,7 +417,10 @@ object Geom {
         override val parameters = this.seal()
 
         override fun seal() = super<LabelAesthetics>.seal() +
-                super<LabelParameters>.seal() + super<WithSizeUnitOption>.seal()
+                super<LabelParameters>.seal() +
+                super<WithSizeUnitOption>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -357,9 +445,13 @@ object Geom {
         override val linetype: Any? = null,
         override val shape: Any? = null,
         override val width: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: BoxplotMapping.() -> Unit = {}
     ) : BoxplotAesthetics,
         BoxplotParameters,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.BOX_PLOT,
             BoxplotMapping().apply(mapping).seal()
@@ -368,7 +460,9 @@ object Geom {
         override val parameters = this.seal()
 
         override fun seal() = super<BoxplotAesthetics>.seal() +
-                super<BoxplotParameters>.seal()
+                super<BoxplotParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName", "SpellCheckingInspection")
@@ -381,13 +475,17 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
         mapping: ErrorBarMapping.() -> Unit = {}
     ) : ErrorBarAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.ERROR_BAR,
             ErrorBarMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<ErrorBarAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -403,13 +501,21 @@ object Geom {
         override val linetype: Any? = null,
         override val shape: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: CrossBarMapping.() -> Unit = {}
     ) : CrossBarAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.CROSS_BAR,
             CrossBarMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<CrossBarAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName", "SpellCheckingInspection")
@@ -424,13 +530,21 @@ object Geom {
         override val linetype: Any? = null,
         override val shape: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: PointRangeMapping.() -> Unit = {}
     ) : PointRangeAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.POINT_RANGE,
             PointRangeMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<PointRangeAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName", "SpellCheckingInspection")
@@ -442,13 +556,17 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
         mapping: LineRangeMapping.() -> Unit = {}
     ) : LineRangeAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.LINE_RANGE,
             LineRangeMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<LineRangeAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -461,13 +579,21 @@ object Geom {
         override val color: Any? = null,
         override val fill: Any? = null,
         override val alpha: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: RibbonMapping.() -> Unit = {}
     ) : RibbonAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.RIBBON,
             RibbonMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<RibbonAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -479,13 +605,21 @@ object Geom {
         override val color: Any? = null,
         override val fill: Any? = null,
         override val alpha: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: PolygonMapping.() -> Unit = {}
     ) : PolygonAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.POLYGON,
             PolygonMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<PolygonAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -497,13 +631,21 @@ object Geom {
         override val color: Any? = null,
         override val fill: Any? = null,
         override val alpha: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: PolygonMapping.() -> Unit = {}
     ) : PolygonAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.MAP,
             PolygonMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<PolygonAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -514,13 +656,17 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
         mapping: LineMapping.() -> Unit = {}
     ) : LineAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.STEP,
             LineMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<LineAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -530,13 +676,21 @@ object Geom {
         override val fill: Any? = null,
         override val shape: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
         mapping: QQMapping.() -> Unit = {}
     ) : QQAesthetics,
+        WithColorByParameter,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.Q_Q,
             QQMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<QQAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -545,13 +699,17 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val colorBy: String? = null,
         mapping: QQLineMapping.() -> Unit = {}
     ) : QQLineAesthetics,
+        WithColorByParameter,
         GeomOptions(
             GeomKind.Q_Q_LINE,
             QQLineMapping().apply(mapping).seal()
         ) {
         override val parameters = this.seal()
+
+        override fun seal() = super<QQLineAesthetics>.seal() + super<WithColorByParameter>.seal()
     }
 
     @Suppress("ClassName")
@@ -562,14 +720,15 @@ object Geom {
         override val explode: Number? = null,
         override val size: Number? = null,
         override val fill: Any? = null,
-        override val color: Any? = null,
         override val alpha: Number? = null,
         override val hole: Number? = null,
         override val stroke: Number? = null,
         override val strokeColor: Any? = null,
+        override val fillBy: String? = null,
         mapping: PieMapping.() -> Unit = {}
     ) : PieAesthetics,
         PieParameters,
+        WithFillByParameter,
         GeomOptions(
             GeomKind.PIE,
             PieMapping().apply(mapping).seal()
@@ -578,6 +737,7 @@ object Geom {
         override val parameters = this.seal()
 
         override fun seal() = super<PieAesthetics>.seal() +
-                super<PieParameters>.seal()
+                super<PieParameters>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

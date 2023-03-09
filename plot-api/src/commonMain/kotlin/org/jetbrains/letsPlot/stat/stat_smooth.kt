@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.SmoothAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.SmoothMapping
 import org.jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
@@ -41,9 +43,13 @@ class statSmooth(
     override val deg: Int? = null,
     override val seed: Long? = null,
     override val maxN: Int? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: SmoothMapping.() -> Unit = {}
 ) : SmoothAesthetics,
     SmoothStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = SmoothMapping().apply(mapping).seal(),
         data = data,
@@ -55,6 +61,8 @@ class statSmooth(
     ) {
     override fun seal(): Options {
         return super<SmoothAesthetics>.seal() +
-                super<SmoothStatParameters>.seal()
+                super<SmoothStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

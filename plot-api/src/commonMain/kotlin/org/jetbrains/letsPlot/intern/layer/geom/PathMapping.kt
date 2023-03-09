@@ -16,9 +16,14 @@ class PathMapping(
     override var size: Any? = null,
     override var speed: Any? = null,
     override var flow: Any? = null,
-    override var group: Any? = null
-) : PathAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + groupOption()
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : PathAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    override fun seal() = super<PathAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

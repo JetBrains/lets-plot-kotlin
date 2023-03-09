@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.BarAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.BarMapping
 import org.jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
@@ -52,6 +54,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fill color of geometry filling.
  * @param size line width.
  *     Defines bar line width.
+ * @param weight used by "count" stat to compute weighted sum instead of simple count.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -72,10 +79,14 @@ class geomBar(
     override val width: Number? = null,
     override val size: Number? = null,
     override val weight: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: BarMapping.() -> Unit = {}
 
 ) : BarAesthetics,
     CountStatAesthetics,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = BarMapping().apply(mapping).seal(),
         data = data,
@@ -89,7 +100,9 @@ class geomBar(
     ) {
     override fun seal(): Options {
         return super<BarAesthetics>.seal() +
-                super<CountStatAesthetics>.seal()
+                super<CountStatAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }
 

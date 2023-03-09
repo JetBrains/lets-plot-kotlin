@@ -11,6 +11,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.RibbonAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.RibbonMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -50,6 +52,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash".
  * @param fill color of geometry filling.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -69,8 +75,12 @@ class geomRibbon(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val alpha: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: RibbonMapping.() -> Unit = {}
 ) : RibbonAesthetics,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = RibbonMapping().apply(mapping).seal(),
         data = data,
@@ -80,4 +90,8 @@ class geomRibbon(
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips
-    )
+    ) {
+    override fun seal() = super<RibbonAesthetics>.seal() +
+            super<WithColorByParameter>.seal() +
+            super<WithFillByParameter>.seal()
+}

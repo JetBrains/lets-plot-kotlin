@@ -17,9 +17,14 @@ class RectMapping(
     override var linetype: Any? = null,
     override var size: Any? = null,
     override var fill: Any? = null,
-    override var group: Any? = null
-) : RectAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + groupOption()
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : RectAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    override fun seal() = super<RectAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

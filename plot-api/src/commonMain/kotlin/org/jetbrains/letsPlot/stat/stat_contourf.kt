@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.ContourfMapping
 import org.jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
@@ -35,10 +37,14 @@ class statContourFilled(
     override val alpha: Number? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: ContourfMapping.() -> Unit = {}
 ) : PolygonAesthetics,
     ContourStatAesthetics,
     ContourStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
@@ -51,6 +57,8 @@ class statContourFilled(
     override fun seal(): Options {
         return super<PolygonAesthetics>.seal() +
                 super<ContourStatAesthetics>.seal() +
-                super<ContourStatParameters>.seal()
+                super<ContourStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

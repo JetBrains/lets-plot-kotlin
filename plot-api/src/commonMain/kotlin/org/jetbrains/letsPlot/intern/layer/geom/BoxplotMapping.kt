@@ -24,9 +24,14 @@ class BoxplotMapping(
     override var shape: Any? = null,
     override var width: Any? = null,
     override var group: Any? = null,
-    override var weight: Any? = null
-) : BoxplotAesthetics, BoxplotStatAesthetics, WithGroupOption {
+    override var weight: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : BoxplotAesthetics, BoxplotStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
 
     override fun seal() = super<BoxplotAesthetics>.seal() +
-            super<BoxplotStatAesthetics>.seal() + groupOption()
+            super<BoxplotStatAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }

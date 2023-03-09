@@ -87,6 +87,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fullScanMax
  *     Maximum size of data to use density computation with 'full scan'.
  *     For bigger data, less accurate but more efficient density computation is applied.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -120,10 +124,14 @@ class geomViolin(
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
     override val fullScanMax: Int? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: ViolinMapping.() -> Unit = {}
 ) : ViolinAesthetics,
     YDensityStatAesthetics,
     YDensityStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = ViolinMapping().apply(mapping).seal(),
         data = data,
@@ -139,6 +147,8 @@ class geomViolin(
     override fun seal() = super<ViolinAesthetics>.seal() +
             super<YDensityStatAesthetics>.seal() +
             super<YDensityStatParameters>.seal() +
+            super<WithColorByParameter>.seal() +
+            super<WithFillByParameter>.seal() +
             Options.of(
                 Option.Stat.YDensity.QUANTILES to quantiles,
                 Option.Geom.Violin.QUANTILE_LINES to quantileLines,

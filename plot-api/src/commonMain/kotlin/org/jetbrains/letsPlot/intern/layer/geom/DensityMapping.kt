@@ -17,11 +17,16 @@ class DensityMapping(
     override var linetype: Any? = null,
     override var size: Any? = null,
     override var weight: Any? = null,
-    override var group: Any? = null
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
 ) : AreaAesthetics,
-    DensityStatAesthetics, WithGroupOption {
+    DensityStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<AreaAesthetics>.seal() +
-            super<DensityStatAesthetics>.seal() + groupOption()
+            super<DensityStatAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

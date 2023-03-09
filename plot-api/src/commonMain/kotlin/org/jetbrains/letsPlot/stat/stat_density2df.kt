@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.Density2dfMapping
 import org.jetbrains.letsPlot.intern.layer.geom.PolygonAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Density2dStatAesthetics
@@ -40,10 +42,14 @@ class statDensity2DFilled(
     override val contour: Boolean? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: Density2dfMapping.() -> Unit = {}
 ) : PolygonAesthetics,
     Density2dStatAesthetics,
     Density2dStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = Density2dfMapping().apply(mapping).seal(),
         data = data,
@@ -56,6 +62,8 @@ class statDensity2DFilled(
     override fun seal(): Options {
         return super<PolygonAesthetics>.seal() +
                 super<Density2dStatAesthetics>.seal() +
-                super<Density2dStatParameters>.seal()
+                super<Density2dStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

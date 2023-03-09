@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.CrossBarAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
 import org.jetbrains.letsPlot.pos.positionDodge
@@ -51,6 +53,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param linetype type of the line of tile's border
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash"
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings created by aes() function.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -75,8 +81,12 @@ class geomCrossbar(
     override val linetype: Any? = null,
     override val shape: Any? = null,
     override val size: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: CrossBarMapping.() -> Unit = {}
 ) : CrossBarAesthetics,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = CrossBarMapping().apply(mapping).seal(),
         data = data,
@@ -88,6 +98,9 @@ class geomCrossbar(
         tooltips = tooltips
     ) {
     override fun seal(): Options {
-        return super.seal() + Options.of("fatten" to fatten)
+        return super<CrossBarAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal() +
+                Options.of("fatten" to fatten)
     }
 }

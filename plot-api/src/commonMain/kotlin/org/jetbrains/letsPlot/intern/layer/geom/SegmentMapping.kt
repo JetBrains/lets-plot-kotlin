@@ -18,9 +18,14 @@ class SegmentMapping(
     override var size: Any? = null,
     override var speed: Any? = null,
     override var flow: Any? = null,
-    override var group: Any? = null
-) : SegmentAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + groupOption()
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : SegmentAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    override fun seal() = super<SegmentAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

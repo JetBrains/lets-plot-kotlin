@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.AreaRidgesMapping
 import org.jetbrains.letsPlot.intern.layer.stat.DensityRidgesStatAesthetics
@@ -43,10 +45,14 @@ class statDensityRidges(
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
     override val fullScanMax: Int? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: AreaRidgesMapping.() -> Unit = {}
 ) : AreaRidgesAesthetics,
     DensityRidgesStatAesthetics,
     DensityRidgesStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = AreaRidgesMapping().apply(mapping).seal(),
         data = data,
@@ -59,6 +65,8 @@ class statDensityRidges(
     override fun seal(): Options {
         return super<AreaRidgesAesthetics>.seal() +
                 super<DensityRidgesStatAesthetics>.seal() +
-                super<DensityRidgesStatParameters>.seal()
+                super<DensityRidgesStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

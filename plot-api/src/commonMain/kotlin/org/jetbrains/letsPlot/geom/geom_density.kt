@@ -74,6 +74,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Draws horizontal lines at the given quantiles of the density estimate.
  * @param quantileLines Boolean, default = false.
  *  Shows the quantile lines.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -102,11 +106,15 @@ class geomDensity(
     override val fullScanMax: Int? = null,
     private val quantiles: List<Number>? = null,
     private val quantileLines: Boolean? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: DensityMapping.() -> Unit = {}
 
 ) : AreaAesthetics,
     DensityStatAesthetics,
     DensityStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = DensityMapping().apply(mapping).seal(),
         data = data,
@@ -122,6 +130,8 @@ class geomDensity(
     override fun seal() = super<AreaAesthetics>.seal() +
             super<DensityStatAesthetics>.seal() +
             super<DensityStatParameters>.seal() +
+            super<WithColorByParameter>.seal() +
+            super<WithFillByParameter>.seal() +
             Options.of(
                 Option.Stat.Density.QUANTILES to quantiles,
                 Option.Geom.Density.QUANTILE_LINES to quantileLines

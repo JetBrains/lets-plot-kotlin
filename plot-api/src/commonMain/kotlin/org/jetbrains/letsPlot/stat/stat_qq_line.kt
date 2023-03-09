@@ -12,6 +12,7 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.QQLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.QQLineMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQLineStatParameters
@@ -33,10 +34,12 @@ class statQQLine(
     override val distribution: String? = null,
     override val dParams: List<Number>? = null,
     override val quantiles: Pair<Number, Number>? = null,
+    override val colorBy: String? = null,
     mapping: QQLineMapping.() -> Unit = {}
 ) : QQLineAesthetics,
     QQStatAesthetics,
     QQLineStatParameters,
+    WithColorByParameter,
     LayerBase(
         mapping = QQLineMapping().apply(mapping).seal(),
         data = data,
@@ -50,6 +53,7 @@ class statQQLine(
     override fun seal(): Options {
         return super<QQLineAesthetics>.seal() +
                 super<QQStatAesthetics>.seal() +
-                super<QQLineStatParameters>.seal()
+                super<QQLineStatParameters>.seal() +
+                super<WithColorByParameter>.seal()
     }
 }

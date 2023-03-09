@@ -43,12 +43,18 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Number of levels.
  * @param binWidth double, optional.
  *     Distance between levels.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
+ *
  * @param x x-axis coordinates of the center of rectangles, forming a tessellation.
  * @param y y-axis coordinates of the center of rectangles, forming a tessellation.
  * @param alpha transparency level of a layer.
  *     Understands numbers between 0 and 1.
  * @param fill color of a geometry areas.
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
+ * @param color color of a geometry lines.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -70,10 +76,14 @@ class geomContourFilled(
     override val alpha: Number? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: ContourfMapping.() -> Unit = {}
 ) : PolygonAesthetics,
     ContourStatAesthetics,
     ContourStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = ContourfMapping().apply(mapping).seal(),
         data = data,
@@ -87,6 +97,8 @@ class geomContourFilled(
     override fun seal(): Options {
         return super<PolygonAesthetics>.seal() +
                 super<ContourStatAesthetics>.seal() +
-                super<ContourStatParameters>.seal()
+                super<ContourStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

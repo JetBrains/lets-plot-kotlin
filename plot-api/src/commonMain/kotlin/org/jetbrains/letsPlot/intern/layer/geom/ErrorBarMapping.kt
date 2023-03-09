@@ -16,7 +16,11 @@ class ErrorBarMapping(
     override var color: Any? = null,
     override var linetype: Any? = null,
     override var size: Any? = null,
-    override var group: Any? = null
-) : ErrorBarAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + groupOption()
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : ErrorBarAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    override fun seal() = super<ErrorBarAesthetics>.seal() + groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }

@@ -16,9 +16,13 @@ class HistogramMapping(
     override var fill: Any? = null,
     override var size: Any? = null,
     override var weight: Any? = null,
-    override var group: Any? = null
-) : HistogramAesthetics, BinStatAesthetics, WithGroupOption {
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : HistogramAesthetics, BinStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<HistogramAesthetics>.seal() +
             super<BinStatAesthetics>.seal() +
-            groupOption()
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }

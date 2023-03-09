@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.path
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PathMapping
@@ -66,6 +67,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     The number of pixels covered by animation object per second. Default value is 10.
  * @param flow animation flow.
  *     The number of animation objects passing a reference point per second. Default value is 0.1.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -88,10 +91,12 @@ class geomPath(
     override val size: Number? = null,
     override val speed: Number? = null,
     override val flow: Number? = null,
+    override val colorBy: String? = null,
     mapping: PathMapping.() -> Unit = {}
 
 ) : PathAesthetics,
     WithSpatialParameters,
+    WithColorByParameter,
     LayerBase(
         mapping = PathMapping().apply(mapping).seal(),
         data = data,
@@ -101,6 +106,11 @@ class geomPath(
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips
-    )
+    ) {
+    override fun seal(): Options {
+        return super<PathAesthetics>.seal() +
+                super<WithColorByParameter>.seal()
+    }
+}
 
 

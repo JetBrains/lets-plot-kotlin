@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
@@ -38,10 +40,14 @@ class statBin2D(
     override val bins: Pair<Int, Int>? = null,
     override val binWidth: Pair<Number?, Number?>? = null,
     override val drop: Boolean? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: Bin2dMapping.() -> Unit = {}
 ) : TileAesthetics,
     Bin2dStatAesthetics,
     Bin2dStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = Bin2dMapping().apply(mapping).seal(),
         data = data,
@@ -54,6 +60,8 @@ class statBin2D(
     override fun seal(): Options {
         return super<TileAesthetics>.seal() +
                 super<Bin2dStatAesthetics>.seal() +
-                super<Bin2dStatParameters>.seal()
+                super<Bin2dStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

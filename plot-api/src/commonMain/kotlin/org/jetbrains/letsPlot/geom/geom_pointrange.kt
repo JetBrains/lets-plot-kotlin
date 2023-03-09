@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.PointRangeAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointRangeMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -52,6 +54,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash"
  * @param shape shape of the mid-point.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -74,8 +80,12 @@ class geomPointRange(
     override val linetype: Any? = null,
     override val shape: Any? = null,
     override val size: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: PointRangeMapping.() -> Unit = {}
 ) : PointRangeAesthetics,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = PointRangeMapping().apply(mapping).seal(),
         data = data,
@@ -87,6 +97,9 @@ class geomPointRange(
         tooltips = tooltips
     ) {
     override fun seal(): Options {
-        return super.seal() + Options.of("fatten" to fatten)
+        return super<PointRangeAesthetics>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal() +
+                Options.of("fatten" to fatten)
     }
 }

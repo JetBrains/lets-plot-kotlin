@@ -10,6 +10,7 @@ import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.ContourMapping
 import org.jetbrains.letsPlot.intern.layer.geom.PathAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
@@ -53,6 +54,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash".
  * @param size line width.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -75,10 +78,12 @@ class geomContour(
     override val flow: Number? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,
+    override val colorBy: String? = null,
     mapping: ContourMapping.() -> Unit = {}
 ) : PathAesthetics,
     ContourStatAesthetics,
     ContourStatParameters,
+    WithColorByParameter,
     LayerBase(
         mapping = ContourMapping().apply(mapping).seal(),
         data = data,
@@ -92,6 +97,7 @@ class geomContour(
     override fun seal(): Options {
         return super<PathAesthetics>.seal() +
                 super<ContourStatAesthetics>.seal() +
-                super<ContourStatParameters>.seal()
+                super<ContourStatParameters>.seal() +
+                super<WithColorByParameter>.seal()
     }
 }

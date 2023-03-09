@@ -12,6 +12,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatParameters
@@ -51,6 +52,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *     5 = "longdash", 6 = "twodash".
  * @param size line width.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -73,9 +76,11 @@ class geomFreqpoly(
     override val binWidth: Number? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,
+    override val colorBy: String? = null,
     mapping: LineMapping.() -> Unit = {}
 ) : LineAesthetics,
     BinStatParameters,
+    WithColorByParameter,
     LayerBase(
         mapping = LineMapping().apply(mapping).seal(),
         data = data,
@@ -89,6 +94,7 @@ class geomFreqpoly(
     ) {
     override fun seal(): Options {
         return super<LineAesthetics>.seal() +
-                super<BinStatParameters>.seal()
+                super<BinStatParameters>.seal() +
+                super<WithColorByParameter>.seal()
     }
 }

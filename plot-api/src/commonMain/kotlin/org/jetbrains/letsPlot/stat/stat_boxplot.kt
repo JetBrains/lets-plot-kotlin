@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
@@ -50,12 +52,16 @@ class statBoxplot(
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: BoxplotMapping.() -> Unit = {}
 
 ) : BoxplotAesthetics,
     BoxplotParameters,
     BoxplotStatAesthetics,
     BoxplotStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = BoxplotMapping().apply(mapping).seal(),
         data = data,
@@ -71,7 +77,9 @@ class statBoxplot(
         return super<BoxplotAesthetics>.seal() +
                 super<BoxplotParameters>.seal() +
                 super<BoxplotStatAesthetics>.seal() +
-                super<BoxplotStatParameters>.seal()
+                super<BoxplotStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }
 

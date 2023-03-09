@@ -17,10 +17,15 @@ class BarMapping(
     override var width: Any? = null,
     override var size: Any? = null,
     override var group: Any? = null,
-    override var weight: Any? = null
-) : BarAesthetics, CountStatAesthetics, WithGroupOption {
+    override var weight: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : BarAesthetics, CountStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<BarAesthetics>.seal() +
-            super<CountStatAesthetics>.seal() + groupOption()
+            super<CountStatAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

@@ -12,9 +12,14 @@ class RasterMapping(
     override var y: Any? = null,
     override var alpha: Any? = null,
     override var fill: Any? = null,
-    override var group: Any? = null
-) : RasterAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + groupOption()
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : RasterAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    override fun seal() = super<RasterAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }
 
 

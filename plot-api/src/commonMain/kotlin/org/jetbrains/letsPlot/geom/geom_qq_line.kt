@@ -12,6 +12,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.QQLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.QQLineMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQLineStatParameters
@@ -57,6 +58,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     If `distribution` is `"chi2"` then `dParams` is an integer number [k] (=[1] by default).
  * @param quantiles pair of numbers, default=[0.25, 0.75]
  *     Pair of quantiles to use when fitting the Q-Q line.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  * @param sample y-axis value.
  * @param alpha transparency level of the point
  *     Understands numbers between 0 and 1.
@@ -85,10 +88,12 @@ class geomQQLine(
     override val distribution: String? = null,
     override val dParams: List<Number>? = null,
     override val quantiles: Pair<Number, Number>? = null,
+    override val colorBy: String? = null,
     mapping: QQLineMapping.() -> Unit = {}
 ) : QQLineAesthetics,
     QQStatAesthetics,
     QQLineStatParameters,
+    WithColorByParameter,
     LayerBase(
         mapping = QQLineMapping().apply(mapping).seal(),
         data = data,
@@ -103,6 +108,7 @@ class geomQQLine(
     override fun seal(): Options {
         return super<QQLineAesthetics>.seal() +
                 super<QQStatAesthetics>.seal() +
-                super<QQLineStatParameters>.seal()
+                super<QQLineStatParameters>.seal() +
+                super<WithColorByParameter>.seal()
     }
 }

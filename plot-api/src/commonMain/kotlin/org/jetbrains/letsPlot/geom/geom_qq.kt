@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.QQAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.QQMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
@@ -55,6 +57,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     If `distribution` is `"gamma"` then `dParams` is a pair [alpha, beta] (=[1.0, 1.0] by default).
  *     If `distribution` is `"exp"` then `dParams` is a float number [lambda] (=[1.0] by default).
  *     If `distribution` is `"chi2"` then `dParams` is an integer number [k] (=[1] by default).
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  *
  * @param sample y-axis value.
  * @param alpha transparency level of the point
@@ -84,10 +90,14 @@ class geomQQ(
     override val size: Number? = null,
     override val distribution: String? = null,
     override val dParams: List<Number>? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: QQMapping.() -> Unit = {}
 ) : QQAesthetics,
     QQStatAesthetics,
     QQStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = QQMapping().apply(mapping).seal(),
         data = data,
@@ -102,6 +112,8 @@ class geomQQ(
     override fun seal(): Options {
         return super<QQAesthetics>.seal() +
                 super<QQStatAesthetics>.seal() +
-                super<QQStatParameters>.seal()
+                super<QQStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

@@ -19,9 +19,13 @@ class Bin2dMapping(
     override var linetype: Any? = null,
     override var size: Any? = null,
     override var weight: Any? = null,
-    override var group: Any? = null
-) : TileAesthetics, Bin2dStatAesthetics, WithGroupOption {
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : TileAesthetics, Bin2dStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<TileAesthetics>.seal() +
             super<Bin2dStatAesthetics>.seal() +
-            groupOption()
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }

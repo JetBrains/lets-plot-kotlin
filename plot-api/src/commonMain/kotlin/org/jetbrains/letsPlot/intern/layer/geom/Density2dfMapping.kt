@@ -17,9 +17,13 @@ class Density2dfMapping(
     override var fill: Any? = null,
     override var alpha: Any? = null,
     override var weight: Any? = null,
-    override var group: Any? = null
-) : PolygonAesthetics, Density2dStatAesthetics, WithGroupOption {
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : PolygonAesthetics, Density2dStatAesthetics, WithGroupOption, AdditionalColorAesthetics {
     override fun seal() = super<PolygonAesthetics>.seal() +
             super<Density2dStatAesthetics>.seal() +
-            groupOption()
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }

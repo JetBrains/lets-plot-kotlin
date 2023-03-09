@@ -59,6 +59,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param alpha transparency level of a point
  *     Understands numbers between 0 and 1.
  * @param fill color of geometry filling.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -86,10 +90,14 @@ class geomDensity2DFilled(
     override val contour: Boolean? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: Density2dfMapping.() -> Unit = {}
 ) : PolygonAesthetics,
     Density2dStatAesthetics,
     Density2dStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = Density2dfMapping().apply(mapping).seal(),
         data = data,
@@ -103,6 +111,8 @@ class geomDensity2DFilled(
     override fun seal(): Options {
         return super<PolygonAesthetics>.seal() +
                 super<Density2dStatAesthetics>.seal() +
-                super<Density2dStatParameters>.seal()
+                super<Density2dStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }

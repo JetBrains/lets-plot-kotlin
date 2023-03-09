@@ -11,6 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.RasterAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.RasterMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -41,6 +42,8 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param y coordinates of the center of rectangles.
  * @param alpha transparency level of a layer.
  * @param fill color of geometry filling.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping set of aesthetic mappings.
  *     Aesthetic mappings describe the way that variables in the data are
  *     mapped to plot "aesthetics".
@@ -55,9 +58,11 @@ class geomRaster(
     override val y: Number? = null,
     override val alpha: Number? = null,
     override val fill: Any? = null,
+    override val fillBy: String? = null,
     mapping: RasterMapping.() -> Unit = {}
 
 ) : RasterAesthetics,
+    WithFillByParameter,
     LayerBase(
         mapping = RasterMapping().apply(mapping).seal(),
         data = data,
@@ -66,6 +71,9 @@ class geomRaster(
         position = position,
         showLegend = showLegend,
         sampling = sampling
-    )
+    ) {
+    override fun seal() = super<RasterAesthetics>.seal() +
+            super<WithFillByParameter>.seal()
+}
 
 

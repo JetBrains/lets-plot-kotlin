@@ -21,7 +21,12 @@ class LabelMapping(
     override var vjust: Any? = null,
     override var angle: Any? = null,
     override var lineheight: Any? = null,
-    override var group: Any? = null
-) : LabelAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + groupOption()
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : LabelAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    override fun seal() = super<LabelAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }

@@ -16,7 +16,12 @@ class YDotplotMapping(
     override var color: Any? = null,
     override var fill: Any? = null,
     override var size: Any? = null,
-    override var group: Any? = null
-) : YDotplotAesthetics, WithGroupOption {
-    override fun seal() = super.seal() + groupOption()
+    override var group: Any? = null,
+    override var paint_a: Any? = null,
+    override var paint_b: Any? = null,
+    override var paint_c: Any? = null
+) : YDotplotAesthetics, WithGroupOption, AdditionalColorAesthetics {
+    override fun seal() = super<YDotplotAesthetics>.seal() +
+            groupOption() +
+            super<AdditionalColorAesthetics>.seal()
 }

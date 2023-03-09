@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorByParameter
+import org.jetbrains.letsPlot.intern.layer.WithFillByParameter
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
@@ -58,6 +60,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     A multiplicative factor applied to size of the middle bar.
  * @param whiskerWidth: number, default: 0.0
  *     A multiplicative factor applied to the box width to draw horizontal segments on whiskers.
+ * @param coef Number, default = 1.5.
+ *  Length of the whiskers as multiple of IQR.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Defines the fill aesthetic for the geometry.
  * @param lower lower hinge, 25% quantile
  * @param middle median, 50% quantile
  * @param upper upper hinge, 75% quantile
@@ -108,12 +116,16 @@ class geomBoxplot(
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: BoxplotMapping .() -> Unit = {}
 
 ) : BoxplotAesthetics,
     BoxplotParameters,
     BoxplotStatAesthetics,
     BoxplotStatParameters,
+    WithColorByParameter,
+    WithFillByParameter,
     LayerBase(
         mapping = BoxplotMapping().apply(mapping).seal(),
         data = data,
@@ -129,6 +141,8 @@ class geomBoxplot(
         return super<BoxplotAesthetics>.seal() +
                 super<BoxplotParameters>.seal() +
                 super<BoxplotStatAesthetics>.seal() +
-                super<BoxplotStatParameters>.seal()
+                super<BoxplotStatParameters>.seal() +
+                super<WithColorByParameter>.seal() +
+                super<WithFillByParameter>.seal()
     }
 }
