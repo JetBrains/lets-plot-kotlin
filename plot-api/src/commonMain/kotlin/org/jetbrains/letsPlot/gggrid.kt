@@ -5,43 +5,80 @@
 
 package org.jetbrains.letsPlot
 
-import jetbrains.datalore.plot.PlotSizeHelper
-import org.jetbrains.letsPlot.intern.Plot
-import org.jetbrains.letsPlot.intern.toSpec
+import jetbrains.datalore.plot.config.Option.SubPlots
+import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
+import org.jetbrains.letsPlot.intern.figure.SubPlotsLayoutSpec
+import org.jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
- *  Arrange plots in cells of a regular grid.
+ *  Combines several plots on one figure, organized in a regular grid.
  *
  *  @param plots Collection of plots.
+ *          Use Null-value to fill-in empty cells in grid.
  *  @param ncol Number of columns in grid.
- *  @param cellWidth Width of cell in px.
- *  @param cellHeight Height of cell in px.
- *  @param hGap Horizontal gap between the grid cells in px. Default: 0
- *  @param vGap Vertical gap between the grid cells in px. Default: 50
- *  @param cellHeight Height of cell in px.
- *  @param fit Whether to set size of each plot to the size of grid cell. Default: false.
- *  @return GGBunch object.
+ *          If not specified, shows plots horizontally, in one row.
+ *  @param widths Relative width of each column of grid, left to right.
+ *  @param heights Relative height of each row of grid, top-down.
+ *  @param hspace Cell horizontal spacing in px. Default: 4px.
+ *  @param vspace Cell vertical spacing in px. Default: 4px.
+ *  @param fit Default: true.
+ *          Whether to stretch each plot to match the aspect ratio of its cell (`fit=true`),
+ *          or to preserve the original aspect ratio of plots (`fit=false`).
+ *  @param align Default: false.
+ *          If `true`, align inner areas (i.e. "geom" bounds) of plots.
+ *          However, cells containing other (sub)grids are not participating in the plot "inner areas" layouting.
+ *
+ *  @return SubPlotsFigure object.
  */
 @Suppress("SpellCheckingInspection")
 fun gggrid(
-    plots: Iterable<Plot>,
-    ncol: Int,
-    cellWidth: Int, cellHeight: Int,
-    hGap: Int = 0, vGap: Int = 50,
-    fit: Boolean = false
-): GGBunch {
-    val bunch = GGBunch()
-    for ((i, p) in plots.withIndex()) {
-        val col = i % ncol
-        val row = i / ncol
-        val x = col * (cellWidth + hGap)
-        val y = row * (cellHeight + vGap)
-        if (fit) {
-            bunch.addPlot(p, x, y, cellWidth, cellHeight)
+    plots: Iterable<Figure?>,
+    ncol: Int? = null,
+    widths: List<Number>? = null,
+    heights: List<Number>? = null,
+    hspace: Number? = null,
+    vspace: Number? = null,
+    fit: Boolean = true,
+    align: Boolean = false,
+
+    ): SubPlotsFigure {
+
+    val (nc, nrow) = plots.toList().let {
+        require(it.isNotEmpty()) { "Supplots list is empty." }
+
+        if (ncol == null) {
+            it.size to 1
         } else {
-            val figureSize = PlotSizeHelper.scaledFigureSize(p.toSpec(), cellWidth, cellHeight)
-            bunch.addPlot(p, x, y, figureSize.first, figureSize.second)
+            val nrow = ((it.size + (ncol - 1)) / ncol)
+            ncol to nrow
         }
     }
-    return bunch
+
+    @Suppress("NAME_SHADOWING")
+    val ncol = nc
+
+    val layout = SubPlotsLayoutSpec(
+        name = SubPlots.Layout.SUBPLOTS_GRID,
+        options = mapOf(
+            SubPlots.Grid.NCOLS to ncol,
+            SubPlots.Grid.NROWS to nrow,
+            SubPlots.Grid.COL_WIDTHS to widths,
+            SubPlots.Grid.ROW_HEIGHTS to heights,
+            SubPlots.Grid.HSPACE to hspace,
+            SubPlots.Grid.VSPACE to vspace,
+            SubPlots.Grid.FIT_CELL_ASPECT_RATIO to fit,
+            SubPlots.Grid.INNER_ALIGNMENT to align,
+        ).filterNonNullValues()
+    )
+
+    val len = ncol * nrow
+
+    @Suppress("NAME_SHADOWING")
+    val plots = (plots.toList() + List(ncol - 1) { null }).take(len)
+
+    return SubPlotsFigure(
+        figures = plots,
+        layout = layout,
+        features = emptyList()
+    )
 }

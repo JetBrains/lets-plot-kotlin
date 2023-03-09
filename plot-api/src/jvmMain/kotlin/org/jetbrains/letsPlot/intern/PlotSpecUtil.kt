@@ -11,14 +11,10 @@ import org.jetbrains.letsPlot.Figure
 /**
  * Used in IDEA Plugin
  */
+@Suppress("unused")
 object PlotSpecUtil {
     @JvmStatic
     fun toSpecJson(fig: Figure): String {
-//        val spec: Map<String, Any> = when (fig) {
-//            is Plot -> fig.toSpec()
-//            is GGBunch -> fig.toSpec()
-//            else -> throw IllegalArgumentException("Unexpected Lets-Plot figure type: ${fig::class.simpleName}")
-//        }
         val spec = fig.toSpec()
         return JsonSupport.formatJson(spec)
     }

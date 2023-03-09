@@ -24,6 +24,7 @@ import jetbrains.datalore.plot.config.Option.Scale.POSITION
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.MappingMeta
+import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.layer.WithSpatialParameters
 import org.jetbrains.letsPlot.intern.standardizing.JvmStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.MapStandardizing
@@ -36,6 +37,7 @@ import org.jetbrains.letsPlot.spatial.SpatialDataset
 fun Figure.toSpec(): MutableMap<String, Any> {
     return when (this) {
         is Plot -> this.toSpec()
+        is SubPlotsFigure -> this.toSpec()
         is GGBunch -> this.toSpec()
         else -> throw IllegalArgumentException("Unsupported figure type ${this::class.simpleName}")
     }

@@ -34,9 +34,9 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *      to one of the supported formats: svg, html (or htm), png, jpeg (or jpg) or tiff (or tif)
  * @param scale Scaling factor (only for raster formats). Default: 2.0
  * @param dpi Dot-per-Inch value to store in the exported file metadata (only for raster formats).
- *      By default: no metadata is stored.
+ *      Default: no metadata is stored.
  * @param path Path to a directory to save image files in.
- *      By default it is `${user.dir}/lets-plot-images`
+ *      Default: `${user.dir}/lets-plot-images`
  *
  * @return Absolute pathname of created file.
  */
@@ -64,12 +64,6 @@ fun ggsave(
     dir.mkdir()
     val file = File(dir.canonicalPath, filename)
 
-    // Plot specs
-//    val spec: MutableMap<String, Any> = when (plot) {
-//        is Plot -> plot.toSpec()
-//        is GGBunch -> plot.toSpec()
-//        else -> throw IllegalArgumentException("Unsupported figure type: ${plot::class.simpleName}")
-//    }
     val spec: MutableMap<String, Any> = plot.toSpec()
 
     when (ext) {
@@ -78,6 +72,7 @@ fun ggsave(
             file.createNewFile()
             file.writeText(svg)
         }
+
         "html", "htm" -> {
             val html = PlotHtmlExport.buildHtmlFromRawSpecs(
                 spec,
@@ -87,6 +82,7 @@ fun ggsave(
             file.createNewFile()
             file.writeText(html)
         }
+
         "png", "jpeg", "jpg", "tiff", "tif" -> {
             exportRasterImage(
                 spec,
@@ -95,6 +91,7 @@ fun ggsave(
                 targetDPI = dpi?.toDouble() ?: NaN
             )
         }
+
         else -> throw java.lang.IllegalArgumentException(
             """
             Unsupported file extension: "$ext".
@@ -141,6 +138,7 @@ private fun exportRasterImage(
                     Please add "lets-plot-image-export-<version>.jar" to your classpath. 
                 """.trimIndent()
                 )
+
             else -> throw e
         }
     }
