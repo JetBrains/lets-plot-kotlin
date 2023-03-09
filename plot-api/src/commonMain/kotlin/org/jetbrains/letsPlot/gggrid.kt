@@ -13,6 +13,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
 /**
  *  Combines several plots on one figure, organized in a regular grid.
  *
+ * ## Examples
+ *
+ * - [plot_grid.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/plot_grid.ipynb)
+ *
+ *
  *  @param plots Collection of plots.
  *          Use Null-value to fill-in empty cells in grid.
  *  @param ncol Number of columns in grid.

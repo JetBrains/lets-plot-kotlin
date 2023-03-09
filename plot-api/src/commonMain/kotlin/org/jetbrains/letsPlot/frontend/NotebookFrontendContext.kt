@@ -10,6 +10,7 @@ import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 import org.jetbrains.letsPlot.FrontendContext
 import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.intern.Plot
+import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.toSpec
 
 @Suppress("unused")
@@ -39,6 +40,10 @@ class NotebookFrontendContext(
 
     fun getHtml(plot: Plot): String {
         return getDisplayHtml(plot.toSpec())
+    }
+
+    fun getHtml(figure: SubPlotsFigure): String {
+        return getDisplayHtml(figure.toSpec())
     }
 
     fun getHtml(plotBunch: GGBunch): String {

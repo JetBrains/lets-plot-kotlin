@@ -17,13 +17,11 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  *
  * - [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
  *
- * @param width number.
- *     Width of plot in px.
- * @param height number.
- *     Height of plot in px.
+ * @param width Width of plot in px.
+ * @param height Height of plot in px.
  */
 @Suppress("SpellCheckingInspection")
-fun ggsize(width: Int, height: Int): OptionsMap {
+fun ggsize(width: Number, height: Number): OptionsMap {
     return OptionsMap(
         Option.Plot.SIZE,
         mapOf(
