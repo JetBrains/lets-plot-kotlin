@@ -36,10 +36,16 @@
 
 
 - [BREAKING] `stack` and `fill` position adjustments now stack objects on top of each other only if these objects belong to different **groups**.
+  
   If necessary, use `mode="all"` in `positionStack()` or `positionFill()` to stack objects regardless of their group.
   
 - See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/position_stack.ipynb).
 
+- [BREAKING] The deprecation level raised to "ERROR" for all API that was deprecated in v. 4.2.0 and earlier.
+
+- [DEPRECATED] Earlier variant of [gggrid()](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot/gggrid.html).
+  
+  From now-on please use the variant added in this release: [new gggrid()]( to do ).
 
 ### Fixed
 

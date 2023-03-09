@@ -23,7 +23,7 @@ import org.jetbrains.letsPlot.intern.toSpec
  *  @return GGBunch object.
  */
 @Deprecated(
-    "Please replace with new version of the `gggrid()` function.",
+    "Please replace with new version of `gggrid()` function.",
     ReplaceWith("gggrid(plots, ncol)"),
     level = DeprecationLevel.WARNING
 )
