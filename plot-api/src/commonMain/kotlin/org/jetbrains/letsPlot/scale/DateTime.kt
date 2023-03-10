@@ -36,6 +36,10 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *       Missing values will be replaced with this value.
  * @param format
  *      Defines the format for labels on the scale. Also applies to `breaks`.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -57,6 +61,7 @@ fun scaleXDateTime(
     expand: List<Number>? = null,
     naValue: Any? = null,
     format: String? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -68,6 +73,7 @@ fun scaleXDateTime(
         expand = expand,
         naValue = naValue,
         format = format,
+        position = position,
         otherOptions = Options(
             mapOf(
                 DATE_TIME to true
@@ -100,6 +106,10 @@ fun scaleXDateTime(
  *       Missing values will be replaced with this value.
  * @param format
  *      Defines the format for labels on the scale. Also applies to `breaks`.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
@@ -121,6 +131,7 @@ fun scaleYDateTime(
     expand: List<Number>? = null,
     naValue: Any? = null,
     format: String? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -132,6 +143,7 @@ fun scaleYDateTime(
         expand = expand,
         naValue = naValue,
         format = format,
+        position = position,
         otherOptions = Options(
             mapOf(
                 DATE_TIME to true
@@ -162,6 +174,10 @@ fun scaleYDateTime(
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  */
 fun scaleXTime(
@@ -171,6 +187,7 @@ fun scaleXTime(
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -181,6 +198,7 @@ fun scaleXTime(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        position = position,
         otherOptions = Options(
             mapOf(
                 TIME to true
@@ -211,6 +229,10 @@ fun scaleXTime(
  *      Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue
  *       Missing values will be replaced with this value.
+ * @param position String
+ *  The position of the axis:
+ *    "left", "right" or "both" for y-axis;
+ *    "top", "bottom" or "both" for x-axis.
  *
  */
 fun scaleYTime(
@@ -220,6 +242,7 @@ fun scaleYTime(
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
+    position: String? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -230,6 +253,7 @@ fun scaleYTime(
         limits = limits,
         expand = expand,
         naValue = naValue,
+        position = position,
         otherOptions = Options(
             mapOf(
                 TIME to true

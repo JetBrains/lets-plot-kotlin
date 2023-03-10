@@ -19,19 +19,19 @@ import org.jetbrains.letsPlot.pos.positionStack
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.theme"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.theme"), level = DeprecationLevel.ERROR
 )
 typealias theme = org.jetbrains.letsPlot.themes.theme
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.elementBlank()"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.elementBlank()"), level = DeprecationLevel.ERROR
 )
 fun elementBlank() = org.jetbrains.letsPlot.themes.elementBlank()
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.elementRect(fill, color, size, blank)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.elementRect(fill, color, size, blank)"), level = DeprecationLevel.ERROR
 )
 fun elementRect(
     fill: Any? = null,
@@ -42,7 +42,7 @@ fun elementRect(
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.elementLine(color, size, blank)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.elementLine(color, size, blank)"), level = DeprecationLevel.ERROR
 )
 fun elementLine(
     color: Any? = null,
@@ -52,7 +52,7 @@ fun elementLine(
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.elementText(color, face, blank)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.elementText(color, face, blank)"), level = DeprecationLevel.ERROR
 )
 fun elementText(
     color: Any? = null,
@@ -69,37 +69,37 @@ fun elementText(
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.themeGrey()"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.themeGrey()"), level = DeprecationLevel.ERROR
 )
 fun themeGrey() = org.jetbrains.letsPlot.themes.themeGrey()
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.themeLight()"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.themeLight()"), level = DeprecationLevel.ERROR
 )
 fun themeLight() = org.jetbrains.letsPlot.themes.themeLight()
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.themeClassic()"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.themeClassic()"), level = DeprecationLevel.ERROR
 )
 fun themeClassic() = org.jetbrains.letsPlot.themes.themeClassic()
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.themeMinimal()"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.themeMinimal()"), level = DeprecationLevel.ERROR
 )
 fun themeMinimal() = org.jetbrains.letsPlot.themes.themeMinimal()
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.themeMinimal2()"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.themeMinimal2()"), level = DeprecationLevel.ERROR
 )
 fun themeMinimal2() = org.jetbrains.letsPlot.themes.themeMinimal2()
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.themes\"",
-    ReplaceWith("org.jetbrains.letsPlot.themes.themeNone()"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.themes.themeNone()"), level = DeprecationLevel.ERROR
 )
 fun themeNone() = org.jetbrains.letsPlot.themes.themeNone()
 
@@ -110,7 +110,7 @@ fun themeNone() = org.jetbrains.letsPlot.themes.themeNone()
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.coord\"",
-    ReplaceWith("org.jetbrains.letsPlot.coord.coordFixed(ratio, xlim, ylim, flip)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.coord.coordFixed(ratio, xlim, ylim, flip)"), level = DeprecationLevel.ERROR
 )
 fun coordFixed(
     ratio: Number? = null,
@@ -121,7 +121,7 @@ fun coordFixed(
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.coord\"",
-    ReplaceWith("org.jetbrains.letsPlot.coord.coordCartesian(xlim, ylim, flip)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.coord.coordCartesian(xlim, ylim, flip)"), level = DeprecationLevel.ERROR
 )
 fun coordCartesian(
     xlim: Pair<Number?, Number?>? = null,
@@ -131,7 +131,7 @@ fun coordCartesian(
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.coord\"",
-    ReplaceWith("org.jetbrains.letsPlot.coord.coordMap(xlim, ylim, flip)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.coord.coordMap(xlim, ylim, flip)"), level = DeprecationLevel.ERROR
 )
 fun coordMap(
     xlim: Pair<Number?, Number?>? = null,
@@ -141,7 +141,7 @@ fun coordMap(
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.coord\"",
-    ReplaceWith("org.jetbrains.letsPlot.coord.coordFlip(xlim, ylim)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.coord.coordFlip(xlim, ylim)"), level = DeprecationLevel.ERROR
 )
 fun coordFlip(
     xlim: Pair<Number?, Number?>? = null,
@@ -160,42 +160,42 @@ object Pos {
     @Deprecated(
         "",
         ReplaceWith("positionIdentity", imports = ["org.jetbrains.letsPlot.pos.positionIdentity"]),
-        level = DeprecationLevel.WARNING
+        level = DeprecationLevel.ERROR
     )
     val identity = positionIdentity
 
     @Deprecated(
         "",
         ReplaceWith("positionStack", imports = ["org.jetbrains.letsPlot.pos.positionStack"]),
-        level = DeprecationLevel.WARNING
+        level = DeprecationLevel.ERROR
     )
     val stack = positionStack()
 
     @Deprecated(
         "",
         ReplaceWith("positionFill", imports = ["org.jetbrains.letsPlot.pos.positionFill"]),
-        level = DeprecationLevel.WARNING
+        level = DeprecationLevel.ERROR
     )
     val fill = positionFill()
 
     @Deprecated(
         "",
         ReplaceWith("positionDodge()", imports = ["org.jetbrains.letsPlot.pos.positionDodge"]),
-        level = DeprecationLevel.WARNING
+        level = DeprecationLevel.ERROR
     )
     val dodge = org.jetbrains.letsPlot.pos.positionDodge()
 
     @Deprecated(
         "",
         ReplaceWith("positionNudge()", imports = ["org.jetbrains.letsPlot.pos.positionNudge"]),
-        level = DeprecationLevel.WARNING
+        level = DeprecationLevel.ERROR
     )
     val nudge = org.jetbrains.letsPlot.pos.positionNudge()
 
     @Deprecated(
         "",
         ReplaceWith("positionJitter()", imports = ["org.jetbrains.letsPlot.pos.positionJitter"]),
-        level = DeprecationLevel.WARNING
+        level = DeprecationLevel.ERROR
     )
     val jitter = org.jetbrains.letsPlot.pos.positionJitter()
 
@@ -203,34 +203,34 @@ object Pos {
     @Deprecated(
         "",
         ReplaceWith("positionJitterDodge()", imports = ["org.jetbrains.letsPlot.pos.positionJitterDodge"]),
-        level = DeprecationLevel.WARNING
+        level = DeprecationLevel.ERROR
     )
     val jitterdodge = org.jetbrains.letsPlot.pos.positionJitterDodge()
 }
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.pos\"",
-    ReplaceWith("org.jetbrains.letsPlot.pos.positionDodge(width)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.pos.positionDodge(width)"), level = DeprecationLevel.ERROR
 )
 fun positionDodge(width: Number? = null) = org.jetbrains.letsPlot.pos.positionDodge(width)
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.pos\"",
-    ReplaceWith("org.jetbrains.letsPlot.pos.positionJitter(width, height)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.pos.positionJitter(width, height)"), level = DeprecationLevel.ERROR
 )
 fun positionJitter(width: Number? = null, height: Number? = null) =
     org.jetbrains.letsPlot.pos.positionJitter(width, height)
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.pos\"",
-    ReplaceWith("org.jetbrains.letsPlot.pos.positionNudge(x, y)"), level = DeprecationLevel.WARNING
+    ReplaceWith("org.jetbrains.letsPlot.pos.positionNudge(x, y)"), level = DeprecationLevel.ERROR
 )
 fun positionNudge(x: Number? = null, y: Number? = null) = org.jetbrains.letsPlot.pos.positionNudge(x, y)
 
 @Deprecated(
     "Moved to package \"org.jetbrains.letsPlot.pos\"",
     ReplaceWith("org.jetbrains.letsPlot.pos.positionJitterDodge(dodgeWidth, jitterWidth, jitterHeight)"),
-    level = DeprecationLevel.WARNING
+    level = DeprecationLevel.ERROR
 )
 fun positionJitterDodge(
     dodgeWidth: Number? = null,

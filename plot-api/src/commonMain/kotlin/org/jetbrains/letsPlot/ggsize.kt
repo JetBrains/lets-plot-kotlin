@@ -21,7 +21,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  * @param height Number, height of plot in px.
  */
 @Suppress("SpellCheckingInspection")
-fun ggsize(width: Int, height: Int): OptionsMap {
+fun ggsize(width: Number, height: Number): OptionsMap {
     return OptionsMap(
         Option.Plot.SIZE,
         mapOf(

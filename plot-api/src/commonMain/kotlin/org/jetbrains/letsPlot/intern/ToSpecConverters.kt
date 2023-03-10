@@ -20,9 +20,11 @@ import jetbrains.datalore.plot.config.Option.Scale.LABELS
 import jetbrains.datalore.plot.config.Option.Scale.LIMITS
 import jetbrains.datalore.plot.config.Option.Scale.NAME
 import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
+import jetbrains.datalore.plot.config.Option.Scale.POSITION
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.MappingMeta
+import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.layer.WithSpatialParameters
 import org.jetbrains.letsPlot.intern.standardizing.JvmStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.MapStandardizing
@@ -35,6 +37,7 @@ import org.jetbrains.letsPlot.spatial.SpatialDataset
 fun Figure.toSpec(): MutableMap<String, Any> {
     return when (this) {
         is Plot -> this.toSpec()
+        is SubPlotsFigure -> this.toSpec()
         is GGBunch -> this.toSpec()
         else -> throw IllegalArgumentException("Unsupported figure type ${this::class.simpleName}")
     }
@@ -62,7 +65,7 @@ fun Plot.toSpec(): MutableMap<String, Any> {
 
     spec[Option.PlotBase.MAPPING] = asMappingData(plot.mapping.map)
     spec[Option.Plot.LAYERS] = plot.layers().map(Layer::toSpec)
-    spec[Option.Plot.SCALES] = plot.scales().map(Scale::toSpec)
+    spec[Option.Plot.SCALES] = plot.scales().flatMap(Scale::toSpec)
 
     // Width of plot in percents of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
@@ -119,10 +122,10 @@ fun Layer.toSpec(): MutableMap<String, Any> {
                 it.kind.optionName()
             } else {
                 OptionsMap(
-                    Option.Meta.Kind.POS,
+                    "pos",
                     it.kind.optionName(),
                     it.parameters.map
-                ).toSpec(true)
+                ).toSpec()
             }
     }
 
@@ -216,10 +219,9 @@ fun Map<String, Any?>.filterNonNullValues(): Map<String, Any> {
 }
 
 
-fun Scale.toSpec(): MutableMap<String, Any> {
+fun Scale.toSpec(): List<Map<String, Any>> {
     val spec = HashMap<String, Any>()
 
-    spec[AES] = aesthetic.name
     name?.let { spec[NAME] = name }
     breaks?.let { spec[BREAKS] = toList(breaks, BREAKS) }
     labels?.let { spec[LABELS] = labels }
@@ -229,20 +231,18 @@ fun Scale.toSpec(): MutableMap<String, Any> {
     guide?.let { spec[GUIDE] = guide }
     trans?.let { spec[CONTINUOUS_TRANSFORM] = trans }
     format?.let { spec[FORMAT] = format }
+    position?.let { spec[POSITION] = position }
 
     spec.putAll(otherOptions.map)
-    return spec
+
+    return aesthetic.map {
+        mapOf(AES to it.name) + spec
+    }
 }
 
-fun OptionsMap.toSpec(includeKind: Boolean = false): MutableMap<String, Any> {
+fun OptionsMap.toSpec(): MutableMap<String, Any> {
     return HashMap(
-        MapStandardizing.standardize(
-            if (includeKind) {
-                mapOf(KIND to kind) + options
-            } else {
-                options
-            }
-        )
+        MapStandardizing.standardize(options)
     )
 }
 

@@ -5,52 +5,108 @@
 
 package frontendContextDemo.scripts
 
+import demoData.Iris
 import frontendContextDemo.ScriptInBatikContext
-import org.jetbrains.letsPlot.geom.geomBoxplot
+import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.geom.geomDensity
+import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.gggrid
-import org.jetbrains.letsPlot.ggsize
-import org.jetbrains.letsPlot.letsPlot
-import kotlin.math.abs
+import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.intern.Plot
+import org.jetbrains.letsPlot.label.ggtitle
+import org.jetbrains.letsPlot.scale.scaleYContinuous
+import org.jetbrains.letsPlot.themes.themeBW
 
 object PlotGridDemo {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInBatikContext.eval(
             "gggrid()",
-            maxCol = 1
+            maxCol = 2
         ) {
-            val density = letsPlot(densityData()) + geomDensity(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
-            val boxplot = letsPlot(boxplotData()) { x = "cat"; y = "val" } + geomBoxplot(outlierColor = "red")
-
-            val plots = listOf(
-                density + ggsize(200, 100),
-                boxplot + ggsize(300, 200),
-                density + ggsize(500, 500),
-                boxplot + ggsize(150, 150),
-                density + ggsize(250, 100),
-                boxplot + ggsize(350, 150),
-            )
-            gggrid(plots, 3, 400, 300).show()
-            gggrid(plots, 3, 400, 300, fit = true).show()
+            irisTriple(innerAlignment = false).show()
+            irisTriple(innerAlignment = true).show()
+            irisTriple_compositeCell(innerAlignment = false).show()
+            irisTriple_compositeCell(innerAlignment = true).show()
+            irisTriple(
+                colWidths = listOf(1.0, 0.5),
+                rowHeights = listOf(0.5, 1.0),
+                innerAlignment = false
+            ).show()
+            irisTriple(
+                colWidths = listOf(1.0, 0.5),
+                rowHeights = listOf(0.5, 1.0),
+                innerAlignment = true
+            ).show()
         }
     }
 
-    private fun densityData(): Map<*, *> {
-        val rand = java.util.Random()
-        return mapOf<String, Any>(
-            "x" to List(500) { rand.nextGaussian() }
+    private fun irisTriple(
+        colWidths: List<Double>? = null,
+        rowHeights: List<Double>? = null,
+        innerAlignment: Boolean
+    ): Figure {
+
+        val scatter = irisScatterPlot()
+        val density = irisDensityPlot()
+
+        return gggrid(
+            plots = listOf(
+                density, null,
+                scatter, density
+            ),
+            ncol = 2,
+            widths = colWidths,
+            heights = rowHeights,
+            align = innerAlignment
         )
     }
 
-    private fun boxplotData(): Map<*, *> {
-        val categories = listOf("A", "B", "C", "D", "E")
+    @Suppress("FunctionName")
+    private fun irisTriple_compositeCell(
+        colWidths: List<Double>? = null,
+        rowHeights: List<Double>? = null,
+        innerAlignment: Boolean
+    ): Figure {
 
-        val n = 500
-        val rand = java.util.Random()
-        return mapOf<String, Any>(
-            "val" to List(n) { rand.nextGaussian() },
-            "cat" to List(n) { categories[abs(rand.nextInt()).rem(categories.size)] }
+        val scatter = irisScatterPlot()
+        val density = irisDensityPlot()
+
+        val innerSubPlots = gggrid(
+            listOf(scatter, density),
+            ncol = 2,
+            align = false,
+        )
+
+        return gggrid(
+            listOf(density, innerSubPlots),
+            ncol = 1,
+            widths = colWidths,
+            heights = rowHeights,
+            align = innerAlignment
         )
     }
+
+    private fun irisScatterPlot(): Plot {
+        val irisData = Iris.map()
+        return ggplot(irisData) +
+                geomPoint(size = 5, color = "black", alpha = 0.4) {
+                    x = "sepal length (cm)"
+                    y = "sepal width (cm)"
+                } +
+                themeBW() +
+                ggtitle("Bottom-Left")
+
+    }
+
+    private fun irisDensityPlot(): Plot {
+        val irisData = Iris.map()
+        return ggplot(irisData) +
+                geomDensity(size = 1.5, color = "black", fill = "black", alpha = 0.1) {
+                    x = "sepal length (cm)"
+                } +
+                scaleYContinuous(position = "right") +
+                themeBW()
+    }
+
 }

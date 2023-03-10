@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.BarAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.BarMapping
 import org.jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
@@ -32,9 +34,13 @@ class statCount(
     override val width: Number? = null,
     override val size: Number? = null,
     override val weight: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: BarMapping.() -> Unit = {}
 
 ) : CountStatAesthetics, BarAesthetics,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = BarMapping().apply(mapping).seal(),
         data = data,
@@ -47,7 +53,9 @@ class statCount(
 
     override fun seal(): Options {
         return super<BarAesthetics>.seal() +
-                super<CountStatAesthetics>.seal()
+                super<CountStatAesthetics>.seal() +
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }
 

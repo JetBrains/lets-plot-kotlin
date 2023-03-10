@@ -62,7 +62,7 @@ internal class PngChunkTIME(info: ImageInfo?) : PngChunkSingle(ID, info) {
     }
 
     val yMDHMS: IntArray
-        get() = dateTime?.let { intArrayOf(it.year, it.month!!.ordinal() + 1, it.day, it.hours, it.minutes, it.seconds) } ?: IntArray(6)
+        get() = dateTime?.let { intArrayOf(it.year, it.month.ordinal() + 1, it.day, it.hours, it.minutes, it.seconds) } ?: IntArray(6)
 
     /** format YYYY/MM/DD HH:mm:SS  */
     val asString: String

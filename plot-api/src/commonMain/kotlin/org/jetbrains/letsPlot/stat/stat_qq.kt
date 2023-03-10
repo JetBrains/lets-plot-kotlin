@@ -12,6 +12,8 @@ import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.QQAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.QQMapping
 import org.jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
@@ -33,10 +35,14 @@ class statQQ(
     override val size: Number? = null,
     override val distribution: String? = null,
     override val dParams: List<Number>? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
     mapping: QQMapping.() -> Unit = {}
 ) : QQAesthetics,
     QQStatAesthetics,
     QQStatParameters,
+    WithColorOption,
+    WithFillOption,
     LayerBase(
         mapping = QQMapping().apply(mapping).seal(),
         data = data,
@@ -50,6 +56,8 @@ class statQQ(
     override fun seal(): Options {
         return super<QQAesthetics>.seal() +
                 super<QQStatAesthetics>.seal() +
-                super<QQStatParameters>.seal()
+                super<QQStatParameters>.seal() +
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
     }
 }

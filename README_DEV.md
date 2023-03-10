@@ -84,8 +84,8 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation "org.jetbrains.lets-plot:lets-plot-batik:3.0.0"
-    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.2.0"
+    implementation "org.jetbrains.lets-plot:lets-plot-batik:3.1.0"
+    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.3.0"
 }
 ```
 
@@ -93,8 +93,8 @@ dependencies {
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-jfx:3.0.0"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.2.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-jfx:3.1.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.3.0"
 }
 ```
 
@@ -106,8 +106,8 @@ If your JVM app doesn't use either frontend, you can provide just "lets-plot-com
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-common:3.0.0"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.2.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-common:3.1.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.3.0"
 }
 ```
 
@@ -115,7 +115,7 @@ dependencies {
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:4.2.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:4.3.0"
 }
 ```
 
@@ -150,8 +150,8 @@ The following steps describe how to use `Lets-Plot` JVM "backend" in "browser" f
 #### Add dependencies on maven artifacts
 
 ```
-org.jetbrains.lets-plot:lets-plot-common:3.0.0
-org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-jvm:4.2.0
+org.jetbrains.lets-plot:lets-plot-common:3.1.0
+org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-jvm:4.3.0
 ```
 
 #### Implement the `jetbrains.letsPlot.FrontendContext` interface:

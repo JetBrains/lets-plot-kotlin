@@ -28,7 +28,7 @@ package org.jetbrains.letsPlot.bistro.residual
  * @param seed Number, random seed for "loess" sampling.
  * @param maxN Int, maximum number of data-points for "loess" method. 
  *  If this quantity exceeded random sampling is applied to data.
- * @param geom String, {"point", "tile", "none"}, default = "point".
+ * @param geom String, {"point", "tile", "density2d", "density2df", "none"}, default = "point".
  *  The geometric object to use to display the data. No object will be used if `geom="none"`.
  * @param bins Number or a Pair of Numbers.
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.

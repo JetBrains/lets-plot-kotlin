@@ -14,10 +14,6 @@ import org.w3c.dom.*
 
 object JsFrontendUtil {
     fun createPlotDiv(plot: Figure): HTMLDivElement {
-//        val spec = when (plot) {
-//            is Plot -> plot.toSpec()
-//            else -> (plot as GGBunch).toSpec()
-//        }
         val spec = plot.toSpec()
         val html = PlotHtmlHelper.getStaticDisplayHtmlForRawSpec(spec)
         val divElement = document.createElement("div")

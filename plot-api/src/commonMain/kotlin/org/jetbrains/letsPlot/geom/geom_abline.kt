@@ -11,6 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.ABLineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.ABLineMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -31,17 +32,19 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
  * @param slope The line slope.
  * @param intercept The value of y at the point where the line crosses the y-axis.
- * @param alpha Transparency level of a point. 
+ * @param alpha Transparency level of a point.
  *  Understands numbers between 0 and 1.
- * @param color (colour) Color of a geometry. 
- *  Can be continuous or discrete. 
+ * @param color (colour) Color of a geometry.
+ *  Can be continuous or discrete.
  *  For continuous value this will be a color gradient between two colors.
- * @param linetype Type of the line. 
+ * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
  * @param size Line width.
+ * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Defines the color aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.
- *  Aesthetic mappings describe the way that variables in the data are 
+ *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
  */
 class geomABLine(
@@ -56,8 +59,10 @@ class geomABLine(
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
+    override val colorBy: String? = null,
     mapping: ABLineMapping.() -> Unit = {}
 ) : ABLineAesthetics,
+    WithColorOption,
     LayerBase(
         mapping = ABLineMapping().apply(mapping).seal(),
         data = data,
@@ -66,5 +71,8 @@ class geomABLine(
         position = position,
         showLegend = showLegend,
         sampling = sampling
-    )
+    ){
+    override fun seal() = super<ABLineAesthetics>.seal() +
+            super<WithColorOption>.seal()
+}
 
