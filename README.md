@@ -43,7 +43,7 @@
     - [Saving plot to file](#export)
     - [GeoTools support](#geotools)
 
-- [What is new in 4.2.0](#new)
+- [What is new in 4.3.0](#new)
 - [Migrating from v3 to v4](#migrating4)
 
 - [Change log](#change_log)
@@ -266,46 +266,54 @@ Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blo
 
 
 <a id="new"></a>
-## What is new in 4.2.0
+## What is new in 4.3.0
 
-- ### New Plot Types
+- ### `gggrid()` ([docs](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot/gggrid.html)), as a replacement for earlier variant of [gggrid()](https://github.com/JetBrains/lets-plot-kotlin/blob/master/plot-api/src/commonMain/kotlin/org/jetbrains/letsPlot/gggrid_deprecated.kt).
+  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/plot_grid.png" alt="f-23a/images/plot_grid.png" width="400" height="200">
 
-    - #### `residualPlot()`
-      <br>
-      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/residual-light.png" alt="f-22e/images/residual-light.png" width="200" height="133">
-      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/residual-dark.png" alt="f-22e/images/residual-dark.png" width="200" height="133">
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/plot_grid.ipynb).
 
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/residual_plot.ipynb).
 
-    - #### `geomAreaRidges()`
-      <br>
-      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/ridges-dark.png" alt="f-22e/images/ridges-dark.png" width="400" height="130">
+- ### `jointPlot()`
+  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/joint_plot.png" alt="f-23a/images/joint_plot.png" width="400" height="267">
 
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/ridgeline_plot.ipynb).
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/joint_plot.ipynb).
 
-    - #### `geomPie()`
-      <br>
-      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/pie.png" alt="f-22e/images/pie.png" width="379" height="106">
 
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/geom_pie.ipynb).
+- ### Configuring Axis Position
+  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/axis_position.png" alt="f-23a/images/axis_position.png" width="300" height="200">
 
-    - #### Annotation Labels on Pie-Chart
-      <br>
-      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/pie-labels-explode.png" alt="f-22e/images/pie-labels-explode.png" width="195" height="133">
-      <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-22e/images/pie-labels-titanic.png" alt="f-22e/images/pie-labels-titanic.png" width="366" height="133">
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_position.ipynb).
 
-      See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/annotations_for_pie.ipynb).
 
-    - #### `geomImshow()`
+- ### Showing Quantiles on Density Plots
+  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/density_quantiles.png" alt="f-23a/images/density_quantiles.png" width="400" height="150">
 
-        See: [image_101](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_101.ipynb),
-  [image_fisher_boat](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_fisher_boat.ipynb),
-  [image_grayscale](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_grayscale.ipynb),
-  [image_extent](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_extent.ipynb)
-                                  
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/quantile_parameters.ipynb).
+
+
+- ### Additional "color" aesthetics: `paint_a, paint_b, paint_c`.
+  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/additional_color_aes.png" alt="f-23a/images/additional_color_aes.png" width="400" height="300">
+
+  See [Multiple Color Scales](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/multiple_color_scales.ipynb) demo.
+
+  Also added a set of related "color scale" functions with the "aesthetic" parameter for configuring of additional color scales.
+
+  See [New "Scale" Functions](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/scale_functions.ipynb) demo.
+
+
+- ### Rotation of Axis Tick Labels
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_text_angle.ipynb).
+
 
 - ### Other improvements and fixes
-  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#410---2022-09-30)
+  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#430---2023-03-09)
   for details.
 
 
