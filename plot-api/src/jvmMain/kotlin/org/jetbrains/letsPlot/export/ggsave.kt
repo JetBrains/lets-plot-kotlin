@@ -11,9 +11,10 @@ import jetbrains.datalore.plot.PlotImageExport
 import jetbrains.datalore.plot.PlotSvgExport
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.intern.toSpec
-import java.io.File
 import java.lang.Double.NaN
+import java.nio.file.Path
 import java.util.*
+import kotlin.io.path.*
 
 private const val DEF_EXPORT_DIR = "lets-plot-images"
 
@@ -60,16 +61,16 @@ fun ggsave(
     val ext = filename.substringAfterLast('.', "").lowercase(Locale.getDefault())
     require(ext.isNotEmpty()) { "Missing file extension: \"$filename\"." }
 
-    val dir = path?.let { File(path) } ?: File(System.getProperty("user.dir"), DEF_EXPORT_DIR)
-    dir.mkdir()
-    val file = File(dir.canonicalPath, filename)
+    val dir = path?.let { Path(path) } ?: Path(System.getProperty("user.dir"), DEF_EXPORT_DIR)
+    dir.createDirectories()
+    val file = dir.resolve(filename)
 
     val spec: MutableMap<String, Any> = plot.toSpec()
 
     when (ext) {
         "svg" -> {
             val svg = PlotSvgExport.buildSvgImageFromRawSpecs(spec)
-            file.createNewFile()
+            file.createFile()
             file.writeText(svg)
         }
 
@@ -79,7 +80,7 @@ fun ggsave(
                 iFrame = true,
                 scriptUrl = scriptUrl(VersionChecker.letsPlotJsVersion)
             )
-            file.createNewFile()
+            file.createFile()
             file.writeText(html)
         }
 
@@ -100,12 +101,12 @@ fun ggsave(
         )
     }
 
-    return file.canonicalPath
+    return file.toRealPath().toString()
 }
 
 private fun exportRasterImage(
     spec: MutableMap<String, Any>,
-    file: File,
+    file: Path,
     scalingFactor: Double,
     targetDPI: Double
 ) {
@@ -143,6 +144,8 @@ private fun exportRasterImage(
         }
     }
 
-    file.createNewFile()
+    if (file.notExists()) {
+        file.createFile()
+    }
     file.writeBytes(imageBytes)
 }
