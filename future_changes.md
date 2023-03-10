@@ -5,3 +5,5 @@
 ### Changed
 
 ### Fixed
+
+- Support multiple subdirectories in `ggsave` path [[contribution by David Phillips]](https://github.com/JetBrains/lets-plot-kotlin/pull/163).
