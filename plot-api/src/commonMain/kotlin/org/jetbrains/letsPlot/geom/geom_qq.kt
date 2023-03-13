@@ -44,7 +44,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param position
  *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
  * @param showLegend boolean, optional, default=true.
- *     False - do not show legend for this layer.
+ *     false - do not show legend for this layer.
  * @param tooltips result of the call to the layerTooltips() function.
  *     Specifies appearance, style and content.
  * @param distribution string, optional

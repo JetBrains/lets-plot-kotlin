@@ -28,7 +28,7 @@ class MappingMeta(
 /**
  * Marks a numeric variable as categorical.
  * The plot will use a discrete scale for the aesthetic mapping.
- * It is similar to the factor() function from R but works differently - there is no data transformation.
+ * It is similar to the `factor()` function from R but works differently - there is no data transformation.
  *
  * See also [as_discrete.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/as_discrete.md).
  *
@@ -38,10 +38,10 @@ class MappingMeta(
  *
  * - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
  *
- * @param variable name of the variable.
- * @param label name of the scale to be used as the axis label or the legend title (the default is the variable name).
- * @param orderBy the variable name by which the ordering will be performed.
- * @param order ordering direction: 1 for ascending direction and -1 for descending.
+ * @param variable Name of the variable.
+ * @param label Name of the scale to be used as the axis label or the legend title (the default is the variable name).
+ * @param orderBy The variable name by which the ordering will be performed.
+ * @param order Ordering direction: 1 for ascending direction and -1 for descending.
  */
 fun asDiscrete(
     variable: String,

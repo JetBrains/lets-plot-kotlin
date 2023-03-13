@@ -24,49 +24,43 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Divide the plane into a grid and color the bins by the count of cases in them.
+ * Divides the plane into a grid and color the bins by the count of cases in them.
  *
  * ## Examples
  *
  * - [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
  *
- * @param data
- *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat string, default: "bin".
- *     The statistical transformation to use on the data for this layer.
- * @param position
- *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
- *
- * @param tooltips result of the call to the layerTooltips() function.
- *     Specifies appearance, style and content.
- * @param bins pair of numbers, default: (30,30)
- *     Number of bins in both directions, vertical and horizontal.  Overridden by binwidth.
- * @param binWidth pair of numbers, optional
- *     The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
- *     The default is to use bin widths that cover the entire range of the data.
- * @param drop : bool, optional, default: True
- *     Specifies whether to remove all bins with 0 counts.
+ * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
+ *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param stat default = `Stat.bin2D()`. The statistical transformation to use on the data for this layer.
+ *  Supported transformations: `Stat.identity`, `Stat.density()`, `Stat.count()`,  etc. - see [letsPlot][org.jetbrains.letsPlot.Stat].
+ * @param position PosOptions, optional, default = `positionIdentity`.
+ *  Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
+ * @param tooltips Result of the call to the `layerTooltips()` function. Specifies appearance, style and content.
+ * @param bins Pair of Numbers, default = Pair(30, 30).
+ *  Number of bins in both directions, vertical and horizontal. Overridden by `binwidth`.
+ * @param binWidth Pair of Numbers, optional.
+ *  The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
+ *  The default is to use bin widths that cover the entire range of the data.
+ * @param drop Boolean, optional, default = true.
+ *  Specifies whether to remove all bins with 0 counts.
  * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
  *  Defines the color aesthetic for the geometry.
  * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
  *  Defines the fill aesthetic for the geometry.
- *
- * @param x x-axis value.
- * @param y y-axis value.
- * @param width width of a tile.
- * @param height height of a tile.
- * @param alpha number in `[0..1`]
- *     Transparency level of a layer.
- * @param color (colour) color of a geometry lines.
- * @param fill color of geometry filling.
- * @param linetype type of the line.
- *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *     5 = "longdash", 6 = "twodash".
- * @param size lines width.
- * @param mapping set of aesthetic mappings.
- *     Aesthetic mappings describe the way that variables in the data are
- *     mapped to plot "aesthetics".
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ * @param width Width of a tile.
+ * @param height Height of a tile.
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color (colour) Color of a geometry lines.
+ * @param fill Color of geometry filling.
+ * @param linetype Type of the line.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
+ * @param size Lines width.
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
  */
 class geomBin2D(
     data: Map<*, *>? = null,

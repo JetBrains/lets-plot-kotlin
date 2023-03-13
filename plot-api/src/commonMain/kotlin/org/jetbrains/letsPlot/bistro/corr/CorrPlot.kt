@@ -36,7 +36,7 @@ import kotlin.math.min
 /**
  * Correlation plot builder.
  *
- * The terminal 'build()' method will create a fully configured 'Plot' (i.e. Figure) object.
+ * The terminal `build()` method will create a fully configured 'Plot' (i.e. Figure) object.
  *
  * ## Examples
  *
@@ -44,9 +44,10 @@ import kotlin.math.min
  *
  * @param data Dataframe to compute correlations on.
  * @param title Plot title.
- * @param showLegend Whether to show a legend.
- * @param flip Whether to flip the y-axis.
- * @param threshold Minimal correlation abs value to be included in result. Must be in interval [0.0, 1.0]
+ * @param showLegend Boolean, default = true.
+ *  false - do not show legend for this layer.
+ * @param flip Boolean, default = true. Whether to flip the y-axis.
+ * @param threshold Minimal correlation abs value to be included in result. Must be in interval `[0.0, 1.0]`.
  * @param adjustSize A scaler to adjust the plot size which was computed by `CorrPlot` automatically.
  */
 class CorrPlot private constructor(
@@ -112,12 +113,12 @@ class CorrPlot private constructor(
     }
 
     /**
-     * Add tiles layer to corr plot.
+     * Adds tiles layer to corr plot.
      *
      * @param type Type of the matrix: "upper", "lower" or "full".
-     *             Default - contextual.
+     *  Default - contextual.
      * @param diag Whether to fill the main diagonal with values or not.
-     *             Default - contextual.
+     *  Default - contextual.
      */
     fun tiles(type: String? = null, diag: Boolean? = null): CorrPlot {
         checkTypeArg(type)
@@ -128,12 +129,12 @@ class CorrPlot private constructor(
     }
 
     /**
-     * Add points layer to corr plot.
+     * Adds points layer to corr plot.
      *
      * @param type Type of the matrix: "upper", "lower" or "full".
-     *             Default - contextual.
+     *  Default - contextual.
      * @param diag Whether to fill the main diagonal with values or not.
-     *             Default - contextual.
+     *  Default - contextual.
      */
     fun points(type: String? = null, diag: Boolean? = null): CorrPlot {
         checkTypeArg(type)
@@ -144,20 +145,20 @@ class CorrPlot private constructor(
     }
 
     /**
-     * Add labels layer to corr plot.
+     * Adds labels layer to corr plot.
      *
      * @param type Type of the matrix: "upper", "lower" or "full".
-     *             Default - contextual.
+     *  Default - contextual.
      * @param diag Whether to fill the main diagonal with values or not.
-     *             Default - contextual.
-     * @param mapSize If True, then absolute value of correlation is mapped to text size.
-     *                If False - the text size is constant.
-     *                Default - contextual.
-     * @param mapSize If True, then absolute value of correlation is mapped to text size.
-     *                If False - the text size is constant.
-     *                Default - contextual.
+     *  Default - contextual.
+     * @param mapSize If true, then absolute value of correlation is mapped to text size.
+     *  If false - the text size is constant.
+     *  Default - contextual.
+     * @param mapSize If true, then absolute value of correlation is mapped to text size.
+     *  If false - the text size is constant.
+     *  Default - contextual.
      * @param color Set text color.
-     *              Default - contextual.
+     *  Default - contextual.
      */
     fun labels(
         type: String? = null, diag: Boolean? = null,
@@ -173,7 +174,7 @@ class CorrPlot private constructor(
     }
 
     /**
-     * Use gradient colors
+     * Uses gradient colors.
      */
     fun paletteGradient(low: String, mid: String, high: String): CorrPlot {
         return this.copyUpdateColors(
@@ -183,47 +184,47 @@ class CorrPlot private constructor(
     }
 
     /**
-     * Use Brewer 'BrBG' colors
+     * Uses Brewer 'BrBG' colors.
      */
     fun paletteBrBG() = setBrewerPalette("BrBG")
 
     /**
-     * Use Brewer 'PiYG' colors
+     * Uses Brewer 'PiYG' colors.
      */
     fun palettePiYG() = setBrewerPalette("PiYG")
 
     /**
-     * Use Brewer 'PRGn' colors
+     * Uses Brewer 'PRGn' colors.
      */
     fun palettePRGn() = setBrewerPalette("PRGn")
 
     /**
-     * Use Brewer 'PuOr' colors
+     * Uses Brewer 'PuOr' colors.
      */
     fun palettePuOr() = setBrewerPalette("PuOr")
 
     /**
-     * Use Brewer 'RdBu' colors
+     * Uses Brewer 'RdBu' colors.
      */
     fun paletteRdBu() = setBrewerPalette("RdBu")
 
     /**
-     * Use Brewer 'RdGy' colors
+     * Uses Brewer 'RdGy' colors.
      */
     fun paletteRdGy() = setBrewerPalette("RdGy")
 
     /**
-     * Use Brewer 'RdYlBu' colors
+     * Uses Brewer 'RdYlBu' colors.
      */
     fun paletteRdYlBu() = setBrewerPalette("RdYlBu")
 
     /**
-     * Use Brewer 'RdYlGn' colors
+     * Uses Brewer 'RdYlGn' colors.
      */
     fun paletteRdYlGn() = setBrewerPalette("RdYlGn")
 
     /**
-     * Use Brewer 'Spectral' colors
+     * Uses Brewer 'Spectral' colors.
      */
     fun paletteSpectral() = setBrewerPalette("Spectral")
 

@@ -16,55 +16,49 @@ package org.jetbrains.letsPlot.bistro.qq
  *
  * - [qq_plots.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb)
  *
- * @param data
- *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param sample string
- *     Name of variable.
- *     Specifies a vector of observations used for computing of "sample quantiles".
- *     Use this parameter to produce a "sample vs. theoretical" Q-Q plot.
- * @param x string
- * @param y string
- *     Names of variables specifying two vectors of observations used for computing of x and y "sample quantiles".
- *     Use these two parameters to produce a "sample X vs. sample Y" Q-Q plot.
- * @param distribution string
- *     Distribution function to use: "norm" (default), "uniform", "t", "gamma", "exp", "chi2".
- *     Could be specified if `sample` is.
- * @param dParams list of numbers
- *     Additional parameters passed on to distribution function.
- *     Could be specified if `sample` is.
- *     If `distribution` is `"norm"` then `dParams` is a pair [mean, std] (=[0.0, 1.0] by default).
- *     If `distribution` is `"uniform"` then `dParams` is a pair [a, b] (=[0.0, 1.0] by default).
- *     If `distribution` is `"t"` then `dParams` is an integer number [d] (=[1] by default).
- *     If `distribution` is `"gamma"` then `dParams` is a pair [alpha, beta] (=[1.0, 1.0] by default).
- *     If `distribution` is `"exp"` then `dParams` is a float number [lambda] (=[1.0] by default).
- *     If `distribution` is `"chi2"` then `dParams` is an integer number [k] (=[1] by default).
- * @param quantiles pair of numbers, default=[0.25, 0.75]
- *     Pair of quantiles to use when fitting the Q-Q line.
- * @param group string
- *     Grouping parameter.
- *     If it is specified and color-parameters isn't then different groups will has different colors.
- * @param showLegend boolean, optional, default=true.
- *     False - do not show legend for this layer.
- * @param color string
- *     Color of a points.
- * @param fill string
- *     Color to paint shape's inner points.
- *     Is applied only to the points of shapes having inner points.
- * @param alpha number, default=0.5
- *     Transparency level of a points. Understands numbers between 0 and 1.
- * @param size number, default=3.0
- *     Size of the points.
- * @param shape int
- *     Shape of the points.
- * @param lineColor string, default="#FF0000"
- *     Color of the fitting line.
- * @param lineSize number, default=0.75
- *     Width of the fitting line.
- * @param linetype int or string
- *     Type of the fitting line.
- *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *     5 = "longdash", 6 = "twodash"
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param sample String, name of variable.
+ *  Specifies a vector of observations used for computing of "sample quantiles".
+ *  Use this parameter to produce a "sample vs. theoretical" Q-Q plot.
+ * @param x String, name of variable specifying a vector of observations used for computing of x "sample quantiles".
+ *  Use `x` and `y` parameters to produce a "sample X vs. sample Y" Q-Q plot.
+ * @param y String, name of variable specifying a vector of observations used for computing of y "sample quantiles".
+ *  Use `x` and `y` patameters to produce a "sample X vs. sample Y" Q-Q plot.
+ * @param distribution String, default = "norm".
+ *  Distribution function to use: "norm", "uniform", "t", "gamma", "exp", "chi2".
+ *  Could be specified if `sample` is.
+ * @param dParams List of Numbers.
+ *  Additional parameters passed on to distribution function.
+ *  Could be specified if `sample` is.
+ *  - If `distribution` is "norm" then `dParams` is a pair (mean, std) (default = listOf(0.0, 1.0)).
+ *  - If `distribution` is "uniform" then `dParams` is a pair (a, b) (default = listOf(0.0, 1.0)).
+ *  - If `distribution` is "t" then `dParams` is an integer number (d) (default = listOf(1)).
+ *  - If `distribution` is "gamma" then `dParams` is a pair (alpha, beta) (default = listOf(1.0, 1.0)).
+ *  - If `distribution` is "exp" then `dParams` is a float number (lambda) (default = listOf(1.0)).
+ *  - If `distribution` is "chi2" then `dParams` is an integer number (k) (default = listOf(1)).
+ * @param quantiles Pair of Numbers, default = Pair(0.25, 0.75).
+ *  Pair of quantiles to use when fitting the Q-Q line.
+ * @param group String, grouping parameter.
+ *  If it is specified and color-parameters isn't then different groups will have different colors.
+ * @param showLegend Boolean, optional, default = true.
+ *  false - do not show legend for this layer.
+ * @param color String, color of a points.
+ * @param fill String, color to paint shape's inner points.
+ *  Is applied only to the points of shapes having inner points.
+ * @param alpha Number, default = 0.5.
+ *  Transparency level of a points. Understands numbers between 0 and 1.
+ * @param size Number, default = 3.0.
+ *  Size of the points.
+ * @param shape Int, shape of the points.
+ * @param lineColor String, default = "#FF0000".
+ *  Color of the fitting line.
+ * @param lineSize Number, default = 0.75.
+ *  Width of the fitting line.
+ * @param linetype Int or String.
+ *  Type of the fitting line.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash"
  */
 fun qqPlot(
     data: Map<*, *>,
