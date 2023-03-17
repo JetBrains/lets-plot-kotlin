@@ -14,21 +14,21 @@ package org.jetbrains.letsPlot.bistro.residual
  * - [residual_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/residual_plot.ipynb)
  *
  * @param data The data to be displayed.
- * @param x String, name of independent variable.
- * @param y String, name of dependent variable that will be fitted.
- * @param method String, {"lm", "loess", "lowess", "none"}, default = "lm".
+ * @param x Name of independent variable.
+ * @param y Name of dependent variable that will be fitted.
+ * @param method {"lm", "loess", "lowess", "none"}, default = "lm".
  *  Fitting method: "lm" (Linear Model) or "loess"/"lowess" (Locally Estimated Scatterplot Smoothing).
  *  If value of `deg` parameter is greater than 1 then linear model becomes polynomial of the given degree.
  *  If method is "none" then data lives as is.
- * @param deg Int, default = 1.
+ * @param deg default = 1.
  *  Degree of polynomial for linear regression model.
- * @param span Double, default = 0.5.
+ * @param span default = 0.5.
  *  Only for "loess" method. The fraction of source points closest to the current point is taken into account
  *  for computing a least-squares regression. A sensible value is usually 0.25 to 0.5.
- * @param seed Number, random seed for "loess" sampling.
- * @param maxN Int, maximum number of data-points for "loess" method. 
+ * @param seed Random seed for "loess" sampling.
+ * @param maxN Maximum number of data-points for "loess" method. 
  *  If this quantity exceeded random sampling is applied to data.
- * @param geom String, {"point", "tile", "density2d", "density2df", "none"}, default = "point".
+ * @param geom {"point", "tile", "none"}, default = "point".
  *  The geometric object to use to display the data. No object will be used if `geom="none"`.
  * @param bins Number or a Pair of Numbers.
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
@@ -39,16 +39,16 @@ package org.jetbrains.letsPlot.bistro.residual
  *  Overrides `bins`. The default is to use bin widths that cover the entire range of the data.
  *  If only one value given - interpret it as list of two equal values.
  *  Applicable simultaneously for "tile" geom and "histogram" marginal.
- * @param color String, color of a geometry.
- * @param size Number, size of a geometry.
+ * @param color Color of a geometry.
+ * @param size Size of a geometry.
  * @param alpha Transparency level of a geometry. 
  *  Understands numbers between 0 and 1.
- * @param colorBy String, name of grouping variable.
- * @param showLegend Boolean, optional, default = true.
+ * @param colorBy Name of grouping variable.
+ * @param showLegend default = true.
  *  false - do not show legend the main layer.
- * @param hline Boolean, default = true.
+ * @param hline default = true.
  *  false - do not show horizontal line passing through 0.
- * @param marginal String, default = "dens:r".
+ * @param marginal default = "dens:r".
  *  Description of marginal layers packed to string value.
  *  Different marginals are separated by the ',' char.
  *  Parameters of a marginal are separated by the ':' char.

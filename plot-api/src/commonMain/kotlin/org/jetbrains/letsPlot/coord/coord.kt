@@ -15,14 +15,13 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
 /**
  * A fixed scale coordinate system forces a specified ratio between the physical representation of data units on the axes.
  *
- * @param ratio
- *      The ratio represents the number of units on the y-axis equivalent to one unit on the x-axis.
- *      ratio = 1, ensures that one unit on the x-axis is the same length as one unit on the y-axis.
- *      Ratios higher than one make units on the y axis longer than units on the x-axis, and vice versa.
+ * @param ratio The ratio represents the number of units on the y-axis equivalent to one unit on the x-axis.
+ *  ratio = 1, ensures that one unit on the x-axis is the same length as one unit on the y-axis.
+ *  Ratios higher than one make units on the y-axis longer than units on the x-axis, and vice versa.
  * @param xlim Limits for x-axes.
  * @param ylim Limits for y-axes.
  * @param flip Flips the coordinate system axis
- *             so that horizontal axis becomes vertical and vice versa.
+ *  so that horizontal axis becomes vertical and vice versa.
  */
 fun coordFixed(
     ratio: Number? = null,
@@ -43,14 +42,14 @@ fun coordFixed(
 }
 
 /**
- * The Cartesian coordinate system is the most familiar, and common, type of coordinate system.
+ * The Cartesian coordinate system is the most familiar and common type of coordinate system.
  * Setting limits on the coordinate system will zoom the plot (like you're looking at it with a magnifying glass),
  * and will not change the underlying data like setting limits on a scale will.
  *
  * @param xlim Limits for x-axes.
  * @param ylim Limits for y-axes.
  * @param flip Flips the coordinate system axis
- *             so that horizontal axis becomes vertical and vice versa.
+ *  so that horizontal axis becomes vertical and vice versa.
  */
 fun coordCartesian(
     xlim: Pair<Number?, Number?>? = null,
@@ -76,7 +75,7 @@ fun coordCartesian(
  * @param xlim Limits for x-axes.
  * @param ylim Limits for y-axes.
  * @param flip Flips the coordinate system axis
- *             so that horizontal axis becomes vertical and vice versa.
+ *  so that horizontal axis becomes vertical and vice versa.
  */
 fun coordMap(
     xlim: Pair<Number?, Number?>? = null,
@@ -96,7 +95,7 @@ fun coordMap(
 
 /**
  *
- * Flip axis of default coordinate system so that horizontal axis becomes vertical and vice versa.
+ * Flips axis of default coordinate system so that horizontal axis becomes vertical and vice versa.
  *
  * ## Examples
  *

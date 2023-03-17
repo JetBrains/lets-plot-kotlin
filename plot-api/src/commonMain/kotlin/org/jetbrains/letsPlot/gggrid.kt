@@ -17,21 +17,20 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [plot_grid.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/plot_grid.ipynb)
  *
- *
  *  @param plots Collection of plots.
- *          Use Null-value to fill-in empty cells in grid.
+ *   Use Null-value to fill-in empty cells in grid.
  *  @param ncol Number of columns in grid.
- *          If not specified, shows plots horizontally, in one row.
+ *   If not specified, shows plots horizontally, in one row.
  *  @param widths Relative width of each column of grid, left to right.
  *  @param heights Relative height of each row of grid, top-down.
- *  @param hspace Cell horizontal spacing in px. Default: 4px.
- *  @param vspace Cell vertical spacing in px. Default: 4px.
- *  @param fit Default: true.
- *          Whether to stretch each plot to match the aspect ratio of its cell (`fit=true`),
- *          or to preserve the original aspect ratio of plots (`fit=false`).
- *  @param align Default: false.
- *          If `true`, align inner areas (i.e. "geom" bounds) of plots.
- *          However, cells containing other (sub)grids are not participating in the plot "inner areas" layouting.
+ *  @param hspace default = 4. Cell horizontal spacing in px.
+ *  @param vspace default = 4. Cell vertical spacing in px.
+ *  @param fit default = true.
+ *   Whether to stretch each plot to match the aspect ratio of its cell (`fit = true`),
+ *   or to preserve the original aspect ratio of plots (`fit = false`).
+ *  @param align default = false.
+ *   If `true`, align inner areas (i.e. "geom" bounds) of plots.
+ *   However, cells containing other (sub)grids are not participating in the plot "inner areas" layouting.
  *
  *  @return SubPlotsFigure object.
  */

@@ -29,11 +29,17 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.densityRidges()`. The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity`, `Stat.density()`, `Stat.count()`,  etc. - see [letsPlot][org.jetbrains.letsPlot.Stat].
- * @param position PosOptions, optional, default = `positionIdentity`.
+ *  Supported transformations: `Stat.identity` (leaves the data unchanged), 
+ *  `Stat.bin()`(counts number of points with x-axis coordinate in the same bin), 
+ *  `Stat.count()`(counts number of points with same x-axis coordinate), 
+ *  `Stat.smooth()`(performs smoothing - linear default) etc. - see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position PosOptions, default = `positionIdentity`.
  *  Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
- * @param showLegend Boolean, default = true.
+ * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
  * @param x X-axis coordinates.
@@ -41,7 +47,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param height Height of the ridge. Assumed to be between 0 and 1, though this is not required.
  * @param quantile Quantile values to draw quantile lines and fill quantiles of the geometry by color.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color (colour) Color of a geometry lines.
+ * @param color Color of a geometry lines.
  *  Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
  * @param fill Color of geometry filling.
  * @param linetype Type of the line of tile's border.
@@ -49,26 +55,25 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  5 = "longdash", 6 = "twodash".
  * @param size Defines line width.
  * @param weight Used by `Stat.densityRidges()` stat to compute weighted density.
- * @param scale Number, default = 1.0
+ * @param scale default = 1.0
  *  A multiplicative factor applied to height aesthetic.
  *  If `scale = 1.0`, the heights of a ridges are automatically scaled
  *  such that the ridge with `height = 1.0` just touches the one above.
- * @param minHeight Number, default = 0.0.
+ * @param minHeight default = 0.0.
  *  A height cutoff on the drawn ridges.
  *  All values that fall below this cutoff will be removed.
- * @param quantileLines Boolean, default = false.
+ * @param quantileLines default = false.
  *  Shows the quantile lines.
- * @param tailsCutoff Number
- *  Extends domain of each ridge on `tailsCutoff * bw` if `trim = false`.
+ * @param tailsCutoff Extends domain of each ridge on `tailsCutoff * bw` if `trim = false`.
  *  `tailsCutoff = null` (default) extends domain to maximum (domain overall ridges).
- * @param quantiles List of Numbers, default = listOf(0.25, 0.5, 0.75).
+ * @param quantiles default = listOf(0.25, 0.5, 0.75).
  *  Draws horizontal lines at the given quantiles of the density estimate.
  * @param bw String or Double.
  *  The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
  * @param kernel The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
  *  "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic").
  * @param n The number of sampled points for plotting the function.
- * @param trim Boolean, default = false.
+ * @param trim default = false.
  *  Trims the tails of the ridges to the range of the data.
  * @param adjust Adjusts the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
  * @param fullScanMax Maximum size of data to use density computation with "full scan".

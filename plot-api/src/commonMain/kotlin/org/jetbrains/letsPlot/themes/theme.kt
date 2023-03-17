@@ -13,10 +13,10 @@ import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
- * Use theme() to modify individual components of a theme,
+ * Use `theme()` to modify individual components of a theme,
  * allowing you to control the appearance of all non-data components of the plot.
  *
- * All parameters responsible for styling of lines, rectangles (often called 'background') and texts accept:
+ * All parameters responsible for styling of lines, rectangles (often called "background") and texts accept:
  * - string "blank" or the result of the `elementBlank()` function.
  * - the result of `elementLine()`, `elementRect()` or `elementText()` respectively.
  *
@@ -369,18 +369,18 @@ fun elementLine(
  * @param face Font face ("plain", "italic", "bold", "bold_italic").
  * @param size Text size in pt.
  * @param angle Angle to rotate the text (in degrees).
- * @param hjust Horizontal justification (in [0, 1]).
- *     0 - left-justified
- *     1 - right-justified
- *     0.5 - center-justified
- *     Can be used with values out of range, but behaviour is not specified.
- * @param vjust Vertical justification (in [0, 1]).
- *     0 - bottom-justified
- *     1 - top-justified
- *     0.5 - middle-justified
- *     Can be used with values out of range, but behaviour is not specified.
+ * @param hjust Horizontal justification (in `[0, 1]`).
+ *  - 0 - left-justified
+ *  - 1 - right-justified
+ *  - 0.5 - center-justified
+ *  Can be used with values out of range, but behaviour is not specified.
+ * @param vjust Vertical justification (in `[0, 1]`).
+ *  - 0 - bottom-justified
+ *  - 1 - top-justified
+ *  - 0.5 - middle-justified
+ *  Can be used with values out of range, but behaviour is not specified.
  * @param margin Margins around the text.
- *     See `margin()` for more details.
+ *  See `margin()` for more details.
  * @param blank Mark as a 'blank' element.
  */
 fun elementText(

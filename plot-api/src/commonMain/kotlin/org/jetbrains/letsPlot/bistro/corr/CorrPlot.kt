@@ -44,9 +44,9 @@ import kotlin.math.min
  *
  * @param data Dataframe to compute correlations on.
  * @param title Plot title.
- * @param showLegend Boolean, default = true.
+ * @param showLegend default = true.
  *  false - do not show legend for this layer.
- * @param flip Boolean, default = true. Whether to flip the y-axis.
+ * @param flip default = true. Whether to flip the y-axis.
  * @param threshold Minimal correlation abs value to be included in result. Must be in interval `[0.0, 1.0]`.
  * @param adjustSize A scaler to adjust the plot size which was computed by `CorrPlot` automatically.
  */
@@ -150,9 +150,6 @@ class CorrPlot private constructor(
      * @param type Type of the matrix: "upper", "lower" or "full".
      *  Default - contextual.
      * @param diag Whether to fill the main diagonal with values or not.
-     *  Default - contextual.
-     * @param mapSize If true, then absolute value of correlation is mapped to text size.
-     *  If false - the text size is constant.
      *  Default - contextual.
      * @param mapSize If true, then absolute value of correlation is mapped to text size.
      *  If false - the text size is constant.

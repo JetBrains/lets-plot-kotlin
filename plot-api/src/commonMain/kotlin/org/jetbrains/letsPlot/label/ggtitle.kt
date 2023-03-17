@@ -10,16 +10,14 @@ import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
- * Add title to the plot.
+ * Adds title to the plot.
  *
  * ## Examples
  *
  * - [title_subtitle_caption.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb)
  *
- * @param title string.
- *     The text for the plot title.
- * @param subtitle string.
- *     The text for the plot subtitle.
+ * @param title The text for the plot title.
+ * @param subtitle The text for the plot subtitle.
  */
 @Suppress("SpellCheckingInspection")
 fun ggtitle(title: String, subtitle: String? = null): OptionsMap {
