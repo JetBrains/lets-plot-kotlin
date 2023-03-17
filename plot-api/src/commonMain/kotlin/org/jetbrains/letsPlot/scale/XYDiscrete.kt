@@ -70,6 +70,7 @@ fun scaleXDiscrete(
         position = position,
         otherOptions = Options(
             mapOf(
+                Option.Scale.DISCRETE_DOMAIN to true,
                 Option.Guide.REVERSE to reverse
             )
         )
@@ -136,6 +137,7 @@ fun scaleYDiscrete(
         position = position,
         otherOptions = Options(
             mapOf(
+                Option.Scale.DISCRETE_DOMAIN to true,
                 Option.Guide.REVERSE to reverse
             )
         )
