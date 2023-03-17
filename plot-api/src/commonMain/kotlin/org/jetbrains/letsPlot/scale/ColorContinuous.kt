@@ -16,6 +16,11 @@ import jetbrains.datalore.plot.config.Option.Scale.LOW
 import jetbrains.datalore.plot.config.Option.Scale.LUMINANCE
 import jetbrains.datalore.plot.config.Option.Scale.MID
 import jetbrains.datalore.plot.config.Option.Scale.MIDPOINT
+import jetbrains.datalore.plot.config.Option.Scale.MapperKind.COLOR_GRADIENT
+import jetbrains.datalore.plot.config.Option.Scale.MapperKind.COLOR_GRADIENT2
+import jetbrains.datalore.plot.config.Option.Scale.MapperKind.COLOR_GRADIENTN
+import jetbrains.datalore.plot.config.Option.Scale.MapperKind.COLOR_GREY
+import jetbrains.datalore.plot.config.Option.Scale.MapperKind.COLOR_HUE
 import jetbrains.datalore.plot.config.Option.Scale.SCALE_MAPPER_KIND
 import jetbrains.datalore.plot.config.Option.Scale.START
 import jetbrains.datalore.plot.config.Option.Scale.START_HUE
@@ -205,7 +210,7 @@ fun scaleGradient(
         mapOf(
             LOW to low,
             HIGH to high,
-            SCALE_MAPPER_KIND to "color_gradient"
+            SCALE_MAPPER_KIND to COLOR_GRADIENT
         )
     )
 )
@@ -408,7 +413,7 @@ fun scaleGradient2(
             HIGH to high,
             MID to mid,
             MIDPOINT to midpoint,
-            SCALE_MAPPER_KIND to "color_gradient2"
+            SCALE_MAPPER_KIND to COLOR_GRADIENT2
         )
     )
 )
@@ -537,7 +542,7 @@ fun scaleGradientN(
     otherOptions = Options(
         mapOf(
             COLORS to colors,
-            SCALE_MAPPER_KIND to "color_gradientn"
+            SCALE_MAPPER_KIND to COLOR_GRADIENTN
         )
     )
 )
@@ -793,7 +798,7 @@ fun scaleGrey(
             mapOf(
                 START to start,
                 END to end,
-                SCALE_MAPPER_KIND to "color_grey"
+                SCALE_MAPPER_KIND to COLOR_GREY
             )
         )
     )
@@ -1008,7 +1013,7 @@ fun scaleHue(
             LUMINANCE to l,
             START_HUE to hstart,
             DIRECTION to direction,
-            SCALE_MAPPER_KIND to "color_hue"
+            SCALE_MAPPER_KIND to COLOR_HUE
         )
     )
 )
