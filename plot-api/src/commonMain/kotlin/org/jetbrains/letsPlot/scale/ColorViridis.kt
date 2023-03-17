@@ -102,7 +102,7 @@ fun scaleViridis(
             Option.Scale.Viridis.BEGIN to begin,
             Option.Scale.Viridis.END to end,
             Option.Scale.Viridis.DIRECTION to direction,
-            Option.Scale.SCALE_MAPPER_KIND to "color_cmap"  // ToDo: use Options constant (when available).
+            Option.Scale.SCALE_MAPPER_KIND to Option.Scale.MapperKind.COLOR_CMAP
         )
     )
 )
