@@ -91,7 +91,7 @@ fun scaleBrewer(
             Option.Scale.PALETTE_TYPE to type,
             Option.Scale.PALETTE to palette,
             Option.Scale.DIRECTION to direction,
-            Option.Scale.SCALE_MAPPER_KIND to "color_brewer"
+            Option.Scale.SCALE_MAPPER_KIND to Option.Scale.MapperKind.COLOR_BREWER
         )
     )
 )
