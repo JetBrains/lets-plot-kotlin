@@ -9,6 +9,7 @@ import org.jetbrains.letsPlot.intern.Scale
 
 /**
  * General purpose scale for continuous data.
+ * Use it to adjust most common properties of a default scale for given aesthetic.
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
  * @param name
