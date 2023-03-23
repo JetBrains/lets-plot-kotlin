@@ -47,6 +47,7 @@
 - [Migrating from v3 to v4](#migrating4)
 
 - [Change log](#change_log)
+- [Code of Conduct](#CoC)
 - [License](#license)
                       
 
@@ -328,6 +329,13 @@ For migration instructions see [Migrating to 4.0.0](https://github.com/JetBrains
 
 See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md).
 
+
+<a id="CoC"></a>
+## Code of Conduct
+
+This project and the corresponding community are governed by the 
+[JetBrains Open Source and Community Code of Conduct](https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct). 
+Please make sure you read it.
 
 <a id="license"></a>
 ## License
