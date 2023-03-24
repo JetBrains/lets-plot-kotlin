@@ -33,33 +33,37 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
  *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.bin2D()`. The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity`, `Stat.density()`, `Stat.count()`,  etc. - see [letsPlot][org.jetbrains.letsPlot.Stat].
- * @param position PosOptions, optional, default = `positionIdentity`.
+ *  Supported transformations: `Stat.identity` (leaves the data unchanged), 
+ *  `Stat.bin()`(counts number of points with x-axis coordinate in the same bin), 
+ *  `Stat.count()`(counts number of points with same x-axis coordinate), 
+ *  `Stat.smooth()`(performs smoothing - linear default) etc. - see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position PosOptions, default = `positionIdentity`.
  *  Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function. Specifies appearance, style and content.
- * @param bins Pair of Numbers, default = Pair(30, 30).
+ * @param bins default = Pair(30, 30).
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binwidth`.
- * @param binWidth Pair of Numbers, optional.
- *  The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
+ * @param binWidth The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
  *  The default is to use bin widths that cover the entire range of the data.
- * @param drop Boolean, optional, default = true.
+ * @param drop default = true. 
  *  Specifies whether to remove all bins with 0 counts.
- * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
- *  Defines the color aesthetic for the geometry.
- * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
- *  Defines the fill aesthetic for the geometry.
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param width Width of a tile.
  * @param height Height of a tile.
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
- * @param color (colour) Color of a geometry lines.
+ * @param color Color of a geometry lines.
  * @param fill Color of geometry filling.
- * @param linetype Type of the line.
+ * @param linetype Type of the line. 
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
  * @param size Lines width.
- * @param mapping Set of aesthetic mappings.
+ * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
+ * @param mapping Set of aesthetic mappings. 
  *  Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
  */
 class geomBin2D(

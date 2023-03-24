@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
- * Adjust estimated width of text labels on plot.
+ * Adjusts estimated width of text labels on plot.
  *
  * Allows for manual correction in a rare cases when plot layout looks broken
  * due to either overestimation or underestimation of size of text labels on plot.
@@ -34,7 +34,7 @@ fun fontMetricsAdjustment(widthCorrection: Number?) = OptionsMap(
 )
 
 /**
- * Specify properies of a particular font-family to adjust estimated width of text labels on plot.
+ * Specifies properties of a particular font-family to adjust estimated width of text labels on plot.
  *
  * Might be useful when some exotic font-family is used that causes issues with the plot layout.
  *
@@ -48,7 +48,7 @@ fun fontMetricsAdjustment(widthCorrection: Number?) = OptionsMap(
  *
  * @param family Font family.
  * @param widthCorrection Correcting coefficient applied to default width estimate of a text label.
- * @param mono When True - the font is marked as `monospaced`.
+ * @param mono When true - the font is marked as `monospaced`.
  *
  */
 fun fontFamilyInfo(

@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 val samplingNone = SamplingOptions(SamplingKind.NONE, emptyMap())
 
 /**
- * Return a subset of randomly selected items.
+ * Returns a subset of randomly selected items.
  *
  * ## Examples
  *

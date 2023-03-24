@@ -20,28 +20,28 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [facets_free_scales.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb)
  *
- * @param facets [string | list], one or more faceting variable names.
+ * @param facets One or more faceting variable names.
  * @param ncol Number of columns.
  * @param nrow Number of rows.
  * @param scales Specifies whether scales are shared across all facets.
- *      "fixed" - shared (the default), "free" - vary across both rows and columns,
- *      "free_x" or "free_y" - vary across rows or columns respectively.
- * @param order [int | list], specifies ordering direction panels.
- *              1 - ascending, -1 - descending, None - default (ascending).
- *              The `order` values are positionally matched to variables in `facets`.
- * @param format [string | list], specifies the format pattern for displaying faceting values.
- *              The `format` values are positionally matched to variables in `facets`.
+ *  default = "fixed" (shared) , "free" - vary across both rows and columns,
+ *  "free_x" or "free_y" - vary across rows or columns respectively.
+ * @param order Specifies ordering direction panels.
+ *  1 - ascending, -1 - descending, null - ascending.
+ *  The `order` values are positionally matched to variables in `facets`.
+ * @param format Specifies the format pattern for displaying faceting values.
+ *  The `format` values are positionally matched to variables in `facets`.
  * @param dir Direction: either "h" for horizontal, the default, or "v", for vertical.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45";
+ * - "Score: {.2f}" -> "Score: 12.45";
+ * - "Score: {}" -> "Score: 12.454789".
  *
  */
 fun facetWrap(

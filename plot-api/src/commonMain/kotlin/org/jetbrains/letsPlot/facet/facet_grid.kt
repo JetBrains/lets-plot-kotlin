@@ -24,22 +24,22 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param x Variable name which defines columns of the facet grid.
  * @param y Variable name which defines rows of the facet grid.
  * @param scales Specifies whether scales are shared across all facets.
- *      "fixed" - shared (the default), "free" - vary across both rows and columns,
- *      "free_x" or "free_y" - vary across rows or columns respectively.
- * @param xOrder Specifies ordering direction of columns: 1 - ascending, -1 - descending
- * @param yOrder Specifies ordering direction of rows: 1 - ascending, -1 - descending
+ *  default = "fixed" (shared), "free" - vary across both rows and columns,
+ *  "free_x" or "free_y" - vary across rows or columns respectively.
+ * @param xOrder default = 1. Specifies ordering direction of columns: 1 - ascending, -1 - descending
+ * @param yOrder default = 1. Specifies ordering direction of rows: 1 - ascending, -1 - descending
  * @param xFormat Specifies the format pattern for displaying faceting values in columns.
  * @param yFormat Specifies the format pattern for displaying faceting values in rows.
  *
- * Format pattern in the xFormat/yFormat parameters can be just a number format (like "d") or
+ * Format pattern in the `xFormat`/`yFormat` parameters can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "'Score: {}' "-> "Score: 12.454789"
+ * - ".2f" -> "12.45";
+ * - "Score: {.2f}" -> "Score: 12.45";
+ * - "'Score: {}' "-> "Score: 12.454789".
  **
  */
 fun facetGrid(

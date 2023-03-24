@@ -13,10 +13,9 @@ import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.Scale
 
 /**
- * Add label to the x axis
+ * Adds label to the x-axis.
  *
- * @param label string
- *      The text for the x axis label
+ * @param label The text for the x-axis label.
  */
 @Suppress("SpellCheckingInspection")
 fun xlab(label: String): Feature {
@@ -24,10 +23,9 @@ fun xlab(label: String): Feature {
 }
 
 /**
- * Add label to the y axis
+ * Adds label to the y-axis.
  *
- * @param label string
- *      The text for the y axis label
+ * @param label The text for the y-axis label.
  */
 @Suppress("SpellCheckingInspection")
 fun ylab(label: String): Feature {
@@ -35,38 +33,25 @@ fun ylab(label: String): Feature {
 }
 
 /**
- * Change plot title, axis labels and legend titles.
+ * Changes plot title, axis labels and legend titles.
  *
  * ## Examples
  *
  * - [title_subtitle_caption.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb)
 
- * @param title string.
- *     The plot title text.
- * @param subtitle string.
- *     The plot subtitle text.
- * @param caption string.
- *     The plot caption text.
- * @param x string.
- *     The x-axis text.
- * @param y string.
- *     The y-axis text.
- * @param alpha string.
- *     The legend title text.
- * @param color string.
- *     The legend title text.
- * @param fill string.
- *     The legend title text.
- * @param shape string.
- *     The legend title text.
- * @param size string.
- *     The legend title text.
- * @param width string.
- *     The legend title text.
- * @param height string.
- *     The legend title text.
- * @param linetype string.
- *     The legend title text.
+ * @param title The plot title text.
+ * @param subtitle The plot subtitle text.
+ * @param caption The plot caption text.
+ * @param x The x-axis text.
+ * @param y The y-axis text.
+ * @param alpha The legend title text.
+ * @param color The legend title text.
+ * @param fill The legend title text.
+ * @param shape The legend title text.
+ * @param size The legend title text.
+ * @param width The legend title text.
+ * @param height The legend title text.
+ * @param linetype The legend title text.
  */
 fun labs(
     title: String? = null,

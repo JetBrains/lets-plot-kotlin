@@ -30,14 +30,14 @@ val positionFill = positionFill()
 
 
 /**
- * Adjust position by dodging overlaps to the side.
+ * Adjusts position by dodging overlaps to the side.
  *
  * ## Examples
  *
  * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
  *
  * @param width Dodging width, when different to the width of the individual elements. This is useful when you want to align narrow geoms with wider geoms.
- * The value of width is relative and typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the objects.
+ *  The value of width is relative and typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the objects.
  */
 fun positionDodge(width: Number? = null) =
     PosOptions(
@@ -46,16 +46,16 @@ fun positionDodge(width: Number? = null) =
     )
 
 /**
- * Adjust position by assigning random noise to points. Better for discrete values.
+ * Adjusts position by assigning random noise to points. Better for discrete values.
  *
  * ## Examples
  *
  * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
  *
  * @param width Jittering width. The value of width is relative and typically ranges between 0 and 0.5.
- * Values that are greater than 0.5 lead to overlapping of the points.
+ *  Values that are greater than 0.5 lead to overlapping of the points.
  * @param height Jittering height. The value of height is relative and typically ranges between 0 and 0.5.
- * Values that are greater than 0.5 lead to overlapping of the points.
+ *  Values that are greater than 0.5 lead to overlapping of the points.
  */
 fun positionJitter(width: Number? = null, height: Number? = null) =
     PosOptions(
@@ -90,7 +90,7 @@ fun positionJitterDodge(
     )
 
 /**
- * Adjust position by stacking overlapping objects on top of each other.
+ * Adjusts position by stacking overlapping objects on top of each other.
  *
  * ## Examples
  *
@@ -99,7 +99,7 @@ fun positionJitterDodge(
  * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/position_stack.ipynb)
  *
  * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
- * Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
+ *  Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
  * @param mode String, {"groups", "all"}, default = "groups".
  *  If "groups", objects inside one group are positioned as in `position = positionIdentity`,
  *  but each group is shifted to sum of heights of previous groups
@@ -117,7 +117,7 @@ fun positionStack(vjust: Number? = null, mode: String? = null) =
     )
 
 /**
- * Adjust position by stacking overlapping objects on top of each other
+ * Adjusts position by stacking overlapping objects on top of each other
  * and standardise each stack to have constant height.
  *
  * ## Examples
@@ -127,12 +127,12 @@ fun positionStack(vjust: Number? = null, mode: String? = null) =
  * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/position_stack.ipynb)
  *
  * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
- * Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
- * @param mode String, {"groups", "all"}, default = "groups".
+ *  Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
  *  If "groups", objects inside one group are positioned as in `position = positionIdentity`,
  *  but each group is shifted to sum of heights of previous groups
  *  (where height of a group is a maximum of it's y values).
  *  If "all", each object will be shifted.
+ *
  */
 fun positionFill(vjust: Number? = null, mode: String? = null) =
     PosOptions(

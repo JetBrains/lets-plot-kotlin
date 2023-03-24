@@ -25,36 +25,31 @@ import org.jetbrains.letsPlot.intern.Scale
  * - [scale_functions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/scale_functions.ipynb)
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
- * @param type String,
- *  one of seq (sequential), div (diverging) or qual (qualitative) types of scales.
+ * @param type One of seq (sequential), div (diverging) or qual (qualitative) types of scales.
  * @param palette String or Number.
  *  If a string, will use that named palette. If a number, will index into the list of palettes of appropriate type.
- * @param direction Numeric, default = 1.
+ * @param direction default = 1.
  *  Sets the order of colors in the scale. If 1 colors are as output by brewer.pal.
  *  If -1, the order of colors is reversed.
- * @param name String,
- *  the name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks List of data values.
  *  A vector specifying values to display as ticks on axis.
- * @param labels List of Strings.
- *  A vector of labels (on ticks).
+ * @param labels A vector of labels (on ticks).
  * @param limits Data range for this scale.
- *  Continuous scale: a pair of numbers providing limits of the scale. Use null to refer to default min/max.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
  * @param naValue An aesthetic value which is used when data in not available.
- * @param format String,
- *  specifies the format pattern for labels on the scale.
+ * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans String,
- *  name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
+ * Note: the "$" must be escaped as "\$".
  * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
@@ -97,7 +92,7 @@ fun scaleBrewer(
 )
 
 /**
- * Sequential, diverging and qualitative color scales from colorbrewer.org for "fill" aesthetic.
+ * Sequential, diverging and qualitative color scales from colorbrewer.org for `fill` aesthetic.
  *
  * Palettes:
  *
@@ -105,44 +100,36 @@ fun scaleBrewer(
  * - Qualitative : Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3.
  * - Sequential : Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges, OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu, YlOrBr, YlOrRd.
  *
- *
- * @param type string
- *      One of seq (sequential), div (diverging) or qual (qualitative) types of scales.
- * @param palette string or number
- *      If a string, will use that named palette. If a number, will index into the list of palettes of appropriate type.
- * @param direction numeric
- *      Sets the order of colors in the scale. If 1, the default, colors are as output by brewer.pal.
- *      If -1, the order of colors is reversed.
- * @param name string
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of data values.
- *      A vector specifying values to display as ticks on axis.
- * @param labels list of strings
- *      A vector of labels (on ticks)
- * @param limits data range for this scale.
- *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
- *      Discrete scale: list of data values to display, and their order.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format string
- *      Specifies the format pattern for labels on the scale.
- * @param guide
- *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
- *      specifying additional arguments.
- *      "none" will hide the guide.
- * @param trans string
- *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param type One of seq (sequential), div (diverging) or qual (qualitative) types of scales.
+ * @param palette String or Number.
+ *  If a string, will use that named palette. If a number, will index into the list of palettes of appropriate type.
+ * @param direction Sets the order of colors in the scale. If 1, the default, colors are as output by brewer.pal.
+ *  If -1, the order of colors is reversed.
+ * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
+ * @param breaks List of data values.
+ *  A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Data range for this scale.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *  Discrete scale: list of data values to display, and their order.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
+ * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleFillBrewer(
@@ -173,7 +160,7 @@ fun scaleFillBrewer(
 )
 
 /**
- * Sequential, diverging and qualitative color scales from colorbrewer.org for "color" aesthetic.
+ * Sequential, diverging and qualitative color scales from colorbrewer.org for `color` aesthetic.
  *
  * Palettes:
  *
@@ -181,44 +168,36 @@ fun scaleFillBrewer(
  * - Qualitative : Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3.
  * - Sequential : Blues, BuGn, BuPu, GnBu, Greens, Greys, Oranges, OrRd, PuBu, PuBuGn, PuRd, Purples, RdPu, Reds, YlGn, YlGnBu, YlOrBr, YlOrRd.
  *
- *
- * @param type string
- *      One of seq (sequential), div (diverging) or qual (qualitative) types of scales.
- * @param palette string or number
- *      If a string, will use that named palette. If a number, will index into the list of palettes of appropriate type.
- * @param direction numeric
- *      Sets the order of colors in the scale. If 1, the default, colors are as output by brewer.pal.
- *      If -1, the order of colors is reversed.
- * @param name string
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks list of data values.
- *      A vector specifying values to display as ticks on axis.
- * @param labels list of strings
- *      A vector of labels (on ticks)
- * @param limits data range for this scale.
- *      Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
- *      Discrete scale: list of data values to display, and their order.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format string
- *      Specifies the format pattern for labels on the scale.
- * @param guide
- *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
- *      specifying additional arguments.
- *      "none" will hide the guide.
- * @param trans string
- *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
+ * @param type One of seq (sequential), div (diverging) or qual (qualitative) types of scales.
+ * @param palette String or Number.
+ *  If a string, will use that named palette. If a number, will index into the list of palettes of appropriate type.
+ * @param direction Sets the order of colors in the scale. If 1, the default, colors are as output by brewer.pal.
+ *  If -1, the order of colors is reversed.
+ * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
+ * @param breaks List of data values.
+ *  A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Data range for this scale.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *  Discrete scale: list of data values to display, and their order.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
+ * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleColorBrewer(

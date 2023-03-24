@@ -11,7 +11,7 @@ typealias AnnotationOptions = layerLabels
 
 
 /**
- *  Configure annotations (for pie chart).
+ *  Configures annotations (for pie chart).
  *  Defines the content and format for displaying the value.
  *
  * ## Examples
@@ -28,8 +28,8 @@ typealias AnnotationOptions = layerLabels
  * ```
  *
  * @param variables Variable names to place in the annotation with default formatting.
- *      Useful for specifying the annotation content quickly, instead of
- *      configuring it via the `line()` method.
+ *  Useful for specifying the annotation content quickly, instead of
+ *  configuring it via the `line()` method.
  *
  */
 @Suppress("ClassName")
@@ -69,13 +69,17 @@ class layerLabels(vararg variables: String) {
      * The format will be applied to the corresponding value specified in the line template.
      *
      * @param field Aesthetic or variable name to apply the format to.
-     *     The field name starts with a '^' prefix for aesthetics, variable names are specified without prefix or with a '@' prefix.
+     *  The field name starts with a '^' prefix for aesthetics, variable names are specified without prefix or with a '@' prefix.
      * @param format A number format ('1.f'), a string template ('{.1f}') or a date/time format ('%d.%m.%y').
-     *     The numeric format for non-numeric value will be ignored.
-     *     If you need to include a brace character in the literal text, it can be escaped by doubling: {{ and }}, e.g.,
-     *       .format('^color', '{{ {.1f} }}') -> "{ 17.0 }"
-     *       .format('model', '{} {{text}}') -> "mustang {text}"
-     *     Aes and var formats are not interchangeable, i.e. var format will not be applied to aes, mapped to this variable.
+     *  The numeric format for non-numeric value will be ignored.
+     *
+     *  If you need to include a brace character in the literal text, it can be escaped 
+     *  by doubling: {{ and }}, e.g.,
+     *  - .format('^color', '{{ {.1f} }}') -> "{ 17.0 }"
+     *  - .format('model', '{} {{text}}') -> "mustang {text}"
+     *
+     *  Aes and var formats are not interchangeable, i.e. var format will not be applied to 
+     *  aes, mapped to this variable.
      */
     fun format(field: String, format: String): layerLabels {
         return addListOption(
@@ -90,17 +94,19 @@ class layerLabels(vararg variables: String) {
      * Specifies the string template to use in the annotation.
      *
      * @param template A line template to show in the annotation.
-     *     Variables and aesthetics can be accessed via a special syntax:
-     *        - ^color for aes
-     *        - @year for variable
-     *        - @{number of cylinders} for variable with spaces in the name
-     *        - @{square m^2} for variable with spaces and '^' symbol in the name
-     *        - @nameWith^ for the variable with '^' symbol in its name
-     *     A '^' symbol can be escaped with a backslash, a brace character in the literal text - by doubling:
-     *        .line("text") -> "text"
-     *        .line("{{text}}") -> "{text}"
-     *        .line("@model") -> "mustang"
-     *        .line("{{@model}}") -> "{mustang}"
+     *  Variables and aesthetics can be accessed via a special syntax:
+     *  - ^color for aes
+     *  - @year for variable
+     *  - @{number of cylinders} for variable with spaces in the name
+     *  - @{square m^2} for variable with spaces and '^' symbol in the name
+     *  - @nameWith^ for the variable with '^' symbol in its name
+     *  
+     *  A '^' symbol can be escaped with a backslash, a brace character in the 
+     *  literal text - by doubling:
+     *  - .line("text") -> "text"
+     *  - .line("{{text}}") -> "{text}"
+     *  - .line("@model") -> "mustang"
+     *  - .line("{{@model}}") -> "{mustang}"
      */
     fun line(template: String): layerLabels {
         return addListOption(LINES, template)

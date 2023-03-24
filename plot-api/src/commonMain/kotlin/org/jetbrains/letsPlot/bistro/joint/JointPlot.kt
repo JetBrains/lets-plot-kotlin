@@ -13,10 +13,11 @@ package org.jetbrains.letsPlot.bistro.joint
  * - [joint_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/joint_plot.ipynb)
  *
  * @param data The data to be displayed.
- * @param x String, name of the variable.
- * @param y String, name of the variable.
- * @param geom String, {"point", "tile", "density2d", "density2df", "none"}, default = "point".
- *  The geometric object to use to display the data. No object will be used if `geom="none"`.
+ * @param x Name of the variable.
+ * @param y Name of the variable.
+ * @param geom The geometric object to use to display the data.
+ *  {"point", "tile", "density2d", "density2df", "none"}, default = "point".
+ *  No object will be used if `geom="none"`.
  * @param bins Number or a Pair of Numbers.
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
  *  If only one value given - interpret it as list of two equal values.
@@ -26,19 +27,17 @@ package org.jetbrains.letsPlot.bistro.joint
  *  Overrides `bins`. The default is to use bin widths that cover the entire range of the data.
  *  If only one value given - interpret it as list of two equal values.
  *  Applicable simultaneously for "tile" geom and "histogram" marginal.
- * @param color String, color of a geometry.
- * @param size Number, size of a geometry.
+ * @param color Color of a geometry.
+ * @param size Size of a geometry.
  * @param alpha Transparency level of a geometry.
  *  Understands numbers between 0 and 1.
- * @param colorBy String, name of grouping variable.
- * @param showLegend Boolean, optional, default = true.
+ * @param colorBy Name of grouping variable.
+ * @param showLegend default = true.
  *  false - do not show legend the main layer.
- * @param regLine Boolean.
- *  true - show the line of linear regression.
- * @param se Boolean, optional, default = true.
+ * @param regLine If true - show the line of linear regression.
+ * @param se default = true.
  *  Displays confidence interval around regression line.
- * @param marginal String.
- *  Description of marginal layers packed to string value.
+ * @param marginal Description of marginal layers packed to string value.
  *  Different marginals are separated by the ',' char.
  *  Parameters of a marginal are separated by the ':' char.
  *
