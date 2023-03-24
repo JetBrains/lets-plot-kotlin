@@ -11,34 +11,28 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
 /**
- * Scale for shapes
+ * Scale for shapes.
  *
- * @param solid
- *      Are the shapes solid (default) True, or hollow (False)?
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels : list of strings
- *      A vector of labels (on ticks)
- * @param limits list
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format string
- *      Specifies the format pattern for labels on the scale.
- * @param guide A result returned by guideLegend() function or "none" to hide the guide.
+ * @param solid Are the shapes solid (default) true, or hollow (false)?
+ * @param name The name of the scale - used as the axis label or the legend title. 
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
+ *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleShape(

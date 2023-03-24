@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.Scale
 import org.jetbrains.letsPlot.intern.checkScaleExpand
 
 /**
- * Continuous scale for x axis.
+ * Continuous scale for x-axis.
  *
  * ## Examples
  *
@@ -18,38 +18,34 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *
  * - [axis_position.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_position.ipynb)
  *
- * @param name  The name of the scale - used as the axis label or the legend title.
- *              If None, the default, the name of the scale
- *              is taken from the first mapping used for that aesthetic.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
  * @param limits A pair of numbers specifying the data range for the scale.
- *      Use null to refer to default min/max.
- *      Set limits if you want values to be consistent across multiple plots.
- *      Setting limits will remove data outside of the limits.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
+ *  Use `null` to refer to default min/max.
+ *  Set limits if you want values to be consistent across multiple plots.
+ *  Setting limits will remove data outside of the limits.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param trans
- *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleXContinuous(
@@ -79,7 +75,7 @@ fun scaleXContinuous(
 }
 
 /**
- * Continuous scale for y axis.
+ * Continuous scale for y-axis.
  *
  * ## Examples
  *
@@ -87,38 +83,33 @@ fun scaleXContinuous(
  *
  * - [axis_position.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_position.ipynb)
  *
- * @param name  The name of the scale - used as the axis label or the legend title.
- *              If None, the default, the name of the scale
- *              is taken from the first mapping used for that aesthetic.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
  * @param limits A pair of numbers specifying the data range for the scale.
- *      Use null to refer to default min/max.
- *      Set limits if you want values to be consistent across multiple plots.
- *      Setting limits will remove data outside of the limits.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
+ *  Use `null` to refer to default min/max.
+ *  Set limits if you want values to be consistent across multiple plots.
+ *  Setting limits will remove data outside of the limits.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param trans
- *      Name of built-in transformation ('identity', 'log10', 'reverse', 'sqrt').
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleYContinuous(
@@ -148,38 +139,34 @@ fun scaleYContinuous(
 }
 
 /**
- * Continuous position scale (x) where trans='log10'
+ * Continuous position scale (x) where trans="log10".
  *
- * @param name  The name of the scale - used as the axis label or the legend title.
- *              If None, the default, the name of the scale
- *              is taken from the first mapping used for that aesthetic.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
  * @param limits A pair of numbers specifying the data range for the scale.
- *      Use null to refer to default min/max.
- *      Set limits if you want values to be consistent across multiple plots.
- *      Setting limits will remove data outside of the limits.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
+ *  Use `null` to refer to default min/max.
+ *  Set limits if you want values to be consistent across multiple plots.
+ *  Setting limits will remove data outside of the limits.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleXLog10(
@@ -204,38 +191,34 @@ fun scaleXLog10(
 )
 
 /**
- * Continuous position scale (y) where trans='log10'
+ * Continuous position scale (y) where trans="log10".
  *
- * @param name  The name of the scale - used as the axis label or the legend title.
- *              If None, the default, the name of the scale
- *              is taken from the first mapping used for that aesthetic.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
  * @param limits A pair of numbers specifying the data range for the scale.
- *      Use null to refer to default min/max.
- *      Set limits if you want values to be consistent across multiple plots.
- *      Setting limits will remove data outside of the limits.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
+ *  Use `null` to refer to default min/max.
+ *  Set limits if you want values to be consistent across multiple plots.
+ *  Setting limits will remove data outside of the limits.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleYLog10(
@@ -260,38 +243,34 @@ fun scaleYLog10(
 )
 
 /**
- * Continuous position scales (x) where trans='reverse'
+ * Continuous position scales (x) where trans="reverse".
  *
- * @param name  The name of the scale - used as the axis label or the legend title.
- *              If None, the default, the name of the scale
- *              is taken from the first mapping used for that aesthetic.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
  * @param limits A pair of numbers specifying the data range for the scale.
- *      Use null to refer to default min/max.
- *      Set limits if you want values to be consistent across multiple plots.
- *      Setting limits will remove data outside of the limits.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
+ *  Use `null` to refer to default min/max.
+ *  Set limits if you want values to be consistent across multiple plots.
+ *  Setting limits will remove data outside of the limits.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleXReverse(
@@ -316,38 +295,34 @@ fun scaleXReverse(
 )
 
 /**
- * Continuous position scales (y) where trans='reverse'
+ * Continuous position scales (y) where trans="reverse".
  *
- * @param name  The name of the scale - used as the axis label or the legend title.
- *              If None, the default, the name of the scale
- *              is taken from the first mapping used for that aesthetic.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
  * @param limits A pair of numbers specifying the data range for the scale.
- *      Use null to refer to default min/max.
- *      Set limits if you want values to be consistent across multiple plots.
- *      Setting limits will remove data outside of the limits.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
+ *  Use `null` to refer to default min/max.
+ *  Set limits if you want values to be consistent across multiple plots.
+ *  Setting limits will remove data outside of the limits.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleYReverse(
@@ -372,38 +347,34 @@ fun scaleYReverse(
 )
 
 /**
- * Continuous position scales (x) where trans='sqrt'
+ * Continuous position scales (x) where trans="sqrt".
  *
- * @param name  The name of the scale - used as the axis label or the legend title.
- *              If None, the default, the name of the scale
- *              is taken from the first mapping used for that aesthetic.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
  * @param limits A pair of numbers specifying the data range for the scale.
- *      Use null to refer to default min/max.
- *      Set limits if you want values to be consistent across multiple plots.
- *      Setting limits will remove data outside of the limits.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
+ *  Use `null` to refer to default min/max.
+ *  Set limits if you want values to be consistent across multiple plots.
+ *  Setting limits will remove data outside of the limits.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleXSqrt(
@@ -428,38 +399,34 @@ fun scaleXSqrt(
 )
 
 /**
- * Continuous position scales (y) where trans='sqrt'
+ * Continuous position scales (y) where trans="sqrt".
  *
- * @param name  The name of the scale - used as the axis label or the legend title.
- *              If None, the default, the name of the scale
- *              is taken from the first mapping used for that aesthetic.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
  * @param limits A pair of numbers specifying the data range for the scale.
- *      Use null to refer to default min/max.
- *      Set limits if you want values to be consistent across multiple plots.
- *      Setting limits will remove data outside of the limits.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
+ *  Use `null` to refer to default min/max.
+ *  Set limits if you want values to be consistent across multiple plots.
+ *  Setting limits will remove data outside of the limits.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleYSqrt(

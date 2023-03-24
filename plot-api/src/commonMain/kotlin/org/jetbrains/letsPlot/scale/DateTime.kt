@@ -19,38 +19,30 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *
  * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels
- *      A vector of labels (on ticks).
- * @param limits data range for this scale.
- *      A pair of values providing limits of the scale. Use `null` to refer to default min/max.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
- * @param naValue
- *       Missing values will be replaced with this value.
- * @param format
- *      Defines the format for labels on the scale. Also applies to `breaks`.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
- *
+ * @param name The name of the scale - used as the axis label or the legend title. 
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Data range for this scale.
+ *  A pair of values providing limits of the scale. Use `null` to refer to default min/max.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
+ * @param naValue Missing values will be replaced with this value.
+ * @param format Defines the format for labels on the scale. Also applies to `breaks`.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * "%d.%m.%y" -> "06.08.19"
- * "%B %Y" -> "August 2019"
- * "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
+ * - "%d.%m.%y" -> "06.08.19"
+ * - "%B %Y" -> "August 2019"
+ * - "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
  *
  */
 fun scaleXDateTime(
@@ -89,38 +81,30 @@ fun scaleXDateTime(
  *
  * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels
- *      A vector of labels (on ticks).
- * @param limits data range for this scale.
- *      A pair of values providing limits of the scale. Use `null` to refer to default min/max.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
- * @param naValue
- *       Missing values will be replaced with this value.
- * @param format
- *      Defines the format for labels on the scale. Also applies to `breaks`.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
- *
+ * @param name The name of the scale - used as the axis label or the legend title. 
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Data range for this scale.
+ *  A pair of values providing limits of the scale. Use `null` to refer to default min/max.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
+ * @param naValue Missing values will be replaced with this value.
+ * @param format Defines the format for labels on the scale. Also applies to `breaks`.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * "%d.%m.%y" -> "06.08.19"
- * "%B %Y" -> "August 2019"
- * "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
+ * - "%d.%m.%y" -> "06.08.19"
+ * - "%B %Y" -> "August 2019"
+ * - "%a, %e %b %Y %H:%M:%S" -> "Tue, 6 Aug 2019 04:46:35"
  *
  */
 fun scaleYDateTime(
@@ -159,25 +143,18 @@ fun scaleYDateTime(
  *
  * - [scale_time.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scale_time.ipynb)
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title.
- *      If None, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks
- *     A numeric vector of positions (of ticks).
- * @param labels
- *      A vector of labels (on ticks).
- * @param limits
- *      A numeric vector of length two providing limits of the scale.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
- * @param naValue
- *       Missing values will be replaced with this value.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A numeric vector of positions (of ticks).
+ * @param labels A vector of labels (on ticks).
+ * @param limits A numeric vector of length two providing limits of the scale.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
+ * @param naValue Missing values will be replaced with this value.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  */
 fun scaleXTime(
@@ -214,25 +191,18 @@ fun scaleXTime(
  *
  * - [scale_time.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scale_time.ipynb)
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title.
- *      If None, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks
- *     A numeric vector of positions (of ticks).
- * @param labels
- *      A vector of labels (on ticks).
- * @param limits
- *      A numeric vector of length two providing limits of the scale.
- * @param expand
- *      A numeric vector of length two giving multiplicative and additive expansion constants.
- *      The vector size == 1 => only multiplicative expand (and additive expand by default).
- *      Defaults: multiplicative = 0.05, additive = 0.
- * @param naValue
- *       Missing values will be replaced with this value.
- * @param position String
- *  The position of the axis:
- *    "left", "right" or "both" for y-axis;
- *    "top", "bottom" or "both" for x-axis.
+ * @param name The name of the scale - used as the axis label or the legend title.
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A numeric vector of positions (of ticks).
+ * @param labels A vector of labels (on ticks).
+ * @param limits A numeric vector of length two providing limits of the scale.
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0.05, additive = 0.
+ * @param naValue Missing values will be replaced with this value.
+ * @param position The position of the axis:
+ *  - "left", "right" or "both" for y-axis;
+ *  - "top", "bottom" or "both" for x-axis.
  *
  */
 fun scaleYTime(

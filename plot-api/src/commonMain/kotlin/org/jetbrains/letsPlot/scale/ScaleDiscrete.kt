@@ -15,29 +15,25 @@ import org.jetbrains.letsPlot.intern.Scale
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
  * @param direction default = 1.
- *      Only for color scales: sets the order of colors in the scale.
- *      If -1, the order of colors is reversed.
- *
- * @param name
- *      the name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
+ *  Only for color scales: sets the order of colors in the scale.
+ *  If -1, the order of colors is reversed.
+ * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
  * @param breaks List of data values.
- *      A vector specifying values to display as breaks (ticks) on guides (axis).
- * @param labels List of Strings.
- *      A vector of labels on guides (axis or legend).
+ *  A vector specifying values to display as breaks (ticks) on guides (axis).
+ * @param labels A vector of labels on guides (axis or legend).
  * @param limits List of data values.
- *      A vector specifying values to display with the scale and their order in guides (axis).
+ *  A vector specifying values to display with the scale and their order in guides (axis).
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *      Specifies the format pattern for labels on the scale.
+ * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
- *      specifying additional arguments.
- *      "none" will hide the guide.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
+ * Note: the "$" must be escaped as "\$".
  * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:

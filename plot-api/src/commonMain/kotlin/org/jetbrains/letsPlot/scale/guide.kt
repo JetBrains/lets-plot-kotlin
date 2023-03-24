@@ -13,9 +13,9 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * Legend guide.
  * Legend type guide shows key (i.e., geoms) mapped onto values.
  *
- * @param nrow A number of rows in legend's guide
- * @param ncol A number of columns in legend's guide
- * @param byRow A type of output: by row (default), or by column
+ * @param nrow A number of rows in legend's guide.
+ * @param ncol A number of columns in legend's guide.
+ * @param byRow A type of output: by row (default), or by column.
  */
 fun guideLegend(
     @Suppress("SpellCheckingInspection")
@@ -35,10 +35,11 @@ fun guideLegend(
 /**
  * Continuous color bar guide.
  * Color bar guide shows continuous color scales mapped onto values.
- * Color bar is available with scaleFill and scaleColor.
- * @param barWidth Color bar width
- * @param barHeight Color bar height
- * @param nbin Number of bins in color bar
+ * Color bar is available with `scaleFill` and `scaleColor`.
+ *
+ * @param barWidth Color bar width.
+ * @param barHeight Color bar height.
+ * @param nbin Number of bins in color bar.
  */
 @Suppress("SpellCheckingInspection")
 fun guideColorbar(
@@ -58,19 +59,20 @@ fun guideColorbar(
  * Function to set guides for scales.
  * Sets the mapping between scale and guide.
  * The guide can either be a string ("colorbar"/"legend" or "none" to hide the guide)
- * or a call to a guide function (guideColorbar()/guideLegend()) specifying additional arguments.
+ * or a call to a guide function (`guideColorbar()`/`guideLegend()`) specifying additional arguments.
+ *
  * @param alpha String or guide function.
- *     The guide for alpha scale.
+ *  The guide for alpha scale.
  * @param color String or guide function.
- *     The guide for color scale.
+ *  The guide for color scale.
  * @param fill String or guide function.
- *     The guide for fill scale.
+ *  The guide for fill scale.
  * @param shape String or guide function.
- *     The guide for shape scale.
+ *  The guide for shape scale.
  * @param size String or guide function.
- *     The guide for size scale.
+ *  The guide for size scale.
  * @param linetype String or guide function.
- *     The guide for linetype scale.
+ *  The guide for linetype scale.
  */
 @Suppress("SpellCheckingInspection")
 fun guides(

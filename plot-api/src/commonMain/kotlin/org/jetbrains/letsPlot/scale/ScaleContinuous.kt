@@ -12,28 +12,23 @@ import org.jetbrains.letsPlot.intern.Scale
  * Use it to adjust most common properties of a default scale for given aesthetic.
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
- * @param name
- *  The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks
- *  A numeric vector of positions (of ticks).
- * @param labels
- *  A vector of labels (on ticks).
+ * @param breaks A numeric vector of positions (of ticks).
+ * @param labels A vector of labels (on ticks).
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
- * @param format
- *  specifies the format pattern for labels on the scale.
+ * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans
- *  name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
+ * Note: the "$" must be escaped as "\$".
  * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:

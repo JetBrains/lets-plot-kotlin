@@ -10,7 +10,6 @@ import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
-
 /**
  * Use this scale when your data has already been scaled.
  * I.e. it already represents aesthetic values that ggplot2 can handle directly.
@@ -37,7 +36,7 @@ import org.jetbrains.letsPlot.intern.Scale
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
+ * Note: the "$" must be escaped as "\$".
  * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
@@ -76,39 +75,33 @@ fun scaleIdentity(
  * I.e. it already represents aesthetic values that ggplot2 can handle directly.
  * This will not produce a legend unless you also supply the breaks and labels.
  *
- * Input data expected: list of strings containing
- *   a) names of colors (i.e. 'green')
- *   b) hex codes of colors (i.e 'x00ff00')
- *   c) css colors (i.e 'rgb(0,255,0)')
+ * Input data expected: List of Strings containing
+ * - names of colors (i.e. "green")
+ * - hex codes of colors (i.e "x00ff00")
+ * - css colors (i.e "rgb(0,255,0)")
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels
- *      A vector of labels (on ticks)
- * @param limits
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param guide
- *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
- *      specifying additional arguments.
- *      "none" will hide the guide.
+ * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
+ *  is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks)
+ * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
+ *  Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleColorIdentity(
@@ -135,39 +128,33 @@ fun scaleColorIdentity(
  * I.e. it already represents aesthetic values that ggplot2 can handle directly.
  * This will not produce a legend unless you also supply the breaks and labels.
  *
- * Input data expected: list of strings containing
- *   a) names of colors (i.e. 'green')
- *   b) hex codes of colors (i.e 'x00ff00')
- *   c) css colors (i.e 'rgb(0,255,0)')
+ * Input data expected: List of Strings containing
+ * - names of colors (i.e. "green")
+ * - hex codes of colors (i.e "x00ff00")
+ * - css colors (i.e "rgb(0,255,0)")
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels
- *      A vector of labels (on ticks)
- * @param limits
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param guide
- *      Guide to use for this scale.
- *      It can either be a string ("colorbar", "legend") or a call to a guide function (guideColorbar(), guideLegend())
- *      specifying additional arguments.
- *      "none" will hide the guide.
+ * @param name The name of the scale - used as the axis label or the legend title. 
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
+ *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide Guide to use for this scale.
+ *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
+ *  specifying additional arguments.
+ *  "none" will hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleFillIdentity(
@@ -194,33 +181,27 @@ fun scaleFillIdentity(
  * I.e. it already represents aesthetic values that ggplot2 can handle directly.
  * This will not produce a legend unless you also supply the breaks and labels.
  *
- * Input data expected: numeric codes of shapes.
+ * Input data expected: Numeric codes of shapes.
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels
- *      A vector of labels (on ticks)
- * @param limits
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param guide
- *      A result returned by guideLegend() function or "none" to hide the guide.
+ * @param name The name of the scale - used as the axis label or the legend title. 
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
+ *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleShapeIdentity(
@@ -253,34 +234,28 @@ fun scaleShapeIdentity(
  * I.e. it already represents aesthetic values that ggplot2 can handle directly.
  * This will not produce a legend unless you also supply the breaks and labels.
  *
- * Input data expected: numetic codes or names of line types (i.e 'dotdash').
- * The codes are: 0 = blank, 1 = solid, 2 = dashed, 3 = dotted, 4 = dotdash, 5 = longdash, 6 = twodash
+ * Input data expected: Numeric codes or names of line types (i.e "dotdash").
+ * The codes are: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels
- *      A vector of labels (on ticks)
- * @param limits
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param guide
- *      A result returned by guideLegend() function or "none" to hide the guide.
+ * @param name The name of the scale - used as the axis label or the legend title. 
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
+ *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 @Suppress("SpellCheckingInspection")
@@ -314,33 +289,27 @@ fun scaleLinetypeIdentity(
  * I.e. it already represents aesthetic values that ggplot2 can handle directly.
  * This will not produce a legend unless you also supply the breaks and labels.
  *
- * Input data expected: numeric values in range `[0..1`]
+ * Input data expected: Numeric values in range `[0..1]`.
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels
- *      A vector of labels (on ticks)
- * @param limits
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param guide
- *      A result returned by guideLegend() function or "none" to hide the guide.
+ * @param name The name of the scale - used as the axis label or the legend title. 
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
+ *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleAlphaIdentity(
@@ -367,33 +336,27 @@ fun scaleAlphaIdentity(
  * I.e. it already represents aesthetic values that ggplot2 can handle directly.
  * This will not produce a legend unless you also supply the breaks and labels.
  *
- * Input data expected: positive numeric values
+ * Input data expected: positive Numeric values.
  *
- * @param name
- *      The name of the scale - used as the axis label or the legend title. If None, the default, the name of the scale
- *      is taken from the first mapping used for that aesthetic.
- * @param breaks
- *      A vector specifying values to display as ticks on axis.
- * @param labels
- *      A vector of labels (on ticks)
- * @param limits
- *      Continuous scale: a numeric vector of length two providing limits of the scale.
- *      Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
- * @param naValue an aesthetic value which is used when data in not available.
- * @param format
- *      Specifies the format pattern for labels on the scale.
- * @param guide
- *      A result returned by guideLegend() function or "none" to hide the guide.
+ * @param name The name of the scale - used as the axis label or the legend title. 
+ *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
+ * @param breaks A vector specifying values to display as ticks on axis.
+ * @param labels A vector of labels (on ticks).
+ * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
+ *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
+ * @param naValue An aesthetic value which is used when data in not available.
+ * @param format Specifies the format pattern for labels on the scale.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * Note: the "$" must be escaped as "\$"
- * For more info see: https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md
+ * Note: the "$" must be escaped as "\$".
+ * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
  *
  * Examples:
- * ".2f" -> "12.45"
- * "Score: {.2f}" -> "Score: 12.45"
- * "Score: {}" -> "Score: 12.454789"
+ * - ".2f" -> "12.45"
+ * - "Score: {.2f}" -> "Score: 12.45"
+ * - "Score: {}" -> "Score: 12.454789"
  *
  */
 fun scaleSizeIdentity(
