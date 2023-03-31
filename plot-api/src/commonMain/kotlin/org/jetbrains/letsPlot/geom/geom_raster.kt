@@ -18,35 +18,40 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 /**
- * Display rectangles defined by the center of the tile (x, y).
- *     This is a high performance special function for same-sized tiles.
- * Much faster than geomTile but doesn't support width/height and color.
+ * Displays rectangles defined by the center of the tile (x, y).
+ * This is a high performance special function for same-sized tiles.
+ * Much faster than `geomTile()` but doesn't support width/height and color.
  *
  * ## Examples
  *
  * - [algebraic_curve.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/algebraic_curve.ipynb)
  *
- * @param data
- *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat
- *     The statistical transformation to use on the data for this layer. Supported transformations:
- *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
- *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
- *     linear default).
- *     Statistic types: [letsPlot][org.jetbrains.letsPlot.Stat].
- * @param position
- *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param stat The statistical transformation to use on the data for this layer.
+ *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param x X-axis coordinates of the center of rectangles.
+ * @param y Coordinates of the center of rectangles.
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @param fill Color of geometry filling.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
  *
- * @param x x-axis coordinates of the center of rectangles.
- * @param y coordinates of the center of rectangles.
- * @param alpha transparency level of a layer.
- * @param fill color of geometry filling.
- * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
- * @param mapping set of aesthetic mappings.
- *     Aesthetic mappings describe the way that variables in the data are
- *     mapped to plot "aesthetics".
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
  */
 class geomRaster(
     data: Map<*, *>? = null,
@@ -75,5 +80,4 @@ class geomRaster(
     override fun seal() = super<RasterAesthetics>.seal() +
             super<WithFillOption>.seal()
 }
-
 

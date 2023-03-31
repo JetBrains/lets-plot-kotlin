@@ -16,7 +16,7 @@ package org.jetbrains.letsPlot.bistro.residual
  * @param data The data to be displayed.
  * @param x Name of independent variable.
  * @param y Name of dependent variable that will be fitted.
- * @param method {"lm", "loess", "lowess", "none"}, default = "lm".
+ * @param method default = "lm" ("lm", "loess", "lowess", "none").
  *  Fitting method: "lm" (Linear Model) or "loess"/"lowess" (Locally Estimated Scatterplot Smoothing).
  *  If value of `deg` parameter is greater than 1 then linear model becomes polynomial of the given degree.
  *  If method is "none" then data lives as is.
@@ -28,7 +28,7 @@ package org.jetbrains.letsPlot.bistro.residual
  * @param seed Random seed for "loess" sampling.
  * @param maxN Maximum number of data-points for "loess" method. 
  *  If this quantity exceeded random sampling is applied to data.
- * @param geom {"point", "tile", "none"}, default = "point".
+ * @param geom default = "point" ("point", "tile", "none").
  *  The geometric object to use to display the data. No object will be used if `geom="none"`.
  * @param bins Number or a Pair of Numbers.
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
@@ -40,6 +40,12 @@ package org.jetbrains.letsPlot.bistro.residual
  *  If only one value given - interpret it as list of two equal values.
  *  Applicable simultaneously for "tile" geom and "histogram" marginal.
  * @param color Color of a geometry.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
  * @param size Size of a geometry.
  * @param alpha Transparency level of a geometry. 
  *  Understands numbers between 0 and 1.

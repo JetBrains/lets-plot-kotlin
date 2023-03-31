@@ -33,12 +33,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
  *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.bin2D()`. The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity` (leaves the data unchanged), 
- *  `Stat.bin()`(counts number of points with x-axis coordinate in the same bin), 
- *  `Stat.count()`(counts number of points with same x-axis coordinate), 
- *  `Stat.smooth()`(performs smoothing - linear default) etc. - see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position PosOptions, default = `positionIdentity`.
- *  Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
+ *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
@@ -57,12 +54,28 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param height Height of a tile.
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
- * @param color Color of a geometry lines.
+ * @param color Color of the geometry.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
  * @param fill Color of geometry filling.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
  * @param linetype Type of the line. 
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
  * @param size Lines width.
  * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the fill aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings. 
  *  Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
  */

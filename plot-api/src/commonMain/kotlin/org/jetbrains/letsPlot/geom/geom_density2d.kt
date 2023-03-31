@@ -56,7 +56,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Distance between levels.
  * @param x x-axis coordinates of the center of rectangles, forming a tessellation.
  * @param y y-axis coordinates of the center of rectangles, forming a tessellation.
- * @param alpha transparency level of a point
+ * @param alpha transparency level of a layer.
  *     Understands numbers between 0 and 1.
  * @param color color of a geometry.
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.

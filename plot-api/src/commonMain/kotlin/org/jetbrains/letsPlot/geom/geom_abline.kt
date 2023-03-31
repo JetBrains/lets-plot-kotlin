@@ -26,13 +26,10 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.identity`. The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity` (leaves the data unchanged), 
- *  `Stat.bin()`(counts number of points with x-axis coordinate in the same bin), 
- *  `Stat.count()`(counts number of points with same x-axis coordinate), 
- *  `Stat.smooth()`(performs smoothing - linear default) etc. - see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position PosOptions, default = `positionIdentity`.
- *  Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
+ * @param stat The statistical transformation to use on the data for this layer.
+ *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
@@ -40,17 +37,23 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param slope The line slope.
  * @param intercept The value of y at the point where the line crosses the y-axis.
- * @param alpha Transparency level of a point.
+ * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
- * @param color Color of a geometry.
- *  Can be continuous or discrete.
- *  For continuous value this will be a color gradient between two colors.
- * @param linetype Type of the line.
+ * @param color Color of the geometry.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param linetype Type of the line. 
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
  * @param size Line width.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.
- *  Aesthetic mappings describe the way that variables in the data are
+ *  Aesthetic mappings describe the way that variables in the data are 
  *  mapped to plot "aesthetics".
  */
 class geomABLine(

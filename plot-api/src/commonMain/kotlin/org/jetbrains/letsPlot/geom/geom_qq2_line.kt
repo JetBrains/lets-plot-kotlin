@@ -49,7 +49,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param x x-axis value.
  * @param y y-axis value.
- * @param alpha transparency level of the point
+ * @param alpha transparency level of the layer.
  *     Understands numbers between 0 and 1.
  * @param color (colour) color of the geometry.
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.

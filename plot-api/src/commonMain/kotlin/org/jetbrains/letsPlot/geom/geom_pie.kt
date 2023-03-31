@@ -20,7 +20,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Draw pie chart.
+ * Draws pie chart.
  *
  * ## Examples
  *
@@ -30,54 +30,65 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [stat_count_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/stat_count_2d.ipynb)
  *
- * @param data
- *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat
- *     The statistical transformation to use on the data for this layer. Supported transformations:
- *     "identity" (leaves the data unchanged), "count2d" (counts number of points with same x,y coordinate).
- *     Statistic types: [letsPlot][org.jetbrains.letsPlot.Stat].
- * @param position
- *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
- * @param tooltips result of the call to the layerTooltips() function.
- *     Specifies appearance, style and content.
- * @param labels result of the call to the layerLabels() function.
- *     Specifies style and content of the annotations.
- * @param map SpatialDataset.
- *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
- *     names of States and their boundaries).
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param stat default = `Stat.count2d()`. The statistical transformation to use on the data for this layer.
+ *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true. false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
+ * @param labels Result of the call to the `layerLabels()` function.
+ *  Specifies style and content of the annotations.
+ * @param map Data-structure containing series of planar shapes and, optionally, associates data series (for example:
+ *  names of States and their boundaries).
  *
- *     Supported shapes: Point and MultiPoint.
- *     All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
+ *  Supported shapes: Point and MultiPoint.
  *
- *     Can be used with parameter 'mapJoin' for joining data and map coordinates.
- * @param mapJoin pair of names or pair of lists of names
- *     Specifies column names to join the 'data' and the 'map' coordinates on.
- *     Pair.first: column name or list of column names in the 'data' dataframe.
- *     Pair.second: column name or list of column names in the 'map' dataframe.
+ *  All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
+ *  Can be used with parameter `mapJoin` for joining data and map coordinates.
+ * @param mapJoin Pair of Names or Pair of Lists of Names.
+ *  Specifies column names to join the `data` and the `map` coordinates on.
+ *  - Pair.first: column name or list of column names in the `data` dataframe.
+ *  - Pair.second: column name or list of column names in the `map` dataframe.
+ * @param useCRS By default, all coordinates are converted into degrees of longitude and latitude,
+ *  and these map coordinates are projected onto the screen coordinates using Mercator projection.
+ *  Specify useCRS = "provided" to keep the SpatialDataset's original coordinate reference system (CRS).
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ * @param slice Values associated to pie sectors.
+ * @param explode Values to explode slices away from their center point, detaching it from the main pie.
+ * @param size Pie diameter.
+ * @param fill Color of geometry filling (by default).
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
  *
- * @param x x-axis value.
- * @param y y-axis value.
- * @param slice values associated to pie sectors.
- * @param explode values to explode slices away from their center point, detaching it from the main pie.
- * @param size pie diameter.
- * @param fill color of geometry filling (by default).
- * @param color (colour) color of geometry filling if `fillBy="color"`.
- *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
- * @param alpha transparency level of the pie.
- *     Accepts numbers between 0 and 1.
- * @param hole number, default=0.0.
- *     A multiplicative factor applied to the pie diameter to draw donut-like chart.
- *     Accepts numbers between 0 and 1.
- * @param stroke number, default=0.0.
- *     Width of slice borders.
- * @param strokeColor string, default="white".
- *     Color of slice borders.
- * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ *  Or an instance of the `java.awt.Color` class.
+ * @param alpha Transparency level of the pie. Understands numbers between 0 and 1.
+ * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.
+ * @param hole default = 0.0.
+ *  A multiplicative factor applied to the pie diameter to draw donut-like chart.
+ *  Understands numbers between 0 and 1.
+ * @param stroke default = 0.0.
+ *  Width of slice borders.
+ * @param strokeColor default = "white". Color of slice borders.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
- * @param mapping set of aesthetic mappings.
- *     Aesthetic mappings describe the way that variables in the data are
- *     mapped to plot "aesthetics".
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
  */
 class geomPie(
     data: Map<*, *>? = null,

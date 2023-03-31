@@ -63,7 +63,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines the fill aesthetic for the geometry.
  *
  * @param sample y-axis value.
- * @param alpha transparency level of the point
+ * @param alpha transparency level of the point.
  *     Understands numbers between 0 and 1.
  * @param color (colour) color of the geometry.
  *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.

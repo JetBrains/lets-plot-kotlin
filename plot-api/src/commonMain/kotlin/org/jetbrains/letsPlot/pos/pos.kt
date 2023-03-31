@@ -100,7 +100,7 @@ fun positionJitterDodge(
  *
  * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
  *  Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
- * @param mode String, {"groups", "all"}, default = "groups".
+ * @param mode default = "groups" ("groups", "all").
  *  If "groups", objects inside one group are positioned as in `position = positionIdentity`,
  *  but each group is shifted to sum of heights of previous groups
  *  (where height of a group is a maximum of it's y values).
