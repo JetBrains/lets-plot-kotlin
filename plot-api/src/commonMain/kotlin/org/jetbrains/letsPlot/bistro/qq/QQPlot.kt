@@ -43,6 +43,12 @@ package org.jetbrains.letsPlot.bistro.qq
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param color Color of a points.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
  * @param fill Color to paint shape's inner points.
  *  Is applied only to the points of shapes having inner points.
  * @param alpha default = 0.5.

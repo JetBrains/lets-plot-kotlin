@@ -22,45 +22,58 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
- * Add a vertical line defined by upper and lower value with midpoint at y location.
+ * Adds a vertical line defined by upper and lower value with midpoint at y location.
  *
  * ## Examples
  *
  * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
  *
- * @param data
- *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat
- *      The statistical transformation to use on the data for this layer.
- * @param position
- *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param stat The statistical transformation to use on the data for this layer.
+ *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
+ * @param fatten default = 5.0.
+ *  A multiplicative factor applied to size of the middle point.
+ * @param x X-axis coordinates.
+ * @param y Position of mid-point.
+ * @param ymin Lower bound for error bar.
+ * @param ymax Upper bound for error bar.
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
  *
- * @param tooltips result of the call to the layerTooltips() function.
- *     Specifies appearance, style and content.
- * @param fatten : number, default: 5.0
- *     A multiplicative factor applied to size of the middle point.
- * @param x x-axis coordinates.
- * @param y position of mid-point,
- * @param ymin lower bound for error bar.
- * @param ymax upper bound for error bar.
- * @param alpha transparency level of a layer
- *     Understands numbers between 0 and 1.
- * @param color (colour) color of a geometry lines.
- *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
- * @param fill color of geometry filling.
- * @param size lines width, size of mid-point.
- * @param linetype type of the line of tile's border
- *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *     5 = "longdash", 6 = "twodash"
- * @param shape shape of the mid-point.
- * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fill Color of geometry filling.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param size Lines width, size of mid-point.
+ * @param linetype Type of the line of tile's border.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash"
+ * @param shape Shape of the mid-point.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
- * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
- * @param mapping set of aesthetic mappings.
- *     Aesthetic mappings describe the way that variables in the data are
- *     mapped to plot "aesthetics".
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
  */
 class geomPointRange(
     data: Map<*, *>? = null,

@@ -20,61 +20,68 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * Y-dotplot represents individual observations in a batch of data with circular dots.
  * The diameter of a dot corresponds to the maximum width or bin width, depending on the binning algorithm.
- * `geom_ydotplot()` is an obvious blend of `geom_violin()` and `geom_dotplot()`.
+ * `geomYDotplot()` is an obvious blend of `geomViolin()` and `geomDotplot()`.
  *
  * ## Examples
  *
  * - [geom_ydotplot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb)
  *
- * @param data
- *      The data to be displayed in this layer. If None, the default, the data
- *      is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default: Stat.dotplot().
- *      The statistical transformation to use on the data for this layer.
- *      The only other 'stat' supported by 'dotplot' is Stat.identity.
- * @param position
- *      Position adjustment, either as a string ("identity", "stack", "dodge", ...), or the result of a call to a
- *      position adjustment function.
- * @param showLegend default=True.
- *      False - do not show legend for this layer.
- * @param tooltips result of the call to the layerTooltips() function.
- *      Specifies appearance, style and content.
- * @param x x-axis coordinates.
- * @param y y-axis coordinates.
- * @param bins When method is "histodot", this specifies number of bins (default=30). Overridden by `binWidth`.
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param stat default = `Stat.yDotplot()`.
+ *  The statistical transformation to use on the data for this layer.
+ *  The only other `stat` supported by `dotplot` is `Stat.identity`.
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
+ * @param x X-axis coordinates.
+ * @param y Y-axis coordinates.
+ * @param bins When method is "histodot", this specifies number of bins (default = 30). Overridden by `binWidth`.
  * @param center When method is "histodot", this specifies x-value to align bin centers to.
  * @param boundary When method is "histodot", this specifies x-value to align bin boundary
- *      (i.e. point between bins) to.
- * @param method default: "dotdensity"
- *      Use "dotdensity" for dot-density binning,
- *      or "histodot" for fixed bin widths (like in geom_histogram).
- * @param binWidth
- *      When method is "dotdensity", this specifies maximum bin width.
- *      When method is "histodot", this specifies bin width.
- * @param stackDir Which direction to stack the dots.
- *      Values: "up", "down", "center", "centerwhole". Default: "up".
- * @param stackRatio Default: 1.0
- *      How close to stack the dots.
- *      Use smaller values for closer, overlapping dots.
- * @param dotSize Default: 1.0
- *      The diameter of the dots relative to binwidth.
+ *  (i.e. point between bins) to.
+ * @param method default = "dotdensity".
+ *  Use "dotdensity" for dot-density binning,
+ *  or "histodot" for fixed bin widths (like in `geomHistogram()`).
+ * @param binWidth When method is "dotdensity", this specifies maximum bin width.
+ *  When method is "histodot", this specifies bin width.
+ * @param stackDir default = "up". Which direction to stack the dots.
+ *  Values: "up", "down", "center", "centerwhole". 
+ * @param stackRatio default = 1.0.
+ *  How close to stack the dots.
+ *  Use smaller values for closer, overlapping dots.
+ * @param dotSize default = 1.0.
+ *  The diameter of the dots relative to binwidth.
  * @param stackGroups Whether dots should be stacked across groups.
- *      In effect is replacemets for option `position = Pos.stack`.
- *      Note: unlike other geoms, 'dotplot' doesn't have 'position' option.
+ *  In effect is replacemets for option `position = positionStack()`.
+ *  Note: unlike other geoms, `dotplot` doesn't have `position` option.
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
  *
- * @param alpha transparency level of a layer
- *     Understands numbers between 0 and 1.
- * @param color (colour) color of a geometry lines.
- *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
- * @param fill color of geometry filling.
- * @param size lines width.
- * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fill Color of geometry filling.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param size Lines width.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
- * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
- * @param mapping set of aesthetic mappings.
- *     Aesthetic mappings describe the way that variables in the data are
- *     mapped to plot "aesthetics".
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
  */
 class geomYDotplot(
     data: Map<*, *>? = null,

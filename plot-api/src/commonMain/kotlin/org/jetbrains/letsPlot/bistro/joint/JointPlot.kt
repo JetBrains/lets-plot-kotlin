@@ -15,9 +15,8 @@ package org.jetbrains.letsPlot.bistro.joint
  * @param data The data to be displayed.
  * @param x Name of the variable.
  * @param y Name of the variable.
- * @param geom The geometric object to use to display the data.
- *  {"point", "tile", "density2d", "density2df", "none"}, default = "point".
- *  No object will be used if `geom="none"`.
+ * @param geom default = "point" ("point", "tile", "density2d", "density2df", "none").
+ *  The geometric object to use to display the data. No object will be used if `geom="none"`.
  * @param bins Number or a Pair of Numbers.
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
  *  If only one value given - interpret it as list of two equal values.
@@ -28,6 +27,12 @@ package org.jetbrains.letsPlot.bistro.joint
  *  If only one value given - interpret it as list of two equal values.
  *  Applicable simultaneously for "tile" geom and "histogram" marginal.
  * @param color Color of a geometry.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
  * @param size Size of a geometry.
  * @param alpha Transparency level of a geometry.
  *  Understands numbers between 0 and 1.
