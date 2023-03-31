@@ -59,7 +59,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param label Text to add to plot.
- * @param alpha Transparency level of a point. Understands numbers between 0 and 1.
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
  *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")

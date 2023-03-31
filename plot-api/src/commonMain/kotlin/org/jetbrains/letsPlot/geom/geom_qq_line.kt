@@ -55,7 +55,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param sample Y-axis value.
- * @param alpha Transparency level of the point. Understands numbers between 0 and 1.
+ * @param alpha Transparency level of the layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
  *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")

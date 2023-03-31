@@ -39,7 +39,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param direction "hv" or "HV" stands for horizontal then vertical (default); "vh" or "VH" stands for vertical then horizontal.
  * @param x X-axis value.
  * @param y Y-axis value.
- * @param alpha Transparency level of a point. Understands numbers between 0 and 1.
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
  *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")

@@ -56,7 +56,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *     Distance between levels.
  * @param x x-axis coordinates.
  * @param y y-axis coordinates.
- * @param alpha transparency level of a point
+ * @param alpha transparency level of a layer.
  *     Understands numbers between 0 and 1.
  * @param fill color of geometry filling.
  * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
