@@ -35,7 +35,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param x X-axis coordinates of the center of rectangles.
  * @param y Coordinates of the center of rectangles.

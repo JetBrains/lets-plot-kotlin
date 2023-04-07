@@ -38,7 +38,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true. false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
@@ -70,7 +70,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - color name (e.g. "red") 
  *
  *  Or an instance of the `java.awt.Color` class.
- * @param alpha Transparency level of the pie. Understands numbers between 0 and 1.
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.
  * @param hole default = 0.0.
  *  A multiplicative factor applied to the pie diameter to draw donut-like chart.

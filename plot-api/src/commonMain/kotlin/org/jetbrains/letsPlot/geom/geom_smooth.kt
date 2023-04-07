@@ -34,7 +34,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
@@ -59,10 +59,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - color name (e.g. "red") 
  *
  *  Or an instance of the `java.awt.Color` class.
-
  * @param size Lines width.
  *  Defines line width for conditional mean and confidence bounds lines.
- * @param linetype Type of the line of tile's border
+ * @param linetype Type of the line of conditional mean line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash"
  * @param method default = "lm". 
