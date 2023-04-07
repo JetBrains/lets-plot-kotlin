@@ -44,7 +44,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
  *  Possible values: "x", "y".
  * @param x X-axis value (this value will produce cases or bins for bars).
- * @param y Y-axis value (this value will be used to multiply the bar heights), setting y to '..density..' produces
+ * @param y Y-axis value (this value will be used to multiply the bar heights), setting y to "..density.." produces
  *  normalized (density) histogram.
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
