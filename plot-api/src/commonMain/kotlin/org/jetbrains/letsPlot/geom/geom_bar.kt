@@ -22,7 +22,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Display a bar chart which makes the height of the bar proportional to the number of observed variable values, mapped to x axis.
+ * Displays a bar chart which makes the height of the bar proportional to the number of observed variable values, mapped to x-axis.
  *
  * ## Examples
  *
@@ -30,38 +30,49 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [stat_count_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/stat_count_2d.ipynb)
  *
- * @param data
- *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat
- *     The statistical transformation to use on the data for this layer. Supported transformations:
- *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
- *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
- *     linear default).
- *     Statistic types: [letsPlot][org.jetbrains.letsPlot.Stat].
- * @param position
- *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
- * @param tooltips result of the call to the layerTooltips() function.
- *     Specifies appearance, style and content.
- * @param orientation Specifies the axis that the layer' stat and geom should run along.
- *     Possible values: 'x' (default), 'y'.
- * @param x x-axis value (this values will produce cases or bins for bars).
- * @param y y-axis value (this value will be used to multiply the case's or bin's counts).
- * @param alpha transparency level of a layer
- *     Understands numbers between 0 and 1.
- * @param color (colour) color of a geometry lines.
- *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
- * @param fill color of geometry filling.
- * @param size line width.
- *     Defines bar line width.
- * @param weight used by "count" stat to compute weighted sum instead of simple count.
- * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param stat default = `Stat.count()`. The statistical transformation to use on the data for this layer.
+ *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position default = `positionStack()`. Position adjustment: `positionIdentity`, 
+ *  `positionStack()`, `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
+ * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
+ *  Possible values: "x", "y".
+ * @param x X-axis value (this value will produce cases or bins for bars).
+ * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fill Color of geometry filling.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param width Width of a bar.
+ * @param size Defines bar line width.
+ * @param weight Used by `Stat.count()` stat to compute weighted sum instead of simple count.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
- * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
- * @param mapping set of aesthetic mappings.
- *     Aesthetic mappings describe the way that variables in the data are
- *     mapped to plot "aesthetics".
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
  */
 class geomBar(
     data: Map<*, *>? = null,

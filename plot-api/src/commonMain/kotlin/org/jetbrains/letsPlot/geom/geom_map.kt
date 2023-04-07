@@ -16,62 +16,69 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Display a filled closed path defined by the vertex coordinates of individual polygons.
- * 'geomMap' is essentially the same as 'geomPolygon' but uses 'coordMap' as default coordinate system.
+ * Displays a filled closed path defined by the vertex coordinates of individual polygons.
+ * `geomMap` is essentially the same as `geomPolygon` but uses 'coordMap' as default coordinate system.
  *
  * ## Examples
  *
  * - [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
  *
- * @param data dictionary or pandas DataFrame.
- *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat string.
- *     The statistical transformation to use on the data for this layer. Supported transformations:
- *     "identity" (leaves the data unchanged), "count" (counts number of points with same x-axis coordinate),
- *     "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs smoothing -
- *     linear default).
- *     Statistic types: [letsPlot][org.jetbrains.letsPlot.Stat].
- * @param position string.
- *     Position adjustment: Pos.identity, Pos.stack,  etc. - see [letsPlot][org.jetbrains.letsPlot.Pos].
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param stat The statistical transformation to use on the data for this layer.
+ *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, 
+ *  `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
+ * @param map Data-structure containing series of planar shapes and, optionally, associated data series (for example:
+ *  names of States and their boundaries).
  *
- * @param tooltips result of the call to the layerTooltips() function.
- *     Specifies appearance, style and content.
- * @param map SpatialDataset.
- *     Data-structure containing series of planar shapes and, optionally, associates data series (for example:
- *     names of States and their boundaries).
+ *  Supported shapes: Polygon and MultiPolygon.
+ *  All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
  *
- *     Supported shapes: Polygon and MultiPolygon.
- *     All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
+ *  Can be used with parameter `mapJoin` for joining data and map coordinates.
+ * @param mapJoin Pair of Names or Pair of Lists of Names.
+ *  Specifies column names to join the `data` and the `map` coordinates on.
+ *  - Pair.first: column name or list of column names in the `data` dataframe.
+ *  - Pair.second: column name or list of column names in the `map` dataframe.
+ * @param useCRS By default, all coordinates are converted into degrees of longitude and latitude,
+ *  and these map coordinates are projected onto the screen coordinates using Mercator projection.
+ *  Specify useCRS = "provided" to keep the SpatialDataset's original coordinate reference system (CRS).
+ * @param x X-axis coordinates of the vertices of the polygon.
+ * @param y Y-axis coordinates of the vertices of the polygon.
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of geometry lines.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
  *
- *     Can be used with parameter 'mapJoin' for joining data and map coordinates.
- * @param mapJoin pair of names or pair of lists of names
- *     Specifies column names to join the 'data' and the 'map' coordinates on.
- *     Pair.first: column name or list of column names in the 'data' dataframe.
- *     Pair.second: column name or list of column names in the 'map' dataframe.
- * @param useCRS string
- *     By default, all coordinates are converted into degrees of longitude and latitude,
- *     and these map coordinates are projected onto the screen coordinates using Mercator projection.
- *     Specify useCRS="provided" to keep the SpatialDataset’s original coordinate reference system (CRS).
- * @param x x-axis coordinates of the vertices of the polygon.
- * @param y y-axis coordinates of the vertices of the polygon.
- * @param alpha transparency level of a layer.
- *     Understands numbers between 0 and 1.
- * @param color (colour) color of a geometry lines.
- *     Can be continuous or discrete. For continuous value this will be a color gradient between two colors.
- * @param size lines width.
- *     Defines line width.
- * @param linetype type of the line of tile's border.
- *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *     5 = "longdash", 6 = "twodash".
- * @param fill color of geometry filling.
- * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ *  Or an instance of the `java.awt.Color` class.
+ * @param size Line width.
+ * @param linetype Type of the line.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash".
+ * @param fill Color of geometry filling.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
- * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
- * @param mapping set of aesthetic mappings.
- *     Aesthetic mappings describe the way that variables in the data are
- *     mapped to plot "aesthetics".
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
  */
 class geomMap(
     data: Map<*, *>? = null,

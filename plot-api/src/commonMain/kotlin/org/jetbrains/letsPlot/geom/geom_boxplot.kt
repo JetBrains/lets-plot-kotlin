@@ -24,65 +24,74 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Display the distribution of data based on a five number summary ("minimum", first quartile (Q1), median, third quartile (Q3), and "maximum"),
- * and "outlying" points individually.
+ * Displays the distribution of data based on a five number summary ("minimum", first quartile (Q1), 
+ * median, third quartile (Q3), and "maximum"), and "outlying" points individually.
  *
  * ## Examples
  *
  * - [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
  *
- * @param data dictionary or pandas DataFrame, optional
- *     The data to be displayed in this layer. If None, the default, the data
- *     is inherited from the plot data as specified in the call to ggplot.
- * @param stat string, optional
- *     The statistical transformation to use on the data for this layer. Supported transformations:
- *     "identity" (leaves the data unchanged) should be used to define boxplot from your own computations via lower,
- *     upper, ymin, ymax, middle aesthetics mappings (see below), "count" (counts number of points with same x-axis
- *     coordinate), "bin" (counts number of points with x-axis coordinate in the same bin), "smooth" (performs
- *     smoothing - linear default)
- * @param position string, optional
- *     Position adjustment, either as a string ("identity", "stack", "dodge",...), or the result of a call to a
- *     position adjustment function.
- * @param tooltips result of the call to the layerTooltips() function.
- *     Specifies appearance, style and content.
- * @param orientation Specifies the axis that the layer' stat and geom should run along.
- *     Possible values: 'x' (default), 'y'.
- * @param outlierColor
- * @param outlierFill
- * @param outlierShape
- * @param outlierSize
- *     Default aesthetics for outliers.
- * @param varWidth
- *     if FALSE (default) make a standard box plot.
- *     If TRUE, boxes are drawn with widths proportional to the square-roots of the number of
- *     observations in the groups.
- * @param fatten : number, default: 1.0
- *     A multiplicative factor applied to size of the middle bar.
- * @param whiskerWidth: number, default: 0.0
- *     A multiplicative factor applied to the box width to draw horizontal segments on whiskers.
- * @param coef Number, default = 1.5.
+ * @param data The data to be displayed. If null, the default, the data is inherited
+ *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param stat default = `Stat.boxplot()`. The statistical transformation to use on the data for this layer.
+ *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position default = `positionDodge()`. Position adjustment: `positionIdentity`, 
+ *  `positionStack()`, `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  If false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
+ * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
+ *  Possible values: "x", "y".
+ * @param outlierColor Color aesthetic for outliers.
+ * @param outlierFill Fill aesthetic for outliers.
+ * @param outlierShape Shape aesthetic for outliers.
+ * @param outlierSize Size aesthetic for outliers.
+ * @param varWidth default = false. If false make a standard box plot.
+ *  If true, boxes are drawn with widths proportional to the square-roots of the number of
+ *  observations in the groups.
+ * @param fatten default = 1.0.
+ *  A multiplicative factor applied to size of the middle bar.
+ * @param whiskerWidth default = 0.0.
+ *  A multiplicative factor applied to the box width to draw horizontal segments on whiskers.
+ * @param coef default = 1.5.
  *  Length of the whiskers as multiple of IQR.
- * @param colorBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "color".
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
- * @param fillBy String, {"fill", "color", "paint_a", "paint_b", "paint_c"}, default = "fill".
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
- * @param lower lower hinge, 25% quantile
- * @param middle median, 50% quantile
- * @param upper upper hinge, 75% quantile
- * @param ymin lower whisker = smallest observation greater than or equal to lower hinge - 1.5 * IQR
- * @param ymax upper whisker = largest observation less than or equal to upper hinge + 1.5 * IQR
- * @param width width of boxplot. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the boxes.
- * @param alpha transparency level of a layer
- *     Understands numbers between 0 and 1.
- * @param color color of a geometry lines
- * @param fill color of geometry filling
- * @param size lines width
- * @param linetype type of the line of border
- *     Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *     5 = "longdash", 6 = "twodash"
- * @param mapping set of aesthetic mappings created by aes() function.
- *     Aesthetic mappings describe the way that variables in the data are
- *     mapped to plot "aesthetics".
+ * @param lower Lower hinge, 25% quantile.
+ * @param middle Median, 50% quantile.
+ * @param upper Upper hinge, 75% quantile.
+ * @param ymin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR
+ * @param ymax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR
+ * @param width Width of boxplot. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the boxes.
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fill Color of geometry filling.
+ *  String in the following formats: 
+ *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red") 
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param size Lines width.
+ * @param linetype Type of the line of border.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash".
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
  */
 class geomBoxplot(
     data: Map<*, *>? = null,
