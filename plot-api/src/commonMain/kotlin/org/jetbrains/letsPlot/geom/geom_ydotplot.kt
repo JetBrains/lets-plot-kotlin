@@ -34,7 +34,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
@@ -74,7 +74,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - color name (e.g. "red") 
  *
  *  Or an instance of the `java.awt.Color` class.
- * @param size Lines width.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").

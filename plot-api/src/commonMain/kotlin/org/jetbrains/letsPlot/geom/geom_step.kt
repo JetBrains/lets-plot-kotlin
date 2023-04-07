@@ -34,7 +34,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone` .
+ *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param direction "hv" or "HV" stands for horizontal then vertical (default); "vh" or "VH" stands for vertical then horizontal.
  * @param x X-axis value.
