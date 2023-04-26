@@ -24,7 +24,26 @@
     </tr>
 </table>
 
-- [Overview](#overview)
+
+**Lets-Plot for Kotlin** is a Kotlin API for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
+open-source plotting library for statistical data.
+
+Lets-Plot Kotlin API is built on the principles of layered graphics first described in the Leland Wilkinson
+work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
+and later implemented in the [ggplot2](https://ggplot2.tidyverse.org/) package for R.
+
+> This grammar [...] is made up of a set of independent components that can be composed in many different ways. This
+> makes [it] very powerful because you are not limited to a set of pre-specified graphics, but you can create new
+> graphics
+> that are precisely tailored for your problem.
+> - Hadley Wickham, "[ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html)"
+
+Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
+for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
+
+<a name="toc" id="toc"></a>
+## Table of Contents
+
 - [Lets-Plot in Jupyter with Kotlin Kernel](#jupyter)
     - [Installation](#inst)
     - ["Line Magics"](#line-magics)
@@ -53,22 +72,6 @@
 
 <a name="Overview" id="overview"></a>
 ## Overview
-
-**Lets-Plot for Kotlin** is a Kotlin API for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
-open-source plotting library for statistical data.
-
-Lets-Plot Kotlin API is built on the principles of layered graphics first described in the Leland Wilkinson
-work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
-and later implemented in the [ggplot2](https://ggplot2.tidyverse.org/) package for R.
-
-> This grammar [...] is made up of a set of independent components that can be composed in many different ways. This
-> makes [it] very powerful because you are not limited to a set of pre-specified graphics, but you can create new
-> graphics
-> that are precisely tailored for your problem.
-> - Hadley Wickham, "[ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html)"
-
-Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
-for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
 
 <a id="jupyter"></a>
 ## Lets-Plot in Jupyter with Kotlin Kernel
