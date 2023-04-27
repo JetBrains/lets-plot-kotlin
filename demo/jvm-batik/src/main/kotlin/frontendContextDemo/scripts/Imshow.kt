@@ -15,7 +15,7 @@ object Imshow {
     fun main(args: Array<String>) {
         ScriptInBatikContext.eval("Imshow") {
 
-            // Cases identical to onec in org.jetbrains.letsPlot.ImshowTest
+            // Cases taken from org.jetbrains.letsPlot.ImshowTest
             val imdataList = listOf(
                 // simple test
                 RasterData.create(
