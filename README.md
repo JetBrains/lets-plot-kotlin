@@ -49,19 +49,17 @@ for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
 <table>
     <tr>
         <td>
-            <a href="https://ggplot2-book.org/index.html" target="_blank" style="display:inline-block; width: 150px"> 
+            <a href="https://ggplot2-book.org/index.html" target="_blank"> 
                <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/readme-update/docs/images/ggplot2-elegant-graphics-for-data-analysis.jpeg" 
                     width="150" height="228" alt="book cover">
             </a>
         </td>
         <td>
-            <div style="display:inline-block; width: 400px">
             <p>Lets-Plot <a href="https://lets-plot.org/kotlin">Kotlin API</a> is largely based on the API provided by 
             <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package well-known to data scientists who use R.</p>
             <p>To learn more about the grammar of graphics, we recommend an excellent book called 
             <a href="https://ggplot2-book.org/index.html" target="_blank">“ggplot2: Elegant Graphics for Data Analysis”</a>.</p> 
             <p>This will be a good prerequisite for further exploration of the Lets-Plot library.</p>
-        </div>
         </td>  
     </tr>
 </table>
