@@ -29,23 +29,6 @@
 open-source plotting library for statistical data,<br> which is built on the principles of layered graphics first described in the Leland Wilkinson
 work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics).
 
-Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
-for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
-
-<div >
-    <a href="https://ggplot2-book.org/index.html" target="_blank" style="display:inline-block; width: 165px" > 
-       <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/readme-update/docs/images/ggplot2-elegant-graphics-for-data-analysis.jpeg" 
-            width="150" height="228" alt="book cover">
-    </a>
-    <div style="display:inline-block; width: 400px; vertical-align: top">
-        <p>Lets-Plot <a href="https://lets-plot.org/kotlin">Kotlin API</a> is largely based on the API provided by 
-        <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package well-known to data scientists who use R.</p>
-        <p>To learn more about the grammar of graphics, we recommend an excellent book called 
-        <a href="https://ggplot2-book.org/index.html" target="_blank">“ggplot2: Elegant Graphics for Data Analysis”</a>.</p> 
-        <p>This will be a good prerequisite for further exploration of the Lets-Plot library.</p>
-    </div>
-</div>
-
 <table>
     <tr>
         <td>
@@ -63,6 +46,10 @@ for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
         </td>  
     </tr>
 </table>
+
+Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
+for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
+
 
 
 <a name="toc" id="toc"></a>
