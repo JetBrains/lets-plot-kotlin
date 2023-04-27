@@ -25,24 +25,39 @@
 </table>
 
 
-**Lets-Plot for Kotlin** is a Kotlin API for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
-open-source plotting library for statistical data.
-
-Lets-Plot Kotlin API is built on the principles of layered graphics first described in the Leland Wilkinson
-work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
-and later implemented in the [ggplot2](https://ggplot2.tidyverse.org/) package for R.
-
-> This grammar [...] is made up of a set of independent components that can be composed in many different ways. This
-> makes [it] very powerful because you are not limited to a set of pre-specified graphics, but you can create new
-> graphics
-> that are precisely tailored for your problem.
-> - Hadley Wickham, "[ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html)"
+**Lets-Plot for Kotlin** is a <a href="https://lets-plot.org/kotlin">Kotlin API</a> for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
+open-source plotting library for statistical data,<br> which is built on the principles of layered graphics first described in the Leland Wilkinson
+work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics).
 
 Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
 for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
 
+<div >
+    <a href="https://ggplot2-book.org/index.html" target="_blank" style="display:inline-block; width: 165px" > 
+       <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/readme-update/docs/images/ggplot2-elegant-graphics-for-data-analysis.jpeg" 
+            width="150" height="228" alt="book cover">
+    </a>
+    <div style="display:inline-block; width: 400px; vertical-align: top">
+        <p>Lets-Plot <a href="https://lets-plot.org/kotlin">Kotlin API</a> is largely based on the API provided by 
+        <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package well-known to data scientists who use R.</p>
+        <p>To learn more about the grammar of graphics, we recommend an excellent book called 
+        <a href="https://ggplot2-book.org/index.html" target="_blank">“ggplot2: Elegant Graphics for Data Analysis”</a>.</p> 
+        <p>This will be a good prerequisite for further exploration of the Lets-Plot library.</p>
+    </div>
+</div>
+
+
 <a name="toc" id="toc"></a>
 ## Table of Contents
+
+- [Lets-Plot in Notebook](#lp-in-notebook)
+    - [Quickstart](#quickstart)
+        - [Installation](#inst)
+        - ["Line Magics"](#line-magics)
+        - [Quick start with Jupyter](#start)
+        - [Example notebooks](#jupyter-examples)
+    - [Lets-Plot-Kotlin in Datalore notebooks](#datalore)
+    - [Lets-Plot in JVM and Kotlin/JS application](#jvm)
 
 - [Lets-Plot in Jupyter with Kotlin Kernel](#jupyter)
     - [Installation](#inst)
@@ -70,8 +85,37 @@ for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
 - [License](#license)
                       
 
-<a name="Overview" id="overview"></a>
-## Overview
+<a id="lp-in-notebook"></a>
+## Lets-Plot in Notebook
+
+<a id="quickstart"></a>
+### Quickstart
+
+Inside [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), 
+[Datalore](https://datalore.jetbrains.com/) or 
+[Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme):
+
+```
+%use lets-plot
+```     
+
+```kotlin
+val rand = java.util.Random()
+val data = mapOf(
+    "rating" to List(200) { rand.nextGaussian() } + List(200) { rand.nextGaussian() * 1.5 + 1.5 },
+    "cond" to List(200) { "A" } + List(200) { "B" }
+)
+
+var p = letsPlot(data)
+p += geomDensity(color = "dark_green", alpha = .3) { x = "rating"; fill = "cond" }
+p + ggsize(700, 350)
+```
+
+<img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/quickstart.png" alt="Couldn't load quickstart.png" width="500" height="270"/>
+<br/>
+
+See the Quickstart notebook in [Datalore](https://view.datalore.io/notebook/Ybcyrh7ifkvTQVxbTMxaTp) or
+[Jupyter nbviewer](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb)
 
 <a id="jupyter"></a>
 ## Lets-Plot in Jupyter with Kotlin Kernel
