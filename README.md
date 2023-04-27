@@ -49,7 +49,7 @@ for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
 <table>
     <tr>
         <td>
-            <a href="https://ggplot2-book.org/index.html" target="_blank" > 
+            <a href="https://ggplot2-book.org/index.html" target="_blank" style="display:inline-block; width: 150px"> 
                <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/readme-update/docs/images/ggplot2-elegant-graphics-for-data-analysis.jpeg" 
                     width="150" height="228" alt="book cover">
             </a>
