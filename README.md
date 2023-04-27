@@ -55,9 +55,9 @@ for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
             </a>
         </td>
         <td>
-            <p>Lets-Plot <a href="https://lets-plot.org/kotlin">Kotlin API</a> is largely based on the API provided by 
+            <p>Lets-Plot <a href="https://lets-plot.org/kotlin">Kotlin API</a> is largely based on the API<br>provided by 
             <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package well-known to data scientists who use R.</p>
-            <p>To learn more about the grammar of graphics, we recommend an excellent book called 
+            <p>To learn more about the grammar of graphics,<br>we recommend an excellent book called<br> 
             <a href="https://ggplot2-book.org/index.html" target="_blank">“ggplot2: Elegant Graphics for Data Analysis”</a>.</p> 
             <p>This will be a good prerequisite for further exploration of the Lets-Plot library.</p>
         </td>  
