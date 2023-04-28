@@ -106,7 +106,7 @@ Include all the necessary Lets-Plot boilerplate code to a notebook using the fol
 This will apply the lets-plot `library descriptor` bundled with the Kotlin Jupyter Kernel installed in your environment.
 
 The `%useLatestDescriptors` line magic will force Kotlin Kernel to pull and apply **all** the latest
-`library descriptors` from [Kotlin Jupyter Libraries](https://github.com/Kotlin/kotlin-jupyter-libraries) repository.
+`library descriptors` from the [Kotlin Jupyter Libraries](https://github.com/Kotlin/kotlin-jupyter-libraries) repository.
 
 You can override lets-plot `library descriptor` settings using the lets-plot line magic parameters:
 
@@ -134,7 +134,7 @@ using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
 * A quick introduction to the _Grammar of Graphics_ and Lets-Plot Kotlin API: [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb) 
 
-* Lets-Plot features: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md)
+* Lets-Plot Kotlin API docs: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md)
 
 * Lets-Plot Kotlin API reference: https://lets-plot.org/kotlin
 
