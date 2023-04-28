@@ -33,7 +33,7 @@ work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_G
     <tr>
         <td>
             <a href="https://ggplot2-book.org/index.html" target="_blank"> 
-               <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/readme-update/docs/images/ggplot2-elegant-graphics-for-data-analysis.jpeg" 
+               <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/ggplot2-elegant-graphics-for-data-analysis.jpeg" 
                     width="150" height="228" alt="book cover">
             </a>
         </td>
@@ -71,7 +71,7 @@ p += geomDensity(color = "dark_green", alpha = .3) { x = "rating"; fill = "cond"
 p + ggsize(700, 350)
 ```
 
-<img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/readme-update/docs/images/quickstart_notebook.png" alt="Couldn't load quickstart_notebook.png" width="523" height="261"/>
+<img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/quickstart_notebook.png" alt="Couldn't load quickstart_notebook.png" width="523" height="261"/>
 <br/>
 
 See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/notebook/aTA9lQnPkRwdCzT6uy95GZ) or
