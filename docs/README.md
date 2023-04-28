@@ -66,6 +66,8 @@ ggsave(p, "density.png")
 
 See `ggsave()` [documentation](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.export/ggsave.html)
 for more information about the function arguments and default values.
+        
+Example notebook: [ggsave demo](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/export_to_file.ipynb).
 
 <a id="geotools"></a>
 ### GeoTools support
