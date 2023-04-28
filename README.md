@@ -49,7 +49,7 @@ work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_G
 
 
 <a id="quickstart"></a>
-## Quickstart
+### Quickstart
 
 Inside [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
 [Datalore](https://datalore.jetbrains.com/) or
