@@ -24,72 +24,80 @@
     </tr>
 </table>
 
-- [Overview](#overview)
-- [Lets-Plot in Jupyter with Kotlin Kernel](#jupyter)
-    - [Installation](#inst)
-    - ["Line Magics"](#line-magics)
-    - [Quick start with Jupyter](#start)
-    - [Example notebooks](#jupyter-examples)
 
-- [Lets-Plot-Kotlin in Datalore notebooks](#datalore)
+**Lets-Plot for Kotlin** is a <a href="https://lets-plot.org/kotlin">Kotlin API</a> for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
+open-source plotting library for statistical data,<br> which is built on the principles of layered graphics first described in the Leland Wilkinson
+work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics).
 
-- [Lets-Plot in JVM and Kotlin/JS application](#jvm)
+<table>
+    <tr>
+        <td>
+            <a href="https://ggplot2-book.org/index.html" target="_blank"> 
+               <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/readme-update/docs/images/ggplot2-elegant-graphics-for-data-analysis.jpeg" 
+                    width="150" height="228" alt="book cover">
+            </a>
+        </td>
+        <td>
+            <p>Lets-Plot <a href="https://lets-plot.org/kotlin">Kotlin API</a> is largely based on the API<br>provided by 
+            <a href="https://ggplot2.tidyverse.org/">ggplot2</a> package well-known to data scientists who use R.</p>
+            <p>To learn more about the <i>Grammar of Graphics</i>,<br>we recommend an excellent book called<br> 
+            <a href="https://ggplot2-book.org/index.html" target="_blank">“ggplot2: Elegant Graphics for Data Analysis”</a>.</p> 
+            <p>This will be a good prerequisite for further exploration of the Lets-Plot library.</p>
+        </td>  
+    </tr>
+</table>
 
-- [Further Reading](#further_reading)
-    - [User guide and API reference](#guide)
-    - [Tooltip customization](#tooltip-customization)
-    - [Formatting](#formatting)
-    - [Data sampling](#sampling)
-    - [Saving plot to file](#export)
-    - [GeoTools support](#geotools)
+
+<a id="quickstart"></a>
+## Quickstart
+
+Inside [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
+[Datalore](https://datalore.jetbrains.com/) or
+[Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme):
+
+```
+%use lets-plot
+```     
+
+```kotlin
+val rand = java.util.Random()
+val data = mapOf(
+    "rating" to List(200) { rand.nextGaussian() } + List(200) { rand.nextGaussian() * 1.5 + 1.5 },
+    "cond" to List(200) { "A" } + List(200) { "B" }
+)
+
+var p = letsPlot(data)
+p += geomDensity(color = "dark_green", alpha = .3) { x = "rating"; fill = "cond" }
+p + ggsize(700, 350)
+```
+
+<img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/readme-update/docs/images/quickstart_notebook.png" alt="Couldn't load quickstart_notebook.png" width="523" height="261"/>
+<br/>
+
+See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/notebook/aTA9lQnPkRwdCzT6uy95GZ) or
+[Jupyter nbviewer](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb).
+
+
+<a name="toc" id="toc"></a>
+## Table of Contents
+
+- [Lets-Plot in Notebook](#in-notebook)
+- [Lets-Plot in JVM and Kotlin/JS Application](#in-jvm-js)
+- [Documentation](#documentation)
 
 - [What is new in 4.3.0](#new)
 - [Migrating from v3 to v4](#migrating4)
-
-- [Change log](#change_log)
+- [Change Log](#change_log)
 - [Code of Conduct](#CoC)
 - [License](#license)
                       
 
-<a name="Overview" id="overview"></a>
-## Overview
+<a id="in-notebook"></a>
+## Lets-Plot in Notebook
 
-**Lets-Plot for Kotlin** is a Kotlin API for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
-open-source plotting library for statistical data.
-
-Lets-Plot Kotlin API is built on the principles of layered graphics first described in the Leland Wilkinson
-work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics)
-and later implemented in the [ggplot2](https://ggplot2.tidyverse.org/) package for R.
-
-> This grammar [...] is made up of a set of independent components that can be composed in many different ways. This
-> makes [it] very powerful because you are not limited to a set of pre-specified graphics, but you can create new
-> graphics
-> that are precisely tailored for your problem.
-> - Hadley Wickham, "[ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html)"
-
-Read [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
-for quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_.
-
-<a id="jupyter"></a>
-## Lets-Plot in Jupyter with Kotlin Kernel
-
-<a id="inst"></a>
-#### Installation
-
-In Jupyter notebook with a Kotlin Kernel, Lets-Plot library is available out-of-the-box. To install Kotlin Kernel and
-OpenJDK into a Conda environment, run the following command:
-
-```shell script
-conda install kotlin-jupyter-kernel -c jetbrains
-```                                             
-
-For more information about Jupyter Kotlin kernel, see
-the [Kotlin kernel for Jupyter/iPython](https://github.com/Kotlin/kotlin-jupyter) project.
-
-<a id="line-magics"></a>
 #### "Line Magics"
 
-You can include all the necessary Lets-Plot boilerplate code to a notebook using the following "line magic":
+Include all the necessary Lets-Plot boilerplate code to a notebook using the following "line magic":
 
 ```
 %use lets-plot
@@ -97,173 +105,42 @@ You can include all the necessary Lets-Plot boilerplate code to a notebook using
 
 This will apply the lets-plot `library descriptor` bundled with the Kotlin Jupyter Kernel installed in your environment.
 
-The `%useLatestDescriptors` line magic will force Kotlin Kernel to pull and apply the latest
-repository version of all `library descriptors`.
+The `%useLatestDescriptors` line magic will force Kotlin Kernel to pull and apply **all** the latest
+`library descriptors` from the [Kotlin Jupyter Libraries](https://github.com/Kotlin/kotlin-jupyter-libraries) repository.
 
-You can override lets-plot `library descriptor` settings using the lets-plot line magic parameters, like:
+You can override lets-plot `library descriptor` settings using the lets-plot line magic parameters:
 
 ```
 %use lets-plot(api=1.1.0, lib=1.5.4, js=1.5.4, isolatedFrame=false)
 ```                                                                 
-
-Where:
-
-- `api` - version of Lets-Plot Kotlin API.
-- `lib` - version of Lets-Plot library (JAR-s).
-- `js`  - version of Lets-PLot JavaScript bundle.
+- `api` - the version of Lets-Plot Kotlin API.
+- `lib` - the version of Lets-Plot library (JAR-s).
+- `js`  - the version of Lets-PLot JavaScript bundle.
 - `isolatedFrame` - If `false`: load JS just once per notebook (default in Jupyter).
-  If `true`: include Lets-Plot JS in each output (default in [Datalore notebooks](#datalore))
-
-See: [Line Magics](https://github.com/Kotlin/kotlin-jupyter#line-magics) documentation in the Kotlin Jupyter project for
-more details.
-
-<a id="start"></a>
-#### Quickstart in Jupyter
-
-- In [Jupyter](https://jupyter-notebook.readthedocs.io/en/stable/index.html), create a new notebook and choose the
-  Kotlin kernel (see
-  the [instructions](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html?highlight=new#creating-a-new-notebook-document)
-  for more details on how to select a kernel).
-
-- Add the following code to a Jupyter notebook:
-
-```
-%use lets-plot
-```     
-
-```
-val rand = java.util.Random()
-val data = mapOf (
-    "rating" to List(200) { rand.nextGaussian() } + List(200) { rand.nextGaussian() * 1.5 + 1.5 },
-    "cond" to List(200) { "A" } + List(200) { "B" }
-)
-
-var p = letsPlot(data)
-p += geomDensity(color="dark_green", alpha=.3) {x="rating"; fill="cond"}
-p + ggsize(700, 350)
-```
-
-- Execute the added code to evaluate the plotting capabilities of Lets-Plot.
-
-<img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/quickstart.png" alt="Couldn't load quickstart.png" width="500" height="270"/>
-<br/>
-<a href="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb" 
-   target="_parent"> 
-   <img src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.png" 
-        width="109" height="20">
-</a>
-<br/>
+  If `true`: include Lets-Plot JS in each output (default in [Datalore](https://datalore.jetbrains.com/) notebooks).
 
 
-<a id="jupyter-examples"></a>
-#### Example of notebooks
+<a id="in-jvm-js"></a>
+## Lets-Plot in JVM and Kotlin/JS Application
 
-Try the following [examples](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md) to study
-features of the `Lets-Plot` library.
-     
-
-<a id="datalore"></a>
-## Lets-Plot-Kotlin in Datalore notebooks
-
-[Datalore](https://datalore.jetbrains.com/) is an online data science notebook by JetBrains.
-
-In Datalore notebook you can run Kotlin code directly in your browser. Many popular Kotlin libraries are preinstalled
-and readily available
-(see the list of [supported Kotlin libraries](https://github.com/Kotlin/kotlin-jupyter#supported-libraries)).
-
-See [Quickstart in Datalore](https://view.datalore.io/notebook/Ybcyrh7ifkvTQVxbTMxaTp) example notebook to learn more
-about Kotlin support in Datalore.
-
-Watch the [Datalore Getting Started Tutorial](https://youtu.be/MjvFQxqNSe0) video for a quick introduction to Datalore.
-
-
-<a id="jvm"></a>
-## Lets-Plot in JVM and Kotlin/JS application
-
-Apart from Jupyter notebooks, Lets-Plot library and Kotlin API enables embedding plots into a JVM and a Kotlin/JS
-application.
-
-See [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md) to learn more about
-creating plots in JVM or Kotlin/JS environment.
+To learn more about creating plots in JVM or Kotlin/JS environment
+read [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md). 
 
 In the [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository you will find examples of
 using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
+<a id="documentation"></a>
+## Documentation
 
-<a id="further_reading"></a>
-## Further Reading
+* A quick introduction to the _Grammar of Graphics_ and Lets-Plot Kotlin API: [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb) 
 
-<a id="guide"></a>
-#### User guide and API reference
+* Lets-Plot Kotlin API docs: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md)
 
-- The User Guide in the form of Jupyter
-  notebook: [user_guide.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb)
-  .
+* Lets-Plot Kotlin API reference: https://lets-plot.org/kotlin
 
-- Lets-Plot Kotlin
-  API [reference](https://lets-plot.org/kotlin/index.html).
+* The "Example Notebooks" reference: [examples.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md)
 
-<a id="tooltip-customization"></a>
-#### Tooltip customization
-
-You can customize the content, values formatting and appearance of tooltip for any geometry layer in your plot.
-
-Learn more: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
-
-<a id="formatting"></a>
-#### Formatting
-
-Formatting of numeric and date-time values in tooltips, legends, on the axes and *text geometry* layer.
-
-Learn more: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md).
-
-<a id="sampling"></a>
-#### Data sampling
-
-Sampling is a special technique of data transformation, which helps to deal with large datasets and overplotting.
-
-Learn more: [Data Sampling](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
-
-<a id="export"></a>
-#### Saving plot to a file
-
-The `ggsave()` function is a convenient way of saving a plot or a GGBunch object to a file.
-
-The supported export formats are: `SVG, HTML, PNG, JPEG and TIFF`.
-
-For example, the code below will save plot as a PNG image to the file `<user dir>//lets-plot-images/density.png`:
-
-```
-%use lets-plot
-
-val rand = java.util.Random(123)
-val n = 400
-val data = mapOf (
-    "rating" to List(n/2) { rand.nextGaussian() } + List(n/2) { rand.nextGaussian() * 1.5 + 1.5 },
-    "cond" to List(n/2) { "A" } + List(n/2) { "B" }
-)
-
-var p = letsPlot(data) +
-        geomDensity { x = "rating"; color = "cond" } + ggsize(500, 250)
-        
-ggsave(p, "density.png")        
-``` 
-
-<img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/ggsave_demo.png" alt="Couldn't load ggsave_demo.png" width="500" height="250"/>
-<br/>
-
-See `ggsave()` [documentation](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.export/ggsave.html)
-for more information about the function arguments and default values.
-
-<a id="geotools"></a>
-#### GeoTools support
-
-[GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
-
-Lets-Plot supports visualization of a set of `SimpleFeature`-s stored in `SimpleFeatureCollection`, as well as
-individual `Geometry` and `ReferencedEnvelope` objects.
-
-Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
+* Example notebooks in the Binder: [mybinder.org](https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/v4.3.0demos?filepath=docs/examples/jupyter-notebooks/)
 
 
 <a id="new"></a>
