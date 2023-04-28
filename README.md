@@ -119,7 +119,7 @@ p + ggsize(700, 350)
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/quickstart.png" alt="Couldn't load quickstart.png" width="500" height="270"/>
 <br/>
 
-See the Quickstart notebook in [Datalore](https://view.datalore.io/notebook/Ybcyrh7ifkvTQVxbTMxaTp) or
+See the Quickstart notebook in [Datalore](https://datalore.jetbrains.com/view/notebook/aTA9lQnPkRwdCzT6uy95GZ) or
 [Jupyter nbviewer](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb)
 
 <a id="jupyter"></a>
