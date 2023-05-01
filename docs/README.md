@@ -72,6 +72,10 @@ Example notebook: [ggsave demo](https://nbviewer.org/github/JetBrains/lets-plot-
 <a id="geotools"></a>
 ### GeoTools support
 
+<img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/geotools_thumb.png" alt="geotools_thumb.png" width="74" height="123"/>
+<br/>
+
+
 [GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
 
 Lets-Plot supports visualization of a set of `SimpleFeature`-s stored in `SimpleFeatureCollection`, as well as
