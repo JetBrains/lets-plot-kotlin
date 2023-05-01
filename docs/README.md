@@ -62,7 +62,6 @@ ggsave(p, "density.png")
 ``` 
 
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/ggsave_demo.png" alt="Couldn't load ggsave_demo.png" width="500" height="250"/>
-<br/>
 
 See `ggsave()` [documentation](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.export/ggsave.html)
 for more information about the function arguments and default values.
@@ -73,8 +72,6 @@ Example notebook: [ggsave demo](https://nbviewer.org/github/JetBrains/lets-plot-
 ### GeoTools support
 
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/geotools_thumb.png" alt="geotools_thumb.png" width="74" height="123"/>
-<br/>
-
 
 [GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
 
