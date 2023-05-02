@@ -50,7 +50,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param outlierFill Fill aesthetic for outliers.
  * @param outlierShape Shape aesthetic for outliers.
  * @param outlierSize Size aesthetic for outliers.
- * @param outlierStroke Width of the shape border. Applied only to the shapes having border.
+ * @param outlierStroke Default width of the border for outliers.
  * @param varWidth default = false. If false make a standard box plot.
  *  If true, boxes are drawn with widths proportional to the square-roots of the number of
  *  observations in the groups.

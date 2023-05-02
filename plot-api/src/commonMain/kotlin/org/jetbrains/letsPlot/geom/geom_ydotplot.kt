@@ -59,7 +59,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param stackGroups Whether dots should be stacked across groups.
  *  In effect is replacemets for option `position = positionStack()`.
  *  Note: unlike other geoms, `dotplot` doesn't have `position` option.
- * @param stroke Width of the shape border. Applied only to the shapes having border.
+ * @param stroke Width of the dot border.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
