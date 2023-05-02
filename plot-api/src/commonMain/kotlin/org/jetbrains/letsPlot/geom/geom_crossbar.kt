@@ -92,7 +92,6 @@ class geomCrossbar(
     override val color: Any? = null,
     override val fill: Any? = null,
     override val linetype: Any? = null,
-    override val shape: Any? = null,
     override val size: Number? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,

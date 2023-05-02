@@ -18,7 +18,6 @@ interface CrossBarAesthetics : OptionsCapsule {
     val color: Any?
     val fill: Any?
     val linetype: Any?
-    val shape: Any?
     val size: Any?
 
     override fun seal() = Options.of(
@@ -31,7 +30,6 @@ interface CrossBarAesthetics : OptionsCapsule {
         "color" to color,
         "fill" to fill,
         "linetype" to linetype,
-        "shape" to shape,
         "size" to size
     )
 }

@@ -17,7 +17,6 @@ class CrossBarMapping(
     override var color: Any? = null,
     override var fill: Any? = null,
     override var linetype: Any? = null,
-    override var shape: Any? = null,
     override var size: Any? = null,
     override var group: Any? = null,
     override var paint_a: Any? = null,
