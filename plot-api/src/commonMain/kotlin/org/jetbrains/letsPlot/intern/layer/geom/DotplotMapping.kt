@@ -11,6 +11,7 @@ class DotplotMapping(
     override var x: Any? = null,
     override var binWidth: Any? = null,
     override var stackSize: Any? = null,
+    override var stroke: Any? = null,
     override var alpha: Any? = null,
     override var color: Any? = null,
     override var fill: Any? = null,

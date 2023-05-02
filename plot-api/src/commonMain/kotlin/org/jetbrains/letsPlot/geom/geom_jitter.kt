@@ -65,6 +65,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Or an instance of the `java.awt.Color` class.
  * @param shape Shape of the point.
  * @param size Size of the point.
+ * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").

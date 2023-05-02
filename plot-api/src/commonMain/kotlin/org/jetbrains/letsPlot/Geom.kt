@@ -436,6 +436,7 @@ object Geom {
         override val outlierFill: Any? = null,
         override val outlierShape: Any? = null,
         override val outlierSize: Number? = null,
+        override val outlierStroke: Number? = null,
         override val fatten: Number? = null,
         override val whiskerWidth: Number? = null,
         override val alpha: Number? = null,
@@ -530,6 +531,7 @@ object Geom {
         override val linetype: Any? = null,
         override val shape: Any? = null,
         override val size: Number? = null,
+        override val stroke: Number? = null,
         override val colorBy: String? = null,
         override val fillBy: String? = null,
         mapping: PointRangeMapping.() -> Unit = {}
@@ -676,6 +678,7 @@ object Geom {
         override val fill: Any? = null,
         override val shape: Any? = null,
         override val size: Number? = null,
+        override val stroke: Number? = null,
         override val colorBy: String? = null,
         override val fillBy: String? = null,
         mapping: QQMapping.() -> Unit = {}
