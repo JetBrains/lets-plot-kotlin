@@ -49,12 +49,12 @@ All coordinates must be in decimal degree units, in "WGS 84" coordinates.
 <a id="maps-in-jvm"></a> 
 ### Creating maps in JVM-based applications
 
-For general information on using the Lets-Plot library in JVM-based application, see: [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md) 
+For general information on using the Lets-Plot library in JVM-based application, see: [LPK_APP.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LPK_APP.md)
 
 <a id="maven-artifacts"></a> 
 #### Maven artifacts
 
-In addition to the Maven artifacts that are [required](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md#creating-plots-in-jvm-based-applications) 
+In addition to the Maven artifacts that are [required](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LPK_APP.md#project-dependencies) 
 for regular plots,
 the artifact `lets-plot-kotlin-geotools` must be included to make the `toSpatialDataset()` method available.
 

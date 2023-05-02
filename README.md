@@ -124,7 +124,7 @@ You can override lets-plot `library descriptor` settings using the lets-plot lin
 ## Lets-Plot in JVM and Kotlin/JS Application
 
 To learn more about creating plots in JVM or Kotlin/JS environment
-read [README_DEV.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/README_DEV.md). 
+read [LPK_APP.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LPK_APP.md). 
 
 In the [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository you will find examples of
 using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.

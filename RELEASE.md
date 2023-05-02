@@ -8,7 +8,7 @@
 
 - remove _"-alphaN"_ qualifier for the 'version' property.
 
-> Also, update the artifacts' version in [README_DEV.md](README_DEV.md).
+> Also, update the artifacts' version in [LPK_APP.md](LPK_APP.md).
 
 ##### 3. Build and release JVM artifacts to Maven Central
 
