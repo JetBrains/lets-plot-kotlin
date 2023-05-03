@@ -33,8 +33,6 @@ class statContour(
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
-    override val speed: Number? = null,
-    override val flow: Number? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,
     override val colorBy: String? = null,

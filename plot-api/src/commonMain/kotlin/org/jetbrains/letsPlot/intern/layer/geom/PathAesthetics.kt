@@ -15,8 +15,6 @@ interface PathAesthetics : OptionsCapsule {
     val color: Any?
     val linetype: Any?
     val size: Any?
-    val speed: Any?
-    val flow: Any?
 
     override fun seal() = Options.of(
         "x" to x,
@@ -24,8 +22,6 @@ interface PathAesthetics : OptionsCapsule {
         "alpha" to alpha,
         "color" to color,
         "linetype" to linetype,
-        "size" to size,
-        "speed" to speed,
-        "flow" to flow
+        "size" to size
     )
 }

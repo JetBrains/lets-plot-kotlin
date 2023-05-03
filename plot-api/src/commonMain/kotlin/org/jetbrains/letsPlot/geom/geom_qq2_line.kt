@@ -72,8 +72,6 @@ class geomQQ2Line(
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
-    override val speed: Number? = null,
-    override val flow: Number? = null,
     override val quantiles: Pair<Number, Number>? = null,
     override val colorBy: String? = null,
     mapping: PathMapping.() -> Unit = {}

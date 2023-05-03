@@ -17,8 +17,6 @@ class Density2dMapping(
     override var color: Any? = null,
     override var linetype: Any? = null,
     override var size: Any? = null,
-    override var speed: Any? = null,
-    override var flow: Any? = null,
     override var weight: Any? = null,
     override var group: Any? = null,
     override var paint_a: Any? = null,
