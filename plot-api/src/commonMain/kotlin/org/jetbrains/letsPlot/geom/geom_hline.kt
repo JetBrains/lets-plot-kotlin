@@ -38,6 +38,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
+ *  Possible values: "x", "y".
  * @param yintercept The value of y at the point where the line crosses the y-axis.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
@@ -64,6 +66,7 @@ class geomHLine(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    orientation: String? = null,
     @Suppress("SpellCheckingInspection")
     override val yintercept: Number? = null,
     override val alpha: Number? = null,
@@ -83,7 +86,8 @@ class geomHLine(
         position = position,
         showLegend = showLegend,
         sampling = sampling,
-        tooltips = tooltips
+        tooltips = tooltips,
+        orientation = orientation
     ) {
     override fun seal() = super<HLineAesthetics>.seal() +
             super<WithColorOption>.seal()
