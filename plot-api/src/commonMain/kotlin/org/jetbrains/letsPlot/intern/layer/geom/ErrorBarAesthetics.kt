@@ -13,6 +13,10 @@ interface ErrorBarAesthetics : OptionsCapsule {
     val ymin: Any?
     val ymax: Any?
     val width: Any?
+    val y: Any?
+    val xmin: Any?
+    val xmax: Any?
+    val height: Any?
     val alpha: Any?
     val color: Any?
     val linetype: Any?
@@ -23,6 +27,10 @@ interface ErrorBarAesthetics : OptionsCapsule {
         "ymin" to ymin,
         "ymax" to ymax,
         "width" to width,
+        "y" to y,
+        "xmin" to xmin,
+        "xmax" to xmax,
+        "height" to height,
         "alpha" to alpha,
         "color" to color,
         "linetype" to linetype,
