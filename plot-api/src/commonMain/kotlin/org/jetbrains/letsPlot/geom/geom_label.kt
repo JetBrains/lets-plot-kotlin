@@ -60,14 +60,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param fill Background color of the label.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *

@@ -58,14 +58,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  5 = "longdash", 6 = "twodash".
  * @param color Color of geometry.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *
  *  Or an instance of the `java.awt.Color` class.
- * @param fill Color of geometry filling.
+ * @param fill Fill color.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *

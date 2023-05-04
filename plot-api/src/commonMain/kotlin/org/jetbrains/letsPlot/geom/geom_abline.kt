@@ -43,7 +43,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *
