@@ -60,6 +60,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param dotSize default = 1.0.
  *  The diameter of the dots relative to binWidth.
  * @param stackGroups Stack dots across groups when method = "histodot".
+ * @param stroke Width of the dot border.
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
  * @param color Color of geometry lines.
@@ -101,6 +102,7 @@ class geomDotplot(
     override val stackRatio: Number? = null,
     override val dotSize: Number? = null,
     override val stackGroups: Boolean? = null,
+    override val stroke: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,

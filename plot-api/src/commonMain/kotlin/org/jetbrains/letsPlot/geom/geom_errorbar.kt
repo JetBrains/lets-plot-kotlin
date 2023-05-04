@@ -20,10 +20,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Displays error bars defined by the upper and lower values.
+ * Represents a vertical interval, defined by `x`, `ymin`, `ymax`,
+ * or a horizontal interval, defined by `y`, `xmin`, `xmax`.
  *
  * ## Examples
  *
  * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+ *
+ * - [horizontal_error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.1/horizontal_error_bars.ipynb)
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
@@ -38,10 +42,15 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- * @param x X-axis coordinates.
- * @param ymin Lower bound for error bar.
- * @param ymax Upper bound for error bar.
- * @param width Width of a bar. Typically ranges between 0 and 1. 
+ * @param x X-axis coordinates for the vertical error bar.
+ * @param ymin Lower bound for the vertical error bar.
+ * @param ymax Upper bound for the vertical error bar.
+ * @param width Width of the whiskers of the vertical error bar. Typically ranges between 0 and 1.
+ *  Values that are greater than 1 lead to overlapping of the bars.
+ * @param y Y-axis coordinates for the horizontal error bar.
+ * @param xmin Lower bound for the horizontal error bar.
+ * @param xmax Upper bound for the horizontal error bar.
+ * @param height Height of the whiskers of the horizontal error bar. Typically ranges between 0 and 1.
  *  Values that are greater than 1 lead to overlapping of the bars.
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
@@ -73,6 +82,10 @@ class geomErrorBar(
     override val ymin: Number? = null,
     override val ymax: Number? = null,
     override val width: Number? = null,
+    override val y: Number? = null,
+    override val xmin: Number? = null,
+    override val xmax: Number? = null,
+    override val height: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,

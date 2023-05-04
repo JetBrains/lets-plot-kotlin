@@ -14,6 +14,7 @@ interface BoxplotParameters : OptionsCapsule {
     val outlierFill: Any?
     val outlierShape: Any?
     val outlierSize: Number?
+    val outlierStroke: Number?
     val fatten: Number?
     val whiskerWidth: Number?
 
@@ -22,6 +23,7 @@ interface BoxplotParameters : OptionsCapsule {
         Option.Geom.BoxplotOutlier.FILL to outlierFill,
         Option.Geom.BoxplotOutlier.SHAPE to outlierShape,
         Option.Geom.BoxplotOutlier.SIZE to outlierSize,
+        Option.Geom.BoxplotOutlier.STROKE to outlierStroke,
         Option.Geom.Boxplot.FATTEN to fatten,
         Option.Geom.Boxplot.WHISKER_WIDTH to whiskerWidth
     )

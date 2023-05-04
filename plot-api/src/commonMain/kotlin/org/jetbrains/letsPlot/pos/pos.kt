@@ -46,6 +46,22 @@ fun positionDodge(width: Number? = null) =
     )
 
 /**
+ * Adjusts position by dodging overlaps to the side.
+ *
+ * ## Examples
+ *
+ * - [horizontal_error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.1/horizontal_error_bars.ipynb)
+ *
+ * @param height Dodging height, when different to the height of the individual elements. This is useful when you want to align narrow geoms with taller geoms.
+ *  The value of height is relative and typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the objects.
+ */
+fun positionDodgeV(height: Number? = null) =
+    PosOptions(
+        PosKind.DODGE_V,
+        Options.of(Option.Pos.DodgeV.HEIGHT to height)
+    )
+
+/**
  * Adjusts position by assigning random noise to points. Better for discrete values.
  *
  * ## Examples

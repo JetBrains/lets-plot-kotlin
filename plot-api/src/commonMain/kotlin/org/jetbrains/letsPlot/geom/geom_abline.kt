@@ -35,6 +35,8 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
+ *  Possible values: "x", "y".
  * @param slope The line slope.
  * @param intercept The value of y at the point where the line crosses the y-axis.
  * @param alpha Transparency level of a layer.
@@ -62,6 +64,7 @@ class geomABLine(
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    orientation: String? = null,
     override val slope: Number? = null,
     override val intercept: Number? = null,
     override val alpha: Number? = null,
@@ -79,7 +82,8 @@ class geomABLine(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        orientation = orientation
     ){
     override fun seal() = super<ABLineAesthetics>.seal() +
             super<WithColorOption>.seal()

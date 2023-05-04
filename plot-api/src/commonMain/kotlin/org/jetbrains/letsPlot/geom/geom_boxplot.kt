@@ -50,6 +50,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param outlierFill Fill aesthetic for outliers.
  * @param outlierShape Shape aesthetic for outliers.
  * @param outlierSize Size aesthetic for outliers.
+ * @param outlierStroke Default width of the border for outliers.
  * @param varWidth default = false. If false make a standard box plot.
  *  If true, boxes are drawn with widths proportional to the square-roots of the number of
  *  observations in the groups.
@@ -120,6 +121,7 @@ class geomBoxplot(
     override val outlierFill: Any? = null,
     override val outlierShape: Any? = null,
     override val outlierSize: Number? = null,
+    override val outlierStroke: Number? = null,
     override val fatten: Number? = null,
     override val whiskerWidth: Number? = null,
     override val varWidth: Boolean? = null,

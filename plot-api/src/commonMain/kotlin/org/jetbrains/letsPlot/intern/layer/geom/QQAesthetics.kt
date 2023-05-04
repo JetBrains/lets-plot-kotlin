@@ -14,12 +14,14 @@ interface QQAesthetics : OptionsCapsule {
     val fill: Any?
     val shape: Any?
     val size: Any?
+    val stroke: Any?
 
     override fun seal() = Options.of(
         "alpha" to alpha,
         "color" to color,
         "fill" to fill,
         "shape" to shape,
-        "size" to size
+        "size" to size,
+        "stroke" to stroke
     )
 }

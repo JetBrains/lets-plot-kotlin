@@ -432,6 +432,7 @@ object Geom {
         override val outlierFill: Any? = null,
         override val outlierShape: Any? = null,
         override val outlierSize: Number? = null,
+        override val outlierStroke: Number? = null,
         override val fatten: Number? = null,
         override val whiskerWidth: Number? = null,
         override val alpha: Number? = null,
@@ -467,6 +468,10 @@ object Geom {
         override val ymin: Number? = null,
         override val ymax: Number? = null,
         override val width: Number? = null,
+        override val y: Number? = null,
+        override val xmin: Number? = null,
+        override val xmax: Number? = null,
+        override val height: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -525,6 +530,7 @@ object Geom {
         override val linetype: Any? = null,
         override val shape: Any? = null,
         override val size: Number? = null,
+        override val stroke: Number? = null,
         override val colorBy: String? = null,
         override val fillBy: String? = null,
         mapping: PointRangeMapping.() -> Unit = {}
@@ -671,6 +677,7 @@ object Geom {
         override val fill: Any? = null,
         override val shape: Any? = null,
         override val size: Number? = null,
+        override val stroke: Number? = null,
         override val colorBy: String? = null,
         override val fillBy: String? = null,
         mapping: QQMapping.() -> Unit = {}
@@ -733,6 +740,41 @@ object Geom {
 
         override fun seal() = super<PieAesthetics>.seal() +
                 super<PieParameters>.seal() +
+                super<WithFillOption>.seal()
+    }
+
+    @Suppress("ClassName", "SpellCheckingInspection")
+    class lollipop(
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val size: Number? = null,
+        override val stroke: Number? = null,
+        override val linewidth: Number? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val alpha: Number? = null,
+        override val shape: Any? = null,
+        override val linetype: Any? = null,
+        override val fatten: Number? = null,
+        override val slope: Number? = null,
+        override val intercept: Number? = null,
+        override val dir: String? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
+        mapping: LollipopMapping.() -> Unit = {}
+    ) : LollipopAesthetics,
+        LollipopParameters,
+        WithColorOption,
+        WithFillOption,
+        GeomOptions(
+            GeomKind.LOLLIPOP,
+            LollipopMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+
+        override fun seal() = super<LollipopAesthetics>.seal() +
+                super<LollipopParameters>.seal() +
+                super<WithColorOption>.seal() +
                 super<WithFillOption>.seal()
     }
 }
