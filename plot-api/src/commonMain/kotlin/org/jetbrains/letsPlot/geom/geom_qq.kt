@@ -59,7 +59,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *
@@ -67,7 +67,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fill Color to paint shape's inner points.
  *  Is applied only to the points of shapes having inner points.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *

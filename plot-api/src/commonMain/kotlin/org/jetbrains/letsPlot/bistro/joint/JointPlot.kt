@@ -28,7 +28,7 @@ package org.jetbrains.letsPlot.bistro.joint
  *  Applicable simultaneously for "tile" geom and "histogram" marginal.
  * @param color Color of a geometry.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *

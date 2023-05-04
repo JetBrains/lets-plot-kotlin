@@ -51,14 +51,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Understands numbers between 0 and 1.
  * @param fill Color of a geometry areas.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param color Color of geometry lines.
  *  String in the following formats: 
- *  - RGB/RGBS (e.g. "rgb(0, 0, 255)")
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red") 
  *
