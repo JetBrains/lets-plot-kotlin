@@ -9,6 +9,9 @@ enum class PosKind {
     IDENTITY,
     STACK,
     DODGE,
+    DODGE_V {
+        override fun optionName() = "dodgev"
+    },
     FILL,
     NUDGE,
     JITTER,

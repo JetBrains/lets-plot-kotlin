@@ -7,10 +7,12 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.coord.coordFlip
 import org.jetbrains.letsPlot.geom.*
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.pos.positionDodge
+import org.jetbrains.letsPlot.pos.positionDodgeV
 import org.jetbrains.letsPlot.scale.scaleColorManual
 
 object ErrorBar {
@@ -102,11 +104,55 @@ object ErrorBar {
                 p.show()
             }
 
+            fun horizontalWithBars() {
+                val geom = geomBar(
+                    position = positionDodge(),
+                    color = "black",
+                    stat = Stat.identity,
+                    orientation = "y"
+                ) { fill = "supp" } +
+                        geomErrorBar(
+                            position = positionDodgeV(height = 0.9),
+                            color = "black",
+                            height = 0.1
+                        ) {
+                            xmin = "min"; xmax = "max"; group = "supp"
+                        }
+                val p = ggplot(data) { y = "dose"; x = "len"; color = "supp" } + geom + ggtitle("Horizontal with bars")
+                p.show()
+            }
+
+            fun horizontalErrorBar() {
+                val p = ggplot(data) {
+                    y = "dose"
+                    xmin = "min"
+                    xmax = "max"
+                    color = "supp"
+                } + geomErrorBar(position = positionDodgeV(height = 0.3), height = 0.2) + ggtitle("Horizontal errorbar")
+                p.show()
+            }
+
+            fun horizontalErrorBarFlipped() {
+                val p = ggplot(data) {
+                    y = "dose"
+                    xmin = "min"
+                    xmax = "max"
+                    color = "supp"
+                } + geomErrorBar(position = positionDodgeV(height = 0.3), height = 0.2) +
+                        coordFlip() +
+                        ggtitle("Horizontal errorbar + coordFlip()")
+                p.show()
+
+            }
+
             withLinesAndPoints()
             errorbar()
             pointrange()
             linerange()
             withBars()
+            horizontalWithBars()
+            horizontalErrorBar()
+            horizontalErrorBarFlipped()
         }
     }
 }
