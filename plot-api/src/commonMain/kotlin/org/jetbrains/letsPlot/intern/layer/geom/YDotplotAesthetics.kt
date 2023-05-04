@@ -13,20 +13,19 @@ interface YDotplotAesthetics : OptionsCapsule {
     val y: Any?
     val binWidth: Any?
     val stackSize: Any?
-
+    val stroke: Any?
     val alpha: Any?
     val color: Any?
     val fill: Any?
-    val size: Any?
 
     override fun seal() = Options.of(
         "x" to x,
         "y" to y,
         "binwidth" to binWidth,
         "stacksize" to stackSize,
+        "stroke" to stroke,
         "alpha" to alpha,
         "color" to color,
-        "fill" to fill,
-        "size" to size,
+        "fill" to fill
     )
 }

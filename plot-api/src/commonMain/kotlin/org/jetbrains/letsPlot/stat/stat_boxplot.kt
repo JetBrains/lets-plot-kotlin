@@ -47,6 +47,7 @@ class statBoxplot(
     override val outlierFill: Any? = null,
     override val outlierShape: Any? = null,
     override val outlierSize: Number? = null,
+    override val outlierStroke: Number? = null,
     override val fatten: Number? = null,
     override val whiskerWidth: Number? = null,
     override val varWidth: Boolean? = null,

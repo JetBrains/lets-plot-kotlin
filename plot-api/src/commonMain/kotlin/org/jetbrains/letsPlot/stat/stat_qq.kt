@@ -33,6 +33,7 @@ class statQQ(
     override val fill: Any? = null,
     override val shape: Any? = null,
     override val size: Number? = null,
+    override val stroke: Number? = null,
     override val distribution: String? = null,
     override val dParams: List<Number>? = null,
     override val colorBy: String? = null,
