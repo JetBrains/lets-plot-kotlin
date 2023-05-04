@@ -104,7 +104,6 @@ class geomDotplot(
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
-    override val size: Number? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: DotplotMapping.() -> Unit = {},

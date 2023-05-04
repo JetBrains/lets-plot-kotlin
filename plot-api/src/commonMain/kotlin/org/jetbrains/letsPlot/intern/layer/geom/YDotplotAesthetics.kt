@@ -17,7 +17,6 @@ interface YDotplotAesthetics : OptionsCapsule {
     val alpha: Any?
     val color: Any?
     val fill: Any?
-    val size: Any?
 
     override fun seal() = Options.of(
         "x" to x,
@@ -26,7 +25,6 @@ interface YDotplotAesthetics : OptionsCapsule {
         "stacksize" to stackSize,
         "alpha" to alpha,
         "color" to color,
-        "fill" to fill,
-        "size" to size,
+        "fill" to fill
     )
 }
