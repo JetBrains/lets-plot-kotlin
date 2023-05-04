@@ -12,8 +12,6 @@ import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.TextAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.TextMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TextParameters
-import org.jetbrains.letsPlot.pos.positionIdentity
-import org.jetbrains.letsPlot.pos.positionNudge
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -106,7 +104,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomText(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
-    position: PosOptions = positionIdentity,
+    position: PosOptions? = null,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
@@ -143,10 +141,7 @@ class geomText(
         data = data,
         geom = text(),
         stat = stat,
-        position = when {
-            nudgeX != null || nudgeY != null -> positionNudge(nudgeX, nudgeY)
-            else -> position
-        },
+        position = position,
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips
