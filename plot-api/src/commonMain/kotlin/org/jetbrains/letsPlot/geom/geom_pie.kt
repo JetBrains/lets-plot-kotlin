@@ -63,7 +63,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param slice Values associated to pie sectors.
  * @param explode Values to explode slices away from their center point, detaching it from the main pie.
  * @param size Pie diameter.
- * @param fill Color of geometry filling (by default).
+ * @param fill Fill color.
  *  String in the following formats: 
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")

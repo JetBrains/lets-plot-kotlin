@@ -40,7 +40,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param x X-axis coordinates of the center of rectangles.
  * @param y Coordinates of the center of rectangles.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param fill Color of geometry filling.
+ * @param fill Fill color.
  *  String in the following formats: 
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
