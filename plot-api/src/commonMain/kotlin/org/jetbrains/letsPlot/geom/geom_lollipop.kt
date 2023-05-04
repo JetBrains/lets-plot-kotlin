@@ -55,8 +55,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - color name (e.g. "red")
  *
  *  Or an instance of the `java.awt.Color` class.
- * @param fill Color to paint shape's inner points.
- *  Is applied only to the points of shapes having inner points.
+ * @param fill Fill color.
+ *  Is applied only to the points of shapes having inner area.
  *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
