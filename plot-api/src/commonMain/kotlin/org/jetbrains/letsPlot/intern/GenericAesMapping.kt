@@ -18,6 +18,7 @@ class GenericAesMapping(
     var linetype: Any? = null,
 
     var size: Any? = null,
+    var stroke: Any? = null,
     var width: Any? = null,
     var height: Any? = null,
 
@@ -52,6 +53,7 @@ class GenericAesMapping(
         "linetype" to linetype,
 
         "size" to size,
+        "stroke" to stroke,
         "width" to width,
         "height" to height,
 

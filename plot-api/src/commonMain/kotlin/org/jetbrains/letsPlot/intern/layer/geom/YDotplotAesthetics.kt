@@ -13,7 +13,7 @@ interface YDotplotAesthetics : OptionsCapsule {
     val y: Any?
     val binWidth: Any?
     val stackSize: Any?
-
+    val stroke: Any?
     val alpha: Any?
     val color: Any?
     val fill: Any?
@@ -23,6 +23,7 @@ interface YDotplotAesthetics : OptionsCapsule {
         "y" to y,
         "binwidth" to binWidth,
         "stacksize" to stackSize,
+        "stroke" to stroke,
         "alpha" to alpha,
         "color" to color,
         "fill" to fill

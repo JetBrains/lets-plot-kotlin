@@ -59,6 +59,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param stackGroups Whether dots should be stacked across groups.
  *  In effect is replacemets for option `position = positionStack()`.
  *  Note: unlike other geoms, `dotplot` doesn't have `position` option.
+ * @param stroke Width of the dot border.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
@@ -101,6 +102,7 @@ class geomYDotplot(
     override val stackRatio: Number? = null,
     override val dotSize: Number? = null,
     override val stackGroups: Boolean? = null,
+    override val stroke: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,

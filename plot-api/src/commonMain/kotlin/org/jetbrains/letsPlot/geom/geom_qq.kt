@@ -74,6 +74,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Or an instance of the `java.awt.Color` class.
  * @param shape Shape of the point.
  * @param size Size of the point.
+ * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -91,6 +92,7 @@ class geomQQ(
     override val fill: Any? = null,
     override val shape: Any? = null,
     override val size: Number? = null,
+    override val stroke: Number? = null,
     override val distribution: String? = null,
     override val dParams: List<Number>? = null,
     override val colorBy: String? = null,

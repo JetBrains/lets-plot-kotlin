@@ -12,6 +12,7 @@ interface DotplotAesthetics : OptionsCapsule {
     val x: Any?
     val binWidth: Any?
     val stackSize: Any?
+    val stroke: Any?
     val alpha: Any?
     val color: Any?
     val fill: Any?
@@ -20,6 +21,7 @@ interface DotplotAesthetics : OptionsCapsule {
         "x" to x,
         "binwidth" to binWidth,
         "stacksize" to stackSize,
+        "stroke" to stroke,
         "alpha" to alpha,
         "color" to color,
         "fill" to fill
