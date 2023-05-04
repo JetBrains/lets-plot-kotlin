@@ -19,6 +19,7 @@ interface PointRangeAesthetics : OptionsCapsule {
     val linetype: Any?
     val shape: Any?
     val size: Any?
+    val stroke: Any?
 
     override fun seal() = Options.of(
         "x" to x,
@@ -30,6 +31,7 @@ interface PointRangeAesthetics : OptionsCapsule {
         "fill" to fill,
         "linetype" to linetype,
         "shape" to shape,
-        "size" to size
+        "size" to size,
+        "stroke" to stroke
     )
 }
