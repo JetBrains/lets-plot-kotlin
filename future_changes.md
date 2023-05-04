@@ -2,6 +2,16 @@
 
 ### Added
 
+- New geometry `geomLollipop()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.1/geom_lollipop.ipynb).
+
+
+- New aesthetic `linewidth`. Used only for `geomLollipop()` at the moment.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.1/geom_lollipop.ipynb).
+
+
 ### Changed
 
 ### Fixed
