@@ -7,7 +7,12 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
-import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.intern.layer.GeomOptions
+import org.jetbrains.letsPlot.intern.layer.LayerBase
+import org.jetbrains.letsPlot.intern.layer.PosOptions
+import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithColorOption
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.YDotplotAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.YDotplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.YDotplotParameters
@@ -28,9 +33,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.yDotplot()`.
- *  The statistical transformation to use on the data for this layer.
- *  The only other `stat` supported by `dotplot` is `Stat.identity`.
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
@@ -85,7 +87,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  */
 class geomYDotplot(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.yDotplot(),
     position: PosOptions? = null,  // Default value depends on `stackGroups` flag.
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
@@ -119,7 +120,7 @@ class geomYDotplot(
         mapping = YDotplotMapping().apply(mapping).seal(),
         data = data,
         geom = GeomOptions(GeomKind.Y_DOTPLOT),
-        stat = stat,
+        stat = Stat.yDotplot(),
         position = position,
         showLegend = showLegend,
         sampling = sampling,

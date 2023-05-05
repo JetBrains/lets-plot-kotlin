@@ -10,7 +10,6 @@ import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.DotplotAesthetics
@@ -33,8 +32,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.dotplot()`. The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
@@ -87,7 +84,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  */
 class geomDotplot(
     data: Map<*, *>? = null,
-    stat: StatOptions = Stat.dotplot(),
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
@@ -119,7 +115,7 @@ class geomDotplot(
         mapping = DotplotMapping().apply(mapping).seal(),
         data = data,
         geom = GeomOptions(GeomKind.DOTPLOT),
-        stat = stat,
+        stat = Stat.dotplot(),
         position = positionIdentity,
         showLegend = showLegend,
         sampling = sampling,
