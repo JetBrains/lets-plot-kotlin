@@ -27,6 +27,9 @@
 
 ### Changed
 
+- [BREAKING] `geomDotplot()` and `geomYDotplot()` no longer support parameter `stat`.
+
+
 ### Fixed
 
 - Support multiple subdirectories in `ggsave` path [[contribution by David Phillips]](https://github.com/JetBrains/lets-plot-kotlin/pull/163).
