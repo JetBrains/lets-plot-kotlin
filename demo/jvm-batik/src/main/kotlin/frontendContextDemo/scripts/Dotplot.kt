@@ -8,13 +8,11 @@ package frontendContextDemo.scripts
 import demoData.Iris
 import frontendContextDemo.ScriptInBatikContext
 import jetbrains.datalore.base.values.Color
-import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.coord.coordFlip
 import org.jetbrains.letsPlot.facet.facetGrid
 import org.jetbrains.letsPlot.geom.geomDotplot
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
-import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.themes.themeGrey
 
 object Dotplot {
@@ -55,17 +53,17 @@ object Dotplot {
 
             // stat = "identity"
 
-            val data = mapOf(
-                "x" to listOf(0.5, 1.5, 2.5, null),
-                "count" to listOf(0, 2, null, 0),
-                "binwidth" to listOf(.5, .5, .5, .5),
-            )
-
-            (letsPlot(data) + geomDotplot(stat = Stat.identity) {
-                x = "x"
-                stackSize = "count"
-                binWidth = "binwidth"
-            } + ggtitle("stat = Stat.identity")).show()
+//            val data = mapOf(
+//                "x" to listOf(0.5, 1.5, 2.5, null),
+//                "count" to listOf(0, 2, null, 0),
+//                "binwidth" to listOf(.5, .5, .5, .5),
+//            )
+//
+//            (letsPlot(data) + geomDotplot(stat = Stat.identity) {
+//                x = "x"
+//                stackSize = "count"
+//                binWidth = "binwidth"
+//            } + ggtitle("stat = Stat.identity")).show()
         }
     }
 }

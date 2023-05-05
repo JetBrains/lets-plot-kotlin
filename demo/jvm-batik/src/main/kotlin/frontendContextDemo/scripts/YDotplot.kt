@@ -7,7 +7,6 @@ package frontendContextDemo.scripts
 
 import demoData.Iris
 import frontendContextDemo.ScriptInBatikContext
-import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.coord.coordFlip
 import org.jetbrains.letsPlot.geom.geomViolin
 import org.jetbrains.letsPlot.geom.geomYDotplot
@@ -55,21 +54,21 @@ object YDotplot {
 
             // stat = "identity"
 
-            run {
-                val data = mapOf(
-                    "x" to listOf(null, 'C', 'C', 'C', 'A', 'A', 'B', 'B'),
-                    "y" to listOf(0, null, 2, 3, 0, 1, 1, 2),
-                    "count" to listOf(2, 1, null, 3, 3, 1, 2, 0),
-                    "binwidth" to listOf(0.25, 0.25, 0.25, null, 0.25, 0.25, 0.25, 0.25),
-                )
-
-                (letsPlot(data) + geomYDotplot(stat = Stat.identity) {
-                    x = "x"
-                    y = "y"
-                    stackSize = "count"
-                    binWidth = "binwidth"
-                } + ggtitle("stat = Stat.identity")).show()
-            }
+//            run {
+//                val data = mapOf(
+//                    "x" to listOf(null, 'C', 'C', 'C', 'A', 'A', 'B', 'B'),
+//                    "y" to listOf(0, null, 2, 3, 0, 1, 1, 2),
+//                    "count" to listOf(2, 1, null, 3, 3, 1, 2, 0),
+//                    "binwidth" to listOf(0.25, 0.25, 0.25, null, 0.25, 0.25, 0.25, 0.25),
+//                )
+//
+//                (letsPlot(data) + geomYDotplot(stat = Stat.identity) {
+//                    x = "x"
+//                    y = "y"
+//                    stackSize = "count"
+//                    binWidth = "binwidth"
+//                } + ggtitle("stat = Stat.identity")).show()
+//            }
         }
     }
 }
