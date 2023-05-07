@@ -9,7 +9,6 @@ import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
-import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.WithFillOption
@@ -87,7 +86,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  */
 class geomYDotplot(
     data: Map<*, *>? = null,
-    position: PosOptions? = null,  // Default value depends on `stackGroups` flag.
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
@@ -121,7 +119,7 @@ class geomYDotplot(
         data = data,
         geom = GeomOptions(GeomKind.Y_DOTPLOT),
         stat = Stat.yDotplot(),
-        position = position,
+        position = null,  // Default value depends on `stackGroups` flag.
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips
