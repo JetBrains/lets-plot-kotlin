@@ -8,12 +8,35 @@ package org.jetbrains.letsPlot
 import jetbrains.datalore.plot.config.Option.Geom.Image.HREF
 import org.jetbrains.letsPlot.geom.RasterData
 import org.jetbrains.letsPlot.geom.geomImshow
+import org.jetbrains.letsPlot.intern.Feature
+import org.jetbrains.letsPlot.intern.FeatureList
+import org.jetbrains.letsPlot.intern.Layer
 import org.junit.Test
 import java.util.*
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
 class ImshowTest {
+
+    private fun getImageData(imshow: Feature): String {
+        val layer = when (imshow) {
+            is Layer -> imshow
+            is FeatureList -> imshow.elements[0] as Layer // layer + scale spec
+            else -> throw IllegalArgumentException("Unexpected ${imshow::class.simpleName}")
+        }
+
+        return layer.seal().map.getValue(HREF) as String
+    }
+
+    private fun getLayerSettings(imshow: Feature): Map<*, *> {
+        val layer = when (imshow) {
+            is Layer -> imshow
+            is FeatureList -> imshow.elements[0] as Layer // layer + scale spec
+            else -> throw IllegalArgumentException("Unexpected ${imshow::class.simpleName}")
+        }
+
+        return layer.seal().map
+    }
 
     @Test
     fun `simple test`() {
@@ -27,7 +50,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFElEQVR42mOYxsDAAMIM06ZNYwAAEjgC7yZ6kfMAAAAASUVORK5CYII=",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -43,7 +66,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -59,7 +82,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -75,7 +98,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -94,7 +117,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -113,7 +136,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -132,7 +155,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -152,7 +175,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -170,7 +193,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -188,7 +211,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -206,7 +229,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -225,7 +248,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -244,7 +267,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -263,7 +286,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -281,7 +304,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -299,7 +322,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -318,7 +341,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -338,7 +361,7 @@ class ImshowTest {
 
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -357,7 +380,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -373,7 +396,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAFUlEQVR42mNg+M/A8B+IGUL/M/wHACJBBVGLKjzHAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -392,7 +415,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAFUlEQVR42mNg+M/A8B+IGUL/M/wHACJBBVGLKjzHAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -405,7 +428,9 @@ class ImshowTest {
                     listOf(255, 255, 255)
                 )
             ),
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         val s2 = geomImshow(
             RasterData.create(
@@ -414,7 +439,9 @@ class ImshowTest {
                     listOf(100, 100, 100)
                 )
             )
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         assertEquals(s1, s2)
     }
@@ -429,7 +456,9 @@ class ImshowTest {
                 )
             ),
             norm = false
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         val s2 = geomImshow(
             RasterData.create(
@@ -439,7 +468,9 @@ class ImshowTest {
                 )
             ),
             norm = false
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         assertNotEquals(s1, s2)
     }
@@ -454,7 +485,9 @@ class ImshowTest {
                     listOf(0.1, 0.1, 0.1)
                 )
             ),
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         val s2 = geomImshow(
             RasterData.create(
@@ -463,7 +496,9 @@ class ImshowTest {
                     listOf(100.0, 100.0, 100.0)
                 )
             )
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         assertEquals(s1, s2)
     }
@@ -479,7 +514,9 @@ class ImshowTest {
                     )
                 )
             ),
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         val s2 = geomImshow(
             RasterData.create(
@@ -490,7 +527,9 @@ class ImshowTest {
                     )
                 )
             ),
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         assertEquals(s1, s2)
     }
@@ -506,7 +545,9 @@ class ImshowTest {
                     )
                 )
             ),
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         val s2 = geomImshow(
             RasterData.create(
@@ -517,7 +558,9 @@ class ImshowTest {
                     )
                 )
             ),
-        ).seal().map
+        ).let {
+            getLayerSettings(it)
+        }
 
         assertEquals(s1, s2)
     }
@@ -537,7 +580,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAEElEQVR42mP4f2YmQ5oxAwAQXgL+kl/cwQAAAABJRU5ErkJggg==",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -554,7 +597,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAEElEQVR42mP4f2YmQ5oxAwAQXgL+kl/cwQAAAABJRU5ErkJggg==",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -571,7 +614,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEklEQVR42mOYNo2BgWEaCAEJABgUAu8kyhwjAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 
@@ -588,7 +631,7 @@ class ImshowTest {
         )
         assertEquals(
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEklEQVR42mOYNo2BgWEaCAEJABgUAu8kyhwjAAAAAElFTkSuQmCC",
-            imshow.seal().map[HREF]
+            getImageData(imshow)
         )
     }
 

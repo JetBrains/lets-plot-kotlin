@@ -7,10 +7,9 @@ package org.jetbrains.letsPlot.geom
 
 import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.GeomKind
-import org.jetbrains.letsPlot.intern.Layer
-import org.jetbrains.letsPlot.intern.Options
+import org.jetbrains.letsPlot.intern.*
 import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.scale.scaleGrey
 import org.jetbrains.letsPlot.util.Base64
 import org.jetbrains.letsPlot.util.pngj.ImageInfo
 import org.jetbrains.letsPlot.util.pngj.ImageLineByte
@@ -53,15 +52,27 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
  *  Defines image's bounding box in terms of the "data coordinates".
  *  - `left, right`: coordinates of pixels outer edge along the x-axis for pixels in the 1-st and the last column.
  *  - `bottom, top`: coordinates of pixels outer edge along the y-axis for pixels in the 1-st and the last row.
+ * @param showLegend default = true.
+ *  Greyscale images only.
+ *  false - do not show legend for this layer.
+ * @param colorBy default="paint_c" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Define the color-aesthetic used by the legend shown for a greyscale image.
+ *
+ * @return Layer object.
  */
 fun geomImshow(
     rasterData: RasterData,
-    norm: Boolean? = null,
+    norm: Boolean = true,
     vmin: Number? = null,
     vmax: Number? = null,
     extent: List<Number>? = null,
-): Layer {
+    showLegend: Boolean = true,
+    colorBy: String = "paint_c",
+): Feature {
     require(extent == null || extent.size == 4) { "Invalid `extent`: list of 4 numbers expected: ${extent!!.size}" }
+    val colorAesthetics = listOf("fill", "color", "paint_a", "paint_b", "paint_c")
+    require(colorBy in colorAesthetics) { "Invalid colorBy value \"$colorBy\". Use: \"color\", \"fill\", \"paint_a\", \"paint_b\" or \"paint_c\"." }
+
     var raster = rasterData.createRaster()
 
     require(raster.nChannels in 1..4) {
@@ -70,10 +81,17 @@ fun geomImshow(
 
     val cmap: String? = null // TODO: add palettes support
 
-    if (raster.nChannels == 1) {
+    val greyscale = raster.nChannels == 1
+    var greyScaleDataMin: Double = Double.NaN
+    var greyScaleDataMax: Double = Double.NaN
+
+    if (greyscale) {
         var hasNan = raster.hasNan()
         val maxLum = if (!(hasNan && cmap != null)) 255 else 254  // index 255 reserved for NaN-s
-        normalize2d(raster, norm, vmin?.toFloat(), vmax?.toFloat(), maxLum)
+        normalize2d(raster, norm, vmin?.toFloat(), vmax?.toFloat(), maxLum).let {
+            greyScaleDataMin = it.first
+            greyScaleDataMax = it.second
+        }
         hasNan = raster.hasNan()
 
         if (hasNan && cmap.isNullOrEmpty()) {
@@ -138,13 +156,39 @@ fun geomImshow(
     }
     png.end()
 
-    return object : Layer(
+
+    // Show Legend (color-bar) if applicable.
+    val layerMapping: Options = if (greyscale && showLegend) {
+        // Provide two imaginable data-points to build a legend.
+        Options.of(
+            colorBy to listOf(greyScaleDataMin, greyScaleDataMax)
+        )
+    } else {
+        Options.empty()
+    }
+
+    val legendTitle = ""
+    val colorScale: Scale? = if (greyscale && showLegend) {
+        if (cmap != null) when (norm) {
+            true -> null  // ToDo
+            else -> null  // ToDo
+        } else {
+            val start = if (norm) 0.0 else greyScaleDataMin / 255
+            val end = if (norm) 1.0 else greyScaleDataMax / 255
+            scaleGrey(aesthetic = colorBy, start = start, end = end, name = legendTitle)
+        }
+    } else {
+        null
+    }
+
+
+    val geomLayer = object : Layer(
         geom = GeomOptions(GeomKind.IMAGE),
         data = null,
-        mapping = Options.empty(),
+        mapping = layerMapping,
         stat = Stat.identity,
         position = null,
-        showLegend = false,
+        showLegend = showLegend,
         sampling = null,
         orientation = null,
         tooltips = null,
@@ -157,12 +201,22 @@ fun geomImshow(
                 Option.Geom.Image.YMIN to extY0,
                 Option.Geom.Image.XMAX to extX1,
                 Option.Geom.Image.YMAX to extY1,
+                Option.Layer.COLOR_BY to colorBy  // for the legend
             )
         }
     }
+
+    return colorScale?.let {
+        geomLayer + it
+    } ?: geomLayer
 }
 
-private fun normalize2d(raster: Raster, norm: Boolean?, vMin: Float?, vMax: Float?, maxLum: Int) {
+/**
+ * Updates channels in the given `Raster` object.
+ *
+ * @return The used `min` and `max` data values (i.e. values before normalization)
+ */
+private fun normalize2d(raster: Raster, norm: Boolean, vMin: Float?, vMax: Float?, maxLum: Int): Pair<Double, Double> {
     @Suppress("NAME_SHADOWING")
     val vMin = vMin ?: raster.pixels.filterNot(Float::isNaN).min()
 
@@ -175,16 +229,18 @@ private fun normalize2d(raster: Raster, norm: Boolean?, vMin: Float?, vMax: Floa
     if (norm == false) {
         // no normalization - just round values to the nearest int.
         raster.updateChannels { it + 0.5f }
-        return
-    }
-
-    when {
-        vMin == vMax -> raster.updateChannels { 127f }
-        else -> {
-            val ratio = maxLum / (vMax - vMin)
-            raster.updateChannels { (it - vMin) * ratio + 0.5f }
+    } else {
+        @Suppress("IntroduceWhenSubject")
+        when {
+            vMin == vMax -> raster.updateChannels { 127f }
+            else -> {
+                val ratio = maxLum / (vMax - vMin)
+                raster.updateChannels { (it - vMin) * ratio + 0.5f }
+            }
         }
     }
+
+    return Pair(vMin.toDouble(), vMax.toDouble())
 }
 
 class RasterData private constructor(
@@ -206,7 +262,7 @@ class RasterData private constructor(
             val l1 = l0.flatten()
 
             @Suppress("UNCHECKED_CAST")
-            val l2: List<Number> = when(l1[0] is Iterable<*>) {
+            val l2: List<Number> = when (l1[0] is Iterable<*>) {
                 true -> (l1 as Iterable<Iterable<*>>).flatten() as List<Number>
                 false -> l1 as List<Number>
             }
@@ -228,7 +284,7 @@ class RasterData private constructor(
             val l0 = arr.flatten()
 
             @Suppress("UNCHECKED_CAST")
-            val l1: List<Number> = when(l0[0] is Array<*>) {
+            val l1: List<Number> = when (l0[0] is Array<*>) {
                 true -> (l0 as List<Array<*>>).map(Array<*>::asList).flatten() as List<Number>
                 false -> l0 as List<Number>
             }
@@ -289,7 +345,8 @@ class RasterData private constructor(
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
-        fun create(arr: DoubleArray, width: Int, height: Int, nChannels: Int) = RasterData(arr, width, height, nChannels)
+        fun create(arr: DoubleArray, width: Int, height: Int, nChannels: Int) =
+            RasterData(arr, width, height, nChannels)
 
         /**
          * Creates [RasterData] from 1D array with pixel data.
@@ -302,7 +359,8 @@ class RasterData private constructor(
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
-        fun create(arr: Array<Number>, width: Int, height: Int, nChannels: Int) = RasterData(arr, width, height, nChannels)
+        fun create(arr: Array<Number>, width: Int, height: Int, nChannels: Int) =
+            RasterData(arr, width, height, nChannels)
     }
 
     override fun toString() = "RasterData($width x $height x $nChannels)"
@@ -349,6 +407,7 @@ class RasterData private constructor(
                     data.forEachIndexed { i, v -> arr[i] = toFloat(v) }
                 }
             }
+
             else -> error("Invalid bitmap: unsupported data type `${data::class.simpleName}`")
         }
 
