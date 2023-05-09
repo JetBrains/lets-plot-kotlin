@@ -5,9 +5,10 @@
 
 package org.jetbrains.letsPlot.geom
 
-import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Options
+import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.LayerBase
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
@@ -101,13 +102,9 @@ class geomJitter(
     LayerBase(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
-        geom = Geom.point(),
+        geom = GeomOptions(GeomKind.JITTER),
         stat = stat,
-        position = when {
-            // init with the given width/height if its parameters was not specified
-            position.parameters.isEmpty() -> positionJitter(width, height)
-            else -> position
-        },
+        position = position,
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips

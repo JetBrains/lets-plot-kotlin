@@ -13,7 +13,6 @@ import org.jetbrains.letsPlot.intern.layer.geom.LabelAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LabelMapping
 import org.jetbrains.letsPlot.intern.layer.geom.LabelParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
-import org.jetbrains.letsPlot.pos.positionNudge
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -158,10 +157,7 @@ class geomLabel(
         data = data,
         geom = Geom.label(),
         stat = stat,
-        position = when {
-            nudgeX != null || nudgeY != null -> positionNudge(nudgeX, nudgeY)
-            else -> position
-        },
+        position = position,
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips
