@@ -4,7 +4,7 @@
 
 * The "Example Notebooks" reference: [examples.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md)
 
-* Example notebooks in the Binder: [mybinder.org](https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/v4.3.0demos?filepath=docs/examples/jupyter-notebooks/)
+* Example notebooks in the Binder: [mybinder.org](https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/v4.4.0demos1?filepath=docs/examples/jupyter-notebooks/)
 
 
 <a id="toc"></a>
