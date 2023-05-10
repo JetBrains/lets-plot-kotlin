@@ -29,7 +29,7 @@ import org.jetbrains.letsPlot.intern.Scale
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
- * @param guide Guide to use for this scale.
+ * @param guide Guide to use for this scale, default = "none".
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
@@ -53,7 +53,7 @@ fun scaleIdentity(
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = "none"
 ) = Scale(
     aesthetic = aesthetic,
     name = name,
@@ -88,7 +88,7 @@ fun scaleIdentity(
  *  Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
- * @param guide Guide to use for this scale.
+ * @param guide Guide to use for this scale, default = "none".
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
@@ -111,7 +111,7 @@ fun scaleColorIdentity(
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = "none"
 ) = scaleIdentity(
     aesthetic = Aes.COLOR,
     name = name,
@@ -141,7 +141,7 @@ fun scaleColorIdentity(
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
- * @param guide Guide to use for this scale.
+ * @param guide Guide to use for this scale, default = "none".
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
@@ -164,7 +164,7 @@ fun scaleFillIdentity(
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = "none"
 ) = scaleIdentity(
     aesthetic = Aes.FILL,
     name = name,
@@ -191,7 +191,7 @@ fun scaleFillIdentity(
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
- * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide, default = "none".
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -211,7 +211,7 @@ fun scaleShapeIdentity(
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = "none"
 ) = Scale(
     aesthetic = Aes.SHAPE,
     name = name,
@@ -245,7 +245,7 @@ fun scaleShapeIdentity(
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
- * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide, default = "none".
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -266,7 +266,7 @@ fun scaleLinetypeIdentity(
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = "none"
 ) = Scale(
     aesthetic = Aes.LINETYPE,
     name = name,
@@ -299,7 +299,7 @@ fun scaleLinetypeIdentity(
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
- * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide, default = "none".
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -319,7 +319,7 @@ fun scaleAlphaIdentity(
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = "none"
 ) = scaleIdentity(
     aesthetic = Aes.ALPHA,
     name = name,
@@ -346,7 +346,7 @@ fun scaleAlphaIdentity(
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
- * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide, default = "none".
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -366,7 +366,7 @@ fun scaleSizeIdentity(
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = "none"
 ) = scaleIdentity(
     aesthetic = Aes.SIZE,
     name = name,
@@ -393,7 +393,7 @@ fun scaleSizeIdentity(
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
- * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide, default = "none".
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -414,7 +414,7 @@ fun scaleLinewidthIdentity(
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = "none"
 ) = scaleIdentity(
     aesthetic = Aes.LINEWIDTH,
     name = name,
@@ -441,7 +441,7 @@ fun scaleLinewidthIdentity(
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
- * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
+ * @param guide A result returned by `guideLegend()` function or "none" to hide the guide, default = "none".
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -461,7 +461,7 @@ fun scaleStrokeIdentity(
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = "none"
 ) = scaleIdentity(
     aesthetic = Aes.STROKE,
     name = name,

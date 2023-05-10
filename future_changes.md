@@ -27,6 +27,8 @@
 
 - [BREAKING] `geomDotplot()` and `geomYDotplot()` no longer support parameter `stat`.
 
+- [BREAKING] Identity scales don't create a legend by default.
+
 
 ### Fixed
 
