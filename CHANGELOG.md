@@ -6,6 +6,72 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
 
+## [4.4.0] - 2023-05-10
+
+### Added
+
+- `geomLollipop()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/geom_lollipop.ipynb).
+
+
+- Aesthetic `stroke` and its scales `scaleStroke()`, `scaleStrokeIdentity()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/aes_stroke.ipynb).
+
+
+- Aesthetic `linewidth` (for `geomLollipop()`) and its scales `scaleLinewidth()`, `scaleLinewidthIdentity()`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/geom_lollipop.ipynb).
+
+
+- The 'newline' character (`\n`) now works as `line break` in legend text.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/legend_text_multiline.ipynb).
+
+
+- Horizontal error bars and vertical "dodge".
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/horizontal_error_bars.ipynb).
+                                                          
+
+- "Colorbar" in `geom_imshow()`. Parameters `show_legend` and `color_by` [[#717](https://github.com/JetBrains/lets-plot/issues/717)].
+
+
+### Changed
+
+- [BREAKING] `geomDotplot()` and `geomYDotplot()` no longer support parameter `stat`.
+
+- [BREAKING] Identity scales don't create a legend by default.
+
+
+### Fixed
+
+- Support multiple subdirectories in `ggsave` path [[contribution by David Phillips]](https://github.com/JetBrains/lets-plot-kotlin/pull/163).
+- `scaleXDiscrete` doesn't make scale discrete [[#165](https://github.com/JetBrains/lets-plot-kotlin/issues/165)].
+- Batik: `geom_imshow()` fail with an error: "The attribute "xlink:href" of the element <image> is required"
+- Batik: bug with usage of "&" [[#713](https://github.com/JetBrains/lets-plot/issues/713)].
+- Categorical ordering, it's not respected for Boxplot and violin
+  plot [[#746](https://github.com/JetBrains/lets-plot/issues/746)].
+- Groups not sorted similarly when using facets [[#679](https://github.com/JetBrains/lets-plot/issues/679)].
+- HTML export: exclude computation messages from the output [[#725](https://github.com/JetBrains/lets-plot/issues/725)].
+- Image export not working with `geom_imshow()`
+  and `geom_raster()` [[LPK-175](https://github.com/JetBrains/lets-plot-kotlin/issues/175)].
+- `geom_segment()` doesn't take into account the alpha [[#748](https://github.com/JetBrains/lets-plot/issues/748)].
+- `geom_density2d`: Internal error with None values in data [[#702](https://github.com/JetBrains/lets-plot/issues/702)].
+- DateTime metadata is not applied for scales other than
+  X/Y [[LPK-174](https://github.com/JetBrains/lets-plot-kotlin/issues/174)].
+- Quantile should be shown in tooltip if the variable `..quantile..` is mapped to geom aesthetic.
+- Bad default formatting for stat variables [[#654](https://github.com/JetBrains/lets-plot/issues/654)].
+- The scale name does not apply with `as_discrete()` [[#653](https://github.com/JetBrains/lets-plot/issues/653)].
+- Tooltip is not shown when configured for 'const' value [[#610](https://github.com/JetBrains/lets-plot/issues/610)].
+- Fix crash when try to add a constant to a tooltip (e.g.`"^size"`, where `size` aesthetic is specified with a number).
+- "Variable not found" error in `ggmarginal` [[#681](https://github.com/JetBrains/lets-plot/issues/681)].
+- `facet_grid`: Internal error [[#699](https://github.com/JetBrains/lets-plot/issues/699)].
+- Tooltips bug [[LPK-176](https://github.com/JetBrains/lets-plot-kotlin/issues/176)].
+
+
+
 ## [4.3.0] - 2023-03-09
 
 ### Added

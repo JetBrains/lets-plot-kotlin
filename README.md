@@ -85,7 +85,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
 - [Lets-Plot in JVM and Kotlin/JS Application](#in-jvm-js)
 - [Documentation](#documentation)
 
-- [What is new in 4.3.0](#new)
+- [What is new in 4.4.0](#new)
 - [Migrating from v3 to v4](#migrating4)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
@@ -144,54 +144,41 @@ using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
 
 <a id="new"></a>
-## What is new in 4.3.0
+## What is new in 4.4.0
 
-- ### `gggrid()` ([docs](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot/gggrid.html)), as a replacement for earlier variant of [gggrid()](https://github.com/JetBrains/lets-plot-kotlin/blob/master/plot-api/src/commonMain/kotlin/org/jetbrains/letsPlot/gggrid_deprecated.kt).
+### Aesthetics `stroke` and `linewidth`
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/plot_grid.png" alt="f-23a/images/plot_grid.png" width="400" height="200">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23b/images/stroke.png" alt="f-23b/images/stroke.png" width="336" height="150">
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/plot_grid.ipynb).
+See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/aes_stroke.ipynb).
+
+See also `geomLollipop()` example below.
 
 
-- ### `jointPlot()`
+### Lollipop Plot
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/joint_plot.png" alt="f-23a/images/joint_plot.png" width="400" height="267">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23b/images/lollipop.png" alt="f-23b/images/lollipop.png" width="600" height="200">
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/joint_plot.ipynb).
+See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/geom_lollipop.ipynb).
 
 
-- ### Configuring Axis Position
+### Horizontal error bars and vertical "dodge"
+
+See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/horizontal_error_bars.ipynb).
+
+
+### Multi-line Labels in Legends
+
+See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/legend_text_multiline.ipynb).
+
+
+### Colorbar in `geomImshow()`
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/axis_position.png" alt="f-23a/images/axis_position.png" width="300" height="200">
-
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_position.ipynb).
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.4.0/images/kauai_DEM.png" alt="f-4.4.0/images/kauai_DEM.png" width="508" height="368">
 
 
-- ### Showing Quantiles on Density Plots
-  <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/density_quantiles.png" alt="f-23a/images/density_quantiles.png" width="400" height="150">
-
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/quantile_parameters.ipynb).
-
-
-- ### Additional "color" aesthetics: `paint_a, paint_b, paint_c`.
-  <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23a/images/additional_color_aes.png" alt="f-23a/images/additional_color_aes.png" width="400" height="300">
-
-  See [Multiple Color Scales](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/multiple_color_scales.ipynb) demo.
-
-  Also added a set of related "color scale" functions with the "aesthetic" parameter for configuring of additional color scales.
-
-  See [New "Scale" Functions](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/scale_functions.ipynb) demo.
-
-
-- ### Rotation of Axis Tick Labels
-
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_text_angle.ipynb).
-
-
-- ### Other improvements and fixes
-  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#430---2023-03-09)
+### Other improvements and fixes
+  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#440---2023-05-10)
   for details.
 
 
