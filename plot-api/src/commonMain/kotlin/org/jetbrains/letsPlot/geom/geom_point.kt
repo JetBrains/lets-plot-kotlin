@@ -7,11 +7,10 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.point
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.PointAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.PointMapping
-import org.jetbrains.letsPlot.intern.layer.WithColorOption
-import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
@@ -114,7 +113,7 @@ class geomPoint(
     WithSpatialParameters,
     WithColorOption,
     WithFillOption,
-    LayerBase(
+    Layer(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
         geom = point(),

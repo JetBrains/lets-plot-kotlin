@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.text
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.TextAesthetics
@@ -32,7 +33,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
  *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
@@ -41,7 +42,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- * @param map Data-structure containing series of planar shapes and, optionally, 
+ * @param map Data-structure containing series of planar shapes and, optionally,
  *  associated data series (for example: names of States and their boundaries).
  *
  *  Supported shapes: Point and MultiPoint.
@@ -60,10 +61,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param label Text to add to plot.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
- *  String in the following formats: 
+ *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red") 
+ *  - color name (e.g. "red")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param size Font size.
@@ -73,7 +74,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Font style and weight.
  * @param hjust ("left", "middle", "right") or number between 0 ("left") and 1 ("right")
  *  or "inward" (aligns text towards the plot center), "outward" (away from the plot center).
- *  Horizontal text alignment.  
+ *  Horizontal text alignment.
  * @param vjust ("bottom", "center", "top") or number between 0 ("bottom") and 1 ("top")
  *  or "inward" (aligns text towards the plot center), "outward" (away from the plot center).
  *  Vertical text alignment.
@@ -137,7 +138,7 @@ class geomText(
     WithSizeUnitOption,
     WithSpatialParameters,
     WithColorOption,
-    LayerBase(
+    Layer(
         mapping = TextMapping().apply(mapping).seal(),
         data = data,
         geom = text(),

@@ -7,7 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.area
 import org.jetbrains.letsPlot.Stat.identity
-import org.jetbrains.letsPlot.intern.layer.LayerBase
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
@@ -92,7 +92,7 @@ class geomArea(
 ) : AreaAesthetics,
     WithColorOption,
     WithFillOption,
-    LayerBase(
+    Layer(
         mapping = AreaMapping().apply(mapping).seal(),
         data = data,
         geom = area(),

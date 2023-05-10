@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
-import org.jetbrains.letsPlot.intern.layer.LayerBase
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.WithColorOption
@@ -46,7 +46,7 @@ class statBin(
     BinStatParameters,
     WithColorOption,
     WithFillOption,
-    LayerBase(
+    Layer(
         mapping = HistogramMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

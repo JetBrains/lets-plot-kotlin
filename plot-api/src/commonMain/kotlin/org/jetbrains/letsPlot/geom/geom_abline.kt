@@ -7,7 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.abline
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.layer.LayerBase
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
@@ -75,7 +75,7 @@ class geomABLine(
     mapping: ABLineMapping.() -> Unit = {}
 ) : ABLineAesthetics,
     WithColorOption,
-    LayerBase(
+    Layer(
         mapping = ABLineMapping().apply(mapping).seal(),
         data = data,
         geom = abline(),

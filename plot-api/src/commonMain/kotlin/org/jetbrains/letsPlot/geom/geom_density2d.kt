@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.Density2dMapping
@@ -29,7 +30,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.density2D()`. The statistical transformation to use on the data for this layer.
  *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.  
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
  *  see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
@@ -40,7 +41,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Specifies appearance, style and content.
  * @param kernel The kernel used to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
  *  "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic").
- * @param bw The method (or exact value) of bandwidth. Either a String (choose among "nrd0" and "nrd"), 
+ * @param bw The method (or exact value) of bandwidth. Either a String (choose among "nrd0" and "nrd"),
  *  or a Double array of length 2.
  * @param n The number of sampled points for plotting the function (on x and y direction correspondingly).
  * @param adjust Adjusts the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
@@ -54,10 +55,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
  * @param color Color of geometry.
- *  String in the following formats: 
+ *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red") 
+ *  - color name (e.g. "red")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param linetype The type of the line.
@@ -100,7 +101,7 @@ class geomDensity2D(
     Density2dStatAesthetics,
     Density2dStatParameters,
     WithColorOption,
-    LayerBase(
+    Layer(
         mapping = Density2dMapping().apply(mapping).seal(),
         data = data,
         geom = GeomOptions(GeomKind.DENSITY2D),

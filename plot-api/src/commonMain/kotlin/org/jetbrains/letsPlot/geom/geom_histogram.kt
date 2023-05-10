@@ -7,7 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.layer.LayerBase
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
@@ -106,7 +106,7 @@ class geomHistogram(
     BinStatParameters,
     WithColorOption,
     WithFillOption,
-    LayerBase(
+    Layer(
         mapping = HistogramMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.histogram(),

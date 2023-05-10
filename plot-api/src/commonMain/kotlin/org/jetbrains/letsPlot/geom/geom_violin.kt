@@ -8,6 +8,7 @@ package org.jetbrains.letsPlot.geom
 import jetbrains.datalore.plot.config.Option
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.ViolinAesthetics
@@ -35,7 +36,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.yDensity()`. The statistical transformation to use on the data for this layer.
  *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position default = `positionDodge()`. Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ * @param position default = `positionDodge()`. Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
@@ -58,17 +59,17 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param violinWidth Density scaled for the violin plot, according to area, counts or to a constant maximum width.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
- *  String in the following formats: 
+ *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red") 
+ *  - color name (e.g. "red")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param fill Fill color.
- *  String in the following formats: 
+ *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red") 
+ *  - color name (e.g. "red")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param linetype Type of the line of border.
@@ -78,7 +79,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines line width.
  * @param width Width of violin bounding box.
  * @param weight Used by `Stat.yDensity()` stat to compute weighted density.
- * @param scale default = "area". 
+ * @param scale default = "area".
  *  - If "area", all violins have the same area.
  *  - If "count", areas are scaled proportionally to the number of observations.
  *  - If "width", all violins have the same maximum width.
@@ -139,7 +140,7 @@ class geomViolin(
     YDensityStatParameters,
     WithColorOption,
     WithFillOption,
-    LayerBase(
+    Layer(
         mapping = ViolinMapping().apply(mapping).seal(),
         data = data,
         geom = GeomOptions(GeomKind.VIOLIN),

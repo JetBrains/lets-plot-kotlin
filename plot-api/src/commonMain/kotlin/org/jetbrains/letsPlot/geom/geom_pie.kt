@@ -8,6 +8,7 @@ package org.jetbrains.letsPlot.geom
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.annotations.AnnotationOptions
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.PieAesthetics
@@ -34,7 +35,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.count2d()`. The statistical transformation to use on the data for this layer.
  *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true. false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
@@ -64,10 +65,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param explode Values to explode slices away from their center point, detaching it from the main pie.
  * @param size Pie diameter.
  * @param fill Fill color.
- *  String in the following formats: 
+ *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red") 
+ *  - color name (e.g. "red")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
@@ -78,10 +79,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param stroke default = 0.0.
  *  Width of slice borders.
  * @param strokeColor default = "white". Color of slice borders.
- *  String in the following formats: 
+ *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red") 
+ *  - color name (e.g. "red")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -119,7 +120,7 @@ class geomPie(
     Count2dStatAesthetics,
     WithSpatialParameters,
     WithFillOption,
-    LayerBase(
+    Layer(
         mapping = PieMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.pie(),

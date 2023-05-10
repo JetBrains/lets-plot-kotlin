@@ -103,15 +103,15 @@ internal object DummyFeature : Feature() {
 
 abstract class Layer(
     mapping: Options,
-    val data: Map<*, *>?,
+    val data: Map<*, *>? = null,
     val geom: GeomOptions,
     val stat: StatOptions,
     val position: PosOptions?,
     val showLegend: Boolean,
-    val sampling: SamplingOptions?,
-    val tooltips: TooltipOptions?,
-    val labels: AnnotationOptions?, // currently supported for Pie chart only
-    val orientation: String?
+    val sampling: SamplingOptions? = null,
+    val tooltips: TooltipOptions? = null,
+    val labels: AnnotationOptions? = null, // currently supported for Pie chart only
+    val orientation: String? = null,
 ) : OptionsCapsule, Feature() {
 
     // layer mapping has precedence over geom and stat

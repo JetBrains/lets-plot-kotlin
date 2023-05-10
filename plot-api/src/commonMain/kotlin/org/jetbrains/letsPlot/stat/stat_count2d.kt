@@ -7,9 +7,14 @@ package org.jetbrains.letsPlot.stat
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.layer.*
-import org.jetbrains.letsPlot.intern.layer.geom.*
+import org.jetbrains.letsPlot.intern.layer.GeomOptions
+import org.jetbrains.letsPlot.intern.layer.PosOptions
+import org.jetbrains.letsPlot.intern.layer.SamplingOptions
+import org.jetbrains.letsPlot.intern.layer.WithFillOption
+import org.jetbrains.letsPlot.intern.layer.geom.PieAesthetics
+import org.jetbrains.letsPlot.intern.layer.geom.PieMapping
 import org.jetbrains.letsPlot.intern.layer.stat.Count2dStatAesthetics
 import org.jetbrains.letsPlot.pos.positionIdentity
 
@@ -34,7 +39,7 @@ class statCount2d(
 ) : PieAesthetics,
     Count2dStatAesthetics,
     WithFillOption,
-    LayerBase(
+    Layer(
         mapping = PieMapping().apply(mapping).seal(),
         data = data,
         geom = geom,

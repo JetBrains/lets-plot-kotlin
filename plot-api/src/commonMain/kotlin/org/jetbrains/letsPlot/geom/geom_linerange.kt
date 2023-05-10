@@ -7,7 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.layer.LayerBase
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
@@ -79,7 +79,7 @@ class geomLineRange(
     mapping: LineRangeMapping.() -> Unit = {}
 ) : LineRangeAesthetics,
     WithColorOption,
-    LayerBase(
+    Layer(
         mapping = LineRangeMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.linerange(),

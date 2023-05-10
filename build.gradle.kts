@@ -26,7 +26,7 @@ allprojects {
     group = "org.jetbrains.lets-plot"
     version = when (name) {
         "dokka" -> "4.3.0"
-        else -> "4.4.0-alpha2"
+        else -> "4.4.0-alpha3"
     }
 
     val version = version as String

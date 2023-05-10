@@ -8,7 +8,7 @@ package org.jetbrains.letsPlot.geom
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.layer.LayerBase
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
@@ -107,7 +107,7 @@ class geomBin2D(
     Bin2dStatParameters,
     WithColorOption,
     WithFillOption,
-    LayerBase(
+    Layer(
         mapping = Bin2dMapping().apply(mapping).seal(),
         data = data,
         geom = Geom.tile(),

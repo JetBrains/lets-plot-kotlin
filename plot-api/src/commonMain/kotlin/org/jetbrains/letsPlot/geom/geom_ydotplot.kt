@@ -8,7 +8,7 @@ package org.jetbrains.letsPlot.geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
-import org.jetbrains.letsPlot.intern.layer.LayerBase
+import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.WithFillOption
@@ -114,7 +114,7 @@ class geomYDotplot(
     YDotplotStatParameters,
     WithColorOption,
     WithFillOption,
-    LayerBase(
+    Layer(
         mapping = YDotplotMapping().apply(mapping).seal(),
         data = data,
         geom = GeomOptions(GeomKind.Y_DOTPLOT),
