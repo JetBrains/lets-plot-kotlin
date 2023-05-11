@@ -70,7 +70,9 @@ fun ggsave(
     when (ext) {
         "svg" -> {
             val svg = PlotSvgExport.buildSvgImageFromRawSpecs(spec)
-            file.createFile()
+            if (file.notExists()) {
+                file.createFile()
+            }
             file.writeText(svg)
         }
 
@@ -80,7 +82,9 @@ fun ggsave(
                 iFrame = true,
                 scriptUrl = scriptUrl(VersionChecker.letsPlotJsVersion)
             )
-            file.createFile()
+            if (file.notExists()) {
+                file.createFile()
+            }
             file.writeText(html)
         }
 
