@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
 
+## [4.4.1] - 2023-05-11
+
+### Fixed
+
+- Lets-Plot dependency: was 3.2.0-RC1, now 3.2.0.
+- ggsave: an error if file does already exist [[#187](https://github.com/JetBrains/lets-plot-kotlin/issues/187)].
+
+
 ## [4.4.0] - 2023-05-10
 
 ### Added

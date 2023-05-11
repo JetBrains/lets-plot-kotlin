@@ -79,7 +79,7 @@ repositories {
 ```groovy
 dependencies {
     implementation "org.jetbrains.lets-plot:lets-plot-batik:3.2.0"
-    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.0"
+    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.1"
 }
 ```
 
@@ -88,7 +88,7 @@ dependencies {
 ```groovy
 dependencies {
   implementation "org.jetbrains.lets-plot:lets-plot-jfx:3.2.0"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.1"
 }
 ```
 
@@ -101,7 +101,7 @@ If your JVM app doesn't use either frontend, you can provide just "lets-plot-com
 ```groovy
 dependencies {
   implementation "org.jetbrains.lets-plot:lets-plot-common:3.2.0"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.1"
 }
 ```
 
@@ -109,7 +109,7 @@ dependencies {
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:4.4.0"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:4.4.1"
 }
 ```
 
