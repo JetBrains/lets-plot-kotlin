@@ -7,8 +7,12 @@ Try the following tutorials and examples to learn and evaluate various features 
 - [Correlation Plot](#corrplot)
 - [Q-Q Plot](#qq-plot)
 - [Marginal Plot](#marginal_plot)
+- [Joint Plot](#joint_plot)
+- [Residual Plot](#residual-plot)
+- [Images](#imshow)
 - [Position Adjustment](#pos)
 - [Scales](#scales)
+  - [Axis Position](#axis_pos)
 - [Time Series](#time-series)
 - [Facets](#facets)
 - [Coordinate Systems](#coord-sys)
@@ -33,9 +37,19 @@ Try the following tutorials and examples to learn and evaluate various features 
 `geomHistogram, geomDensity, geomVLine, geomFreqpoly, geomBoxplot`:
 * [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
 * [boxplot_whisker_width.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/boxplot_whisker_width.ipynb) 
+                             
+`geomPie`:
+* [geom_pie.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/geom_pie.ipynb)
+* [annotations_for_pie.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/annotations_for_pie.ipynb)
+* [stat_count_2d.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/stat_count_2d.ipynb)
 
-`geomViolin`:
+`geomLollipop`:
+[geom_lollipop.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/geom_lollipop.ipynb)
+
+`geomViolin, geomAreaRidges`:
 [geom_violin.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb)
+[ridgeline_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/ridgeline_plot.ipynb)
+[quantile_parameters.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/quantile_parameters.ipynb)
 
 `geomDotplot`:
 [geom_dotplot](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_dotplot.ipynb)
@@ -44,12 +58,14 @@ Try the following tutorials and examples to learn and evaluate various features 
 [geom_ydotplot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb)
 
 `geomErrorBar, geomLine, geomPoint, geomBar, geomCrossbar, geomLineRange, geomPointRange`:
-[error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+* [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+* [horizontal_error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/horizontal_error_bars.ipynb)
 
 `geomPoint, geomSmooth (statSmooth)`:
 
  - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
  - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
+ - [aes_stroke.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/aes_stroke.ipynb)
 
 `geomDensity2D, geomDensity2DFilled, geomBin2D, geomPolygon, geomPoint`:
 [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
@@ -60,6 +76,7 @@ Try the following tutorials and examples to learn and evaluate various features 
 `geomText, geomLabel`, label format:
 * [label_format.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/label_format.ipynb)
 * [geom_label.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb)
+* [geom_text_and_label_features.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.1.1/geom_text_and_label_new_features.ipynb)
 
 <a id="corrplot"></a>
 #### Correlation Plot
@@ -79,10 +96,29 @@ Try the following tutorials and examples to learn and evaluate various features 
 
 * [marginal_layers.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb)
 
+<a id="joint_plot"></a>
+#### Joint Plot
+
+* [joint_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/joint_plot.ipynb)
+
+* <a id="residual_plot"></a>
+#### Residual Plot
+
+* [residual_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/residual_plot.ipynb)
+
+* <a id="imshow"></a>
+#### Images
+
+* [image_101.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_101.ipynb)
+* [image_fisher_boat.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_fisher_boat.ipynb)
+* [image_grayscale.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_grayscale.ipynb)
+* [image_extent.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/image_extent.ipynb)
+
 <a id="pos"></a>
 #### Position Adjustment
 
 * `positionDodge()` : [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+* `positionDodgeV()` : [horizontal_error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/horizontal_error_bars.ipynb)
 * `positionJitter()` : [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
 * `positionStack(), positionFill()` : [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
 
@@ -97,6 +133,9 @@ Try the following tutorials and examples to learn and evaluate various features 
 * `scaleFillHue, scaleFillGrey, scaleColorGradient` : [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
 * `Viridis scales` : [colors_viridis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/colors_viridis.ipynb)
 
+<a id="axis_pos"></a>
+##### Axis Position 
+  * [axis_position.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_position.ipynb)
 
 <a id="time-series"></a>
 #### Time Series
@@ -139,7 +178,7 @@ _gggrid()_
 
 A simple utility which you can use to arrange plots in a regular grid.
 
-* [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+* [plot_grid.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/plot_grid.ipynb)
                          
 
 <a id="as_discrete"></a>
@@ -211,4 +250,5 @@ See: [Sampling in Lets-Plot](https://github.com/JetBrains/lets-plot-kotlin/blob/
 See [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
 
 * [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
-* [geom_label.ipynb](http://localhost:8888/notebooks/examples/jupyter-notebooks/geom_label.ipynb)
+* [geom_label.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb)
+* [projection_provided.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/projection_provided.ipynb)
