@@ -5,11 +5,11 @@
 
 package org.jetbrains.letsPlot.bistro.residual
 
-import org.jetbrains.letsPlot.commons.interval.DoubleSpan
-import org.jetbrains.letsPlot.core.commons.data.SeriesUtil
-import org.jetbrains.letsPlot.core.plot.base.DataFrame
-import org.jetbrains.letsPlot.core.plot.base.data.DataFrameUtil
-import org.jetbrains.letsPlot.core.plot.base.util.SamplingUtil
+import jetbrains.datalore.base.interval.DoubleSpan
+import jetbrains.datalore.plot.base.DataFrame
+import jetbrains.datalore.plot.base.data.DataFrameUtil
+import jetbrains.datalore.plot.base.util.SamplingUtil
+import jetbrains.datalore.plot.common.data.SeriesUtil
 import kotlin.random.Random
 
 internal object ResidualUtil {
@@ -35,25 +35,18 @@ internal object ResidualUtil {
             }
             val xs = groupData[x]!!
             val ys = groupData[y]!!
-            val filteredIndices = xs.zip(ys)
+            val indices = xs.zip(ys)
                 .withIndex()
                 .filter { (_, pair) -> SeriesUtil.allFinite(pair.first as? Double, pair.second as? Double) }
                 .map { it.index }
 
-            if (filteredIndices.size < 2) {
-                return@map emptyDataWithResiduals()
-            }
+                if (indices.size < 2) {
+                   return@map emptyDataWithResiduals()
+                }
 
-            val indices = when (filteredIndices.size) {
-                // FIXME: Ensure data size is 3 - currently regressions need at least 3 points
-                // FIXME: jetbrains/datalore/plot/base/stat/regression/LinearRegression.kt:44
-                //        jetbrains/datalore/plot/base/stat/regression/LocalPolynomialRegression.kt:41
-                2 -> filteredIndices + filteredIndices.last()
-                else -> filteredIndices
+                val values = groupData.mapValues { SeriesUtil.pickAtIndices(it.value, indices) }
+                appendResidualsToGroup(values, x, y, model, loessCriticalSize, samplingSeed)
             }
-            val values = groupData.mapValues { SeriesUtil.pickAtIndices(it.value, indices) }
-            appendResidualsToGroup(values, x, y, model, loessCriticalSize, samplingSeed)
-        }
 
         // merge maps
         return groupResults.fold(mutableMapOf<String, MutableList<Any?>>()) { mergedMap, map ->
