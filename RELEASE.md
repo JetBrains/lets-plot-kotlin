@@ -60,8 +60,8 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 >  - `./gradlew :plot-api:publishJvmPublicationToSonatypeRepository`
 >  - `./gradlew :plot-api:publishJsPublicationToSonatypeRepository`
 >  
-> **Note**: Each publish command will open a separate Nexus staging repository. Tasks `findSonatypeStagingRepository` and
-> `closeSonatypeStagingRepository` will not work properly in that case.
+> **Note**: Each publish command will open a separate Nexus staging repository.
+> In case you want to upload artifacts to one repository, call the necessary tasks with one command.
 
 
 ##### 4. Prepare to the next dev cycle
