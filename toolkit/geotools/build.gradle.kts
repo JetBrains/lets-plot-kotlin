@@ -93,20 +93,6 @@ afterEvaluate {
         }
 
         repositories {
-            maven {
-                val sonatypeUrl: String by extra
-                url = uri(sonatypeUrl)
-
-                val buildSettings: Map<String, Any?> by project
-
-                @Suppress("UNCHECKED_CAST")
-                val sonatype = (buildSettings["sonatype"] as? Map<String, String?>) ?: emptyMap()
-                credentials {
-                    username = sonatype["username"]
-                    password = sonatype["password"]
-                }
-            }
-
             mavenLocal {
                 val localMavenRepository: String by project
                 url = uri(localMavenRepository)
