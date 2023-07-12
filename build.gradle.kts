@@ -11,7 +11,7 @@ buildscript {
 
 plugins {
     kotlin("multiplatform") apply false
-    id("io.codearte.nexus-staging")
+    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
 val buildSettingsFile = File(rootDir, "build_settings.yml")
@@ -19,7 +19,7 @@ if (!buildSettingsFile.canRead()) {
     error("Couldn't read build_settings.yml")
 }
 val settings: Map<String, Any?> = org.yaml.snakeyaml.Yaml().load(buildSettingsFile.inputStream())
-project.extra["buildSettings"] = settings
+val sonatypeSettings = settings["sonatype"] as Map<String, String?>
 
 
 allprojects {
@@ -90,13 +90,13 @@ subprojects {
     }
 }
 
-// nexus-staging plugin settings:
-nexusStaging {
-    packageGroup = "org.jetbrains"
-    val buildSettings: Map<String, Any?>? by extra
-    buildSettings?.let {
-        val sonatype: Map<String, String?> by it
-        username = sonatype["username"]
-        password = sonatype["password"]
+// Nexus publish plugin settings:
+nexusPublishing {
+    repositories{
+        sonatype() {
+            stagingProfileId.set("11c25ff9a87b89")
+            username.set(sonatypeSettings["username"])
+            password.set(sonatypeSettings["password"])
+        }
     }
 }
