@@ -15,9 +15,10 @@
 a) Upload to the Nexus staging repository:
         
 - `./gradlew :clean`
-- `./gradlew :plot-api:publishAllPublicationsToMavenRepository`
-- `./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenRepository`
+- `./gradlew :plot-api:publishAllPublicationsToSonatypeRepository publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository`
 
+> **Note**: Publish tasks should be invoked with a single command to avoid splitting the staging repository.
+> 
 > Check artifacts are uploaded to the Nexus staging repository:
 >
 > https://oss.sonatype.org/index.html#stagingRepositories
@@ -31,7 +32,7 @@ a) Upload to the Nexus staging repository:
 
 b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 
-- `./gradlew closeAndReleaseRepository`
+- `./gradlew findSonatypeStagingRepository closeSonatypeStagingRepository`
 
 > Check artifacts `lets-plot-kotlin-[jvm, js, kernel, metadata, geotools]` are uploaded to the Nexus Releases repository:
 >
@@ -51,14 +52,16 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 >
 > - "Kotlin kernel":
 >
->  - `./gradlew publishLetsPlotKotlinKernelPublicationToMavenRepository`
+>  - `./gradlew publishLetsPlotKotlinKernelPublicationToSonatypeRepository`
 >
 >
 > - Multi-platform:
->  - `./gradlew :plot-api:publishKotlinMultiplatformPublicationToMavenRepository`
->  - `./gradlew :plot-api:publishJvmPublicationToMavenRepository`
->  - `./gradlew :plot-api:publishJsPublicationToMavenRepository`
->  - `./gradlew :plot-api:publishMetadataPublicationToMavenRepository`
+>  - `./gradlew :plot-api:publishKotlinMultiplatformPublicationToSonatypeRepository`
+>  - `./gradlew :plot-api:publishJvmPublicationToSonatypeRepository`
+>  - `./gradlew :plot-api:publishJsPublicationToSonatypeRepository`
+>  
+> **Note**: Each publish command will open a separate Nexus staging repository.
+> In case you want to upload artifacts to one repository, call the necessary tasks with one command.
 
 
 ##### 4. Prepare to the next dev cycle
