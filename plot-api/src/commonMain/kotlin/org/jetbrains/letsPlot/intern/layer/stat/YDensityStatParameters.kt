@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
-import jetbrains.datalore.plot.config.Option.Stat
+import org.jetbrains.letsPlot.core.spec.Option.Stat
 import org.jetbrains.letsPlot.intern.Options
 
 interface YDensityStatParameters : DensityStatParameters {

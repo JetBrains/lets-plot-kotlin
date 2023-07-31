@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.frontend
 
-import jetbrains.datalore.vis.swing.jfx.PlotViewerWindowJfx
+import org.jetbrains.letsPlot.jfx.plot.component.PlotViewerWindowJfx
 import org.jetbrains.letsPlot.FrontendContext
 
 /**

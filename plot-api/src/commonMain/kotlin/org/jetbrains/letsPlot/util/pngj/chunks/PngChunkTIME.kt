@@ -6,13 +6,14 @@
  * */
 
 @file:Suppress("unused")
+
 package org.jetbrains.letsPlot.util.pngj.chunks
 
-import jetbrains.datalore.base.dateFormat.DateTimeFormat
-import jetbrains.datalore.base.datetime.Date
-import jetbrains.datalore.base.datetime.DateTime
-import jetbrains.datalore.base.datetime.Month
-import jetbrains.datalore.base.datetime.Time
+import org.jetbrains.letsPlot.commons.formatting.datetime.DateTimeFormat
+import org.jetbrains.letsPlot.commons.intern.datetime.Date
+import org.jetbrains.letsPlot.commons.intern.datetime.DateTime
+import org.jetbrains.letsPlot.commons.intern.datetime.Month
+import org.jetbrains.letsPlot.commons.intern.datetime.Time
 import org.jetbrains.letsPlot.util.pngj.ImageInfo
 import org.jetbrains.letsPlot.util.pngj.PngHelperInternal
 import org.jetbrains.letsPlot.util.pngj.PngjException
@@ -62,7 +63,8 @@ internal class PngChunkTIME(info: ImageInfo?) : PngChunkSingle(ID, info) {
     }
 
     val yMDHMS: IntArray
-        get() = dateTime?.let { intArrayOf(it.year, it.month.ordinal() + 1, it.day, it.hours, it.minutes, it.seconds) } ?: IntArray(6)
+        get() = dateTime?.let { intArrayOf(it.year, it.month.ordinal() + 1, it.day, it.hours, it.minutes, it.seconds) }
+            ?: IntArray(6)
 
     /** format YYYY/MM/DD HH:mm:SS  */
     val asString: String

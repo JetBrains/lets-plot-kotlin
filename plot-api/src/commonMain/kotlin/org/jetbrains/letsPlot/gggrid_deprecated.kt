@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot
 
-import jetbrains.datalore.plot.PlotSizeHelper
+import org.jetbrains.letsPlot.core.util.PlotSizeHelper
 import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.intern.toSpec
 

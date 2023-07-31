@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.layer.geom
 
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 
 interface LabelParameters : TextParameters {

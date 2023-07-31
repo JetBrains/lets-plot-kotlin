@@ -5,14 +5,10 @@
 
 package org.jetbrains.letsPlot.bistro.residual
 
-import jetbrains.datalore.base.values.Color
 import org.jetbrains.letsPlot.bistro.common.Plot2dUtil
+import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.geom.geomHLine
-import org.jetbrains.letsPlot.intern.DummyFeature
-import org.jetbrains.letsPlot.intern.Feature
-import org.jetbrains.letsPlot.intern.GenericAesMapping
-import org.jetbrains.letsPlot.intern.Plot
-import org.jetbrains.letsPlot.intern.asPlotData
+import org.jetbrains.letsPlot.intern.*
 import org.jetbrains.letsPlot.label.ylab
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.themes.elementBlank

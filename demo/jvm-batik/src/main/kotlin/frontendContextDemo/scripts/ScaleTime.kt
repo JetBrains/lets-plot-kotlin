@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.datalore.base.datetime.Duration
+import org.jetbrains.letsPlot.commons.intern.datetime.Duration
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.scale.scaleXTime

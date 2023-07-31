@@ -5,13 +5,13 @@
 
 package org.jetbrains.letsPlot.bistro.qq
 
-import jetbrains.datalore.plot.base.Aes
-import jetbrains.datalore.plot.server.config.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_DISTRIBUTION
-import jetbrains.datalore.plot.server.config.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_LINE_COLOR
-import jetbrains.datalore.plot.server.config.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_LINE_SIZE
-import jetbrains.datalore.plot.server.config.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_POINT_ALPHA
-import jetbrains.datalore.plot.server.config.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_POINT_SIZE
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.core.spec.back.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_DISTRIBUTION
+import org.jetbrains.letsPlot.core.spec.back.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_LINE_COLOR
+import org.jetbrains.letsPlot.core.spec.back.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_LINE_SIZE
+import org.jetbrains.letsPlot.core.spec.back.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_POINT_ALPHA
+import org.jetbrains.letsPlot.core.spec.back.transform.bistro.qq.QQPlotOptionsBuilder.Companion.DEF_POINT_SIZE
 import org.jetbrains.letsPlot.geom.geomQQ
 import org.jetbrains.letsPlot.geom.geomQQ2
 import org.jetbrains.letsPlot.geom.geomQQ2Line

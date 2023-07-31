@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.geom.extras
 
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 
 /**

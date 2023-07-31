@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot.bistro.common
 
-import jetbrains.datalore.plot.base.data.DataFrameUtil
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.core.plot.base.data.DataFrameUtil
 import org.jetbrains.letsPlot.geom.*
 import org.jetbrains.letsPlot.ggmarginal
 import org.jetbrains.letsPlot.intern.DummyFeature
@@ -80,6 +80,7 @@ object Plot2dUtil {
                     null
                 }
             }
+
             else -> null
         }
     }

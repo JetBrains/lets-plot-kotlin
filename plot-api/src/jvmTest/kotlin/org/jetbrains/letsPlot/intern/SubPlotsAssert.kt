@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.intern
 
-import jetbrains.datalore.plot.config.Option.SubPlots
+import org.jetbrains.letsPlot.core.spec.Option.SubPlots
 import junit.framework.TestCase.*
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 

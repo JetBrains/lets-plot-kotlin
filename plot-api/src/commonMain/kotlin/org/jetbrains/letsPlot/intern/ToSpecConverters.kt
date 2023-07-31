@@ -5,25 +5,25 @@
 
 package org.jetbrains.letsPlot.intern
 
-import jetbrains.datalore.base.datetime.Instant
-import jetbrains.datalore.plot.config.Option
-import jetbrains.datalore.plot.config.Option.Meta.DATA_META
-import jetbrains.datalore.plot.config.Option.Meta.KIND
-import jetbrains.datalore.plot.config.Option.Meta.Kind.PLOT
-import jetbrains.datalore.plot.config.Option.Scale.AES
-import jetbrains.datalore.plot.config.Option.Scale.BREAKS
-import jetbrains.datalore.plot.config.Option.Scale.CONTINUOUS_TRANSFORM
-import jetbrains.datalore.plot.config.Option.Scale.EXPAND
-import jetbrains.datalore.plot.config.Option.Scale.FORMAT
-import jetbrains.datalore.plot.config.Option.Scale.GUIDE
-import jetbrains.datalore.plot.config.Option.Scale.LABELS
-import jetbrains.datalore.plot.config.Option.Scale.LIMITS
-import jetbrains.datalore.plot.config.Option.Scale.NAME
-import jetbrains.datalore.plot.config.Option.Scale.NA_VALUE
-import jetbrains.datalore.plot.config.Option.Scale.POSITION
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
+import org.jetbrains.letsPlot.core.spec.Option.Meta.KIND
+import org.jetbrains.letsPlot.core.spec.Option.Meta.Kind.PLOT
+import org.jetbrains.letsPlot.core.spec.Option.Scale.AES
+import org.jetbrains.letsPlot.core.spec.Option.Scale.BREAKS
+import org.jetbrains.letsPlot.core.spec.Option.Scale.CONTINUOUS_TRANSFORM
+import org.jetbrains.letsPlot.core.spec.Option.Scale.EXPAND
+import org.jetbrains.letsPlot.core.spec.Option.Scale.FORMAT
+import org.jetbrains.letsPlot.core.spec.Option.Scale.GUIDE
+import org.jetbrains.letsPlot.core.spec.Option.Scale.LABELS
+import org.jetbrains.letsPlot.core.spec.Option.Scale.LIMITS
+import org.jetbrains.letsPlot.core.spec.Option.Scale.NAME
+import org.jetbrains.letsPlot.core.spec.Option.Scale.NA_VALUE
+import org.jetbrains.letsPlot.core.spec.Option.Scale.POSITION
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.MappingMeta
+import org.jetbrains.letsPlot.commons.intern.datetime.Instant
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.layer.WithSpatialParameters
 import org.jetbrains.letsPlot.intern.standardizing.JvmStandardizing
@@ -206,6 +206,7 @@ private fun Layer.beforeAsPlotData(rawData: Map<*, *>): Map<*, *> {
                 // Has "map" parameter -> convert "data" to a regular Map.
                 HashMap<Any?, Any?>(rawData)
             }
+
             else -> HashMap<Any?, Any?>(rawData) // convert "data" to a regular Map.
         }
     }

@@ -6,10 +6,10 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.datalore.base.values.Color
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.annotations.layerLabels
 import org.jetbrains.letsPlot.asDiscrete
+import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.geom.geomPie
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot

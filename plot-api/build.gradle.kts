@@ -27,11 +27,18 @@ kotlin {
             dependencies {
                 implementation("io.github.microutils:kotlin-logging:$kotlinLogging_version")
 
-                api("org.jetbrains.lets-plot:base-portable:$lets_plot_version")
-                api("org.jetbrains.lets-plot:plot-base-portable:$lets_plot_version")
-                api("org.jetbrains.lets-plot:plot-common-portable:$lets_plot_version")
-                api("org.jetbrains.lets-plot:plot-builder-portable:$lets_plot_version")
-                api("org.jetbrains.lets-plot:plot-config-portable:$lets_plot_version")
+//                api("org.jetbrains.lets-plot:base-portable:$lets_plot_version")
+//                api("org.jetbrains.lets-plot:plot-base-portable:$lets_plot_version")
+//                api("org.jetbrains.lets-plot:plot-common-portable:$lets_plot_version")
+//                api("org.jetbrains.lets-plot:plot-builder-portable:$lets_plot_version")
+//                api("org.jetbrains.lets-plot:plot-config-portable:$lets_plot_version")
+                api("org.jetbrains.lets-plot:commons:$lets_plot_version")
+                api("org.jetbrains.lets-plot:datamodel:$lets_plot_version")
+                api("org.jetbrains.lets-plot:plot-base:$lets_plot_version")
+                api("org.jetbrains.lets-plot:plot-builder:$lets_plot_version")
+                api("org.jetbrains.lets-plot:plot-stem:$lets_plot_version")
+
+                api("org.jetbrains.lets-plot:deprecated-in-v4:$lets_plot_version")
             }
         }
         commonTest {
@@ -40,7 +47,8 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:$datetime_version")
             }
         }
-        val jvmMain by getting {
+
+        named("jvmMain") {
             dependencies {
                 api("org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version")
                 // Use "-jvm" variant to work around the issue where LPK JS (IR) artefact becomes dependent on

@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.tooltips
 
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 
 typealias TooltipOptions = layerTooltips
 

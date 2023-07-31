@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot
 
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 import junit.framework.TestCase.assertEquals
 import org.jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
 import org.jetbrains.letsPlot.intern.toSpec
@@ -120,7 +120,7 @@ class ThemeTest {
     fun `element color standardized`() {
         val themes = theme(
             axisLineX = elementLine(color = Color.BLACK),
-            axisLineY = elementLine(color = jetbrains.datalore.base.values.Color.BLUE)
+            axisLineY = elementLine(color = org.jetbrains.letsPlot.commons.values.Color.BLUE)
         )
         val p = ggplot() + themes
 

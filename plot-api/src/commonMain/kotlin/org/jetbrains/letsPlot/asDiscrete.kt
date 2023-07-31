@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot
 
-import jetbrains.datalore.plot.config.Option.Meta.MappingAnnotation
+import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
 
 
 /**

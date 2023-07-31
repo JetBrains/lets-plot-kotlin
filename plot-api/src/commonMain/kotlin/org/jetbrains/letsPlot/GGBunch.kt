@@ -5,10 +5,10 @@
 
 package org.jetbrains.letsPlot
 
-import jetbrains.datalore.plot.config.Option
-import jetbrains.datalore.plot.config.Option.GGBunch.ITEMS
-import jetbrains.datalore.plot.config.Option.GGBunch.Item
-import jetbrains.datalore.plot.config.Option.Meta.KIND
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.spec.Option.GGBunch.ITEMS
+import org.jetbrains.letsPlot.core.spec.Option.GGBunch.Item
+import org.jetbrains.letsPlot.core.spec.Option.Meta.KIND
 import org.jetbrains.letsPlot.frontend.CurrentFrontendContext
 import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.intern.toSpec

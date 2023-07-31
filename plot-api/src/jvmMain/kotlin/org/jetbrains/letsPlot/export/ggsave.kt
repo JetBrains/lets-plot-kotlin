@@ -5,11 +5,10 @@
 
 package org.jetbrains.letsPlot.export
 
-import jetbrains.datalore.plot.PlotHtmlExport
-import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
-import jetbrains.datalore.plot.PlotImageExport
-import jetbrains.datalore.plot.PlotSvgExport
 import org.jetbrains.letsPlot.Figure
+import org.jetbrains.letsPlot.awt.plot.PlotSvgExport
+import org.jetbrains.letsPlot.core.util.PlotHtmlExport
+import org.jetbrains.letsPlot.core.util.PlotHtmlHelper.scriptUrl
 import org.jetbrains.letsPlot.intern.toSpec
 import java.lang.Double.NaN
 import java.nio.file.Path
@@ -118,13 +117,13 @@ private fun exportRasterImage(
     val imageBytes: ByteArray = try {
 
         val format = when (val ext = file.extension.lowercase(Locale.getDefault())) {
-            "png" -> PlotImageExport.Format.PNG
-            "jpeg", "jpg" -> PlotImageExport.Format.JPEG()
-            "tiff", "tif" -> PlotImageExport.Format.TIFF
+            "png" -> org.jetbrains.letsPlot.core.plot.export.PlotImageExport.Format.PNG
+            "jpeg", "jpg" -> org.jetbrains.letsPlot.core.plot.export.PlotImageExport.Format.JPEG()
+            "tiff", "tif" -> org.jetbrains.letsPlot.core.plot.export.PlotImageExport.Format.TIFF
             else -> throw java.lang.IllegalArgumentException("Unsupported format: $ext")
         }
 
-        val image = PlotImageExport.buildImageFromRawSpecs(
+        val image = org.jetbrains.letsPlot.core.plot.export.PlotImageExport.buildImageFromRawSpecs(
             plotSpec = spec,
             format = format,
             scalingFactor = scalingFactor,

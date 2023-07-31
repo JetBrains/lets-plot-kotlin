@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot
 
-import jetbrains.datalore.plot.config.Option.SubPlots
+import org.jetbrains.letsPlot.core.spec.Option.SubPlots
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.figure.SubPlotsLayoutSpec
 import org.jetbrains.letsPlot.intern.filterNonNullValues

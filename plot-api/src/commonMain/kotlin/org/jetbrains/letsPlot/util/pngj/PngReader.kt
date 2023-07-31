@@ -6,9 +6,10 @@
  * */
 
 @file:Suppress("unused", "KDocUnresolvedReference")
+
 package org.jetbrains.letsPlot.util.pngj
 
-import jetbrains.datalore.base.numberFormat.NumberFormat
+import org.jetbrains.letsPlot.commons.formatting.number.NumberFormat
 import org.jetbrains.letsPlot.util.pngj.Zip.adler32
 import org.jetbrains.letsPlot.util.pngj.Zip.crc32
 import org.jetbrains.letsPlot.util.pngj.chunks.ChunkLoadBehaviour
@@ -58,7 +59,10 @@ import kotlin.jvm.JvmOverloads
  * preferred) and [PngReaderByte] (uses byte instead of int to store the
  * samples).
  */
-internal open class PngReader @JvmOverloads constructor(inputStream: InputPngStream, shouldCloseStream: Boolean = true) {
+internal open class PngReader @JvmOverloads constructor(
+    inputStream: InputPngStream,
+    shouldCloseStream: Boolean = true
+) {
     // checked)
     /**
      * Basic image info - final and inmutable.

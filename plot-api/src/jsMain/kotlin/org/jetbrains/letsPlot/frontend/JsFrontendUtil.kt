@@ -5,10 +5,10 @@
 
 package org.jetbrains.letsPlot.frontend
 
-import jetbrains.datalore.plot.PlotHtmlHelper
 import kotlinx.browser.document
 import kotlinx.dom.createElement
 import org.jetbrains.letsPlot.Figure
+import org.jetbrains.letsPlot.core.util.PlotHtmlHelper
 import org.jetbrains.letsPlot.intern.toSpec
 import org.w3c.dom.*
 

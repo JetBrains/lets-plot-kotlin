@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot.scale
 
-import jetbrains.datalore.plot.base.Aes
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
@@ -17,7 +17,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param values List of Strings (encoding colors) or color values.
  *  A set of aesthetic values to map data values to.
  *  Values will be matched with the limits of the scale (if specified).
- * @param name The name of the scale - used as the axis label or the legend title. 
+ * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
@@ -132,7 +132,7 @@ fun scaleColorManual(
  * @param values List of Strings (encoding colors) or color values.
  *  A set of aesthetic values to map data values to.
  *  Values will be matched with the limits of the scale (if specified).
- * @param name The name of the scale - used as the axis label or the legend title. 
+ * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
@@ -182,7 +182,7 @@ fun scaleFillManual(
  *
  * @param values A set of aesthetic values to map data values to.
  *  Values will be matched with the limits of the scale (if specified).
- * @param name The name of the scale - used as the axis label or the legend title. 
+ * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
@@ -236,7 +236,7 @@ fun scaleSizeManual(
  *
  * @param values A set of aesthetic values to map data values to.
  *  Values will be matched with the limits of the scale (if specified).
- * @param name The name of the scale - used as the axis label or the legend title. 
+ * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
@@ -286,7 +286,7 @@ fun scaleShapeManual(
  *
  * @param values A set of aesthetic values to map data values to.
  *  Values will be matched with the limits of the scale (if specified).
- * @param name The name of the scale - used as the axis label or the legend title. 
+ * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
@@ -338,7 +338,7 @@ fun scaleLinetypeManual(
  * @param values List of alpha values.
  *  A set of aesthetic values to map data values to.
  *  Values will be matched with the limits of the scale (if specified).
- * @param name The name of the scale - used as the axis label or the legend title. 
+ * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).

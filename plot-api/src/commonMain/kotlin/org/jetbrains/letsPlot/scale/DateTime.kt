@@ -5,9 +5,9 @@
 
 package org.jetbrains.letsPlot.scale
 
-import jetbrains.datalore.plot.base.Aes
-import jetbrains.datalore.plot.config.Option.Scale.DATE_TIME
-import jetbrains.datalore.plot.config.Option.Scale.TIME
+import org.jetbrains.letsPlot.core.spec.Option.Scale.DATE_TIME
+import org.jetbrains.letsPlot.core.spec.Option.Scale.TIME
+import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 import org.jetbrains.letsPlot.intern.checkScaleExpand
@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *
  * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
  *
- * @param name The name of the scale - used as the axis label or the legend title. 
+ * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
@@ -81,7 +81,7 @@ fun scaleXDateTime(
  *
  * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
  *
- * @param name The name of the scale - used as the axis label or the legend title. 
+ * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).

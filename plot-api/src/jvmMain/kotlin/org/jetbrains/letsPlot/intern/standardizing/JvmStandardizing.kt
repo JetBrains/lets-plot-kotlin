@@ -8,6 +8,12 @@ package org.jetbrains.letsPlot.intern.standardizing
 import java.time.*
 import java.util.*
 
+private val AWT_PRESENT: Boolean = try {
+    java.awt.Color.WHITE == java.awt.Color.WHITE
+} catch (e: NoClassDefFoundError) {
+    false     // Android
+}
+
 actual object JvmStandardizing {
     actual fun isDateTimeJvm(o: Any): Boolean {
         return when (o) {
@@ -27,12 +33,18 @@ actual object JvmStandardizing {
     actual fun isJvm(o: Any): Boolean {
         return when {
             isDateTimeJvm(o) -> true
-            o is java.awt.Color -> true
+            AWT_PRESENT && o is java.awt.Color -> true
             else -> false
         }
     }
 
     actual fun standardize(o: Any): Any {
+        if (AWT_PRESENT &&
+            o is java.awt.Color
+        ) {
+            return "#%02x%02x%02x".format(o.red, o.green, o.blue)
+        }
+
         return when (o) {
             is Date -> o.time
             is Instant -> o.toEpochMilli()
@@ -40,7 +52,7 @@ actual object JvmStandardizing {
             is LocalDate -> noTimeZoneError(o)
             is LocalTime -> noTimeZoneError(o)
             is LocalDateTime -> noTimeZoneError(o)
-            is java.awt.Color -> "#%02x%02x%02x".format(o.red, o.green, o.blue)
+//            is java.awt.Color -> "#%02x%02x%02x".format(o.red, o.green, o.blue)
             else -> when {
                 isKotlinxDateTime(o) -> when (o) {
                     is kotlinx.datetime.Instant -> o.toEpochMilliseconds()
@@ -48,6 +60,7 @@ actual object JvmStandardizing {
                     is kotlinx.datetime.LocalDateTime -> noTimeZoneError(o)
                     else -> unsupportedTypeError(o)
                 }
+
                 else -> unsupportedTypeError(o)
             }
         }

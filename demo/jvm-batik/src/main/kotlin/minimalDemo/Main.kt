@@ -5,9 +5,9 @@
 
 package minimalDemo
 
-import jetbrains.datalore.base.registration.Disposable
-import jetbrains.datalore.plot.MonolithicCommon
-import jetbrains.datalore.vis.swing.batik.DefaultPlotPanelBatik
+import org.jetbrains.letsPlot.batik.plot.component.DefaultPlotPanelBatik
+import org.jetbrains.letsPlot.commons.registration.Disposable
+import org.jetbrains.letsPlot.core.util.MonolithicCommon
 import org.jetbrains.letsPlot.geom.geomDensity
 import org.jetbrains.letsPlot.geom.geomHistogram
 import org.jetbrains.letsPlot.intern.Plot

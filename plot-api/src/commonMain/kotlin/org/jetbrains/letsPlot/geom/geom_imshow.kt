@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.geom
 
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.*
 import org.jetbrains.letsPlot.intern.layer.*

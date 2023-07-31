@@ -7,8 +7,8 @@
 
 package org.jetbrains.letsPlot.themes
 
-import jetbrains.datalore.plot.builder.defaultTheme.values.ThemeOption
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.plot.builder.defaultTheme.values.ThemeOption
 import org.jetbrains.letsPlot.intern.OptionsMap
 
 

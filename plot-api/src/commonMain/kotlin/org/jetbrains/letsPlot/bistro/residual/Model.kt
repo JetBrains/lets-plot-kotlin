@@ -5,10 +5,7 @@
 
 package org.jetbrains.letsPlot.bistro.residual
 
-import jetbrains.datalore.base.enums.EnumInfoFactory
-import jetbrains.datalore.plot.base.stat.regression.LinearRegression
-import jetbrains.datalore.plot.base.stat.regression.LocalPolynomialRegression
-import jetbrains.datalore.plot.base.stat.regression.PolynomialRegression
+import org.jetbrains.letsPlot.core.commons.enums.EnumInfoFactory
 
 internal class Model(
     val method: Method,
@@ -26,19 +23,25 @@ internal class Model(
     private fun getLMPredictor(xs: List<Double?>, ys: List<Double?>): (Double) -> Double {
         require(polynomialDegree >= 1) { "Degree of polynomial regression must be at least 1" }
         val regression = if (polynomialDegree == 1) {
-            LinearRegression(xs, ys, CONFIDENCE_LEVEL)
+            // ToDo: 'LinearRegression' constructor signature changed recently.
+            throw IllegalStateException("Fixme: 'LinearRegression' constructor signature changed recently.")
+//            LinearRegression(xs, ys, CONFIDENCE_LEVEL)
         } else {
-            require(PolynomialRegression.canBeComputed(xs, ys, polynomialDegree))
-                { "Degree of polynomial is too big for the given data" }
-            PolynomialRegression(xs, ys, CONFIDENCE_LEVEL, polynomialDegree)
+            // ToDo: 'canBeComputed' was recently removed
+            throw IllegalStateException("Fixme: 'canBeComputed' was recently removed.")
+//            require(PolynomialRegression.canBeComputed(xs, ys, polynomialDegree))
+//                { "Degree of polynomial is too big for the given data" }
+//            PolynomialRegression(xs, ys, CONFIDENCE_LEVEL, polynomialDegree)
         }
-        return { x -> regression.evalX(x).y }
+//        return { x -> regression.evalX(x).y }
     }
 
     private fun getLoessPredictor(xs: List<Double?>, ys: List<Double?>): (Double) -> Double {
-        val regression = LocalPolynomialRegression(xs, ys, CONFIDENCE_LEVEL, span)
-        require(regression.canCompute) { "Too small dataset for the loess method" }
-        return { x -> regression.evalX(x).y }
+        // ToDo: 'LocalPolynomialRegression' constructor signature changed recently.
+        throw IllegalStateException("Fixme: 'LocalPolynomialRegression' constructor signature changed recently.")
+//        val regression = LocalPolynomialRegression(xs, ys, CONFIDENCE_LEVEL, span)
+//        require(regression.canCompute) { "Too small dataset for the loess method" }
+//        return { x -> regression.evalX(x).y }
     }
 
     enum class Method {
@@ -49,10 +52,9 @@ internal class Model(
             private val ENUM_INFO = EnumInfoFactory.createEnumInfo<Method>()
 
             fun safeValueOf(v: String): Method {
-                return ENUM_INFO.safeValueOf(v) ?:
-                throw IllegalArgumentException(
+                return ENUM_INFO.safeValueOf(v) ?: throw IllegalArgumentException(
                     "Unsupported method: '$v'\n" +
-                    "Use one of: lm, loess, lowess, none."
+                            "Use one of: lm, loess, lowess, none."
                 )
             }
         }

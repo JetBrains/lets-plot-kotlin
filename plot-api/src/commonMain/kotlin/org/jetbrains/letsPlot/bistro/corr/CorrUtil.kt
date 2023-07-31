@@ -5,9 +5,9 @@
 
 package org.jetbrains.letsPlot.bistro.corr
 
-import jetbrains.datalore.plot.base.DataFrame
-import jetbrains.datalore.plot.base.data.DataFrameUtil
-import jetbrains.datalore.plot.common.data.SeriesUtil.filterFinite
+import org.jetbrains.letsPlot.core.commons.data.SeriesUtil.filterFinite
+import org.jetbrains.letsPlot.core.plot.base.DataFrame
+import org.jetbrains.letsPlot.core.plot.base.data.DataFrameUtil
 import kotlin.math.absoluteValue
 
 internal object CorrUtil {
@@ -45,6 +45,7 @@ internal object CorrUtil {
     Note that keys iterating order should be consistent with coefficients order
      */
     fun correlationsFromCoefficients(
+        @Suppress("SpellCheckingInspection")
         coeff: Map<String, List<Any?>>
     ): Map<Pair<String, String>, Double> {
         val correlations = LinkedHashMap<Pair<String, String>, Double>()
@@ -53,7 +54,7 @@ internal object CorrUtil {
             coeff.keys.asSequence()
                 .drop(vxIndex) // skip symmetric elements, e.g. (c to a),  (c to b)
                 .mapIndexed { i, vy -> (vxIndex + i) to vy } // rebase vy indices
-                .forEach { (vyIndex, vy) -> correlations[vx to vy] = vxCoeffs.get(vyIndex) as Double }
+                .forEach { (vyIndex, vy) -> correlations[vx to vy] = vxCoeffs[vyIndex] as Double }
         }
 
         return correlations
@@ -70,7 +71,7 @@ internal object CorrUtil {
         }
 
         val values = vectors.asSequence().flatMap { it }
-        if (values.all { it is Double && it >= -1.0 && it <= 1.0 } ) {
+        if (values.all { it is Double && it >= -1.0 && it <= 1.0 }) {
             return true
         }
 
@@ -112,12 +113,18 @@ internal object CorrUtil {
             threshold
         )
         for ((ix, x) in variablesInOrder.withIndex()) {
-            val iterY = if (type == "upper") {
-                variablesInOrder.subList(ix, variablesInOrder.size)
-            } else if (type == "lower") {
-                variablesInOrder.subList(0, ix + 1)
-            } else {
-                variablesInOrder
+            val iterY = when (type) {
+                "upper" -> {
+                    variablesInOrder.subList(ix, variablesInOrder.size)
+                }
+
+                "lower" -> {
+                    variablesInOrder.subList(0, ix + 1)
+                }
+
+                else -> {
+                    variablesInOrder
+                }
             }
             for (y in iterY) {
                 val v = cm.value(x, y)

@@ -6,11 +6,11 @@
 package rawSpecDemo
 
 import javafx.application.Platform
-import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.datalore.base.json.JsonSupport
-import jetbrains.datalore.plot.MonolithicAwt
-import jetbrains.datalore.vis.svg.SvgSvgElement
-import jetbrains.datalore.vis.swing.SceneMapperJfxPanel
+import org.jetbrains.letsPlot.awt.plot.MonolithicAwt
+import org.jetbrains.letsPlot.commons.geometry.DoubleVector
+import org.jetbrains.letsPlot.commons.intern.json.JsonSupport
+import org.jetbrains.letsPlot.datamodel.svg.dom.SvgSvgElement
+import org.jetbrains.letsPlot.jfx.plot.util.SceneMapperJfxPanel
 import javax.swing.JFrame
 import javax.swing.SwingUtilities
 import javax.swing.WindowConstants

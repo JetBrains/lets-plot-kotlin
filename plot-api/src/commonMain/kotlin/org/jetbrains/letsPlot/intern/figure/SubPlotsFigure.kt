@@ -5,10 +5,10 @@
 
 package org.jetbrains.letsPlot.intern.figure
 
-import jetbrains.datalore.plot.config.Option.Meta
-import jetbrains.datalore.plot.config.Option.Plot
-import jetbrains.datalore.plot.config.Option.SubPlots
-import jetbrains.datalore.plot.config.Option.SubPlots.LAYOUT
+import org.jetbrains.letsPlot.core.spec.Option.Meta
+import org.jetbrains.letsPlot.core.spec.Option.Plot
+import org.jetbrains.letsPlot.core.spec.Option.SubPlots
+import org.jetbrains.letsPlot.core.spec.Option.SubPlots.LAYOUT
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.frontend.CurrentFrontendContext
 import org.jetbrains.letsPlot.intern.*

@@ -5,10 +5,10 @@
 
 package org.jetbrains.letsPlot.intern
 
-import jetbrains.datalore.plot.base.Aes
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.annotations.AnnotationOptions
+import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.frontend.CurrentFrontendContext
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.PosOptions

@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.layer.geom
 
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
@@ -16,7 +16,12 @@ interface PieParameters : OptionsCapsule {
 
     override fun seal() = Options.of(
         Option.Geom.Pie.HOLE to hole,
-        Option.Geom.Pie.STROKE to stroke,
-        Option.Geom.Pie.STROKE_COLOR to strokeColor
+//        Option.Geom.Pie.STROKE to stroke,
+//        Option.Geom.Pie.STROKE_COLOR to strokeColor
+        // ToDo:
+//    const val SPACER_WIDTH = "spacer_width"
+//    const val SPACER_COLOR = "spacer_color"
+//    const val STROKE_SIDE = "stroke_side"
+
     )
 }

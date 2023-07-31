@@ -6,8 +6,8 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.datalore.base.random.RandomGaussian
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.commons.intern.random.RandomGaussian
 import org.jetbrains.letsPlot.geom.geomBin2D
 import org.jetbrains.letsPlot.geom.geomTile
 import org.jetbrains.letsPlot.ggplot

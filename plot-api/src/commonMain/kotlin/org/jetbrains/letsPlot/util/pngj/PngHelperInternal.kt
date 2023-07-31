@@ -6,10 +6,11 @@
  * */
 
 @file:Suppress("unused", "UNUSED_PARAMETER", "KDocUnresolvedReference")
+
 package org.jetbrains.letsPlot.util.pngj
 
-import jetbrains.datalore.base.logging.Logger
-import jetbrains.datalore.base.logging.PrintlnLogger
+import org.jetbrains.letsPlot.commons.logging.Logger
+import org.jetbrains.letsPlot.commons.logging.PrintlnLogger
 import kotlin.jvm.JvmOverloads
 
 

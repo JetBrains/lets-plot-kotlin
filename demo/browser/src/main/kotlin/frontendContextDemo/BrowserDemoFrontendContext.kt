@@ -6,9 +6,9 @@
 package frontendContextDemo
 
 import BrowserDemoUtil
-import jetbrains.datalore.plot.PlotHtmlHelper
-import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 import org.jetbrains.letsPlot.FrontendContext
+import org.jetbrains.letsPlot.core.util.PlotHtmlHelper
+import org.jetbrains.letsPlot.core.util.PlotHtmlHelper.scriptUrl
 import org.jetbrains.letsPlot.export.VersionChecker
 
 class BrowserDemoFrontendContext(private val title: String) : FrontendContext {

@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot.frontend
 
-import jetbrains.datalore.vis.swing.batik.PlotViewerWindowBatik
 import org.jetbrains.letsPlot.FrontendContext
+import org.jetbrains.letsPlot.batik.plot.component.PlotViewerWindowBatik
 
 /**
  * Shows plot in Java Swing Window.
@@ -35,6 +35,7 @@ class DefaultSwingBatikFrontendContext private constructor() : FrontendContext {
                 when (e) {
                     is ClassNotFoundException,
                     is NoClassDefFoundError -> null
+
                     else -> throw e
                 }
             }

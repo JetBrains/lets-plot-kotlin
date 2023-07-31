@@ -7,7 +7,7 @@ package frontendContextDemo.scripts
 
 import demoData.Iris
 import frontendContextDemo.ScriptInBatikContext
-import jetbrains.datalore.base.values.Color
+import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.coord.coordFlip
 import org.jetbrains.letsPlot.facet.facetGrid
 import org.jetbrains.letsPlot.geom.geomDotplot

@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot
 
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.LayerAssert
 import org.jetbrains.letsPlot.intern.PosKind

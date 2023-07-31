@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot.intern
 
-import jetbrains.datalore.base.json.JsonSupport
 import org.jetbrains.letsPlot.Figure
+import org.jetbrains.letsPlot.commons.intern.json.JsonSupport
 
 /**
  * Used in IDEA Plugin

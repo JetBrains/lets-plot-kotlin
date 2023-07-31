@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot
 
-import jetbrains.datalore.plot.config.Option
-import jetbrains.datalore.plot.server.config.transform.PlotConfigServerSideTransforms
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.spec.back.transform.PlotConfigBackendTransforms
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Assert
@@ -111,6 +111,6 @@ class DataSeriesTimeStandardizeTest(
     }
 
     private fun applyEntryTransforms(rawSpec: MutableMap<String, Any>): MutableMap<String, Any> {
-        return PlotConfigServerSideTransforms.entryTransform().apply(rawSpec)
+        return PlotConfigBackendTransforms.entryTransform().apply(rawSpec)
     }
 }

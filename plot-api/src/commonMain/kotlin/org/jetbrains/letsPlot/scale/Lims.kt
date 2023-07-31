@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.scale
 
-import jetbrains.datalore.plot.base.Aes
+import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.intern.Feature
 import org.jetbrains.letsPlot.intern.Scale
 import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing

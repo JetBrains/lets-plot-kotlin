@@ -5,7 +5,6 @@
 
 package frontendContextDemo
 
-import jetbrains.datalore.vis.demoUtils.PlotSpecsDemoWindowBatik
 import org.jetbrains.letsPlot.FrontendContext
 import java.awt.Dimension
 

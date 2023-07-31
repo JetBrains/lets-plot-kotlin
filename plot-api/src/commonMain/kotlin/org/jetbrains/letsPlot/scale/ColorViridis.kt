@@ -7,8 +7,8 @@
 
 package org.jetbrains.letsPlot.scale
 
-import jetbrains.datalore.plot.base.Aes
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 

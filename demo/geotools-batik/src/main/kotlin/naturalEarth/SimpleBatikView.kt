@@ -5,8 +5,8 @@
 
 package naturalEarth
 
-import jetbrains.datalore.base.geometry.DoubleVector
-import jetbrains.datalore.vis.swing.batik.PlotViewerWindowBatik
+import org.jetbrains.letsPlot.batik.plot.component.PlotViewerWindowBatik
+import org.jetbrains.letsPlot.commons.geometry.DoubleVector
 import java.awt.Dimension
 
 object SimpleBatikView {

@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.standardizing
 
-import jetbrains.datalore.base.datetime.Instant
+import org.jetbrains.letsPlot.commons.intern.datetime.Instant
 
 internal object Standardizing {
     fun standardizeValue(value: Any?): Any? {
@@ -14,7 +14,7 @@ internal object Standardizing {
             is String -> value
             is Number -> toDouble(value)
             is Char -> value.toString()
-            is jetbrains.datalore.base.values.Color -> value.toHexColor()
+            is org.jetbrains.letsPlot.commons.values.Color -> value.toHexColor()
             is Map<*, *> -> MapStandardizing.standardize(value)
             is Enum<*> -> value.name
             is Instant -> value.timeSinceEpoch

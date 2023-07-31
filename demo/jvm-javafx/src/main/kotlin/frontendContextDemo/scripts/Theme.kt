@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInJfxContext
-import jetbrains.datalore.base.values.Color
+import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.coord.coordFixed
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomTile

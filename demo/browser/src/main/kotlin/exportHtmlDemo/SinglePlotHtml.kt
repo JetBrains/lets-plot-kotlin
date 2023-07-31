@@ -6,8 +6,8 @@
 package exportHtmlDemo
 
 import BrowserDemoUtil
-import jetbrains.datalore.plot.PlotHtmlExport
-import jetbrains.datalore.plot.PlotHtmlHelper
+import org.jetbrains.letsPlot.core.util.PlotHtmlExport
+import org.jetbrains.letsPlot.core.util.PlotHtmlHelper
 import org.jetbrains.letsPlot.export.VersionChecker
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.ggplot

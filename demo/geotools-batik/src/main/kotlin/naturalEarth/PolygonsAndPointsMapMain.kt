@@ -5,7 +5,7 @@
 
 package naturalEarth
 
-import jetbrains.datalore.base.geometry.DoubleVector
+import org.jetbrains.letsPlot.commons.geometry.DoubleVector
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomPolygon
 import org.jetbrains.letsPlot.intern.toSpec

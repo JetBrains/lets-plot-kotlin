@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.layer
 
-import jetbrains.datalore.plot.config.Option.Geom.Point
+import org.jetbrains.letsPlot.core.spec.Option.Geom.Point
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 

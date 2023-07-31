@@ -5,10 +5,10 @@
 
 package org.jetbrains.letsPlot.frontend
 
-import jetbrains.datalore.plot.PlotHtmlHelper
-import jetbrains.datalore.plot.PlotHtmlHelper.scriptUrl
 import org.jetbrains.letsPlot.FrontendContext
 import org.jetbrains.letsPlot.GGBunch
+import org.jetbrains.letsPlot.core.util.PlotHtmlHelper
+import org.jetbrains.letsPlot.core.util.PlotHtmlHelper.scriptUrl
 import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.toSpec

@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot.intern.settings
 
-import jetbrains.datalore.base.json.JsonSupport.parseJson
-import jetbrains.datalore.plot.config.Option.Plot.THEME
+import org.jetbrains.letsPlot.core.spec.Option.Plot.THEME
+import org.jetbrains.letsPlot.commons.intern.json.JsonSupport.parseJson
 import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 

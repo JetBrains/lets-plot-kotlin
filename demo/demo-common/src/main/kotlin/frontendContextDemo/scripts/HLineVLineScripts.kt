@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import jetbrains.datalore.base.values.Color
+import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.geom.geomABLine
 import org.jetbrains.letsPlot.geom.geomHLine
 import org.jetbrains.letsPlot.geom.geomPoint

@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.annotations
 
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 
 typealias AnnotationOptions = layerLabels
 

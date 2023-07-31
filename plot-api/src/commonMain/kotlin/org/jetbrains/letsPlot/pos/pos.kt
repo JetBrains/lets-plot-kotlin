@@ -7,7 +7,7 @@
 
 package org.jetbrains.letsPlot.pos
 
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.PosKind
 import org.jetbrains.letsPlot.intern.layer.PosOptions

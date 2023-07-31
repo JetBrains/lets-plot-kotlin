@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot.scale
 
-import jetbrains.datalore.plot.base.Aes
-import jetbrains.datalore.plot.config.Option
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
@@ -14,7 +14,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * Scale for shapes.
  *
  * @param solid Are the shapes solid (default) true, or hollow (false)?
- * @param name The name of the scale - used as the axis label or the legend title. 
+ * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).

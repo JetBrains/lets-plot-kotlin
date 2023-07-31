@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot
 
-import jetbrains.datalore.plot.config.Option.Geom.Image.HREF
+import org.jetbrains.letsPlot.core.spec.Option.Geom.Image.HREF
 import org.jetbrains.letsPlot.geom.RasterData
 import org.jetbrains.letsPlot.geom.geomImshow
 import org.jetbrains.letsPlot.intern.Feature

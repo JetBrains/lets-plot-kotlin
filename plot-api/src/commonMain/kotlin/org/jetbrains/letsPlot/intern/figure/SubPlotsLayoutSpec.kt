@@ -5,7 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.figure
 
-import jetbrains.datalore.plot.config.Option.SubPlots
+import org.jetbrains.letsPlot.core.spec.Option.SubPlots
 
 class SubPlotsLayoutSpec(
     private val name: String,

@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot.intern.standardizing
 
-import jetbrains.datalore.base.values.Color
 import junit.framework.TestCase.assertEquals
+import org.jetbrains.letsPlot.commons.values.Color
 import org.junit.Test
 import java.time.Instant
 import java.time.ZoneId
