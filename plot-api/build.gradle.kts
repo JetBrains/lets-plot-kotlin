@@ -27,11 +27,6 @@ kotlin {
             dependencies {
                 implementation("io.github.microutils:kotlin-logging:$kotlinLogging_version")
 
-//                api("org.jetbrains.lets-plot:base-portable:$lets_plot_version")
-//                api("org.jetbrains.lets-plot:plot-base-portable:$lets_plot_version")
-//                api("org.jetbrains.lets-plot:plot-common-portable:$lets_plot_version")
-//                api("org.jetbrains.lets-plot:plot-builder-portable:$lets_plot_version")
-//                api("org.jetbrains.lets-plot:plot-config-portable:$lets_plot_version")
                 api("org.jetbrains.lets-plot:commons:$lets_plot_version")
                 api("org.jetbrains.lets-plot:datamodel:$lets_plot_version")
                 api("org.jetbrains.lets-plot:plot-base:$lets_plot_version")
