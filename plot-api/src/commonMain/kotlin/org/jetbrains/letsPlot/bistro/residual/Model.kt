@@ -52,10 +52,9 @@ internal class Model(
             private val ENUM_INFO = EnumInfoFactory.createEnumInfo<Method>()
 
             fun safeValueOf(v: String): Method {
-                return ENUM_INFO.safeValueOf(v) ?:
-                throw IllegalArgumentException(
+                return ENUM_INFO.safeValueOf(v) ?: throw IllegalArgumentException(
                     "Unsupported method: '$v'\n" +
-                    "Use one of: lm, loess, lowess, none."
+                            "Use one of: lm, loess, lowess, none."
                 )
             }
         }

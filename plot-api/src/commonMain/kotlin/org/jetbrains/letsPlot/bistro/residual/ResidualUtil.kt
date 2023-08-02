@@ -40,13 +40,13 @@ internal object ResidualUtil {
                 .filter { (_, pair) -> SeriesUtil.allFinite(pair.first as? Double, pair.second as? Double) }
                 .map { it.index }
 
-                if (indices.size < 2) {
-                   return@map emptyDataWithResiduals()
-                }
-
-                val values = groupData.mapValues { SeriesUtil.pickAtIndices(it.value, indices) }
-                appendResidualsToGroup(values, x, y, model, loessCriticalSize, samplingSeed)
+            if (indices.size < 2) {
+                return@map emptyDataWithResiduals()
             }
+
+            val values = groupData.mapValues { SeriesUtil.pickAtIndices(it.value, indices) }
+            appendResidualsToGroup(values, x, y, model, loessCriticalSize, samplingSeed)
+        }
 
         // merge maps
         return groupResults.fold(mutableMapOf<String, MutableList<Any?>>()) { mergedMap, map ->
@@ -63,7 +63,7 @@ internal object ResidualUtil {
         y: String,
         model: Model,
         loessCriticalSize: Int,
-        samplingSeed: Long
+        samplingSeed: Long,
     ): Map<String, List<Any?>> {
         val df = DataFrameUtil.fromMap(groupData)
         val afterSampling = applySampling(df, model, loessCriticalSize, samplingSeed)
@@ -88,7 +88,7 @@ internal object ResidualUtil {
         xs: List<Double?>,
         ys: List<Double?>,
         predictor: (Double) -> Double,
-        range: DoubleSpan?
+        range: DoubleSpan?,
     ): List<Double?> {
         return (xs zip ys).map { (x, y) ->
             if (SeriesUtil.allFinite(x, y) && range?.contains(x!!) == true) {
@@ -103,7 +103,7 @@ internal object ResidualUtil {
         df: DataFrame,
         model: Model,
         loessCriticalSize: Int,
-        samplingSeed: Long
+        samplingSeed: Long,
     ): DataFrame {
         return if (model.method == Model.Method.LOESS && df.rowCount() > loessCriticalSize) {
             SamplingUtil.sampleWithoutReplacement(loessCriticalSize, Random(samplingSeed), df)
