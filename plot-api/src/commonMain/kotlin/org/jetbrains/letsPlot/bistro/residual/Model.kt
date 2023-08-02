@@ -5,10 +5,10 @@
 
 package org.jetbrains.letsPlot.bistro.residual
 
-import jetbrains.datalore.base.enums.EnumInfoFactory
-import jetbrains.datalore.plot.base.stat.regression.LinearRegression
-import jetbrains.datalore.plot.base.stat.regression.LocalPolynomialRegression
-import jetbrains.datalore.plot.base.stat.regression.PolynomialRegression
+import org.jetbrains.letsPlot.core.commons.enums.EnumInfoFactory
+import org.jetbrains.letsPlot.core.plot.base.stat.regression.LinearRegression
+import org.jetbrains.letsPlot.core.plot.base.stat.regression.LocalPolynomialRegression
+import org.jetbrains.letsPlot.core.plot.base.stat.regression.PolynomialRegression
 
 internal class Model(
     val method: Method,

@@ -5,11 +5,11 @@
 
 package org.jetbrains.letsPlot.bistro.residual
 
-import jetbrains.datalore.base.interval.DoubleSpan
-import jetbrains.datalore.plot.base.DataFrame
-import jetbrains.datalore.plot.base.data.DataFrameUtil
-import jetbrains.datalore.plot.base.util.SamplingUtil
-import jetbrains.datalore.plot.common.data.SeriesUtil
+import org.jetbrains.letsPlot.commons.interval.DoubleSpan
+import org.jetbrains.letsPlot.core.commons.data.SeriesUtil
+import org.jetbrains.letsPlot.core.plot.base.DataFrame
+import org.jetbrains.letsPlot.core.plot.base.data.DataFrameUtil
+import org.jetbrains.letsPlot.core.plot.base.util.SamplingUtil
 import kotlin.random.Random
 
 internal object ResidualUtil {
