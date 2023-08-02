@@ -10,6 +10,7 @@ import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.bistro.residual.residualPlot
 import org.jetbrains.letsPlot.geom.geomArea
+import org.jetbrains.letsPlot.gggrid
 import org.jetbrains.letsPlot.ggmarginal
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.themes.themeClassic
@@ -76,12 +77,50 @@ object Residual {
             // Grouping
             (residualPlot(irisData, "petal length (cm)", "petal width (cm)", colorBy = "target")).show()
 
-            val data = mapOf(
-                "x" to listOf(0, 1, 0, 1),
-                "y" to listOf(0, 1, 0, -1),
-                "g" to listOf("a", "a", "b", "b")
-             )
-             residualPlot(data, x = "x", y = "y", colorBy = "g").show()
+            // Regression tests
+            val tests = listOf(
+                mapOf(
+                    "data" to mapOf<String, List<Any>>("x" to emptyList(), "y" to emptyList()),
+                    "title" to "Empty dataset"
+                ),
+                mapOf(
+                    "data" to mapOf("x" to listOf(0, 1), "y" to listOf(0, 1)),
+                    "title" to "Small dataset"
+                ),
+                mapOf(
+                    "data" to mapOf("x" to listOf(0, 1, null, 1), "y" to listOf(0, 1, 0, null)),
+                    "title" to "Null values in data"
+                ),
+                mapOf(
+                    "data" to mapOf("x" to listOf(0, null, 1), "y" to listOf(0, 1, null)),
+                    "title" to "Empty data after null filtering"
+                ),
+                mapOf(
+                    "data" to mapOf(
+                        "x" to listOf(0, 1, 0, 1),
+                        "y" to listOf(0, 1, 0, -1),
+                        "g" to listOf('a', 'a', 'b', 'b'),
+                    ),
+                    "colorBy" to "g",
+                    "title" to "colorBy is OK"
+                ),
+                mapOf(
+                    "data" to mapOf(
+                        "x" to listOf(0, 1, null),
+                        "y" to listOf(0, 1, null),
+                        "g" to listOf('a', 'a', 'b'),
+                    ),
+                    "colorBy" to "g",
+                    "title" to "One of groups is empty"
+                ),
+            )
+
+            val plots = tests.map {
+                residualPlot(it["data"] as Map<*, *>, "x", "y", colorBy = it["colorBy"] as? String) +
+                        ggtitle(it["title"] as String)
+            }
+
+            gggrid(plots, ncol = 2).show()
         }
     }
 }
