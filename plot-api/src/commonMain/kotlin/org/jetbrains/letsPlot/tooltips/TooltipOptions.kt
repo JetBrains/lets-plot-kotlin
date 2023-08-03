@@ -179,6 +179,13 @@ class layerTooltips(vararg variables: String) {
     }
 
     /**
+     * Hide side tooltips.
+     */
+    fun disableSplitting(): layerTooltips {
+        return setOption(DISABLE_SPLITTING, true)
+    }
+
+    /**
      * Hide tooltips.
      */
     internal fun none(): layerTooltips {
@@ -196,6 +203,7 @@ class layerTooltips(vararg variables: String) {
         private const val TOOLTIP_LINES = Option.LinesSpec.LINES
         private const val TOOLTIP_TITLE = Option.LinesSpec.TITLE
         private const val TOOLTIP_MIN_WIDTH = Option.Layer.TOOLTIP_MIN_WIDTH
+        private const val DISABLE_SPLITTING = Option.Layer.DISABLE_SPLITTING
 
         private const val NO_TOOLTIPS = Option.Layer.NONE
     }
