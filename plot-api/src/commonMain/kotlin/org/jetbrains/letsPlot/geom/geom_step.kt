@@ -16,6 +16,7 @@ import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
 import org.jetbrains.letsPlot.pos.positionIdentity
+import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
@@ -36,6 +37,8 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
  * @param direction "hv" or "HV" stands for horizontal then vertical (default); "vh" or "VH" stands for vertical then horizontal.
  * @param x X-axis value.
  * @param y Y-axis value.
@@ -63,6 +66,7 @@ class geomStep(
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     private val direction: String? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -81,7 +85,8 @@ class geomStep(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     ) {
     override fun seal(): Options {
         return super<LineAesthetics>.seal() +
