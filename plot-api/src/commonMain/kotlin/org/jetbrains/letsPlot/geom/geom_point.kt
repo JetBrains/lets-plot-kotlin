@@ -42,6 +42,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
+ *  Possible values: "x", "y".
  * @param map Data-structure containing series of planar shapes and, optionally, associates data series (for example:
  *  names of States and their boundaries).
  *
@@ -92,6 +94,7 @@ class geomPoint(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    orientation: String? = null,
     override val map: SpatialDataset? = null,
     override val mapJoin: Pair<Any, Any>? = null,
     override val useCRS: String? = null,
@@ -121,7 +124,8 @@ class geomPoint(
         position = position,
         showLegend = showLegend,
         sampling = sampling,
-        tooltips = tooltips
+        tooltips = tooltips,
+        orientation = orientation
     ) {
     override fun seal() = super<PointAesthetics>.seal() +
             super<WithSizeUnitOption>.seal() +

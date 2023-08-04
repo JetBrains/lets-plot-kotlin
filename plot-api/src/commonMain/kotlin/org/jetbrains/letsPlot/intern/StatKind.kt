@@ -19,6 +19,7 @@ enum class StatKind {
     BIN,
     BIN2D,
     BOXPLOT,
+    BOXPLOT_OUTLIER,
     CONTOUR,
     CONTOURF,
     SMOOTH,

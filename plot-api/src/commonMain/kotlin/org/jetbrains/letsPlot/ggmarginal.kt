@@ -37,7 +37,7 @@ import org.jetbrains.letsPlot.intern.layer.MarginalLayer
 fun ggmarginal(
     sides: String,
     size: Any? = null,
-    layer: Layer
+    layer: Feature
 ): Feature {
 
     require(sides.isNotBlank()) { SIDES_ARG_ERROR }
@@ -51,6 +51,13 @@ fun ggmarginal(
         else -> throw IllegalArgumentException("Invalid 'size' type: ${size::class.simpleName}. Expected: number, list or pair.")
     } + List<Any?>(4) { null }
 
+    if (layer is FeatureList) {
+        return FeatureList(
+            layer.elements.map { sublayer -> ggmarginal(sides, size = size, layer = sublayer) }
+        )
+    }
+
+    require(layer is Layer) { "Invalid 'layer' type: ${layer::class.simpleName}" }
 
     var result: Feature = DummyFeature
     for ((i, side) in sides.withIndex()) {
