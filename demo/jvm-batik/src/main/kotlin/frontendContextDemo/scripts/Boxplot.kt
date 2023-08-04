@@ -8,6 +8,7 @@ package frontendContextDemo.scripts
 import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomJitter
+import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.stat.statBoxplot
 import kotlin.math.abs
@@ -31,10 +32,17 @@ object Boxplot {
             val p = letsPlot(data) { x = "cat"; y = "val" }
 
             (p + geomJitter()).show()
-            (p + geomBoxplot(outlierColor = "red")).show()
+            (p + geomBoxplot(outlierColor = "red", outlierSize = 2, outlierShape = 21)).show()
             (p + geomBoxplot(outlierColor = "red", varWidth = true)).show()
             (p + statBoxplot(outlierColor = "red", varWidth = true, fatten = 2, color = "dark-magenta")).show()
             (p + geomBoxplot(whiskerWidth = 0.5)).show()
+
+            // Y-orientation
+            (letsPlot(data) { y = "cat"; x = "val" } + ggtitle("Boxplot Y-orientation") +
+                    geomBoxplot(
+                        orientation = "y",
+                        outlierColor = "red", outlierSize = 2, outlierShape = 21
+                    )).show()
         }
     }
 }

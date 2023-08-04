@@ -1,20 +1,19 @@
 /*
- * Copyright (c) 2021. JetBrains s.r.o.
+ * Copyright (c) 2023. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-package org.jetbrains.letsPlot.intern.layer.geom
+package org.jetbrains.letsPlot.intern.layer.stat
 
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
-interface BoxplotParameters : OptionsCapsule {
-    val fatten: Number?
-    val whiskerWidth: Number?
+interface BoxplotOutlierStatParameters : OptionsCapsule {
+    @Suppress("SpellCheckingInspection")
+    val coef: Number?  // Whisker IQR ratio
 
     override fun seal() = Options.of(
-        Option.Geom.Boxplot.FATTEN to fatten,
-        Option.Geom.Boxplot.WHISKER_WIDTH to whiskerWidth
+        Option.Stat.Boxplot.COEF to coef
     )
 }

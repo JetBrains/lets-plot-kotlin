@@ -89,6 +89,19 @@ object Stat {
     }
 
     @Suppress("ClassName")
+    class boxplotOutlier(
+        @Suppress("SpellCheckingInspection")
+        override val coef: Number? = null,
+        mapping: BoxplotStatMapping.() -> Unit = {}
+    ) : BoxplotOutlierStatParameters,
+        StatOptions(
+            StatKind.BOXPLOT_OUTLIER,
+            mapping = BoxplotStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class bin2D(
         override val bins: Pair<Int, Int>? = null,
         override val binWidth: Pair<Number?, Number?>? = null,

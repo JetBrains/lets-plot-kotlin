@@ -7,8 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.boxplot
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.Layer
+import org.jetbrains.letsPlot.intern.*
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
@@ -22,7 +21,6 @@ import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 import org.jetbrains.letsPlot.pos.positionDodge
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
-@Suppress("ClassName")
 /**
  * Displays the distribution of data based on a five number summary ("minimum", first quartile (Q1), 
  * median, third quartile (Q3), and "maximum"), and "outlying" points individually.
@@ -46,6 +44,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Specifies appearance, style and content.
  * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
  *  Possible values: "x", "y".
+ * @param outlierAlpha Default transparency aesthetic for outliers.
  * @param outlierColor Color aesthetic for outliers.
  * @param outlierFill Fill aesthetic for outliers.
  * @param outlierShape Shape aesthetic for outliers.
@@ -94,7 +93,86 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
  */
-class geomBoxplot(
+fun geomBoxplot(
+    data: Map<*, *>? = null,
+    stat: StatOptions = Stat.boxplot(),
+    position: PosOptions = positionDodge(),
+    showLegend: Boolean = true,
+    sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
+    orientation: String? = null,
+    x: Number? = null,
+    y: Number? = null,
+    lower: Number? = null,
+    middle: Number? = null,
+    upper: Number? = null,
+    ymin: Number? = null,
+    ymax: Number? = null,
+    alpha: Number? = null,
+    color: Any? = null,
+    fill: Any? = null,
+    size: Number? = null,
+    stroke: Number? = null,
+    linetype: Any? = null,
+    shape: Any? = null,
+    width: Any? = null,
+    weight: Any? = null,
+    outlierAlpha: Number? = null,
+    outlierColor: Any? = null,
+    outlierFill: Any? = null,
+    outlierShape: Any? = null,
+    outlierSize: Number? = null,
+    outlierStroke: Number? = null,
+    fatten: Number? = null,
+    whiskerWidth: Number? = null,
+    varWidth: Boolean? = null,
+    @Suppress("SpellCheckingInspection")
+    coef: Number? = null,
+    colorBy: String? = null,
+    fillBy: String? = null,
+    mapping: OptionsCapsule .() -> Unit = {}
+): FeatureList {
+    val layers = mutableListOf<Layer>()
+
+    layers += geomBoxplotInternal(
+        data,
+        stat,
+        position,
+        showLegend,
+        sampling,
+        tooltips,
+        orientation,
+        x, y, lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, width, weight, fatten,
+        whiskerWidth, varWidth, coef,
+        colorBy, fillBy,
+        mapping
+    )
+
+    if (stat.kind == StatKind.BOXPLOT) {
+        val outlierFatten = 4.0
+        layers += geomPoint(
+            data = data,
+            stat = Stat.boxplotOutlier(),
+            position = position,
+            showLegend = false,
+            sampling = null,
+            orientation = orientation,
+            x = x, y = y,
+            alpha = outlierAlpha ?: alpha,
+            color = outlierColor ?: color,
+            fill = outlierFill ?: fill,
+            shape = outlierShape ?: shape,
+            size = (outlierSize ?: size)?.let { it.toDouble() * outlierFatten },
+            stroke = outlierStroke ?: stroke,
+            colorBy = colorBy, fillBy = fillBy,
+            mapping = mapping
+        )
+    }
+    return FeatureList(layers)
+}
+
+@Suppress("ClassName")
+private class geomBoxplotInternal(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.boxplot(),
     position: PosOptions = positionDodge(),
@@ -117,11 +195,6 @@ class geomBoxplot(
     override val shape: Any? = null,
     override val width: Any? = null,
     override val weight: Any? = null,
-    override val outlierColor: Any? = null,
-    override val outlierFill: Any? = null,
-    override val outlierShape: Any? = null,
-    override val outlierSize: Number? = null,
-    override val outlierStroke: Number? = null,
     override val fatten: Number? = null,
     override val whiskerWidth: Number? = null,
     override val varWidth: Boolean? = null,
@@ -130,7 +203,6 @@ class geomBoxplot(
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: BoxplotMapping .() -> Unit = {}
-
 ) : BoxplotAesthetics,
     BoxplotParameters,
     BoxplotStatAesthetics,
