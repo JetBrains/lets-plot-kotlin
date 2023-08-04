@@ -7,22 +7,91 @@ package org.jetbrains.letsPlot.stat
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.layer.GeomOptions
-import org.jetbrains.letsPlot.intern.Layer
-import org.jetbrains.letsPlot.intern.layer.PosOptions
-import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorOption
-import org.jetbrains.letsPlot.intern.layer.WithFillOption
-import org.jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
-import org.jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
-import org.jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
+import org.jetbrains.letsPlot.intern.*
+import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.intern.layer.geom.*
+import org.jetbrains.letsPlot.intern.layer.stat.BoxplotOutlierStatParameters
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 import org.jetbrains.letsPlot.pos.positionDodge
 
+fun statBoxplot(
+    data: Map<*, *>? = null,
+    geom: GeomOptions = Geom.boxplot(),
+    position: PosOptions = positionDodge(),
+    showLegend: Boolean = true,
+    sampling: SamplingOptions? = null,
+    x: Number? = null,
+    y: Number? = null,
+    lower: Number? = null,
+    middle: Number? = null,
+    upper: Number? = null,
+    ymin: Number? = null,
+    ymax: Number? = null,
+    alpha: Number? = null,
+    color: Any? = null,
+    fill: Any? = null,
+    size: Number? = null,
+    stroke: Number? = null,
+    linetype: Any? = null,
+    shape: Any? = null,
+    width: Any? = null,
+    weight: Any? = null,
+    outlierAlpha: Number? = null,
+    outlierColor: Any? = null,
+    outlierFill: Any? = null,
+    outlierShape: Any? = null,
+    outlierSize: Number? = null,
+    outlierStroke: Number? = null,
+    fatten: Number? = null,
+    whiskerWidth: Number? = null,
+    varWidth: Boolean? = null,
+    @Suppress("SpellCheckingInspection")
+    coef: Number? = null,
+    colorBy: String? = null,
+    fillBy: String? = null,
+    mapping: OptionsCapsule.() -> Unit = {}
+): FeatureList {
+    val layers = mutableListOf<Layer>()
+
+    layers += statBoxplotInternal(
+        data,
+        geom,
+        position,
+        showLegend,
+        sampling,
+        x, y,
+        lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, width, weight, fatten,
+        whiskerWidth, varWidth, coef,
+        colorBy, fillBy,
+        mapping
+    )
+
+    if (geom.kind == GeomKind.BOX_PLOT) {
+        val outlierFatten = 4.0
+        layers += statBoxplotOutlierInternal(
+            data = data,
+            geom = Geom.point(),
+            position = position,
+            showLegend = false,
+            sampling = null,
+            x = x, y = y,
+            alpha = outlierAlpha ?: alpha,
+            color = outlierColor ?: color,
+            fill = outlierFill ?: fill,
+            shape = outlierShape ?: shape,
+            size = (outlierSize ?: size)?.let { it.toDouble() * outlierFatten },
+            stroke = outlierStroke ?: stroke,
+            colorBy = colorBy, fillBy = fillBy,
+            mapping = mapping
+        )
+    }
+    return FeatureList(layers)
+}
+
+
 @Suppress("ClassName")
-class statBoxplot(
+private class statBoxplotInternal(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.boxplot(),
     position: PosOptions = positionDodge(),
@@ -79,3 +148,46 @@ class statBoxplot(
     }
 }
 
+@Suppress("ClassName")
+private class statBoxplotOutlierInternal(
+    data: Map<*, *>? = null,
+    geom: GeomOptions = Geom.point(),
+    position: PosOptions = positionDodge(),
+    showLegend: Boolean = true,
+    sampling: SamplingOptions? = null,
+    override val x: Number? = null,
+    override val y: Number? = null,
+    override val alpha: Number? = null,
+    override val color: Any? = null,
+    override val fill: Any? = null,
+    override val shape: Any? = null,
+    override val size: Number? = null,
+    override val stroke: Number? = null,
+    @Suppress("SpellCheckingInspection")
+    override val coef: Number? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
+    mapping: PointMapping.() -> Unit = {},
+
+) : PointAesthetics,
+    BoxplotOutlierStatParameters,
+    WithColorOption,
+    WithFillOption,
+    Layer(
+        mapping = PointMapping().apply(mapping).seal(),
+        data = data,
+        geom = geom,
+        stat = Stat.boxplotOutlier(),
+        position = position,
+        showLegend = showLegend,
+        sampling = sampling
+
+    ) {
+
+    override fun seal(): Options {
+        return super<PointAesthetics>.seal() +
+                super<BoxplotOutlierStatParameters>.seal() +
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
+    }
+}

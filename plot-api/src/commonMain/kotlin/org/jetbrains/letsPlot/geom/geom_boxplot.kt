@@ -145,26 +145,27 @@ fun geomBoxplot(
         x, y, lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, width, weight, fatten,
         whiskerWidth, varWidth, coef,
         colorBy, fillBy,
-        mapping = mapping
+        mapping
     )
 
     if (stat.kind == StatKind.BOXPLOT) {
         val outlierFatten = 4.0
         layers += geomPoint(
-            mapping = mapping,
             data = data,
             stat = Stat.boxplotOutlier(),
             position = position,
             showLegend = false,
             sampling = null,
             orientation = orientation,
+            x = x, y = y,
             alpha = outlierAlpha ?: alpha,
             color = outlierColor ?: color,
             fill = outlierFill ?: fill,
             shape = outlierShape ?: shape,
             size = (outlierSize ?: size)?.let { it.toDouble() * outlierFatten },
             stroke = outlierStroke ?: stroke,
-            colorBy = colorBy, fillBy = fillBy
+            colorBy = colorBy, fillBy = fillBy,
+            mapping = mapping
         )
     }
     return FeatureList(layers)

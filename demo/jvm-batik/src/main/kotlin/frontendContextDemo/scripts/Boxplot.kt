@@ -34,7 +34,7 @@ object Boxplot {
             (p + geomJitter()).show()
             (p + geomBoxplot(outlierColor = "red", outlierSize = 2, outlierShape = 21)).show()
             (p + geomBoxplot(outlierColor = "red", varWidth = true)).show()
-            //    (p + statBoxplot(outlierColor = "red", varWidth = true, fatten = 2, color = "dark-magenta")).show()
+            (p + statBoxplot(outlierColor = "red", varWidth = true, fatten = 2, color = "dark-magenta")).show()
             (p + geomBoxplot(whiskerWidth = 0.5)).show()
 
             // Y-orientation
