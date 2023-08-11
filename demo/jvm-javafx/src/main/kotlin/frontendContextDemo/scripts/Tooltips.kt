@@ -13,6 +13,7 @@ import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomErrorBar
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
+import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.pos.positionDodge
 import org.jetbrains.letsPlot.themes.theme
 import org.jetbrains.letsPlot.tooltips.layerTooltips
@@ -65,7 +66,8 @@ object Tooltips {
                     color = "black",
                     stat = Stat.identity,
                     tooltips = tooltipsOpts.anchor("top_left")
-                ) { fill = "supp" }
+                ) { fill = "supp" } +
+                        ggtitle("Move tooltip to the corner: anchor='top_left'")
                         ).show()
 
                 // Set the minimum width of the tooltip.
@@ -74,7 +76,8 @@ object Tooltips {
                     color = "black",
                     stat = Stat.identity,
                     tooltips = tooltipsOpts.anchor("top_left").minWidth(150)
-                ) { fill = "supp" }
+                ) { fill = "supp" } +
+                        ggtitle("Set the minimum width of the tooltip")
                         ).show()
 
                 // Hide tooltips.
@@ -83,7 +86,8 @@ object Tooltips {
                     color = "black",
                     stat = Stat.identity,
                     tooltips = tooltipsNone
-                ) { fill = "supp" }
+                ) { fill = "supp" } +
+                        ggtitle("Hide tooltips")
                         ).show()
             }
 
@@ -92,16 +96,16 @@ object Tooltips {
                 val plot = ggplot(data) { x = "supp"; y = "len"; fill = "supp" }
 
                 // Default tooltips
-                (plot + geomBoxplot()).show()
+                (plot + geomBoxplot() + ggtitle("Default")).show()
 
-                // Configure text in outlier tooltips using the 'format()' function.
+                // Configure text in side tooltips using the 'format()' function.
                 (plot + geomBoxplot(
                     tooltips = layerTooltips()
                         .format("^Y", "{.0f}")
                         .format("^middle", ".2f")
                         .format("^ymin", "min: {}")
                         .format("^ymax", "max: {}")
-                )).show()
+                ) + ggtitle("Configure side tooltips with 'format()'")).show()
 
                 // Replace "outlier" tooltips with the "general" tooltip.
                 (plot + geomBoxplot(
@@ -111,7 +115,7 @@ object Tooltips {
                         .line("min/max|^ymin/^ymax")
                         .line("lower/upper|^lower/^upper")
                         .line("@|^middle")
-                )).show()
+                ) + ggtitle("Replace side tooltips with the general tooltip")).show()
 
                 // Use '\n' in tooltip lines
                 (plot + geomBoxplot(
@@ -122,7 +126,10 @@ object Tooltips {
                         .line("@|^middle")
                         .line("lower\nupper|^lower\n^upper")
 
-                )).show()
+                ) + ggtitle("Use '\\n' in tooltip lines")).show()
+
+                // disableSplitting()
+                (plot + geomBoxplot(tooltips = layerTooltips().disableSplitting()) + ggtitle("disableSplitting()")).show()
             }
 
             // Anchor + multi-line title
