@@ -179,14 +179,14 @@ class layerTooltips(vararg variables: String) {
     }
 
     /**
-     * Hide side tooltips.
+     * Consolidates "side" tooltips (if any) to a general tooltip.
      */
     fun disableSplitting(): layerTooltips {
         return setOption(DISABLE_SPLITTING, true)
     }
 
     /**
-     * Hide tooltips.
+     * Hides tooltips.
      */
     internal fun none(): layerTooltips {
         isNone = true
