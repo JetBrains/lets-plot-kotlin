@@ -23,13 +23,19 @@ dependencies {
 }
 
 kotlin {
-    js(LEGACY) {
+//    js(LEGACY) {
+//        binaries.executable()
+//        browser {
+//            commonWebpackConfig {
+//                cssSupport.enabled = true
+//            }
+//        }
+////        useCommonJs()
+//    }
+
+    js() {
+        browser()
         binaries.executable()
-        browser {
-            commonWebpackConfig {
-                cssSupport.enabled = true
-            }
-        }
-//        useCommonJs()
     }
 }
+

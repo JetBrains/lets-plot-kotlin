@@ -18,9 +18,7 @@ val datetime_version: String by project
 
 kotlin {
     jvm()
-    js(BOTH) {
-        browser()
-    }
+    js().browser()
 
     sourceSets {
         commonMain {
