@@ -32,7 +32,11 @@ project(":demo-common").projectDir = File("./demo/demo-common")
 project(":jvm-javafx").projectDir = File("./demo/jvm-javafx")
 project(":jvm-batik").projectDir = File("./demo/jvm-batik")
 project(":browser").projectDir = File("./demo/browser")
-project(":js-frontend-app").projectDir = File("./demo/js-frontend-app")
+
+// ToDo: enable when Kotlin/JS issue KT-60982
+// - https://youtrack.jetbrains.com/issue/KT-60982/KJS-Unterminated-regular-expression-when-webpack-encounters-if
+// is fixed
+// project(":js-frontend-app").projectDir = File("./demo/js-frontend-app")
 
 project(":geotools").projectDir = File("./toolkit/geotools")
 project(":geotools-batik").projectDir = File("./demo/geotools-batik")
