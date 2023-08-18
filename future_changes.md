@@ -17,6 +17,14 @@
 - [ToDo] `geomFunction()` :
   [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_function.ipynb).
 
+- In `geomPie()`:
+  - [ToDo] `stroke` and `color` aesthetics - the width and color of pie sector arcs.
+  - [ToDo] `strokeSide` parameter - which arcs to show (inner, outer, both).
+  - [ToDo] `spacerWidth` and `spacerColor` parameters - lines between sectors.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_stroke_and_spacers.ipynb).
+
+  - [ToDo] `sizeUnit` parameter : [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_size_unit.ipynb).
 
 ### Changed
 
