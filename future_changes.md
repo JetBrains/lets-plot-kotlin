@@ -12,7 +12,11 @@
   [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/tooltips_disable_splitting.ipynb).
 
 
--ToDo:    themeVoid()             
+- [ToDo] `themeVoid()`            
+
+- [ToDo] `geomFunction()` :
+  [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_function.ipynb).
+
 
 ### Changed
 
