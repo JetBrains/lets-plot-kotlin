@@ -16,6 +16,8 @@ interface PieAesthetics : OptionsCapsule {
     val size: Any?
     val fill: Any?
     val alpha: Any?
+    val color: Any?
+    val stroke: Any?
 
     override fun seal() = Options.of(
         "x" to x,
@@ -24,6 +26,8 @@ interface PieAesthetics : OptionsCapsule {
         "explode" to explode,
         "size" to size,
         "fill" to fill,
-        "alpha" to alpha
+        "alpha" to alpha,
+        "color" to color,
+        "stroke" to stroke
     )
 }

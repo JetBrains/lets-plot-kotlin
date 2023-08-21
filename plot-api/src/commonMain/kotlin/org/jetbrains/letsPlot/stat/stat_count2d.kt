@@ -33,6 +33,8 @@ class statCount2d(
     override val size: Number? = null,
     override val fill: Any? = null,
     override val alpha: Number? = null,
+    override val color: Any? = null,
+    override val stroke: Number? = null,
     override val weight: Number? = null,
     override val fillBy: String? = null,
     mapping: PieMapping.() -> Unit = {}

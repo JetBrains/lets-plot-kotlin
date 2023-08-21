@@ -718,6 +718,8 @@ object Geom {
         override val size: Number? = null,
         override val fill: Any? = null,
         override val alpha: Number? = null,
+        override val color: Any? = null,
+        override val stroke: Number? = null,
         override val hole: Number? = null,
         override val stroke: Number? = null,
         override val strokeColor: Any? = null,

@@ -72,6 +72,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @param color Color of inner and outer arcs of pie sector.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param stroke Width of inner and outer arcs of pie sector.
  * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.
  * @param hole default = 0.0.
  *  A multiplicative factor applied to the pie diameter to draw donut-like chart.
@@ -109,6 +117,8 @@ class geomPie(
     override val size: Number? = null,
     override val fill: Any? = null,
     override val alpha: Number? = null,
+    override val color: Any? = null,
+    override val stroke: Number? = null,
     override val weight: Number? = null,
     override val hole: Number? = null,
     override val stroke: Number? = null,
