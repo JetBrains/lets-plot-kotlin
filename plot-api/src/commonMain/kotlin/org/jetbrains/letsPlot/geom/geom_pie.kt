@@ -96,6 +96,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - color name (e.g. "red")
  *
  *  Or an instance of the `java.awt.Color` class.
+ * @param sizeUnit Relates the size of the pie chart to the length of the unit step along one of the axes.
+ *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.
@@ -127,11 +129,13 @@ class geomPie(
     override val strokeSide: String? = null,
     override val spacerWidth: Number? = null,
     override val spacerColor: Any? = null,
+    override val sizeUnit: String? = null,
     override val fillBy: String? = null,
     mapping: PieMapping.() -> Unit = {}
 ) : PieAesthetics,
     PieParameters,
     Count2dStatAesthetics,
+    WithSizeUnitOption,
     WithSpatialParameters,
     WithFillOption,
     Layer(
@@ -149,6 +153,7 @@ class geomPie(
         return super<PieAesthetics>.seal() +
                 super<PieParameters>.seal() +
                 super<Count2dStatAesthetics>.seal() +
+                super<WithSizeUnitOption>.seal() +
                 super<WithFillOption>.seal()
     }
 }
