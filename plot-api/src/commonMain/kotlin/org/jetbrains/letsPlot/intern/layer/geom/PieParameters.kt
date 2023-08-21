@@ -11,17 +11,14 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 interface PieParameters : OptionsCapsule {
     val hole: Number?
-    val stroke: Number?
-    val strokeColor: Any?
+    val strokeSide: String?
+    val spacerWidth: Number?
+    val spacerColor: Any?
 
     override fun seal() = Options.of(
         Option.Geom.Pie.HOLE to hole,
-//        Option.Geom.Pie.STROKE to stroke,
-//        Option.Geom.Pie.STROKE_COLOR to strokeColor
-        // ToDo:
-//    const val SPACER_WIDTH = "spacer_width"
-//    const val SPACER_COLOR = "spacer_color"
-//    const val STROKE_SIDE = "stroke_side"
-
+        Option.Geom.Pie.STROKE_SIDE to strokeSide,
+        Option.Geom.Pie.SPACER_WIDTH to spacerWidth,
+        Option.Geom.Pie.SPACER_COLOR to spacerColor
     )
 }

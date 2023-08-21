@@ -718,13 +718,18 @@ object Geom {
         override val size: Number? = null,
         override val fill: Any? = null,
         override val alpha: Number? = null,
-        override val hole: Number? = null,
+        override val color: Any? = null,
         override val stroke: Number? = null,
-        override val strokeColor: Any? = null,
+        override val hole: Number? = null,
+        override val strokeSide: String? = null,
+        override val spacerWidth: Number? = null,
+        override val spacerColor: Any? = null,
+        override val sizeUnit: String? = null,
         override val fillBy: String? = null,
         mapping: PieMapping.() -> Unit = {}
     ) : PieAesthetics,
         PieParameters,
+        WithSizeUnitOption,
         WithFillOption,
         GeomOptions(
             GeomKind.PIE,
@@ -735,6 +740,7 @@ object Geom {
 
         override fun seal() = super<PieAesthetics>.seal() +
                 super<PieParameters>.seal() +
+                super<WithSizeUnitOption>.seal() +
                 super<WithFillOption>.seal()
     }
 

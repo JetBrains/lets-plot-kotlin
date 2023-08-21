@@ -31,6 +31,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [stat_count_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/stat_count_2d.ipynb)
  *
+ * - [geom_pie_stroke_and_spacers.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_stroke_and_spacers.ipynb)
+ *
+ * - [geom_pie_size_unit.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_size_unit.ipynb)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.count2d()`. The statistical transformation to use on the data for this layer.
@@ -72,19 +76,32 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.
- * @param hole default = 0.0.
- *  A multiplicative factor applied to the pie diameter to draw donut-like chart.
- *  Understands numbers between 0 and 1.
- * @param stroke default = 0.0.
- *  Width of slice borders.
- * @param strokeColor default = "white". Color of slice borders.
+ * @param color Color of inner and outer arcs of pie sector.
  *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
  *
  *  Or an instance of the `java.awt.Color` class.
+ * @param stroke Width of inner and outer arcs of pie sector.
+ * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.
+ * @param hole default = 0.0.
+ *  A multiplicative factor applied to the pie diameter to draw donut-like chart.
+ *  Understands numbers between 0 and 1.
+ * @param strokeSide default = "outer" ("outer", "inner", "both").
+ *  Defines which arcs of pie sector should have a stroke.
+ * @param spacerWidth default = 0.75.
+ *  Line width between sectors.
+ *  Spacers are not applied to exploded sectors and to sides of adjacent sectors.
+ * @param spacerColor Color for spacers between sectors. By default, the plot background color is used.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param sizeUnit Relates the size of the pie chart to the length of the unit step along one of the axes.
+ *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.
@@ -109,15 +126,20 @@ class geomPie(
     override val size: Number? = null,
     override val fill: Any? = null,
     override val alpha: Number? = null,
+    override val color: Any? = null,
+    override val stroke: Number? = null,
     override val weight: Number? = null,
     override val hole: Number? = null,
-    override val stroke: Number? = null,
-    override val strokeColor: Any? = null,
+    override val strokeSide: String? = null,
+    override val spacerWidth: Number? = null,
+    override val spacerColor: Any? = null,
+    override val sizeUnit: String? = null,
     override val fillBy: String? = null,
     mapping: PieMapping.() -> Unit = {}
 ) : PieAesthetics,
     PieParameters,
     Count2dStatAesthetics,
+    WithSizeUnitOption,
     WithSpatialParameters,
     WithFillOption,
     Layer(
@@ -135,6 +157,7 @@ class geomPie(
         return super<PieAesthetics>.seal() +
                 super<PieParameters>.seal() +
                 super<Count2dStatAesthetics>.seal() +
+                super<WithSizeUnitOption>.seal() +
                 super<WithFillOption>.seal()
     }
 }

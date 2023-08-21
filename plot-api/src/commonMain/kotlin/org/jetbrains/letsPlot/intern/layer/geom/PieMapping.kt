@@ -15,6 +15,8 @@ class PieMapping(
     override var explode: Any? = null,
     override var size: Any? = null,
     override var alpha: Any? = null,
+    override var color: Any? = null,
+    override var stroke: Any? = null,
     override var group: Any? = null,
     override var weight: Any? = null,
     override var fill: Any? = null,
