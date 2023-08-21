@@ -108,3 +108,21 @@ fun themeNone() = OptionsMap(
     name = ThemeOption.Name.LP_NONE,
     emptyMap()
 )
+
+
+/**
+ * A completely empty theme.
+ *
+ * ## Examples
+ *
+ * - [theme_void.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/theme_void.ipynb)
+ */
+fun themeVoid() = OptionsMap(
+    kind = Option.Plot.THEME,
+    name = ThemeOption.Name.R_CLASSIC,
+    emptyMap()
+) + theme(
+    line = elementBlank(),
+    rect = elementBlank(),
+    axis = elementBlank()
+)
