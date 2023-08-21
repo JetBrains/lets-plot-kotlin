@@ -721,8 +721,9 @@ object Geom {
         override val color: Any? = null,
         override val stroke: Number? = null,
         override val hole: Number? = null,
-        override val stroke: Number? = null,
-        override val strokeColor: Any? = null,
+        override val strokeSide: String? = null,
+        override val spacerWidth: Number? = null,
+        override val spacerColor: Any? = null,
         override val fillBy: String? = null,
         mapping: PieMapping.() -> Unit = {}
     ) : PieAesthetics,
