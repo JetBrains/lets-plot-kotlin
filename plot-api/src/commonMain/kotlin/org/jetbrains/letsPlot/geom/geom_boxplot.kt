@@ -37,9 +37,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  `positionStack()`, `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  If false - do not show legend for this layer.
- * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone`.
- *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
  * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
@@ -98,7 +95,6 @@ fun geomBoxplot(
     stat: StatOptions = Stat.boxplot(),
     position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
-    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
     x: Number? = null,
@@ -139,7 +135,6 @@ fun geomBoxplot(
         stat,
         position,
         showLegend,
-        sampling,
         tooltips,
         orientation,
         x, y, lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, width, weight, fatten,
@@ -177,7 +172,6 @@ private class geomBoxplotInternal(
     stat: StatOptions = Stat.boxplot(),
     position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
-    sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
     override val x: Number? = null,
@@ -216,7 +210,7 @@ private class geomBoxplotInternal(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling,
+        sampling = null,
         tooltips = tooltips,
         orientation = orientation
     ) {

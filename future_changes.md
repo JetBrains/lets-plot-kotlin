@@ -31,5 +31,7 @@
 
 - [BREAKING] Kotlin/JS LEGACY apps are no longer supported.
 
+- [BREAKING] `geomBoxplot()` no longer support parameter `sampling`.
+
 ### Fixed
 - ggsave: saving geomImshow() to SVG produces fuzzy picture [[#188](https://github.com/JetBrains/lets-plot-kotlin/issues/188)].
