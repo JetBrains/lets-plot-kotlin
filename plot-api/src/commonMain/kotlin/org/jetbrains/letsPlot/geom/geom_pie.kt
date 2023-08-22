@@ -104,6 +104,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -135,6 +137,7 @@ class geomPie(
     override val spacerColor: Any? = null,
     override val sizeUnit: String? = null,
     override val fillBy: String? = null,
+    override val colorBy: String? = null,
     mapping: PieMapping.() -> Unit = {}
 ) : PieAesthetics,
     PieParameters,
@@ -142,6 +145,7 @@ class geomPie(
     WithSizeUnitOption,
     WithSpatialParameters,
     WithFillOption,
+    WithColorOption,
     Layer(
         mapping = PieMapping().apply(mapping).seal(),
         data = data,
@@ -158,6 +162,7 @@ class geomPie(
                 super<PieParameters>.seal() +
                 super<Count2dStatAesthetics>.seal() +
                 super<WithSizeUnitOption>.seal() +
-                super<WithFillOption>.seal()
+                super<WithFillOption>.seal() +
+                super<WithColorOption>.seal()
     }
 }

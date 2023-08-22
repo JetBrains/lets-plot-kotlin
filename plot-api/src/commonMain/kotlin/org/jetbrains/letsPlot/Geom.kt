@@ -726,11 +726,13 @@ object Geom {
         override val spacerColor: Any? = null,
         override val sizeUnit: String? = null,
         override val fillBy: String? = null,
+        override val colorBy: String? = null,
         mapping: PieMapping.() -> Unit = {}
     ) : PieAesthetics,
         PieParameters,
         WithSizeUnitOption,
         WithFillOption,
+        WithColorOption,
         GeomOptions(
             GeomKind.PIE,
             PieMapping().apply(mapping).seal()
@@ -741,7 +743,8 @@ object Geom {
         override fun seal() = super<PieAesthetics>.seal() +
                 super<PieParameters>.seal() +
                 super<WithSizeUnitOption>.seal() +
-                super<WithFillOption>.seal()
+                super<WithFillOption>.seal() +
+                super<WithColorOption>.seal()
     }
 
     @Suppress("ClassName", "SpellCheckingInspection")
