@@ -417,6 +417,7 @@ fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) =
  *
  * ## Examples
  *
+ * - [geom_theme_colors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_theme_colors.ipynb)
  *
  * @param pen Color to use by name "pen".
  * @param brush Color to use by name "brush".

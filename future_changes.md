@@ -27,6 +27,13 @@
 
   - `sizeUnit` parameter : [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_size_unit.ipynb).
 
+- Flavor-aware colors: **pen**, **brush** and **paper**
+  - By default, all geometries utilize new flavor-aware colors.
+  - Theme `geom` parameter allows redefinition of "geom colors":  `theme(geom = elementGeom(pen, brush, paper))`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_theme_colors.ipynb).
+
+
 ### Changed
 
 - [BREAKING] Kotlin/JS LEGACY apps are no longer supported.
