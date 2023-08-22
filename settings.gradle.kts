@@ -7,7 +7,7 @@ pluginManagement {
     plugins {
         val kotlinVersion = extra["kotlin.version"] as String
         val dokkaVersion = extra["dokka.version"] as String
-        val nexusStagingVersion = extra["nexus_staging.version"] as String
+        val nexusStagingVersion = extra["nexusStaging.version"] as String
         val nexusPublishVersion = extra["nexusPublish.version"] as String
 
         kotlin("multiplatform") version kotlinVersion

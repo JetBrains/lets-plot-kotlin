@@ -60,7 +60,7 @@ the artifact `lets-plot-kotlin-geotools` must be included to make the `toSpatial
 
 You can include it into a Gradle project.
 ```groovy
-implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:1.1.0'
+implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.4.1'
 ```  
 
 [ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/_latestVersion)
@@ -69,19 +69,19 @@ The `gt-geojson` artifact from GeoTools must be also included.
 ```groovy
 dependencies {   
     ...
-    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:1.1.0"
+    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.4.1"
     implementation "org.geotools:gt-geojson:$geotools_version"               
     ...
 }
 ```
 
-The `lets-plot-kotlin-api` artifact v1.1.0 was compiled with GeoTools v24.1. However, it doesn't declare any run-time dependency, so 
+The `lets-plot-kotlin-api` artifact v4.4.1 was compiled with GeoTools v24.1. However, it doesn't declare any run-time dependency, so 
 you are free to use other versions of the GeoTools toolkit. 
 
 <a id="examples-jvm"></a> 
 #### JVM-based examples
 
-The ['geotools-batik'](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/geotools-batik) sub-project
+The ['geotools-batik'](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/geotools-batik) subproject
 contains a set runnable examples that use [Apache Batik SVG Toolkit](https://xmlgraphics.apache.org/batik/)
 for rendering.
 

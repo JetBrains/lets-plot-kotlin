@@ -7,10 +7,11 @@ plugins {
     kotlin("jvm")
 }
 
+val slf4jVersion = extra["slf4j.version"] as String
+
 dependencies {
     implementation(projects.plotApi)
 
-    val slf4j_version: String by project
-    implementation("org.slf4j:slf4j-simple:$slf4j_version")  // Enable logging to console
+    implementation("org.slf4j:slf4j-simple:$slf4jVersion")  // Enable logging to console
 }
 

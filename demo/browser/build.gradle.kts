@@ -23,13 +23,14 @@ val copyVersionInfo by tasks.creating(Copy::class) {
 }
 tasks.getByPath(":browser:processResources").dependsOn.add(copyVersionInfo)
 
+val letsPlotVersion = extra["letsPlot.version"] as String
+val slf4jVersion = extra["slf4j.version"] as String
+
 dependencies {
     implementation(projects.plotApi)
 
-    val lets_plot_version: String by project
-    implementation("org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version")
-    implementation("org.jetbrains.lets-plot:lets-plot-image-export:$lets_plot_version")
+    implementation("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
+    implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
 
-    val slf4j_version: String by project
-    implementation("org.slf4j:slf4j-simple:$slf4j_version")  // Enable logging to console
+    implementation("org.slf4j:slf4j-simple:$slf4jVersion")  // Enable logging to console
 }

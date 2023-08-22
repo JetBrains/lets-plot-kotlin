@@ -9,10 +9,9 @@ plugins {
     signing
 }
 
-val kotlinLogging_version: String by project
-
-val lets_plot_version: String by project
-val datetime_version: String by project
+val letsPlotVersion = extra["letsPlot.version"] as String
+val datetimeVersion = extra["datetime.version"] as String
+val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
 
 kotlin {
     jvm()
@@ -21,36 +20,36 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("io.github.microutils:kotlin-logging:$kotlinLogging_version")
+                implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
 
-                api("org.jetbrains.lets-plot:commons:$lets_plot_version")
-                api("org.jetbrains.lets-plot:datamodel:$lets_plot_version")
-                api("org.jetbrains.lets-plot:plot-base:$lets_plot_version")
-                api("org.jetbrains.lets-plot:plot-builder:$lets_plot_version")
-                api("org.jetbrains.lets-plot:plot-stem:$lets_plot_version")
+                api("org.jetbrains.lets-plot:commons:$letsPlotVersion")
+                api("org.jetbrains.lets-plot:datamodel:$letsPlotVersion")
+                api("org.jetbrains.lets-plot:plot-base:$letsPlotVersion")
+                api("org.jetbrains.lets-plot:plot-builder:$letsPlotVersion")
+                api("org.jetbrains.lets-plot:plot-stem:$letsPlotVersion")
 
-                api("org.jetbrains.lets-plot:deprecated-in-v4:$lets_plot_version")
+                api("org.jetbrains.lets-plot:deprecated-in-v4:$letsPlotVersion")
             }
         }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$datetime_version")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$datetimeVersion")
             }
         }
 
         named("jvmMain") {
             dependencies {
-                api("org.jetbrains.lets-plot:lets-plot-common:$lets_plot_version")
+                api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
                 // Use "-jvm" variant to work around the issue where LPK JS (IR) artefact becomes dependent on
                 // the "kotlinx-datetime".
                 // See also:
                 // https://youtrack.jetbrains.com/issue/KT-52812/JSIR-compiler-error-Could-not-find-orgjetbrainskotlinxkotlinx-datetime-in-USERLibraryApplication-Supportkotlindaemon
-                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime-jvm:$datetime_version")
+                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime-jvm:$datetimeVersion")
 
-                compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_version")
-                compileOnly("org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_version")
-                compileOnly("org.jetbrains.lets-plot:lets-plot-image-export:$lets_plot_version")
+                compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$letsPlotVersion")
+                compileOnly("org.jetbrains.lets-plot:lets-plot-jfx:$letsPlotVersion")
+                compileOnly("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
             }
         }
     }
@@ -145,7 +144,7 @@ tasks {
         doLast {
             File("${projectDir}/src/jvmMain/resources/letsPlotKotlinAPI/", "version.properties").writeText(
                 """
-                lets_plot.version=$lets_plot_version
+                lets_plot.version=$letsPlotVersion
                 lets_plot_kotlin_api.version=${project.version}
                 """.trimIndent()
             )

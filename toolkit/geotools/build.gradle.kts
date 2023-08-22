@@ -9,20 +9,17 @@ plugins {
     signing
 }
 
-@Suppress("PropertyName", "SpellCheckingInspection")
-val geotools_version: String by project
+val geoToolsVersion = extra["geotools.version"] as String
 
 dependencies {
-//    implementation(kotlin("reflect"))
-
     implementation(projects.plotApi)
 
-    compileOnly("org.geotools:gt-main:$geotools_version")
-    compileOnly("org.geotools:gt-geojson:$geotools_version")
+    compileOnly("org.geotools:gt-main:$geoToolsVersion")
+    compileOnly("org.geotools:gt-geojson:$geoToolsVersion")
 
     testImplementation(kotlin("test"))
-    testImplementation("org.geotools:gt-main:$geotools_version")
-    testImplementation("org.geotools:gt-geojson:$geotools_version")
+    testImplementation("org.geotools:gt-main:$geoToolsVersion")
+    testImplementation("org.geotools:gt-geojson:$geoToolsVersion")
 }
 
 val artifactBaseName = "lets-plot-kotlin-geotools"
@@ -68,8 +65,8 @@ afterEvaluate {
                     description.set(
                         "Lets-Plot Kotlin GeoTools Bridge." +
                                 "\nRequires GeoTools artifacts:" +
-                                "\n - org.geotools:gt-main:$geotools_version" +
-                                "\n - org.geotools:gt-geojson:$geotools_version"
+                                "\n - org.geotools:gt-main:$geoToolsVersion" +
+                                "\n - org.geotools:gt-geojson:$geoToolsVersion"
                     )
                     url.set("https://github.com/JetBrains/lets-plot-kotlin")
                     licenses {
