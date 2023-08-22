@@ -93,6 +93,8 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param tooltip General tooltip.
  * @param tooltipText Text in general tooltip.
  * @param tooltipTitleText Tooltip title text.
+ *
+ * @param geom Geometry colors.
  */
 @Suppress("ClassName", "FunctionName")
 class theme(
