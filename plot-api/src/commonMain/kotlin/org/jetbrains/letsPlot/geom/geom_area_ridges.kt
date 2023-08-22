@@ -50,6 +50,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param fill Fill color.
@@ -57,6 +58,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param linetype Type of the line of border.
