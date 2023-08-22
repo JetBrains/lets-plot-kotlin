@@ -23,6 +23,7 @@ class statSummary(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    orientation: String? = null,
     override val x: Any? = null,
     override val y: Any? = null,
     override val ymin: Any? = null,
@@ -53,7 +54,8 @@ class statSummary(
         position = position,
         showLegend = showLegend,
         sampling = sampling,
-        tooltips = tooltips
+        tooltips = tooltips,
+        orientation = orientation
     ) {
 
     override fun seal(): Options {
