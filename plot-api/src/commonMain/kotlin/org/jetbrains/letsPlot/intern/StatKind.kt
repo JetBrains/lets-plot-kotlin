@@ -9,6 +9,7 @@ enum class StatKind {
     IDENTITY,
     COUNT,
     COUNT2D,
+    SUM,
     DENSITY,
     DENSITY2D,
     DENSITY2DF,
@@ -26,7 +27,8 @@ enum class StatKind {
     QQ,
     QQ2,
     QQ_LINE,
-    QQ2_LINE;
+    QQ2_LINE,
+    ;
 
     fun optionName() = name.lowercase()
 }
