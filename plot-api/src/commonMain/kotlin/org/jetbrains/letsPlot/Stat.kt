@@ -60,6 +60,14 @@ object Stat {
     )
 
     @Suppress("ClassName")
+    class sum(
+        mapping: SumStatMapping.() -> Unit = {}
+    ) : StatOptions(
+        StatKind.SUM,
+        mapping = SumStatMapping().apply(mapping).seal()
+    )
+
+    @Suppress("ClassName")
     class bin(
         override val bins: Int? = null,
         override val binWidth: Number? = null,
