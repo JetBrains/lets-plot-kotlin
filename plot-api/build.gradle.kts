@@ -9,10 +9,8 @@ plugins {
     signing
 }
 
-@Suppress("PropertyName")
 val kotlinLogging_version: String by project
 
-@Suppress("PropertyName")
 val lets_plot_version: String by project
 val datetime_version: String by project
 

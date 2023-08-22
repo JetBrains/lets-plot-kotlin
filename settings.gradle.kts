@@ -5,12 +5,22 @@
 
 pluginManagement {
     plugins {
-        val kotlin_version: String by settings
-        kotlin("multiplatform") version kotlin_version
-        val dokka_version: String by settings
-        id("org.jetbrains.dokka") version dokka_version
-        val nexus_staging_version: String by settings
-        id("io.codearte.nexus-staging") version nexus_staging_version
+        val kotlinVersion = extra["kotlin.version"] as String
+        val dokkaVersion = extra["dokka.version"] as String
+        val nexusStagingVersion = extra["nexus_staging.version"] as String
+        val nexusPublishVersion = extra["nexusPublish.version"] as String
+
+        kotlin("multiplatform") version kotlinVersion
+        kotlin("jvm").version(kotlinVersion)
+        kotlin("js").version(kotlinVersion)
+
+        id("org.jetbrains.dokka") version dokkaVersion
+        id("io.codearte.nexus-staging") version nexusStagingVersion
+        id("io.github.gradle-nexus.publish-plugin") version nexusPublishVersion
+
+// Come with Gradle Kotlin DSL extension:
+//        `maven-publish`
+//        signing
     }
 }
 
