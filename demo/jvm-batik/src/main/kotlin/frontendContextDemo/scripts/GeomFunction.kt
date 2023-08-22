@@ -24,13 +24,13 @@ object GeomFunction {
 
             val ran = Random(37)
             val norm: (Any) -> Double = { ran.nextGaussian() }
-            (letsPlot() + geomFunction(func = norm, xlim = -3.0 to 3.0)).show()
+            (letsPlot() + geomFunction(fn = norm, xlim = -3.0 to 3.0)).show()
 
             ////
 
             val data = mapOf("x" to (-5..5).map { it })
             (letsPlot() +
-                    geomFunction(data = data, func = { t: Double -> t.pow(2.0) }, showLegend = false) {
+                    geomFunction(data = data, fn = { t: Double -> t.pow(2.0) }, showLegend = false) {
                         x = "x"; color = "y"; size = "y"
                     } +
                     scaleColorGradient(low = "red", high = "green") +
@@ -40,7 +40,7 @@ object GeomFunction {
             ////
 
             fun funLayer(func: (Double) -> Double) = geomFunction(
-                func = func,
+                fn = func,
                 xlim = -2 to 2,
                 n = 9,
                 stat = Stat.density2D(),

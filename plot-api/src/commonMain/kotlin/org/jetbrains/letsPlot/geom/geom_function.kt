@@ -9,10 +9,10 @@ import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.asPlotData
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
+import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.asList
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -33,7 +33,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  false - do not show legend for this layer.
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- * @param func A function to use.
+ * @param fn A function to use.
  * @param xlim default = Pair(0, 1).
  *  Range of the function.
  * @param n default = 512.
@@ -47,6 +47,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param linetype Type of the line.
@@ -66,7 +67,7 @@ class geomFunction(
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     tooltips: TooltipOptions? = null,
-    func: ((Double) -> Double)? = null,
+    fn: ((Double) -> Double)? = null,
     xlim: Pair<Number, Number>? = null,
     n: Int? = null,
     override val x: Number? = null,
@@ -81,7 +82,7 @@ class geomFunction(
     WithColorOption,
     Layer(
         mapping = getMapping(mapping),
-        data = getFunData(data, mapping, func, xlim, n),
+        data = getFunData(data, mapping, fn, xlim, n),
         geom = geom,
         stat = stat,
         position = position,
@@ -101,29 +102,31 @@ class geomFunction(
 
         private fun getMapping(mapping: LineMapping.() -> Unit): Options {
             val dict = LineMapping().apply(mapping).seal().map
-            return Options(dict + mapOf("x" to FUN_X_NAME, "y" to FUN_Y_NAME))
+            return Options(mapOf("x" to FUN_X_NAME) + dict + ("y" to FUN_Y_NAME))
         }
 
         private fun getFunData(
             data: Map<*, *>?,
             mapping: LineMapping.() -> Unit,
-            func: ((Double) -> Double)? = null,
+            fn: ((Double) -> Double)? = null,
             xlim: Pair<Number, Number>? = null,
             n: Int? = null,
         ): Map<*, *> {
             val mappingDict = LineMapping().apply(mapping).seal().map
             val aesXValue = mappingDict["x"]
 
-            val xs: List<Any?>? = when {
-                aesXValue is String && data != null -> asPlotData(data)[aesXValue]
-                aesXValue is Iterable<*> -> aesXValue.toList()
+            val xs: List<Double>? = when {
+                aesXValue is String && data != null -> data[aesXValue]?.let(::asList)
                 else -> getDefaultXRange(xlim, n)
+            }.let { xs ->
+                xs?.all { x -> x is Number }?.let { require(it) { "'x' data must contain only numbers: $xs" } }
+                xs?.map { x -> (x as Number).toDouble() }
             }
 
             val ys: List<Double?> = when {
                 xs == null -> emptyList()
-                func == null -> List(xs.size) { null }
-                else -> xs.map { x -> if (x is Double) func(x) else null }
+                fn == null -> List(xs.size) { null }
+                else -> xs.map { x -> fn(x) }
             }
 
             return data?.plus(mapOf(FUN_Y_NAME to ys)) ?: mapOf(FUN_X_NAME to xs, FUN_Y_NAME to ys)
