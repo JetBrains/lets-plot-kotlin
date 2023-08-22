@@ -9,13 +9,13 @@ import org.jetbrains.letsPlot.Geom.boxplot
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.*
 import org.jetbrains.letsPlot.intern.layer.PosOptions
-import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.WithFillOption
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
+import org.jetbrains.letsPlot.intern.layer.geom.PointMapping
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 import org.jetbrains.letsPlot.pos.positionDodge
@@ -128,7 +128,7 @@ fun geomBoxplot(
     coef: Number? = null,
     colorBy: String? = null,
     fillBy: String? = null,
-    mapping: OptionsCapsule .() -> Unit = {}
+    mapping: BoxplotMapping .() -> Unit = {}
 ): FeatureList {
     val layers = mutableListOf<Layer>()
 
@@ -147,6 +147,21 @@ fun geomBoxplot(
 
     if (stat.kind == StatKind.BOXPLOT) {
         val outlierFatten = 4.0
+        val boxplotMapping = BoxplotMapping().apply(mapping)
+        val pointMapping: PointMapping.() -> Unit = {
+            this.x = boxplotMapping.x
+            this.y = boxplotMapping.y
+            this.alpha = boxplotMapping.alpha
+            this.color = boxplotMapping.color
+            this.fill = boxplotMapping.fill
+            this.shape = boxplotMapping.shape
+            this.size = boxplotMapping.size
+            // stroke
+            this.group = boxplotMapping.group
+            this.paint_a = boxplotMapping.paint_a
+            this.paint_b = boxplotMapping.paint_b
+            this.paint_c = boxplotMapping.paint_c
+        }
         layers += geomPoint(
             data = data,
             stat = Stat.boxplotOutlier(),
@@ -162,7 +177,7 @@ fun geomBoxplot(
             size = (outlierSize ?: size)?.let { it.toDouble() * outlierFatten },
             stroke = outlierStroke ?: stroke,
             colorBy = colorBy, fillBy = fillBy,
-            mapping = mapping
+            mapping = pointMapping
         )
     }
     return FeatureList(layers)
