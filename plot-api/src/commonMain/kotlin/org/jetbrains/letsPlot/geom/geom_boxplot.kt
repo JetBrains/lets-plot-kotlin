@@ -29,6 +29,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [distributions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb)
  *
+ * - [stat_boxplot_outlier.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_boxplot_outlier.ipynb).
+ *
  * @param data The data to be displayed. If null, the default, the data is inherited
  *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.boxplot()`. The statistical transformation to use on the data for this layer.
