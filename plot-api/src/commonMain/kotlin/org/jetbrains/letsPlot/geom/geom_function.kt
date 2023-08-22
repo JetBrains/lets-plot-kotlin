@@ -13,6 +13,7 @@ import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
 import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.asList
+import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.isListy
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -115,18 +116,21 @@ class geomFunction(
             val mappingDict = LineMapping().apply(mapping).seal().map
             val aesXValue = mappingDict["x"]
 
-            val xs: List<Double>? = when {
-                aesXValue is String && data != null -> data[aesXValue]?.let(::asList)
+            val xs: List<Double?> = when {
+                aesXValue is String && data != null -> {
+                    require(aesXValue in data) { "'$aesXValue' is not found in data" }
+                    val values = data[aesXValue]!!
+                    require(isListy(values)) { "'$aesXValue'  must contain a list of values" }
+                    val list = asList(values)
+                    require(list.all { it is Number? }) { "'$aesXValue' must contain only numbers: $list" }
+                    list.map { (it as? Number)?.toDouble() }
+                }
                 else -> getDefaultXRange(xlim, n)
-            }.let { xs ->
-                xs?.all { x -> x is Number }?.let { require(it) { "'x' data must contain only numbers: $xs" } }
-                xs?.map { x -> (x as Number).toDouble() }
             }
 
-            val ys: List<Double?> = when {
-                xs == null -> emptyList()
-                fn == null -> List(xs.size) { null }
-                else -> xs.map { x -> fn(x) }
+            val ys: List<Double?> = when (fn) {
+                null -> List(xs.size) { null }
+                else -> xs.map { x -> x?.let(fn) }
             }
 
             return data?.plus(mapOf(FUN_Y_NAME to ys)) ?: mapOf(FUN_X_NAME to xs, FUN_Y_NAME to ys)
