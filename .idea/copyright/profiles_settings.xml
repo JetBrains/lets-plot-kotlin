@@ -1,7 +1,8 @@
 <component name="CopyrightManager">
-  <settings default="JetBrains MIT">
+  <settings>
     <module2copyright>
-      <element module="Project Files" copyright="JetBrains MIT" />
+      <element module="LetsPlot" copyright="JetBrains MIT" />
+      <element module="pngj" copyright="PNGJ" />
     </module2copyright>
   </settings>
 </component>
