@@ -28,6 +28,10 @@ class GenericAesMapping(
     var xintercept: Any? = null,
     var yintercept: Any? = null,
 
+    var lower: Any? = null,
+    var middle: Any? = null,
+    var upper: Any? = null,
+
     var xmin: Any? = null,
     var xmax: Any? = null,
     var ymin: Any? = null,
@@ -63,6 +67,10 @@ class GenericAesMapping(
         "slope" to slope,
         "xintercept" to xintercept,
         "yintercept" to yintercept,
+
+        "lower" to lower,
+        "middle" to middle,
+        "upper" to upper,
 
         "xmin" to xmin,
         "xmax" to xmax,

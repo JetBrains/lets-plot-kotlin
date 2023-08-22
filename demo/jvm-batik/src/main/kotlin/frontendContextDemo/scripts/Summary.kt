@@ -50,7 +50,16 @@ object Summary {
                 }
                 val p = ggplot(data) {
                     x = "cat"; y = "val"
-                } + stat + ggtitle("Crossbar demo")
+                } + stat + ggtitle("Crossbar geom")
+                p.show()
+            }
+
+            run {
+                val stat = statSummary(geom = Geom.boxplot()) {
+                    x = "cat"; y = "val"
+                    middle = "..mq.."; lower = "..lq.."; upper = "..uq.."
+                }
+                val p = ggplot(data) + stat + ggtitle("Boxplot geom")
                 p.show()
             }
         }
