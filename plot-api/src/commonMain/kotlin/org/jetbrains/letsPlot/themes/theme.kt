@@ -93,6 +93,8 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param tooltip General tooltip.
  * @param tooltipText Text in general tooltip.
  * @param tooltipTitleText Tooltip title text.
+ *
+ * @param geom Geometry colors.
  */
 @Suppress("ClassName", "FunctionName")
 class theme(
@@ -162,7 +164,9 @@ class theme(
 
     tooltip: Any? = null,
     tooltipText: Any? = null,
-    tooltipTitleText: Any? = null
+    tooltipTitleText: Any? = null,
+
+    geom: Any? = null
 
 ) : OptionsMap(
     Option.Plot.THEME, mapOf(
@@ -229,7 +233,9 @@ class theme(
 
         ThemeOption.TOOLTIP_RECT to tooltip,
         ThemeOption.TOOLTIP_TEXT to tooltipText,
-        ThemeOption.TOOLTIP_TITLE_TEXT to tooltipTitleText
+        ThemeOption.TOOLTIP_TITLE_TEXT to tooltipTitleText,
+
+        ThemeOption.GEOM to geom
     )
         .filterNonNullValues()
         .toMutableMap()
@@ -407,3 +413,24 @@ fun elementText(
 
 fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) =
     mapOf("t" to t, "r" to r, "b" to b, "l" to l).filterNonNullValues()
+
+/**
+ * Specifies new values for the named colors.
+ *
+ * ## Examples
+ *
+ * - [geom_theme_colors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_theme_colors.ipynb)
+ *
+ * @param pen Color to use by name "pen".
+ * @param brush Color to use by name "brush".
+ * @param paper Color to use by name "paper".
+ */
+fun elementGeom(
+    pen: Any? = null,
+    brush: Any? = null,
+    paper: Any? = null,
+) = mapOf(
+    ThemeOption.Geom.PEN to pen,
+    ThemeOption.Geom.BRUSH to brush,
+    ThemeOption.Geom.PAPER to paper
+)

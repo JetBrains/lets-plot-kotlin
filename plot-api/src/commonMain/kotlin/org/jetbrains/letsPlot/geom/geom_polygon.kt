@@ -62,6 +62,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param size Lines width.
@@ -74,6 +75,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
