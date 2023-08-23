@@ -28,7 +28,8 @@ enum class StatKind {
     QQ2,
     QQ_LINE,
     QQ2_LINE,
-    SUMMARY;
+    SUMMARY,
+    SUMMARYBIN;
 
     fun optionName() = name.lowercase()
 }
