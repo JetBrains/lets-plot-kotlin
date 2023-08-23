@@ -9,6 +9,7 @@ enum class StatKind {
     IDENTITY,
     COUNT,
     COUNT2D,
+    SUM,
     DENSITY,
     DENSITY2D,
     DENSITY2DF,

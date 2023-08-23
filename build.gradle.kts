@@ -10,8 +10,15 @@ buildscript {
 }
 
 plugins {
+    // this is necessary to avoid the plugins to be loaded multiple times
+    // in each subproject's classloader
     kotlin("multiplatform") apply false
-    id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
+    kotlin("jvm") apply false
+    kotlin("js") apply false
+    id("org.jetbrains.dokka") apply false
+    id("io.codearte.nexus-staging") apply false
+
+    id("io.github.gradle-nexus.publish-plugin")
 }
 
 val buildSettingsFile = File(rootDir, "build_settings.yml")
@@ -19,14 +26,14 @@ if (!buildSettingsFile.canRead()) {
     error("Couldn't read build_settings.yml")
 }
 val settings: Map<String, Any?> = org.yaml.snakeyaml.Yaml().load(buildSettingsFile.inputStream())
-val sonatypeSettings = settings["sonatype"] as Map<String, String?>
+val sonatypeSettings = settings["sonatype"] as Map<*, *>
 
 
 allprojects {
     group = "org.jetbrains.lets-plot"
     version = when (name) {
         "dokka" -> "4.4.0"
-        else -> "4.4.2-alpha3"
+        else -> "4.4.2-alpha4"
     }
 
     val version = version as String
@@ -95,8 +102,8 @@ nexusPublishing {
     repositories{
         sonatype() {
             stagingProfileId.set("11c25ff9a87b89")
-            username.set(sonatypeSettings["username"])
-            password.set(sonatypeSettings["password"])
+            username.set(sonatypeSettings["username"] as String)
+            password.set(sonatypeSettings["password"] as String)
         }
     }
 }

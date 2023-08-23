@@ -7,10 +7,11 @@ plugins {
     kotlin("jvm")
 }
 
+val letsPlotVersion = extra["letsPlot.version"] as String
+
 dependencies {
-    val lets_plot_version: String by project
-    implementation("org.jetbrains.lets-plot:lets-plot-batik:$lets_plot_version")
-    implementation("org.jetbrains.lets-plot:lets-plot-gis:$lets_plot_version")
+    implementation("org.jetbrains.lets-plot:lets-plot-batik:$letsPlotVersion")
+    implementation("org.jetbrains.lets-plot:lets-plot-gis:$letsPlotVersion")
     implementation(projects.plotApi)
 
     implementation(projects.demoCommon)

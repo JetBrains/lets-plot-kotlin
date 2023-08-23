@@ -9,10 +9,10 @@ plugins {
 
 val javaFXVersion = "17"
 
+val letsPlotVersion = extra["letsPlot.version"] as String
+
 dependencies {
-    @Suppress("LocalVariableName")
-    val lets_plot_version: String by project
-    implementation("org.jetbrains.lets-plot:lets-plot-jfx:$lets_plot_version")
+    implementation("org.jetbrains.lets-plot:lets-plot-jfx:$letsPlotVersion")
     implementation("org.openjfx:javafx-base:$javaFXVersion:${getJavaFXPlatform()}")
     implementation("org.openjfx:javafx-swing:$javaFXVersion:${getJavaFXPlatform()}")
     implementation("org.openjfx:javafx-graphics:$javaFXVersion:${getJavaFXPlatform()}")

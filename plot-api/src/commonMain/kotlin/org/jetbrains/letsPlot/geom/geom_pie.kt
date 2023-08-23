@@ -73,6 +73,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
@@ -81,6 +82,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param stroke Width of inner and outer arcs of pie sector.
@@ -98,6 +100,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param sizeUnit Relates the size of the pie chart to the length of the unit step along one of the axes.
