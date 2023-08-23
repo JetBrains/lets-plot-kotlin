@@ -110,6 +110,40 @@ object Stat {
     }
 
     @Suppress("ClassName")
+    class summary(
+        override val fn: String? = null,
+        override val fnMin: String? = null,
+        override val fnMax: String? = null,
+        override val quantiles: List<Number>? = null,
+        mapping: SummaryStatMapping.() -> Unit = {}
+    ) : SummaryStatParameters,
+        StatOptions(
+            StatKind.SUMMARY,
+            mapping = SummaryStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
+    class summaryBin(
+        override val fn: String? = null,
+        override val fnMin: String? = null,
+        override val fnMax: String? = null,
+        override val quantiles: List<Number>? = null,
+        override val bins: Int? = null,
+        override val binWidth: Number? = null,
+        override val center: Number? = null,
+        override val boundary: Number? = null,
+        mapping: SummaryBinStatMapping.() -> Unit = {}
+    ) : SummaryBinStatParameters,
+        StatOptions(
+            StatKind.SUMMARYBIN,
+            mapping = SummaryBinStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class bin2D(
         override val bins: Pair<Int, Int>? = null,
         override val binWidth: Pair<Number?, Number?>? = null,
