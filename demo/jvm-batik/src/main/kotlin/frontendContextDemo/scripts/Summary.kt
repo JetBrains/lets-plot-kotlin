@@ -20,24 +20,24 @@ object Summary {
             val data = getData()
 
             run {
-                val stat = statSummary {
+                val statLayer = statSummary {
                     x = "cat"; y = "val"
                 }
-                val p = ggplot(data) + stat + ggtitle("Basic demo")
+                val p = ggplot(data) + statLayer + ggtitle("Basic demo")
                 p.show()
             }
 
             run {
-                val geom = geomBoxplot()
-                val stat = statSummary(fn = "median", fnMin = "lq", fnMax = "uq", color = "red")
+                val geomLayer = geomBoxplot()
+                val statLayer = statSummary(fn = "median", fnMin = "lq", fnMax = "uq", color = "red")
                 val p = ggplot(data) {
                     x = "cat"; y = "val"
-                } + geom + stat + ggtitle("Summary vs. Boxplot")
+                } + geomLayer + statLayer + ggtitle("Summary vs. Boxplot")
                 p.show()
             }
 
             run {
-                val stat = statSummary(
+                val statLayer = statSummary(
                     geom = Geom.crossbar(),
                     fn = "median", fnMin = "lq",
                     quantiles = listOf(0.45, 0.5, 0.55),
@@ -50,16 +50,18 @@ object Summary {
                 }
                 val p = ggplot(data) {
                     x = "cat"; y = "val"
-                } + stat + ggtitle("Crossbar geom")
+                } + statLayer + ggtitle("Crossbar geom")
                 p.show()
             }
 
             run {
-                val stat = statSummary(geom = Geom.boxplot()) {
-                    x = "cat"; y = "val"
+                val geom = Geom.boxplot() {
                     middle = "..mq.."; lower = "..lq.."; upper = "..uq.."
                 }
-                val p = ggplot(data) + stat + ggtitle("Boxplot geom")
+                val statLayer = statSummary(geom = geom) {
+                    x = "cat"; y = "val"
+                }
+                val p = ggplot(data) + statLayer + ggtitle("Boxplot geom")
                 p.show()
             }
         }
