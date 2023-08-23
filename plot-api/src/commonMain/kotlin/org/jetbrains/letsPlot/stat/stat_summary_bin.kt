@@ -30,6 +30,7 @@ class statSummaryBin(
     override val shape: Any? = null,
     override val size: Any? = null,
     override val stroke: Any? = null,
+    override val linewidth: Any? = null,
     override val bins: Int? = null,
     override val binWidth: Number? = null,
     override val center: Number? = null,
@@ -40,7 +41,7 @@ class statSummaryBin(
     override val quantiles: List<Number>? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
-    mapping: PointRangeMapping.() -> Unit = {}
+    mapping: PointRangeMapping.() -> Unit = {},
 ) : PointRangeAesthetics,
     SummaryBinStatParameters,
     WithColorOption,

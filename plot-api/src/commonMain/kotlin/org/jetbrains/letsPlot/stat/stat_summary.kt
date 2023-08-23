@@ -35,6 +35,7 @@ class statSummary(
     override val shape: Any? = null,
     override val size: Any? = null,
     override val stroke: Any? = null,
+    override val linewidth: Any? = null,
     override val fn: String? = null,
     override val fnMin: String? = null,
     override val fnMax: String? = null,
