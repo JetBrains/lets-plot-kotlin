@@ -356,4 +356,17 @@ object Stat {
         ) {
         override val parameters = this.seal()
     }
+
+    @Suppress("ClassName")
+    class ecdf(
+        override val n: Int? = null,
+     //   override val pad: Boolean? = null,
+        mapping: ECDFStatMapping.() -> Unit = {}
+    ) : ECDFStatParameters,
+        StatOptions(
+            StatKind.ECDF,
+            mapping = ECDFStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
 }
