@@ -85,7 +85,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
 - [Lets-Plot in JVM and Kotlin/JS Application](#in-jvm-js)
 - [Documentation](#documentation)
 
-- [What is new in 4.4.0](#new)
+- [What is new in 4.4.2](#new)
 - [Migrating from v3 to v4](#migrating4)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
@@ -144,37 +144,52 @@ using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 
 
 <a id="new"></a>
-## What is new in 4.4.0
+## What is new in 4.4.2
 
-### Aesthetics `stroke` and `linewidth`
+### A Number of Geometry Defaults Changed
+
+- The default qualitative color palette is now [Color Brewer "Set1"](https://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9) (was ["Set2"](https://colorbrewer2.org/#type=qualitative&scheme=Set2&n=8)).
+- Slightly bigger default size of points and width of lines.
+- Flavor-aware default colors for points, lines etc.
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23b/images/stroke.png" alt="f-23b/images/stroke.png" width="336" height="150">
-
-See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/aes_stroke.ipynb).
-
-See also `geomLollipop()` example below.
-
-
-### Lollipop Plot
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/geom_defaults.png" alt="f-23c/images/geom_defaults.png" width="504" height="150">
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23b/images/lollipop.png" alt="f-23b/images/lollipop.png" width="600" height="200">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/flavor_geom_colors.png" alt="f-23c/images/flavor_geom_colors.png" width="1024" height="120">
 
-See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/geom_lollipop.ipynb).
+See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_theme_colors.ipynb).
 
-
-### Horizontal error bars and vertical "dodge"
-
-See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/horizontal_error_bars.ipynb).
-
-
-### Multi-line Labels in Legends
-
-See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/legend_text_multiline.ipynb).
-
-
-### Colorbar in `geomImshow()`
+- Size of points is slightly adjusted to match the width of a line of the same "size".
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.4.0/images/kauai_DEM.png" alt="f-4.4.0/images/kauai_DEM.png" width="508" height="368">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/point_vs_line.png" alt="f-23c/images/point_vs_line.png" width="170" height="150">
+  <br>
+
+### Support for Variadic Line Width and/or Color in `geomLine()` and `geomPath()`
+  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/variadic_width.png" alt="f-23c/images/variadic_width.png" width="455" height="150">
+
+See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/aes_size_color_variadic_lines.ipynb).
+
+### Parameter `"sizeUnit"` in `geomPie()`
+A way to specify size of the pie in units relative to the plot size.
+
+See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_size_unit.ipynb).
+
+### Stroke and Spacers in `geomPie()`
+  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/pie_stroke.png" alt="f-23c/images/pie_stroke.png" width="162" height="150">
+
+See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_stroke_and_spacers.ipynb).
+
+
+### New `themeVoid()`, Geometries and Statistics
+
+- `themeVoid()`: [example](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/theme_void.ipynb).
+- `statECDF()`: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_ecdf.ipynb).
+- `geomFunction()`: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_function.ipynb).
+- `statSummary()`: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_summary.ipynb).
+- `statSummaryBin()`: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_summary_bin.ipynb).
+- `Stat.sum()` statistic: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_sum.ipynb).
+- `Stat.boxplotOutlier()` statistic: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_boxplot_outlier.ipynb).
 
 
 ### Other improvements and fixes

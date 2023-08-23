@@ -32,8 +32,8 @@ val sonatypeSettings = settings["sonatype"] as Map<*, *>
 allprojects {
     group = "org.jetbrains.lets-plot"
     version = when (name) {
-        "dokka" -> "4.4.0"
-        else -> "4.4.2-alpha5"
+        "dokka" -> "4.4.2"
+        else -> "4.4.3-alpha1"
     }
 
     val version = version as String

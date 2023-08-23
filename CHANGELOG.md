@@ -6,6 +6,95 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
 
+## [4.4.2] - 2023-08-23
+
+### Added
+
+- Flavor-aware colors: **pen**, **brush** and **paper**
+  - By default, all geometries utilize new flavor-aware colors.
+  - Theme `geom` parameter allows redefinition of "geom colors":  `theme(geom = elementGeom(pen, brush, paper))`.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_theme_colors.ipynb).
+
+
+- Support for variadic line width and/or color in `geom_line()` and `geom_path()` [[LP-313](https://github.com/JetBrains/lets-plot/issues/313)].
+
+  Ses: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/aes_size_color_variadic_lines.ipynb).
+
+
+- `themeVoid()`:
+  [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/theme_void.ipynb)
+
+- `statECDF()` :
+  [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_ecdf.ipynb).
+
+- `geomFunction()` :
+  [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_function.ipynb).
+
+- `statSummary()`:
+  [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_summary.ipynb).
+
+- `statSummaryBin()`:
+  [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_summary_bin.ipynb).
+
+- `Stat.sum()` statistic:
+  [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_sum.ipynb).
+
+- `Stat.boxplotOutlier()` statistic:
+  [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_boxplot_outlier.ipynb).
+
+
+- In tooltip customization API:\
+  `disableSplitting()` function [[#189](https://github.com/JetBrains/lets-plot-kotlin/issues/189)].
+
+  [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/tooltips_disable_splitting.ipynb).
+
+
+- In `geomPie()`:
+  - `stroke` and `color` aesthetics - the width and color of pie sector arcs.
+  - `strokeSide` parameter - which arcs to show (inner, outer, both).
+  - `spacerWidth` and `spacerColor` parameters - lines between sectors.
+
+  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_stroke_and_spacers.ipynb).
+
+  - `sizeUnit` parameter : [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_size_unit.ipynb).
+
+
+### Changed
+
+> Note: Due to major package refactoring in the main Lets-Plot library, this version (4.4.2) of the Kotlin API\
+> is not compatible with versions of Lets-Plot library v3.2.0 and earlier.
+
+- The default qualitative color palette is now [Color Brewer "Set1"](https://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9) (was ["Set2"](https://colorbrewer2.org/#type=qualitative&scheme=Set2&n=8))
+- Geometries default colors are now flavor-dependent: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_theme_colors.ipynb).
+- Geometries default size/line-width is now slightly bigger.
+- Point size is adjusted to match the width of a line of the same "size".
+
+- [BREAKING] Kotlin/JS **LEGACY** apps are no longer supported.
+
+- [BREAKING] `geomPie()` no longer supports parameter `strokeColor`.
+- [BREAKING] `geomBoxplot()` no longer support parameter `sampling`.
+- [BREAKING] `geomPointRange()`: size aesthetic shouldn't affect line width [[#751](https://github.com/JetBrains/lets-plot/issues/751)]:\
+  `linewidth` aesthetic is now used for the line width, `size` - for mid-point size only.
+
+- `geomBoxplot()`: `size` and `stroke` parameters now affect outlier shapes.
+
+
+### Fixed
+- ggsave: saving geomImshow() to SVG produces fuzzy picture [[#188](https://github.com/JetBrains/lets-plot-kotlin/issues/188)].
+- `geomCrossbar()` aesthetics take `middle` argument instead of `y` [[#804](https://github.com/JetBrains/lets-plot/issues/804)].
+- `geomBoxplot()` doesn't apply alpha to outliers [[#754](https://github.com/JetBrains/lets-plot/issues/754)].
+- `geomBoxplot()`: outliers do not show tooltips.
+- `geomBoxplot()`: some strange outliers drawn here [[#143](https://github.com/JetBrains/lets-plot-kotlin/issues/143)].
+- `geomStep()`: no tooltips.
+- `geomStep()`: add 'tooltips' parameter [[#195](https://github.com/JetBrains/lets-plot-kotlin/issues/195)].
+- `geomStep()`: toggle the behavior of the `direction` parameter when the orientation is changed.
+- `geomRibbon()`: not all tooltips are shown on a multi-layer plot [[#847](https://github.com/JetBrains/lets-plot/issues/847)].
+- Bug in empty plot: IndexOutOfBoundsException [[#194](https://github.com/JetBrains/lets-plot-kotlin/issues/194)].
+- How to remove side tooltips without anchor? [[#189](https://github.com/JetBrains/lets-plot-kotlin/issues/189)].
+                          
+
+
 ## [4.4.1] - 2023-05-11
 
 ### Fixed
