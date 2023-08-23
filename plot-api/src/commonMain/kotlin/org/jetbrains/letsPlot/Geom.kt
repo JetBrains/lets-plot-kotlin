@@ -526,6 +526,7 @@ object Geom {
         override val shape: Any? = null,
         override val size: Number? = null,
         override val stroke: Number? = null,
+        override val linewidth: Number? = null,
         override val colorBy: String? = null,
         override val fillBy: String? = null,
         mapping: PointRangeMapping.() -> Unit = {}

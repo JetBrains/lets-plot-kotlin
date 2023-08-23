@@ -66,6 +66,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Or an instance of the `java.awt.Color` class.
  * @param size Lines width, size of mid-point.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
+ * @param linewidth Line width.
  * @param linetype Type of the line of border.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash"
@@ -97,6 +98,7 @@ class geomPointRange(
     override val shape: Any? = null,
     override val size: Number? = null,
     override val stroke: Number? = null,
+    override val linewidth: Number? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: PointRangeMapping.() -> Unit = {}

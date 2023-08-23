@@ -39,6 +39,10 @@
 - [BREAKING] Kotlin/JS LEGACY apps are no longer supported.
 
 - [BREAKING] `geomBoxplot()` no longer support parameter `sampling`.
+  
+- [BREAKING] `geomPointRange()`: size aesthetic shouldn't affect line width [[#751](https://github.com/JetBrains/lets-plot/issues/751)]:
+
+  `linewidth` aesthetic is used for line width, `size` - for mid-point size only.
 
 ### Fixed
 - ggsave: saving geomImshow() to SVG produces fuzzy picture [[#188](https://github.com/JetBrains/lets-plot-kotlin/issues/188)].
