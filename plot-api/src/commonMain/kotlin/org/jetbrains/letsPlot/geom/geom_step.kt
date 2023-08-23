@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.PosOptions
@@ -92,6 +93,6 @@ class geomStep(
     override fun seal(): Options {
         return super<LineAesthetics>.seal() +
                 super<WithColorOption>.seal() +
-                Options.of("direction" to direction)
+                Options.of(Option.Geom.Step.DIRECTION to direction)
     }
 }
