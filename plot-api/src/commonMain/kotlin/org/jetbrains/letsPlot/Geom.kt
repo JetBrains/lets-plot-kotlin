@@ -653,9 +653,12 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val direction: String? = null,
+        override val pad: Boolean? = null,
         override val colorBy: String? = null,
         mapping: LineMapping.() -> Unit = {}
     ) : LineAesthetics,
+        StepParameters,
         WithColorOption,
         GeomOptions(
             GeomKind.STEP,
@@ -663,7 +666,9 @@ object Geom {
         ) {
         override val parameters = this.seal()
 
-        override fun seal() = super<LineAesthetics>.seal() + super<WithColorOption>.seal()
+        override fun seal() = super<LineAesthetics>.seal() +
+                super<StepParameters>.seal() +
+                super<WithColorOption>.seal()
     }
 
     @Suppress("ClassName")
