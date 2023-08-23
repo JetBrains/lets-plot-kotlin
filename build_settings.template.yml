@@ -12,5 +12,5 @@
 #   signing.secretKeyRingFile=/Users/you/.gnupg/secring.kbx
 # -------------------------------------------------------------------
 sonatype:
-  username:
-  password:
+  username: ""
+  password: ""
