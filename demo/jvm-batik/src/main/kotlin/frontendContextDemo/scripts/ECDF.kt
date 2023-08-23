@@ -37,21 +37,9 @@ object ECDF {
                 (p + statECDF() + ggtitle("statECDF()")).show()
                 (p + statECDF(pad = true) + ggtitle("statECDF(pad = true)")).show()
                 (p + statECDF(pad = false) + ggtitle("statECDF(pad = false)")).show()
-
-                (p + statECDF(geom = Geom.step(pad = true)) + ggtitle("statECDF(geom = Geom.step(pad = true))")).show()
-                (p + statECDF(geom = Geom.step(pad = false)) + ggtitle("statECDF(geom = Geom.step(pad = false))")).show()
-
-                (p + statECDF(pad = false, geom = Geom.step(pad = true))
-                        + ggtitle("statECDF(pad = false, geom = Geom.step(pad = true))")
-                        ).show()
-
                 (p + geomStep(stat = Stat.ecdf()) + ggtitle("geomStep(stat = Stat.ecdf()")).show()
-                (p + geomStep(pad = true, stat = Stat.ecdf()) +
-                        ggtitle("geomStep(pad = true, stat = Stat.ecdf()")
-                        ).show()
-                (p + geomStep(pad = false, stat = Stat.ecdf()) +
-                        ggtitle("geomStep(pad = false, stat = Stat.ecdf()")
-                        ).show()
+                (p + geomStep(stat = Stat.ecdf(pad = true)) + ggtitle("geomStep(stat = Stat.ecdf(pad = true)")).show()
+                (p + geomStep(stat = Stat.ecdf(pad = false)) + ggtitle("geomStep(stat = Stat.ecdf(pad = false)")).show()
             }
         }
     }

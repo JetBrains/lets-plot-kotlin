@@ -10,7 +10,6 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
-import org.jetbrains.letsPlot.intern.layer.geom.StepParameters
 import org.jetbrains.letsPlot.intern.layer.stat.ECDFStatParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
@@ -32,11 +31,9 @@ class statECDF(
     override val size: Number? = null,
     override val n: Int? = null,
     override val pad: Boolean? = true,  // set the default
-    override val direction: String? = null,
     override val colorBy: String? = null,
-    mapping: LineMapping.() -> Unit = {},
+    mapping: LineMapping.() -> Unit = {}
 ) : LineAesthetics,
-    StepParameters,
     ECDFStatParameters,
     WithColorOption,
     Layer(
@@ -52,7 +49,6 @@ class statECDF(
     ) {
     override fun seal(): Options {
         return super<LineAesthetics>.seal() +
-                super<StepParameters>.seal() +
                 super<ECDFStatParameters>.seal() +
                 super<WithColorOption>.seal()
     }

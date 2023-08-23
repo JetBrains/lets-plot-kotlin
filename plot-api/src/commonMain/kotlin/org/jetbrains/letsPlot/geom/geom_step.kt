@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.PosOptions
@@ -15,7 +16,6 @@ import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.intern.layer.WithColorOption
 import org.jetbrains.letsPlot.intern.layer.geom.LineAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.LineMapping
-import org.jetbrains.letsPlot.intern.layer.geom.StepParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
@@ -41,8 +41,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
  * @param direction "hv" or "HV" stands for horizontal then vertical (default); "vh" or "VH" stands for vertical then horizontal.
- * @param pad default = false.
- *  If stat is `Stat.ecdf()` and `pad = true`, then the points at the ends: (-inf, 0) and (inf, 1) are added to the ecdf.
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
@@ -71,18 +69,16 @@ class geomStep(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    private val direction: String? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
-    override val direction: String? = null,
-    override val pad: Boolean? = null,
     override val colorBy: String? = null,
     mapping: LineMapping.() -> Unit = {}
 ) : LineAesthetics,
-    StepParameters,
     WithColorOption,
     Layer(
         mapping = LineMapping().apply(mapping).seal(),
@@ -96,7 +92,7 @@ class geomStep(
     ) {
     override fun seal(): Options {
         return super<LineAesthetics>.seal() +
-                super<StepParameters>.seal() +
-                super<WithColorOption>.seal()
+                super<WithColorOption>.seal() +
+                Options.of(Option.Geom.Step.DIRECTION to direction)
     }
 }

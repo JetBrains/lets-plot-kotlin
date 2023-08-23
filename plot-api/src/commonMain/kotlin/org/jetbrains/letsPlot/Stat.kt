@@ -360,7 +360,7 @@ object Stat {
     @Suppress("ClassName")
     class ecdf(
         override val n: Int? = null,
-     //   override val pad: Boolean? = null,
+        override val pad: Boolean? = true,  // set the default,
         mapping: ECDFStatMapping.() -> Unit = {}
     ) : ECDFStatParameters,
         StatOptions(

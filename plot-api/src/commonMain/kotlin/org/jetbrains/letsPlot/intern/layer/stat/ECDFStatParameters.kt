@@ -6,10 +6,10 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 interface ECDFStatParameters : OptionsCapsule {
     val n: Int?
-  //  val pad: Boolean?
+    val pad: Boolean?
 
     override fun seal() = Options.of(
         Option.Stat.ECDF.N to n,
-   //     Option.Stat.ECDF.PADDED to pad
+        Option.Stat.ECDF.PADDED to pad
     )
 }
