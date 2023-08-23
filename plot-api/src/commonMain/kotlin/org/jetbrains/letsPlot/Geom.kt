@@ -663,8 +663,7 @@ object Geom {
         ) {
         override val parameters = this.seal()
 
-        override fun seal() = super<LineAesthetics>.seal() +
-                super<WithColorOption>.seal()
+        override fun seal() = super<LineAesthetics>.seal() + super<WithColorOption>.seal()
     }
 
     @Suppress("ClassName")
