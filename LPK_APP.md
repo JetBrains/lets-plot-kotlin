@@ -192,6 +192,11 @@ val rawSpec = figure.toSpec()
     For example, see: [JsFrontendUtil.createPlotDiv(figure)](https://github.com/JetBrains/lets-plot-kotlin/blob/ba7df25c6eed4cb4f4c3806e42dc0f818f759b6f/plot-api/src/jsMain/kotlin/org/jetbrains/letsPlot/frontend/JsFrontendUtil.kt#LL16C15-L16C15).
 
 
+> *Note*: In case you are using Android WebView to display the plot:
+>   - enable JavaScript: `webView.settings.javaScriptEnabled = true` 
+>   - grant the internet access permission (AndroidManifest.xml): `<uses-permission android:name="android.permission.INTERNET" />`
+
+
 
 ### License
 
