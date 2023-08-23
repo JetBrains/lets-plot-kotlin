@@ -34,6 +34,10 @@
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_theme_colors.ipynb).
 
 
+- `"boxplotOutlier"` statistic:
+  [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_boxplot_outlier.ipynb).
+
+
 ### Changed
 
 - [BREAKING] Kotlin/JS LEGACY apps are no longer supported.
