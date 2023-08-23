@@ -11,7 +11,7 @@ class CrossBarMapping(
     override var x: Any? = null,
     override var ymin: Any? = null,
     override var ymax: Any? = null,
-    override var middle: Any? = null,
+    override var y: Any? = null,
     override var width: Any? = null,
     override var alpha: Any? = null,
     override var color: Any? = null,

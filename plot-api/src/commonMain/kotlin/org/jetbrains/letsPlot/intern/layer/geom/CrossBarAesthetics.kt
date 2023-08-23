@@ -12,7 +12,7 @@ interface CrossBarAesthetics : OptionsCapsule {
     val x: Any?
     val ymin: Any?
     val ymax: Any?
-    val middle: Any?
+    val y: Any?
     val width: Any?
     val alpha: Any?
     val color: Any?
@@ -24,7 +24,7 @@ interface CrossBarAesthetics : OptionsCapsule {
         "x" to x,
         "ymin" to ymin,
         "ymax" to ymax,
-        "middle" to middle,
+        "y" to y,
         "width" to width,
         "alpha" to alpha,
         "color" to color,

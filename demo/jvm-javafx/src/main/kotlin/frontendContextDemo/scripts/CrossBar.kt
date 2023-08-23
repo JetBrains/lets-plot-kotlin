@@ -29,7 +29,7 @@ object CrossBar {
                 fatten = 1.0,
                 position = positionDodge(width = 0.33)
             ) {
-                ymin = "min"; ymax = "max"; middle = "len"
+                ymin = "min"; ymax = "max"; y = "len"
             }
 
             val p = letsPlot(data) { x = "dose"; fill = "supp" } + geom

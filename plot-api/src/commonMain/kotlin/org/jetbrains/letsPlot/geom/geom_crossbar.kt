@@ -45,7 +45,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param x X-axis value.
  * @param ymin Lower bound for error bar.
  * @param ymax Upper bound for error bar.
- * @param middle Position of median bar.
+ * @param y Position of median bar.
  * @param width Width of a bar. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the bars.
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
@@ -88,7 +88,7 @@ class geomCrossbar(
     override val x: Number? = null,
     override val ymin: Number? = null,
     override val ymax: Number? = null,
-    override val middle: Number? = null,
+    override val y: Number? = null,
     override val width: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,

@@ -489,7 +489,7 @@ object Geom {
         override val x: Number? = null,
         override val ymin: Number? = null,
         override val ymax: Number? = null,
-        override val middle: Number? = null,
+        override val y: Number? = null,
         override val width: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
