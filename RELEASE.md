@@ -32,7 +32,7 @@ a) Upload to the Nexus staging repository:
 
 b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 
-- `./gradlew findSonatypeStagingRepository closeSonatypeStagingRepository`
+- `./gradlew findSonatypeStagingRepository closeAndReleaseSonatypeStagingRepository`
 
 > Check artifacts `lets-plot-kotlin-[jvm, js, kernel, metadata, geotools]` are uploaded to the Nexus Releases repository:
 >
