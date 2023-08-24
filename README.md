@@ -146,6 +146,10 @@ using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
 <a id="new"></a>
 ## What is new in 4.4.2
 
+> Note: Due to major package refactoring in the main Lets-Plot library, this version (4.4.2) of the Kotlin API\
+> is not compatible with versions of Lets-Plot library v3.2.0 and earlier.
+
+
 ### A Number of Geometry Defaults Changed
 
 - The default qualitative color palette is now [Color Brewer "Set1"](https://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9) (was ["Set2"](https://colorbrewer2.org/#type=qualitative&scheme=Set2&n=8)).
