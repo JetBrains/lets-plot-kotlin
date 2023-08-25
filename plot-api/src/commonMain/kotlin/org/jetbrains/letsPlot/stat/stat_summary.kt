@@ -16,6 +16,78 @@ import org.jetbrains.letsPlot.intern.layer.stat.SummaryStatParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
+
+@Suppress("ClassName")
+/**
+ * Visualises the aggregated values of a single continuous variable grouped along the x axis.
+ *
+ * ## Examples
+ *
+ * - [stat_summary.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_summary.ipynb)
+ *
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param geom The geometry to display the ecdf stat for this layer, default is ` Geom.pointrange()`,
+ *  see [Geom][org.jetbrains.letsPlot.Geom].
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
+ *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
+ * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
+ *  Possible values: "x", "y".
+ * @param fn default = "mean" ("count", "sum", "mean", "median", "min", "max", "lq", "mq", "uq").
+ *  Name of function computing stat variable `..y..`.
+ *  Names "lq", "mq", "uq" corresponds to lower, middle and upper quantiles, default = listOf(0.25, 0.5, 0.75).
+ * @param fnMin default ="min" ("count", "sum", "mean", "median", "min", "max", "lq", "mq", "uq").
+ *  Name of function computing stat variable `..ymin..`.
+ *  Names "lq", "mq", "uq" corresponds to lower, middle and upper quantiles, default = listOf(0.25, 0.5, 0.75).
+ * @param fnMax default ="max" ("count", "sum", "mean", "median", "min", "max", "lq", "mq", "uq").
+ *  Name of function computing stat variable `..ymax..`.
+ *  Names "lq", "mq", "uq" corresponds to lower, middle and upper quantiles, default = listOf(0.25, 0.5, 0.75).
+ * @param quantiles default = listOf(0.25, 0.5, 0.75).
+ *  A list of probabilities defining the quantile functions "lq", "mq" and "uq".
+ *  Must contain exactly 3 values between 0 and 1.
+ * @param x X-axis coordinates.
+ * @param y Position of mid-point.
+ * @param ymin Lower bound for error bar.
+ * @param ymax Upper bound for error bar.
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fill Fill color.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param size Lines width, size of mid-point.
+ * @param stroke Width of the shape border. Applied only to the shapes having border.
+ * @param linewidth Line width.
+ * @param linetype Type of the line of border.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash"
+ * @param shape Shape of the mid-point.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the fill aesthetic for the geometry.
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
+ */
 class statSummary(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.pointrange(),
