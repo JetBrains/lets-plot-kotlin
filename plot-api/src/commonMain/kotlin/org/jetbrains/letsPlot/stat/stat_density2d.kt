@@ -21,6 +21,53 @@ import org.jetbrains.letsPlot.intern.layer.stat.Density2dStatParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
+/**
+ * Displays density function contour.
+ *
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param geom The geometry to display the density stat for this layer, default is 2D density,
+ *  see [Geom][org.jetbrains.letsPlot.Geom].
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
+ *  see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param x X-axis coordinates of the center of rectangles, forming a tessellation.
+ * @param y Y-axis coordinates of the center of rectangles, forming a tessellation.
+ * @param z Value at point (x, y).
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of geometry.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param linetype The type of the line.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash".
+ * @param size Lines width.
+ * @param weight Used by the stat to compute weighted density.
+ * @param bw The method (or exact value) of bandwidth. Either a String (choose among "nrd0" and "nrd"),
+ *  or a Double array of length 2.
+ * @param kernel The kernel used to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
+ *  "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic").
+ * @param n The number of sampled points for plotting the function (on x and y direction correspondingly).
+ * @param adjust Adjusts the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
+ * @param contour If true, contour the results of the 2d density estimation.
+ * @param bins Number of levels.
+ * @param binWidth Distance between levels.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the geometry.
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
+ */
 class statDensity2D(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.DENSITY2D),
