@@ -13,7 +13,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Displays a distribution by dividing variable mapped to x axis into bins
+ * Displays a distribution by dividing variable mapped to x-axis into bins
  * and applying aggregation functions to each bin.
  *
  * ## Examples
@@ -22,7 +22,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param geom The geometry to display the ecdf stat for this layer, default is ` Geom.pointrange()`,
+ * @param geom The geometry to display the binned summary stat for this layer, default is `Geom.pointrange()`,
  *  see [Geom][org.jetbrains.letsPlot.Geom].
  * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
@@ -37,13 +37,13 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Possible values: "x", "y".
  * @param fn default = "mean" ("count", "sum", "mean", "median", "min", "max", "lq", "mq", "uq").
  *  Name of function computing stat variable `..y..`.
- *  Names "lq", "mq", "uq" corresponds to lower, middle and upper quantiles, default = listOf(0.25, 0.5, 0.75).
- * @param fnMin default ="min" ("count", "sum", "mean", "median", "min", "max", "lq", "mq", "uq").
+ *  Names "lq", "mq", "uq" correspond to lower, middle and upper quantiles, default = listOf(0.25, 0.5, 0.75).
+ * @param fnMin default = "min" ("count", "sum", "mean", "median", "min", "max", "lq", "mq", "uq").
  *  Name of function computing stat variable `..ymin..`.
- *  Names "lq", "mq", "uq" corresponds to lower, middle and upper quantiles, default = listOf(0.25, 0.5, 0.75).
- * @param fnMax default ="max" ("count", "sum", "mean", "median", "min", "max", "lq", "mq", "uq").
+ *  Names "lq", "mq", "uq" correspond to lower, middle and upper quantiles, default = listOf(0.25, 0.5, 0.75).
+ * @param fnMax default = "max" ("count", "sum", "mean", "median", "min", "max", "lq", "mq", "uq").
  *  Name of function computing stat variable `..ymax..`.
- *  Names "lq", "mq", "uq" corresponds to lower, middle and upper quantiles, default = listOf(0.25, 0.5, 0.75).
+ *  Names "lq", "mq", "uq" correspond to lower, middle and upper quantiles, default = listOf(0.25, 0.5, 0.75).
  * @param quantiles default = listOf(0.25, 0.5, 0.75).
  *  A list of probabilities defining the quantile functions "lq", "mq" and "uq".
  *  Must contain exactly 3 values between 0 and 1.

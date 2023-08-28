@@ -21,7 +21,7 @@ import org.jetbrains.letsPlot.pos.positionDodge
  *
  * @param data The data to be displayed. If null, the default, the data is inherited
  *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param geom The geometry to display the boxplot stat for this layer, default is ` Geom.boxplot()`,
+ * @param geom The geometry to display the boxplot stat for this layer, default is `Geom.boxplot()`,
  *  see [Geom][org.jetbrains.letsPlot.Geom].
  * @param position default = `positionDodge()`. Position adjustment: `positionIdentity`,
  *  `positionStack()`, `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).

@@ -22,11 +22,11 @@ import org.jetbrains.letsPlot.pos.positionStack
 
 @Suppress("ClassName")
 /**
- * Displays a 1d distribution by dividing variable mapped to x axis into bins and counting the number of observations in each bin.
+ * Displays a 1d distribution by dividing variable mapped to x-axis into bins and counting the number of observations in each bin.
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param geom The geometry to display the bin stat for this layer, default is ` Geom.histogram()`,
+ * @param geom The geometry to display the bin stat for this layer, default is `Geom.histogram()`,
  *  see [Geom][org.jetbrains.letsPlot.Geom].
  * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).

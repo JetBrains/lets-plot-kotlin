@@ -25,7 +25,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param geom The geometry to display the ecdf stat for this layer, default is ` Geom.step()`,
+ * @param geom The geometry to display the ecdf stat for this layer, default is `Geom.step()`,
  *  see [Geom][org.jetbrains.letsPlot.Geom].
  * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
@@ -38,10 +38,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Specifies appearance, style and content.
  * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
  *  Possible values: "x", "y".
- * @param n Int.
- *  The number of points to interpolate with.
+ * @param n The number of points to interpolate with.
  *  If it's not specified - do not interpolate.
- * @param pad Boolean, default = true.
+ * @param pad default = true.
  *  If geometry is `Geom.step()` and `pad = true`, then the points at the ends:
  *  (Double.NEGATIVE_INFINITY, 0.0) and (Double.POSITIVE_INFINITY, 1.0) are added to the ecdf.
  * @param x X-axis coordinates.

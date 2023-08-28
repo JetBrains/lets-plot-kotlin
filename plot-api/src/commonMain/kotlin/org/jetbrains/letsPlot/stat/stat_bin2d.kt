@@ -22,11 +22,11 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 /**
- * Display a 2d distribution by dividing the plane into a grid and counting the number of observations in each rectangle.
+ * Displays a 2d distribution by dividing the plane into a grid and counting the number of observations in each rectangle.
  *
  * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
  *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param geom The geometry to display the bin2D stat for this layer, default is ` Geom.tile()`,
+ * @param geom The geometry to display the bin2D stat for this layer, default is `Geom.tile()`,
  *  see [Geom][org.jetbrains.letsPlot.Geom].
  * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
