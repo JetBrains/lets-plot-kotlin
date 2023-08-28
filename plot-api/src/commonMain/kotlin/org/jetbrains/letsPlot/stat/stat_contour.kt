@@ -50,7 +50,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
- * @param size Line width.
+ * @param size Lines width.
  * @param bins Number of levels.
  * @param binWidth Distance between levels.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").

@@ -54,7 +54,7 @@ import org.jetbrains.letsPlot.pos.positionStack
  *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
- * @param size Defines bar line width.
+ * @param size Lines width.
  * @param weight Used to compute weighted sum instead of simple count.
  * @param bins Number of bins. Overridden by `binWidth`.
  * @param binWidth The width of the bins. The default is to use bin widths that cover

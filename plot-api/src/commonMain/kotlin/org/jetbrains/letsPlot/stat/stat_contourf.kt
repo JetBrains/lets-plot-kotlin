@@ -38,7 +38,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param x X-axis coordinates of the center of rectangles, forming a tessellation.
  * @param y Y-axis coordinates of the center of rectangles, forming a tessellation.
  * @param z Value at point (x, y).
- * @param size Line width.
+ * @param size Lines width.
  * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
