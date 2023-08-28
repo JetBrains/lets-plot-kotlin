@@ -105,16 +105,6 @@ This is optional - needed only if newer version of 'kotlin-jupyter-kernel' is re
 - Remove parameters in the `%use lets-plot` line magic.
 - Re-run all notebooks.
 
-##### 3. Push the updated demo notebooks and add "demo-tag":
-
-```
-git add --all && git commit -m "Updated demo notebooks, add v1.2.3demos1 repo tag" && git push
-
-git tag v1.2.3demos1 && git push --tags
-```
-
-In [README.md](README.md) and [docs/README.md](docs/README.md) update the Binder link with new "demo" tag (above).
-
 ### Add the GitHub release:
  
  * Open the link: https://github.com/JetBrains/lets-plot-kotlin/releases/new
