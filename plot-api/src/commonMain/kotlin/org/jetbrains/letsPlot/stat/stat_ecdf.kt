@@ -17,7 +17,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Visualises the empirical cumulative distribution function.
+ * Displays the empirical cumulative distribution function.
  *
  * ## Examples
  *

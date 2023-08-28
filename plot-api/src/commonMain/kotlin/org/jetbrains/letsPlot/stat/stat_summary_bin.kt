@@ -13,8 +13,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Displays a distribution by dividing variable mapped to x-axis into bins
- * and applying aggregation functions to each bin.
+ * Displays a distribution by dividing variable mapped to x-axis into bins and applying aggregation functions to each bin.
  *
  * ## Examples
  *

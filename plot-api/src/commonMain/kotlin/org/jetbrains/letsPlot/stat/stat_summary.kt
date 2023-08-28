@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Visualizes the aggregated values of a single continuous variable grouped along the x-axis.
+ * Displays the aggregated values of a single continuous variable grouped along the x-axis.
  *
  * ## Examples
  *
