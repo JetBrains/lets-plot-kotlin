@@ -15,6 +15,76 @@ import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatParameters
 import org.jetbrains.letsPlot.pos.positionDodge
 
+/**
+ * Displays the distribution of data based on a five number summary ("minimum", first quartile (Q1),
+ * median, third quartile (Q3), and "maximum"), and "outlying" points individually.
+ *
+ * @param data The data to be displayed. If null, the default, the data is inherited
+ *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param geom The geometry to display the boxplot stat for this layer, default is ` Geom.boxplot()`,
+ *  see [Geom][org.jetbrains.letsPlot.Geom].
+ * @param position default = `positionDodge()`. Position adjustment: `positionIdentity`,
+ *  `positionStack()`, `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  If false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ * @param lower Lower hinge, 25% quantile.
+ * @param middle Median, 50% quantile.
+ * @param upper Upper hinge, 75% quantile.
+ * @param ymin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR
+ * @param ymax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fill Fill color.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param size Lines width and outliers size.
+ * @param stroke Width of the outlier shape border. Applied only to the shapes having border.
+ * @param linetype Type of the line of border.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash".
+ * @param shape Shape of the outliers.
+ * @param width Width of boxplot. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the boxes.
+ * @param outlierAlpha Default transparency aesthetic for outliers.
+ * @param outlierColor Color aesthetic for outliers.
+ * @param outlierFill Fill aesthetic for outliers.
+ * @param outlierShape Shape aesthetic for outliers.
+ * @param outlierSize Size aesthetic for outliers.
+ * @param outlierStroke Default width of the border for outliers.
+ * @param fatten default = 1.0.
+ *  A multiplicative factor applied to size of the middle bar.
+ * @param whiskerWidth default = 0.0.
+ *  A multiplicative factor applied to the box width to draw horizontal segments on whiskers.
+ * @param varWidth default = false. If false make a standard box plot.
+ *  If true, boxes are drawn with widths proportional to the square-roots of the number of
+ *  observations in the groups.
+ * @param coef default = 1.5.
+ *  Length of the whiskers as multiple of IQR.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the fill aesthetic for the geometry.
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
+ */
 fun statBoxplot(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.boxplot(),
