@@ -39,7 +39,6 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param ymin Lower pointwise confidence interval around the mean.
  * @param ymax Upper pointwise confidence interval around the mean.
  * @param size Lines width.
- *  Defines line width for conditional mean and confidence bounds lines.
  * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
