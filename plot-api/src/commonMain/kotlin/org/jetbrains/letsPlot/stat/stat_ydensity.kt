@@ -21,6 +21,70 @@ import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatParameters
 import org.jetbrains.letsPlot.pos.positionDodge
 
 @Suppress("ClassName", "SpellCheckingInspection")
+/**
+ * Displays a violin plot.
+ *
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param geom The geometry to display the ridges stat for this layer, default is violin,
+ *  see [Geom][org.jetbrains.letsPlot.Geom].
+ * @param position default = `positionDodge()`. Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
+ *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param x X-axis coordinates.
+ * @param y Y-axis coordinates.
+ * @param violinWidth Density scaled for the violin plot, according to area, counts or to a constant maximum width.
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fill Fill color.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param linetype Type of the line.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash".
+ * @param size Lines width.
+ * @param width Geometry width.
+ * @param weight Used by the stat to compute weighted density.
+ * @param scale default = "area".
+ *  - If "area", all violins have the same area.
+ *  - If "count", areas are scaled proportionally to the number of observations.
+ *  - If "width", all violins have the same maximum width.
+ * @param tailsCutoff default = 3.0.
+ *  Extends domain of each violin on `tailsCutoff * bw` if `trim = false`.
+ * @param bw String or Double.
+ *  The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
+ * @param kernel The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
+ *  "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic").
+ * @param n The number of sampled points for plotting the function.
+ * @param trim default = true.
+ *  Trims the tails of the violins to the range of the data.
+ * @param adjust Adjusts the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
+ * @param fullScanMax Maximum size of data to use density computation with "full scan".
+ *  For bigger data, less accurate but more efficient density computation is applied.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the fill aesthetic for the geometry.
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
+ */
 class statYDensity(
     data: Map<*, *>? = null,
     geom: GeomOptions = GeomOptions(GeomKind.VIOLIN),
