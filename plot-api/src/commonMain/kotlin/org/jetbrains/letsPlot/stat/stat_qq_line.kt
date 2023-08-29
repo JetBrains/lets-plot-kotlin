@@ -25,7 +25,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param geom The geometry to display the ridges stat for this layer, default is `Geom.qqLine()`,
+ * @param geom The geometry to display the Q-Q stat for this layer, default is `Geom.qqLine()`,
  *  see [Geom][org.jetbrains.letsPlot.Geom].
  * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/)

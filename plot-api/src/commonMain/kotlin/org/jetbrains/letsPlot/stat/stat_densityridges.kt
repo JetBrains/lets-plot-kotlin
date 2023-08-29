@@ -65,8 +65,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  `tailsCutoff = null` (default) extends domain to maximum (domain overall ridges).
  * @param quantiles default = listOf(0.25, 0.5, 0.75).
  *  Draws horizontal lines at the given quantiles of the density estimate.
- * @param bw String or Double.
- *  The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
+ * @param bw The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
  * @param kernel The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
  *  "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic").
  * @param n The number of sampled points for plotting the function.

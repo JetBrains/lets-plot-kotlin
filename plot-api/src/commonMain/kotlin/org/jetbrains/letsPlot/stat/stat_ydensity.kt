@@ -26,7 +26,7 @@ import org.jetbrains.letsPlot.pos.positionDodge
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param geom The geometry to display the ridges stat for this layer, default is violin,
+ * @param geom The geometry to display the y-density stat for this layer, default is violin,
  *  see [Geom][org.jetbrains.letsPlot.Geom].
  * @param position default = `positionDodge()`. Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
@@ -67,8 +67,7 @@ import org.jetbrains.letsPlot.pos.positionDodge
  *  - If "width", all violins have the same maximum width.
  * @param tailsCutoff default = 3.0.
  *  Extends domain of each violin on `tailsCutoff * bw` if `trim = false`.
- * @param bw String or Double.
- *  The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
+ * @param bw The method (or exact value) of bandwidth. Either a string (choose among "nrd0" and "nrd") or a double.
  * @param kernel The kernel we use to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
  *  "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic").
  * @param n The number of sampled points for plotting the function.
