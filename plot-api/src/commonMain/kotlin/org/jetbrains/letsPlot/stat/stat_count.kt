@@ -20,6 +20,51 @@ import org.jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
 import org.jetbrains.letsPlot.pos.positionStack
 
 @Suppress("ClassName")
+/**
+ * Displays the counts of items in each observed category.
+ *
+ * @param data The data to be displayed in this layer. If null, the default, the data
+ *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param geom The geometry to display the count stat for this layer, default is `Geom.bar()`,
+ *  see [Geom][org.jetbrains.letsPlot.Geom].
+ * @param position default = `positionStack()`. Position adjustment: `positionIdentity`,
+ *  `positionStack()`, `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param x X-axis value (this value will produce cases or bins for bars).
+ * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fill Fill color.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param width Geometry width.
+ * @param size Lines width.
+ * @param weight Used by the stat to compute weighted sum instead of simple count.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the fill aesthetic for the geometry.
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are
+ *  mapped to plot "aesthetics".
+ */
 class statCount(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.bar(),

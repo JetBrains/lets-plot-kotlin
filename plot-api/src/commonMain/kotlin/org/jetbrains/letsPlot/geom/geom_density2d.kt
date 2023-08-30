@@ -72,7 +72,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
  */
-
 class geomDensity2D(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.density2D(),

@@ -21,6 +21,59 @@ import org.jetbrains.letsPlot.intern.layer.stat.Bin2dStatParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
+/**
+ * Displays a 2d distribution by dividing the plane into a grid and counting the number of observations in each rectangle.
+ *
+ * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
+ *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
+ * @param geom The geometry to display the bin2D stat for this layer, default is `Geom.tile()`,
+ *  see [Geom][org.jetbrains.letsPlot.Geom].
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
+ *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param showLegend default = true.
+ *  false - do not show legend for this layer.
+ * @param sampling Result of the call to the `samplingXxx()` function.
+ *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ * @param width Width of a bin.
+ * @param height Height of a bin.
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param fill Fill color.
+ *  String in the following formats:
+ *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
+ *  - HEX (e.g. "#0000FF")
+ *  - color name (e.g. "red")
+ *  - role name ("pen", "paper" or "brush")
+ *
+ *  Or an instance of the `java.awt.Color` class.
+ * @param linetype Type of the line.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
+ * @param size Lines width.
+ * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
+ * @param bins default = Pair(30, 30).
+ *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
+ * @param binWidth The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
+ *  The default is to use bin widths that cover the entire range of the data.
+ * @param drop default = true.
+ *  Specifies whether to remove all bins with 0 counts.
+ * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the geometry.
+ * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the fill aesthetic for the geometry.
+ * @param mapping Set of aesthetic mappings.
+ *  Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
+ */
 class statBin2D(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.tile(),
