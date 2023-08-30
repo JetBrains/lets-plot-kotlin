@@ -110,12 +110,11 @@ class geomDensity(
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
     override val fullScanMax: Int? = null,
-    private val quantiles: List<Number>? = null,
+    override val quantiles: List<Number>? = null,
     private val quantileLines: Boolean? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: DensityMapping.() -> Unit = {}
-
 ) : AreaAesthetics,
     DensityStatAesthetics,
     DensityStatParameters,
@@ -139,7 +138,6 @@ class geomDensity(
             super<WithColorOption>.seal() +
             super<WithFillOption>.seal() +
             Options.of(
-                Option.Stat.Density.QUANTILES to quantiles,
                 Option.Geom.Density.QUANTILE_LINES to quantileLines
             )
 }

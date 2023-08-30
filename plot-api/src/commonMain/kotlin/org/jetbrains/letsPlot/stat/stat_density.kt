@@ -69,6 +69,8 @@ import org.jetbrains.letsPlot.pos.positionStack
  * @param adjust Adjusts the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
  * @param fullScanMax Maximum size of data to use density computation with 'full scan'.
  *  For bigger data, less accurate but more efficient density computation is applied.
+ * @param quantiles default = listOf(0.25, 0.5, 0.75).
+ *  Calculates given quantiles of the density estimate.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -97,10 +99,10 @@ class statDensity(
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
     override val fullScanMax: Int? = null,
+    override val quantiles: List<Number>? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: DensityMapping.() -> Unit = {}
-
 ) : AreaAesthetics,
     DensityStatAesthetics,
     DensityStatParameters,
