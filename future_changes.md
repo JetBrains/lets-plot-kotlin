@@ -6,6 +6,6 @@
 
 ### Changed
 
-- [DEPRECATED] The previous variant of writing the `statCount2d` function. Now it is correct to write `statCount2D`.
+- [DEPRECATED] Function `statCount2d` has been renamed to `statCount2D`. The old name is deprecated.
 
 ### Fixed
