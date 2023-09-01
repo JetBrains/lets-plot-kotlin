@@ -65,12 +65,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
  */
-@Deprecated(
-    "Please, use a new name for this function.",
-    ReplaceWith("statCount2D"),
-    level = DeprecationLevel.WARNING
-)
-class statCount2d(
+class statCount2D(
     data: Map<*, *>? = null,
     geom: GeomOptions = Geom.pie(),
     position: PosOptions = positionIdentity,
@@ -108,4 +103,9 @@ class statCount2d(
     }
 }
 
-typealias statCount2D = statCount2d
+@Deprecated(
+    "Please, use a new name for this function.",
+    ReplaceWith("statCount2D"),
+    level = DeprecationLevel.WARNING
+)
+typealias statCount2d = statCount2D
