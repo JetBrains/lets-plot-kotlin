@@ -25,8 +25,8 @@
 </table>
 
 
-**Lets-Plot for Kotlin** is a <a href="https://lets-plot.org/kotlin">Kotlin API</a> for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - an
-open-source plotting library for statistical data,<br> which is built on the principles of layered graphics first described in the Leland Wilkinson
+**Lets-Plot for Kotlin** is a <a href="https://lets-plot.org/kotlin">Kotlin API</a> for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - a
+multiplatform plotting library,<br> which is built on the principles of layered graphics first described in the Leland Wilkinson
 work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics).
 
 <table>
