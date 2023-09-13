@@ -9,11 +9,7 @@ import org.jetbrains.letsPlot.core.spec.Option
 import junit.framework.TestCase.assertEquals
 import org.jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
 import org.jetbrains.letsPlot.intern.toSpec
-import org.jetbrains.letsPlot.themes.elementBlank
-import org.jetbrains.letsPlot.themes.elementLine
-import org.jetbrains.letsPlot.themes.theme
-import org.jetbrains.letsPlot.themes.themeGrey
-import org.jetbrains.letsPlot.themes.themeNone
+import org.jetbrains.letsPlot.themes.*
 import org.junit.Test
 import java.awt.Color
 import kotlin.test.assertNull
@@ -147,5 +143,74 @@ class ThemeTest {
         assertNull(
             ggplot().toSpec()[Option.Plot.THEME]
         )
+    }
+
+    @Test
+    fun `named theme should not override the flavor`() {
+        val p = ggplot() + flavorDarcula() + themeNone()
+
+        assertThat(p).features().length(2)
+        val spec = p.toSpec()
+        assertEquals(
+            mapOf(
+                "name" to "none",
+                "flavor" to "darcula",
+            ),
+            spec[Option.Plot.THEME]
+        )
+    }
+
+    @Test
+    fun `add the flavor to the named theme`() {
+        val p = ggplot() + themeNone() + flavorDarcula()
+
+        assertThat(p).features().length(2)
+        val spec = p.toSpec()
+        assertEquals(
+            mapOf(
+                "name" to "none",
+                "flavor" to "darcula",
+            ),
+            spec[Option.Plot.THEME]
+        )
+    }
+
+    @Test
+    fun `the last specified flavor should be used`() {
+        val p = ggplot() + flavorSolarizedDark() + flavorDarcula()
+
+        assertThat(p).features().length(2)
+        val spec = p.toSpec()
+        assertEquals(
+            mapOf(
+                "flavor" to "darcula",
+            ),
+            spec[Option.Plot.THEME]
+        )
+    }
+
+    @Test
+    fun `global named theme or flavor`() {
+        LetsPlot.theme = themeNone()
+        val p1 = ggplot() + flavorDarcula()
+        assertEquals(
+            mapOf(
+                "name" to "none",
+                "flavor" to "darcula",
+            ),
+            p1.toSpec()[Option.Plot.THEME]
+        )
+
+        LetsPlot.theme = flavorDarcula()
+        val p2 = ggplot() + themeNone()
+        assertEquals(
+            mapOf(
+                "name" to "none",
+                "flavor" to "darcula",
+            ),
+            p2.toSpec()[Option.Plot.THEME]
+        )
+
+        LetsPlot.theme = null
     }
 }
