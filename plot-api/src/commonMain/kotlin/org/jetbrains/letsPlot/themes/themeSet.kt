@@ -123,6 +123,5 @@ fun themeVoid() = OptionsMap(
     emptyMap()
 ) + theme(
     line = elementBlank(),
-    rect = elementBlank(),
     axis = elementBlank()
 )
