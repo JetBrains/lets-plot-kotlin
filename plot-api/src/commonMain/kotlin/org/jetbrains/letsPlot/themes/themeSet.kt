@@ -27,7 +27,7 @@ fun themeGrey() = OptionsMap(
 
 
 /**
- * The classic dark-on-light ggplot2 theme.
+ * Grey lines on white background with dark grey plot border.
  *
  * ## Examples
  *
@@ -41,7 +41,7 @@ fun themeBW() = OptionsMap(
 
 
 /**
- * Light grey lines of various widths on white backgrounds.
+ * Light grey lines of various widths on white background.
  *
  * ## Examples
  *
@@ -55,7 +55,7 @@ fun themeLight() = OptionsMap(
 
 
 /**
- * Black axes and no gridlines.
+ * Dark grey axes and no gridlines.
  *
  * ## Examples
  *
@@ -97,7 +97,7 @@ fun themeMinimal2() = OptionsMap(
 
 
 /**
- * A completely empty theme.
+ * Basic settings are applied.
  *
  * ## Examples
  *
@@ -111,7 +111,7 @@ fun themeNone() = OptionsMap(
 
 
 /**
- * A completely empty theme.
+ * A completely blank (or "void") background theme: no borders, axes, or gridlines.
  *
  * ## Examples
  *
