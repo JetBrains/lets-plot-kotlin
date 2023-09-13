@@ -60,7 +60,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
- * @param size Lines width.
+ * @param size Line width, default = 0 (i.e. tiles outline initially is not visible).
  * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".

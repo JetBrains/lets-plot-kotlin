@@ -90,12 +90,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param hole default = 0.0.
  *  A multiplicative factor applied to the pie diameter to draw donut-like chart.
  *  Understands numbers between 0 and 1.
- * @param strokeSide default = "outer" ("outer", "inner", "both").
+ * @param strokeSide default = "both" ("outer", "inner", "both").
  *  Defines which arcs of pie sector should have a stroke.
  * @param spacerWidth default = 0.75.
  *  Line width between sectors.
  *  Spacers are not applied to exploded sectors and to sides of adjacent sectors.
- * @param spacerColor Color for spacers between sectors. By default, the plot background color is used.
+ * @param spacerColor Color for spacers between sectors. By default, the "paper" color is used.
  *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")

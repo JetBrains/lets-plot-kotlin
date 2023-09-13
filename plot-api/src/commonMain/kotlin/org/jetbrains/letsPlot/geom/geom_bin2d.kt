@@ -72,7 +72,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Or an instance of the `java.awt.Color` class.
  * @param linetype Type of the line. 
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
- * @param size Lines width.
+ * @param size Line width, default = 0 (i.e. tiles outline initially is not visible).
  * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
