@@ -9,3 +9,5 @@
 ### Changed
 
 ### Fixed
+
+- `themeVoid()` + `flavorXxx()`: no expected plot background [[#858](https://github.com/JetBrains/lets-plot/issues/858)].
