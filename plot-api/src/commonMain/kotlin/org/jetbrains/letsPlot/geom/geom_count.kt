@@ -1,4 +1,4 @@
-package org.jetbrains.letsPlot.stat
+package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
@@ -19,8 +19,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param geom The geometry to display the sum stat for this layer, default is `Geom.point()`,
- *  see [Geom][org.jetbrains.letsPlot.Geom].
+ * @param stat default = `Stat.sum()`. The statistical transformation to use on the data for this layer.
+ *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
  * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
@@ -60,9 +60,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
  */
-class statSum(
+class geomCount(
     data: Map<*, *>? = null,
-    geom: GeomOptions = Geom.point(),
+    stat: StatOptions = Stat.sum(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
@@ -84,16 +84,15 @@ class statSum(
     Layer(
         mapping = PointMapping().apply(mapping).seal(),
         data = data,
-        geom = geom,
-        stat = Stat.sum(),
+        geom = Geom.point(),
+        stat = stat,
         position = position,
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips,
     ) {
 
-    override fun seal() =
-        super<PointAesthetics>.seal() +
-                super<WithColorOption>.seal() +
-                super<WithFillOption>.seal()
+    override fun seal() = super<PointAesthetics>.seal() +
+            super<WithColorOption>.seal() +
+            super<WithFillOption>.seal()
 }
