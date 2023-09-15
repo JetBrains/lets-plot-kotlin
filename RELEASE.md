@@ -8,7 +8,7 @@
 
 - remove _"-alphaN"_ qualifier for the 'version' property.
 
-> Also, update the artifacts' version in [LPK_APP.md](LPK_APP.md).
+> Also, update the artifacts' version in [LPK_APP.md](LPK_APP.md) and [geotools.md](docs/geotools.md).
 
 ##### 3. Build and release JVM artifacts to Maven Central
 
@@ -22,8 +22,10 @@ a) Upload to the Nexus staging repository:
 > Check artifacts are uploaded to the Nexus staging repository:
 >
 > https://oss.sonatype.org/index.html#stagingRepositories
->
-> In the "Content" tab enter ‘Path lookup’: org/jetbrains/lets-plot
+> 
+> Should see repository: "orgjetbrainslets-plot-NNNN" (where NNNN is a number)
+> with profile: "org.jetbrains.lets-plot".
+?
 >
 > Note: check SNAPSHOT artifacts at:
 >

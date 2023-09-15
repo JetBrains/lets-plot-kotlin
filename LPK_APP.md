@@ -78,8 +78,8 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation "org.jetbrains.lets-plot:lets-plot-batik:4.0.0"
-    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.2"
+    implementation "org.jetbrains.lets-plot:lets-plot-batik:4.0.1"
+    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.3"
 }
 ```
 
@@ -87,8 +87,8 @@ dependencies {
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-jfx:4.0.0"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.2"
+  implementation "org.jetbrains.lets-plot:lets-plot-jfx:4.0.1"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.3"
 }
 ```
 
@@ -100,8 +100,8 @@ If your JVM app doesn't use either frontend, you can provide just "lets-plot-com
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-common:4.0.0"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.2"
+  implementation "org.jetbrains.lets-plot:lets-plot-common:4.0.1"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.3"
 }
 ```
 
@@ -109,7 +109,7 @@ dependencies {
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:4.4.2"
+  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:4.4.3"
 }
 ```
 
@@ -180,7 +180,7 @@ val rawSpec = figure.toSpec()
     ```kotlin
     val html: String = PlotHtmlExport.buildHtmlFromRawSpecs(
                                         plotSpec = rawSpec,
-                                        scriptUrl = PlotHtmlHelper.scriptUrl(version="4.0.0"),
+                                        scriptUrl = PlotHtmlHelper.scriptUrl(version="4.0.1"),
                                         iFrame = true    
                                     )
     ```
