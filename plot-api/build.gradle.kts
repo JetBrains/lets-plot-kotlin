@@ -20,8 +20,6 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
-
                 api("org.jetbrains.lets-plot:commons:$letsPlotVersion")
                 api("org.jetbrains.lets-plot:datamodel:$letsPlotVersion")
                 api("org.jetbrains.lets-plot:plot-base:$letsPlotVersion")
@@ -40,6 +38,7 @@ kotlin {
 
         named("jvmMain") {
             dependencies {
+                implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
                 api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
                 // Use "-jvm" variant to work around the issue where LPK JS (IR) artefact becomes dependent on
                 // the "kotlinx-datetime".
@@ -50,6 +49,12 @@ kotlin {
                 compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$letsPlotVersion")
                 compileOnly("org.jetbrains.lets-plot:lets-plot-jfx:$letsPlotVersion")
                 compileOnly("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
+            }
+        }
+
+        named("jsMain") {
+            dependencies {
+                implementation("io.github.microutils:kotlin-logging-js:$kotlinLoggingVersion")
             }
         }
     }

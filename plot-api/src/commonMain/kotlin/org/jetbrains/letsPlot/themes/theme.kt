@@ -7,8 +7,8 @@
 
 package org.jetbrains.letsPlot.themes
 
-import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.plot.builder.defaultTheme.values.ThemeOption
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 
@@ -78,6 +78,9 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param plotTitle Plot title.
  * @param plotSubtitle Plot subtitle.
  * @param plotCaption Plot caption.
+ * @param plotMessage Plot message (e.g. sampling messages).
+ *  Set an `elementBlank()` to show nothing.
+ *  Set an `elementText()` to show sampling messages (`elementText()` options don't affect a message text).
  *
  * @param stripBackground Background of facet labels.
  * @param stripText Facet labels.
@@ -150,6 +153,7 @@ class theme(
     plotTitle: Any? = null,
     plotSubtitle: Any? = null,
     plotCaption: Any? = null,
+    plotMessage: Any? = null,
 
     stripBackground: Any? = null,
     stripText: Any? = null,
@@ -219,6 +223,7 @@ class theme(
         ThemeOption.PLOT_TITLE to plotTitle,
         ThemeOption.PLOT_SUBTITLE to plotSubtitle,
         ThemeOption.PLOT_CAPTION to plotCaption,
+        ThemeOption.PLOT_MESSAGE to plotMessage,
 
         ThemeOption.FACET_STRIP_BGR_RECT to stripBackground,
         ThemeOption.FACET_STRIP_TEXT to stripText,

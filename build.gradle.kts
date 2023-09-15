@@ -69,6 +69,8 @@ allprojects {
 
         // SNAPSHOTS
         maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
+
+        mavenLocal()
     }
 
     // Maven publication settings

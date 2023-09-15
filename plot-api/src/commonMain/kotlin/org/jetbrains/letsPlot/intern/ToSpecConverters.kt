@@ -73,14 +73,15 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     for (plotFeature in plot.otherFeatures()) {
         if (plotFeature.kind == Option.Plot.THEME && spec.containsKey(Option.Plot.THEME)) {
             val otherThemeOpts = plotFeature.toSpec()
+            @Suppress("UNCHECKED_CAST")
+            val prevThemeOpts = spec.getValue(Option.Plot.THEME) as Map<String, Any>
             val newThemeOptions = otherThemeOpts[Option.Meta.NAME]?.let {
+                // keep the previously specified flavor
+                val flavor = prevThemeOpts.filterKeys { it == Option.Theme.FLAVOR }
+
                 // 'named' theme overrides all prev theme options.
-                otherThemeOpts
-            } ?: let {
-                // Merge themes.
-                @Suppress("UNCHECKED_CAST")
-                mergeThemeOptions(spec.getValue(Option.Plot.THEME) as Map<String, Any>, otherThemeOpts)
-            }
+                otherThemeOpts + flavor
+            } ?: mergeThemeOptions(prevThemeOpts, otherThemeOpts)
 
             spec[Option.Plot.THEME] = newThemeOptions
         } else if (plotFeature.kind == Option.Plot.METAINFO) {
