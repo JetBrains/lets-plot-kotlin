@@ -15,6 +15,7 @@ interface DensityStatParameters : OptionsCapsule {
     val trim: Boolean?
     val adjust: Number?
     val fullScanMax: Int?
+    val quantiles: List<Number>?
 
     override fun seal() = Options.of(
         "bw" to bw,
@@ -22,6 +23,7 @@ interface DensityStatParameters : OptionsCapsule {
         "n" to n,
         "trim" to trim,
         "adjust" to adjust,
-        "fs_max" to fullScanMax
+        "fs_max" to fullScanMax,
+        "quantiles" to quantiles
     )
 }

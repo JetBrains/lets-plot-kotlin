@@ -10,10 +10,8 @@ import org.jetbrains.letsPlot.intern.Options
 
 interface DensityRidgesStatParameters: DensityStatParameters {
     val tailsCutoff: Number?
-    val quantiles: List<Number>?
 
     override fun seal() = super.seal() + Options.of(
-        Stat.DensityRidges.TAILS_CUTOFF to tailsCutoff,
-        Stat.DensityRidges.QUANTILES to quantiles
+        Stat.DensityRidges.TAILS_CUTOFF to tailsCutoff
     )
 }

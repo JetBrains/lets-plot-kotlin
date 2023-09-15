@@ -5,14 +5,13 @@
 
 package org.jetbrains.letsPlot.geom
 
-import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Layer
-import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.ViolinAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.ViolinMapping
+import org.jetbrains.letsPlot.intern.layer.geom.ViolinParameters
 import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.YDensityStatParameters
 import org.jetbrains.letsPlot.pos.positionDodge
@@ -113,9 +112,6 @@ class geomViolin(
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
-    private val quantiles: List<Number>? = null,
-    private val showHalf: Number? = null,
-    private val quantileLines: Boolean? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val violinWidth: Number? = null,
@@ -134,10 +130,14 @@ class geomViolin(
     override val trim: Boolean? = null,
     override val adjust: Number? = null,
     override val fullScanMax: Int? = null,
+    override val quantiles: List<Number>? = null,
+    override val quantileLines: Boolean? = null,
+    override val showHalf: Number? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: ViolinMapping.() -> Unit = {}
 ) : ViolinAesthetics,
+    ViolinParameters,
     YDensityStatAesthetics,
     YDensityStatParameters,
     WithColorOption,
@@ -155,13 +155,9 @@ class geomViolin(
     ) {
 
     override fun seal() = super<ViolinAesthetics>.seal() +
+            super<ViolinParameters>.seal() +
             super<YDensityStatAesthetics>.seal() +
             super<YDensityStatParameters>.seal() +
             super<WithColorOption>.seal() +
-            super<WithFillOption>.seal() +
-            Options.of(
-                Option.Stat.YDensity.QUANTILES to quantiles,
-                Option.Geom.Violin.QUANTILE_LINES to quantileLines,
-                Option.Geom.Violin.SHOW_HALF to showHalf
-            )
+            super<WithFillOption>.seal()
 }
