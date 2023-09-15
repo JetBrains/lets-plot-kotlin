@@ -14,8 +14,8 @@
   then the `alpha` aesthetic overrides the alpha-channel in the color. Previousely it was the opposite.
 
 - `geomPie()` defaults:
-  - "stroke" is visible and `strokeSide="both"` (was `stroke_side="outer"`).
-  - the "hole" is not created automatically when `stroke_side = "both"/"inner"` (was created automatically).
+  - "stroke" is visible and `strokeSide="both"` (was `strokeSide="outer"`).
+  - the "hole" is not created automatically when `strokeSide = "both"/"inner"` (was created automatically).
 
 - `geomBar()` now has solid outline color by default (was transparent).
 
