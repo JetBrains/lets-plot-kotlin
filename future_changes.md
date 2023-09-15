@@ -19,7 +19,7 @@
 
 - `geomBar()` now has solid outline color by default (was transparent).
 
-- `geomTile()`, `geomBin2d()` now have solid outline color by default (was transparent).
+- `geomTile()`, `geomBin2D()` now have solid outline color by default (was transparent).
   - however, by default the `size` is 0 (i.e. tiles outline initially is not visible).
 
 - [DEPRECATED] Function `statCount2d` has been renamed to `statCount2D`. The old name is deprecated.
@@ -27,6 +27,6 @@
 ### Fixed
 
 - `themeVoid()` + `flavorXxx()`: no expected plot background [[#858](https://github.com/JetBrains/lets-plot/issues/858)].
-- `geomTile()`, `geomBin2d()` : the `alpha` aesthetic is applied to the tiles outline.
+- `geomTile()`, `geomBin2D()` : the `alpha` aesthetic is applied to the tiles outline.
 - `scaleXDateTime()`: error building plot for early dates [[#346](https://github.com/JetBrains/lets-plot/issues/346)].
 - Inconsistent color in legend when using `paint_a/paint_b/paint_c` [[#867](https://github.com/JetBrains/lets-plot/issues/867)].
