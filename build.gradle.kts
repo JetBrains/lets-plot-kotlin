@@ -53,6 +53,17 @@ subprojects {
     var localMavenRepository: String by extra
     localMavenRepository = "$rootDir/.maven-publish-dev-repo"
 
+    // ------------------------------------------
+    // Workaround for the error when signing published artifacts.
+    // It seems to appear after switching to Gradle 8.3
+    // For details see: https://github.com/gradle/gradle/issues/26091 :
+    // Publishing a KMP project with signing fails with "Task ... uses this output of task ... without declaring an explicit or implicit dependency"
+    // https://github.com/gradle/gradle/issues/26091
+    tasks.withType<AbstractPublishToMaven>().configureEach {
+        val signingTasks = tasks.withType<Sign>()
+        mustRunAfter(signingTasks)
+    }
+
     afterEvaluate {
         // Add LICENSE file to the META-INF folder inside published JAR files
         tasks.filterIsInstance(org.gradle.jvm.tasks.Jar::class.java)
