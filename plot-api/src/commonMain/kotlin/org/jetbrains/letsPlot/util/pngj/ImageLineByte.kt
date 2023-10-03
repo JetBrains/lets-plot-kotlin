@@ -46,7 +46,7 @@ internal class ImageLineByte(imgInfo: ImageInfo, sci: ByteArray?) : IImageLine, 
             : ByteArray?
 
     // ImageLineInt in this case
-    override lateinit var filterType // informational ; only filled by the reader. not significant for
+    override var filterType // informational ; only filled by the reader. not significant for
             : FilterType
 
     // interlaced

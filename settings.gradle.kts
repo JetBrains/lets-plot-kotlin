@@ -4,6 +4,12 @@
  */
 
 pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
+
     plugins {
         val kotlinVersion = extra["kotlin.version"] as String
         val dokkaVersion = extra["dokka.version"] as String
@@ -15,12 +21,26 @@ pluginManagement {
         kotlin("js").version(kotlinVersion)
 
         id("org.jetbrains.dokka") version dokkaVersion
+
         id("io.codearte.nexus-staging") version nexusStagingVersion
         id("io.github.gradle-nexus.publish-plugin") version nexusPublishVersion
+    }
+}
 
-// Come with Gradle Kotlin DSL extension:
-//        `maven-publish`
-//        signing
+dependencyResolutionManagement {
+    repositories {
+        // GeoTools repository must be before Maven Central
+        // See: https://stackoverflow.com/questions/26993105/i-get-an-error-downloading-javax-media-jai-core1-1-3-from-maven-central
+        // See also Jupyter Kotlin issue: https://github.com/Kotlin/kotlin-jupyter/issues/107
+        maven(url = "https://repo.osgeo.org/repository/release")
+
+        mavenCentral()
+        google()
+
+        // SNAPSHOTS
+        maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
+
+        mavenLocal()
     }
 }
 
@@ -42,11 +62,7 @@ project(":demo-common").projectDir = File("./demo/demo-common")
 project(":jvm-javafx").projectDir = File("./demo/jvm-javafx")
 project(":jvm-batik").projectDir = File("./demo/jvm-batik")
 project(":browser").projectDir = File("./demo/browser")
-
-// ToDo: enable when Kotlin/JS issue KT-60982
-// - https://youtrack.jetbrains.com/issue/KT-60982/KJS-Unterminated-regular-expression-when-webpack-encounters-if
-// is fixed
-// project(":js-frontend-app").projectDir = File("./demo/js-frontend-app")
+project(":js-frontend-app").projectDir = File("./demo/js-frontend-app")
 
 project(":geotools").projectDir = File("./toolkit/geotools")
 project(":geotools-batik").projectDir = File("./demo/geotools-batik")

@@ -36,13 +36,6 @@ allprojects {
         else -> "4.4.4-alpha1"
     }
 
-    val version = version as String
-    var versionIsDev: Boolean by extra
-    versionIsDev = (version.contains("SNAPSHOT")
-            || version.contains("rc")
-            || version.contains("alpha")
-            || version.contains("beta"))
-
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
         kotlinOptions {
             jvmTarget = "1.8"
@@ -53,39 +46,13 @@ allprojects {
         sourceCompatibility = "1.8"
         targetCompatibility = "1.8"
     }
-
-    repositories {
-        // GeoTools repository must be before Maven Central
-        // See: https://stackoverflow.com/questions/26993105/i-get-an-error-downloading-javax-media-jai-core1-1-3-from-maven-central
-        // See also Jupyter Kotlin issue: https://github.com/Kotlin/kotlin-jupyter/issues/107
-        maven(url = "https://repo.osgeo.org/repository/release")
-
-        mavenCentral()
-
-        // local
-//        maven {
-//            url = uri("/Users/Igor/Work/lets-plot/.maven-publish-dev-repo")
-//        }
-
-        // SNAPSHOTS
-        maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
-
-        mavenLocal()
-    }
-
-    // Maven publication settings
-
-    // define local Maven Repository path:
-    var localMavenRepository: String by extra
-    localMavenRepository = "$rootDir/.maven-publish-dev-repo"
-
-    // define Sonatype nexus repository manager settings:
-    val sonatypeSnapshotUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
-    val sonatypeReleaseUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-    project.extra["sonatypeUrl"] = if (version.contains("SNAPSHOT")) sonatypeSnapshotUrl else sonatypeReleaseUrl
 }
 
 subprojects {
+    // define local Maven Repository path (for `publishXYZToMavenLocalRepository` command)
+    var localMavenRepository: String by extra
+    localMavenRepository = "$rootDir/.maven-publish-dev-repo"
+
     afterEvaluate {
         // Add LICENSE file to the META-INF folder inside published JAR files
         tasks.filterIsInstance(org.gradle.jvm.tasks.Jar::class.java)
@@ -100,12 +67,13 @@ subprojects {
 }
 
 // Nexus publish plugin settings:
-nexusPublishing {
-    repositories{
-        sonatype() {
-            stagingProfileId.set("11c25ff9a87b89")
-            username.set(sonatypeSettings["username"] as String)
-            password.set(sonatypeSettings["password"] as String)
-        }
+nexusPublishing.repositories {
+    sonatype {
+        stagingProfileId.set("11c25ff9a87b89")
+        username.set(sonatypeSettings["username"] as String)
+        password.set(sonatypeSettings["password"] as String)
+
+        nexusUrl.set(uri("https://oss.sonatype.org/service/local/"))
+        snapshotRepositoryUrl.set(uri("https://oss.sonatype.org/content/repositories/snapshots/"))
     }
 }
