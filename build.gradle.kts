@@ -10,7 +10,6 @@ plugins {
     // in each subproject's classloader
     kotlin("multiplatform") apply false
     kotlin("jvm") apply false
-    kotlin("js") apply false
     id("org.jetbrains.dokka") apply false
     id("io.codearte.nexus-staging") apply false
 

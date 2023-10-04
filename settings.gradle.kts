@@ -18,7 +18,6 @@ pluginManagement {
 
         kotlin("multiplatform") version kotlinVersion
         kotlin("jvm").version(kotlinVersion)
-        kotlin("js").version(kotlinVersion)
 
         id("org.jetbrains.dokka") version dokkaVersion
 
