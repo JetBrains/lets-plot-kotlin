@@ -1,4 +1,5 @@
----
+# Repositories where other projects publish their artifacts locally to.
+#maven.repo.local=path1, path1, ...
 
 # -------------------------------------------------------------------
 # Sonatype settings
@@ -11,6 +12,6 @@
 #   signing.password=your_password_here
 #   signing.secretKeyRingFile=/Users/you/.gnupg/secring.kbx
 # -------------------------------------------------------------------
-sonatype:
-  username: ""
-  password: ""
+#sonatype.username=
+#sonatype.password=
+

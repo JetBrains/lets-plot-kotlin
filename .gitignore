@@ -13,3 +13,4 @@ lets-plot-dev.json
 
 kotlin-js-store/*
 .maven-publish-dev-repo/*
+local.properties

@@ -48,7 +48,7 @@ b) Publish all artifacts to the Nexus "Releases" repository (from the staging):
 > See:
 >
 > - https://central.sonatype.org/pages/working-with-pgp-signatures.html
-> - [build_settings.template.yml](https://github.com/JetBrains/lets-plot-kotlin/blob/master/build_settings.template.yml)
+> - [local.properties.template](https://github.com/JetBrains/lets-plot-kotlin/blob/master/local.properties.template)
 
 > **Note**: Individually Lets-Plot Kotlin API artifacts can be published with commands:
 >

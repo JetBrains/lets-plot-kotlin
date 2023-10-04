@@ -27,23 +27,6 @@ pluginManagement {
     }
 }
 
-dependencyResolutionManagement {
-    repositories {
-        // GeoTools repository must be before Maven Central
-        // See: https://stackoverflow.com/questions/26993105/i-get-an-error-downloading-javax-media-jai-core1-1-3-from-maven-central
-        // See also Jupyter Kotlin issue: https://github.com/Kotlin/kotlin-jupyter/issues/107
-        maven(url = "https://repo.osgeo.org/repository/release")
-
-        mavenCentral()
-        google()
-
-        // SNAPSHOTS
-        maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
-
-        mavenLocal()
-    }
-}
-
 rootProject.name = "lets-plot-kotlin"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

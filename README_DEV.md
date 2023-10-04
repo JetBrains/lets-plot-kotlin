@@ -2,9 +2,6 @@
 
 ### Building the Project
 
-Copy file `build_settings.template.yml` located in the project root directory to the file named `build_settings.yml` in
-the same location.
-
 run `./gradlew build`
 
 ### Running Demos

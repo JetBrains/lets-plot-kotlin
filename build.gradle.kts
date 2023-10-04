@@ -3,11 +3,7 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
-buildscript {
-    dependencies {
-        classpath("org.yaml:snakeyaml:1.25")
-    }
-}
+import java.util.*
 
 plugins {
     // this is necessary to avoid the plugins to be loaded multiple times
@@ -21,19 +17,18 @@ plugins {
     id("io.github.gradle-nexus.publish-plugin")
 }
 
-val buildSettingsFile = File(rootDir, "build_settings.yml")
-if (!buildSettingsFile.canRead()) {
-    error("Couldn't read build_settings.yml")
+val localProps = Properties()
+if (project.file("local.properties").exists()) {
+    localProps.load(project.file("local.properties").inputStream())
 }
-val settings: Map<String, Any?> = org.yaml.snakeyaml.Yaml().load(buildSettingsFile.inputStream())
-val sonatypeSettings = settings["sonatype"] as Map<*, *>
 
 
 allprojects {
     group = "org.jetbrains.lets-plot"
     version = when (name) {
         "dokka" -> "4.4.3"
-        else -> "4.4.4-alpha1"
+        else -> "4.4.4-SNAPSHOT"
+//        else -> "0.0.0-SNAPSHOT" // for local publishing only
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
@@ -49,6 +44,30 @@ allprojects {
 }
 
 subprojects {
+    repositories {
+        // GeoTools repository must be before Maven Central
+        // See: https://stackoverflow.com/questions/26993105/i-get-an-error-downloading-javax-media-jai-core1-1-3-from-maven-central
+        // See also Jupyter Kotlin issue: https://github.com/Kotlin/kotlin-jupyter/issues/107
+        maven(url = "https://repo.osgeo.org/repository/release")
+
+        mavenCentral()
+        google()
+
+        // Repositories where other projects publish their artifacts locally to.
+        localProps["maven.repo.local"]?.let {
+            (it as String).split(",").forEach { repo ->
+                mavenLocal {
+                    url = uri(repo)
+                }
+            }
+        }
+
+        // SNAPSHOTS
+        maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
+
+        mavenLocal()
+    }
+
     // define local Maven Repository path (for `publishXYZToMavenLocalRepository` command)
     var localMavenRepository: String by extra
     localMavenRepository = "$rootDir/.maven-publish-dev-repo"
@@ -78,13 +97,17 @@ subprojects {
 }
 
 // Nexus publish plugin settings:
-nexusPublishing.repositories {
-    sonatype {
-        stagingProfileId.set("11c25ff9a87b89")
-        username.set(sonatypeSettings["username"] as String)
-        password.set(sonatypeSettings["password"] as String)
+val sonatypeUsername = localProps["sonatype.username"] as String?
+val sonatypePassword = localProps["sonatype.password"] as String?
+if (!(sonatypeUsername.isNullOrBlank() || sonatypePassword.isNullOrBlank())) {
+    nexusPublishing.repositories {
+        sonatype {
+            stagingProfileId.set("11c25ff9a87b89")
+            username.set(sonatypeUsername)
+            password.set(sonatypePassword)
 
-        nexusUrl.set(uri("https://oss.sonatype.org/service/local/"))
-        snapshotRepositoryUrl.set(uri("https://oss.sonatype.org/content/repositories/snapshots/"))
+            nexusUrl.set(uri("https://oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://oss.sonatype.org/content/repositories/snapshots/"))
+        }
     }
 }
