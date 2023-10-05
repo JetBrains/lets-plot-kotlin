@@ -67,7 +67,7 @@ subprojects {
         mavenLocal()
     }
 
-    // define local Maven Repository path (for `publishXYZToMavenLocalRepository` command)
+    // Repository path for "MavenLocalRepository"
     var localMavenRepository: String by extra
     localMavenRepository = "$rootDir/.maven-publish-dev-repo"
 
