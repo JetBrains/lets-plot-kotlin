@@ -27,7 +27,14 @@ allprojects {
     version = when (name) {
         "dokka" -> "4.4.3"
         else -> "4.4.4-SNAPSHOT"
-//        else -> "0.0.0-SNAPSHOT" // for local publishing only
+    }
+
+    if (localProps.getProperty("local.dev.letsPlotKotlin", "false").toBoolean()) {
+        version = "0.0.0-SNAPSHOT"
+    }
+
+    if (localProps.getProperty("local.dev.letsPlot", "false").toBoolean()) {
+        extra["letsPlot.version"] = "0.0.0-SNAPSHOT"
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
