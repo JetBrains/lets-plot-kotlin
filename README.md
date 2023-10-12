@@ -1,33 +1,13 @@
-# Lets-Plot for Kotlin [![official JetBrains project](http://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+[![official JetBrains project](http://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+[![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/LICENSE)
+[![Latest Release](https://img.shields.io/github/v/release/JetBrains/lets-plot-kotlin)](https://github.com/JetBrains/lets-plot-kotlin/releases/latest)                                             
 
-<table>
-    <tr>
-        <td>Latest Lets-Plot Kotlin API Version</td>
-        <td>
-            <a href="https://github.com/JetBrains/lets-plot-kotlin/releases/latest"/>
-            <img src="https://img.shields.io/github/v/release/JetBrains/lets-plot-kotlin"/>
-        </td>
-    </tr>
-    <tr>
-        <td>Latest Lets-Plot Version</td>
-        <td>
-            <a href="https://github.com/JetBrains/lets-plot/releases/latest"/>
-            <img src="https://img.shields.io/github/v/release/JetBrains/lets-plot"/>
-        </td>
-    </tr>
-    <tr>
-        <td>License</td>
-        <td>
-            <a href="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/LICENSE"/>
-            <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
-        </td>
-    </tr>
-</table>
+# Lets-Plot Kotlin API
 
-
-**Lets-Plot for Kotlin** is a <a href="https://lets-plot.org/kotlin">Kotlin API</a> for the [Lets-Plot](https://github.com/JetBrains/lets-plot) library - a
-multiplatform plotting library,<br> which is built on the principles of layered graphics first described in the Leland Wilkinson
-work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics).
+**Lets-Plot Kotlin API** is a <a href="https://lets-plot.org/kotlin">Kotlin API</a> for [Lets-Plot](https://github.com/JetBrains/lets-plot) 
+multiplatform plotting library, \
+which is built on the principles of layered graphics\
+first described in the Leland Wilkinson work [The Grammar of Graphics](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics).
 
 <table>
     <tr>
@@ -80,54 +60,69 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
 
 <a name="toc" id="toc"></a>
 ## Table of Contents
-
-- [Lets-Plot in Notebook](#in-notebook)
-- [Lets-Plot in JVM and Kotlin/JS Application](#in-jvm-js)
+             
+- [Usage](#usage)
+  - [Notebooks](#in-notebook)
+  - [Compose Multiplatform](#in-compose-multiplatform)
+  - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-
 - [What is new in 4.4.2](#new)
 - [Migrating from v3 to v4](#migrating4)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
 - [License](#license)
-                      
+                          
+
+
+<a id="usage"></a>
+## Usage
 
 <a id="in-notebook"></a>
-## Lets-Plot in Notebook
+### Notebooks
+
+With the help of the Lets-Plot Kotlin API you can easily create plots in [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
+[Datalore](https://datalore.jetbrains.com/), [Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme) \
+or any other notebook that supports `Kotlin Kernel`.
+
 
 #### "Line Magics"
-
-Include all the necessary Lets-Plot boilerplate code to a notebook using the following "line magic":
 
 ```
 %use lets-plot
 ```  
+This "line magic" will apply **Lets-Plot library descriptor** which adds to your notebook all the boilerplate code necessary to create plots.
 
-This will apply the lets-plot `library descriptor` bundled with the Kotlin Jupyter Kernel installed in your environment.
+By default, `library descriptor` is bundled with the Kotlin Jupyter Kernel installed in your environment. \
+However, you can override the default settings using:
+```
+%useLatestDescriptors
+```
+In this case the latest `library descriptor` will be pulled from the [Kotlin Jupyter Libraries](https://github.com/Kotlin/kotlin-jupyter-libraries) repository.
 
-The `%useLatestDescriptors` line magic will force Kotlin Kernel to pull and apply **all** the latest
-`library descriptors` from the [Kotlin Jupyter Libraries](https://github.com/Kotlin/kotlin-jupyter-libraries) repository.
-
-You can override lets-plot `library descriptor` settings using the lets-plot line magic parameters:
+#### Library Descriptor Parameters
 
 ```
-%use lets-plot(api=1.1.0, lib=1.5.4, js=1.5.4, isolatedFrame=false)
+%use lets-plot(api=4.4.3, lib=4.0.1, js=4.0.1, isolatedFrame=false)
 ```                                                                 
-- `api` - the version of Lets-Plot Kotlin API.
-- `lib` - the version of Lets-Plot library (JAR-s).
-- `js`  - the version of Lets-PLot JavaScript bundle.
+- `api` - version of the Lets-Plot Kotlin API.
+- `lib` - version of the Lets-Plot Multiplatform (JARs).
+- `js`  - version of the Lets-PLot Multiplatform JavaScript bundle.
 - `isolatedFrame` - If `false`: load JS just once per notebook (default in Jupyter).
   If `true`: include Lets-Plot JS in each output (default in [Datalore](https://datalore.jetbrains.com/) notebooks).
 
 
+<a id="in-compose-multiplatform"></a>
+### Compose Multiplatform
+To learn how to embed Lets-Plot charts in [Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform) applications, please check out the [Lets-Plot Skia Frontend](https://github.com/JetBrains/lets-plot-skia) project.
+   
+
 <a id="in-jvm-js"></a>
-## Lets-Plot in JVM and Kotlin/JS Application
+### JVM and Kotlin/JS
 
-To learn more about creating plots in JVM or Kotlin/JS environment
-read [LPK_APP.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LPK_APP.md). 
-
-In the [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository you will find examples of
-using Lets-Plot Kotlin API in JVM and Kotlin/JS projects.
+To learn more about creating plots in JVM or Kotlin/JS environment read [LPK_APP.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LPK_APP.md). 
+        
+#### Examples
+Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications are available in the [lets-plot-mini-apps]() GitHub repository.
 
 <a id="documentation"></a>
 ## Documentation
