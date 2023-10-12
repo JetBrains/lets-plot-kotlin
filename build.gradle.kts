@@ -29,12 +29,8 @@ allprojects {
         else -> "4.4.4-SNAPSHOT"
     }
 
-    if (localProps.getProperty("local.dev.letsPlotKotlin", "false").toBoolean()) {
+    if (localProps.getProperty("publish.local", "false").toBoolean()) {
         version = "0.0.0-SNAPSHOT"
-    }
-
-    if (localProps.getProperty("local.dev.letsPlot", "false").toBoolean()) {
-        extra["letsPlot.version"] = "0.0.0-SNAPSHOT"
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
