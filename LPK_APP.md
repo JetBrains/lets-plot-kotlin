@@ -22,96 +22,109 @@ All artifacts are available at [Maven Central](https://search.maven.org/search?q
         </td>
     </tr>
     <tr>
-        <td>Lets-Plot library</td>
+        <td>Lets-Plot Multiplatform</td>
         <td>
             <i>lets-plot-batik</i><br>
             <i>lets-plot-jfx</i><br>
-            <i>lets-plot-common</i>
         </td>
         <td>
             <a href="https://search.maven.org/search?q=lets-plot"/>
             <img src="https://img.shields.io/maven-central/v/org.jetbrains.lets-plot/lets-plot-common?color=blue&label=Maven%20Central"/>
         </td>
         <td>
-            Published by the <a href="https://github.com/JetBrains/lets-plot">Lets-Plot library</a> project.
+            Published by the <a href="https://github.com/JetBrains/lets-plot">Lets-Plot</a> project.
         </td>
     </tr>
 </table>
 
+<a id="dependencies"></a>
+### Using as Dependency
+
+The following is how you configure a Gradle project with Kotlin DSL.
+
+<a id="deps-swing-batik"></a>
+#### JVM-Swing-Batik
+
+```Kotlin
+plugins {
+    kotlin("jvm")
+}
+
+dependencies {
+    // Lets-Plot Kotlin API 
+    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.3")
+    // Lets-Plot Multiplatform (Batik rendering)
+    implementation("org.jetbrains.lets-plot:lets-plot-batik:4.0.1")
+}
+```
+
+<a id="deps-jfx"></a>
+#### JVM-JavaFX (+Swing)
+In this configuration, the plot is always rendered to [JavaFX](https://en.wikipedia.org/wiki/JavaFX) `scene` inside a `JFXPanel`, \
+but then there are two options to embed the plot into your application:
+- In a Java Swing application you can embed the plot's `JFXPanel` directly into a Swing container.
+- In a JavaFX application you can embed the plot's `JFXPanel` into a JavaFX `SwingNode` and then embed the `SwingNode` into a JavaFX container.
+                                                                                              
+The dependencies are the same in both cases.
+```Kotlin
+plugins {
+    kotlin("jvm")
+}
+
+    ...
+
+dependencies {
+    // Lets-Plot Kotlin API 
+    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.3")
+    // Lets-Plot Multiplatform (JFX Scene rendering)
+    implementation("org.jetbrains.lets-plot:lets-plot-jfx:4.0.1")
+}
+```
+
+<a id="deps-kotlin-js"></a>
+#### Kotlin/JS
+
+```Kotlin
+plugins {
+    kotlin("multiplatform")
+}
+
+kotlin {
+    ...
+    sourceSets {
+        named("jsMain") {
+            dependencies {
+                // Lets-Plot Kotlin API 
+                implementation("org.jetbrains.lets-plot:lets-plot-kotlin-js:4.4.3")
+            }
+        }
+    }
+}
+```
+
 
 <a id="examples"></a>
-### Code Examples
+### Examples
 
-The [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository contains few examples of using
-the Lets-Plot Kotlin API in JVM and Kotlin/JS projects:
+See [Lets-Plot Kotlin Mini Apps (Demos)](https://github.com/alshan/lets-plot-mini-apps) GitHub repository:
 
 - #### [jvm-swing-batik-app](https://github.com/alshan/lets-plot-mini-apps/blob/main/jvm-swing-batik-app/src/main/kotlin/Main.kt):
   A JVM/Swing app which uses [Apache Batik SVG Toolkit](https://xmlgraphics.apache.org/batik/) for plot rendering.
 
 - #### [jvm-swing-javafx-app](https://github.com/alshan/lets-plot-mini-apps/blob/main/jvm-swing-javafx-app/src/main/kotlin/Main.kt):
-  A JVM/Swing app which renders plot to  [JavaFX](https://en.wikipedia.org/wiki/JavaFX) scene inside `javafx.embed.swing.JFXPanel`.
+  A JVM/Swing app which renders plot to  [JavaFX](https://en.wikipedia.org/wiki/JavaFX) scene inside a `javafx.embed.swing.JFXPanel`.
 
 - #### [jvm-javafx-app](https://github.com/alshan/lets-plot-mini-apps/tree/main/jvm-javafx-app):
-  A  [JavaFX](https://en.wikipedia.org/wiki/JavaFX) app which renders plot to JavaFX scene inside `javafx.embed.swing.JFXPanel`.
-
-  The Swing panel with a plot in it then embedded into a JavaFX application via `javafx.embed.swing.SwingNode`.
+  A [JavaFX](https://en.wikipedia.org/wiki/JavaFX) app which renders plot to JavaFX scene inside a `javafx.embed.swing.JFXPanel`, \
+  then embeds it into a JavaFX application using a `javafx.embed.swing.SwingNode`.
 
 - #### [js-frontend-app](https://github.com/alshan/lets-plot-mini-apps/tree/main/js-frontend-app):
-  A Kotlin/JS app (Kotlin LEGACY compiler).
+  A Kotlin/JS app.
 
-- #### [js-ir-frontend-app](https://github.com/alshan/lets-plot-mini-apps/tree/main/js-ir-frontend-app):
-  A Kotlin/JS IR app (Kotlin IR compiler).
+- #### [jvm-plot-export](https://github.com/alshan/lets-plot-mini-apps/tree/main/jvm-plot-export/src/main/kotlin):
+  Runnable examples that show how to export plot to an SVG, HTML or PNG image using  
+  `PlotSvgExport`, `PlotHtmlExport` or `PlotImageExport` utilities.
 
-
-<a id="dependencies"></a>
-### Project Dependencies
-
-The following is how you configure a Gradle (Groovy) project:
-
-```groovy
-repositories {
-  mavenCentral()
-}
-```
-
-#### JVM/Swing/Batik application
-
-```groovy
-dependencies {
-    implementation "org.jetbrains.lets-plot:lets-plot-batik:4.0.1"
-    implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.3"
-}
-```
-
-#### JVM/Swing/JavaFX application
-
-```groovy
-dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-jfx:4.0.1"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.3"
-}
-```
-
-> *Note*: Depending on which JRE you are using, you might need to add JavaFX dependencies as well.
-
-#### JVM/other:
-
-If your JVM app doesn't use either frontend, you can provide just "lets-plot-common" dependency:
-
-```groovy
-dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-common:4.0.1"
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.4.3"
-}
-```
-
-#### Kotlin/JS application:
-
-```groovy
-dependencies {
-  implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:4.4.3"
-}
-```
 
 <a id="showing-plots-jvm"></a>
 ### Showing Plots (JVM)
