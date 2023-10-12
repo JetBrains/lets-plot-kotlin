@@ -744,7 +744,7 @@ the Lets-Plot Kotlin API.
   - JVM:  `implementation "org.jetbrains.lets-plot:lets-plot-kotlin-jvm:3.0.0"`
   - JS:   `implementation "org.jetbrains.lets-plot:lets-plot-kotlin-js:3.0.0"`
 
-  See [LPK_APP.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LPK_APP.md) for more details.
+  See [USAGE_SWING_JFX_JS.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_SWING_JFX_JS.md) for more details.
 
 
 - **[BREAKING CHANGE]** The JVM artifact `lets-plot-kotlin-api` is no longer deployed: replaced with the
