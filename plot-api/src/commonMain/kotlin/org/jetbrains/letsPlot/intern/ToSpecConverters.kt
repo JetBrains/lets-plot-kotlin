@@ -24,6 +24,7 @@ import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.MappingMeta
 import org.jetbrains.letsPlot.commons.intern.datetime.Instant
+import org.jetbrains.letsPlot.core.plot.builder.defaultTheme.values.ThemeOption
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.layer.WithSpatialParameters
 import org.jetbrains.letsPlot.intern.standardizing.JvmStandardizing
@@ -77,7 +78,7 @@ fun Plot.toSpec(): MutableMap<String, Any> {
             val prevThemeOpts = spec.getValue(Option.Plot.THEME) as Map<String, Any>
             val newThemeOptions = otherThemeOpts[Option.Meta.NAME]?.let {
                 // keep the previously specified flavor
-                val flavor = prevThemeOpts.filterKeys { it == Option.Theme.FLAVOR }
+                val flavor = prevThemeOpts.filterKeys { it == ThemeOption.FLAVOR }
 
                 // 'named' theme overrides all prev theme options.
                 otherThemeOpts + flavor
