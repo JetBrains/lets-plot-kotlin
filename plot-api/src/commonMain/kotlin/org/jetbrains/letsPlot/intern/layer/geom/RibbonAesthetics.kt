@@ -12,6 +12,9 @@ interface RibbonAesthetics : OptionsCapsule {
     val x: Any?
     val ymin: Any?
     val ymax: Any?
+    val y: Any?
+    val xmin: Any?
+    val xmax: Any?
     val size: Any?
     val linetype: Any?
     val color: Any?
@@ -22,6 +25,9 @@ interface RibbonAesthetics : OptionsCapsule {
         "x" to x,
         "ymin" to ymin,
         "ymax" to ymax,
+        "y" to y,
+        "xmin" to xmin,
+        "xmax" to xmax,
         "size" to size,
         "linetype" to linetype,
         "color" to color,

@@ -39,9 +39,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- * @param x X-axis coordinates.
- * @param ymin Y-axis coordinates of the lower bound.
- * @param ymax Y-axis coordinates of the upper bound.
+ * @param x X-axis coordinates for horizontal ribbon.
+ * @param ymin Y-axis coordinates of the lower bound for horizontal ribbon.
+ * @param ymax Y-axis coordinates of the upper bound for horizontal ribbon.
+ * @param y Y-axis coordinates for vertical ribbon.
+ * @param xmin X-axis coordinates of the lower bound for vertical ribbon.
+ * @param xmax X-axis coordinates of the upper bound for vertical ribbon.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
@@ -81,6 +84,9 @@ class geomRibbon(
     override val x: Number? = null,
     override val ymin: Number? = null,
     override val ymax: Number? = null,
+    override val y: Number? = null,
+    override val xmin: Number? = null,
+    override val xmax: Number? = null,
     override val size: Number? = null,
     override val linetype: Any? = null,
     override val color: Any? = null,

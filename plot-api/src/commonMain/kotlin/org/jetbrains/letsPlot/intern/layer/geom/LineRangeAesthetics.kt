@@ -12,6 +12,9 @@ interface LineRangeAesthetics : OptionsCapsule {
     val x: Any?
     val ymin: Any?
     val ymax: Any?
+    val y: Any?
+    val xmin: Any?
+    val xmax: Any?
     val alpha: Any?
     val color: Any?
     val linetype: Any?
@@ -21,6 +24,9 @@ interface LineRangeAesthetics : OptionsCapsule {
         "x" to x,
         "ymin" to ymin,
         "ymax" to ymax,
+        "y" to y,
+        "xmin" to xmin,
+        "xmax" to xmax,
         "alpha" to alpha,
         "color" to color,
         "linetype" to linetype,

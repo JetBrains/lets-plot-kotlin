@@ -13,6 +13,8 @@ interface PointRangeAesthetics : OptionsCapsule {
     val y: Any?
     val ymin: Any?
     val ymax: Any?
+    val xmin: Any?
+    val xmax: Any?
     val alpha: Any?
     val color: Any?
     val fill: Any?
@@ -27,6 +29,8 @@ interface PointRangeAesthetics : OptionsCapsule {
         "y" to y,
         "ymin" to ymin,
         "ymax" to ymax,
+        "xmin" to xmin,
+        "xmax" to xmax,
         "alpha" to alpha,
         "color" to color,
         "fill" to fill,
