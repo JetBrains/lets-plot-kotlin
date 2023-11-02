@@ -25,6 +25,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
  *
+ * - [horizontal_geoms.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/horizontal_geoms.ipynb)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
@@ -38,9 +40,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- * @param x X-axis coordinates.
- * @param ymin Lower bound for line range.
- * @param ymax Upper bound for line range.
+ * @param x X-axis coordinates for vertical line range.
+ * @param ymin Lower bound for vertical line range.
+ * @param ymax Upper bound for vertical line range.
+ * @param y Y-axis coordinates for horizontal line range
+ * @param xmin Lower bound for horizontal line range.
+ * @param xmax Upper bound for horizontal line range.
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
  * @param color Color of geometry lines.
@@ -72,6 +77,9 @@ class geomLineRange(
     override val x: Number? = null,
     override val ymin: Number? = null,
     override val ymax: Number? = null,
+    override val y: Number? = null,
+    override val xmin: Number? = null,
+    override val xmax: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,

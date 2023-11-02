@@ -490,6 +490,8 @@ object Geom {
         override val ymin: Number? = null,
         override val ymax: Number? = null,
         override val y: Number? = null,
+        override val xmin: Number? = null,
+        override val xmax: Number? = null,
         override val width: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
@@ -519,6 +521,8 @@ object Geom {
         override val y: Number? = null,
         override val ymin: Number? = null,
         override val ymax: Number? = null,
+        override val xmin: Number? = null,
+        override val xmax: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -549,6 +553,9 @@ object Geom {
         override val x: Number? = null,
         override val ymin: Number? = null,
         override val ymax: Number? = null,
+        override val y: Number? = null,
+        override val xmin: Number? = null,
+        override val xmax: Number? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -566,11 +573,14 @@ object Geom {
         override fun seal() = super<LineRangeAesthetics>.seal() + super<WithColorOption>.seal()
     }
 
-    @Suppress("ClassName")
+    @Suppress("ClassName", "SpellCheckingInspection")
     class ribbon(
         override val x: Number? = null,
         override val ymin: Number? = null,
         override val ymax: Number? = null,
+        override val y: Number? = null,
+        override val xmin: Number? = null,
+        override val xmax: Number? = null,
         override val size: Number? = null,
         override val linetype: Any? = null,
         override val color: Any? = null,

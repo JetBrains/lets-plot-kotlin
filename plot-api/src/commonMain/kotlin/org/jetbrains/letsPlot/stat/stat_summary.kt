@@ -52,10 +52,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param quantiles default = listOf(0.25, 0.5, 0.75).
  *  A list of probabilities defining the quantile functions "lq", "mq" and "uq".
  *  Must contain exactly 3 values between 0 and 1.
- * @param x X-axis coordinates.
- * @param y Position of mid-point.
- * @param ymin Lower bound for error bar.
- * @param ymax Upper bound for error bar.
+ * @param x X-axis coordinates for vertical interval / position of mid-point for horizontal interval.
+ * @param y Y-axis coordinates for horizontal interval / position of mid-point for vertical interval.
+ * @param ymin Lower bound for vertical interval.
+ * @param ymax Upper bound for vertical interval.
+ * @param xmin Lower bound for horizontal interval.
+ * @param xmax Upper bound for horizontal interval.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats:
@@ -100,6 +102,8 @@ class statSummary(
     override val y: Any? = null,
     override val ymin: Any? = null,
     override val ymax: Any? = null,
+    override val xmin: Any? = null,
+    override val xmax: Any? = null,
     override val alpha: Any? = null,
     override val color: Any? = null,
     override val fill: Any? = null,

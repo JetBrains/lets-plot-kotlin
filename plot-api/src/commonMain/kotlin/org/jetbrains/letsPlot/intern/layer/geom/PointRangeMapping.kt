@@ -12,6 +12,8 @@ class PointRangeMapping(
     override var y: Any? = null,
     override var ymin: Any? = null,
     override var ymax: Any? = null,
+    override var xmin: Any? = null,
+    override var xmax: Any? = null,
     override var alpha: Any? = null,
     override var color: Any? = null,
     override var fill: Any? = null,

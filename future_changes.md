@@ -6,6 +6,15 @@
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/new_scale_transformations.ipynb).
 
+- Horizontal orientation by assigning `y, xmin, xmax` aesthetics of geoms:
+  - `geomErrorBar()`;
+  - `geomCrossbar()`;
+  - `geomPointRange()`;
+  - `geomLineRange()`;
+  - `geomRibbon()`.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/horizontal_geoms.ipynb).
+
 - Annotations for bar plot.
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/bar_annotations.ipynb).

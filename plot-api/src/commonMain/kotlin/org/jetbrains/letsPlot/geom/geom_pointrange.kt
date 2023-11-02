@@ -28,6 +28,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
  *
+ * - [horizontal_geoms.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/horizontal_geoms.ipynb)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
@@ -43,10 +45,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Specifies appearance, style and content.
  * @param fatten default = 5.0.
  *  A multiplicative factor applied to size of the middle point.
- * @param x X-axis coordinates.
- * @param y Position of mid-point.
- * @param ymin Lower bound for error bar.
- * @param ymax Upper bound for error bar.
+ * @param x X-axis coordinates for vertical interval / position of mid-point for horizontal interval.
+ * @param y Y-axis coordinates for horizontal interval / position of mid-point for vertical interval.
+ * @param ymin Lower bound for vertical interval.
+ * @param ymax Upper bound for vertical interval.
+ * @param xmin Lower bound for horizontal interval.
+ * @param xmax Upper bound for horizontal interval.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  String in the following formats: 
@@ -91,6 +95,8 @@ class geomPointRange(
     override val y: Number? = null,
     override val ymin: Number? = null,
     override val ymax: Number? = null,
+    override val xmin: Number? = null,
+    override val xmax: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val fill: Any? = null,
