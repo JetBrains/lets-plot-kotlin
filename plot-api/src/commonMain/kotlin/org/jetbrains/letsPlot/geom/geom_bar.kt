@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.annotations.AnnotationOptions
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.PosOptions
@@ -43,6 +44,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ * @param labels Result of the call to the `layerLabels()` function.
+ *  Specifies style and content of the annotations.
  * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
  *  Possible values: "x", "y".
  * @param x X-axis value (this value will produce cases or bins for bars).
@@ -83,6 +86,7 @@ class geomBar(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    labels: AnnotationOptions? = null,
     orientation: String? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -109,6 +113,7 @@ class geomBar(
         showLegend = showLegend,
         sampling = sampling,
         tooltips = tooltips,
+        labels = labels,
         orientation = orientation
     ) {
     override fun seal(): Options {
