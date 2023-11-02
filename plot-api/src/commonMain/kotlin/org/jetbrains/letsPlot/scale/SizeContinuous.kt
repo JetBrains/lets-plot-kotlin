@@ -24,7 +24,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -78,7 +78,7 @@ fun scaleSize(
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide A result returned by `guideLegend()` function or "none" to hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".

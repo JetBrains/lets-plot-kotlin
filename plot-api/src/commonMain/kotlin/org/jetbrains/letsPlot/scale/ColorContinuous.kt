@@ -45,7 +45,7 @@ import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -98,7 +98,7 @@ fun scaleFillContinuous(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -150,7 +150,7 @@ fun scaleColorContinuous(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -210,7 +210,7 @@ fun scaleGradient(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -269,7 +269,7 @@ fun scaleFillGradient(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -325,7 +325,7 @@ fun scaleColorGradient(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -390,7 +390,7 @@ fun scaleGradient2(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -445,7 +445,7 @@ fun scaleFillGradient2(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -503,7 +503,7 @@ fun scaleGradientN(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -558,7 +558,7 @@ fun scaleFillGradientN(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -612,7 +612,7 @@ fun scaleColorGradient2(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -667,7 +667,7 @@ fun scaleColorGradientN(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -736,7 +736,7 @@ fun scaleGrey(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -791,7 +791,7 @@ fun scaleFillGrey(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -850,7 +850,7 @@ fun scaleColorGrey(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -925,7 +925,7 @@ fun scaleHue(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -989,7 +989,7 @@ fun scaleFillHue(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".

@@ -52,7 +52,7 @@ import org.jetbrains.letsPlot.intern.Scale
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -141,7 +141,7 @@ fun scaleViridis(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -223,7 +223,7 @@ fun scaleFillViridis(
  *  It can either be a string ("colorbar", "legend") or a call to a guide function (`guideColorbar()`, `guideLegend()`)
  *  specifying additional arguments.
  *  "none" will hide the guide.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".

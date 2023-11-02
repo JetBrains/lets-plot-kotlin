@@ -32,7 +32,7 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
@@ -83,6 +83,8 @@ fun scaleXContinuous(
  *
  * - [axis_position.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_position.ipynb)
  *
+ * - [new_scale_transformations.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/new_scale_transformations.ipynb)
+ *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
@@ -96,7 +98,7 @@ fun scaleXContinuous(
  *  Defaults: multiplicative = 0.05, additive = 0.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
- * @param trans Name of built-in transformation ("identity", "log10", "reverse", "sqrt").
+ * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
