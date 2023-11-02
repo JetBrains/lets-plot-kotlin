@@ -81,6 +81,8 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param plotMessage Plot message (e.g. sampling messages).
  *  Set an `elementBlank()` to show nothing.
  *  Set an `elementText()` to show sampling messages (`elementText()` options don't affect a message text).
+ * @param plotMargin Margin around entire plot.
+ *  See `margin()` for more details.
  *
  * @param stripBackground Background of facet labels.
  * @param stripText Facet labels.
@@ -154,6 +156,7 @@ class theme(
     plotSubtitle: Any? = null,
     plotCaption: Any? = null,
     plotMessage: Any? = null,
+    plotMargin: Any? = null,
 
     stripBackground: Any? = null,
     stripText: Any? = null,
@@ -224,6 +227,7 @@ class theme(
         ThemeOption.PLOT_SUBTITLE to plotSubtitle,
         ThemeOption.PLOT_CAPTION to plotCaption,
         ThemeOption.PLOT_MESSAGE to plotMessage,
+        ThemeOption.PLOT_MARGIN to plotMargin,
 
         ThemeOption.FACET_STRIP_BGR_RECT to stripBackground,
         ThemeOption.FACET_STRIP_TEXT to stripText,
