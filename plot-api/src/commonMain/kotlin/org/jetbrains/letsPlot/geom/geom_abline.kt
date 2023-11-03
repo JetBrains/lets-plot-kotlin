@@ -20,6 +20,8 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 /**
  * Adds a line with specified slope and intercept to the plot.
  *
+ * Unlike most other geoms, this geom does not affect the x and y scales.
+ *
  * ## Examples
  *
  * - [lines.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/lines.ipynb)
