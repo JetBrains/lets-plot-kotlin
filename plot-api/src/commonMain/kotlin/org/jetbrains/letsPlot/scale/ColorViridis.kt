@@ -110,6 +110,10 @@ fun scaleViridis(
  * The `viridis` color scales are suitable for viewers with common forms of colour blindness.
  * See also [https://bids.github.io/colormap](https://bids.github.io/colormap).
  *
+ * ## Examples
+ *
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ *
  * @param option Name of colormap.
  *  Supported colormaps:
  *  - "magma" (or "A"),
@@ -192,6 +196,10 @@ fun scaleFillViridis(
  *
  * The `viridis` color scales are suitable for viewers with common forms of colour blindness.
  * See also [https://bids.github.io/colormap](https://bids.github.io/colormap).
+ *
+ * ## Examples
+ *
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
  *
  * @param option Name of colormap.
  *  Supported colormaps:

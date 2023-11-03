@@ -196,6 +196,10 @@ fun scaleGradient(
 /**
  * Defines smooth color gradient between two colors (low-high) for `fill` aesthetic.
  *
+ * ## Examples
+ *
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ *
  * @param low Color for low end of gradient.
  * @param high Color for high end of gradient.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
@@ -254,6 +258,8 @@ fun scaleFillGradient(
  * - [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
  *
  * - [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
+ *
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
  *
  * @param low Color for low end of gradient.
  * @param high Color for high end of gradient.
@@ -490,6 +496,10 @@ fun scaleGradientN(
 /**
  * Defines smooth color gradient between multiple colors for `fill` aesthetic.
  *
+ * ## Examples
+ *
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ *
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
@@ -599,6 +609,10 @@ fun scaleColorGradient2(
 /**
  * Defines smooth color gradient between multiple colors for `color` aesthetic.
  *
+ * ## Examples
+ *
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ *
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
@@ -650,7 +664,6 @@ fun scaleColorGradientN(
 
 /**
  * Sequential grey color scale for the specified aesthetics.
- * The palette is computed using HSV (hue, saturation, value) color model.
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
  * @param start Gray value at low end of palette in range `[0,1]`.
@@ -716,11 +729,12 @@ fun scaleGrey(
 
 /**
  * Sequential grey color scale for `fill` aesthetic.
- * The palette is computed using HSV (hue, saturation, value) color model.
  *
  * ## Examples
  *
  * - [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
+ *
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
  *
  * @param start Gray value at low end of palette in range `[0,1]`.
  * @param end Gray value at high end of palette in range `[0,1]`.
@@ -775,7 +789,10 @@ fun scaleFillGrey(
 
 /**
  * Sequential grey color scale for `color` aesthetic.
- * The palette is computed using HSV (hue, saturation, value) color model.
+ *
+ * ## Examples
+ *
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
  *
  * @param start Gray value at low end of palette in range `[0,1]`.
  * @param end Gray value at high end of palette in range `[0,1]`.
@@ -832,10 +849,14 @@ fun scaleColorGrey(
  * Qualitative color scale with evenly spaced hues for the specified aesthetics.
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
- * @param h Range of hues, in `[0, 360]`.
- * @param c Chroma (intensity of color), maximum value varies depending on.
- * @param l Luminance (lightness), in `[0, 100]`.
- * @param hstart Hue to start at.
+ * @param h default = Pair(15, 375).
+ *  Range of hues, in `[0, 360]`.
+ * @param c default = 100.
+ *  Chroma (intensity of color), maximum value varies depending on.
+ * @param l default = 65.
+ *  Luminance (lightness), in `[0, 100]`.
+ * @param hstart default = 0.
+ *  Hue starting point.
  * @param direction default = 1.
  *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
@@ -908,11 +929,18 @@ fun scaleHue(
  *
  * - [contours.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/contours.ipynb)
  *
- * @param h Range of hues, in `[0,360]`.
- * @param c Chroma (intensity of color), maximum value varies depending on.
- * @param l Luminance (lightness), in `[0,100]`.
- * @param hstart Hue to start at.
- * @param direction default = 1. Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ *
+ * @param h default = Pair(15, 375).
+ *  Range of hues, in `[0, 360]`.
+ * @param c default = 100.
+ *  Chroma (intensity of color), maximum value varies depending on.
+ * @param l default = 65.
+ *  Luminance (lightness), in `[0, 100]`.
+ * @param hstart default = 0.
+ *  Hue starting point.
+ * @param direction default = 1.
+ *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
@@ -971,10 +999,18 @@ fun scaleFillHue(
 /**
  * Qualitative color scale with evenly spaced hues for `color` aesthetic.
  *
- * @param h Range of hues, in `[0, 360]`.
- * @param c Chroma (intensity of color), maximum value varies depending on.
- * @param l Luminance (lightness), in `[0, 100]`.
- * @param hstart Hue to start at.
+ * ## Examples
+ *
+ * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ *
+ * @param h default = Pair(15, 375).
+ *  Range of hues, in `[0, 360]`.
+ * @param c default = 100.
+ *  Chroma (intensity of color), maximum value varies depending on.
+ * @param l default = 65.
+ *  Luminance (lightness), in `[0, 100]`.
+ * @param hstart default = 0.
+ *  Hue starting point.
  * @param direction default = 1.
  *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
