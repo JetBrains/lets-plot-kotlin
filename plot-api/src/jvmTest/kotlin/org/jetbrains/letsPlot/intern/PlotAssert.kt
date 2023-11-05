@@ -12,15 +12,15 @@ import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 
 internal class PlotAssert(private val plot: Plot) : MappingAssert<PlotAssert> {
-    companion object {
-        internal fun assertThat(plot: Plot) = PlotAssert(plot)
-    }
-
     override val mappingOptions = plot.mapping
 
     fun features() = FeatureListAssert(plot.features)
     fun layers() = LayerListAssert(plot.layers())
     // ToDo: scales..
+
+    companion object {
+        internal fun assertThat(plot: Plot) = PlotAssert(plot)
+    }
 }
 
 

@@ -5,11 +5,12 @@
 
 package org.jetbrains.letsPlot.intern.figure
 
+import org.jetbrains.letsPlot.Figure
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.spec.Option.Meta
 import org.jetbrains.letsPlot.core.spec.Option.Plot
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots.LAYOUT
-import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.frontend.CurrentFrontendContext
 import org.jetbrains.letsPlot.intern.*
 
@@ -19,7 +20,7 @@ import org.jetbrains.letsPlot.intern.*
 class SubPlotsFigure(
     private val figures: List<Figure?>,
     private val layout: SubPlotsLayoutSpec,
-    private val features: List<OptionsMap>,
+    internal val features: List<OptionsMap>,
 ) : Figure {
 
     operator fun plus(other: Feature): SubPlotsFigure {
@@ -37,9 +38,18 @@ class SubPlotsFigure(
             LAYOUT to layout.toSpec(),
         )
 
-        features.forEach {
+        val themeOptionList = features.filter { it.kind == Option.Plot.THEME }
+
+        // Merge themes
+        ThemeOptionsUtil.toSpec(themeOptionList)?.let {
+            spec[Option.Plot.THEME] = it
+        }
+
+        @Suppress("ConvertArgumentToSet")
+        (features - themeOptionList).forEach {
             spec[it.kind] = it.toSpec()
         }
+
         return spec
     }
 
@@ -50,7 +60,9 @@ class SubPlotsFigure(
     companion object {
         private fun withFeature(self: SubPlotsFigure, feature: Feature): SubPlotsFigure {
             require(feature is OptionsMap) { "plot grid: unsupported feature $feature" }
-            require(feature.kind == Plot.SIZE) { "plot grid: unsupported feature $feature" }
+            require(feature.kind in listOf(Plot.SIZE, Plot.THEME)) {
+                "plot grid: unsupported feature ${feature.kind}"
+            }
 
             return SubPlotsFigure(
                 figures = self.figures,
@@ -62,7 +74,9 @@ class SubPlotsFigure(
         private fun withFeatureList(self: SubPlotsFigure, featureList: FeatureList): SubPlotsFigure {
             val features = featureList.elements.map { feature ->
                 require(feature is OptionsMap) { "plot grid: unsupported feature $feature" }
-                require(feature.kind == Plot.SIZE) { "plot grid: unsupported feature $feature" }
+                require(feature.kind in listOf(Plot.SIZE, Plot.THEME)) {
+                    "plot grid: unsupported feature ${feature.kind}"
+                }
                 feature
             }
 

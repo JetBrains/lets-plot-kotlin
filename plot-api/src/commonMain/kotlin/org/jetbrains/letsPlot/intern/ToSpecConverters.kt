@@ -5,6 +5,10 @@
 
 package org.jetbrains.letsPlot.intern
 
+import org.jetbrains.letsPlot.Figure
+import org.jetbrains.letsPlot.GGBunch
+import org.jetbrains.letsPlot.MappingMeta
+import org.jetbrains.letsPlot.commons.intern.datetime.Instant
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
 import org.jetbrains.letsPlot.core.spec.Option.Meta.KIND
@@ -20,11 +24,6 @@ import org.jetbrains.letsPlot.core.spec.Option.Scale.LIMITS
 import org.jetbrains.letsPlot.core.spec.Option.Scale.NAME
 import org.jetbrains.letsPlot.core.spec.Option.Scale.NA_VALUE
 import org.jetbrains.letsPlot.core.spec.Option.Scale.POSITION
-import org.jetbrains.letsPlot.Figure
-import org.jetbrains.letsPlot.GGBunch
-import org.jetbrains.letsPlot.MappingMeta
-import org.jetbrains.letsPlot.commons.intern.datetime.Instant
-import org.jetbrains.letsPlot.core.plot.builder.defaultTheme.values.ThemeOption
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.layer.WithSpatialParameters
 import org.jetbrains.letsPlot.intern.standardizing.JvmStandardizing
@@ -71,28 +70,24 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     // Width of plot in percents of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
 
-    for (plotFeature in plot.otherFeatures()) {
-        if (plotFeature.kind == Option.Plot.THEME && spec.containsKey(Option.Plot.THEME)) {
-            val otherThemeOpts = plotFeature.toSpec()
-            @Suppress("UNCHECKED_CAST")
-            val prevThemeOpts = spec.getValue(Option.Plot.THEME) as Map<String, Any>
-            val newThemeOptions = otherThemeOpts[Option.Meta.NAME]?.let {
-                // keep the previously specified flavor
-                val flavor = prevThemeOpts.filterKeys { it == ThemeOption.FLAVOR }
+    val features = plot.otherFeatures()
+    val themeOptionList = features.filter { it.kind == Option.Plot.THEME }
+    val metaInfoOptionList = features.filter { it.kind == Option.Plot.METAINFO }
 
-                // 'named' theme overrides all prev theme options.
-                otherThemeOpts + flavor
-            } ?: mergeThemeOptions(prevThemeOpts, otherThemeOpts)
+    // Merge themes
+    ThemeOptionsUtil.toSpec(themeOptionList)?.let {
+        spec[Option.Plot.THEME] = it
+    }
 
-            spec[Option.Plot.THEME] = newThemeOptions
-        } else if (plotFeature.kind == Option.Plot.METAINFO) {
-            @Suppress("UNCHECKED_CAST")
-            val metaInfoList: MutableList<Map<String, Any>> =
-                spec.getOrPut(Option.Plot.METAINFO_LIST) { ArrayList<Map<String, Any>>() } as MutableList<Map<String, Any>>
-            metaInfoList.add(plotFeature.toSpec())
-        } else {
-            spec[plotFeature.kind] = plotFeature.toSpec()
-        }
+    metaInfoOptionList.forEach { metaInfoOptions ->
+        val l = spec.getOrPut(Option.Plot.METAINFO_LIST) { ArrayList<Map<String, Any>>() }
+        @Suppress("UNCHECKED_CAST")
+        (l as MutableList<Map<String, Any>>).add(metaInfoOptions.toSpec())
+    }
+
+    @Suppress("ConvertArgumentToSet")
+    (features - themeOptionList - metaInfoOptionList).forEach {
+        spec[it.kind] = it.toSpec()
     }
 
     return spec
@@ -335,13 +330,13 @@ private fun createSeriesAnnotations(data: Map<*, *>?): List<Map<String, Any>> {
     } ?: emptyList()
 }
 
-private fun mergeThemeOptions(m0: Map<String, Any>, m1: Map<String, Any>): Map<String, Any> {
-    val overlappingKeys = m0.keys.intersect(m1.keys)
-    val keysToMerge = overlappingKeys.filter {
-        m0[it] is Map<*, *> && m1[it] is Map<*, *>
-    }
-    val m2 = keysToMerge.map {
-        it to (m0[it] as Map<*, *> + m1[it] as Map<*, *>)
-    }.toMap()
-    return m0 + m1 + m2
-}
+//private fun mergeThemeOptions(m0: Map<String, Any>, m1: Map<String, Any>): Map<String, Any> {
+//    val overlappingKeys = m0.keys.intersect(m1.keys)
+//    val keysToMerge = overlappingKeys.filter {
+//        m0[it] is Map<*, *> && m1[it] is Map<*, *>
+//    }
+//    val m2 = keysToMerge.map {
+//        it to (m0[it] as Map<*, *> + m1[it] as Map<*, *>)
+//    }.toMap()
+//    return m0 + m1 + m2
+//}

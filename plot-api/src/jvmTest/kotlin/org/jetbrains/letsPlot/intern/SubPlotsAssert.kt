@@ -5,17 +5,18 @@
 
 package org.jetbrains.letsPlot.intern
 
+import junit.framework.TestCase.assertEquals
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots
-import junit.framework.TestCase.*
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 
 internal class SubPlotsAssert(private val figure: SubPlotsFigure) {
+    @Suppress("UNCHECKED_CAST")
+    fun layout() = SubPlotsLayoutAssert(figure.toSpec().getValue(SubPlots.LAYOUT) as Map<String, Any>)
+    fun features() = FeatureListAssert(figure.features)
+
     companion object {
         internal fun assertThat(figure: SubPlotsFigure) = SubPlotsAssert(figure)
     }
-
-    @Suppress("UNCHECKED_CAST")
-    fun layout() = SubPlotsLayoutAssert(figure.toSpec().getValue(SubPlots.LAYOUT) as Map<String, Any>)
 }
 
 internal class SubPlotsLayoutAssert(private val layoutOptions: Map<String, Any>) {
