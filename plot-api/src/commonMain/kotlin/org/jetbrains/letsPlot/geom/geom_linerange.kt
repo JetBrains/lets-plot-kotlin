@@ -20,6 +20,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Displays a line range defined by an upper and lower value.
+ * Represents a vertical interval, defined by `x`, `ymin`, `ymax`,
+ * or a horizontal interval, defined by `y`, `xmin`, `xmax`.
  *
  * ## Examples
  *

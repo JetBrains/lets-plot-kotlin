@@ -20,7 +20,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Displays a y interval defined by ymin and ymax.
+ * Displays a y interval defined by `ymin` and `ymax`.
+ * Draws a ribbon bounded by `ymin` and `ymax`, or a vertical ribbon, bounded by `xmin`, `xmax`.
  *
  * ## Examples
  *

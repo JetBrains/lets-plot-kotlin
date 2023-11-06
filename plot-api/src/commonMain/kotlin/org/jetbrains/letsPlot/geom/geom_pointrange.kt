@@ -23,6 +23,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
  * Adds a vertical line defined by upper and lower value with midpoint at y location.
+ * Represents a vertical interval, defined by `x`, `ymin`, `ymax`,
+ * or a horizontal interval, defined by `y`, `xmin`, `xmax`.
+ * The mid-point is defined by `y` or `x`, respectively.
  *
  * ## Examples
  *

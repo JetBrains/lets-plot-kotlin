@@ -22,6 +22,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 @Suppress("ClassName")
 /**
  * Displays bars with horizontal median line.
+ * Represents a vertical interval, defined by `x`, `ymin`, `ymax`,
+ * or a horizontal interval, defined by `y`, `xmin`, `xmax`.
+ * The mean is represented by horizontal (vertical) line.
  *
  * ## Examples
  *
