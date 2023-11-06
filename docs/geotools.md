@@ -60,7 +60,7 @@ the artifact `lets-plot-kotlin-geotools` must be included to make the `toSpatial
 
 You can include it into a Gradle project.
 ```groovy
-implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.4.3'
+implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.5.0'
 ```  
 
 [ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/_latestVersion)
@@ -69,14 +69,16 @@ The `gt-geojson` artifact from GeoTools must be also included.
 ```groovy
 dependencies {   
     ...
-    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.4.3"
+    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.5.0"
     implementation "org.geotools:gt-geojson:$geotools_version"               
     ...
 }
 ```
 
-The `lets-plot-kotlin-api` artifact v4.4.3 was compiled with GeoTools v24.1. However, it doesn't declare any run-time dependency, so 
+The `lets-plot-kotlin-api` artifact v4.5.0 was compiled with GeoTools v29.2. However, it doesn't declare any run-time dependency, so 
 you are free to use other versions of the GeoTools toolkit. 
+
+> **Note:** Lets-Plot v4.5.0 is not compatible with GeoTools v30 and higher.
 
 <a id="examples-jvm"></a> 
 #### JVM-based examples
@@ -108,7 +110,7 @@ Thus, when declaring additional GeoTools dependencies in your notebook, you can 
 @file:DependsOn("org.geotools:gt-cql:[23,)")
 ```   
 
-If you have to use any different than the latest version of GeoTools, use the `gt` parameter in 
+If you have to use any different then the latest version of GeoTools, use the `gt` parameter in 
 the `lets-plot-gt` magic to avoid possible compatibility issues.
 
 ```

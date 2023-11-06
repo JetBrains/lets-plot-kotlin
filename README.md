@@ -66,8 +66,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
   - [Compose Multiplatform](#in-compose-multiplatform)
   - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-- [What is new in 4.4.2](#new)
-- [Migrating from v3 to v4](#migrating4)
+- [What is new in 4.5.0](#new)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
 - [License](#license)
@@ -102,7 +101,7 @@ In this case the latest `library descriptor` will be pulled from the [Kotlin Jup
 #### Library Descriptor Parameters
 
 ```
-%use lets-plot(api=4.4.3, lib=4.0.1, js=4.0.1, isolatedFrame=false)
+%use lets-plot(api=4.5.0, lib=4.1.0, js=4.1.0, isolatedFrame=false)
 ```                                                                 
 - `api` - version of the Lets-Plot Kotlin API.
 - `lib` - version of the Lets-Plot Multiplatform (JARs).
@@ -139,67 +138,43 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 
 
 <a id="new"></a>
-## What is new in 4.4.2
+## What is new in 4.5.0
 
-> Note: Due to major package refactoring in the main Lets-Plot library, this version (4.4.2) of the Kotlin API\
-> is not compatible with versions of Lets-Plot library v3.2.0 and earlier.
+- #### Annotations in Barchart
 
-
-### A Number of Geometry Defaults Changed
-
-- The default qualitative color palette is now [Color Brewer "Set1"](https://colorbrewer2.org/#type=qualitative&scheme=Set1&n=9) (was ["Set2"](https://colorbrewer2.org/#type=qualitative&scheme=Set2&n=8)).
-- Slightly bigger default size of points and width of lines.
-- Flavor-aware default colors for points, lines etc.
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/geom_defaults.png" alt="f-23c/images/geom_defaults.png" width="504" height="150">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23e/images/annotated_bars.png" alt="f-23e/images/annotated_bars.png" width="512" height="312">
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/bar_annotations.ipynb).
+
+- #### Common Theme for Subplots
+
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/flavor_geom_colors.png" alt="f-23c/images/flavor_geom_colors.png" width="1024" height="120">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23e/images/gggrid_theme.png" alt="f-23e/images/gggrid_theme.png" width="512" height="292">
 
-See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_theme_colors.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/gggrid_theme.ipynb).
 
-- Size of points is slightly adjusted to match the width of a line of the same "size".
+- #### `HCL` and `CIELAB` Color Space for Hue Color Scale and Gradient Color Scales
+
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/point_vs_line.png" alt="f-23c/images/point_vs_line.png" width="170" height="150">
-  <br>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23e/images/hue_color_scale.png" alt="f-23e/images/hue_color_scale.png" width="512" height="341">
 
-### Support for Variadic Line Width and/or Color in `geomLine()` and `geomPath()`
-  <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/variadic_width.png" alt="f-23c/images/variadic_width.png" width="455" height="150">
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/color_space_update.ipynb).
 
-See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/aes_size_color_variadic_lines.ipynb).
+- #### Scale Transformations: `'log2'` and `'symlog'`
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/new_scale_transformations.ipynb).
 
-### Parameter `"sizeUnit"` in `geomPie()`
-A way to specify size of the pie in units relative to the plot size.
+- #### Plot Margins
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/theme_plot_margin.ipynb).
 
-See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_size_unit.ipynb).
+- #### Dual Orientation in Geometries:
+  - `geom_linerange()`
+  - `geom_pointrange()`
+  - `geom_errorbar()`
+  - `geom_crossbar()`
+  - `geom_ribbon()`
 
-### Stroke and Spacers in `geomPie()`
-  <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23c/images/pie_stroke.png" alt="f-23c/images/pie_stroke.png" width="162" height="150">
-
-See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_pie_stroke_and_spacers.ipynb).
-
-
-### New `themeVoid()`, Geometries and Statistics
-
-- `themeVoid()`: [example](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/theme_void.ipynb).
-- `statECDF()`: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_ecdf.ipynb).
-- `geomFunction()`: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_function.ipynb).
-- `statSummary()`: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_summary.ipynb).
-- `statSummaryBin()`: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_summary_bin.ipynb).
-- `Stat.sum()` statistic: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_sum.ipynb).
-- `Stat.boxplotOutlier()` statistic: [example](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/stat_boxplot_outlier.ipynb).
-
-
-### Other improvements and fixes
-  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#440---2023-05-10)
-  for details.
-
-
-<a id="migrating4"></a>
-## Migrating from v3 to v4
-                                        
-For migration instructions see [Migrating to 4.0.0](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md#migrating-to-400) section in the CHANGELOG.
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/horizontal_geoms.ipynb).
 
 
 <a id="change_log"></a>
