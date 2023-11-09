@@ -129,7 +129,9 @@ afterEvaluate {
                 }
 
                 // Sign all publications.
-                signing.sign(it)
+                if (!(project.version as String).contains("SNAPSHOT")) {
+                    signing.sign(it)
+                }
             }
         }
 

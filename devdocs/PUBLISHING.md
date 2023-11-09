@@ -2,9 +2,7 @@
 
 > **Note**: our custom local Maven repository location is `<project root>/.maven-publish-dev-repo`.
 
-> **Note**: make sure that property **publish.local** in your `local.properies` file is set to **true**.
-> 
-> This will substitute the project current version with the local snapshot version "0.0.0-SNAPSHOT".
+> **Note**: make sure that **version** is set to "0.0.0-SNAPSHOT" in `build.gradle.kts`.
 
 `./gradlew :plot-api:publishAllPublicationsToMavenLocalRepository`
 
@@ -13,9 +11,7 @@
 
 ### Publishing to Sonatype Maven Repository
                    
-> **Note**: make sure that property **publish.local**  in your `local.properies` file is set to **false**.
- 
-> **Note**: when publishing to Sonatype, PGP signature is required.
+> **Note**: when publishing a "Release" version to Sonatype, PGP signature is required.
 >
 > See: https://central.sonatype.org/pages/working-with-pgp-signatures.html
         

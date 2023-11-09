@@ -1,9 +1,6 @@
 # Repositories where other projects publish their artifacts locally to.
 #maven.repo.local=path1, path1, ...
 
-# Set lets-plot-kotlin publishing version to 0.0.0-SNAPSHOT.
-#publish.local=true
-
 # -------------------------------------------------------------------
 # Sonatype settings
 #
