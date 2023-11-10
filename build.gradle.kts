@@ -27,7 +27,7 @@ allprojects {
     version = when (name) {
         "dokka" -> "4.5.0"
         else -> "4.5.1-SNAPSHOT"
-//        else -> "0.0.0-SNAPSHOT"  // Use this version for local deployment
+//        else -> "0.0.0-SNAPSHOT"  // for local publishing only
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
