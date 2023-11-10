@@ -8,7 +8,6 @@
 package org.jetbrains.letsPlot.themes
 
 import org.jetbrains.letsPlot.core.spec.Option
-import org.jetbrains.letsPlot.core.plot.builder.defaultTheme.values.ThemeOption
 import org.jetbrains.letsPlot.intern.OptionsMap
 
 
@@ -21,7 +20,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  */
 fun themeGrey() = OptionsMap(
     kind = Option.Plot.THEME,
-    name = ThemeOption.Name.R_GREY,
+    name = Option.Theme.Name.R_GREY,
     emptyMap()
 )
 
@@ -35,7 +34,7 @@ fun themeGrey() = OptionsMap(
  */
 fun themeBW() = OptionsMap(
     kind = Option.Plot.THEME,
-    name = ThemeOption.Name.R_BW,
+    name = Option.Theme.Name.R_BW,
     emptyMap()
 )
 
@@ -49,7 +48,7 @@ fun themeBW() = OptionsMap(
  */
 fun themeLight() = OptionsMap(
     kind = Option.Plot.THEME,
-    name = ThemeOption.Name.R_LIGHT,
+    name = Option.Theme.Name.R_LIGHT,
     emptyMap()
 )
 
@@ -63,7 +62,7 @@ fun themeLight() = OptionsMap(
  */
 fun themeClassic() = OptionsMap(
     kind = Option.Plot.THEME,
-    name = ThemeOption.Name.R_CLASSIC,
+    name = Option.Theme.Name.R_CLASSIC,
     emptyMap()
 )
 
@@ -77,7 +76,7 @@ fun themeClassic() = OptionsMap(
  */
 fun themeMinimal() = OptionsMap(
     kind = Option.Plot.THEME,
-    name = ThemeOption.Name.R_MINIMAL,
+    name = Option.Theme.Name.R_MINIMAL,
     emptyMap()
 )
 
@@ -91,7 +90,7 @@ fun themeMinimal() = OptionsMap(
  */
 fun themeMinimal2() = OptionsMap(
     kind = Option.Plot.THEME,
-    name = ThemeOption.Name.LP_MINIMAL,
+    name = Option.Theme.Name.LP_MINIMAL,
     emptyMap()
 )
 
@@ -105,7 +104,7 @@ fun themeMinimal2() = OptionsMap(
  */
 fun themeNone() = OptionsMap(
     kind = Option.Plot.THEME,
-    name = ThemeOption.Name.LP_NONE,
+    name = Option.Theme.Name.LP_NONE,
     emptyMap()
 )
 
@@ -117,11 +116,7 @@ fun themeNone() = OptionsMap(
  *
  * - [theme_void.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/theme_void.ipynb)
  */
-fun themeVoid() = OptionsMap(
-    kind = Option.Plot.THEME,
-    name = ThemeOption.Name.R_CLASSIC,
-    emptyMap()
-) + theme(
+fun themeVoid() = themeClassic() + theme(
     line = elementBlank(),
     axis = elementBlank()
 )

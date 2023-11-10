@@ -7,7 +7,6 @@
 
 package org.jetbrains.letsPlot.themes
 
-import org.jetbrains.letsPlot.core.plot.builder.defaultTheme.values.ThemeOption
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.OptionsMap
 
@@ -21,7 +20,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  */
 fun flavorDarcula() = OptionsMap(
     kind = Option.Plot.THEME,
-    options = mapOf(ThemeOption.FLAVOR to ThemeOption.Flavor.DARCULA)
+    options = mapOf(Option.Theme.FLAVOR to Option.Theme.Flavor.DARCULA)
 )
 
 /**
@@ -33,7 +32,7 @@ fun flavorDarcula() = OptionsMap(
  */
 fun flavorSolarizedLight() = OptionsMap(
     kind = Option.Plot.THEME,
-    options = mapOf(ThemeOption.FLAVOR to ThemeOption.Flavor.SOLARIZED_LIGHT)
+    options = mapOf(Option.Theme.FLAVOR to Option.Theme.Flavor.SOLARIZED_LIGHT)
 )
 
 /**
@@ -45,7 +44,7 @@ fun flavorSolarizedLight() = OptionsMap(
  */
 fun flavorSolarizedDark() = OptionsMap(
     kind = Option.Plot.THEME,
-    options = mapOf(ThemeOption.FLAVOR to ThemeOption.Flavor.SOLARIZED_DARK)
+    options = mapOf(Option.Theme.FLAVOR to Option.Theme.Flavor.SOLARIZED_DARK)
 )
 
 /**
@@ -57,7 +56,7 @@ fun flavorSolarizedDark() = OptionsMap(
  */
 fun flavorHighContrastLight() = OptionsMap(
     kind = Option.Plot.THEME,
-    options = mapOf(ThemeOption.FLAVOR to ThemeOption.Flavor.HIGH_CONTRAST_LIGHT)
+    options = mapOf(Option.Theme.FLAVOR to Option.Theme.Flavor.HIGH_CONTRAST_LIGHT)
 )
 
 /**
@@ -69,5 +68,5 @@ fun flavorHighContrastLight() = OptionsMap(
  */
 fun flavorHighContrastDark() = OptionsMap(
     kind = Option.Plot.THEME,
-    options = mapOf(ThemeOption.FLAVOR to ThemeOption.Flavor.HIGH_CONTRAST_DARK)
+    options = mapOf(Option.Theme.FLAVOR to Option.Theme.Flavor.HIGH_CONTRAST_DARK)
 )
