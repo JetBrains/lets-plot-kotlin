@@ -1,6 +1,5 @@
 package org.jetbrains.letsPlot.intern
 
-import org.jetbrains.letsPlot.core.plot.builder.defaultTheme.values.ThemeOption
 import org.jetbrains.letsPlot.core.spec.Option
 
 internal object ThemeOptionsUtil {
@@ -10,7 +9,7 @@ internal object ThemeOptionsUtil {
         val result: Map<String, Any>? = specList.reduceOrNull() { prev, next ->
             val merged = next[Option.Meta.NAME]?.let {
                 // keep the previously specified flavor
-                val flavor = prev.filterKeys { it == ThemeOption.FLAVOR }
+                val flavor = prev.filterKeys { it == Option.Theme.FLAVOR }
 
                 // 'named' theme overrides all prev theme options.
                 next + flavor

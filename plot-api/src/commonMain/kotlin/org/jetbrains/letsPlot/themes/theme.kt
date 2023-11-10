@@ -7,7 +7,6 @@
 
 package org.jetbrains.letsPlot.themes
 
-import org.jetbrains.letsPlot.core.plot.builder.defaultTheme.values.ThemeOption
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.filterNonNullValues
@@ -177,74 +176,74 @@ class theme(
 
 ) : OptionsMap(
     Option.Plot.THEME, mapOf(
-        ThemeOption.LINE to line,
-        ThemeOption.RECT to rect,
-        ThemeOption.TEXT to text,
-        ThemeOption.TITLE to title,
-        ThemeOption.AXIS to axis,
+        Option.Theme.LINE to line,
+        Option.Theme.RECT to rect,
+        Option.Theme.TEXT to text,
+        Option.Theme.TITLE to title,
+        Option.Theme.AXIS to axis,
 
-        ThemeOption.AXIS_ONTOP to axisOntop,
-        ThemeOption.AXIS_ONTOP_X to axisOntopX,
-        ThemeOption.AXIS_ONTOP_Y to axisOntopY,
+        Option.Theme.AXIS_ONTOP to axisOntop,
+        Option.Theme.AXIS_ONTOP_X to axisOntopX,
+        Option.Theme.AXIS_ONTOP_Y to axisOntopY,
 
-        ThemeOption.AXIS_TITLE to axisTitle,
-        ThemeOption.AXIS_TITLE_X to axisTitleX,
-        ThemeOption.AXIS_TITLE_Y to axisTitleY,
+        Option.Theme.AXIS_TITLE to axisTitle,
+        Option.Theme.AXIS_TITLE_X to axisTitleX,
+        Option.Theme.AXIS_TITLE_Y to axisTitleY,
 
-        ThemeOption.AXIS_TEXT to axisText,
-        ThemeOption.AXIS_TEXT_X to axisTextX,
-        ThemeOption.AXIS_TEXT_Y to axisTextY,
+        Option.Theme.AXIS_TEXT to axisText,
+        Option.Theme.AXIS_TEXT_X to axisTextX,
+        Option.Theme.AXIS_TEXT_Y to axisTextY,
 
-        ThemeOption.AXIS_TICKS to axisTicks,
-        ThemeOption.AXIS_TICKS_X to axisTicksX,
-        ThemeOption.AXIS_TICKS_Y to axisTicksY,
+        Option.Theme.AXIS_TICKS to axisTicks,
+        Option.Theme.AXIS_TICKS_X to axisTicksX,
+        Option.Theme.AXIS_TICKS_Y to axisTicksY,
 
-        ThemeOption.AXIS_TICKS_LENGTH to axisTicksLength,
-        ThemeOption.AXIS_TICKS_LENGTH_X to axisTicksLengthX,
-        ThemeOption.AXIS_TICKS_LENGTH_Y to axisTicksLengthY,
+        Option.Theme.AXIS_TICKS_LENGTH to axisTicksLength,
+        Option.Theme.AXIS_TICKS_LENGTH_X to axisTicksLengthX,
+        Option.Theme.AXIS_TICKS_LENGTH_Y to axisTicksLengthY,
 
-        ThemeOption.AXIS_LINE to axisLine,
-        ThemeOption.AXIS_LINE_X to axisLineX,
-        ThemeOption.AXIS_LINE_Y to axisLineY,
+        Option.Theme.AXIS_LINE to axisLine,
+        Option.Theme.AXIS_LINE_X to axisLineX,
+        Option.Theme.AXIS_LINE_Y to axisLineY,
 
-        ThemeOption.LEGEND_BKGR_RECT to legendBackground,
-        ThemeOption.LEGEND_TEXT to legendText,
-        ThemeOption.LEGEND_TITLE to legendTitle,
+        Option.Theme.LEGEND_BKGR_RECT to legendBackground,
+        Option.Theme.LEGEND_TEXT to legendText,
+        Option.Theme.LEGEND_TITLE to legendTitle,
 
-        ThemeOption.PANEL_BKGR_RECT to panelBackground,
-        ThemeOption.PANEL_BORDER_RECT to panelBorder,
+        Option.Theme.PANEL_BKGR_RECT to panelBackground,
+        Option.Theme.PANEL_BORDER_RECT to panelBorder,
 
-        ThemeOption.PANEL_GRID to panelGrid,
-        ThemeOption.PANEL_GRID_MAJOR to panelGridMajor,
-        ThemeOption.PANEL_GRID_MINOR to panelGridMinor,
-        ThemeOption.PANEL_GRID_MAJOR_X to panelGridMajorX,
-        ThemeOption.PANEL_GRID_MINOR_X to panelGridMinorX,
-        ThemeOption.PANEL_GRID_MAJOR_Y to panelGridMajorY,
-        ThemeOption.PANEL_GRID_MINOR_Y to panelGridMinorY,
+        Option.Theme.PANEL_GRID to panelGrid,
+        Option.Theme.PANEL_GRID_MAJOR to panelGridMajor,
+        Option.Theme.PANEL_GRID_MINOR to panelGridMinor,
+        Option.Theme.PANEL_GRID_MAJOR_X to panelGridMajorX,
+        Option.Theme.PANEL_GRID_MINOR_X to panelGridMinorX,
+        Option.Theme.PANEL_GRID_MAJOR_Y to panelGridMajorY,
+        Option.Theme.PANEL_GRID_MINOR_Y to panelGridMinorY,
 
-        ThemeOption.PLOT_BKGR_RECT to plotBackground,
-        ThemeOption.PLOT_TITLE to plotTitle,
-        ThemeOption.PLOT_SUBTITLE to plotSubtitle,
-        ThemeOption.PLOT_CAPTION to plotCaption,
-        ThemeOption.PLOT_MESSAGE to plotMessage,
-        ThemeOption.PLOT_MARGIN to plotMargin,
+        Option.Theme.PLOT_BKGR_RECT to plotBackground,
+        Option.Theme.PLOT_TITLE to plotTitle,
+        Option.Theme.PLOT_SUBTITLE to plotSubtitle,
+        Option.Theme.PLOT_CAPTION to plotCaption,
+        Option.Theme.PLOT_MESSAGE to plotMessage,
+        Option.Theme.PLOT_MARGIN to plotMargin,
 
-        ThemeOption.FACET_STRIP_BGR_RECT to stripBackground,
-        ThemeOption.FACET_STRIP_TEXT to stripText,
+        Option.Theme.FACET_STRIP_BGR_RECT to stripBackground,
+        Option.Theme.FACET_STRIP_TEXT to stripText,
 
-        ThemeOption.AXIS_TOOLTIP to axisTooltip,
-        ThemeOption.AXIS_TOOLTIP_X to axisTooltipX,
-        ThemeOption.AXIS_TOOLTIP_Y to axisTooltipY,
+        Option.Theme.AXIS_TOOLTIP to axisTooltip,
+        Option.Theme.AXIS_TOOLTIP_X to axisTooltipX,
+        Option.Theme.AXIS_TOOLTIP_Y to axisTooltipY,
 
-        ThemeOption.AXIS_TOOLTIP_TEXT to axisTooltipText,
-        ThemeOption.AXIS_TOOLTIP_TEXT_X to axisTooltipTextX,
-        ThemeOption.AXIS_TOOLTIP_TEXT_Y to axisTooltipTextY,
+        Option.Theme.AXIS_TOOLTIP_TEXT to axisTooltipText,
+        Option.Theme.AXIS_TOOLTIP_TEXT_X to axisTooltipTextX,
+        Option.Theme.AXIS_TOOLTIP_TEXT_Y to axisTooltipTextY,
 
-        ThemeOption.TOOLTIP_RECT to tooltip,
-        ThemeOption.TOOLTIP_TEXT to tooltipText,
-        ThemeOption.TOOLTIP_TITLE_TEXT to tooltipTitleText,
+        Option.Theme.TOOLTIP_RECT to tooltip,
+        Option.Theme.TOOLTIP_TEXT to tooltipText,
+        Option.Theme.TOOLTIP_TITLE_TEXT to tooltipTitleText,
 
-        ThemeOption.GEOM to geom
+        Option.Theme.GEOM to geom
     )
         .filterNonNullValues()
         .toMutableMap()
@@ -260,11 +259,11 @@ class theme(
         return newTheme
     }
 
-    fun legendPositionNone() = withOption(ThemeOption.LEGEND_POSITION, VAL_LEGEND_POS_NONE)
-    fun legendPositionLeft() = withOption(ThemeOption.LEGEND_POSITION, VAL_LEGEND_POS_LEFT)
-    fun legendPositionRight() = withOption(ThemeOption.LEGEND_POSITION, VAL_LEGEND_POS_RIGHT)
-    fun legendPositionBottom() = withOption(ThemeOption.LEGEND_POSITION, VAL_LEGEND_POS_BOTTOM)
-    fun legendPositionTop() = withOption(ThemeOption.LEGEND_POSITION, VAL_LEGEND_POS_TOP)
+    fun legendPositionNone() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_NONE)
+    fun legendPositionLeft() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_LEFT)
+    fun legendPositionRight() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_RIGHT)
+    fun legendPositionBottom() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_BOTTOM)
+    fun legendPositionTop() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_TOP)
 
     /**
      * Specifies the legend position relative to the plot drawing area.
@@ -274,12 +273,12 @@ class theme(
     @Suppress("SpellCheckingInspection")
     fun legendPosition(xpos: Number, ypos: Number): theme {
         return withOption(
-            ThemeOption.LEGEND_POSITION,
+            Option.Theme.LEGEND_POSITION,
             listOf(xpos, ypos)
         )
     }
 
-    fun legendJustificationCenter() = withOption(ThemeOption.LEGEND_JUSTIFICATION, VAL_LEGEND_JUSTIFICATION_CENTER)
+    fun legendJustificationCenter() = withOption(Option.Theme.LEGEND_JUSTIFICATION, VAL_LEGEND_JUSTIFICATION_CENTER)
 
     /**
      * Specifies the anchor point for positioning legend inside plot.
@@ -288,13 +287,13 @@ class theme(
      */
     fun legendJustification(xanchor: Number, yanchor: Number): theme {
         return withOption(
-            ThemeOption.LEGEND_JUSTIFICATION,
+            Option.Theme.LEGEND_JUSTIFICATION,
             listOf(xanchor, yanchor)
         )
     }
 
-    fun legendDirectionHorizontal() = withOption(ThemeOption.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_HORIZONTAL)
-    fun legendDirectionVertical() = withOption(ThemeOption.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_VERTICAL)
+    fun legendDirectionHorizontal() = withOption(Option.Theme.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_HORIZONTAL)
+    fun legendDirectionVertical() = withOption(Option.Theme.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_VERTICAL)
 
     private companion object {
         private const val VAL_ELEMENT_BLANK = "blank"
@@ -317,7 +316,7 @@ class theme(
  *
  * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  */
-fun elementBlank() = mapOf(ThemeOption.Elem.BLANK to true)
+fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
 
 
 /**
@@ -339,10 +338,10 @@ fun elementRect(
     size: Number? = null,
     blank: Boolean = false,
 ) = mapOf(
-    ThemeOption.Elem.FILL to fill,
-    ThemeOption.Elem.COLOR to color,
-    ThemeOption.Elem.SIZE to size,
-    ThemeOption.Elem.BLANK to blank,
+    Option.Theme.Elem.FILL to fill,
+    Option.Theme.Elem.COLOR to color,
+    Option.Theme.Elem.SIZE to size,
+    Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 
 
@@ -363,9 +362,9 @@ fun elementLine(
     size: Number? = null,
     blank: Boolean = false,
 ) = mapOf(
-    ThemeOption.Elem.COLOR to color,
-    ThemeOption.Elem.SIZE to size,
-    ThemeOption.Elem.BLANK to blank,
+    Option.Theme.Elem.COLOR to color,
+    Option.Theme.Elem.SIZE to size,
+    Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 
 
@@ -409,15 +408,15 @@ fun elementText(
     margin: Any? = null,
     blank: Boolean = false,
 ) = mapOf(
-    ThemeOption.Elem.COLOR to color,
-    ThemeOption.Elem.FONT_FAMILY to family,
-    ThemeOption.Elem.FONT_FACE to face,
-    ThemeOption.Elem.SIZE to size,
-    ThemeOption.Elem.ANGLE to angle,
-    ThemeOption.Elem.HJUST to hjust,
-    ThemeOption.Elem.VJUST to vjust,
-    ThemeOption.Elem.MARGIN to margin,
-    ThemeOption.Elem.BLANK to blank,
+    Option.Theme.Elem.COLOR to color,
+    Option.Theme.Elem.FONT_FAMILY to family,
+    Option.Theme.Elem.FONT_FACE to face,
+    Option.Theme.Elem.SIZE to size,
+    Option.Theme.Elem.ANGLE to angle,
+    Option.Theme.Elem.HJUST to hjust,
+    Option.Theme.Elem.VJUST to vjust,
+    Option.Theme.Elem.MARGIN to margin,
+    Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 
 fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) =
@@ -439,7 +438,7 @@ fun elementGeom(
     brush: Any? = null,
     paper: Any? = null,
 ) = mapOf(
-    ThemeOption.Geom.PEN to pen,
-    ThemeOption.Geom.BRUSH to brush,
-    ThemeOption.Geom.PAPER to paper
+    Option.Theme.Geom.PEN to pen,
+    Option.Theme.Geom.BRUSH to brush,
+    Option.Theme.Geom.PAPER to paper
 )
