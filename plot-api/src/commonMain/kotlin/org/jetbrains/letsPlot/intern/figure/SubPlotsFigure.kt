@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.intern.figure
 
 import org.jetbrains.letsPlot.Figure
-import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.spec.Option.Meta
 import org.jetbrains.letsPlot.core.spec.Option.Plot
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots
@@ -38,11 +37,11 @@ class SubPlotsFigure(
             LAYOUT to layout.toSpec(),
         )
 
-        val themeOptionList = features.filter { it.kind == Option.Plot.THEME }
+        val themeOptionList = features.filter { it.kind == Plot.THEME }
 
         // Merge themes
         ThemeOptionsUtil.toSpec(themeOptionList)?.let {
-            spec[Option.Plot.THEME] = it
+            spec[Plot.THEME] = it
         }
 
         @Suppress("ConvertArgumentToSet")
