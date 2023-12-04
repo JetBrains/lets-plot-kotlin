@@ -16,8 +16,9 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -77,8 +78,9 @@ fun scaleXDiscrete(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -138,8 +140,9 @@ fun scaleYDiscrete(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -190,8 +193,9 @@ fun scaleXDiscreteReversed(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.

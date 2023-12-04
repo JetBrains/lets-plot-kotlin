@@ -34,8 +34,9 @@ import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  *
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A numeric vector of length two providing limits of the scale.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -88,8 +89,9 @@ fun scaleFillContinuous(
  *
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -140,8 +142,9 @@ fun scaleColorContinuous(
  * @param high Color for high end of gradient.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -204,8 +207,9 @@ fun scaleGradient(
  * @param high Color for high end of gradient.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -265,8 +269,9 @@ fun scaleFillGradient(
  * @param high Color for high end of gradient.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -321,8 +326,9 @@ fun scaleColorGradient(
  *  The midpoint (in data value) of the diverging scale.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -386,8 +392,9 @@ fun scaleGradient2(
  *  The midpoint (in data value) of the diverging scale.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -441,8 +448,9 @@ fun scaleFillGradient2(
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -503,8 +511,9 @@ fun scaleGradientN(
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -558,8 +567,9 @@ fun scaleFillGradientN(
  *  The midpoint (in data value) of the diverging scale.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -616,8 +626,9 @@ fun scaleColorGradient2(
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -670,8 +681,9 @@ fun scaleColorGradientN(
  * @param end Gray value at high end of palette in range `[0,1]`.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -740,8 +752,9 @@ fun scaleGrey(
  * @param end Gray value at high end of palette in range `[0,1]`.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -798,8 +811,9 @@ fun scaleFillGrey(
  * @param end Gray value at high end of palette in range `[0,1]`.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -861,8 +875,9 @@ fun scaleColorGrey(
  *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -943,8 +958,9 @@ fun scaleHue(
  *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -1015,8 +1031,9 @@ fun scaleFillHue(
  *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.

@@ -33,9 +33,9 @@ import org.jetbrains.letsPlot.intern.Scale
  *  If -1, the order of colors is reversed.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks List of data values.
- *  A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
@@ -107,9 +107,9 @@ fun scaleBrewer(
  *  If -1, the order of colors is reversed.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks List of data values.
- *  A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
@@ -175,9 +175,9 @@ fun scaleFillBrewer(
  *  If -1, the order of colors is reversed.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks List of data values.
- *  A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.

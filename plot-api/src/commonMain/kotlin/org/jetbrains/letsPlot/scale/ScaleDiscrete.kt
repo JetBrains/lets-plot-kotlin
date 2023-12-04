@@ -19,9 +19,9 @@ import org.jetbrains.letsPlot.intern.Scale
  *  If -1, the order of colors is reversed.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks List of data values.
- *  A vector specifying values to display as breaks (ticks) on guides (axis).
- * @param labels A vector of labels on guides (axis or legend).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param limits List of data values.
  *  A vector specifying values to display with the scale and their order in guides (axis).
  * @param naValue Missing values will be replaced with this value.
