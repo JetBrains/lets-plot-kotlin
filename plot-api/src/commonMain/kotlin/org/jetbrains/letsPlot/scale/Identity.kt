@@ -48,8 +48,8 @@ import org.jetbrains.letsPlot.intern.Scale
 fun scaleIdentity(
     aesthetic: Any,
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -106,8 +106,8 @@ fun scaleIdentity(
  */
 fun scaleColorIdentity(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -159,8 +159,8 @@ fun scaleColorIdentity(
  */
 fun scaleFillIdentity(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -206,8 +206,8 @@ fun scaleFillIdentity(
  */
 fun scaleShapeIdentity(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -261,8 +261,8 @@ fun scaleShapeIdentity(
 @Suppress("SpellCheckingInspection")
 fun scaleLinetypeIdentity(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -314,8 +314,8 @@ fun scaleLinetypeIdentity(
  */
 fun scaleAlphaIdentity(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
@@ -361,8 +361,8 @@ fun scaleAlphaIdentity(
  */
 fun scaleSizeIdentity(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
@@ -409,8 +409,8 @@ fun scaleSizeIdentity(
 @Suppress("SpellCheckingInspection")
 fun scaleLinewidthIdentity(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
@@ -456,8 +456,8 @@ fun scaleLinewidthIdentity(
  */
 fun scaleStrokeIdentity(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,

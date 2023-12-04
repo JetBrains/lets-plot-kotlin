@@ -38,8 +38,8 @@ import org.jetbrains.letsPlot.intern.Scale
 fun scaleShape(
     solid: Boolean? = null,
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,

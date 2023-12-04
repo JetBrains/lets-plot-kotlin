@@ -43,8 +43,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  */
 fun scaleXDiscrete(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -104,8 +104,8 @@ fun scaleXDiscrete(
  */
 fun scaleYDiscrete(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -164,8 +164,8 @@ fun scaleYDiscrete(
  */
 fun scaleXDiscreteReversed(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -216,8 +216,8 @@ fun scaleXDiscreteReversed(
  */
 fun scaleYDiscreteReversed(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,

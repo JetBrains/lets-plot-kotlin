@@ -42,8 +42,8 @@ import org.jetbrains.letsPlot.core.plot.base.Aes
 fun scaleFillDiscrete(
     direction: Int? = null,
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -98,8 +98,8 @@ fun scaleFillDiscrete(
 fun scaleColorDiscrete(
     direction: Int? = null,
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,

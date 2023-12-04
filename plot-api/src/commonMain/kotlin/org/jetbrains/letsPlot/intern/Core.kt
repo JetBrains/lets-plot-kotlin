@@ -129,8 +129,8 @@ abstract class Layer(
 class Scale(
     aesthetic: Any,
     val name: String? = null,
-    val breaks: List<Any>? = null,
-    val labels: List<String>? = null,
+    breaks: Any? = null,                // List of breaks or Map of labels to breaks
+    labels: Any? = null,                // List of labels or Map of breaks to labels
     val limits: Any? = null,            // Any type convertable to list.
     val expand: Any? = null,
     val naValue: Any? = null,
@@ -144,6 +144,49 @@ class Scale(
     val aesthetic: List<Aes<*>> = when (aesthetic) {
         is List<*> -> aesthetic.map(::toAes)
         else -> listOf(toAes(aesthetic))
+    }
+
+    val breaks: List<Any>?
+    val labels: List<String>?
+
+    init {
+        var breaksList = breaks?.let {
+            when (it) {
+                is Map<*, *> -> it.values
+                is List<*> -> it
+                else -> error("The scale 'breaks' parameter should be specified with a list or dictionary.")
+            }
+        }
+
+        val labelsList = when (labels) {
+            null -> {
+                (breaks as? Map<*, *>)?.keys
+            }
+            is Map<*, *> -> {
+                if (breaksList == null) {
+                    breaksList = labels.keys
+                    labels.values
+                } else {
+                    val labeledBreaks = breaksList.filter { it in labels }
+                    val newBreaks = labeledBreaks.map { it }
+                    val newLabels = labeledBreaks.map { labels[it] }
+                    val breaksWithoutLabel = breaksList.filterNot { it in labels }
+                    breaksList = newBreaks + breaksWithoutLabel
+                    newLabels
+                }
+            }
+            is List<*> -> labels
+            else -> error("The scale 'labels' parameter should be specified with a list or dictionary.")
+        }
+
+        this.breaks = breaksList?.let { list ->
+            require(list.all { it != null }) { "'breaks' is non-nullable list, but was: $list" }
+            list.map { v -> v as Any }
+        }
+        this.labels = labelsList?.let { list ->
+            require(list.all { it is String }) { "'labels' must contain strings, but was: $list" }
+            list.map { v -> v as String }
+        }
     }
 
     private fun toAes(option: Any?): Aes<*> {

@@ -50,8 +50,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  */
 fun scaleXContinuous(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -116,8 +116,8 @@ fun scaleXContinuous(
  */
 fun scaleYContinuous(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -173,8 +173,8 @@ fun scaleYContinuous(
  */
 fun scaleXLog10(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -225,8 +225,8 @@ fun scaleXLog10(
  */
 fun scaleYLog10(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -277,8 +277,8 @@ fun scaleYLog10(
  */
 fun scaleXReverse(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -329,8 +329,8 @@ fun scaleXReverse(
  */
 fun scaleYReverse(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -381,8 +381,8 @@ fun scaleYReverse(
  */
 fun scaleXSqrt(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -433,8 +433,8 @@ fun scaleXSqrt(
  */
 fun scaleYSqrt(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,

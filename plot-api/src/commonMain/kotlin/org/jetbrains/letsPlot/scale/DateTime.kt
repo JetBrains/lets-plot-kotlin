@@ -47,8 +47,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  */
 fun scaleXDateTime(
     name: String? = null,
-    breaks: List<Any>? = null,      // ToDo: should understand Date
-    labels: List<String>? = null,
+    breaks: Any? = null,      // ToDo: should understand Date
+    labels: Any? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
@@ -109,8 +109,8 @@ fun scaleXDateTime(
  */
 fun scaleYDateTime(
     name: String? = null,
-    breaks: List<Any>? = null,      // ToDo: should understand Date
-    labels: List<String>? = null,
+    breaks: Any? = null,      // ToDo: should understand Date
+    labels: Any? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
@@ -159,8 +159,8 @@ fun scaleYDateTime(
  */
 fun scaleXTime(
     name: String? = null,
-    breaks: List<Any>? = null,       // ToDo: List<Number>?
-    labels: List<String>? = null,
+    breaks: Any? = null,       // ToDo: List<Number>?
+    labels: Any? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
@@ -207,8 +207,8 @@ fun scaleXTime(
  */
 fun scaleYTime(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,

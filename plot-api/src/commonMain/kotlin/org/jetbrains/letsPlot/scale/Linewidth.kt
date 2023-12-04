@@ -42,8 +42,8 @@ import org.jetbrains.letsPlot.intern.Scale
 fun scaleLinewidth(
     range: Pair<Number, Number>? = null,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Number? = null,
     format: String? = null,
