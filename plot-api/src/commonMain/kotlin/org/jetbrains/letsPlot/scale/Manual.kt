@@ -43,7 +43,7 @@ import org.jetbrains.letsPlot.intern.Scale
  */
 fun scaleManual(
     aesthetic: Any,
-    values: List<Any>,
+    values: Any,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
@@ -51,21 +51,52 @@ fun scaleManual(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null
-) = Scale(
-    aesthetic = aesthetic,
-    name = name,
-    breaks = breaks,
-    labels = labels,
-    limits = limits,
-    naValue = naValue,
-    format = format,
-    guide = guide,
-    otherOptions = Options(
-        mapOf(
-            Option.Scale.OUTPUT_VALUES to values
+): Scale {
+
+    var newBreaks = breaks
+    val newValues: List<Any>? = when (values) {
+        is Map<*, *> -> {
+            if (breaks == null && limits == null) {
+                newBreaks = values.keys.toList()
+                values.values
+            } else {
+                val baseOrder = (limits ?: breaks)!!.let {
+                    require(it is Map<*, *> || it is List<*>)
+                    val list = (it as? Map<*, *>)?.values?.toList() ?: it
+                    list as List<*>
+                }
+                baseOrder.mapNotNull { values[it] }.let { list ->
+                    if (list.isNotEmpty()) {
+                        list + values.values.filter { it !in list }
+                    } else {
+                        null
+                    }
+                }
+            }
+        }
+        is List<*> -> values
+        else -> error("The scale 'values' parameter should be specified with a list or dictionary.")
+    }?.let { list ->
+        require(list.all { it != null }) { "'values' is non-nullable list, but was: $list" }
+        list.map { v -> v as Any }
+    }
+
+    return Scale(
+        aesthetic = aesthetic,
+        name = name,
+        breaks = newBreaks,
+        labels = labels,
+        limits = limits,
+        naValue = naValue,
+        format = format,
+        guide = guide,
+        otherOptions = Options(
+            mapOf(
+                Option.Scale.OUTPUT_VALUES to newValues
+            )
         )
     )
-)
+}
 
 /**
  * Creates your own discrete scale for `color` aesthetic.
@@ -102,7 +133,7 @@ fun scaleManual(
  *
  */
 fun scaleColorManual(
-    values: List<Any>,
+    values: Any,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
@@ -157,7 +188,7 @@ fun scaleColorManual(
  *
  */
 fun scaleFillManual(
-    values: List<Any>,
+    values: Any,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
@@ -207,7 +238,7 @@ fun scaleFillManual(
  *
  */
 fun scaleSizeManual(
-    values: List<Number>,
+    values: Any,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
@@ -261,7 +292,7 @@ fun scaleSizeManual(
  *
  */
 fun scaleShapeManual(
-    values: List<Number>,
+    values: Any,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
@@ -312,7 +343,7 @@ fun scaleShapeManual(
  */
 @Suppress("SpellCheckingInspection")
 fun scaleLinetypeManual(
-    values: List<Number>,
+    values: Any,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
@@ -363,7 +394,7 @@ fun scaleLinetypeManual(
  *
  */
 fun scaleAlphaManual(
-    values: List<Double>,
+    values: Any,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
