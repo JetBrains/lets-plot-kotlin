@@ -41,6 +41,18 @@ object ScaleAlpha {
                         scaleAlpha(breaks = listOf(0.5, 1.0, 1.5), labels = listOf("a", "b", "c"))
                 p.show()
             }
+
+            run {
+                val df = mapOf<String, Any>(
+                    "x" to (1..3).toList(),
+                    "y" to (1..3).toList(),
+                    "alpha" to listOf(0.5, 1.0, 1.5)
+                )
+                val p = letsPlot(df) { x = "x"; y = "y"; alpha = "alpha" } +
+                        geomBar(stat = Stat.identity) +
+                        scaleAlpha(breaks = mapOf("a" to 0.5, "b" to 1.0, "c" to 1.5))
+                p.show()
+            }
         }
     }
 }
