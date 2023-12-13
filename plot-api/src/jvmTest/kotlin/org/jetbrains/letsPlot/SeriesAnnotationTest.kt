@@ -11,6 +11,7 @@ import org.jetbrains.letsPlot.commons.intern.datetime.DateTime
 import org.jetbrains.letsPlot.commons.intern.datetime.Month
 import org.jetbrains.letsPlot.commons.intern.datetime.tz.TimeZone
 import org.jetbrains.letsPlot.geom.geomLine
+import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Test
 import java.time.Instant
@@ -96,6 +97,26 @@ class SeriesAnnotationTest {
         )
     }
 
+
+    @Test
+    fun `factor levels series annotations`() {
+        val data = mapOf("v1" to listOf("a", "b", "c"), "v2" to listOf(1.0, 2.0, 3.0))
+        val p = ggplot(data) {
+            x = asDiscrete("v1", levels = listOf("b", "c", "a"))
+            y = "v2"
+            color = asDiscrete("v1", order = -1)
+            fill = asDiscrete("v2", levels = listOf(3.0, 1.0, 2.0))
+        } +  geomPoint()
+
+        assertSeriesAnnotations(
+            p.toSpec(),
+            expected = seriesAnnotations(
+                factorLevelsAnnotation("v1",  listOf("b", "c", "a"), order = -1),
+                factorLevelsAnnotation("v2",  listOf(3.0, 1.0, 2.0), order = null),
+            )
+        )
+    }
+
     companion object {
         // { 'series_annotations': [ {'column': 'name', 'type': 'datetime'}, { ... } ] }
 
@@ -109,6 +130,15 @@ class SeriesAnnotationTest {
             return mapOf(
                 Option.Meta.SeriesAnnotation.COLUMN to varName,
                 Option.Meta.SeriesAnnotation.TYPE to Option.Meta.SeriesAnnotation.DateTime.DATE_TIME
+            )
+        }
+
+        // { 'series_annotations': [ {'column': 'name', 'factor_levels': levels, 'order': order}, { ... } ] }
+        private fun factorLevelsAnnotation(varName: String, levels: List<Any>, order: Int?): Map<String, Any?> {
+            return mapOf(
+                Option.Meta.SeriesAnnotation.COLUMN to varName,
+                Option.Meta.SeriesAnnotation.FACTOR_LEVELS to levels,
+                Option.Meta.SeriesAnnotation.ORDER to order
             )
         }
 
