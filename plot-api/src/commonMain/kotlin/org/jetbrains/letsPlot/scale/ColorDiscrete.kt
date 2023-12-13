@@ -19,6 +19,7 @@ import org.jetbrains.letsPlot.core.plot.base.Aes
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as breaks (ticks) on guides (axis).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits List of data values.
  *  A vector specifying values to display with the scale and their order in guides (axis).
  * @param naValue Missing values will be replaced with this value.
@@ -44,6 +45,7 @@ fun scaleFillDiscrete(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -54,6 +56,7 @@ fun scaleFillDiscrete(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -75,6 +78,7 @@ fun scaleFillDiscrete(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as breaks (ticks) on guides (axis).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits List of data values.
  *  A vector specifying values to display with the scale and their order in guides (axis).
  * @param naValue Missing values will be replaced with this value.
@@ -100,6 +104,7 @@ fun scaleColorDiscrete(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -110,6 +115,7 @@ fun scaleColorDiscrete(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

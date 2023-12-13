@@ -36,7 +36,7 @@ import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
- * @param limits A numeric vector of length two providing limits of the scale.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -62,6 +62,7 @@ fun scaleFillContinuous(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -72,6 +73,7 @@ fun scaleFillContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -90,6 +92,7 @@ fun scaleFillContinuous(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -115,6 +118,7 @@ fun scaleColorContinuous(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -125,6 +129,7 @@ fun scaleColorContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -142,6 +147,7 @@ fun scaleColorContinuous(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -169,6 +175,7 @@ fun scaleGradient(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -179,6 +186,7 @@ fun scaleGradient(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -206,6 +214,7 @@ fun scaleGradient(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -232,6 +241,7 @@ fun scaleFillGradient(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -243,6 +253,7 @@ fun scaleFillGradient(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -267,6 +278,7 @@ fun scaleFillGradient(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -293,6 +305,7 @@ fun scaleColorGradient(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -304,6 +317,7 @@ fun scaleColorGradient(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -323,6 +337,7 @@ fun scaleColorGradient(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -351,6 +366,7 @@ fun scaleGradient2(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -361,6 +377,7 @@ fun scaleGradient2(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -388,6 +405,7 @@ fun scaleGradient2(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -415,6 +433,7 @@ fun scaleFillGradient2(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -427,6 +446,7 @@ fun scaleFillGradient2(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -443,6 +463,7 @@ fun scaleFillGradient2(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -470,6 +491,7 @@ fun scaleGradientN(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -480,6 +502,7 @@ fun scaleGradientN(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -505,6 +528,7 @@ fun scaleGradientN(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -531,6 +555,7 @@ fun scaleFillGradientN(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -542,6 +567,7 @@ fun scaleFillGradientN(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -560,6 +586,7 @@ fun scaleFillGradientN(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -587,6 +614,7 @@ fun scaleColorGradient2(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -599,6 +627,7 @@ fun scaleColorGradient2(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -618,6 +647,7 @@ fun scaleColorGradient2(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -644,6 +674,7 @@ fun scaleColorGradientN(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -655,6 +686,7 @@ fun scaleColorGradientN(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -672,6 +704,7 @@ fun scaleColorGradientN(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -700,6 +733,7 @@ fun scaleGrey(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -712,6 +746,7 @@ fun scaleGrey(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         naValue = naValue,
         format = format,
@@ -742,6 +777,7 @@ fun scaleGrey(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -769,6 +805,7 @@ fun scaleFillGrey(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -780,6 +817,7 @@ fun scaleFillGrey(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -800,6 +838,7 @@ fun scaleFillGrey(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -827,6 +866,7 @@ fun scaleColorGrey(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -838,6 +878,7 @@ fun scaleColorGrey(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -863,6 +904,7 @@ fun scaleColorGrey(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -895,6 +937,7 @@ fun scaleHue(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -905,6 +948,7 @@ fun scaleHue(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -945,6 +989,7 @@ fun scaleHue(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -976,6 +1021,7 @@ fun scaleFillHue(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -989,6 +1035,7 @@ fun scaleFillHue(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -1017,6 +1064,7 @@ fun scaleFillHue(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -1048,6 +1096,7 @@ fun scaleColorHue(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -1061,6 +1110,7 @@ fun scaleColorHue(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

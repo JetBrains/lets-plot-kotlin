@@ -22,6 +22,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param breaks List of data values.
  *  A vector specifying values to display as breaks (ticks) on guides (axis).
  * @param labels A vector of labels on guides (axis or legend).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits List of data values.
  *  A vector specifying values to display with the scale and their order in guides (axis).
  * @param naValue Missing values will be replaced with this value.
@@ -49,6 +50,7 @@ fun scaleDiscrete(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -58,6 +60,7 @@ fun scaleDiscrete(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

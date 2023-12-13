@@ -18,6 +18,7 @@ import org.jetbrains.letsPlot.intern.Scale
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A numeric vector of length two providing limits of the scale.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
@@ -43,6 +44,7 @@ fun scaleAlpha(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Number? = null,
     format: String? = null,
@@ -53,6 +55,7 @@ fun scaleAlpha(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

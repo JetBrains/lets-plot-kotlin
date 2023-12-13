@@ -43,6 +43,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param breaks List of data values.
  *  A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
@@ -75,6 +76,7 @@ fun scaleViridis(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Any? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -85,6 +87,7 @@ fun scaleViridis(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -136,6 +139,7 @@ fun scaleViridis(
  * @param breaks List of data values.
  *  A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
@@ -168,6 +172,7 @@ fun scaleFillViridis(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Any? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -182,6 +187,7 @@ fun scaleFillViridis(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -222,6 +228,7 @@ fun scaleFillViridis(
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks)
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
@@ -254,6 +261,7 @@ fun scaleColorViridis(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Any? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -268,6 +276,7 @@ fun scaleColorViridis(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

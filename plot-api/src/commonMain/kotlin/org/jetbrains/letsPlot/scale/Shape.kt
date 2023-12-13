@@ -18,6 +18,7 @@ import org.jetbrains.letsPlot.intern.Scale
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -40,6 +41,7 @@ fun scaleShape(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -49,6 +51,7 @@ fun scaleShape(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

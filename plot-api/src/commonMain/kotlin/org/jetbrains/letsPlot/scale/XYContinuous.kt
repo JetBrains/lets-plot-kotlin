@@ -23,6 +23,7 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *  is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
@@ -52,6 +53,7 @@ fun scaleXContinuous(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -65,6 +67,7 @@ fun scaleXContinuous(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,
@@ -89,6 +92,7 @@ fun scaleXContinuous(
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
@@ -118,6 +122,7 @@ fun scaleYContinuous(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -131,6 +136,7 @@ fun scaleYContinuous(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,
@@ -147,6 +153,7 @@ fun scaleYContinuous(
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
@@ -175,6 +182,7 @@ fun scaleXLog10(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -184,6 +192,7 @@ fun scaleXLog10(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     expand = expand,
     naValue = naValue,
@@ -199,6 +208,7 @@ fun scaleXLog10(
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
@@ -227,6 +237,7 @@ fun scaleYLog10(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -236,6 +247,7 @@ fun scaleYLog10(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     expand = expand,
     naValue = naValue,
@@ -251,6 +263,7 @@ fun scaleYLog10(
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
@@ -279,6 +292,7 @@ fun scaleXReverse(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -288,6 +302,7 @@ fun scaleXReverse(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     expand = expand,
     naValue = naValue,
@@ -303,6 +318,7 @@ fun scaleXReverse(
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
@@ -331,6 +347,7 @@ fun scaleYReverse(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -340,6 +357,7 @@ fun scaleYReverse(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     expand = expand,
     naValue = naValue,
@@ -355,6 +373,7 @@ fun scaleYReverse(
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
@@ -383,6 +402,7 @@ fun scaleXSqrt(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -392,6 +412,7 @@ fun scaleXSqrt(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     expand = expand,
     naValue = naValue,
@@ -407,6 +428,7 @@ fun scaleXSqrt(
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A numeric vector of positions (of ticks).
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
@@ -435,6 +457,7 @@ fun scaleYSqrt(
     name: String? = null,
     breaks: List<Number>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -444,6 +467,7 @@ fun scaleYSqrt(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     expand = expand,
     naValue = naValue,

@@ -36,6 +36,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param breaks List of data values.
  *  A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
@@ -66,6 +67,7 @@ fun scaleBrewer(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Any? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -76,6 +78,7 @@ fun scaleBrewer(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -110,6 +113,7 @@ fun scaleBrewer(
  * @param breaks List of data values.
  *  A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
@@ -139,6 +143,7 @@ fun scaleFillBrewer(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null,
     limits: Any? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -152,6 +157,7 @@ fun scaleFillBrewer(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -178,6 +184,7 @@ fun scaleFillBrewer(
  * @param breaks List of data values.
  *  A vector specifying values to display as ticks on axis.
  * @param labels A vector of labels (on ticks).
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
@@ -207,6 +214,7 @@ fun scaleColorBrewer(
     name: String? = null,
     breaks: List<Any>? = null,
     labels: List<String>? = null,
+    lablim: Int? = null, 
     limits: Any? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -220,6 +228,7 @@ fun scaleColorBrewer(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

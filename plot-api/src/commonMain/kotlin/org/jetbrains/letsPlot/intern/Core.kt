@@ -131,6 +131,7 @@ class Scale(
     val name: String? = null,
     val breaks: List<Any>? = null,
     val labels: List<String>? = null,
+    val lablim: Int? = null,
     val limits: Any? = null,            // Any type convertable to list.
     val expand: Any? = null,
     val naValue: Any? = null,
