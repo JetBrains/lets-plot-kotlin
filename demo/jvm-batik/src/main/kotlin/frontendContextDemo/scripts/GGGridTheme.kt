@@ -28,7 +28,7 @@ object GGGridTheme {
             maxCol = 3
         ) {
             irisTriple(firstElemTheme = flavorSolarizedLight()).show()
-            irisTriple(theme = themeGrey() + flavorDarcula() + theme(plotMargin = 40)).show()
+            irisTriple(theme = themeGrey() + flavorDarcula() + theme(plotMargin = margin(40, 40, 40, 40))).show()
             irisTriple(
                 theme = themeGrey() + flavorDarcula(),
                 firstElemTheme = flavorSolarizedLight() + themeBW()

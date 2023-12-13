@@ -88,14 +88,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  Set an `elementBlank()` to show nothing.
  *  Set an `elementText()` to show sampling messages (`elementText()` options don't affect a message text).
  * @param plotMargin Margin around entire plot.
- *  Margins around the text.
- *  The margin may be specified using a number or a list of numbers:
- *  - a number or list of one number - the same margin it applied to all four sides;
- *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
- *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
- *  the third - to the bottom;
- *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
- *  It is acceptable to use `null` for any side; in this case, the default side value for the plot margin side will be used.
+ *  See `margin()` for more details.
  *
  * @param stripBackground Background of facet labels.
  * @param stripText Facet labels.
@@ -421,14 +414,7 @@ fun elementLine(
  *  - 0.5 - middle-justified
  *  Can be used with values out of range, but behaviour is not specified.
  * @param margin Margins around the text.
- *  Margins around the text.
- *  The margin may be specified using a number or a list of numbers:
- *  - a number or list of one number - the same margin it applied to all four sides;
- *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
- *  - a list of three numbers -  the first margin applies to the top, the second - to the right and left,
- *  the third - to the bottom;
- *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
- *  It is acceptable to use `null` for any side; in this case, the default side value for this element will be used.
+ *  See `margin()` for more details.
  * @param blank Mark as a 'blank' element.
  */
 fun elementText(
@@ -453,12 +439,8 @@ fun elementText(
     Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 
-@Deprecated(
-    "Please, use a number or list of numbers instead of the function to specify margins.",
-    ReplaceWith("listOf(t, r, b, l)"),
-    level = DeprecationLevel.WARNING
-)
-fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) = listOf(t, r, b, l)
+fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) =
+    mapOf("t" to t, "r" to r, "b" to b, "l" to l).filterNonNullValues()
 
 /**
  * Specifies new values for the named colors.
