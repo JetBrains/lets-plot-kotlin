@@ -14,8 +14,17 @@ import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
 class MappingMeta(
     val variable: String,
     private val annotation: String,
-    private val parameters: Map<String, Any?> = emptyMap()
+    label: String,
+    orderBy: String?,
+    val order: Int?,
+    val levels: List<Any>?,
 ) {
+    private val parameters = mapOf(
+        MappingAnnotation.LABEL to label,
+        MappingAnnotation.ORDER_BY to orderBy,
+        MappingAnnotation.ORDER to order
+    )
+
     fun getAnnotatedData(aes: String): Map<String, Any> {
         return mapOf(
             MappingAnnotation.AES to aes,
@@ -42,20 +51,19 @@ class MappingMeta(
  * @param label Name of the scale to be used as the axis label or the legend title (the default is the variable name).
  * @param orderBy The variable name by which the ordering will be performed.
  * @param order Ordering direction: 1 for ascending direction and -1 for descending.
+ * @param levels The list of values that defines a specific order of categories.
  */
 fun asDiscrete(
     variable: String,
     label: String? = null,
     orderBy: String? = null,
-    order: Int? = null
-): MappingMeta {
-    return MappingMeta(
-        variable = variable,
-        annotation = MappingAnnotation.AS_DISCRETE,
-        parameters = mapOf(
-            MappingAnnotation.LABEL to (label ?: variable),
-            MappingAnnotation.ORDER_BY to orderBy,
-            MappingAnnotation.ORDER to order
-        )
-    )
-}
+    order: Int? = null,
+    levels: List<Any>? = null,
+) = MappingMeta(
+    variable,
+    annotation = MappingAnnotation.AS_DISCRETE,
+    label = label ?: variable,
+    orderBy = orderBy,
+    order = order,
+    levels = levels
+)

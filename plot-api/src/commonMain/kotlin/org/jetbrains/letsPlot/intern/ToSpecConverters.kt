@@ -272,8 +272,30 @@ private fun createDataMeta(data: Map<*, *>?, mappings: Map<String, Any>): Map<St
         emptyMap()
     }
 
-    val mappingAnnotations = createMappingAnnotations(mappings)
-    val mappingDataMeta: Map<String, Any> = if (mappingAnnotations.isNotEmpty()) {
+    data class VariableMeta(
+        val levels: List<Any>,
+        val aesthetics: List<String>,
+        val order: Int?,
+    )
+    val variablesMeta = mutableMapOf<String, VariableMeta>()
+    mappings
+        .filterValues { it is MappingMeta }
+        .forEach { (aes, mappingMeta) ->
+            mappingMeta as MappingMeta
+
+            val variableMeta = variablesMeta[mappingMeta.variable]
+            val levels = mappingMeta.levels ?: variableMeta?.levels ?: emptyList()
+            val order = mappingMeta.order ?: variableMeta?.order
+            val aesthetics = variableMeta?.aesthetics?.let { it + aes } ?: listOf(aes)
+            variablesMeta[mappingMeta.variable] = VariableMeta(levels, aesthetics, order)
+        }
+
+    // mapping annotations
+    val aesListForAnnotations = variablesMeta.values.filter { it.levels.isEmpty() }.flatMap(VariableMeta::aesthetics)
+    val mappingAnnotations = createMappingAnnotations(
+        mappings.filterKeys { aes -> aes in aesListForAnnotations }
+    )
+    val mappingDataMeta = if (mappingAnnotations.isNotEmpty()) {
         mapOf(
             Option.Meta.MappingAnnotation.TAG to mappingAnnotations
         )
@@ -281,7 +303,16 @@ private fun createDataMeta(data: Map<*, *>?, mappings: Map<String, Any>): Map<St
         emptyMap()
     }
 
-    val seriesAnnotations = createSeriesAnnotations(data)
+    // series annotations
+    val seriesAnnotations =
+        // with factor levels
+        variablesMeta
+            .filterValues { it.levels.isNotEmpty() }
+            .map { (variable, variableMeta) ->
+                createSeriesAnnotationWithLevels(variable, variableMeta.levels, variableMeta.order)
+            } +
+                // date-time series
+                createDateTimeSeriesAnnotations(data)
     val seriesDataMeta: Map<String, Any> = if (seriesAnnotations.isNotEmpty()) {
         mapOf(
             Option.Meta.SeriesAnnotation.TAG to seriesAnnotations
@@ -315,7 +346,7 @@ private fun createDateTimeAnnotation(varName: String): Map<String, Any> {
     )
 }
 
-private fun createSeriesAnnotations(data: Map<*, *>?): List<Map<String, Any>> {
+private fun createDateTimeSeriesAnnotations(data: Map<*, *>?): List<Map<String, Any>> {
     fun isDateTime(value: Any?): Boolean {
         return value is Instant ||
                 (value?.let(JvmStandardizing::isDateTimeJvm) ?: false)
@@ -330,6 +361,14 @@ private fun createSeriesAnnotations(data: Map<*, *>?): List<Map<String, Any>> {
         }
         return@mapNotNull null
     } ?: emptyList()
+}
+
+private fun createSeriesAnnotationWithLevels(varName: String, levels: List<Any>, order: Int?): Map<String, Any?> {
+    return mapOf(
+        Option.Meta.SeriesAnnotation.COLUMN to varName,
+        Option.Meta.SeriesAnnotation.FACTOR_LEVELS to levels,
+        Option.Meta.SeriesAnnotation.ORDER to order
+    )
 }
 
 //private fun mergeThemeOptions(m0: Map<String, Any>, m1: Map<String, Any>): Map<String, Any> {

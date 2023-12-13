@@ -76,6 +76,17 @@ object AsDiscrete {
                         ggtitle("color as_discrete(order=-1)")
                 p.show()
             }
+
+            // add levels
+            run {
+                val p = ggplot(dat) { x = "x"; y = "y" } +
+                        geomPoint(size = 9.0, shape=21) {
+                            color = asDiscrete(variable = "a", levels = listOf(3.0,2.0,1.0,4.0))
+                            fill = asDiscrete(variable = "a", order = -1)
+                        } +
+                        ggtitle("color as_discrete(levels=[3,2,1,4], order = -1)")
+                p.show()
+            }
         }
     }
 }
