@@ -57,16 +57,25 @@ fun positionDodgeV(height: Number? = null) =
  *  Values that are greater than 0.5 lead to overlapping of the points.
  * @param height Jittering height. The value of height is relative and typically ranges between 0 and 0.5.
  *  Values that are greater than 0.5 lead to overlapping of the points.
+ * @param seed A random seed to make the jitter reproducible.
+ *  If null (the default value), the seed is initialised with a random value.
  */
-fun positionJitter(width: Number? = null, height: Number? = null) =
+fun positionJitter(width: Number? = null, height: Number? = null, seed: Int? = null) =
     PosOptions(
         PosKind.JITTER,
         Options.of(
             Option.Pos.Jitter.WIDTH to width,
-            Option.Pos.Jitter.HEIGHT to height
+            Option.Pos.Jitter.HEIGHT to height,
+            Option.Pos.Jitter.SEED to seed
         )
     )
 
+/**
+ * Adjusts position by nudging a given offset.
+ *
+ * @param x Nudging width.
+ * @param y Nudging height.
+ */
 fun positionNudge(x: Number? = null, y: Number? = null) =
     PosOptions(
         PosKind.NUDGE,
@@ -76,19 +85,34 @@ fun positionNudge(x: Number? = null, y: Number? = null) =
         )
     )
 
+/**
+ * This is primarily used for aligning points generated through `geomPoint()`
+ * with dodged boxplots (e.g., a `geomBoxplot()` with a fill aesthetic supplied).
+ *
+ * @param dodgeWidth Bin width.
+ *  The value is relative and typically ranges between 0 and 1.
+ *  Values of `dodgeWidth` that are greater than 1 lead to overlapping of the objects.
+ * @param jitterWidth Jittering width. The value of `jitterWidth` is relative and typically ranges between 0 and 0.5.
+ *  Values that are greater than 0.5 lead to overlapping of the points.
+ * @param jitterHeight Jittering height. The value of `jitterHeight` is relative and typically ranges between 0 and 0.5.
+ *  Values that are greater than 0.5 lead to overlapping of the points.
+ * @param seed A random seed to make the jitter reproducible.
+ *  If null (the default value), the seed is initialised with a random value.
+ */
 fun positionJitterDodge(
     dodgeWidth: Number? = null,
     jitterWidth: Number? = null,
-    jitterHeight: Number? = null
-) =
-    PosOptions(
-        PosKind.JITTER_DODGE,
-        Options.of(
-            Option.Pos.JitterDodge.DODGE_WIDTH to dodgeWidth,
-            Option.Pos.JitterDodge.JITTER_WIDTH to jitterWidth,
-            Option.Pos.JitterDodge.JITTER_HEIGHT to jitterHeight
-        )
+    jitterHeight: Number? = null,
+    seed: Int? = null,
+) = PosOptions(
+    PosKind.JITTER_DODGE,
+    Options.of(
+        Option.Pos.JitterDodge.DODGE_WIDTH to dodgeWidth,
+        Option.Pos.JitterDodge.JITTER_WIDTH to jitterWidth,
+        Option.Pos.JitterDodge.JITTER_HEIGHT to jitterHeight,
+        Option.Pos.JitterDodge.SEED to seed
     )
+)
 
 /**
  * Adjusts position by stacking overlapping objects on top of each other.

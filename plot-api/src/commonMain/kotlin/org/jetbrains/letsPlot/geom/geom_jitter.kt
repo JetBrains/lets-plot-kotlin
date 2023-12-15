@@ -6,6 +6,7 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
@@ -42,6 +43,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ * @param seed A random seed to make the jitter reproducible.
+ *  If null (the default value), the seed is initialised with a random value.
  * @param width Width for jitter, default = 0.4. Typically ranges between 0 and 0.5. 
  *  Values that are greater than 0.5 lead to overlapping of the points.
  * @param height Height for jitter, default = 0.4. Typically ranges between 0 and 0.5. 
@@ -84,6 +87,7 @@ class geomJitter(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    private val seed: Int? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val alpha: Number? = null,
@@ -115,6 +119,7 @@ class geomJitter(
         return super<PointAesthetics>.seal() +
                 super<JitterParameters>.seal() +
                 super<WithColorOption>.seal() +
-                super<WithFillOption>.seal()
+                super<WithFillOption>.seal() +
+                Options.of(Option.Geom.Jitter.SEED to seed)
     }
 }

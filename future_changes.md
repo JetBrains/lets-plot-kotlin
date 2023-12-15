@@ -25,3 +25,4 @@
 
 ### Fixed
 
+- Jitter reproducibility in geomJitter, positionJitter, positionJitterDodge [[#911](https://github.com/JetBrains/lets-plot/issues/911)].
