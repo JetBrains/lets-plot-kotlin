@@ -11,6 +11,11 @@
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/scale_lablim.ipynb).
 
 
+- `labelText` parameter in `theme()` for annotation text settings [[#930](https://github.com/JetBrains/lets-plot/issues/930)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/theme_label_text.ipynb).
+
+
 ### Changed
 
 - The `plotMargin` parameter in `theme()` and the `margin` parameter in `elementText()` accept a number or a list of numbers:

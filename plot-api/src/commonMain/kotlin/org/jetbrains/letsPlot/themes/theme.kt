@@ -105,6 +105,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param tooltipText Text in general tooltip.
  * @param tooltipTitleText Tooltip title text.
  *
+ * @param labelText Annotation text.
+ *  Annotations are currently supported for pie and bar charts.
+ *  Set `elementText()` to specify annotation text parameters: font family and face, text size,
+ *  text color (relevant for a pie chart - for those annotations that are outside the pie).
+ *
  * @param geom Geometry colors.
  */
 @Suppress("ClassName", "FunctionName")
@@ -179,6 +184,8 @@ class theme(
     tooltipText: Any? = null,
     tooltipTitleText: Any? = null,
 
+    labelText: Any? = null,
+
     geom: Any? = null
 
 ) : OptionsMap(
@@ -249,6 +256,8 @@ class theme(
         Option.Theme.TOOLTIP_RECT to tooltip,
         Option.Theme.TOOLTIP_TEXT to tooltipText,
         Option.Theme.TOOLTIP_TITLE_TEXT to tooltipTitleText,
+
+        Option.Theme.ANNOTATION_TEXT to labelText,
 
         Option.Theme.GEOM to geom
     )
