@@ -26,3 +26,4 @@
 ### Fixed
 
 - Jitter reproducibility in geomJitter, positionJitter, positionJitterDodge [[#911](https://github.com/JetBrains/lets-plot/issues/911)].
+- `scaleXLog2(), scaleYLog2()` as a shortcut for `trans='log2'` [[#922](https://github.com/JetBrains/lets-plot/issues/922)].
