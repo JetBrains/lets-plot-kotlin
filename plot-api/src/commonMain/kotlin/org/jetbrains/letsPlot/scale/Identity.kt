@@ -26,6 +26,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -51,6 +52,7 @@ fun scaleIdentity(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -60,6 +62,7 @@ fun scaleIdentity(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -86,6 +89,7 @@ fun scaleIdentity(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale. and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -110,6 +114,7 @@ fun scaleColorIdentity(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -119,6 +124,7 @@ fun scaleColorIdentity(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -140,6 +146,7 @@ fun scaleColorIdentity(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -164,6 +171,7 @@ fun scaleFillIdentity(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -173,6 +181,7 @@ fun scaleFillIdentity(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -191,6 +200,7 @@ fun scaleFillIdentity(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -212,6 +222,7 @@ fun scaleShapeIdentity(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -221,6 +232,7 @@ fun scaleShapeIdentity(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -246,6 +258,7 @@ fun scaleShapeIdentity(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -268,6 +281,7 @@ fun scaleLinetypeIdentity(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -277,6 +291,7 @@ fun scaleLinetypeIdentity(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -301,6 +316,7 @@ fun scaleLinetypeIdentity(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -322,6 +338,7 @@ fun scaleAlphaIdentity(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
@@ -331,6 +348,7 @@ fun scaleAlphaIdentity(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -349,6 +367,7 @@ fun scaleAlphaIdentity(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -370,6 +389,7 @@ fun scaleSizeIdentity(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
@@ -379,6 +399,7 @@ fun scaleSizeIdentity(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -397,6 +418,7 @@ fun scaleSizeIdentity(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -419,6 +441,7 @@ fun scaleLinewidthIdentity(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
@@ -428,6 +451,7 @@ fun scaleLinewidthIdentity(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -446,6 +470,7 @@ fun scaleLinewidthIdentity(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue An aesthetic value which is used when data in not available.
@@ -467,6 +492,7 @@ fun scaleStrokeIdentity(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Number? = null,
     format: String? = null,
@@ -476,6 +502,7 @@ fun scaleStrokeIdentity(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

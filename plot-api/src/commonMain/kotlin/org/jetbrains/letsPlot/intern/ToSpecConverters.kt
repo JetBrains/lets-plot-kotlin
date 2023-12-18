@@ -20,6 +20,7 @@ import org.jetbrains.letsPlot.core.spec.Option.Scale.EXPAND
 import org.jetbrains.letsPlot.core.spec.Option.Scale.FORMAT
 import org.jetbrains.letsPlot.core.spec.Option.Scale.GUIDE
 import org.jetbrains.letsPlot.core.spec.Option.Scale.LABELS
+import org.jetbrains.letsPlot.core.spec.Option.Scale.LABLIM
 import org.jetbrains.letsPlot.core.spec.Option.Scale.LIMITS
 import org.jetbrains.letsPlot.core.spec.Option.Scale.NAME
 import org.jetbrains.letsPlot.core.spec.Option.Scale.NA_VALUE
@@ -223,6 +224,7 @@ fun Scale.toSpec(): List<Map<String, Any>> {
     name?.let { spec[NAME] = name }
     breaks?.let { spec[BREAKS] = toList(breaks, BREAKS) }
     labels?.let { spec[LABELS] = labels }
+    lablim?.let { spec[LABLIM] = lablim }
     limits?.let { spec[LIMITS] = toList(limits, LIMITS) }
     expand?.let { spec[EXPAND] = expand }
     naValue?.let { spec[NA_VALUE] = naValue }

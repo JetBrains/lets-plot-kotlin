@@ -81,7 +81,14 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  Set an `elementBlank()` to show nothing.
  *  Set an `elementText()` to show sampling messages (`elementText()` options don't affect a message text).
  * @param plotMargin Margin around entire plot.
- *  See `margin()` for more details.
+ *  Margins around the text.
+ *  The margin may be specified using a number or a list of numbers:
+ *  - a number or list of one number - the same margin it applied to all four sides;
+ *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
+ *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
+ *  the third - to the bottom;
+ *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
+ *  It is acceptable to use `null` for any side; in this case, the default side value for the plot margin side will be used.
  *
  * @param stripBackground Background of facet labels.
  * @param stripText Facet labels.
@@ -97,6 +104,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param tooltip General tooltip.
  * @param tooltipText Text in general tooltip.
  * @param tooltipTitleText Tooltip title text.
+ *
+ * @param labelText Annotation text.
+ *  Annotations are currently supported for pie and bar charts.
+ *  Set `elementText()` to specify annotation text parameters: font family and face, text size,
+ *  text color (relevant for a pie chart - for those annotations that are outside the pie).
  *
  * @param geom Geometry colors.
  */
@@ -172,6 +184,8 @@ class theme(
     tooltipText: Any? = null,
     tooltipTitleText: Any? = null,
 
+    labelText: Any? = null,
+
     geom: Any? = null
 
 ) : OptionsMap(
@@ -242,6 +256,8 @@ class theme(
         Option.Theme.TOOLTIP_RECT to tooltip,
         Option.Theme.TOOLTIP_TEXT to tooltipText,
         Option.Theme.TOOLTIP_TITLE_TEXT to tooltipTitleText,
+
+        Option.Theme.ANNOTATION_TEXT to labelText,
 
         Option.Theme.GEOM to geom
     )
@@ -394,7 +410,14 @@ fun elementLine(
  *  - 0.5 - middle-justified
  *  Can be used with values out of range, but behaviour is not specified.
  * @param margin Margins around the text.
- *  See `margin()` for more details.
+ *  Margins around the text.
+ *  The margin may be specified using a number or a list of numbers:
+ *  - a number or list of one number - the same margin it applied to all four sides;
+ *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
+ *  - a list of three numbers -  the first margin applies to the top, the second - to the right and left,
+ *  the third - to the bottom;
+ *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
+ *  It is acceptable to use `null` for any side; in this case, the default side value for this element will be used.
  * @param blank Mark as a 'blank' element.
  */
 fun elementText(
@@ -419,8 +442,12 @@ fun elementText(
     Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 
-fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) =
-    mapOf("t" to t, "r" to r, "b" to b, "l" to l).filterNonNullValues()
+@Deprecated(
+    "Please, use a number or list of numbers instead of the function to specify margins.",
+    ReplaceWith("listOf(t, r, b, l)"),
+    level = DeprecationLevel.WARNING
+)
+fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) = listOf(t, r, b, l)
 
 /**
  * Specifies new values for the named colors.

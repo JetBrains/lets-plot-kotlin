@@ -17,6 +17,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -43,6 +44,7 @@ fun scaleContinuous(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -53,6 +55,7 @@ fun scaleContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

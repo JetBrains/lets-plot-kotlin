@@ -19,6 +19,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
@@ -45,6 +46,7 @@ fun scaleLinewidth(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Number? = null,
     format: String? = null,
@@ -55,6 +57,7 @@ fun scaleLinewidth(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

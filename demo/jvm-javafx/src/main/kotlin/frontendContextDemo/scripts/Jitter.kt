@@ -27,7 +27,7 @@ object Jitter {
 
             (p + geomJitter(shape = 21, fill = "white", size = 3, stroke = 3)).show()
 
-            val geom = geomJitter(size = 3.0, width = .2) { color = "l" }
+            val geom = geomJitter(size = 3.0, width = .2, seed = 41) { color = "l" }
             (p + geom).show()
 
             (p + geom + scaleXDiscrete(expand = listOf(0, .1))).show()

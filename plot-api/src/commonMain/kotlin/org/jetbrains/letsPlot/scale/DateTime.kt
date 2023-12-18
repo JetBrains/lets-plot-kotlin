@@ -24,6 +24,7 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  A pair of values providing limits of the scale. Use `null` to refer to default min/max.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -50,6 +51,7 @@ fun scaleXDateTime(
     name: String? = null,
     breaks: Any? = null,      // ToDo: should understand Date
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
@@ -62,6 +64,7 @@ fun scaleXDateTime(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,
@@ -87,6 +90,7 @@ fun scaleXDateTime(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  A pair of values providing limits of the scale. Use `null` to refer to default min/max.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -113,6 +117,7 @@ fun scaleYDateTime(
     name: String? = null,
     breaks: Any? = null,      // ToDo: should understand Date
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
@@ -125,6 +130,7 @@ fun scaleYDateTime(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,
@@ -150,6 +156,7 @@ fun scaleYDateTime(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A numeric vector of length two providing limits of the scale.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  *  The vector size == 1 => only multiplicative expand (and additive expand by default).
@@ -164,6 +171,7 @@ fun scaleXTime(
     name: String? = null,
     breaks: Any? = null,       // ToDo: List<Number>?
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
@@ -175,6 +183,7 @@ fun scaleXTime(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,
@@ -199,6 +208,7 @@ fun scaleXTime(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A numeric vector of length two providing limits of the scale.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  *  The vector size == 1 => only multiplicative expand (and additive expand by default).
@@ -213,6 +223,7 @@ fun scaleYTime(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
@@ -224,6 +235,7 @@ fun scaleYTime(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,

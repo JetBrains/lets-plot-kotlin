@@ -37,7 +37,7 @@ import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
- * @param limits A numeric vector of length two providing limits of the scale.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -63,6 +63,7 @@ fun scaleFillContinuous(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -73,6 +74,7 @@ fun scaleFillContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -92,6 +94,7 @@ fun scaleFillContinuous(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -117,6 +120,7 @@ fun scaleColorContinuous(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -127,6 +131,7 @@ fun scaleColorContinuous(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -145,6 +150,7 @@ fun scaleColorContinuous(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -172,6 +178,7 @@ fun scaleGradient(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -182,6 +189,7 @@ fun scaleGradient(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -210,6 +218,7 @@ fun scaleGradient(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -236,6 +245,7 @@ fun scaleFillGradient(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -247,6 +257,7 @@ fun scaleFillGradient(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -272,6 +283,7 @@ fun scaleFillGradient(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -298,6 +310,7 @@ fun scaleColorGradient(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -309,6 +322,7 @@ fun scaleColorGradient(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -329,6 +343,7 @@ fun scaleColorGradient(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -357,6 +372,7 @@ fun scaleGradient2(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -367,6 +383,7 @@ fun scaleGradient2(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -395,6 +412,7 @@ fun scaleGradient2(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -422,6 +440,7 @@ fun scaleFillGradient2(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -434,6 +453,7 @@ fun scaleFillGradient2(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -451,6 +471,7 @@ fun scaleFillGradient2(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -478,6 +499,7 @@ fun scaleGradientN(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -488,6 +510,7 @@ fun scaleGradientN(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -514,6 +537,7 @@ fun scaleGradientN(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -540,6 +564,7 @@ fun scaleFillGradientN(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -551,6 +576,7 @@ fun scaleFillGradientN(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -570,6 +596,7 @@ fun scaleFillGradientN(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -597,6 +624,7 @@ fun scaleColorGradient2(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -609,6 +637,7 @@ fun scaleColorGradient2(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -629,6 +658,7 @@ fun scaleColorGradient2(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -655,6 +685,7 @@ fun scaleColorGradientN(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -666,6 +697,7 @@ fun scaleColorGradientN(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -684,6 +716,7 @@ fun scaleColorGradientN(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -712,6 +745,7 @@ fun scaleGrey(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -724,6 +758,7 @@ fun scaleGrey(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         naValue = naValue,
         format = format,
@@ -755,6 +790,7 @@ fun scaleGrey(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -782,6 +818,7 @@ fun scaleFillGrey(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -793,6 +830,7 @@ fun scaleFillGrey(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -814,6 +852,7 @@ fun scaleFillGrey(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -841,6 +880,7 @@ fun scaleColorGrey(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -852,6 +892,7 @@ fun scaleColorGrey(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -878,6 +919,7 @@ fun scaleColorGrey(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -910,6 +952,7 @@ fun scaleHue(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -920,6 +963,7 @@ fun scaleHue(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -961,6 +1005,7 @@ fun scaleHue(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -992,6 +1037,7 @@ fun scaleFillHue(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -1005,6 +1051,7 @@ fun scaleFillHue(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -1034,6 +1081,7 @@ fun scaleFillHue(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
@@ -1065,6 +1113,7 @@ fun scaleColorHue(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -1078,6 +1127,7 @@ fun scaleColorHue(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

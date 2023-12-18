@@ -131,6 +131,7 @@ class Scale(
     val name: String? = null,
     breaks: Any? = null,                // List of breaks or Map of labels to breaks
     labels: Any? = null,                // List of labels or Map of breaks to labels
+    val lablim: Int? = null,
     val limits: Any? = null,            // Any type convertable to list.
     val expand: Any? = null,
     val naValue: Any? = null,

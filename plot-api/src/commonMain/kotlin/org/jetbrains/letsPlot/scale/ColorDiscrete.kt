@@ -20,6 +20,7 @@ import org.jetbrains.letsPlot.core.plot.base.Aes
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits List of data values.
  *  A vector specifying values to display with the scale and their order in guides (axis).
  * @param naValue Missing values will be replaced with this value.
@@ -45,6 +46,7 @@ fun scaleFillDiscrete(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -55,6 +57,7 @@ fun scaleFillDiscrete(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,
@@ -77,6 +80,7 @@ fun scaleFillDiscrete(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits List of data values.
  *  A vector specifying values to display with the scale and their order in guides (axis).
  * @param naValue Missing values will be replaced with this value.
@@ -102,6 +106,7 @@ fun scaleColorDiscrete(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -112,6 +117,7 @@ fun scaleColorDiscrete(
     name = name,
     breaks = breaks,
     labels = labels,
+    lablim = lablim,
     limits = limits,
     naValue = naValue,
     format = format,

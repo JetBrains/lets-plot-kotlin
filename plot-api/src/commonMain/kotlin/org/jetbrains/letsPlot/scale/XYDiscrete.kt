@@ -19,6 +19,7 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -46,6 +47,7 @@ fun scaleXDiscrete(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -59,6 +61,7 @@ fun scaleXDiscrete(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,
@@ -81,6 +84,7 @@ fun scaleXDiscrete(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -108,6 +112,7 @@ fun scaleYDiscrete(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -121,6 +126,7 @@ fun scaleYDiscrete(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,
@@ -143,6 +149,7 @@ fun scaleYDiscrete(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -169,6 +176,7 @@ fun scaleXDiscreteReversed(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -179,6 +187,7 @@ fun scaleXDiscreteReversed(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,
@@ -196,6 +205,7 @@ fun scaleXDiscreteReversed(
  * @param breaks A list of data values specifying the positions of ticks,
  *  or a dictionary which maps the tick labels to the breaks values.
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -222,6 +232,7 @@ fun scaleYDiscreteReversed(
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
+    lablim: Int? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
     naValue: Number? = null,
@@ -232,6 +243,7 @@ fun scaleYDiscreteReversed(
         name = name,
         breaks = breaks,
         labels = labels,
+        lablim = lablim,
         limits = limits,
         expand = expand,
         naValue = naValue,
