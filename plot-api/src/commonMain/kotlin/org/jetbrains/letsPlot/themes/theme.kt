@@ -28,6 +28,13 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
  *
+ * - [theme_label_text.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/theme_label_text.ipynb)
+ *
+ * - [superscript.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/superscript.ipynb)
+ *
+ * @param exponentFormat default="e" ("e", "pow"). Format for numeric labels in scientific notation.
+ *  e for "e" notation (e.g. 1e+6);
+ *  pow for "power" notation (e.g. 1x10^6). This will enable superscript formatting for the exponent.
  * @param line All line elements.
  * @param rect All rectangle elements.
  * @param text All text elements.
@@ -114,6 +121,8 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  */
 @Suppress("ClassName", "FunctionName")
 class theme(
+    exponentFormat: Any? = null,
+
     line: Any? = null,
     rect: Any? = null,
     text: Any? = null,
@@ -190,6 +199,8 @@ class theme(
 
 ) : OptionsMap(
     Option.Plot.THEME, mapOf(
+        Option.Theme.EXPONENT_FORMAT to exponentFormat,
+
         Option.Theme.LINE to line,
         Option.Theme.RECT to rect,
         Option.Theme.TEXT to text,
