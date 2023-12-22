@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.core.plot.base.Aes
 
 /**
  * Qualitative color scale for `fill` aesthetic.
- * Defaults to the Brewer 'Set2' palette (or 'Set3' if the categories count > 8)
+ * Defaults to the Brewer 'Set1' palette.
  *
  * @param direction default = 1.
  *  Only for color scales: sets the order of colors in the scale.
@@ -65,7 +65,7 @@ fun scaleFillDiscrete(
 
 /**
  * Qualitative color scale for `color` aesthetic.
- * Defaults to the Brewer 'Set2' palette (or 'Set3' if the categories count > 8)
+ * Defaults to the Brewer 'Set1' palette.
  *
  * ## Examples
  *
