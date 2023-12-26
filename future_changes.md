@@ -12,7 +12,7 @@
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/scale_lablim.ipynb).
 
-- The `levels` parameter in `asDiscrete` function [[#931](https://github.com/JetBrains/lets-plot/issues/931)].
+- The `levels` parameter in `asDiscrete()` function [[#931](https://github.com/JetBrains/lets-plot/issues/931)].
 
   See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot/blob/master/docs/f-23f/factor_levels.ipynb).
 
