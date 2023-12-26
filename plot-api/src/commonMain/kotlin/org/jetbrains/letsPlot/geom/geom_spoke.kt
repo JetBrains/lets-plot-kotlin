@@ -15,6 +15,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Draws a straight line segment with given length and angle from the starting point.
  *
+ * ## Examples
+ *
+ * - [geom_spoke.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/geom_spoke.ipynb)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
