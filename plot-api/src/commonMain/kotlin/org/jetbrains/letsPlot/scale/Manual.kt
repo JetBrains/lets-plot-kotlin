@@ -63,17 +63,17 @@ fun scaleManual(
                 newBreaks = values.keys.toList()
                 values.values
             } else {
-                val baseOrder = (limits ?: breaks)!!.let {
-                    require(it is Map<*, *> || it is List<*>)
-                    val list = (it as? Map<*, *>)?.values?.toList() ?: it
-                    list as List<*>
+                val baseOrderList = when (val base = limits ?: breaks) {
+                    is Map<*, *> -> base.values
+                    is List<*> -> base
+                    else -> null
                 }
-                baseOrder.mapNotNull { values[it] }.let { list ->
-                    if (list.isNotEmpty()) {
-                        list + values.values.filter { it !in list }
-                    } else {
-                        null
-                    }
+                val newValues = baseOrderList?.mapNotNull { values[it] }
+                if (!newValues.isNullOrEmpty()) {
+                    val noMatchValues = values.values.filter { it !in newValues }
+                    newValues + noMatchValues
+                } else {
+                    null
                 }
             }
         }
