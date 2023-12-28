@@ -40,9 +40,9 @@ import org.jetbrains.letsPlot.intern.Scale
  *  If -1, the order of colors is reversed.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks List of data values.
- *  A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
@@ -74,8 +74,8 @@ fun scaleViridis(
     end: Number? = null,
     direction: Number? = null,
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Any? = null,
     naValue: Any? = null,
@@ -136,9 +136,9 @@ fun scaleViridis(
  *  If -1, the order of colors is reversed.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks List of data values.
- *  A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
@@ -170,8 +170,8 @@ fun scaleFillViridis(
     direction: Number? = null,
 
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Any? = null,
     naValue: Any? = null,
@@ -226,8 +226,9 @@ fun scaleFillViridis(
  *  If -1, the order of colors is reversed.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks)
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
@@ -259,8 +260,8 @@ fun scaleColorViridis(
     direction: Number? = null,
 
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Any? = null,
     naValue: Any? = null,

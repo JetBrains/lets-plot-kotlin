@@ -21,8 +21,9 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -51,8 +52,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  */
 fun scaleXContinuous(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
@@ -90,8 +91,9 @@ fun scaleXContinuous(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -120,8 +122,8 @@ fun scaleXContinuous(
  */
 fun scaleYContinuous(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
@@ -151,8 +153,9 @@ fun scaleYContinuous(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -180,8 +183,8 @@ fun scaleYContinuous(
  */
 fun scaleXLog10(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
@@ -206,8 +209,9 @@ fun scaleXLog10(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -235,8 +239,8 @@ fun scaleXLog10(
  */
 fun scaleYLog10(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
@@ -371,8 +375,9 @@ fun scaleYLog2(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -400,8 +405,8 @@ fun scaleYLog2(
  */
 fun scaleXReverse(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
@@ -426,8 +431,9 @@ fun scaleXReverse(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -455,8 +461,8 @@ fun scaleXReverse(
  */
 fun scaleYReverse(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
@@ -481,8 +487,9 @@ fun scaleYReverse(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -510,8 +517,8 @@ fun scaleYReverse(
  */
 fun scaleXSqrt(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,
@@ -536,8 +543,9 @@ fun scaleXSqrt(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -565,8 +573,8 @@ fun scaleXSqrt(
  */
 fun scaleYSqrt(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     expand: List<Number>? = null,

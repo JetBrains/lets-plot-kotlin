@@ -16,8 +16,9 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
@@ -44,8 +45,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  */
 fun scaleXDiscrete(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
@@ -80,8 +81,9 @@ fun scaleXDiscrete(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
@@ -108,8 +110,8 @@ fun scaleXDiscrete(
  */
 fun scaleYDiscrete(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
@@ -144,8 +146,9 @@ fun scaleYDiscrete(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
@@ -171,8 +174,8 @@ fun scaleYDiscrete(
  */
 fun scaleXDiscreteReversed(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,
@@ -199,8 +202,9 @@ fun scaleXDiscreteReversed(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying values to display on the axis and their order.
  *  Setting limits will remove data not included in the list.
@@ -226,8 +230,8 @@ fun scaleXDiscreteReversed(
  */
 fun scaleYDiscreteReversed(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: List<Any>? = null,
     expand: List<Number>? = null,

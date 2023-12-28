@@ -14,8 +14,9 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use null to refer to default min/max.
@@ -41,8 +42,8 @@ import org.jetbrains.letsPlot.intern.Scale
 fun scaleContinuous(
     aesthetic: Any,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,

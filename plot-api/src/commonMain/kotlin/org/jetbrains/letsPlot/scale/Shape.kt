@@ -16,8 +16,9 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param solid Are the shapes solid (default) true, or hollow (false)?
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Continuous scale: a numeric vector of length two providing limits of the scale.
  *  Discrete scale: a vector specifying the data range for the scale and the default order of their display in guides.
@@ -39,8 +40,8 @@ import org.jetbrains.letsPlot.intern.Scale
 fun scaleShape(
     solid: Boolean? = null,
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: List<Any>? = null,
     naValue: Any? = null,

@@ -34,8 +34,9 @@ import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  *
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -60,9 +61,9 @@ import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  */
 fun scaleFillContinuous(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -90,8 +91,9 @@ fun scaleFillContinuous(
  *
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -116,9 +118,9 @@ fun scaleFillContinuous(
  */
 fun scaleColorContinuous(
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -145,8 +147,9 @@ fun scaleColorContinuous(
  * @param high Color for high end of gradient.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -173,9 +176,9 @@ fun scaleGradient(
     aesthetic: Any,
     low: String, high: String,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -212,8 +215,9 @@ fun scaleGradient(
  * @param high Color for high end of gradient.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -239,9 +243,9 @@ fun scaleGradient(
 fun scaleFillGradient(
     low: String, high: String,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -276,8 +280,9 @@ fun scaleFillGradient(
  * @param high Color for high end of gradient.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -303,9 +308,9 @@ fun scaleFillGradient(
 fun scaleColorGradient(
     low: String, high: String,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -335,8 +340,9 @@ fun scaleColorGradient(
  *  The midpoint (in data value) of the diverging scale.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -364,9 +370,9 @@ fun scaleGradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -403,8 +409,9 @@ fun scaleGradient2(
  *  The midpoint (in data value) of the diverging scale.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -431,9 +438,9 @@ fun scaleFillGradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -461,8 +468,9 @@ fun scaleFillGradient2(
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -489,9 +497,9 @@ fun scaleGradientN(
     aesthetic: Any,
     colors: List<String>,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -526,8 +534,9 @@ fun scaleGradientN(
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -553,9 +562,9 @@ fun scaleGradientN(
 fun scaleFillGradientN(
     colors: List<String>,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -584,8 +593,9 @@ fun scaleFillGradientN(
  *  The midpoint (in data value) of the diverging scale.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -612,9 +622,9 @@ fun scaleColorGradient2(
     low: String, mid: String, high: String,
     midpoint: Double = 0.0,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -645,8 +655,9 @@ fun scaleColorGradient2(
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -672,9 +683,9 @@ fun scaleColorGradient2(
 fun scaleColorGradientN(
     colors: List<String>,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -702,8 +713,9 @@ fun scaleColorGradientN(
  * @param end Gray value at high end of palette in range `[0,1]`.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -731,9 +743,9 @@ fun scaleGrey(
     start: Number? = null,
     end: Number? = null,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
-    lablim: Int? = null, 
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
     format: String? = null,
@@ -775,8 +787,9 @@ fun scaleGrey(
  * @param end Gray value at high end of palette in range `[0,1]`.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -803,8 +816,8 @@ fun scaleFillGrey(
     start: Number? = null,
     end: Number? = null,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
@@ -836,8 +849,9 @@ fun scaleFillGrey(
  * @param end Gray value at high end of palette in range `[0,1]`.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -864,8 +878,8 @@ fun scaleColorGrey(
     start: Number? = null,
     end: Number? = null,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
@@ -902,8 +916,9 @@ fun scaleColorGrey(
  *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -935,8 +950,8 @@ fun scaleHue(
     hstart: Int? = null,
     direction: Int? = null,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
@@ -987,8 +1002,9 @@ fun scaleHue(
  *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -1019,8 +1035,8 @@ fun scaleFillHue(
     hstart: Int? = null,
     direction: Int? = null,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,
@@ -1062,8 +1078,9 @@ fun scaleFillHue(
  *  Direction to travel around the color wheel, 1 = clockwise, -1 = counter-clockwise.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
  *  Use `null` to refer to default min/max.
@@ -1094,8 +1111,8 @@ fun scaleColorHue(
     hstart: Int? = null,
     direction: Int? = null,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Any? = null,

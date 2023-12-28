@@ -75,6 +75,20 @@ object ScaleManual {
                 val alphas = listOf(.3, 1.0)
                 (p + points + scaleAlphaManual(values = alphas)).show()
             }
+
+            run {
+                val points = geomPoint(color = "black") {
+                    x = "x"
+                    alpha = "x"
+                    size = "x"
+                }
+                val alphas = List(xs.size) { (it + 1) * 0.1 }
+                val sizes = List(xs.size) { it + 2 }
+                (p + points +
+                        scaleAlphaManual(values = xs.zip(alphas).toMap()) +
+                        scaleSizeManual(values = xs.zip(sizes).toMap())
+                        ).show()
+            }
         }
     }
 }

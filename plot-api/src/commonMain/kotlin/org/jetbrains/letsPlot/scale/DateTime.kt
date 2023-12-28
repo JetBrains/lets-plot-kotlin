@@ -21,8 +21,9 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  A pair of values providing limits of the scale. Use `null` to refer to default min/max.
@@ -48,8 +49,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  */
 fun scaleXDateTime(
     name: String? = null,
-    breaks: List<Any>? = null,      // ToDo: should understand Date
-    labels: List<String>? = null,
+    breaks: Any? = null,      // ToDo: should understand Date
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
@@ -86,8 +87,9 @@ fun scaleXDateTime(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A vector specifying values to display as ticks on axis.
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
  *  A pair of values providing limits of the scale. Use `null` to refer to default min/max.
@@ -113,8 +115,8 @@ fun scaleXDateTime(
  */
 fun scaleYDateTime(
     name: String? = null,
-    breaks: List<Any>? = null,      // ToDo: should understand Date
-    labels: List<String>? = null,
+    breaks: Any? = null,      // ToDo: should understand Date
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
@@ -151,8 +153,9 @@ fun scaleYDateTime(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A numeric vector of length two providing limits of the scale.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -166,8 +169,8 @@ fun scaleYDateTime(
  */
 fun scaleXTime(
     name: String? = null,
-    breaks: List<Any>? = null,       // ToDo: List<Number>?
-    labels: List<String>? = null,
+    breaks: Any? = null,       // ToDo: List<Number>?
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
@@ -202,8 +205,9 @@ fun scaleXTime(
  *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A numeric vector of length two providing limits of the scale.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -217,8 +221,8 @@ fun scaleXTime(
  */
 fun scaleYTime(
     name: String? = null,
-    breaks: List<Any>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,

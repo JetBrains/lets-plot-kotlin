@@ -16,8 +16,9 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param range The range of the mapped aesthetics result.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.
- * @param breaks A numeric vector of positions (of ticks).
- * @param labels A vector of labels (on ticks).
+ * @param breaks A list of data values specifying the positions of ticks,
+ *  or a dictionary which maps the tick labels to the breaks values.
+ * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A vector specifying the data range for the scale and the default order of their display in guides.
  * @param naValue Missing values will be replaced with this value.
@@ -43,8 +44,8 @@ import org.jetbrains.letsPlot.intern.Scale
 fun scaleLinewidth(
     range: Pair<Number, Number>? = null,
     name: String? = null,
-    breaks: List<Number>? = null,
-    labels: List<String>? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
     lablim: Int? = null,
     limits: Pair<Number?, Number?>? = null,
     naValue: Number? = null,
