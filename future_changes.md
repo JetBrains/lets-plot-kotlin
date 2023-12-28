@@ -28,6 +28,10 @@
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/superscript_exponent.ipynb).
 
+- `geomSpoke()` [[#738](https://github.com/JetBrains/lets-plot/issues/738)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/geom_spoke.ipynb).
+
 
 ### Changed
 
