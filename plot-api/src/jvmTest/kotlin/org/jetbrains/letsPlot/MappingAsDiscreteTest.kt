@@ -9,9 +9,13 @@ import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
 import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
 import junit.framework.TestCase.assertEquals
 import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
 
 class MappingAsDiscreteTest {
 
@@ -90,6 +94,21 @@ class MappingAsDiscreteTest {
             ),
             spec
         )
+    }
+
+    @Test
+    fun `skip mapping_annotations when factor levels are set`() {
+        val data = mapOf("x" to listOf(1.0))
+        val p = ggplot(data) {
+            x = "x"
+            y = asDiscrete("x", levels = listOf(1.0))
+        }
+
+        val spec = p.toSpec()
+        val dataMeta = spec[DATA_META] as? Map<*,*>
+        assertNotNull(dataMeta)
+        assertFalse(MappingAnnotation.TAG in dataMeta)
+        assertTrue(Option.Meta.SeriesAnnotation.TAG in dataMeta)
     }
 
     companion object {

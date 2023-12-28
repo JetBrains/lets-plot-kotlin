@@ -7,6 +7,7 @@ package frontendContextDemo.scripts
 
 import demoData.AutoMpg
 import frontendContextDemo.ScriptInBatikContext
+import org.jetbrains.letsPlot.asDiscrete
 import org.jetbrains.letsPlot.facet.facetWrap
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.letsPlot
@@ -70,6 +71,19 @@ object FacetWrap {
                 order = listOf(null, -1),
                 format = listOf(null, "{d} cyl")
             )).show()
+
+            // specified categories are applied to facets
+            (letsPlot(data) + geomPoint {
+                x = "engine horsepower"
+                y = "miles per gallon"
+                color = "origin of car"
+                paint_a = asDiscrete("number of cylinders", levels = listOf(6.0,3.0,8.0,4.0,5.0))
+            } + themeGrey() + facetWrap(
+                facets = "number of cylinders",
+                order = 0,
+                format = "{d} cyl"
+            )).show()
+
         }
     }
 }
