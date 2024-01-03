@@ -98,12 +98,15 @@ subprojects {
 // Nexus publish plugin settings:
 val sonatypeUsername = localProps["sonatype.username"] as String?
 val sonatypePassword = localProps["sonatype.password"] as String?
-if (!(sonatypeUsername.isNullOrBlank() || sonatypePassword.isNullOrBlank())) {
+val sonatypeProfileId = localProps["sonatype.profileID"] as String?
+if (!(sonatypeUsername.isNullOrBlank()
+            || sonatypePassword.isNullOrBlank()
+            || sonatypeProfileId.isNullOrBlank())) {
     nexusPublishing.repositories {
         sonatype {
-            stagingProfileId.set("11c25ff9a87b89")
             username.set(sonatypeUsername)
             password.set(sonatypePassword)
+            stagingProfileId.set(sonatypeProfileId)
 
             nexusUrl.set(uri("https://oss.sonatype.org/service/local/"))
             snapshotRepositoryUrl.set(uri("https://oss.sonatype.org/content/repositories/snapshots/"))
