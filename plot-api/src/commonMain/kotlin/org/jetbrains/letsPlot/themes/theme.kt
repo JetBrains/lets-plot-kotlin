@@ -28,9 +28,9 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
  *
- * - [theme_label_text.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/theme_label_text.ipynb)
+ * - [theme_label_text.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/theme_label_text.ipynb)
  *
- * - [superscript_exponent.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/superscript_exponent.ipynb)
+ * - [superscript_exponent.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/superscript_exponent.ipynb)
  *
  * @param exponentFormat default="e" ("e", "pow"). Format for numeric labels in scientific notation.
  *  e for "e" notation (e.g. 1e+6);
