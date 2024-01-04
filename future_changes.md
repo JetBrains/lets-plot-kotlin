@@ -1,4 +1,4 @@
-## [4.5.1] - 2023-mm-dd
+## [4.6.0] - 2024-01-dd
 
 ### Added
 
@@ -9,6 +9,10 @@
 - Support for superscript for numbers in scientific notation [[#743](https://github.com/JetBrains/lets-plot/issues/743)].
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/superscript_exponent.ipynb).
+
+- Sharing of X,Y-scale limits between subplots in `gggrid()` [[#718](https://github.com/JetBrains/lets-plot/issues/718)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.1/gggrid_scale_share.ipynb).
 
 - `geomSpoke()` [[#738](https://github.com/JetBrains/lets-plot/issues/738)].
 

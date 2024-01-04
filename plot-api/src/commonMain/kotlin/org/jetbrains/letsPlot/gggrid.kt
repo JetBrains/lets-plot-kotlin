@@ -6,6 +6,8 @@
 package org.jetbrains.letsPlot
 
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots
+import org.jetbrains.letsPlot.core.spec.Option.SubPlots.Grid.Scales.SHARE_ALL
+import org.jetbrains.letsPlot.core.spec.Option.SubPlots.Grid.Scales.SHARE_NONE
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.figure.SubPlotsLayoutSpec
 import org.jetbrains.letsPlot.intern.filterNonNullValues
@@ -31,6 +33,18 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  @param align default = false.
  *   If `true`, align inner areas (i.e. "geom" bounds) of plots.
  *   However, cells containing other (sub)grids are not participating in the plot "inner areas" layouting.
+ *  @param sharex String or Boolean
+ *   Controls sharing of X-axis limits between subplots in the grid.
+ *   - 'all'/True - share limits between all subplots.
+ *   - 'none'/False - do not share limits between subplots.
+ *   - 'row' - share limits between subplots in the same row.
+ *   - 'col' - share limits between subplots in the same column.
+ *  @param sharey String or Boolean
+ *   Controls sharing of Y-axis limits between subplots in the grid.
+ *   - 'all'/True - share limits between all subplots.
+ *   - 'none'/False - do not share limits between subplots.
+ *   - 'row' - share limits between subplots in the same row.
+ *   - 'col' - share limits between subplots in the same column.
  *
  *  @return SubPlotsFigure object.
  */
@@ -44,6 +58,8 @@ fun gggrid(
     vspace: Number? = null,
     fit: Boolean = true,
     align: Boolean = false,
+    sharex: Any? = null,
+    sharey: Any? = null,
 
     ): SubPlotsFigure {
 
@@ -61,11 +77,21 @@ fun gggrid(
     @Suppress("NAME_SHADOWING")
     val ncol = nc
 
+    fun toScaleShareOption(rawOption: Any?): String? {
+        return when (rawOption) {
+            null -> null
+            is Boolean -> if (rawOption) SHARE_ALL else SHARE_NONE
+            else -> rawOption.toString()
+        }
+    }
+
     val layout = SubPlotsLayoutSpec(
         name = SubPlots.Layout.SUBPLOTS_GRID,
         options = mapOf(
             SubPlots.Grid.NCOLS to ncol,
             SubPlots.Grid.NROWS to nrow,
+            SubPlots.Grid.SHARE_X_SCALE to toScaleShareOption(sharex),
+            SubPlots.Grid.SHARE_Y_SCALE to toScaleShareOption(sharey),
             SubPlots.Grid.COL_WIDTHS to widths,
             SubPlots.Grid.ROW_HEIGHTS to heights,
             SubPlots.Grid.HSPACE to hspace,

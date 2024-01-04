@@ -26,7 +26,7 @@ allprojects {
     group = "org.jetbrains.lets-plot"
     version = when (name) {
         "dokka" -> "4.5.0"
-        else -> "4.5.1-SNAPSHOT"
+        else -> "4.6.0-SNAPSHOT"
 //        else -> "0.0.0-SNAPSHOT"  // for local publishing only
     }
 
