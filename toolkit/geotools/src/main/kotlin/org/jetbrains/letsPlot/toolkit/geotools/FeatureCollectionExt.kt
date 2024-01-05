@@ -9,7 +9,7 @@ import org.geotools.data.simple.SimpleFeatureCollection
 import org.geotools.geojson.geom.GeometryJSON
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.locationtech.jts.geom.Geometry
-import org.opengis.feature.type.GeometryDescriptor
+import org.geotools.api.feature.type.GeometryDescriptor
 
 /**
  * Transforms SimpleFeatureCollection to SpatialDataset with feature geometries encoded in GEOJSON format.

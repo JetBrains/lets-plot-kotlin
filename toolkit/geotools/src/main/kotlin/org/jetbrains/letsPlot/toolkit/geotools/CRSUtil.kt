@@ -6,8 +6,8 @@
 package org.jetbrains.letsPlot.toolkit.geotools
 
 import org.jetbrains.letsPlot.spatial.CRSCode
-import org.opengis.referencing.crs.CoordinateReferenceSystem
-import org.opengis.referencing.cs.CoordinateSystem
+import org.geotools.api.referencing.crs.CoordinateReferenceSystem
+import org.geotools.api.referencing.cs.CoordinateSystem
 
 internal object CRSUtil {
     @Suppress("FunctionName")
