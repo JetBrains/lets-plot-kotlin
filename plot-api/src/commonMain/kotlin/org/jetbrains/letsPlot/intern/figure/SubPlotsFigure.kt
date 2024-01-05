@@ -6,6 +6,7 @@
 package org.jetbrains.letsPlot.intern.figure
 
 import org.jetbrains.letsPlot.Figure
+import org.jetbrains.letsPlot.LetsPlot
 import org.jetbrains.letsPlot.core.spec.Option.Meta
 import org.jetbrains.letsPlot.core.spec.Option.Plot
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots
@@ -31,9 +32,21 @@ class SubPlotsFigure(
     }
 
     fun toSpec(): MutableMap<String, Any> {
+        val elementSpecs = figures.map { it?.toSpec() }
+
+        val globalThemeOptions = LetsPlot.theme?.options
+        // Strip global theme options from plots in grid (see issue: LP-966).
+        if (globalThemeOptions != null) {
+            elementSpecs.filterNotNull().forEach { elementSpec ->
+                if (elementSpec[Plot.THEME] == globalThemeOptions) {
+                    elementSpec.remove(Plot.THEME)
+                }
+            }
+        }
+
         val spec = mutableMapOf(
             Meta.KIND to Meta.Kind.SUBPLOTS,
-            SubPlots.FIGURES to figures.map { it?.toSpec() },
+            SubPlots.FIGURES to elementSpecs,
             LAYOUT to layout.toSpec(),
         )
 
