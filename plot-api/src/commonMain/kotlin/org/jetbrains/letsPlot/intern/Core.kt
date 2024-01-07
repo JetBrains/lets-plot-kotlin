@@ -5,10 +5,10 @@
 
 package org.jetbrains.letsPlot.intern
 
-import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.annotations.AnnotationOptions
 import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.frontend.CurrentFrontendContext
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.layer.PosOptions
@@ -85,7 +85,14 @@ sealed class Feature {
 }
 
 
-class FeatureList(val elements: List<Feature>) : Feature() {
+class FeatureList(elements: List<Feature>) : Feature() {
+    val elements: List<Feature> = elements.flatMap { element ->
+        when (element) {
+            is FeatureList -> element.elements
+            else -> listOf(element)
+        }
+    }
+
     override operator fun plus(other: Feature): Feature {
         return when (other) {
             is DummyFeature -> this // nothing
@@ -163,6 +170,7 @@ class Scale(
             null -> {
                 (breaks as? Map<*, *>)?.keys
             }
+
             is Map<*, *> -> {
                 if (breaksList == null) {
                     breaksList = labels.keys
@@ -176,6 +184,7 @@ class Scale(
                     newLabels
                 }
             }
+
             is List<*> -> labels
             else -> error("The scale 'labels' parameter should be specified with a list or dictionary.")
         }

@@ -89,6 +89,7 @@ private fun toMarginal(side: Char, size: Double?, layer: Layer): Layer {
         StatKind.BIN -> GeomKind.HISTOGRAM
         StatKind.DENSITY -> GeomKind.DENSITY
         StatKind.BOXPLOT -> GeomKind.BOX_PLOT
+        StatKind.BOXPLOT_OUTLIER -> GeomKind.BOX_PLOT
         StatKind.YDENSITY -> GeomKind.VIOLIN
         else -> null
     } ?: layer.geom.kind

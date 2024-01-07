@@ -51,10 +51,12 @@
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/margins.ipynb).
 
+- Geotools: migrate to v30 [[#217](https://github.com/JetBrains/lets-plot-kotlin/issues/217)].
+  [BREAKING] ...
 
 ### Fixed
 
 - Jitter reproducibility in geomJitter, positionJitter, positionJitterDodge [[#911](https://github.com/JetBrains/lets-plot/issues/911)].
 - Bug with Tooltips in Swing/Batik [[#225](https://github.com/JetBrains/lets-plot-kotlin/issues/225)].
+- Marginal box-plots aren't shown when requested on more than 1 plot side.
 - `gggrid()` doesn't use global theme settings.
-- Geotools: migrate to v30 [[#217](https://github.com/JetBrains/lets-plot-kotlin/issues/217)].

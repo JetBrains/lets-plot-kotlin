@@ -60,6 +60,10 @@ internal open class FeatureListAssert(private val featureList: List<Feature>) {
     }
 
     open fun get(index: Int) = FeatureAssert(featureList[index])
+
+    companion object {
+        internal fun assertThat(featureList: FeatureList) = FeatureListAssert(featureList.elements)
+    }
 }
 
 internal class LayerListAssert(private val layerList: List<Layer>) : FeatureListAssert(layerList) {
