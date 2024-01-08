@@ -453,12 +453,14 @@ fun elementText(
     Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 
+@Suppress("DeprecatedCallableAddReplaceWith")
 @Deprecated(
-    "Please, use a number or list of numbers instead of the function to specify margins.",
-    ReplaceWith("listOf(t, r, b, l)"),
+    message = "Please, replace with one number or a list of numbers.\n" +
+            "See doc for the `plotMargin` parameter in `theme()`: https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.themes/theme",
     level = DeprecationLevel.WARNING
 )
 fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) = listOf(t, r, b, l)
+
 
 /**
  * Specifies new values for the named colors.
