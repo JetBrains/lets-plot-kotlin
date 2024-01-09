@@ -18,7 +18,7 @@ object Plot2dUtil {
 
     private const val DEF_BINS = 30
     private const val MARGINAL_ALPHA = 0.1
-    private const val DEF_COLOR = "#118ed8"
+    private const val DEF_COLOR = "pen"
 
     fun getBinParams2d(
         data: Map<String, List<Any?>>,
