@@ -172,7 +172,7 @@ fun geomBoxplot(
             sampling = null,
             orientation = orientation,
             x = x, y = y,
-            alpha = outlierAlpha ?: alpha,
+            alpha = outlierAlpha,
             color = outlierColor ?: color,
             fill = outlierFill ?: fill,
             shape = outlierShape ?: shape,

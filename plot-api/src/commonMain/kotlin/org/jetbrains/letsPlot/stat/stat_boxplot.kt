@@ -161,7 +161,7 @@ fun statBoxplot(
             showLegend = false,
             sampling = null,
             x = x, y = y,
-            alpha = outlierAlpha ?: alpha,
+            alpha = outlierAlpha,
             color = outlierColor ?: color,
             fill = outlierFill ?: fill,
             shape = outlierShape ?: shape,
