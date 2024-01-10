@@ -66,7 +66,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
   - [Compose Multiplatform](#in-compose-multiplatform)
   - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-- [What is new in 4.5.0](#new)
+- [What is new in 4.6.0](#new)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
 - [License](#license)
@@ -138,43 +138,42 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 
 
 <a id="new"></a>
-## What is new in 4.5.0
+## What is new in 4.6.0
 
-- #### Annotations in Barchart
+- #### Support for `"Categoricals"`: the `levels` parameter in `asDiscrete()`
 
-  <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23e/images/annotated_bars.png" alt="f-23e/images/annotated_bars.png" width="512" height="312">
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/factor_levels.ipynb).
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/bar_annotations.ipynb).
-
-- #### Common Theme for Subplots
+- #### Superscript for Numbers in Scientific Notation
 
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23e/images/gggrid_theme.png" alt="f-23e/images/gggrid_theme.png" width="512" height="292">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23f/images/superscript.png" alt="f-23f/images/superscript.png" width="328" height="241">
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/gggrid_theme.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/superscript_exponent.ipynb).
 
-- #### `HCL` and `CIELAB` Color Space for Hue Color Scale and Gradient Color Scales
+- #### Sharing of X,Y-scale Limits Between Subplots in `gggrid()`
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/gggrid_scale_share.ipynb).
+
+- #### `geomSpoke()`
 
   <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23e/images/hue_color_scale.png" alt="f-23e/images/hue_color_scale.png" width="512" height="341">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23f/images/geom_spoke.png" alt="f-23f/images/geom_spoke.png" width="248" height="272">
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/color_space_update.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/geom_spoke.ipynb).
 
-- #### Scale Transformations: `'log2'` and `'symlog'`
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/new_scale_transformations.ipynb).
+- #### Other New Features and Improvements
 
-- #### Plot Margins
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/theme_plot_margin.ipynb).
-
-- #### Dual Orientation in Geometries:
-  - `geom_linerange()`
-  - `geom_pointrange()`
-  - `geom_errorbar()`
-  - `geom_crossbar()`
-  - `geom_ribbon()`
-
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/horizontal_geoms.ipynb).
+  - `scaleXLog2()`, `scaleYLog2()`
+  - New variables computed by `'count'` and `'count2d'` statistics: `'..sumprop..'`, `'..sumpct..'`.
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/new_stat_count_vars.ipynb).
+  - Support using dictionaries for breaks/labels/values customization in `scaleXxx()` functions.
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/scale_params_with_dict.ipynb).
+  - The `lablim` parameter in `scaleXxx()` functions.
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/scale_lablim.ipynb).
+  - `labelText` parameter in `theme()` for annotation text settings.
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/theme_label_text.ipynb).
+  - NumberFormat: new flag `~` to trim trailing zeros.
 
 
 <a id="change_log"></a>
