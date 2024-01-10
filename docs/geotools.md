@@ -28,7 +28,7 @@ val data: SpatialDataset = featureCollection.toSpatialDataset()
 
 The instance of `SpatialDataset` then can be passed to a plot geometry layer via the `map` or `data` parameters.
 
-```python
+```kotlion
 letsPlot() + geomPolygon(map = data, fill = "white", color = "gray")
 ```
 
@@ -60,7 +60,7 @@ the artifact `lets-plot-kotlin-geotools` must be included to make the `toSpatial
 
 You can include it into a Gradle project.
 ```groovy
-implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.5.0'
+implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.6.0'
 ```  
 
 [ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/_latestVersion)
@@ -69,16 +69,16 @@ The `gt-geojson` artifact from GeoTools must be also included.
 ```groovy
 dependencies {   
     ...
-    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.5.0"
-    implementation "org.geotools:gt-geojson:$geotools_version"               
+    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.6.0"
+    implementation "org.geotools:gt-geojson:[30,)"               
     ...
 }
 ```
 
-The `lets-plot-kotlin-api` artifact v4.5.0 was compiled with GeoTools v29.2. However, it doesn't declare any run-time dependency, so 
+The `lets-plot-kotlin-api` artifact was compiled with GeoTools v30.1. However, it doesn't declare any run-time dependency, so 
 you are free to use other versions of the GeoTools toolkit. 
 
-> **Note:** Lets-Plot v4.5.0 is not compatible with GeoTools v30 and higher.
+> **Note:** Since v4.6.0 Lets-Plot is only compatible with GeoTools v30 and later.
 
 <a id="examples-jvm"></a> 
 #### JVM-based examples
