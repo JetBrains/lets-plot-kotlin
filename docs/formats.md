@@ -18,7 +18,7 @@ Formatting provides the ability to do complex variable substitutions and value f
 The numeric format strings are used to format common numeric types. The general form of a format specifier is:
 
 ```
-[​[fill]align][sign][symbol][0][width][,][.precision][type]
+[​[fill]align][sign][symbol][0][width][,][.precision][~][type]
 ```
 
 * *`fill`* - can be any character, defaults to a space if omitted. The presence of a fill character is signaled by
@@ -52,6 +52,8 @@ The numeric format strings are used to format common numeric types. The general 
   decimal point (types `f` and `%`), or the number of significant digits (types` ​`, `e`, `g`, `r`, `s` and `p`). If the
   precision is not specified, it defaults to 6 for all types except ​ (none), which defaults to 12. Precision is ignored
   for integer formats (types `b`, `o`, `d`, `x`, `X` and `c`).
+
+* *`~`* trims insignificant trailing zeros across all format types.
 
 * *`type`* determines how the data should be presented:
 
@@ -107,6 +109,7 @@ b         -->  "101010"
 #b        -->  "0b101010"
 o         -->  "52"
 e         -->  "4.200000e+1"
+~e        -->  "4.2e+1"
 s         -->  "42.0000"
 020,s     -->  "000,000,000,042.0000"
 020.0%    -->  "0000000000000004200%"
