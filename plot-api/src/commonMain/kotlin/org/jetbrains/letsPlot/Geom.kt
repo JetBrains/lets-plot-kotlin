@@ -401,6 +401,7 @@ object Geom {
         override val labelPadding: Number? = null,
         override val labelR: Number? = null,
         override val labelSize: Number? = null,
+        override val alphaStroke: Boolean? = null,
         override val sizeUnit: String? = null,
         override val colorBy: String? = null,
         override val fillBy: String? = null,

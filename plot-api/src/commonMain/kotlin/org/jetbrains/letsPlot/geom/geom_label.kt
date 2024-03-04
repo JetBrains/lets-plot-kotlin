@@ -26,6 +26,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [geom_label.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb)
  *
+ * - [geom_label_alpha_stroke.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.1/geom_label_alpha_stroke.ipynb)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
@@ -94,6 +96,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param labelPadding Amount of padding around label. Defaults to 0.25 of font size.
  * @param labelR Radius of rounded corners. Defaults to 0.15 of label height.
  * @param labelSize default = 1.0. Size of label border.
+ * @param alphaStroke default = false.
+ *  Enables the applying of 'alpha' to 'color' (label text and border).
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -144,6 +148,7 @@ class geomLabel(
     override val labelPadding: Number? = null,
     override val labelR: Number? = null,
     override val labelSize: Number? = null,
+    override val alphaStroke: Boolean? = null,
     override val sizeUnit: String? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
