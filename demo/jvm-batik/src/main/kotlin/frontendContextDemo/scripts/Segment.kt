@@ -7,6 +7,7 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.geom.extras.arrow
+import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomSegment
 import org.jetbrains.letsPlot.letsPlot
 
@@ -15,7 +16,7 @@ object Segment {
     fun main(args: Array<String>) {
         ScriptInBatikContext.eval("geom_segment") {
             val rand = java.util.Random()
-            val n = 20
+            val n = 10
             val xList = (0 until n).toList()
             val yList = List(n) { rand.nextInt(10) }
             val data = mapOf<String, Any>(
@@ -24,14 +25,17 @@ object Segment {
                 "xend" to xList.drop(1),
                 "yend" to yList.drop(1),
             )
-            val p = letsPlot(data) + geomSegment(
-                arrow = arrow(type = "closed", ends = "both", angle = 20)
-            ) {
-                x = "x";
-                y = "y";
-                xend = "xend";
-                yend = "yend";
-            }
+            val p = letsPlot(data) +
+                    geomPoint(size = 12, alpha = 0.6) { x = "x"; y = "y" } +
+                    geomSegment(
+                        sizeStart = 12, sizeEnd = 12,
+                        arrow = arrow(type = "closed", ends = "both", angle = 20)
+                    ) {
+                        x = "x";
+                        y = "y";
+                        xend = "xend";
+                        yend = "yend";
+                    }
             p.show()
         }
     }

@@ -325,6 +325,10 @@ object Geom {
         override val color: Any? = null,
         override val linetype: Any? = null,
         override val size: Number? = null,
+        override val sizeStart: Number? = null,
+        override val sizeEnd: Number? = null,
+        override val strokeStart: Number? = null,
+        override val strokeEnd: Number? = null,
         override val colorBy: String? = null,
         mapping: SegmentMapping.() -> Unit = {}
     ) : SegmentAesthetics,

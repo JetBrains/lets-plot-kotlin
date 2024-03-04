@@ -41,6 +41,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
  * @param arrow Specification for arrow head, as created by `arrow()` function.
+ * @param spacer default = 0.0.
+ *  Space to shorten a segment by moving the start/end.
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param xend X-axis value.
@@ -58,6 +60,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
  * @param size Line width.
+ * @param sizeStart Offset from the segment start coordinate.
+ *  Usually equal to the size of the point object from which the segment starts to avoid overlapping with it.
+ * @param sizeEnd Offset from the segment end coordinate.
+ *  Usually equal to the size of the point object from which the segment ends to avoid overlapping with it.
+ * @param strokeStart Offset from the segment start coordinate.
+ *  Usually equal to the stroke of the point object from which the segment starts to avoid overlapping with it.
+ * @param strokeEnd Offset from the segment end coordinate.
+ *  Usually equal to the stroke of the point object from which the segment ends to avoid overlapping with it.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.
@@ -72,6 +82,7 @@ class geomSegment(
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     private val arrow: Map<String, Any>? = null,
+    private val spacer: Number? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val xend: Number? = null,
@@ -80,6 +91,10 @@ class geomSegment(
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
+    override val sizeStart: Number? = null,
+    override val sizeEnd: Number? = null,
+    override val strokeStart: Number? = null,
+    override val strokeEnd: Number? = null,
     override val colorBy: String? = null,
     mapping: SegmentMapping.() -> Unit = {}
 
@@ -98,6 +113,9 @@ class geomSegment(
     override fun seal(): Options {
         return super<SegmentAesthetics>.seal() +
                 super<WithColorOption>.seal() +
-                Options.of(Option.Geom.Segment.ARROW to arrow)
+                Options.of(
+                    Option.Geom.Segment.ARROW to arrow,
+                    Option.Geom.Segment.SPACER to spacer
+                )
     }
 }

@@ -17,6 +17,10 @@ interface SegmentAesthetics : OptionsCapsule {
     val color: Any?
     val linetype: Any?
     val size: Any?
+    val sizeStart: Any?
+    val sizeEnd: Any?
+    val strokeStart: Any?
+    val strokeEnd: Any?
 
     override fun seal() = Options.of(
         "x" to x,
@@ -26,6 +30,10 @@ interface SegmentAesthetics : OptionsCapsule {
         "alpha" to alpha,
         "color" to color,
         "linetype" to linetype,
-        "size" to size
+        "size" to size,
+        "size_start" to sizeStart,
+        "size_end" to sizeEnd,
+        "stroke_start" to strokeStart,
+        "stroke_end" to strokeEnd
     )
 }
