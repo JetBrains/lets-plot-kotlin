@@ -1,31 +1,20 @@
-/*
- * Copyright (c) 2021. JetBrains s.r.o.
- * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
- */
-
 package org.jetbrains.letsPlot.geom
 
-import org.jetbrains.letsPlot.core.spec.Option
-import org.jetbrains.letsPlot.Geom.segment
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.Options
+import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Layer
-import org.jetbrains.letsPlot.intern.layer.PosOptions
-import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorOption
-import org.jetbrains.letsPlot.intern.layer.geom.SegmentAesthetics
-import org.jetbrains.letsPlot.intern.layer.geom.SegmentMapping
+import org.jetbrains.letsPlot.intern.Options
+import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.intern.layer.geom.*
 import org.jetbrains.letsPlot.pos.positionIdentity
-import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Draws a straight line segment between points (x, y) and (xend, yend).
+ * Draws a curved line.
  *
  * ## Examples
  *
- * - [lines.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/lines.ipynb)
+ * - [geom_curve.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.1/geom_curve.ipynb)
  *
  * - [graph_edges.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.1/graph_edges.ipynb)
  *
@@ -33,28 +22,35 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
  *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
- * @param tooltips Result of the call to the `layerTooltips()` function.
- *  Specifies appearance, style and content.
- * @param arrow Specification for arrow head, as created by `arrow()` function.
+ * @param curvature default=0.5.
+ *  The amount of curvature.
+ *  Negative values produce left-hand curves, positive values produce right-hand curves,
+ * @param angle default=90.
+ *  Angle in degrees, giving an amount to skew the control points of the curve.
+ *  Values less than 90 skew the curve towards the start point
+ *  and values greater than 90 skew the curve towards the end point.
+ * @param ncp default = 5.
+ *  The number of control points used to draw the curve. More control points creates a smoother curve.
  * @param spacer default = 0.0.
- *  Space to shorten a segment by moving the start/end.
+ *  Space to shorten a curve by moving the start/end.
+ * @param arrow Specification for arrow head, as created by `arrow()` function.
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param xend X-axis value.
  * @param yend Y-axis value.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
- *  String in the following formats: 
+ *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red") 
+ *  - color name (e.g. "red")
  *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
@@ -62,29 +58,26 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
  * @param size Line width.
- * @param sizeStart Offset from the segment start coordinate.
- *  Usually equal to the size of the point object from which the segment starts to avoid overlapping with it.
- * @param sizeEnd Offset from the segment end coordinate.
- *  Usually equal to the size of the point object from which the segment ends to avoid overlapping with it.
- * @param strokeStart Offset from the segment start coordinate.
- *  Usually equal to the stroke of the point object from which the segment starts to avoid overlapping with it.
- * @param strokeEnd Offset from the segment end coordinate.
- *  Usually equal to the stroke of the point object from which the segment ends to avoid overlapping with it.
+ * @param sizeStart Offset from the start coordinate.
+ *  Usually equal to the size of the point object from which the curve starts to avoid overlapping with it.
+ * @param sizeEnd Offset from the end coordinate.
+ *  Usually equal to the size of the point object from which the curve ends to avoid overlapping with it.
+ * @param strokeStart Offset from the start coordinate.
+ *  Usually equal to the stroke of the point object from which the curve starts to avoid overlapping with it.
+ * @param strokeEnd Offset from the end coordinate.
+ *  Usually equal to the stroke of the point object from which the curve ends to avoid overlapping with it.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
  */
-class geomSegment(
+class geomCurve(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.identity,
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
-    tooltips: TooltipOptions? = null,
-    private val arrow: Map<String, Any>? = null,
-    private val spacer: Number? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val xend: Number? = null,
@@ -97,27 +90,29 @@ class geomSegment(
     override val sizeEnd: Number? = null,
     override val strokeStart: Number? = null,
     override val strokeEnd: Number? = null,
+    override val curvature: Number? = null,
+    override val angle: Number? = null,
+    override val ncp: Int? = null,
+    override val spacer: Number? = null,
+    override val arrow: Map<String, Any>? = null,
     override val colorBy: String? = null,
-    mapping: SegmentMapping.() -> Unit = {}
+    mapping: CurveMapping.() -> Unit = {},
 
-) : SegmentAesthetics,
+) : CurveAesthetics,
+    CurveParameters,
     WithColorOption,
     Layer(
-        mapping = SegmentMapping().apply(mapping).seal(),
+        mapping = CurveMapping().apply(mapping).seal(),
         data = data,
-        geom = segment(),
+        geom = GeomOptions(GeomKind.CURVE),
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling,
-        tooltips = tooltips
+        sampling = sampling
     ) {
     override fun seal(): Options {
-        return super<SegmentAesthetics>.seal() +
-                super<WithColorOption>.seal() +
-                Options.of(
-                    Option.Geom.Segment.ARROW to arrow,
-                    Option.Geom.Segment.SPACER to spacer
-                )
+        return super<CurveAesthetics>.seal() +
+                super<CurveParameters>.seal() +
+                super<WithColorOption>.seal()
     }
 }
