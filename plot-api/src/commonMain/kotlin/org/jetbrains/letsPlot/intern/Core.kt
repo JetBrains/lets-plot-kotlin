@@ -199,11 +199,13 @@ class Scale(
         }
     }
 
-    private fun toAes(option: Any?): Aes<*> {
-        return when (option) {
-            is Aes<*> -> option
-            is String -> Option.Mapping.toAes(option.lowercase())
-            else -> error("Wrong 'aesthetic' parameter: should contain aesthetic or its name but was $option")
+    companion object {
+        fun toAes(option: Any?): Aes<*> {
+            return when (option) {
+                is Aes<*> -> option
+                is String -> Option.Mapping.toAes(option.lowercase())
+                else -> error("Wrong 'aesthetic' parameter: should contain aesthetic or its name but was $option")
+            }
         }
     }
 }

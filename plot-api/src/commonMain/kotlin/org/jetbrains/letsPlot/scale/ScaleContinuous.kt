@@ -5,6 +5,9 @@
 
 package org.jetbrains.letsPlot.scale
 
+import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
 /**
@@ -38,6 +41,10 @@ import org.jetbrains.letsPlot.intern.Scale
  * - "Score: {.2f}" -> "Score: 12.45";
  * - "Score: {}" -> "Score: 12.454789".
  *
+ * @param scaleMapperKind The type of the scale:
+ *  ("identity", "color_gradient", "color_gradient2", "color_gradientn", "color_hue", "color_grey", "color_brewer", "color_cmap", "size_area").
+ *  If null (the default) and the scale is color, then "color_gradient" will be used.
+ * @param otherOptions Additional parameters for the specified scale type.
  */
 fun scaleContinuous(
     aesthetic: Any,
@@ -49,16 +56,37 @@ fun scaleContinuous(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null,
-    trans: String? = null
+    trans: String? = null,
+    scaleMapperKind: String? = null,
+    otherOptions: Map<String, Any?>? = null
 ) = Scale(
-    aesthetic = aesthetic,
-    name = name,
-    breaks = breaks,
-    labels = labels,
-    lablim = lablim,
-    limits = limits,
-    naValue = naValue,
-    format = format,
-    guide = guide,
-    trans = trans,
-)
+        aesthetic = aesthetic,
+        name = name,
+        breaks = breaks,
+        labels = labels,
+        lablim = lablim,
+        limits = limits,
+        naValue = naValue,
+        format = format,
+        guide = guide,
+        trans = trans,
+        otherOptions = Options(
+            mapOf(
+                Option.Scale.SCALE_MAPPER_KIND to scaleMapperKind.let {
+                    if (scaleMapperKind == null && isColorScale(aesthetic)) {
+                        Option.Scale.MapperKind.COLOR_GRADIENT
+                    } else {
+                        it
+                    }
+                }
+            ) + (otherOptions ?: emptyMap())
+        )
+    )
+
+private fun isColorScale(aesthetic: Any): Boolean {
+    val aesList = when (aesthetic) {
+        is List<*> -> aesthetic.map(Scale::toAes)
+        else -> listOf(Scale.toAes(aesthetic))
+    }
+    return aesList.all(Aes.Companion::isColor)
+}
