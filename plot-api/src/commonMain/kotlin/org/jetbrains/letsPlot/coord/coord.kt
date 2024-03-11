@@ -120,3 +120,40 @@ fun coordFlip(
         ).filterNonNullValues()
     )
 }
+
+/**
+ * Polar coordinate system. It is used for pie charts and polar plots.
+ *
+ * ## Examples
+ *
+ * - ToDo
+ *
+ * @param xlim Limits for x-axes.
+ * @param ylim Limits for y-axes.
+ * @param theta Aesthetic that is used to map angle, default = "x".
+ *  Possible values: "x", "y".
+ * @param start Offset relative to the starting angle (which is 12 o'clock), in radians, default = 0.
+ * @param direction Specifies angle direction: 1 for clockwise, -1 for counterclockwise, default = 1.
+ * @param transformBkgr If true, the background is transformed to a circle, rectangle otherwise, default = true.
+ */
+fun coordPolar(
+    xlim: Pair<Number?, Number?>? = null,
+    ylim: Pair<Number?, Number?>? = null,
+    theta: String? = null,
+    start: Number? = null,
+    direction: Int? = null,
+    transformBkgr: Boolean? = null
+): OptionsMap {
+    return OptionsMap(
+        Option.Plot.COORD,
+        mapOf(
+            "name" to Option.CoordName.POLAR,
+            Option.Coord.X_LIM to xlim?.toList(),
+            Option.Coord.Y_LIM to ylim?.toList(),
+            Option.Coord.THETA to theta,
+            Option.Coord.START to start,
+            Option.Coord.DIRECTION to direction,
+            Option.Coord.TRANSFORM_BKGR to transformBkgr
+        ).filterNonNullValues()
+    )
+}
