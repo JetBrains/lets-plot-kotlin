@@ -7,7 +7,9 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.area
 import org.jetbrains.letsPlot.Stat.identity
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Layer
+import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
@@ -41,6 +43,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ * @param flat default = false.
+ *  true - keeps a line straight (corresponding to a loxodrome in case of Mercator projection).
+ *  false - allows a line to be reprojected, so it can become a curve.
  * @param x X-axis coordinates.
  * @param y Y-axis coordinates.
  * @param alpha Transparency level of a layer. 
@@ -80,6 +85,7 @@ class geomArea(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    private val flat: Boolean? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val alpha: Number? = null,
@@ -106,7 +112,10 @@ class geomArea(
     ) {
     override fun seal() = super<AreaAesthetics>.seal() +
             super<WithColorOption>.seal() +
-            super<WithFillOption>.seal()
+            super<WithFillOption>.seal() +
+            Options.of(
+                Option.Geom.Area.FLAT to flat
+            )
 }
 
 

@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom.path
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
@@ -51,6 +52,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param useCRS By default, all coordinates are converted into degrees of longitude and latitude,
  *  and these map coordinates are projected onto the screen coordinates using Mercator projection.
  *  Specify useCRS = "provided" to keep the SpatialDataset's original coordinate reference system (CRS).
+ * @param flat default = false.
+ *  true - keeps a line straight (corresponding to a loxodrome in case of Mercator projection).
+ *  false - allows a line to be reprojected, so it can become a curve.
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
@@ -81,6 +85,7 @@ class geomPath(
     override val map: SpatialDataset? = null,
     override val mapJoin: Pair<Any, Any>? = null,
     override val useCRS: String? = null,
+    private val flat: Boolean? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val alpha: Number? = null,
@@ -105,7 +110,10 @@ class geomPath(
     ) {
     override fun seal(): Options {
         return super<PathAesthetics>.seal() +
-                super<WithColorOption>.seal()
+                super<WithColorOption>.seal() +
+                Options.of(
+                    Option.Geom.Path.FLAT to flat
+                )
     }
 }
 
