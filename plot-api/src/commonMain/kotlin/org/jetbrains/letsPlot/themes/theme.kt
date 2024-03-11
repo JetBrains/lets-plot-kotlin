@@ -85,6 +85,16 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param panelGridOntopX Option to place X-axis major grid lines and minor grid lines over the data layers.
  * @param panelGridOntopY Option to place Y-axis major grid lines and minor grid lines over the data layers.
  *
+ * @param panelInset Inset for a panel.
+ *  The inset behaves like a padding for `coordPolar(transofrmBkgr = false)` otherwise it behaves like a margin around the panel.
+ *  The inset may be specified using a number or a list of numbers:
+ *  - a number or list of one number - the same inset it applied to all four sides;
+ *  - a list of two numbers - the first inset applies to the top and bottom, the second - to the left and right;
+ *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
+ *  the third - to the bottom;
+ *  - a list of four numbers - the insets are applied to the top, right, bottom and left in that order.
+ *  It is acceptable to use `null` for any side; in this case, the default value for the plot inset side will be used.
+ *
  * @param plotBackground Background of the entire plot.
  * @param plotTitle Plot title.
  * @param plotSubtitle Plot subtitle.
@@ -185,6 +195,8 @@ class theme(
     @Suppress("SpellCheckingInspection")
     panelGridOntopY: Boolean? = null,
 
+    panelInset: Any? = null,
+
     plotBackground: Any? = null,
     plotTitle: Any? = null,
     plotSubtitle: Any? = null,
@@ -264,6 +276,8 @@ class theme(
         Option.Theme.PANEL_GRID_ONTOP to panelGridOntop,
         Option.Theme.PANEL_GRID_ONTOP_X to panelGridOntopX,
         Option.Theme.PANEL_GRID_ONTOP_Y to panelGridOntopY,
+
+        "panel_inset" to panelInset,  // ToDo Replace with Option.Theme.PANEL_INSET
 
         Option.Theme.PLOT_BKGR_RECT to plotBackground,
         Option.Theme.PLOT_TITLE to plotTitle,
