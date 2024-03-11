@@ -71,6 +71,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * @param panelBackground Background of plotting area.
  * @param panelBorder Border around plotting area.
+ * @param panelBorderOntop Option to place border around plotting area over the data layers.
  *
  * @param panelGrid Grid lines.
  * @param panelGridMajor Grid lines.
@@ -79,6 +80,10 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param panelGridMinorX Grid lines.
  * @param panelGridMajorY Grid lines.
  * @param panelGridMinorY Grid lines.
+ *
+ * @param panelGridOntop Option to place major grid lines and minor grid lines over the data layers.
+ * @param panelGridOntopX Option to place X-axis major grid lines and minor grid lines over the data layers.
+ * @param panelGridOntopY Option to place Y-axis major grid lines and minor grid lines over the data layers.
  *
  * @param plotBackground Background of the entire plot.
  * @param plotTitle Plot title.
@@ -162,6 +167,8 @@ class theme(
 
     panelBackground: Any? = null,
     panelBorder: Any? = null,
+    @Suppress("SpellCheckingInspection")
+    panelBorderOntop: Boolean? = null,
 
     panelGrid: Any? = null,
     panelGridMajor: Any? = null,
@@ -170,6 +177,13 @@ class theme(
     panelGridMinorX: Any? = null,
     panelGridMajorY: Any? = null,
     panelGridMinorY: Any? = null,
+
+    @Suppress("SpellCheckingInspection")
+    panelGridOntop: Boolean? = null,
+    @Suppress("SpellCheckingInspection")
+    panelGridOntopX: Boolean? = null,
+    @Suppress("SpellCheckingInspection")
+    panelGridOntopY: Boolean? = null,
 
     plotBackground: Any? = null,
     plotTitle: Any? = null,
@@ -237,6 +251,7 @@ class theme(
 
         Option.Theme.PANEL_BKGR_RECT to panelBackground,
         Option.Theme.PANEL_BORDER_RECT to panelBorder,
+        Option.Theme.PANEL_BORDER_ONTOP to panelBorderOntop,
 
         Option.Theme.PANEL_GRID to panelGrid,
         Option.Theme.PANEL_GRID_MAJOR to panelGridMajor,
@@ -245,6 +260,10 @@ class theme(
         Option.Theme.PANEL_GRID_MINOR_X to panelGridMinorX,
         Option.Theme.PANEL_GRID_MAJOR_Y to panelGridMajorY,
         Option.Theme.PANEL_GRID_MINOR_Y to panelGridMinorY,
+
+        Option.Theme.PANEL_GRID_ONTOP to panelGridOntop,
+        Option.Theme.PANEL_GRID_ONTOP_X to panelGridOntopX,
+        Option.Theme.PANEL_GRID_ONTOP_Y to panelGridOntopY,
 
         Option.Theme.PLOT_BKGR_RECT to plotBackground,
         Option.Theme.PLOT_TITLE to plotTitle,

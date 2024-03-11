@@ -2,6 +2,12 @@
 
 ### Added
 
+- In the `theme()` function:
+
+  - `panelBorderOntop` parameter - enables the drawing of panel border on top of the plot geoms.
+  - `panelGridOntop, panelGridOntopX, panelGridOntopY` parameters - enable the drawing of grid lines on top of the plot geoms.
+
+
 - `geomCurve()`
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.1/geom_curve.ipynb).
