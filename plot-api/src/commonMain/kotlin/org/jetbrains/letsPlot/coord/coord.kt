@@ -126,7 +126,7 @@ fun coordFlip(
  *
  * ## Examples
  *
- * - ToDo
+ * - [coord_polar.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.1/coord_polar.ipynb)
  *
  * @param xlim Limits for x-axes.
  * @param ylim Limits for y-axes.
