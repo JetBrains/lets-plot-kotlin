@@ -45,6 +45,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param arrow Specification for arrow head, as created by `arrow()` function.
  * @param spacer default = 0.0.
  *  Space to shorten a segment by moving the start/end.
+ * @param flat default = false.
+ *  true - keeps a line straight (corresponding to a loxodrome in case of Mercator projection).
+ *  false - allows a line to be reprojected, so it can become a curve.
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param xend X-axis value.
@@ -85,6 +88,7 @@ class geomSegment(
     tooltips: TooltipOptions? = null,
     private val arrow: Map<String, Any>? = null,
     private val spacer: Number? = null,
+    private val flat: Boolean? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val xend: Number? = null,
@@ -117,7 +121,8 @@ class geomSegment(
                 super<WithColorOption>.seal() +
                 Options.of(
                     Option.Geom.Segment.ARROW to arrow,
-                    Option.Geom.Segment.SPACER to spacer
+                    Option.Geom.Segment.SPACER to spacer,
+                    Option.Geom.Segment.FLAT to flat
                 )
     }
 }
