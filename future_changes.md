@@ -4,7 +4,7 @@
 - `coordPolar()`
 
   The polar coordinate system is most commonly used for pie charts, but </br>
-  it can also be used for constructing **Spyder or Radar charts** using the `flat` option.
+  it can also be used for constructing **Spider or Radar charts** using the `flat` option.
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.1/coord_polar.ipynb).
 
