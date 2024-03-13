@@ -5,9 +5,7 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.intern.PlotAssert
 import org.jetbrains.letsPlot.intern.toSpec
-import org.jetbrains.letsPlot.scale.scaleColorManual
-import org.jetbrains.letsPlot.scale.scaleXContinuous
-import org.jetbrains.letsPlot.scale.scaleXDiscrete
+import org.jetbrains.letsPlot.scale.*
 import org.junit.Test
 
 class ScaleTest {
@@ -141,6 +139,68 @@ class ScaleTest {
             )
         )
     }
+
+    @Test
+    fun scaleColorContinuous() {
+        val gradientOptions = mapOf("low" to "red", "high" to "blue")
+        val p1 = ggplot() + scaleContinuous("color", otherOptions = gradientOptions)
+        val p2 = ggplot() + scaleColorContinuous(otherOptions = gradientOptions)
+        val p3 = ggplot() + scaleColorGradient(low = "red", high = "blue")
+        val expected = mapOf(
+            "aesthetic" to "color",
+            "scale_mapper_kind" to "color_gradient",
+            "low" to "red",
+            "high" to "blue"
+        )
+        assertScalesSpec(p1, expected)
+        assertScalesSpec(p2, expected)
+        assertScalesSpec(p3, expected)
+    }
+
+    @Test
+    fun colorScaleWithMapperKind() {
+        val gradientOptions = mapOf("low" to "red", "mid" to "green", "high" to "blue")
+        val p1 = ggplot() + scaleContinuous("fill", scaleMapperKind = "color_gradient2", otherOptions = gradientOptions)
+        val p2 = ggplot() + scaleFillContinuous(scaleMapperKind = "color_gradient2", otherOptions = gradientOptions)
+
+        val expected = mapOf(
+            "aesthetic" to "fill",
+            "scale_mapper_kind" to "color_gradient2",
+            "low" to "red",
+            "mid" to "green",
+            "high" to "blue"
+        )
+        assertScalesSpec(p1, expected)
+        assertScalesSpec(p2, expected)
+    }
+    @Test
+    fun nonColorScaleWithMapperKind() {
+        val p1 = ggplot() + scaleContinuous("size", scaleMapperKind = "size_area")
+        val p2 = ggplot() + scaleSizeArea()
+        val expected = mapOf(
+            "aesthetic" to "size",
+            "scale_mapper_kind" to "size_area"
+        )
+        assertScalesSpec(p1, expected)
+        assertScalesSpec(p2, expected)
+    }
+
+    @Test
+    fun scaleColorDiscrete() {
+        val paletteOptions = mapOf("palette" to "Set1")
+        val p1 = ggplot() + scaleDiscrete("color", scaleMapperKind = "brewer", otherOptions = paletteOptions)
+        val p2 = ggplot() + scaleColorDiscrete(scaleMapperKind = "brewer", otherOptions = paletteOptions)
+
+        val expected = mapOf(
+            "aesthetic" to "color",
+            "scale_mapper_kind" to "brewer",
+            "palette" to "Set1",
+            "discrete" to true
+        )
+        assertScalesSpec(p1, expected)
+        assertScalesSpec(p2, expected)
+    }
+
 
     private fun assertScalesSpec(
         p: Plot,

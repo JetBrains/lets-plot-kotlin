@@ -58,6 +58,10 @@ import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  * - "Score: {.2f}" -> "Score: 12.45"
  * - "Score: {}" -> "Score: 12.454789"
  *
+ * @param scaleMapperKind The type of the scale:
+ *  ("color_gradient", "color_gradient2", "color_gradientn", "color_hue", "color_grey", "color_brewer", "color_cmap").
+ *  If null (the default), then "color_gradient" will be used.
+ * @param otherOptions Additional parameters for the specified scale type.
  */
 fun scaleFillContinuous(
     name: String? = null,
@@ -68,7 +72,9 @@ fun scaleFillContinuous(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null,
-    trans: String? = null
+    trans: String? = null,
+    scaleMapperKind: String? = null,
+    otherOptions: Map<String, Any?>? = null
 ) = scaleContinuous(
     aesthetic = Aes.FILL,
     name = name,
@@ -79,7 +85,9 @@ fun scaleFillContinuous(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans
+    trans = trans,
+    scaleMapperKind = scaleMapperKind,
+    otherOptions = otherOptions
 )
 
 /**
@@ -115,6 +123,10 @@ fun scaleFillContinuous(
  * - "Score: {.2f}" -> "Score: 12.45"
  * - "Score: {}" -> "Score: 12.454789"
  *
+ * @param scaleMapperKind The type of the scale:
+ *  ("color_gradient", "color_gradient2", "color_gradientn", "color_hue", "color_grey", "color_brewer", "color_cmap").
+ *  If null (the default), then "color_gradient" will be used.
+ * @param otherOptions Additional parameters for the specified scale type.
  */
 fun scaleColorContinuous(
     name: String? = null,
@@ -125,7 +137,9 @@ fun scaleColorContinuous(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null,
-    trans: String? = null
+    trans: String? = null,
+    scaleMapperKind: String? = null,
+    otherOptions: Map<String, Any?>? = null
 ) = scaleContinuous(
     aesthetic = Aes.COLOR,
     name = name,
@@ -136,7 +150,9 @@ fun scaleColorContinuous(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans
+    trans = trans,
+    scaleMapperKind = scaleMapperKind,
+    otherOptions = otherOptions
 )
 
 /**

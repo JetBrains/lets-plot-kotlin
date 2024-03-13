@@ -40,6 +40,10 @@ import org.jetbrains.letsPlot.core.plot.base.Aes
  * - "Score: {.2f}" -> "Score: 12.45"
  * - "Score: {}" -> "Score: 12.454789"
  *
+ * @param scaleMapperKind The type of the scale:
+ *  ("color_gradient", "color_gradient2", "color_gradientn", "color_hue", "color_grey", "color_brewer", "color_cmap").
+ *  If null (the default) and the scale is color, then "color_brewer" will be used.
+ * @param otherOptions Additional parameters for the specified scale type.
  */
 fun scaleFillDiscrete(
     direction: Int? = null,
@@ -50,7 +54,9 @@ fun scaleFillDiscrete(
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = null,
+    scaleMapperKind: String? = null,
+    otherOptions: Map<String, Any?>? = null
 ) = scaleDiscrete(
     aesthetic = Aes.FILL,
     direction = direction,
@@ -61,7 +67,9 @@ fun scaleFillDiscrete(
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide
+    guide = guide,
+    scaleMapperKind = scaleMapperKind,
+    otherOptions = otherOptions
 )
 
 /**
@@ -100,6 +108,10 @@ fun scaleFillDiscrete(
  * - "Score: {.2f}" -> "Score: 12.45";
  * - "Score: {}" -> "Score: 12.454789".
  *
+ * @param scaleMapperKind The type of the scale:
+ *  ("color_gradient", "color_gradient2", "color_gradientn", "color_hue", "color_grey", "color_brewer", "color_cmap").
+ *  If null (the default) and the scale is color, then "color_brewer" will be used.
+ * @param otherOptions Additional parameters for the specified scale type.
  */
 fun scaleColorDiscrete(
     direction: Int? = null,
@@ -110,7 +122,9 @@ fun scaleColorDiscrete(
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = null,
+    scaleMapperKind: String? = null,
+    otherOptions: Map<String, Any?>? = null
 ) = scaleDiscrete(
     aesthetic = Aes.COLOR,
     direction = direction,
@@ -121,5 +135,7 @@ fun scaleColorDiscrete(
     limits = limits,
     naValue = naValue,
     format = format,
-    guide = guide
+    guide = guide,
+    scaleMapperKind = scaleMapperKind,
+    otherOptions = otherOptions
 )

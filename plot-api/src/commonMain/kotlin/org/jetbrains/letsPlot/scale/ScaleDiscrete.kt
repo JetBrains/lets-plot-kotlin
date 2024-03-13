@@ -42,6 +42,10 @@ import org.jetbrains.letsPlot.intern.Scale
  * - "Score: {.2f}" -> "Score: 12.45";
  * - "Score: {}" -> "Score: 12.454789".
  *
+ * @param scaleMapperKind The type of the scale:
+ *  ("identity", "color_gradient", "color_gradient2", "color_gradientn", "color_hue", "color_grey", "color_brewer", "color_cmap", "size_area").
+ *  If null (the default) and the scale is color, then "color_brewer" will be used.
+ * @param otherOptions Additional parameters for the specified scale type.
  */
 fun scaleDiscrete(
     aesthetic: Any,
@@ -54,7 +58,9 @@ fun scaleDiscrete(
     limits: List<Any>? = null,
     naValue: Any? = null,
     format: String? = null,
-    guide: Any? = null
+    guide: Any? = null,
+    scaleMapperKind: String? = null,
+    otherOptions: Map<String, Any?>? = null
 ) = Scale(
     aesthetic = aesthetic,
     name = name,
@@ -68,7 +74,8 @@ fun scaleDiscrete(
     otherOptions = Options(
         mapOf(
             Option.Scale.DIRECTION to direction,
-            Option.Scale.DISCRETE_DOMAIN to true
-        )
+            Option.Scale.DISCRETE_DOMAIN to true,
+            Option.Scale.SCALE_MAPPER_KIND to scaleMapperKind
+        ) + (otherOptions ?: emptyMap())
     )
 )
