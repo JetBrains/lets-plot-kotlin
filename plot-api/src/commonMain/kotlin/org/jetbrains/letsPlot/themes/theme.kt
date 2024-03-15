@@ -32,7 +32,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [superscript_exponent.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/superscript_exponent.ipynb)
  *
- * - [theme_panel_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.1/theme_panel_inset.ipynb)
+ * - [theme_panel_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/theme_panel_inset.ipynb)
  *
  * @param exponentFormat default="e" ("e", "pow"). Format for numeric labels in scientific notation.
  *  e for "e" notation (e.g. 1e+6);

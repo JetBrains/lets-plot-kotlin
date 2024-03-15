@@ -36,7 +36,7 @@ object Theme {
 
                 (p + theme(
                     axisTextY = "blank",
-                    axisTicksY = org.jetbrains.letsPlot.themes.elementBlank(),
+                    axisTicksY = elementBlank(),
                     axisTitleY = "blank"
                 ).legendPositionNone()).show()
 
@@ -114,8 +114,8 @@ object Theme {
                 // justifications and margins
                 (p + ggtitle("Justifications and margins") + theme(
                     plotTitle = elementText(hjust = 0.5),
-                    axisTitleX = elementText(hjust = 1, margin = margin(t = 20)),
-                    axisTitleY = elementText(hjust = 0, margin = margin(r = 20))
+                    axisTitleX = elementText(hjust = 1, margin = arrayOf(20, 0, 0, 0)),
+                    axisTitleY = elementText(hjust = 0, margin = arrayOf(0, 20, 0, 0))
                 )).show()
             }
         }

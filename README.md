@@ -101,7 +101,7 @@ In this case the latest `library descriptor` will be pulled from the [Kotlin Jup
 #### Library Descriptor Parameters
 
 ```
-%use lets-plot(api=4.6.0, lib=4.2.0, js=4.2.0, isolatedFrame=false)
+%use lets-plot(api=4.7.0, lib=4.3.0, js=4.3.0, isolatedFrame=false)
 ```                                                                 
 - `api` - version of the Lets-Plot Kotlin API.
 - `lib` - version of the Lets-Plot Multiplatform (JARs).
