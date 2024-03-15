@@ -5,6 +5,62 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
+## [4.7.0] - 2024-03-15
+
+### Added
+- `coordPolar()`
+
+  The polar coordinate system is most commonly used for pie charts, but </br>
+  it can also be used for constructing **Spider or Radar charts** using the `flat` option.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/coord_polar.ipynb).
+
+- In the `theme()` function:
+  - `panelInset`  parameter - primarily used for plots with polar coordinates.
+
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/theme_panel_inset.ipynb).
+
+  - `panelBorderOntop` parameter - enables the drawing of panel border on top of the plot geoms.
+  - `panelGridOntop, panelGridOntopX, panelGridOntopY` parameters - enable the drawing of grid lines on top of the plot geoms.
+
+- `geomCurve()`
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/geom_curve.ipynb).
+
+- [**UNIQUE**] Visualizing graph-like data with `geomSegment()` and `geomCurve()`.
+
+  - Aesthetics `sizeStart, sizeEnd, strokeStart` and `strokeEnd` enable better alignment of</br>
+    segments/curves with nodes of the graph by considering the size of the nodes.
+
+  - The `spacer` parameter allows for additional manual fine-tuning.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/graph_edges.ipynb).
+
+- `alphaStroke` parameter in `geomLabel()` to enable the applying of `alpha` to `color` [[#1029](https://github.com/JetBrains/lets-plot/issues/1029)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/geom_label_alpha_stroke.ipynb).
+
+### Changed
+
+- Parameter `axisOntop` in `theme()` is now `true` by default.
+
+### Fixed
+   
+- Bug with Tooltips in Swing/Batik [[LPK-225](https://github.com/JetBrains/lets-plot-kotlin/issues/225)].
+- coordMap() should distort tiles size to account for different unit size at different latitudes [[#331](https://github.com/JetBrains/lets-plot/issues/331)].
+- geomErrorbar(): wrong positioning of tooltips [[#992](https://github.com/JetBrains/lets-plot/issues/992)].
+- geomPath(): tooltip position interpolation [[#855](https://github.com/JetBrains/lets-plot/issues/855)].
+- Stacked bar-chart annotation: labels go out of the plot when zooming-in using coord_cartesian(xlim, ylim) [[#981](https://github.com/JetBrains/lets-plot/issues/981)].
+- Facets: "free scales" options are ignored by discrete axis [[#955](https://github.com/JetBrains/lets-plot/issues/955)].
+- Bar width is too large when x-domain is defined via x-scale limits [[#1013](https://github.com/JetBrains/lets-plot/issues/1013)].
+- How to hide only main tooltip? [[LPK-#232](https://github.com/JetBrains/lets-plot-kotlin/issues/232)].
+- Make middle strip in `geomCrossbar()` optional [[LPK-233](https://github.com/JetBrains/lets-plot-kotlin/issues/233)].
+- Can't set `null` for coord limit [[#486](https://github.com/JetBrains/lets-plot/issues/486)].
+- Scale limits don't work for bars/area [[LPK-219](https://github.com/JetBrains/lets-plot-kotlin/issues/219)], [[#978](https://github.com/JetBrains/lets-plot/issues/978)].
+- No gridlines when axisOntop=True [[#1012](https://github.com/JetBrains/lets-plot/issues/1012)].
+- Displaying tooltips on a multilayer plot [[#1030](https://github.com/JetBrains/lets-plot/issues/1030)].
+- Make segment geometry better suited for graphs visualization [[#572](https://github.com/JetBrains/lets-plot/issues/572)].
+
 ## [4.6.0] - 2024-01-10
 
 ### Added

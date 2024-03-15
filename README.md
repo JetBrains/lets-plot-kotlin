@@ -1,4 +1,5 @@
 # Lets-Plot Kotlin API
+A **Grammar of Graphics** for Kotlin.
 
 [![official JetBrains project](http://jb.gg/badges/official-flat-square.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/LICENSE)
@@ -66,7 +67,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
   - [Compose Multiplatform](#in-compose-multiplatform)
   - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-- [What is new in 4.6.0](#new)
+- [What is new in 4.7.0](#new)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
 - [License](#license)
@@ -138,42 +139,51 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 
 
 <a id="new"></a>
-## What is new in 4.6.0
+## What is new in 4.7.0
 
-- #### Support for `"Categoricals"`: the `levels` parameter in `asDiscrete()`
+- #### `coordPolar()`
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/factor_levels.ipynb).
+  The polar coordinate system is most commonly used for pie charts, but</br>
+  it can also be used for constructing **Spider or Radar charts** using the `flat` option.
 
-- #### Superscript for Numbers in Scientific Notation
+    <br>
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24a/images/polar_coord_pie.png" alt="f-24a/images/polar_coord_pie.png" width="256" height="214">
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24a/images/radar_chart.png" alt="f-24a/images/radar_chart.png" width="256" height="196">
 
-  <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23f/images/superscript.png" alt="f-23f/images/superscript.png" width="328" height="241">
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/coord_polar.ipynb).
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/superscript_exponent.ipynb).
+- #### In the `theme()`:
 
-- #### Sharing of X,Y-scale Limits Between Subplots in `gggrid()`
+  - `panelInset`  parameter - primarily used for plots with polar coordinates.
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/theme_panel_inset.ipynb).
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/gggrid_scale_share.ipynb).
+  - `panelBorderOntop` parameter - enables the drawing of panel border on top of the plot geoms.
+  - `panelGridOntop, panelGridOntopX, panelGridOntopY` parameters - enable the drawing of grid lines on top of the plot geoms.
 
-- #### `geomSpoke()`
+- #### `geomCurve()`
 
-  <br>
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-23f/images/geom_spoke.png" alt="f-23f/images/geom_spoke.png" width="248" height="272">
+    <br>
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24a/images/curve_annotation.png" alt="f-24a/images/curve_annotation.png" width="338" height="296">
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/geom_spoke.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/geom_curve.ipynb).
 
-- #### Other New Features and Improvements
+- #### [**UNIQUE**] Visualizing Graph-like Data with `geomSegment()` and `geomCurve()`
 
-  - `scaleXLog2()`, `scaleYLog2()`
-  - New variables computed by `'count'` and `'count2d'` statistics: `'..sumprop..'`, `'..sumpct..'`.
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/new_stat_count_vars.ipynb).
-  - Support using dictionaries for breaks/labels/values customization in `scaleXxx()` functions.
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/scale_params_with_dict.ipynb).
-  - The `lablim` parameter in `scaleXxx()` functions.
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/scale_lablim.ipynb).
-  - `labelText` parameter in `theme()` for annotation text settings.
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/theme_label_text.ipynb).
-  - NumberFormat: new flag `~` to trim trailing zeros.
+  - Aesthetics `sizeStart, sizeEnd, strokeStart` and `strokeEnd` enable better alignment of</br>
+    segments/curves with nodes of the graph by considering the size of the nodes.
+
+  - The `spacer` parameter allows for additional manual fine-tuning.
+
+    <br>
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24a/images/graph_simple.png" alt="f-24a/images/graph_simple.png" width="384" height="252">
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/graph_edges.ipynb).
+
+- #### The `alphaStroke` Parameter in `geomLabel()`
+
+  Use the `alphaStroke` parameter to apply `alpha` to entire `label`. By default, `alpha` is only applied to the label background.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/geom_label_alpha_stroke.ipynb).
 
 
 <a id="change_log"></a>
