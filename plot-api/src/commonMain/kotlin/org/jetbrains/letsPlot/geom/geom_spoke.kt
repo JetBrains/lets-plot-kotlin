@@ -32,6 +32,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ * @param arrow Specification for arrow head, as created by `arrow()` function.
  * @param pivot default = "tail" ("tail", "middle", "mid", "tip").
  *  The part of the segment that is anchored to the plane. The segment rotates about this point.
  * @param x X-axis value.
@@ -64,6 +65,7 @@ class geomSpoke(
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    private val arrow: Map<String, Any>? = null,
     private val pivot: String? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -90,6 +92,9 @@ class geomSpoke(
     override fun seal(): Options {
         return super<SpokeAesthetics>.seal() +
                 super<WithColorOption>.seal() +
-                Options.of(Option.Geom.Spoke.PIVOT to pivot)
+                Options.of(
+                    Option.Geom.Spoke.ARROW to arrow,
+                    Option.Geom.Spoke.PIVOT to pivot
+                )
     }
 }
