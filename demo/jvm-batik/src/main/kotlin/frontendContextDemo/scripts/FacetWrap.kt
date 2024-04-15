@@ -69,7 +69,7 @@ object FacetWrap {
                 ),
                 ncol = 5,
                 order = listOf(null, -1),
-                format = listOf(null, "{d} cyl")
+                format = listOf(null, "{d}\ncyl")
             )).show()
 
             // specified categories are applied to facets
@@ -81,9 +81,9 @@ object FacetWrap {
             } + themeGrey() + facetWrap(
                 facets = "number of cylinders",
                 order = 0,
-                format = "{d} cyl"
+                format = "{d} cyl",
+                labWidth = 3
             )).show()
-
         }
     }
 }
