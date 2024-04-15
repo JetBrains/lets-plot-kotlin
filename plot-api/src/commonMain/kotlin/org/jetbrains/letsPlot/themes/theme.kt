@@ -279,7 +279,7 @@ class theme(
         Option.Theme.PANEL_GRID_ONTOP_X to panelGridOntopX,
         Option.Theme.PANEL_GRID_ONTOP_Y to panelGridOntopY,
 
-        "panel_inset" to panelInset,  // ToDo Replace with Option.Theme.PANEL_INSET
+        Option.Theme.PANEL_INSET to panelInset,
 
         Option.Theme.PLOT_BKGR_RECT to plotBackground,
         Option.Theme.PLOT_TITLE to plotTitle,
