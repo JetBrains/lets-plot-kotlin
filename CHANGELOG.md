@@ -1,4 +1,4 @@
-# lets-plot-kotlin changelog
+# Lets-Plot Kotlin API Changelog
 
 All notable changes to this project will be documented in this file.
 
