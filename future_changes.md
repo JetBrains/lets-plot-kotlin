@@ -14,6 +14,10 @@
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/geom_spoke_arrow.ipynb).
 
+- Parameter `sizeUnit` in `geomPoint()`, `geomText()` and `geomLabel()`.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/param_size_unit.ipynb).
+
 - Parameter `plotInset` in `theme()`.
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_plot_inset.ipynb).
