@@ -18,6 +18,10 @@
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/param_size_unit.ipynb).
 
+- Auto-detection of `orientation="y"` in bar-chart etc. [[#558](https://github.com/JetBrains/lets-plot/issues/558)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/auto_rotate.ipynb).
+
 - Parameter `plotInset` in `theme()`.
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_plot_inset.ipynb).
