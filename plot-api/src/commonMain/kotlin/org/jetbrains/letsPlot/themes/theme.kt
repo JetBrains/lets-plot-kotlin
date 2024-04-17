@@ -399,20 +399,27 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
  *
  * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  *
+ * - [theme_linetype.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb)
+ *
  * @param fill Fill color. Accepts color core as string (HEX or rgb) or Color object.
  * @param color Border color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Border line width.
+ * @param linetype Type of the line.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash".
  * @param blank Mark as a 'blank' element.
  */
 fun elementRect(
     fill: Any? = null,
     color: Any? = null,
     size: Number? = null,
+    linetype: Any? = null,
     blank: Boolean = false,
 ) = mapOf(
     Option.Theme.Elem.FILL to fill,
     Option.Theme.Elem.COLOR to color,
     Option.Theme.Elem.SIZE to size,
+    Option.Theme.Elem.LINETYPE to linetype,
     Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 
@@ -425,7 +432,7 @@ fun elementRect(
  *
  * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  *
- * - [theme_linetype.ipynb]((https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb)
+ * - [theme_linetype.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb)
  *
  * @param color Line color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Line width.
