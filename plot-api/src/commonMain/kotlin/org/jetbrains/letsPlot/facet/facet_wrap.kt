@@ -28,7 +28,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param scales Specifies whether scales are shared across all facets.
  *  default = "fixed" (shared) , "free" - vary across both rows and columns,
  *  "free_x" or "free_y" - vary across rows or columns respectively.
- * @param order Specifies ordering direction panels.
+ * @param order default = 1. Specifies ordering direction panels.
  *  1 - ascending, -1 - descending, null - ascending.
  *  The `order` values are positionally matched to variables in `facets`.
  * @param format Specifies the format pattern for displaying faceting values.
@@ -54,7 +54,7 @@ fun facetWrap(
     ncol: Any? = null,
     nrow: Any? = null,
     scales: String? = null,
-    order: Any? = null,
+    order: Any? = 1,
     format: Any? = null,
     dir: String = "h",
     labWidth: Any? = null
