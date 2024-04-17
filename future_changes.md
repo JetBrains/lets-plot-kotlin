@@ -2,6 +2,10 @@
 
 ### Added
 
+- Parameter `labWidth` in `facetWrap()` and `xLabWidth/yLabWidth` in `facetGrid()` [[LPK-237](https://github.com/JetBrains/lets-plot-kotlin/issues/237)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/facet_multiline_titles.ipynb).
+
 - Parameter `linetype` in `elementLine()` and `elementRect()` in `theme()` [[LPK-235](https://github.com/JetBrains/lets-plot-kotlin/issues/235)].
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb).
