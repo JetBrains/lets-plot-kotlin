@@ -34,6 +34,9 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [theme_panel_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/theme_panel_inset.ipynb)
  *
+ * - [theme_plot_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_plot_inset.ipynb)
+ *
+ *
  * @param exponentFormat default="e" ("e", "pow"). Format for numeric labels in scientific notation.
  *  e for "e" notation (e.g. 1e+6);
  *  pow for "power" notation (e.g. 1x10^6). This will enable superscript formatting for the exponent.
