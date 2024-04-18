@@ -8,5 +8,5 @@
 
     <toc-element topic="gallery.md"/>
     <toc-element topic="get-started.md"/>
-    <toc-element href="https://asmirnov-horis.github.io/lets-plot-docs/kotlin/api-reference" toc-title="API Reference"/>
+    <toc-element href="%docs_domain_name%/kotlin/api-reference" toc-title="API Reference"/>
 </instance-profile>
