@@ -45,7 +45,7 @@ object LetsPlot {
         return frontendContext as NotebookFrontendContext
     }
 
-    internal var themeSettings: List<Feature> = listOfNotNull(theme)
+    internal var themeSettings: List<Feature> = emptyList()
     fun setTheme(theme: Feature) {
         themeSettings = if (theme is FeatureList) {
             theme.elements
