@@ -17,6 +17,8 @@ val dokkaSrcDir = "$dokkaDir/source"
 val customFooterMessage = "Copyright © 2019-${LocalDateTime.now().year} JetBrains s.r.o."
 val customStyleSheet = "$dokkaSrcDir/custom.css"
 val customScript = "$dokkaSrcDir/custom.js"
+val logoLightImage = "$docsDir/images/logo-icon.svg"
+val logoDarkImage = "$docsDir/images/logo-dark.svg"
 
 tasks.dokkaHtml {
     moduleName.set("Lets-Plot-Kotlin")
@@ -26,7 +28,7 @@ tasks.dokkaHtml {
             "org.jetbrains.dokka.base.DokkaBase" to """{ 
                 |"footerMessage": "$customFooterMessage", 
                 |"customStyleSheets": ["$customStyleSheet"], 
-                |"customAssets": ["$customScript"]
+                |"customAssets": ["$customScript", "$logoLightImage", "$logoDarkImage"]
                 |}""".trimMargin()
         )
     )

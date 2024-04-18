@@ -1,3 +1,9 @@
+:root {
+    --dokka-logo-image-url: url('../images/logo-dark.svg');
+    --dokka-logo-height: 60px;
+    --dokka-logo-width: 50px;
+}
+
 .brief-comment {
   display: none;
 }
