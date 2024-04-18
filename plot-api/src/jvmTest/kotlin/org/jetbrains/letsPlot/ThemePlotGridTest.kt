@@ -11,6 +11,7 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.SubPlotsAssert.Companion.assertThat
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.themes.flavorDarcula
+import org.jetbrains.letsPlot.themes.theme
 import org.jetbrains.letsPlot.themes.themeBW
 import org.jetbrains.letsPlot.themes.themeGrey
 import org.jetbrains.letsPlot.themes.themeLight
@@ -98,6 +99,35 @@ class ThemePlotGridTest {
                 featureCount = 1,
                 expected = mapOf(
                     "name" to "grey",
+                )
+            )
+
+            // Global theme should be stripped from the figure spec in grid
+            val fig = (p.toSpec()["figures"] as List<Any?>)[0] as Map<*, *>
+            assertEquals("plot", fig["kind"]) // Make sure it's a plot
+            assertFalse(fig.containsKey("theme"))
+        } finally {
+            // Clear global setting
+            LetsPlot.theme = null
+        }
+    }
+
+    @Test
+    fun `grid global theme as features list applied`() {
+        // Set global settings as combination os themes
+        LetsPlot.setTheme(
+            themeGrey() + flavorDarcula() + theme().legendPositionBottom()
+        )
+
+        try {
+            val p = gggrid(listOf(ggplot()))
+            assertThemeSpec(
+                p,
+                featureCount = 3,
+                expected = mapOf(
+                    "name" to "grey",
+                    "flavor" to "darcula",
+                    "legend_position" to "bottom"
                 )
             )
 

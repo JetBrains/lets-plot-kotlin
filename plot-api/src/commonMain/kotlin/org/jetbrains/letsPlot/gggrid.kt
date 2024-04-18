@@ -8,10 +8,10 @@ package org.jetbrains.letsPlot
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots.Grid.Scales.SHARE_ALL
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots.Grid.Scales.SHARE_NONE
+import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.figure.SubPlotsLayoutSpec
 import org.jetbrains.letsPlot.intern.filterNonNullValues
-import org.jetbrains.letsPlot.intern.settings.GlobalSettings
 
 /**
  *  Combines several plots on one figure, organized in a regular grid.
@@ -111,6 +111,6 @@ fun gggrid(
     return SubPlotsFigure(
         figures = plots,
         layout = layout,
-        features = listOfNotNull(GlobalSettings.theme)
+        features = LetsPlot.themeSettings.filterIsInstance<OptionsMap>()
     )
 }

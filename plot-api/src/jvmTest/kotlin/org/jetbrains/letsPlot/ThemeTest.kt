@@ -213,4 +213,38 @@ class ThemeTest {
 
         LetsPlot.theme = null
     }
+
+    @Test
+    fun `global theme as features list`() {
+        LetsPlot.setTheme(themeNone() + flavorDarcula() + theme().legendPositionBottom())
+
+        val p = ggplot()
+        assertEquals(
+            mapOf(
+                "name" to "none",
+                "flavor" to "darcula",
+                "legend_position" to "bottom"
+            ),
+            p.toSpec()[Option.Plot.THEME]
+        )
+        // Clear global setting
+        LetsPlot.theme = null
+    }
+
+    @Test
+    fun `global theme as features list for gggrid`() {
+        LetsPlot.setTheme(themeNone() + flavorDarcula() + theme().legendPositionBottom())
+
+        val p = gggrid(listOf(ggplot(), ggplot()))
+        assertEquals(
+            mapOf(
+                "name" to "none",
+                "flavor" to "darcula",
+                "legend_position" to "bottom"
+            ),
+            p.toSpec()[Option.Plot.THEME]
+        )
+        // Clear global setting
+        LetsPlot.theme = null
+    }
 }
