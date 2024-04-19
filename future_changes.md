@@ -31,3 +31,5 @@
 ### Changed
 
 ### Fixed
+
+- `set_theme()` should accept "feature list" [[#657](https://github.com/JetBrains/lets-plot/issues/657)].
