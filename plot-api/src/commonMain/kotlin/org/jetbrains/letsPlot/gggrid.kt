@@ -111,6 +111,6 @@ fun gggrid(
     return SubPlotsFigure(
         figures = plots,
         layout = layout,
-        features = LetsPlot.themeSettings.filterIsInstance<OptionsMap>()
+        features = LetsPlot.getThemeOptionMaps()
     )
 }

@@ -12,7 +12,7 @@ fun letsPlot(data: Map<*, *>? = null, mapping: GenericAesMapping.() -> Unit = {}
     return Plot(
         data = data,
         mapping = GenericAesMapping().apply(mapping).seal(),
-        features = LetsPlot.themeSettings
+        features = LetsPlot.getThemeAsFeatureList()
     )
 }
 

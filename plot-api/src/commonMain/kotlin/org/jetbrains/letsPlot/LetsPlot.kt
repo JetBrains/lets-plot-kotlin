@@ -15,18 +15,21 @@ import org.jetbrains.letsPlot.intern.settings.createDefaultFrontendContext
 object LetsPlot {
     var frontendContext: FrontendContext = createDefaultFrontendContext()
 
-    @Deprecated(
-        "Please, use a new interface to set global theme: setTheme(theme)",
-        level = DeprecationLevel.WARNING
-    )
-    var theme: OptionsMap? = null
-        set(value) {
-            if (value != null) {
-                setTheme(value)
-            } else {
-                setTheme(FeatureList(emptyList()))
-            }
+    var theme: Any? = null
+
+    internal fun getThemeAsFeatureList(): List<Feature> {
+        val theme = theme ?: return emptyList()
+        return when (theme) {
+            is OptionsMap -> listOfNotNull(theme)
+            is FeatureList -> theme.elements
+            is Feature -> listOfNotNull(theme)
+            else -> throw IllegalArgumentException("Only `theme(...)`, `themeXxx()`, `flavorXxx()`, or a sum of them are supported")
         }
+    }
+
+    internal fun getThemeOptionMaps(): List<OptionsMap> {
+        return getThemeAsFeatureList().filterIsInstance<OptionsMap>()
+    }
 
     @Suppress("MemberVisibilityCanBePrivate")
     var apiVersion: String = "Unknown"
@@ -43,14 +46,5 @@ object LetsPlot {
         val isolatedFrameContext: Boolean = isolatedFrame ?: GlobalSettings.isolatedFrameContext
         frontendContext = NotebookFrontendContext(jsVersion, isolatedFrameContext, htmlRenderer)
         return frontendContext as NotebookFrontendContext
-    }
-
-    internal var themeSettings: List<Feature> = emptyList()
-    fun setTheme(theme: Feature) {
-        themeSettings = if (theme is FeatureList) {
-            theme.elements
-        } else {
-            listOf(theme)
-        }
     }
 }
