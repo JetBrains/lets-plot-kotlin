@@ -25,8 +25,8 @@ if (project.file("local.properties").exists()) {
 allprojects {
     group = "org.jetbrains.lets-plot"
     version = when (name) {
-        "dokka" -> "4.7.0"
-        else -> "4.7.1-SNAPSHOT"
+        "dokka" -> "4.7.1"
+        else -> "4.7.2-SNAPSHOT"
 //        else -> "0.0.0-SNAPSHOT"  // for local publishing only
     }
 
