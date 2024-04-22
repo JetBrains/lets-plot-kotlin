@@ -108,7 +108,7 @@ fun gggrid(
     @Suppress("NAME_SHADOWING")
     val plots = (plots.toList() + List(ncol - 1) { null }).take(len)
 
-    val features = listOfNotNull(LetsPlot.theme?.let { it as OptionsMap })
+    val features = listOfNotNull(LetsPlot.theme as? OptionsMap)
 
     return SubPlotsFigure(
         figures = plots,

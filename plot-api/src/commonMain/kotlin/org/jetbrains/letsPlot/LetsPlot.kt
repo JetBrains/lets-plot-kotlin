@@ -21,19 +21,14 @@ object LetsPlot {
         set(value) {
             field = when (value) {
                 null -> null
-                is OptionsMap -> value
                 is FeatureList -> {
-                    val optionsMap = value.elements.map { it as? OptionsMap ?: error("theme: unsupported feature $it") }
-                    optionsMap.forEach {
-                        require(it.kind == Option.Plot.THEME) {
-                            "theme: wrong options type, expected `${Option.Plot.THEME}` but was `${it.kind}`"
-                        }
-                    }
-                    ThemeOptionsUtil.toSpec(optionsMap)?.let { mergedOptions ->
+                    val optionsMapList = value.elements.map(::toThemeOptionsMap)
+                    ThemeOptionsUtil.toSpec(optionsMapList)?.let { mergedOptions ->
                         OptionsMap(Option.Plot.THEME, mergedOptions)
                     }
                 }
-                else -> throw IllegalArgumentException("Only `theme(...)`, `themeXxx()`, `flavorXxx()`, or a sum of them are supported")
+
+                else -> toThemeOptionsMap(value)
             }
         }
 
@@ -52,5 +47,13 @@ object LetsPlot {
         val isolatedFrameContext: Boolean = isolatedFrame ?: GlobalSettings.isolatedFrameContext
         frontendContext = NotebookFrontendContext(jsVersion, isolatedFrameContext, htmlRenderer)
         return frontendContext as NotebookFrontendContext
+    }
+
+    private fun toThemeOptionsMap(feature: Feature): OptionsMap {
+        require(feature is OptionsMap && feature.kind == Option.Plot.THEME) {
+            "'theme' expected but was: $feature"
+        }
+
+        return feature
     }
 }
