@@ -17,30 +17,25 @@ import org.jetbrains.letsPlot.intern.settings.createDefaultFrontendContext
 object LetsPlot {
     var frontendContext: FrontendContext = createDefaultFrontendContext()
 
-    var theme: Feature? = null
+    var theme: Feature? = null  // either null or OptionsMap
         set(value) {
             field = when (value) {
                 null -> null
                 is OptionsMap -> value
                 is FeatureList -> {
-                    value.elements.map {
-                        require(it is OptionsMap) { "theme: unsupported feature $it" }
+                    val optionsMap = value.elements.map { it as? OptionsMap ?: error("theme: unsupported feature $it") }
+                    optionsMap.forEach {
                         require(it.kind == Option.Plot.THEME) {
                             "theme: wrong options type, expected `${Option.Plot.THEME}` but was `${it.kind}`"
                         }
-                        it
                     }
-                        .let(ThemeOptionsUtil::toSpec)
-                        ?.let { OptionsMap(Option.Plot.THEME, it) }
+                    ThemeOptionsUtil.toSpec(optionsMap)?.let { mergedOptions ->
+                        OptionsMap(Option.Plot.THEME, mergedOptions)
+                    }
                 }
                 else -> throw IllegalArgumentException("Only `theme(...)`, `themeXxx()`, `flavorXxx()`, or a sum of them are supported")
             }
         }
-
-    internal fun getThemeOptions(): OptionsMap? {
-        require(theme == null || theme is OptionsMap)  { "theme: unsupported feature $theme" }
-        return theme as? OptionsMap
-    }
 
     @Suppress("MemberVisibilityCanBePrivate")
     var apiVersion: String = "Unknown"
