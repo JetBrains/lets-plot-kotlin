@@ -44,8 +44,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
- *  Possible values: "x", "y".
+ * @param orientation Specifies the axis that the layer's stat and geom should run along.
+ *  The default value (`null`) automatically determines the orientation based on the aesthetic mapping.
+ *  If the automatic detection doesn't work, it can be set explicitly by specifying the "x" or "y" orientation.
  * @param quantiles Draw horizontal lines at the given quantiles of the density estimate.
  * @param quantileLines default = false.
  *  Show the quantile lines.

@@ -46,8 +46,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Specifies appearance, style and content.
  * @param labels Result of the call to the `layerLabels()` function.
  *  Specifies style and content of the annotations.
- * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
- *  Possible values: "x", "y".
+ * @param orientation Specifies the axis that the layer's stat and geom should run along.
+ *  The default value (`null`) automatically determines the orientation based on the aesthetic mapping.
+ *  If the automatic detection doesn't work, it can be set explicitly by specifying the "x" or "y" orientation.
  * @param x X-axis value (this value will produce cases or bins for bars).
  * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).
  * @param alpha Transparency level of a layer.
