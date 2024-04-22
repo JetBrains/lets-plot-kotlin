@@ -5,30 +5,41 @@
 
 package org.jetbrains.letsPlot
 
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.frontend.NotebookFrontendContext
 import org.jetbrains.letsPlot.intern.Feature
 import org.jetbrains.letsPlot.intern.FeatureList
 import org.jetbrains.letsPlot.intern.OptionsMap
+import org.jetbrains.letsPlot.intern.ThemeOptionsUtil
 import org.jetbrains.letsPlot.intern.settings.GlobalSettings
 import org.jetbrains.letsPlot.intern.settings.createDefaultFrontendContext
 
 object LetsPlot {
     var frontendContext: FrontendContext = createDefaultFrontendContext()
 
-    var theme: Any? = null
-
-    internal fun getThemeAsFeatureList(): List<Feature> {
-        val theme = theme ?: return emptyList()
-        return when (theme) {
-            is OptionsMap -> listOfNotNull(theme)
-            is FeatureList -> theme.elements
-            is Feature -> listOfNotNull(theme)
-            else -> throw IllegalArgumentException("Only `theme(...)`, `themeXxx()`, `flavorXxx()`, or a sum of them are supported")
+    var theme: Feature? = null
+        set(value) {
+            field = when (value) {
+                null -> null
+                is OptionsMap -> value
+                is FeatureList -> {
+                    value.elements.map {
+                        require(it is OptionsMap) { "theme: unsupported feature $it" }
+                        require(it.kind == Option.Plot.THEME) {
+                            "theme: wrong options type, expected `${Option.Plot.THEME}` but was `${it.kind}`"
+                        }
+                        it
+                    }
+                        .let(ThemeOptionsUtil::toSpec)
+                        ?.let { OptionsMap(Option.Plot.THEME, it) }
+                }
+                else -> throw IllegalArgumentException("Only `theme(...)`, `themeXxx()`, `flavorXxx()`, or a sum of them are supported")
+            }
         }
-    }
 
-    internal fun getThemeOptionMaps(): List<OptionsMap> {
-        return getThemeAsFeatureList().filterIsInstance<OptionsMap>()
+    internal fun getThemeOptions(): OptionsMap? {
+        require(theme == null || theme is OptionsMap)  { "theme: unsupported feature $theme" }
+        return theme as? OptionsMap
     }
 
     @Suppress("MemberVisibilityCanBePrivate")

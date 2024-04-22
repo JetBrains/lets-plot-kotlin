@@ -146,7 +146,7 @@ class ThemePlotGridTest {
             val p = gggrid(listOf(ggplot())) + themeLight() // Override global theme
             assertThemeSpec(
                 p,
-                featureCount = 3,
+                featureCount = 2,
                 expected = mapOf(
                     "name" to "light",
                     "flavor" to "darcula",
@@ -208,7 +208,7 @@ class ThemePlotGridTest {
             val p = gggrid(listOf(ggplot()))
             assertThemeSpec(
                 p,
-                featureCount = 3,
+                featureCount = 1,
                 expected = mapOf(
                     "name" to "grey",
                     "flavor" to "darcula",
@@ -235,7 +235,7 @@ class ThemePlotGridTest {
             val p = gggrid(listOf(ggplot())) + themeLight() // Override global named theme
             assertThemeSpec(
                 p,
-                featureCount = 3,
+                featureCount = 2,
                 expected = mapOf(
                     "name" to "light",
                     "flavor" to "darcula",              // Keep flavor
@@ -263,7 +263,7 @@ class ThemePlotGridTest {
             val p = gggrid(listOf(element)) + themeLight()
             assertThemeSpec(
                 p,
-                featureCount = 3,
+                featureCount = 2,
                 expected = mapOf(
                     "name" to "light",
                     "flavor" to "darcula",              // Keep flavor

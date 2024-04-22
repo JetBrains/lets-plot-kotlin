@@ -8,7 +8,6 @@ package org.jetbrains.letsPlot
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots.Grid.Scales.SHARE_ALL
 import org.jetbrains.letsPlot.core.spec.Option.SubPlots.Grid.Scales.SHARE_NONE
-import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.figure.SubPlotsLayoutSpec
 import org.jetbrains.letsPlot.intern.filterNonNullValues
@@ -111,6 +110,6 @@ fun gggrid(
     return SubPlotsFigure(
         figures = plots,
         layout = layout,
-        features = LetsPlot.getThemeOptionMaps()
+        features = listOfNotNull(LetsPlot.getThemeOptions())
     )
 }
