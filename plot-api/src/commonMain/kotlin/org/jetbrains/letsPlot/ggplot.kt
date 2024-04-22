@@ -7,13 +7,12 @@ package org.jetbrains.letsPlot
 
 import org.jetbrains.letsPlot.intern.GenericAesMapping
 import org.jetbrains.letsPlot.intern.Plot
-import org.jetbrains.letsPlot.intern.settings.GlobalSettings
 
 fun letsPlot(data: Map<*, *>? = null, mapping: GenericAesMapping.() -> Unit = {}): Plot {
     return Plot(
         data = data,
         mapping = GenericAesMapping().apply(mapping).seal(),
-        features = listOfNotNull(GlobalSettings.theme)
+        features = listOfNotNull(LetsPlot.theme)
     )
 }
 
