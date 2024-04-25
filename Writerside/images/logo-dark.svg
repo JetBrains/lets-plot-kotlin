@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="512pt" height="512pt" viewBox="56 56 400 400"
+ preserveAspectRatio="xMidYMid meet">
+<g fill="#FFFFFF" stroke="none">
+<circle cx="256" cy="85" r="18" />
+<circle cx="170" cy="142" r="18" />
+<circle cx="256" cy="142" r="18" />
+<circle cx="342" cy="142" r="18" />
+<circle cx="84" cy="199" r="18" />
+<circle cx="170" cy="199" r="18" />
+<circle cx="256" cy="199" r="18" />
+<circle cx="342" cy="199" r="18" />
+<circle cx="428" cy="199" r="18" />
+<circle cx="84" cy="256" r="18" />
+<circle cx="170" cy="256" r="18" />
+<circle cx="256" cy="256" r="18" />
+<circle cx="342" cy="256" r="18" />
+<circle cx="428" cy="256" r="18" />
+<circle cx="84" cy="313" r="18" />
+<circle cx="170" cy="313" r="18" />
+<circle cx="256" cy="313" r="18" />
+<circle cx="342" cy="313" r="18" />
+<circle cx="428" cy="313" r="18" />
+<circle cx="170" cy="370" r="18" />
+<circle cx="256" cy="370" r="18" />
+<circle cx="342" cy="370" r="18" />
+<circle cx="256" cy="427" r="18" />
+</g>
+</svg>
