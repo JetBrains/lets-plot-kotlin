@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
+## [4.7.2] - 2024-04-25
+
+This release is 100% compatible with [Lets-Plot v 4.3.2](https://github.com/JetBrains/lets-plot/releases/tag/v4.3.2).
+
+### Fixed
+
+- LP occasionally crashes when drawing polygons [[#1084](https://github.com/JetBrains/lets-plot/issues/1084)].
+- Regression of issue [[#966](https://github.com/JetBrains/lets-plot/issues/966)].
+- Linetype doesn't work for `geomTile()` [[LPK-241](https://github.com/JetBrains/lets-plot-kotlin/issues/241)].
+                
+
 ## [4.7.1] - 2024-04-22
 
 This release is 100% compatible with [Lets-Plot v 4.3.1](https://github.com/JetBrains/lets-plot/releases/tag/v4.3.1).

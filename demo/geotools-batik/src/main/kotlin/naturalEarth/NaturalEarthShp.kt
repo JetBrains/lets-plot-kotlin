@@ -12,7 +12,7 @@ import java.nio.file.Paths
 /**
  * Loads the world boundaries from naturalearth_lowres.shp
  */
-object NaturalEarthShp {
+internal object NaturalEarthShp {
     fun loadPolygon(): SimpleFeatureCollection {
         return loadResource("docs/examples/shp/naturalearth_lowres/naturalearth_lowres.shp")
     }

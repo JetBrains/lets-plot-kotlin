@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC::CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Kronstadt Naval Cathedral", "type": "church" }, "geometry": { "type": "Point", "coordinates": [ 29.777455, 59.991744 ] } },
+{ "type": "Feature", "properties": { "name": "Kronstadt History Museum", "type": "museum" }, "geometry": { "type": "Point", "coordinates": [ 29.791317, 59.986777 ] } },
+{ "type": "Feature", "properties": { "name": "Kronstadt Naval Museum", "type": "museum" }, "geometry": { "type": "Point", "coordinates": [ 29.763422, 59.996108 ] } },
+{ "type": "Feature", "properties": { "name": "City Russian Cemetery", "type": "cemetery" }, "geometry": { "type": "Point", "coordinates": [ 29.70613, 60.019788 ] } },
+{ "type": "Feature", "properties": { "name": "Kronstadt Lutheran Cemetery", "type": "cemetery" }, "geometry": { "type": "Point", "coordinates": [ 29.749861, 60.002212 ] } },
+{ "type": "Feature", "properties": { "name": "Vladimir Church", "type": "church" }, "geometry": { "type": "Point", "coordinates": [ 29.766254, 59.998515 ] } }
+]
+}
