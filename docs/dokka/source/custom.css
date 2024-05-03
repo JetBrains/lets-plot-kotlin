@@ -17,10 +17,21 @@
   margin-right: 10px;
 }
 
+.library-version {
+  font-size: 16px;
+  color: white;
+  top: 0;
+  margin-left: 12px;
+}
+
 .brief-comment {
   display: none;
 }
 
 .custom-under-cover {
   margin-top: 1.5rem;
+}
+
+#filter-section {
+  display: none;
 }

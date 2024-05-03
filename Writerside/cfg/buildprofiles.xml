@@ -4,8 +4,5 @@
         <web-root>https://lets-plot.org/kotlin</web-root>
         <header-logo>logo-dark.svg</header-logo>
         <custom-favicons>logo-light.svg</custom-favicons>
-        <download-title>GitHub</download-title>
-        <download-page>https://github.com/JetBrains/lets-plot-kotlin</download-page>
-        <showDownloadButton>true</showDownloadButton>
     </variables>
 </buildprofiles>
