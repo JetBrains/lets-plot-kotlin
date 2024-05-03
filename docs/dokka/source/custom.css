@@ -4,6 +4,19 @@
     --dokka-logo-width: 50px;
 }
 
+.library-name--link {
+  font-size: 17px;
+  position: relative;
+  bottom: -1px;
+}
+
+.library-name--link::before {
+  position: relative;
+  background-size: 48px;
+  bottom: 1px;
+  margin-right: 10px;
+}
+
 .brief-comment {
   display: none;
 }
