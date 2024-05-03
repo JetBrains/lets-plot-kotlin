@@ -5,4 +5,8 @@
         <header-logo>logo-dark.svg</header-logo>
         <custom-favicons>logo-light.svg</custom-favicons>
     </variables>
+
+    <footer>
+        <copyright>2019-%current_year% JetBrains s.r.o.</copyright>
+    </footer>
 </buildprofiles>
