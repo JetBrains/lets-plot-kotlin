@@ -33,6 +33,10 @@
   margin-top: 1.5rem;
 }
 
+.platform-tags {
+  display: none;
+}
+
 #filter-section {
   display: none;
 }
