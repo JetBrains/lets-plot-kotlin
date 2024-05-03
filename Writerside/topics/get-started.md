@@ -16,7 +16,18 @@ letsPlot(data) +
 
 ![Quick Start](quickstart.png)
 
-[![NBViewer](jupyter.svg) { width=64 }](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb) [![Datalore](datalore.svg) { width=64 }](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/aTA9lQnPkRwdCzT6uy95GZ)
+<list columns="5">
+    <li>
+        <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb">
+            <img alt="NBViewer" src="jupyter.svg" height="64"/>
+        </a>
+    </li>
+    <li>
+        <a href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/aTA9lQnPkRwdCzT6uy95GZ">
+            <img alt="Datalore" src="datalore.svg" height="64"/>
+        </a>
+    </li>
+</list>
 
 
 ## User Guide
