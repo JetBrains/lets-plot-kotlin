@@ -34,6 +34,9 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [theme_panel_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/theme_panel_inset.ipynb)
  *
+ * - [theme_plot_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_plot_inset.ipynb)
+ *
+ *
  * @param exponentFormat default="e" ("e", "pow"). Format for numeric labels in scientific notation.
  *  e for "e" notation (e.g. 1e+6);
  *  pow for "power" notation (e.g. 1x10^6). This will enable superscript formatting for the exponent.
@@ -113,6 +116,14 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  the third - to the bottom;
  *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
  *  It is acceptable to use `null` for any side; in this case, the default side value for the plot margin side will be used.
+ * @param plotInset Inset for a plotting area, including the axes with their labels, but without titles.
+ *  The inset may be specified using a number or a list of numbers:
+ *  - a number or list of one number - the same inset it applied to all four sides;
+ *  - a list of two numbers - the first inset applies to the top and bottom, the second - to the left and right;
+ *  - a list of three numbers - the first inset applies to the top, the second - to the right and left, the third - to the bottom;
+ *  - a list of four numbers - the insets are applied to the top, right, bottom and left in that order.
+
+ *  It is acceptable to use None for any side; in this case, the default value for the plot inset side will be used.
  *
  * @param stripBackground Background of facet labels.
  * @param stripText Facet labels.
@@ -205,6 +216,7 @@ class theme(
     plotCaption: Any? = null,
     plotMessage: Any? = null,
     plotMargin: Any? = null,
+    plotInset: Any? = null,
 
     stripBackground: Any? = null,
     stripText: Any? = null,
@@ -279,7 +291,7 @@ class theme(
         Option.Theme.PANEL_GRID_ONTOP_X to panelGridOntopX,
         Option.Theme.PANEL_GRID_ONTOP_Y to panelGridOntopY,
 
-        "panel_inset" to panelInset,  // ToDo Replace with Option.Theme.PANEL_INSET
+        Option.Theme.PANEL_INSET to panelInset,
 
         Option.Theme.PLOT_BKGR_RECT to plotBackground,
         Option.Theme.PLOT_TITLE to plotTitle,
@@ -287,6 +299,7 @@ class theme(
         Option.Theme.PLOT_CAPTION to plotCaption,
         Option.Theme.PLOT_MESSAGE to plotMessage,
         Option.Theme.PLOT_MARGIN to plotMargin,
+        Option.Theme.PLOT_INSET to plotInset,
 
         Option.Theme.FACET_STRIP_BGR_RECT to stripBackground,
         Option.Theme.FACET_STRIP_TEXT to stripText,
@@ -389,20 +402,27 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
  *
  * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  *
+ * - [theme_linetype.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb)
+ *
  * @param fill Fill color. Accepts color core as string (HEX or rgb) or Color object.
  * @param color Border color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Border line width.
+ * @param linetype Type of the line.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash".
  * @param blank Mark as a 'blank' element.
  */
 fun elementRect(
     fill: Any? = null,
     color: Any? = null,
     size: Number? = null,
+    linetype: Any? = null,
     blank: Boolean = false,
 ) = mapOf(
     Option.Theme.Elem.FILL to fill,
     Option.Theme.Elem.COLOR to color,
     Option.Theme.Elem.SIZE to size,
+    Option.Theme.Elem.LINETYPE to linetype,
     Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 
@@ -415,17 +435,24 @@ fun elementRect(
  *
  * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
  *
+ * - [theme_linetype.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb)
+ *
  * @param color Line color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Line width.
+ * @param linetype Type of the line.
+ *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
+ *  5 = "longdash", 6 = "twodash".
  * @param blank Mark as a 'blank' element.
  */
 fun elementLine(
     color: Any? = null,
     size: Number? = null,
+    linetype: Any? = null,
     blank: Boolean = false,
 ) = mapOf(
     Option.Theme.Elem.COLOR to color,
     Option.Theme.Elem.SIZE to size,
+    Option.Theme.Elem.LINETYPE to linetype,
     Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 

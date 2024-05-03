@@ -1,9 +1,75 @@
-# lets-plot-kotlin changelog
+# Lets-Plot Kotlin API Changelog
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
+
+## [4.7.2] - 2024-04-25
+
+This release is 100% compatible with [Lets-Plot v 4.3.2](https://github.com/JetBrains/lets-plot/releases/tag/v4.3.2).
+
+### Fixed
+
+- LP occasionally crashes when drawing polygons [[#1084](https://github.com/JetBrains/lets-plot/issues/1084)].
+- Regression of issue [[#966](https://github.com/JetBrains/lets-plot/issues/966)].
+- Linetype doesn't work for `geomTile()` [[LPK-241](https://github.com/JetBrains/lets-plot-kotlin/issues/241)].
+                
+
+## [4.7.1] - 2024-04-22
+
+This release is 100% compatible with [Lets-Plot v 4.3.1](https://github.com/JetBrains/lets-plot/releases/tag/v4.3.1).
+
+### Added
+
+- Parameter `labWidth` in `facetWrap()` and `xLabWidth/yLabWidth` in `facetGrid()` [[LPK-237](https://github.com/JetBrains/lets-plot-kotlin/issues/237)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/facet_multiline_titles.ipynb).
+
+- Parameter `linetype` in `elementLine()` and `elementRect()` in `theme()` [[LPK-235](https://github.com/JetBrains/lets-plot-kotlin/issues/235)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb).
+
+- Parameter `arrow` in `geomSpoke()` [[#986](https://github.com/JetBrains/lets-plot/issues/986)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/geom_spoke_arrow.ipynb).
+
+- Parameter `sizeUnit` in `geomPoint()`, `geomText()` and `geomLabel()`.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/param_size_unit.ipynb).
+
+- Auto-detection of `orientation="y"` in bar-chart etc. [[#558](https://github.com/JetBrains/lets-plot/issues/558)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/auto_rotate.ipynb).
+
+- Parameter `plotInset` in `theme()`.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_plot_inset.ipynb).
+
+
+### Changed
+
+- `LetsPlot.theme` global property now accepts a sum of theme/flavor features [[#657](https://github.com/JetBrains/lets-plot/issues/657)].
+
+### Fixed
+
+- ggmarginal(): broken coloring [[#760](https://github.com/JetBrains/lets-plot/issues/760)].
+- Incorrect 'plot_background' area (with empty space capture) [[#918](https://github.com/JetBrains/lets-plot/issues/918)].
+- geom_density2df: uneven borders [[#941](https://github.com/JetBrains/lets-plot/issues/941)].
+- Line segments in geom_density2df() do not get interpolated when used with coord_polar() [[#1037](https://github.com/JetBrains/lets-plot/issues/1037)].
+- arrow on segment: reduce arrow size for short segments [[#1040](https://github.com/JetBrains/lets-plot/issues/1040)].
+- arrow on curve sometimes looks weird [[#1041](https://github.com/JetBrains/lets-plot/issues/1041)].
+- Error when build geom_smooth() with se=False [[#1050](https://github.com/JetBrains/lets-plot/issues/1050)].
+- Add tooltips for `geom_curve()` [[#1053](https://github.com/JetBrains/lets-plot/issues/1053)].
+- Incorrect position for bar annotations when specifying `scale_x_reverse()/scale_y_reverse()` [[#1057](https://github.com/JetBrains/lets-plot/issues/1057)].
+- Missing outer bar annotations when specifying `scale_x_reverse()/scale_y_reverse()` [[#1058](https://github.com/JetBrains/lets-plot/issues/1058)].
+- Plot layout breaks when marginal layers are used [[#1074](https://github.com/JetBrains/lets-plot/issues/1074)].
+- Discrete scale doesn't work for datetime data [[LPK-231](https://github.com/JetBrains/lets-plot-kotlin/issues/231)].
+- Add `linetype` parameter in `elementLine()` and `elementRect()` [[LPK-235](https://github.com/JetBrains/lets-plot-kotlin/issues/235)].
+- Any way to line-wrap facet labels? [[LPK-237](https://github.com/JetBrains/lets-plot-kotlin/issues/237)].
+- Missing marginal gridlines.
+- Cryptic error message on geom_boxplot with orientation="y" [[#600](https://github.com/JetBrains/lets-plot/issues/600)].
+
 
 ## [4.7.0] - 2024-03-15
 

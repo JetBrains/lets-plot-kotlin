@@ -20,18 +20,23 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [facets_free_scales.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb)
  *
+ * - [facet_multiline_titles.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/facet_multiline_titles.ipynb)
+ *
  * @param facets One or more faceting variable names.
  * @param ncol Number of columns.
  * @param nrow Number of rows.
  * @param scales Specifies whether scales are shared across all facets.
  *  default = "fixed" (shared) , "free" - vary across both rows and columns,
  *  "free_x" or "free_y" - vary across rows or columns respectively.
- * @param order Specifies ordering direction panels.
+ * @param order default = 1. Specifies ordering direction panels.
  *  1 - ascending, -1 - descending, null - ascending.
  *  The `order` values are positionally matched to variables in `facets`.
  * @param format Specifies the format pattern for displaying faceting values.
  *  The `format` values are positionally matched to variables in `facets`.
  * @param dir Direction: either "h" for horizontal, the default, or "v", for vertical.
+ * @param labWidth Specifies the maximum label length (in characters) before a line break is applied.
+ *  The `labWidth` values are positionally matched to variables in `facets`.
+ *  If the original facet label already contains `\n` as a text separator, the line breaking is not applied.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -49,9 +54,10 @@ fun facetWrap(
     ncol: Any? = null,
     nrow: Any? = null,
     scales: String? = null,
-    order: Any? = null,
+    order: Any? = 1,
     format: Any? = null,
-    dir: String = "h"
+    dir: String = "h",
+    labWidth: Any? = null
 ): OptionsMap {
     return OptionsMap(
         Option.Plot.FACET,
@@ -64,6 +70,7 @@ fun facetWrap(
             Option.Facet.FACETS_ORDER to order,
             Option.Facet.FACETS_FORMAT to format,
             Option.Facet.FACETS_FILL_DIR to dir,
+            Option.Facet.FACETS_LABWIDTH to labWidth
         ).filterNonNullValues()
     )
 }

@@ -40,7 +40,7 @@ object Boxplot {
             // Y-orientation
             (letsPlot(data) { y = "cat"; x = "val" } + ggtitle("Boxplot Y-orientation") +
                     geomBoxplot(
-                        orientation = "y",
+//                        orientation = "y",   // auto-detected
                         outlierColor = "red", outlierSize = 2, outlierShape = 21
                     )).show()
         }

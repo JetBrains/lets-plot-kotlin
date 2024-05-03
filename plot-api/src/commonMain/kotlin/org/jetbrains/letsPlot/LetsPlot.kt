@@ -5,15 +5,32 @@
 
 package org.jetbrains.letsPlot
 
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.frontend.NotebookFrontendContext
+import org.jetbrains.letsPlot.intern.Feature
+import org.jetbrains.letsPlot.intern.FeatureList
 import org.jetbrains.letsPlot.intern.OptionsMap
+import org.jetbrains.letsPlot.intern.ThemeOptionsUtil
 import org.jetbrains.letsPlot.intern.settings.GlobalSettings
 import org.jetbrains.letsPlot.intern.settings.createDefaultFrontendContext
 
 object LetsPlot {
     var frontendContext: FrontendContext = createDefaultFrontendContext()
 
-    var theme: OptionsMap? by GlobalSettings::theme
+    var theme: Feature? = null  // either null or OptionsMap
+        set(value) {
+            field = when (value) {
+                null -> null
+                is FeatureList -> {
+                    val optionsMapList = value.elements.map(::toThemeOptionsMap)
+                    ThemeOptionsUtil.toSpec(optionsMapList)?.let { mergedOptions ->
+                        OptionsMap(Option.Plot.THEME, mergedOptions)
+                    }
+                }
+
+                else -> toThemeOptionsMap(value)
+            }
+        }
 
     @Suppress("MemberVisibilityCanBePrivate")
     var apiVersion: String = "Unknown"
@@ -30,5 +47,13 @@ object LetsPlot {
         val isolatedFrameContext: Boolean = isolatedFrame ?: GlobalSettings.isolatedFrameContext
         frontendContext = NotebookFrontendContext(jsVersion, isolatedFrameContext, htmlRenderer)
         return frontendContext as NotebookFrontendContext
+    }
+
+    private fun toThemeOptionsMap(feature: Feature): OptionsMap {
+        require(feature is OptionsMap && feature.kind == Option.Plot.THEME) {
+            "'theme' expected but was: $feature"
+        }
+
+        return feature
     }
 }

@@ -98,6 +98,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param labelSize default = 1.0. Size of label border.
  * @param alphaStroke default = false.
  *  Enables the applying of 'alpha' to 'color' (label text and border).
+ * @param sizeUnit Relates the size of the text label to the length of the unit step along one of the axes.
+ *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").

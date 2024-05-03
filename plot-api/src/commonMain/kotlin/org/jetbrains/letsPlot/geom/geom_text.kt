@@ -27,7 +27,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [formatting_axes_etc.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
  *
- * - [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
+ * - [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/geotools_naturalearth.ipynb)
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
@@ -86,6 +86,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Text to show for missing values.
  * @param nudgeX Horizontal adjustment to nudge labels by.
  * @param nudgeY Vertical adjustment to nudge labels by.
+ * @param sizeUnit Relates the size of the text to the length of the unit step along one of the axes.
+ *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.

@@ -7,6 +7,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.*
 import org.jetbrains.letsPlot.pos.positionIdentity
+import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
@@ -29,6 +30,8 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
  * @param curvature default=0.5.
  *  The amount of curvature.
  *  Negative values produce left-hand curves, positive values produce right-hand curves,
@@ -78,6 +81,7 @@ class geomCurve(
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
     sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
     override val xend: Number? = null,
@@ -108,7 +112,8 @@ class geomCurve(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        sampling = sampling
+        sampling = sampling,
+        tooltips = tooltips
     ) {
     override fun seal(): Options {
         return super<CurveAesthetics>.seal() +

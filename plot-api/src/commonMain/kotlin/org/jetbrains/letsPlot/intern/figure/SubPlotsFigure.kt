@@ -34,7 +34,7 @@ class SubPlotsFigure(
     fun toSpec(): MutableMap<String, Any> {
         val elementSpecs = figures.map { it?.toSpec() }
 
-        val globalThemeOptions = LetsPlot.theme?.options
+        val globalThemeOptions = LetsPlot.theme?.let { it as OptionsMap }?.options
         // Strip global theme options from plots in grid (see issue: LP-966).
         if (globalThemeOptions != null) {
             elementSpecs.filterNotNull().forEach { elementSpec ->

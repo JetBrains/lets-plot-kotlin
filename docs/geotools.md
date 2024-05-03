@@ -60,7 +60,7 @@ the artifact `lets-plot-kotlin-geotools` must be included to make the `toSpatial
 
 You can include it into a Gradle project.
 ```groovy
-implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.0'
+implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.2'
 ```  
 
 [ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/_latestVersion)
@@ -69,7 +69,7 @@ The `gt-geojson` artifact from GeoTools must be also included.
 ```groovy
 dependencies {   
     ...
-    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.0"
+    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.2"
     implementation "org.geotools:gt-geojson:[30,)"               
     ...
 }

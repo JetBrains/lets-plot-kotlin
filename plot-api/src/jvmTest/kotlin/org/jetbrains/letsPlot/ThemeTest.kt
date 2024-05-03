@@ -213,4 +213,23 @@ class ThemeTest {
 
         LetsPlot.theme = null
     }
+
+    @Test
+    fun `global theme as feature list`() {
+        LetsPlot.theme = themeNone() + flavorDarcula() + theme().legendPositionBottom()
+        try {
+            val p = ggplot()
+            assertEquals(
+                mapOf(
+                    "name" to "none",
+                    "flavor" to "darcula",
+                    "legend_position" to "bottom"
+                ),
+                p.toSpec()[Option.Plot.THEME]
+            )
+        } finally {
+            // Clear global setting
+            LetsPlot.theme = null
+        }
+    }
 }

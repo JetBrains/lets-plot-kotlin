@@ -65,6 +65,16 @@ object FacetGrid {
                 yOrder = -1,
                 xFormat = "{d} cyl"
             )).show()
+
+            // add line breaking
+            (p + facetGrid(
+                x = "number of cylinders",
+                y = "origin of car",
+                xFormat = "{d} cyl",
+                xLabWidth = 3,
+                yLabWidth = 2
+            )).show()
+
         }
     }
 }

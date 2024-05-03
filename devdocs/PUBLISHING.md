@@ -35,6 +35,7 @@ Specify "x.y.z-SNAPSHOT" version in `build.gradle.kts` file.
 > You can find published SNAPSHOT artifacts here https://oss.sonatype.org/index.html#view-repositories;snapshots~browsestorage \
 > In the "Browse Storage" tab enter ‘Path lookup’: org/jetbrains/lets-plot
 
+> **Note**: SNAPSHOT artifacts are available at "https://oss.sonatype.org/content/repositories/snapshots" repository.
 
 #### "Release" version
 
