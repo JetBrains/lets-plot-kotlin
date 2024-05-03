@@ -47,8 +47,3 @@ letsPlot(data) +
 - [Layers](https://aeturrell.github.io/python4DS/vis-layers.html) - a deeper dive into aesthetic mappings, geometric objects, and facets.
 
 - [Exploratory Data Analysis](https://aeturrell.github.io/python4DS/exploratory-data-analysis.html) - search for answers by visualising, transforming, and modelling your data.
-
-
-## Gallery
-
-Visit the [gallery of examples](gallery.md).
