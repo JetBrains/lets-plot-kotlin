@@ -4,8 +4,15 @@ if (document.readyState == 'loading') {
     onDocumentReady();
 
 function onDocumentReady() {
+    fixLogoLink();
     addUnderCoverTextToIndex();
     addTargetBlankToLinks();
+}
+
+function fixLogoLink() {
+    Array.from(document.getElementsByClassName("library-name--link")).forEach(function (linkElement) {
+        linkElement.setAttribute("href", "https://lets-plot.org/kotlin/index.html");
+    });
 }
 
 function addUnderCoverTextToIndex() {

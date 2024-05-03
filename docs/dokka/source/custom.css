@@ -9,6 +9,7 @@
   font-size: 17px;
   position: relative;
   bottom: -1px;
+  cursor: initial;
 }
 
 .library-name--link::before {
@@ -16,6 +17,7 @@
   background-size: 48px;
   bottom: 1px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .library-version {
