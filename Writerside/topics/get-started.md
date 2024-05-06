@@ -1,5 +1,15 @@
 # Get Started
 
+<a href="https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub">
+    <img src="https://jb.gg/badges/official-flat-square.svg" alt="JB Official" />
+</a>
+<a href="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/LICENSE">
+    <img src="https://img.shields.io/github/license/JetBrains/lets-plot-kotlin?style=flat-square&color=yellow" alt="License MIT" />
+</a>
+<a href="https://github.com/JetBrains/lets-plot-kotlin/releases/latest">
+    <img src="https://img.shields.io/github/v/release/JetBrains/lets-plot-kotlin" alt="Latest Release" />
+</a>
+
 
 ## Quick Start
 
@@ -28,22 +38,3 @@ letsPlot(data) +
         </a>
     </li>
 </list>
-
-
-## User Guide
-
-[![Coding for Economists](coding_for_economists.png) { width=340 }](https://aeturrell.github.io/coding-for-economists)
-
-*Coding for Economists* by Arthur Turrell
-
-- [Easy Data Visualisation for Tidy Data with Lets-Plot](https://aeturrell.github.io/coding-for-economists/vis-letsplot.html) - how to make plots quickly using the declarative plotting.
-
-[![Python4DS](Python4DS.png) { width=340 }](https://aeturrell.github.io/python4DS/)
-
-*Python4DS* by Arthur Turrell
-
-- [Data Visualisation](https://aeturrell.github.io/python4DS/data-visualise.html) - will teach you how to visualise your data using using Lets-Plot.
-
-- [Layers](https://aeturrell.github.io/python4DS/vis-layers.html) - a deeper dive into aesthetic mappings, geometric objects, and facets.
-
-- [Exploratory Data Analysis](https://aeturrell.github.io/python4DS/exploratory-data-analysis.html) - search for answers by visualising, transforming, and modelling your data.
