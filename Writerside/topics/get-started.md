@@ -14,14 +14,17 @@
 ## Quick Start
 
 ```kotlin
-val rand = java.util.Random()
+%use lets-plot
+
+val rand = java.util.Random(37)
 val data = mapOf (
-    "rating" to List(200) { rand.nextGaussian() } + List(200) { rand.nextGaussian() * 1.5 + 1.5 },
+    "rating" to List(200) { rand.nextGaussian() } + List(200) { rand.nextGaussian() * 1.5 + 1 },
     "cond" to List(200) { "A" } + List(200) { "B" }
 )
-letsPlot(data) +
-    geomDensity(color = "dark_green", alpha = .3) { x = "rating"; fill = "cond" } +
-    ggsize(700, 350)
+
+letsPlot(data) { x = "rating"; fill = "cond" } + ggsize(700, 300) +
+    geomDensity(color = "dark_green", alpha = .7) + scaleFillBrewer(type = "seq") +
+    theme(panelGridMajorX = "blank")
 ```
 
 ![Quick Start](quickstart.png)
