@@ -27,14 +27,18 @@
   - `git add --all && git commit -m "Release vX.X.X" && git push`
   - `git tag vX.X.X && git push --tags`
 
-##### 5. Re-generate the API Reference (HTML)
+##### 5. Re-generate the documentation (HTML)
    
 - Update `version` in [build.gradle.kts](../build.gradle.kts) for the `dokka` subproject
   `"dokka" -> <version>`
 
 - `./gradlew dokkaHtml`
 
-- Move the content of docs/api-reference/ to the docs/kotlin/ directory of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
+- Update `version` in [v.list](../Writerside/v.list) for the Writerside.
+
+- [Build a Web Archive with Writerside](https://www.jetbrains.com/help/writerside/local-build.html).
+
+- Move the content of docs/api-reference/ and of zip file with Web Archive to the docs/kotlin/ directory of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
 
 Lets-Plot Kotlin API URL: https://lets-plot.org/kotlin/index.html  
 See also: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md) 
