@@ -158,7 +158,7 @@ For more information, see [geotools.md](https://github.com/JetBrains/lets-plot-k
 
 ## Examples
 
-- [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
+- [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/geotools_naturalearth.ipynb)
 
 # Package org.jetbrains.letsPlot.stat
 
