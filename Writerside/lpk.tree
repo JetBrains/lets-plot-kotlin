@@ -6,7 +6,8 @@
                  name="Lets-Plot-Kotlin"
                  start-page="get-started.md">
 
-    <toc-element topic="gallery.md"/>
     <toc-element topic="get-started.md"/>
-    <toc-element href="%web_root%/kotlin/api-reference" toc-title="API Reference"/>
+    <toc-element href="%api_reference%" toc-title="API Reference"/>
+    <toc-element topic="gallery.md"/>
+    <toc-element topic="charts.md"/>
 </instance-profile>
