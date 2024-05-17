@@ -46,7 +46,7 @@ Text:
 
 Examples:
 
-- [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
+- [Inset map of Kotlin island](spatialdataset_kotlin_isl.md)
 - [Drawing graph edges](%nb-graph_edges%)
 - [Formatting labels on plots](%nb-formatting_axes_etc%)
 - [Variadic lines in `geomPath()` and `geomLine()`](%nb-aes_size_color_variadic_lines%)
@@ -256,7 +256,7 @@ Lets-Plot-Kotlin `SpatialDataset` is supported by the following geometry layers:
 
 Examples:
 
-- [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
+- [Inset map of Kotlin island](spatialdataset_kotlin_isl.md)
 - [Using Lets-Plot with GeoTools to create maps](%nb-geotools_naturalearth%)
 - [Using exotic map projections](%nb-projection_provided%)
 
