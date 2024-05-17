@@ -1,0 +1,12 @@
+<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <g transform="rotate(90, 25, 25)" id="svg_1">
+   <rect id="svg_2" y="27.381" width="10.7143" height="22.619" rx="1.19048" fill="#0A0000" x="0"/>
+   <rect id="svg_3" opacity="0.5" x="13.0952" width="10.7143" height="50" rx="1.19048" fill="#0A0000" y="0"/>
+   <rect id="svg_4" x="26.1905" y="11.9048" width="10.7143" height="38.0952" rx="1.19048" fill="#0A0000"/>
+   <rect id="svg_5" opacity="0.5" x="39.2857" y="41.6667" width="10.7143" height="8.33333" rx="1.19048" fill="#0A0000"/>
+  </g>
+ </g>
+
+</svg>

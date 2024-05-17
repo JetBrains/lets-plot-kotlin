@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="53px" height="53px" viewBox="0 0 53 53" enable-background="new 0 0 53 53" xml:space="preserve">
+<g>
+	<path fill="#808080" d="M0,16V5.669C0,2.551,2.551,0,5.669,0h41.662C50.449,0,53,2.551,53,5.669V16"/>
+</g>
+<g>
+	<path d="M47.331,2C49.354,2,51,3.646,51,5.669v41.662C51,49.354,49.354,51,47.331,51H5.669C3.646,51,2,49.354,2,47.331V5.669
+		C2,3.646,3.646,2,5.669,2H47.331 M47.331,0H5.669C2.551,0,0,2.551,0,5.669v41.662C0,50.449,2.551,53,5.669,53h41.662
+		C50.449,53,53,50.449,53,47.331V5.669C53,2.551,50.449,0,47.331,0L47.331,0z"/>
+</g>
+<line fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="2" y1="16" x2="51" y2="16"/>
+<line fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="18" y1="2" x2="18" y2="51"/>
+<line fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="35" y1="2" x2="35" y2="51"/>
+<line fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="2" y1="28" x2="51" y2="28"/>
+<line fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-linejoin="round" stroke-miterlimit="10" x1="2" y1="40" x2="51" y2="40"/>
+<rect x="41" y="6" fill="#FFFFFF" width="5" height="5"/>
+<circle fill="#FFFFFF" cx="9.5" cy="8.5" r="2.5"/>
+<polygon fill="#FFFFFF" points="23,10.998 26.44,5.998 29.999,10.998 "/>
+<g>
+	<path d="M9,20c1.103,0,2,0.897,2,2s-0.897,2-2,2s-2-0.897-2-2S7.897,20,9,20 M9,19c-1.657,0-3,1.343-3,3s1.343,3,3,3s3-1.343,3-3
+		S10.657,19,9,19L9,19z"/>
+</g>
+<g>
+	<path d="M27,32c1.103,0,2,0.897,2,2s-0.897,2-2,2s-2-0.897-2-2S25.897,32,27,32 M27,31c-1.657,0-3,1.344-3,3s1.343,3,3,3
+		c1.656,0,3-1.344,3-3S28.656,31,27,31L27,31z"/>
+</g>
+<g>
+	<path d="M44,44c1.103,0,2,0.897,2,2s-0.897,2-2,2s-2-0.897-2-2S42.897,44,44,44 M44,43c-1.656,0-3,1.344-3,3s1.344,3,3,3
+		s3-1.344,3-3S45.656,43,44,43L44,43z"/>
+</g>
+<g>
+	<path d="M9,44c1.103,0,2,0.897,2,2s-0.897,2-2,2s-2-0.897-2-2S7.897,44,9,44 M9,43c-1.657,0-3,1.344-3,3s1.343,3,3,3
+		c1.656,0,3-1.344,3-3S10.656,43,9,43L9,43z"/>
+</g>
+<path d="M27,20v4V20 M28,19h-2v6h2V19L28,19z"/>
+<path d="M9,32v4V32 M10,31H8v6h2V31L10,31z"/>
+<path d="M27,44v4V44 M28,43h-2v6h2V43L28,43z"/>
+<path d="M44,32v4V32 M45,31h-2v6h2V31L45,31z"/>
+<path d="M44,20v4V20 M45,19h-2v6h2V19L45,19z"/>
+</svg>

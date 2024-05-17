@@ -1,6 +1,6 @@
 # Charts
 
-## Data
+## ![Data](data.svg){ height="30" } Data
 
 Every layer may have some data associated with it.
 The "data" refers to a table of data where each row contains an observation
@@ -10,7 +10,7 @@ Data in this format is sometimes referred to as tidy data, flat data, primary da
 
 You can pass tidy data to Lets-Plot in form of a Kotlin `Map`.
 
-## Basic Building Blocks
+## ![Basic building blocks](basic-building-blocks.svg){ height="30" } Basic Building Blocks
 
 Points:
 [`points`](%api_geom%/geom-point/index.html),
@@ -54,7 +54,7 @@ Examples:
 - [Curve geometry](%nb-geom_curve%)
 
 
-## Discrete
+## ![Discrete](discrete.svg){ height="30" } Discrete
 
 [`bar`](%api_geom%/geom-bar/index.html),
 [`pie`](%api_geom%/geom-pie/index.html),
@@ -74,7 +74,7 @@ Examples:
 - [Viridis colors](%nb-colors_viridis%)
 
 
-## Ordering Categories, `asDiscrete()`
+## ![Ordering categories, `asDiscrete()`](as_discrete.svg){ height="30" } Ordering Categories, `asDiscrete()`
 
 [`asDiscrete`](%api_lets_plot%/as-discrete.html)
 
@@ -84,7 +84,7 @@ Examples:
 - [Factor levels](%nb-factor_levels%)
 
 
-## Contours
+## ![Contours](contours.svg){ height="30" } Contours
 
 [`contours`](%api_geom%/geom-contour/index.html),
 [`filled contours`](%api_geom%/geom-contour-filled/index.html)
@@ -94,7 +94,7 @@ Examples:
 - [Contours](%nb-contours%)
 
 
-## Visualization of Distribution
+## ![Visualization of distribution](visualization-of-distribution.svg){ height="30" } Visualization of Distribution
 
 [`histogram`](%api_geom%/geom-histogram/index.html),
 [`density`](%api_geom%/geom-density/index.html),
@@ -114,7 +114,7 @@ Examples:
 - [The orientation parameter](%nb-y_orientation%)
 
 
-## Stats
+## ![Stats](stats.svg){ height="30" } Stats
 
 [`statECDF()`](%api_stat%/stat-e-c-d-f/index.html),
 [`statSummary()`](%api_stat%/stat-summary/index.html),
@@ -127,7 +127,7 @@ Examples:
 - [Binned summary stat](%nb-stat_summary_bin%)
 
 
-## Function
+## ![Function](function.svg){ height="30" } Function
 
 [`function`](%api_geom%/geom-function/index.html)
 
@@ -136,7 +136,7 @@ Examples:
 - [Function geometry](%nb-geom_function%)
 
 
-## Marginal Plots
+## ![Marginal plots](marginal.svg){ height="30" } Marginal Plots
 
 [`ggmarginal`](%api_lets_plot%/ggmarginal.html)
 
@@ -145,7 +145,7 @@ Examples:
 - [Marginal plots](%nb-marginal_layers%)
 
 
-## Visualization of Errors
+## ![Visualization of errors](visualization-of-errors.svg){ height="30" } Visualization of Errors
 
 [`crossbar`](%api_geom%/geom-crossbar/index.html),
 [`errorbar`](%api_geom%/geom-error-bar/index.html),
@@ -158,7 +158,7 @@ Examples:
 - [Geometries with dual orientation](%nb-horizontal_geoms%)
 
 
-## Smoothing
+## ![Smoothing](smoothing.svg){ height="30" } Smoothing
 
 [`smoothing line`](%api_geom%/geom-smooth/index.html)
 
@@ -167,7 +167,7 @@ Examples:
 - [Draw a scatter plot](%nb-scatter_plot%)
 
 
-## Bivariate Distribution
+## ![Bivariate distribution](bivariate-distribution.svg){ height="30" } Bivariate Distribution
 
 [`2d bins`](%api_geom%/geom-bin2-d/index.html),
 [`2d density`](%api_geom%/geom-density2-d/index.html),
@@ -178,7 +178,7 @@ Examples:
 - [2d density](%nb-density_2d%)
 
 
-## Time Series
+## ![Time series](time-series.svg){ height="30" } Time Series
 
 [`scaleXDatetime()`](%api_scale%/scale-x-date-time.html),
 [`scaleYDatetime()`](%api_scale%/scale-y-date-time.html),
@@ -190,7 +190,7 @@ Examples:
 - [Scale time](%nb-scale_time%)
 
 
-## Images
+## ![Images](images.svg){ height="30" } Images
 
 [`geomImshow()`](%api_geom%/geom-imshow.html)
 
@@ -202,7 +202,7 @@ Examples:
 - ["Fisher boat": `geomImshow()` and raster data](%nb-image_fisher_boat%)
 
 
-## Facets
+## ![Facets](facets.svg){ height="30" } Facets
 
 [`facetGrid()`](%api_facet%/facet-grid.html),
 [`facetWrap()`](%api_facet%/facet-wrap.html)
@@ -213,7 +213,7 @@ Examples:
 - [Free scales on faceted plot](%nb-facets_free_scales%)
 
 
-## Coordinate Systems
+## ![Coordinate systems](coordinate-systems.svg){ height="30" } Coordinate Systems
 
 [`coordCartesian()`](%api_coord%/coord-cartesian.html),
 [`coordFixed()`](%api_coord%/coord-fixed.html),
@@ -227,7 +227,7 @@ Examples:
 - [Polar coordinate system](%nb-coord_polar%)
 
 
-## 'bistro' Plots
+## !['bistro' plots](bistro.svg){ height="30" } 'bistro' Plots
 
 [`CorrPlot`](%api_bistro%.corr/-corr-plot/index.html),
 [`qqPlot`](%api_bistro%.qq/qq-plot.html),
@@ -242,7 +242,7 @@ Examples:
 - [Residual plot](%nb-residual_plot%)
 
 
-## SpatialDataset Support
+## ![SpatialDataset support](spatial-dataset.svg){ height="30" } SpatialDataset Support
 
 Lets-Plot-Kotlin `SpatialDataset` is supported by the following geometry layers:
 [`polygon`](%api_geom%/geom-polygon/index.html),
@@ -261,7 +261,7 @@ Examples:
 - [Using exotic map projections](%nb-projection_provided%)
 
 
-## Grouping Plots
+## ![Grouping plots](grouping-plots.svg){ height="30" } Grouping Plots
 
 [`GGBunch`](%api_lets_plot%/-g-g-bunch/index.html) and [`gggrid`](%api_lets_plot%/gggrid.html) shows a collection of plots on one figure.
 
@@ -272,7 +272,7 @@ Examples:
 - [Sharing X,Y-axis scale limits](%nb-gggrid_scale_share%)
 
 
-## Presentation Options
+## ![Presentation options](presentation-options.svg){ height="30" } Presentation Options
 
 [`theme()`](%api_theme%/theme/index.html),
 [`ggtitle()`](%api_label%/ggtitle.html),
