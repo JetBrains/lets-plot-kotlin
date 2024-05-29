@@ -248,6 +248,7 @@ private class statBoxplotOutlierInternal(
     override val shape: Any? = null,
     override val size: Number? = null,
     override val stroke: Number? = null,
+    override val angle: Number? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Number? = null,
     override val colorBy: String? = null,

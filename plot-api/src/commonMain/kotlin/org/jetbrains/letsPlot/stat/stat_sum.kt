@@ -52,6 +52,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param shape Shape of the mid-point.
  * @param size Lines width, size of mid-point.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
+ * @param angle Rotation angle of the shape, in degrees.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -75,6 +76,7 @@ class statSum(
     override val shape: Any? = null,
     override val size: Any? = null,
     override val stroke: Any? = null,
+    override val angle: Any? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: PointMapping.() -> Unit = {},
