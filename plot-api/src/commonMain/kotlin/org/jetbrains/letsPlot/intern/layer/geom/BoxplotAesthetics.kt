@@ -22,6 +22,7 @@ interface BoxplotAesthetics : OptionsCapsule {
     val size: Any?
     val linetype: Any?
     val shape: Any?
+    val angle: Any?
     val width: Any?
 
     override fun seal(): Options {
@@ -39,6 +40,7 @@ interface BoxplotAesthetics : OptionsCapsule {
             "size" to size,
             "linetype" to linetype,
             "shape" to shape,
+            "angle" to angle,
             "width" to width
         )
     }

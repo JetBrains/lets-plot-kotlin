@@ -22,6 +22,7 @@ class BoxplotMapping(
     override var size: Any? = null,
     override var linetype: Any? = null,
     override var shape: Any? = null,
+    override var angle: Any? = null,
     override var width: Any? = null,
     override var group: Any? = null,
     override var weight: Any? = null,

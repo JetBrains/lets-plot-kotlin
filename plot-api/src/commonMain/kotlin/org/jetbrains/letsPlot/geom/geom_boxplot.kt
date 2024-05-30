@@ -50,6 +50,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param outlierShape Shape aesthetic for outliers.
  * @param outlierSize Size aesthetic for outliers.
  * @param outlierStroke Default width of the border for outliers.
+ * @param outlierAngle Rotation angle of the shape for outliers, in degrees.
  * @param varWidth default = false. If false make a standard box plot.
  *  If true, boxes are drawn with widths proportional to the square-roots of the number of
  *  observations in the groups.
@@ -114,6 +115,7 @@ fun geomBoxplot(
     fill: Any? = null,
     size: Number? = null,
     stroke: Number? = null,
+    angle: Number? = null,
     linetype: Any? = null,
     shape: Any? = null,
     width: Any? = null,
@@ -124,6 +126,7 @@ fun geomBoxplot(
     outlierShape: Any? = null,
     outlierSize: Number? = null,
     outlierStroke: Number? = null,
+    outlierAngle: Number? = null,
     fatten: Number? = null,
     whiskerWidth: Number? = null,
     varWidth: Boolean? = null,
@@ -142,7 +145,7 @@ fun geomBoxplot(
         showLegend,
         tooltips,
         orientation,
-        x, y, lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, width, weight, fatten,
+        x, y, lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, angle, width, weight, fatten,
         whiskerWidth, varWidth, coef,
         colorBy, fillBy,
         mapping
@@ -158,6 +161,7 @@ fun geomBoxplot(
             this.color = boxplotMapping.color
             this.fill = boxplotMapping.fill
             this.shape = boxplotMapping.shape
+            this.angle = boxplotMapping.angle
             this.size = boxplotMapping.size
             // stroke
             this.group = boxplotMapping.group
@@ -179,6 +183,7 @@ fun geomBoxplot(
             shape = outlierShape ?: shape,
             size = (outlierSize ?: size)?.let { it.toDouble() * outlierFatten },
             stroke = outlierStroke ?: stroke,
+            angle = outlierAngle ?: angle,
             colorBy = colorBy, fillBy = fillBy,
             mapping = pointMapping
         )
@@ -207,6 +212,7 @@ private class geomBoxplotInternal(
     override val size: Number? = null,
     override val linetype: Any? = null,
     override val shape: Any? = null,
+    override val angle: Number? = null,
     override val width: Any? = null,
     override val weight: Any? = null,
     override val fatten: Number? = null,
