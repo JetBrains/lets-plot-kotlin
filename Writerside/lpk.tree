@@ -11,4 +11,5 @@
     <toc-element topic="gallery.md"/>
     <toc-element topic="charts.md"/>
     <toc-element topic="tooltips.md"/>
+    <toc-element topic="annotations.md"/>
 </instance-profile>

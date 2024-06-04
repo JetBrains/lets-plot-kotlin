@@ -20,6 +20,7 @@
     <!-- NOTEBOOKS -->
     <!-- Pages -->
     <var name="nbp-tooltips" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/2u1Afm6IqmUugSWKG6ULsq"/>
+    <var name="nbp-annotations" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/mynA4kNRFpu3XYl2b7tlBd"/>
     <!-- Gallery -->
     <var name="nb-geotools_naturalearth" value="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/geotools_naturalearth.ipynb"/>
     <var name="nb-mpg_daisy" value="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/mpg_daisy.ipynb"/>
