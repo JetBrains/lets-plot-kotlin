@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="lpk"
-                 name="Lets-Plot-Kotlin"
+                 name="Lets-Plot for Kotlin"
                  start-page="get-started.md">
 
     <toc-element topic="get-started.md"/>

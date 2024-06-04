@@ -4,13 +4,14 @@ if (document.readyState == 'loading') {
     onDocumentReady();
 
 function onDocumentReady() {
-    fixLogoLink();
+    fixLogo();
     addUnderCoverTextToIndex();
     addTargetBlankToLinks();
 }
 
-function fixLogoLink() {
+function fixLogo() {
     Array.from(document.getElementsByClassName("library-name--link")).forEach(function (linkElement) {
+        linkElement.textContent = "Lets-Plot for Kotlin";
         linkElement.setAttribute("href", "https://lets-plot.org/kotlin/index.html");
     });
 }
