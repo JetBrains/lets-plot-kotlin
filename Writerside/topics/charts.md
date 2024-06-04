@@ -284,7 +284,7 @@ Examples:
 [`guideColorbar()`](%api_scale%/guide-colorbar.html),
 [`guides()`](%api_scale%/guides.html)
 
-Predefined themes:
+### Predefined themes
 
 [`minimal2`](%api_theme%/theme-minimal2.html),
 [`bw`](%api_theme%/theme-b-w.html),
@@ -299,7 +299,7 @@ Predefined themes:
     <img alt="All predefined themes" src="complete_themes.png" style="block"/>
 </a>
 
-Color schemes (flavors):
+### Color schemes (flavors)
 
 [`darcula`](%api_theme%/flavor-darcula.html),
 [`solarized light`](%api_theme%/flavor-solarized-light.html),
