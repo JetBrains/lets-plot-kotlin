@@ -13,9 +13,13 @@
 
 ## Quick Start
 
+Inside [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](https://datalore.jetbrains.com/) or [Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme):
+
 ```kotlin
 %use lets-plot
+```
 
+```kotlin
 val rand = java.util.Random(37)
 val data = mapOf (
     "rating" to List(200) { rand.nextGaussian() } + List(200) { rand.nextGaussian() * 1.5 + 1 },
