@@ -18,6 +18,8 @@
     <var name="api_bistro" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.bistro"/>
 
     <!-- NOTEBOOKS -->
+    <!-- Pages -->
+    <var name="nbp-tooltips" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/2u1Afm6IqmUugSWKG6ULsq"/>
     <!-- Gallery -->
     <var name="nb-geotools_naturalearth" value="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/geotools_naturalearth.ipynb"/>
     <var name="nb-mpg_daisy" value="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/mpg_daisy.ipynb"/>
@@ -97,6 +99,7 @@
     <var name="nb-themes" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb"/>
     <var name="nb-title_subtitle_caption" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb"/>
     <var name="nb-tooltip_config" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb"/>
+    <var name="nb-tooltip_title" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_title.ipynb"/>
     <var name="nb-tooltips_theme" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb"/>
     <var name="nb-y_orientation" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/y_orientation.ipynb"/>
 </vars>

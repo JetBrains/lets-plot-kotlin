@@ -10,4 +10,5 @@
     <toc-element href="%api_reference%" toc-title="API Reference"/>
     <toc-element topic="gallery.md"/>
     <toc-element topic="charts.md"/>
+    <toc-element topic="tooltips.md"/>
 </instance-profile>
