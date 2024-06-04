@@ -16,6 +16,7 @@ class PointMapping(
     override var shape: Any? = null,
     override var size: Any? = null,
     override var stroke: Any? = null,
+    override var angle: Any? = null,
     override var group: Any? = null,
     override var paint_a: Any? = null,
     override var paint_b: Any? = null,

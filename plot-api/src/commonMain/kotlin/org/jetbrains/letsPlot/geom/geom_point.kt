@@ -81,6 +81,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param shape Shape of the point.
  * @param size Size of the point.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
+ * @param angle Rotation angle of the shape, in degrees.
  * @param sizeUnit Relates the size of the point to the length of the unit step along one of the axes.
  *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -110,6 +111,7 @@ class geomPoint(
     override val shape: Any? = null,
     override val size: Number? = null,
     override val stroke: Number? = null,
+    override val angle: Number? = null,
     override val sizeUnit: String? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,

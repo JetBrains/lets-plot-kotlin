@@ -17,6 +17,7 @@ interface PointAesthetics : OptionsCapsule {
     val shape: Any?
     val size: Any?
     val stroke: Any?
+    val angle: Any?
 
     override fun seal() = Options.of(
         "x" to x,
@@ -26,6 +27,7 @@ interface PointAesthetics : OptionsCapsule {
         "fill" to fill,
         "shape" to shape,
         "size" to size,
-        "stroke" to stroke
+        "stroke" to stroke,
+        "angle" to angle
     )
 }

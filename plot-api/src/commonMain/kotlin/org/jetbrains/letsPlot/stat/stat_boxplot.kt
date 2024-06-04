@@ -68,6 +68,7 @@ import org.jetbrains.letsPlot.pos.positionDodge
  * @param outlierShape Shape aesthetic for outliers.
  * @param outlierSize Size aesthetic for outliers.
  * @param outlierStroke Default width of the border for outliers.
+ * @param outlierAngle Rotation angle of the shape for outliers, in degrees.
  * @param fatten default = 1.0.
  *  A multiplicative factor applied to size of the middle bar.
  * @param whiskerWidth default = 0.0.
@@ -105,12 +106,14 @@ fun statBoxplot(
     stroke: Number? = null,
     linetype: Any? = null,
     shape: Any? = null,
+    angle: Number? = null,
     width: Any? = null,
     weight: Any? = null,
     outlierAlpha: Number? = null,
     outlierColor: Any? = null,
     outlierFill: Any? = null,
     outlierShape: Any? = null,
+    outlierAngle: Number? = null,
     outlierSize: Number? = null,
     outlierStroke: Number? = null,
     fatten: Number? = null,
@@ -131,7 +134,7 @@ fun statBoxplot(
         showLegend,
         sampling,
         x, y,
-        lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, width, weight, fatten,
+        lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, angle, width, weight, fatten,
         whiskerWidth, varWidth, coef,
         colorBy, fillBy,
         mapping
@@ -147,6 +150,7 @@ fun statBoxplot(
             this.color = boxplotMapping.color
             this.fill = boxplotMapping.fill
             this.shape = boxplotMapping.shape
+            this.angle = boxplotMapping.angle
             this.size = boxplotMapping.size
             // stroke
             this.group = boxplotMapping.group
@@ -165,6 +169,7 @@ fun statBoxplot(
             color = outlierColor ?: color,
             fill = outlierFill ?: fill,
             shape = outlierShape ?: shape,
+            angle = outlierAngle ?: angle,
             size = (outlierSize ?: size)?.let { it.toDouble() * outlierFatten },
             stroke = outlierStroke ?: stroke,
             colorBy = colorBy, fillBy = fillBy,
@@ -195,6 +200,7 @@ private class statBoxplotInternal(
     override val size: Number? = null,
     override val linetype: Any? = null,
     override val shape: Any? = null,
+    override val angle: Number? = null,
     override val width: Any? = null,
     override val weight: Any? = null,
     override val fatten: Number? = null,
@@ -248,6 +254,7 @@ private class statBoxplotOutlierInternal(
     override val shape: Any? = null,
     override val size: Number? = null,
     override val stroke: Number? = null,
+    override val angle: Number? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Number? = null,
     override val colorBy: String? = null,
