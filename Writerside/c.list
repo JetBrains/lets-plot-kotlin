@@ -3,5 +3,4 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/categories.dtd">
 <categories>
     <category id="wrs" name="Writerside documentation" order="1"/>
-    <category id="example" name="Example Notebooks" order="2"/>
 </categories>

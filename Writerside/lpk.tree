@@ -10,7 +10,4 @@
     <toc-element href="%api_reference%" toc-title="API Reference"/>
     <toc-element topic="gallery.md"/>
     <toc-element topic="charts.md"/>
-
-    <!-- Examples -->
-    <toc-element topic="spatialdataset_kotlin_isl.md" hidden="true"/>
 </instance-profile>
