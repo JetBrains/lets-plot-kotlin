@@ -13,4 +13,5 @@
     <toc-element topic="formats.md"/>
     <toc-element topic="tooltips.md"/>
     <toc-element topic="annotations.md"/>
+    <toc-element topic="sampling.md"/>
 </instance-profile>
