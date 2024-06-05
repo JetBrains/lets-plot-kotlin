@@ -52,6 +52,10 @@ Examples:
 - [Variadic lines in `geomPath()` and `geomLine()`](%nb-aes_size_color_variadic_lines%)
 - [Spoke geometry](%nb-geom_spoke%)
 - [Curve geometry](%nb-geom_curve%)
+- [Jittered points](%nb-jittered_points%)
+- [Lines in Lets-Plot](%nb-lines%)
+- [Ribbon geometry](%nb-ribbon%)
+- [How to draw curve fast](%nb-algebraic_curve%)
 - [`stroke` aesthetic](%nb-aes_stroke%)
 
 
