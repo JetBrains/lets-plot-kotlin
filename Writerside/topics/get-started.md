@@ -35,12 +35,12 @@ letsPlot(data) { x = "rating"; fill = "cond" } + ggsize(700, 300) +
 
 <list columns="5">
     <li>
-        <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb">
+        <a href="%nb-nbviewer-quickstart%">
             <img alt="NBViewer" src="jupyter.svg" height="64"/>
         </a>
     </li>
     <li>
-        <a href="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/aTA9lQnPkRwdCzT6uy95GZ">
+        <a href="%nb-datalore-quickstart%">
             <img alt="Datalore" src="datalore.svg" height="64"/>
         </a>
     </li>

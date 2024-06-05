@@ -52,6 +52,7 @@ Examples:
 - [Variadic lines in `geomPath()` and `geomLine()`](%nb-aes_size_color_variadic_lines%)
 - [Spoke geometry](%nb-geom_spoke%)
 - [Curve geometry](%nb-geom_curve%)
+- [`stroke` aesthetic](%nb-aes_stroke%)
 
 
 ## Discrete
@@ -68,6 +69,7 @@ Examples:
 - [Annotation labels on pie-chart](%nb-annotations_for_pie%)
 - [Annotated barchart](%nb-bar_annotations%)
 - ['boxplot_outlier' statistics](%nb-stat_boxplot_outlier%)
+- [`whiskerWidth` parameter of `geomBoxplot()`](%nb-boxplot_whisker_width%)
 - [Lollipop plot](%nb-geom_lollipop%)
 - [Count stat](%nb-stat_count_2d%)
 - [Handling an overplotting on a scatter plot: `geomCount()`/`statSum()`](%nb-geom_count%)
@@ -111,7 +113,7 @@ Examples:
 - [Y-Dotplot geometry](%nb-geom_ydotplot%)
 - [Violin plot](%nb-geom_violin%)
 - [Ridgeline plot](%nb-ridgeline_plot%)
-- [The orientation parameter](%nb-y_orientation%)
+- [The `orientation` parameter](%nb-y_orientation%)
 
 
 ## Stats
@@ -154,6 +156,7 @@ Examples:
 
 Examples:
 
+- [Plotting means and error ranges](%nb-error_bars%)
 - [Horizontal error bars and vertical "dodge"](%nb-horizontal_error_bars%)
 - [Geometries with dual orientation](%nb-horizontal_geoms%)
 
@@ -164,6 +167,7 @@ Examples:
 
 Examples:
 
+- [Smoothing](%nb-geom_smooth%)
 - [Draw a scatter plot](%nb-scatter_plot%)
 
 
@@ -259,6 +263,8 @@ Examples:
 - [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
 - [Using Lets-Plot with GeoTools to create maps](%nb-geotools_naturalearth%)
 - [Using exotic map projections](%nb-projection_provided%)
+- [Label geometry](%nb-geom_label%)
+- [Parameters of `geomText()` and `geomLabel()`](%nb-geom_text_and_label_new_features%)
 
 
 ## Grouping Plots
@@ -330,6 +336,7 @@ Examples:
 - [Multiple lines for legend text](%nb-legend_text_multiline%)
 - [Tooltip customization](%nb-tooltip_config%)
 - [Set font faces](%nb-set_font_faces%)
+- [Set font size and family](%nb-font_size_and_family%)
 - [Axis position](%nb-axis_position%)
 - [Rotation of axis labels](%nb-axis_text_angle%)
 - [Exponent format in Lets-Plot](%nb-superscript_exponent%)
