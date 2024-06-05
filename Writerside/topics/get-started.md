@@ -15,7 +15,7 @@
 
 Inside [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](https://datalore.jetbrains.com/) or [Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme):
 
-```kotlin
+```
 %use lets-plot
 ```
 
