@@ -10,6 +10,7 @@
     <toc-element href="%api_reference%" toc-title="API Reference"/>
     <toc-element topic="gallery.md"/>
     <toc-element topic="charts.md"/>
+    <toc-element topic="formats.md"/>
     <toc-element topic="tooltips.md"/>
     <toc-element topic="annotations.md"/>
 </instance-profile>
