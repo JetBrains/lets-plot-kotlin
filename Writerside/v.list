@@ -9,6 +9,7 @@
     <var name="api_reference" value="%web_root%/kotlin/api-reference"/>
     <var name="api_lets_plot" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot"/>
     <var name="api_coord" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.coord"/>
+    <var name="api_export" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.export"/>
     <var name="api_geom" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.geom"/>
     <var name="api_facet" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.facet"/>
     <var name="api_label" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.label"/>
@@ -43,6 +44,7 @@
     <var name="nb-default_theme" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-3.3.0/default_theme.ipynb"/>
     <var name="nb-density_2d" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb"/>
     <var name="nb-distributions" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/distributions.ipynb"/>
+    <var name="nb-export_to_file" value="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/export_to_file.ipynb"/>
     <var name="nb-facets" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb"/>
     <var name="nb-facets_free_scales" value="https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb"/>
     <var name="nb-factor_levels" value="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/factor_levels.ipynb"/>
