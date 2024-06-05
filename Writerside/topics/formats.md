@@ -39,7 +39,7 @@ The numeric format strings are used to format common numeric types. The general 
 
 - *`precision`* depending on the *`type`*, the *`precision`* either indicates the number of digits that follow the
   decimal point (types `f` and `%`), or the number of significant digits (types `​`, `e`, `g`, `r`, `s` and `p`).
-  If the precision is not specified, it defaults to 6 for all types except ​ (none), which defaults to 12.
+  If the precision is not specified, it defaults to 6 for all types except `​` (none), which defaults to 12.
   Precision is ignored for integer formats (types `b`, `o`, `d`, `x`, `X` and `c`).
 
 - *`~`* trims insignificant trailing zeros across all format types.
