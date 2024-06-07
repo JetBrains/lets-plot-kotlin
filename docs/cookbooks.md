@@ -6,4 +6,4 @@
 
 #### Scatter Plot
 
-[geomPoint](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-point), [geomJitter](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-jitter)
+[geomPoint](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-point), [geomJitter](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.geom/geom-jitter)
