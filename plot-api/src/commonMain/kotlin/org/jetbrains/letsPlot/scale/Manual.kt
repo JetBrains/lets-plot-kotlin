@@ -107,7 +107,7 @@ fun scaleManual(
  *
  * ## Examples
  *
- * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+ * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)
  *
  * @param values List of Strings (encoding colors) or color values.
  *  A set of aesthetic values to map data values to.
@@ -166,7 +166,7 @@ fun scaleColorManual(
  *
  * ## Examples
  *
- * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+ * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)
  *
  * @param values List of Strings (encoding colors) or color values.
  *  A set of aesthetic values to map data values to.
@@ -279,7 +279,7 @@ fun scaleSizeManual(
  *
  * ## Examples
  *
- * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
+ * - [scatter_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/scatter_plot.ipynb)
  *
  * @param values A set of aesthetic values to map data values to.
  *  Values will be matched with the limits of the scale (if specified).

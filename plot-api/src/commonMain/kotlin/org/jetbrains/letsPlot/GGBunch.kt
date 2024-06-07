@@ -19,9 +19,9 @@ import org.jetbrains.letsPlot.intern.toSpec
  *
  * ## Examples
  *
- * - [ggbunch.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/ggbunch.ipynb)
+ * - [ggbunch.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/ggbunch.ipynb)
  *
- * - [geom_smooth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_smooth.ipynb)
+ * - [geom_smooth.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_smooth.ipynb)
  */
 class GGBunch : Figure {
     private val items: MutableList<PlotItem> = ArrayList()

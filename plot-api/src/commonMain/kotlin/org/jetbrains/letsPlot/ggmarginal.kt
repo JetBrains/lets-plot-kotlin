@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.intern.layer.MarginalLayer
  *
  * ## Examples
  *
- * - [marginal_layers.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb)
+ * - [marginal_layers.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/marginal_layers.ipynb)
  *
  * @param sides Which sides of the plot the marginal layer will appear on.
  *  It should be set to a string containing any of "trbl", for top, right, bottom and left.

@@ -78,7 +78,7 @@ fun scaleFillDiscrete(
  *
  * ## Examples
  *
- * - [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
+ * - [legend_and_axis.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend_and_axis.ipynb)
  *
  * @param direction default = 1.
  *  Only for color scales: sets the order of colors in the scale.

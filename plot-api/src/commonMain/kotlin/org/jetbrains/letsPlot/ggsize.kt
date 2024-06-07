@@ -13,9 +13,9 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  *
  * ## Examples
  *
- * - [quickstart.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/quickstart.ipynb)
+ * - [quickstart.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/quickstart.ipynb)
  *
- * - [geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/geotools_naturalearth.ipynb)
+ * - [geotools_naturalearth.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/geotools_naturalearth.ipynb)
  *
  * @param width Width of plot in px.
  * @param height Height of plot in px.

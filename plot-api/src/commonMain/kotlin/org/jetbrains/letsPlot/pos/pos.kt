@@ -19,7 +19,7 @@ val positionIdentity = PosOptions(PosKind.IDENTITY)
  *
  * ## Examples
  *
- * - [error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/error_bars.ipynb)
+ * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)
  *
  * @param width Dodging width, when different to the width of the individual elements. This is useful when you want to align narrow geoms with wider geoms.
  *  The value of width is relative and typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the objects.
@@ -35,7 +35,7 @@ fun positionDodge(width: Number? = null) =
  *
  * ## Examples
  *
- * - [horizontal_error_bars.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.0/horizontal_error_bars.ipynb)
+ * - [horizontal_error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/horizontal_error_bars.ipynb)
  *
  * @param height Dodging height, when different to the height of the individual elements. This is useful when you want to align narrow geoms with taller geoms.
  *  The value of height is relative and typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the objects.
@@ -51,7 +51,7 @@ fun positionDodgeV(height: Number? = null) =
  *
  * ## Examples
  *
- * - [scatter_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scatter_plot.ipynb)
+ * - [scatter_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/scatter_plot.ipynb)
  *
  * @param width Jittering width. The value of width is relative and typically ranges between 0 and 0.5.
  *  Values that are greater than 0.5 lead to overlapping of the points.
@@ -119,7 +119,7 @@ fun positionJitterDodge(
  *
  * ## Examples
  *
- * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
+ * - [position_stack.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/position_stack.ipynb)
  *
  * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/position_stack.ipynb)
  *
@@ -147,7 +147,7 @@ fun positionStack(vjust: Number? = null, mode: String? = null) =
  *
  * ## Examples
  *
- * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb)
+ * - [position_stack.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/position_stack.ipynb)
  *
  * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/position_stack.ipynb)
  *

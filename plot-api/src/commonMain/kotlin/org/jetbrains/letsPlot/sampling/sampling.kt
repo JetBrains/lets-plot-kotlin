@@ -15,7 +15,7 @@ val samplingNone = SamplingOptions(SamplingKind.NONE, emptyMap())
  *
  * ## Examples
  *
- * - [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
+ * - [sampling_stratified.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/sampling_stratified.ipynb)
  *
  * @param n Number of items to return.
  * @param seed Number used to initialize a pseudo random number generator.
@@ -29,7 +29,7 @@ fun samplingRandom(n: Int, seed: Int? = null): SamplingOptions {
  *
  * ## Examples
  *
- * - [sampling_stratified.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/sampling_stratified.ipynb)
+ * - [sampling_stratified.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/sampling_stratified.ipynb)
  *
  * @param n Number of items to return.
  * @param seed Number used to initialize a pseudo random number generator.
