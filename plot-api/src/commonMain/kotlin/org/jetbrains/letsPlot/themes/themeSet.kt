@@ -114,7 +114,7 @@ fun themeNone() = OptionsMap(
  *
  * ## Examples
  *
- * - [theme_void.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/theme_void.ipynb)
+ * - [theme_void.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_void.ipynb)
  */
 fun themeVoid() = themeClassic() + theme(
     line = elementBlank(),

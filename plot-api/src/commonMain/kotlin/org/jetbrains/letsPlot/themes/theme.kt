@@ -28,13 +28,13 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [legend_and_axis.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend_and_axis.ipynb)
  *
- * - [theme_label_text.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/theme_label_text.ipynb)
+ * - [theme_label_text.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_label_text.ipynb)
  *
  * - [superscript_exponent.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/superscript_exponent.ipynb)
  *
- * - [theme_panel_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/theme_panel_inset.ipynb)
+ * - [theme_panel_inset.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_panel_inset.ipynb)
  *
- * - [theme_plot_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_plot_inset.ipynb)
+ * - [theme_plot_inset.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_plot_inset.ipynb)
  *
  *
  * @param exponentFormat default="e" ("e", "pow"). Format for numeric labels in scientific notation.
@@ -402,7 +402,7 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
  *
  * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
  *
- * - [theme_linetype.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb)
+ * - [theme_linetype.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_linetype.ipynb)
  *
  * @param fill Fill color. Accepts color core as string (HEX or rgb) or Color object.
  * @param color Border color. Accepts color core as string (HEX or rgb) or Color object.
@@ -435,7 +435,7 @@ fun elementRect(
  *
  * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
  *
- * - [theme_linetype.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb)
+ * - [theme_linetype.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_linetype.ipynb)
  *
  * @param color Line color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Line width.

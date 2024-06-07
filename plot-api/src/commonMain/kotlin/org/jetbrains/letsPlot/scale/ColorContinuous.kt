@@ -225,7 +225,7 @@ fun scaleGradient(
  *
  * ## Examples
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param low Color for low end of gradient.
  * @param high Color for high end of gradient.
@@ -290,7 +290,7 @@ fun scaleFillGradient(
  *
  * - [contours.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/contours.ipynb)
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param low Color for low end of gradient.
  * @param high Color for high end of gradient.
@@ -545,7 +545,7 @@ fun scaleGradientN(
  *
  * ## Examples
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
@@ -666,7 +666,7 @@ fun scaleColorGradient2(
  *
  * ## Examples
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param colors Gradient colors list.
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
@@ -797,7 +797,7 @@ fun scaleGrey(
  *
  * - [contours.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/contours.ipynb)
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param start Gray value at low end of palette in range `[0,1]`.
  * @param end Gray value at high end of palette in range `[0,1]`.
@@ -859,7 +859,7 @@ fun scaleFillGrey(
  *
  * ## Examples
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param start Gray value at low end of palette in range `[0,1]`.
  * @param end Gray value at high end of palette in range `[0,1]`.
@@ -1004,7 +1004,7 @@ fun scaleHue(
  *
  * - [contours.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/contours.ipynb)
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param h default = Pair(15, 375).
  *  Range of hues, in `[0, 360]`.
@@ -1080,7 +1080,7 @@ fun scaleFillHue(
  *
  * ## Examples
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param h default = Pair(15, 375).
  *  Range of hues, in `[0, 360]`.

@@ -115,7 +115,7 @@ fun scaleViridis(
  *
  * ## Examples
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param option Name of colormap.
  *  Supported colormaps:
@@ -205,7 +205,7 @@ fun scaleFillViridis(
  *
  * ## Examples
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param option Name of colormap.
  *  Supported colormaps:

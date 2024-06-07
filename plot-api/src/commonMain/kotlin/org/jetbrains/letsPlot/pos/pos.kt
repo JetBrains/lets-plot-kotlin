@@ -121,7 +121,7 @@ fun positionJitterDodge(
  *
  * - [position_stack.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/position_stack.ipynb)
  *
- * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/position_stack.ipynb)
+ * - [position_stack.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/stackable_position_adjustments.ipynb)
  *
  * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
  *  Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
@@ -149,7 +149,7 @@ fun positionStack(vjust: Number? = null, mode: String? = null) =
  *
  * - [position_stack.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/position_stack.ipynb)
  *
- * - [position_stack.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/position_stack.ipynb)
+ * - [position_stack.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/stackable_position_adjustments.ipynb)
  *
  * @param vjust Vertical adjustment for geoms that have a position (like points or lines), not a dimension (like bars or areas).
  *  Set to 0 to align with the bottom, 0.5 for the middle, and 1 for the top.
