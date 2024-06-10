@@ -1,4 +1,4 @@
-# Annotation Customization
+# Annotating Charts
 
 You can customize the content of annotations for pie and bar charts by using the parameter `labels` of the corresponding functions.
 

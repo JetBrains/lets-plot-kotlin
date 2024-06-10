@@ -3,7 +3,7 @@
     <variables>
         <web-root>https://lets-plot.org/kotlin</web-root>
         <header-logo>logo-dark.svg</header-logo>
-        <custom-favicons>logo-light.svg</custom-favicons>
+        <custom-favicons>favicon.svg</custom-favicons>
         <product-web-url>%web_root%/kotlin/index.html</product-web-url>
         <include-in-head>../source/in-head.html</include-in-head>
     </variables>

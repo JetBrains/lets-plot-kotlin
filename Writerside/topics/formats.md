@@ -78,7 +78,7 @@ The numeric format strings are used to format common numeric types. The general 
   - `Z` - zetta, 10²¹
   - `Y` - yotta, 10²⁴
 
-### Examples
+### Number Format Examples
 
 Let's format the number `42`:
 
@@ -148,7 +148,7 @@ The list of supported directives to format date/time values:
 - `%P` - like %p but in lowercase: "am" or "pm";
 - `%S` - second as a zero-padded decimal number (00, 01, …, 59).
 
-### Examples
+### Datetime Format Examples
 
 Let's apply the format string to the date `Aug 6, 2019` and the time `4:46:35`:
 

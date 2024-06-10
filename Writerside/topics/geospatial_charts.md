@@ -1,11 +1,11 @@
-# GeoTools Support
+# Geospatial Charts
 
 [GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
 
 Lets-Plot supports visualization of `SimpleFeature` objects organized in `SimpleFeatureCollection`, as well as
 individual `Geometry`  (`org.locationtech.jts.geom`) and `ReferencedEnvelope` (`org.geotools.geometry.jts`) objects.
 
-Lets-Plot API includes the `SpatialDataset` (`jetbrains.letsPlot.spatial`) class serving as a bridge between external
+Lets-Plot API includes the [`SpatialDataset`](%api_spatial%) class serving as a bridge between external
 spatial data-types and Lets-Plot geometry layers.
 
 A set of Kotlin extension methods with the signature `toSpatialDataset(decimals: Int = 10): SpatialDataset` is provided
@@ -32,9 +32,9 @@ The Lets-Plot library recognizes the following three 2D-geometry types:
 
 These shapes can be plotted using various geometry layers that depend on the type of the shape:
 
-- Points : `geomPoint`, `geomText`
-- Lines : `geomPath`
-- Polygons : `geomPolygon`, `geomMap`. `geomRect` when used with Polygon shapes displays corresponding bounding boxes.
+- Points : [`geomPoint`](%api_geom%/geom-point/index.html), [`geomText`](%api_geom%/geom-text/index.html), [`geomLabel`](%api_geom%/geom-label/index.html), [`geomPie`](%api_geom%/geom-pie/index.html)
+- Lines : [`geomPath`](%api_geom%/geom-path/index.html)
+- Polygons : [`geomPolygon`](%api_geom%/geom-polygon/index.html), [`geomMap`](%api_geom%/geom-map/index.html). [`geomRect`](%api_geom%/geom-rect/index.html) when used with Polygon shapes displays corresponding bounding boxes.
 
 All coordinates must be in decimal degree units, in "WGS 84" coordinates.
 
@@ -50,7 +50,7 @@ for regular plots, the artifact `lets-plot-kotlin-geotools` must be included to 
 You can include it into a Gradle project.
 
 ```groovy
-implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.3'
+implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:%version%'
 ```
 
 The `gt-geojson` artifact from GeoTools must be also included.
@@ -58,7 +58,7 @@ The `gt-geojson` artifact from GeoTools must be also included.
 ```groovy
 dependencies {   
     ...
-    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.3"
+    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:%version%"
     implementation "org.geotools:gt-geojson:[30,)"               
     ...
 }
@@ -77,9 +77,7 @@ for rendering.
 
 ## Creating Maps in Notebooks
 
-Lets-Plot can visualize maps in any notebook application that supports the [Kotlin Jupyter Kernel](https://github.com/Kotlin/kotlin-jupyter).
-
-At this moment, the applications that support Kotlin kernel are [Jupyther](https://jupyter.org/) itself and JetBrains [Datalore](https://datalore.jetbrains.com/).
+Lets-Plot can visualize maps in [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](https://datalore.jetbrains.com) or [Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme).
 
 You can include all necessary dependencies into your notebook using the following "line magics":
 
@@ -115,4 +113,19 @@ magic to avoid possible compatibility issues.
 - The world map with *Lets-Plot* and *GeoTools*:
   [geotools_naturalearth.ipynb](%nb-geotools_naturalearth%)
 
-<img src="geotools_naturalearth.png" alt="Couldn't load geotools_naturalearth.png" width="480" height="339"/>
+  <img src="geotools_naturalearth.png" alt="Couldn't load geotools_naturalearth.png" width="480" height="339"/>
+
+- Inset map of Kotlin island:
+  [spatialdataset_kotlin_isl.ipynb](%nb-spatialdataset_kotlin_isl%)
+
+  <img src="spatialdataset_kotlin_isl.png" alt="Couldn't load spatialdataset_kotlin_isl.png" width="480"/>
+
+- Using exotic map projections:
+  [projection_provided.ipynb](%nb-projection_provided%)
+
+  <img src="projection_provided.png" alt="Couldn't load projection_provided.png" height="339"/>
+
+- Label geometry:
+  [geom_label.ipynb](%nb-geom_label%)
+
+  <img src="geom_label.png" alt="Couldn't load geom_label.png" width="480"/>

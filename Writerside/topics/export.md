@@ -1,4 +1,6 @@
-# Saving Plot in a File
+# Export
+
+## Saving Plot in a File
 
 The `ggsave()` function is a convenient way of saving a plot or a GGBunch object in a file.
 
@@ -25,3 +27,29 @@ ggsave(p, "density.png")
 See `ggsave()` [documentation](%api_export%/ggsave.html) for more information about the function arguments and default values.
 
 Example notebook: [ggsave demo.ipynb](%nb-export_to_file%).
+
+## Export to a String
+
+The `PlotSvgExport` and `PlotHtmlExport` utilities are used to export the plot to a string.
+
+For example, to get a string with SVG, use:
+
+```kotlin
+import org.jetbrains.letsPlot.awt.plot.PlotSvgExport
+
+val spec = p.toSpec()
+val svg: String = PlotSvgExport.buildSvgImageFromRawSpecs(spec)
+```
+
+For a string with HTML, use:
+
+```kotlin
+import org.jetbrains.letsPlot.core.util.PlotHtmlExport
+import org.jetbrains.letsPlot.core.util.PlotHtmlHelper
+
+val spec = p.toSpec()
+val html: String = PlotHtmlExport.buildHtmlFromRawSpecs(
+    spec, iFrame = true,
+    scriptUrl = PlotHtmlHelper.scriptUrl(VersionChecker.letsPlotJsVersion)
+)
+```

@@ -250,27 +250,6 @@ Examples:
 - [Residual plot](%nb-residual_plot%)
 
 
-## `SpatialDataset` Support
-
-Lets-Plot-Kotlin `SpatialDataset` is supported by the following geometry layers:
-[`polygon`](%api_geom%/geom-polygon/index.html),
-[`map`](%api_geom%/geom-map/index.html),
-[`point`](%api_geom%/geom-point/index.html),
-[`pie`](%api_geom%/geom-pie/index.html),
-[`text`](%api_geom%/geom-text/index.html),
-[`label`](%api_geom%/geom-label/index.html),
-[`path`](%api_geom%/geom-path/index.html),
-[`rect`](%api_geom%/geom-rect/index.html).
-
-Examples:
-
-- [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
-- [Using Lets-Plot with GeoTools to create maps](%nb-geotools_naturalearth%)
-- [Using exotic map projections](%nb-projection_provided%)
-- [Label geometry](%nb-geom_label%)
-- [Parameters of `geomText()` and `geomLabel()`](%nb-geom_text_and_label_new_features%)
-
-
 ## Grouping Plots
 
 [`GGBunch`](%api_lets_plot%/-g-g-bunch/index.html) and [`gggrid`](%api_lets_plot%/gggrid.html) shows a collection of plots on one figure.
