@@ -40,11 +40,11 @@ tasks.dokkaHtml {
             skipDeprecated.set(true)
             includes.from("$dokkaSrcDir/packages.md")
             perPackageOption {
-                matchingRegex.set(".*\\.frontend.*")
+                matchingRegex.set(""".*\.frontend.*""")
                 suppress.set(true)
             }
             perPackageOption {
-                matchingRegex.set(".*\\.intern.*")
+                matchingRegex.set(""".*\.intern.*""")
                 suppress.set(true)
             }
         }
