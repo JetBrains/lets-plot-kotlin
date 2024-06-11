@@ -13,6 +13,7 @@
     <var name="api_geom" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.geom"/>
     <var name="api_facet" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.facet"/>
     <var name="api_label" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.label"/>
+    <var name="api_position" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.pos"/>
     <var name="api_scale" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.scale"/>
     <var name="api_spatial" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.spatial"/>
     <var name="api_stat" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.stat"/>
