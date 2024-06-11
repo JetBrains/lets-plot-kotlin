@@ -34,7 +34,7 @@
 
 - `./gradlew dokkaHtml`
 
-- Update `version` in [v.list](../Writerside/v.list) for the Writerside.
+- Update `version` in [v.list](../Writerside/v.list) for the Writerside. Check vales of `current_year` and `web_root`.
 
 - [Build a Web Archive with Writerside](https://www.jetbrains.com/help/writerside/local-build.html).
 
