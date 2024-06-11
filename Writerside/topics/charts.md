@@ -222,18 +222,3 @@ Examples:
 
 - [Flipped coordinates](%nb-coord_flip%)
 - [Polar coordinate system](%nb-coord_polar%)
-
-
-## 'bistro' Plots
-
-[`CorrPlot`](%api_bistro%.corr/-corr-plot/index.html),
-[`qqPlot`](%api_bistro%.qq/qq-plot.html),
-[`jointPlot`](%api_bistro%.joint/joint-plot.html),
-[`residualPlot`](%api_bistro%.residual/residual-plot.html)
-
-Examples:
-
-- [Correlation plot](%nb-correlation_plot%)
-- [Q-Q plots](%nb-qq_plots%)
-- [Joint plot](%nb-joint_plot%)
-- [Residual plot](%nb-residual_plot%)

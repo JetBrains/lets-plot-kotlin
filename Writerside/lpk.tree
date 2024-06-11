@@ -12,12 +12,13 @@
     <toc-element topic="charts.md"/>
     <toc-element toc-title="Key Features">
         <toc-element topic="geospatial_charts.md"/>
+        <toc-element topic="bistro.md"/>
+        <toc-element topic="multiplot.md"/>
         <toc-element topic="formats.md"/>
         <toc-element topic="tooltips.md"/>
         <toc-element topic="annotations.md"/>
         <toc-element topic="sampling.md"/>
         <toc-element topic="export.md"/>
-        <toc-element topic="multiplot.md"/>
         <toc-element topic="presentation_options.md"/>
         <toc-element topic="misc.md"/>
     </toc-element>
