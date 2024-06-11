@@ -210,17 +210,6 @@ Examples:
 - ["Fisher boat": `geomImshow()` and raster data](%nb-image_fisher_boat%)
 
 
-## Facets
-
-[`facetGrid()`](%api_facet%/facet-grid.html),
-[`facetWrap()`](%api_facet%/facet-wrap.html)
-
-Examples:
-
-- [Creating multi-panel plots using facets](%nb-facets%)
-- [Free scales on faceted plot](%nb-facets_free_scales%)
-
-
 ## Coordinate Systems
 
 [`coordCartesian()`](%api_coord%/coord-cartesian.html),
@@ -248,14 +237,3 @@ Examples:
 - [Q-Q plots](%nb-qq_plots%)
 - [Joint plot](%nb-joint_plot%)
 - [Residual plot](%nb-residual_plot%)
-
-
-## Grouping Plots
-
-[`GGBunch`](%api_lets_plot%/-g-g-bunch/index.html) and [`gggrid`](%api_lets_plot%/gggrid.html) shows a collection of plots on one figure.
-
-Examples:
-
-- [The `GGBunch` class](%nb-ggbunch%)
-- [The `gggrid()` function](%nb-plot_grid%)
-- [Sharing X,Y-axis scale limits](%nb-gggrid_scale_share%)

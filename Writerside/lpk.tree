@@ -16,6 +16,7 @@
     <toc-element topic="annotations.md"/>
     <toc-element topic="sampling.md"/>
     <toc-element topic="export.md"/>
+    <toc-element topic="multiplot.md"/>
     <toc-element topic="presentation_options.md"/>
     <toc-element topic="misc.md"/>
 </instance-profile>
