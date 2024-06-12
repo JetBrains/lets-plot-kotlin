@@ -22,21 +22,21 @@
 
 You can customize the content, values formatting and appearance of tooltip for any geometry layer in your plot.
 
-Learn more: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
+Learn more: [Tooltip Customization](https://lets-plot.org/kotlin/tooltips.html).
 
 <a id="formatting"></a>
 ### Formatting
 
 Formatting of numeric and date-time values in tooltips, legends, on the axes and *text geometry* layer.
 
-Learn more: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md).
+Learn more: [Formatting](https://lets-plot.org/kotlin/formats.html).
 
 <a id="sampling"></a>
 ### Data Sampling
 
 Sampling is a special technique of data transformation, which helps to deal with large datasets and overplotting.
 
-Learn more: [Data Sampling](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+Learn more: [Data Sampling](https://lets-plot.org/kotlin/sampling.html).
 
 <a id="export"></a>
 ### Saving Plot in a File
@@ -78,5 +78,5 @@ Example notebook: [ggsave demo](https://nbviewer.org/github/JetBrains/lets-plot-
 Lets-Plot supports visualization of a set of `SimpleFeature`-s stored in `SimpleFeatureCollection`, as well as
 individual `Geometry` and `ReferencedEnvelope` objects.
 
-Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
+Learn more: [Geospatial Charts](https://lets-plot.org/kotlin/geospatial-charts.html).
 

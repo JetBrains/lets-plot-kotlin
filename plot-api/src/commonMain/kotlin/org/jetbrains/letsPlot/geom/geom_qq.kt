@@ -39,7 +39,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
- *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the layerTooltips() function.
  *  Specifies appearance, style and content.
  * @param distribution default = "norm".

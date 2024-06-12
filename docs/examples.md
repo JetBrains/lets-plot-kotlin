@@ -229,7 +229,7 @@ Color schemes (flavors): `flavorDarcula, flavorSolarizedLight, flavorSolarizedDa
 
 Sampling is a special technique of data transformation, which helps dealing with large datasets and overplotting.
 
-See: [Sampling in Lets-Plot](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+See: [Sampling in Lets-Plot](https://lets-plot.org/kotlin/sampling.html).
 
 * Pick sampling on
   Bar-chart: [sampling_pick.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/sampling_pick.ipynb)
@@ -247,7 +247,7 @@ See: [Sampling in Lets-Plot](https://github.com/JetBrains/lets-plot-kotlin/blob/
 <a id="geotools"></a>
 #### GeoTools Support
 
-See [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
+See [Geospatial Charts](https://lets-plot.org/kotlin/geospatial-charts.html).
 
 * [geotools_naturalearth.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/geotools_naturalearth.ipynb)
 * [geom_label.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_label.ipynb)

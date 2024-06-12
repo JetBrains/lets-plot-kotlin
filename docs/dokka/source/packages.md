@@ -104,7 +104,7 @@ letsPlot(data) +
 
 # Package org.jetbrains.letsPlot.label
 
-See [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md).
+See [formats.html](https://lets-plot.org/kotlin/formats.html).
 
 ## Examples
 
@@ -128,7 +128,7 @@ letsPlot(data) +
     geomBar(sampling = samplingRandomStratified(3, seed=42)) { x="x" }
 ```
 
-For more information, see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+For more information, see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
 
 ## Examples
 
@@ -154,7 +154,7 @@ For more information, see [sampling.md](https://github.com/JetBrains/lets-plot-k
 
 [GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit, supported by the Lets-Plot library.
 
-For more information, see [geotools.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
+For more information, see [Geospatial Charts](https://lets-plot.org/kotlin/geospatial-charts.html).
 
 ## Examples
 
@@ -168,7 +168,7 @@ For more information, see [geotools.md](https://github.com/JetBrains/lets-plot-k
 
 # Package org.jetbrains.letsPlot.tooltips
 
-See [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
+See [tooltips.html](https://lets-plot.org/kotlin/tooltips.html).
 
 ## Examples
 

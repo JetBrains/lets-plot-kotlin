@@ -38,7 +38,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
- *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
  * @param map Data-structure containing series of planar shapes and, optionally,
@@ -111,7 +111,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * Format patterns in the `labelFormat` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  * Note: the "$" must be escaped as "\$".
  *
  * Examples:

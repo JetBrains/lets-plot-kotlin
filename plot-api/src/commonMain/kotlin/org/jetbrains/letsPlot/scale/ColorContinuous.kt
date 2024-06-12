@@ -51,7 +51,7 @@ import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -116,7 +116,7 @@ fun scaleFillContinuous(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: (formats.md)[https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md]
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -180,7 +180,7 @@ fun scaleColorContinuous(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -248,7 +248,7 @@ fun scaleGradient(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -313,7 +313,7 @@ fun scaleFillGradient(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -373,7 +373,7 @@ fun scaleColorGradient(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -442,7 +442,7 @@ fun scaleGradient2(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -501,7 +501,7 @@ fun scaleFillGradient2(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -567,7 +567,7 @@ fun scaleGradientN(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -626,7 +626,7 @@ fun scaleFillGradientN(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -688,7 +688,7 @@ fun scaleColorGradient2(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -746,7 +746,7 @@ fun scaleColorGradientN(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -820,7 +820,7 @@ fun scaleGrey(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -882,7 +882,7 @@ fun scaleFillGrey(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -949,7 +949,7 @@ fun scaleColorGrey(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -1035,7 +1035,7 @@ fun scaleHue(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -1111,7 +1111,7 @@ fun scaleFillHue(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";

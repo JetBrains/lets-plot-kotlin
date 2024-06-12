@@ -136,7 +136,7 @@ text, which is copied unchanged to the result string. If you need to include a b
 can be escaped by doubling: {{ and }}. This approach is used in function `layerTooltips()` to customize the content of
 tooltips.
 
-See: [Tooltip Customization in Lets-Plot](https://github.com/JetBrains/lets-plot/blob/master/docs/tooltips.md).
+See: [Tooltip Customization in Lets-Plot](https://lets-plot.org/kotlin/tooltips.html).
 
 <a id="datetime"></a>
 
@@ -207,7 +207,7 @@ Let's apply the format string to the date `Aug 6, 2019` and the time `4:46:35`:
                            
 ## Tooltip Customization
 
-You can format text in tooltips, see: [Tooltip Customization](https://github.com/JetBrains/lets-plot/blob/master/docs/tooltips.md).
+You can format text in tooltips, see: [Tooltip Customization](https://lets-plot.org/kotlin/tooltips.html).
 
 <a id="demo-notebooks"></a>
 
