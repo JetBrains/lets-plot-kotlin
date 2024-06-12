@@ -3,7 +3,7 @@
 <vars>
     <var name="version" value="4.7.3"/>
     <var name="current_year" value="2024"/>
-    <var name="web_root" value="https://asmirnov-horis.github.io/lets-plot-docs"/>
+    <var name="web_root" value="https://lets-plot.org"/>
 
     <!-- API -->
     <var name="api_reference" value="%web_root%/kotlin/api-reference"/>
