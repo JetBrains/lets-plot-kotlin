@@ -17,11 +17,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * ## Examples
  *
- * - [facets.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
+ * - [facets.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/facets.ipynb)
  *
- * - [facets_free_scales.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb)
+ * - [facets_free_scales.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/facets_free_scales.ipynb)
  *
- * - [facet_multiline_titles.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/facet_multiline_titles.ipynb)
+ * - [facet_multiline_titles.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/facet_multiline_titles.ipynb)
  *
  * @param x Variable name which defines columns of the facet grid.
  * @param y Variable name which defines rows of the facet grid.
@@ -40,7 +40,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * Format pattern in the `xFormat`/`yFormat` parameters can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";

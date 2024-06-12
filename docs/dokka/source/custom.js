@@ -1,14 +1,24 @@
+const titleText = "Lets-Plot for Kotlin"
+
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', onDocumentReady, false);
 } else
     onDocumentReady();
 
 function onDocumentReady() {
-    addUnderCoverTextToIndex();
+    fixLogo();
+    fixContentOnIndexPage();
     addTargetBlankToLinks();
 }
 
-function addUnderCoverTextToIndex() {
+function fixLogo() {
+    Array.from(document.getElementsByClassName("library-name--link")).forEach(function (linkElement) {
+        linkElement.textContent = titleText;
+        linkElement.setAttribute("href", "https://lets-plot.org/kotlin/index.html");
+    });
+}
+
+function fixContentOnIndexPage() {
     const underCoverText = `
     <div class="UnderCoverText custom-under-cover">
         <div>
@@ -19,6 +29,7 @@ function addUnderCoverTextToIndex() {
 
     const coverElem = document.querySelector("#main div.cover");
     if (coverElem.textContent.trim().split(" ").indexOf("Lets-Plot-Kotlin") == 0) {
+        coverElem.querySelector("h1>span>span").textContent = titleText;
         const newElem = htmlToElement(underCoverText);
         coverElem.parentElement.insertBefore(newElem, coverElem.nextSibling);
     }

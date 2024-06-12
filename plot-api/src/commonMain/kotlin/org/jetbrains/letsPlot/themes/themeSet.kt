@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/complete_themes.ipynb)
  */
 fun themeGrey() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -30,7 +30,7 @@ fun themeGrey() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/complete_themes.ipynb)
  */
 fun themeBW() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -44,7 +44,7 @@ fun themeBW() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/complete_themes.ipynb)
  */
 fun themeLight() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -58,7 +58,7 @@ fun themeLight() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/complete_themes.ipynb)
  */
 fun themeClassic() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -72,7 +72,7 @@ fun themeClassic() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/complete_themes.ipynb)
  */
 fun themeMinimal() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -86,7 +86,7 @@ fun themeMinimal() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/complete_themes.ipynb)
  */
 fun themeMinimal2() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -100,7 +100,7 @@ fun themeMinimal2() = OptionsMap(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/complete_themes.ipynb)
  */
 fun themeNone() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -114,7 +114,7 @@ fun themeNone() = OptionsMap(
  *
  * ## Examples
  *
- * - [theme_void.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/theme_void.ipynb)
+ * - [theme_void.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_void.ipynb)
  */
 fun themeVoid() = themeClassic() + theme(
     line = elementBlank(),

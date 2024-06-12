@@ -99,9 +99,9 @@ fun coordMap(
  *
  * ## Examples
  *
- * - [coord_flip.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb)
+ * - [coord_flip.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/coord_flip.ipynb)
  *
- * - [y_orientation.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/y_orientation.ipynb)
+ * - [y_orientation.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/y_orientation.ipynb)
  *
  * @param xlim Limits for x-axes.
  * @param ylim Limits for y-axes.
@@ -126,7 +126,7 @@ fun coordFlip(
  *
  * ## Examples
  *
- * - [coord_polar.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/coord_polar.ipynb)
+ * - [coord_polar.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/coord_polar.ipynb)
  *
  * @param xlim Limits for x-axes.
  * @param ylim Limits for y-axes.

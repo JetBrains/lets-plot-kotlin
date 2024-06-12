@@ -22,7 +22,7 @@ import org.jetbrains.letsPlot.intern.Scale
  *
  * ## Examples
  *
- * - [scale_functions.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/scale_functions.ipynb)
+ * - [scale_functions.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/scale_functions.ipynb)
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
  * @param type One of seq (sequential), div (diverging) or qual (qualitative) types of scales.
@@ -51,7 +51,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -128,7 +128,7 @@ fun scaleBrewer(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -199,7 +199,7 @@ fun scaleFillBrewer(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"

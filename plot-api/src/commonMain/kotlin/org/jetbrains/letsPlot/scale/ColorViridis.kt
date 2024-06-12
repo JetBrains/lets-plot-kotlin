@@ -58,7 +58,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -115,7 +115,7 @@ fun scaleViridis(
  *
  * ## Examples
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param option Name of colormap.
  *  Supported colormaps:
@@ -154,7 +154,7 @@ fun scaleViridis(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45";
@@ -205,7 +205,7 @@ fun scaleFillViridis(
  *
  * ## Examples
  *
- * - [color_space_update.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/color_space_update.ipynb)
+ * - [color_space_update.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/color_space_update.ipynb)
  *
  * @param option Name of colormap.
  *  Supported colormaps:
@@ -244,7 +244,7 @@ fun scaleFillViridis(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"

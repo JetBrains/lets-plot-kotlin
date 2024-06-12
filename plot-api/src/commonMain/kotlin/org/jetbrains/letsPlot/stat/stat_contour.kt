@@ -33,7 +33,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  If false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
- *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param x X-axis coordinates of the center of rectangles, forming a tessellation.
  * @param y Y-axis coordinates of the center of rectangles, forming a tessellation.
  * @param z Value at point (x, y).

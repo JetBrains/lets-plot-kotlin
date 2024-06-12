@@ -1,0 +1,14 @@
+<buildprofiles xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <web-root>https://lets-plot.org/kotlin</web-root>
+        <header-logo>logo-dark.svg</header-logo>
+        <custom-favicons>favicon.svg</custom-favicons>
+        <product-web-url>%web_root%/kotlin/index.html</product-web-url>
+        <include-in-head>../source/in-head.html</include-in-head>
+    </variables>
+
+    <footer>
+        <copyright>2019-%current_year% JetBrains s.r.o.</copyright>
+    </footer>
+</buildprofiles>

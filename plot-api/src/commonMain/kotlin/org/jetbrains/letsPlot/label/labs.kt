@@ -37,7 +37,7 @@ fun ylab(label: String): Feature {
  *
  * ## Examples
  *
- * - [title_subtitle_caption.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb)
+ * - [title_subtitle_caption.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/title_subtitle_caption.ipynb)
 
  * @param title The plot title text.
  * @param subtitle The plot subtitle text.

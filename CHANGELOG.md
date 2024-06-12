@@ -248,7 +248,7 @@ This release is 100% compatible with [Lets-Plot v 4.3.1](https://github.com/JetB
 
 - `plotMargin` parameter in `theme()` [[#856](https://github.com/JetBrains/lets-plot/issues/856)].
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/theme_plot_margin.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/theme_plot_margin.ipynb).
 
 
 - Dual orientation for geometries:
@@ -258,7 +258,7 @@ This release is 100% compatible with [Lets-Plot v 4.3.1](https://github.com/JetB
   - `geomLineRange()`;
   - `geomRibbon()`.
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.4/horizontal_geoms.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.5.0/horizontal_geoms.ipynb).
 
 
 ### Fixed

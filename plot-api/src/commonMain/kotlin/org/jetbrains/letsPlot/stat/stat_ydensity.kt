@@ -34,7 +34,7 @@ import org.jetbrains.letsPlot.pos.positionDodge
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
- *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param x X-axis coordinates.
  * @param y Y-axis coordinates.
  * @param violinWidth Density scaled for the violin plot, according to area, counts or to a constant maximum width.

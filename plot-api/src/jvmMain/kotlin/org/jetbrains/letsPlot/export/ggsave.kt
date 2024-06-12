@@ -27,7 +27,7 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *
  * ## Examples
  *
- * - [export_to_file.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/export_to_file.ipynb)
+ * - [export_to_file.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/export_to_file.ipynb)
  *
  * @param plot Plot or GGBunch to export.
  * @param filename The name of file. It mast end with file extention corresponding

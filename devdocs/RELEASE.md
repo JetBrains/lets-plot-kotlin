@@ -8,7 +8,7 @@
 
 - remove _"-SNAPSHOT"_ qualifier (the 'version' property in the root 'build.gradle.kts').
 
-> Also, update the artifacts' version in [README.md](../README.md), [USAGE_BATIK_JFX_JS.md](../USAGE_BATIK_JFX_JS.md) and [geotools.md](../docs/geotools.md).
+> Also, update the artifacts' version in [README.md](../README.md), [USAGE_BATIK_JFX_JS.md](../USAGE_BATIK_JFX_JS.md) and [geospatial-charts.html](../Writerside/topics/geospatial_charts.md).
 
 ##### 3. Build and release artifacts to Sonatype repository / Maven Central
 
@@ -27,14 +27,26 @@
   - `git add --all && git commit -m "Release vX.X.X" && git push`
   - `git tag vX.X.X && git push --tags`
 
-##### 5. Re-generate the API Reference (HTML)
+##### 5. Re-generate the documentation (HTML)
    
 - Update `version` in [build.gradle.kts](../build.gradle.kts) for the `dokka` subproject
   `"dokka" -> <version>`
 
 - `./gradlew dokkaHtml`
 
-- Move the content of docs/api-reference/ to the docs/kotlin/ directory of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
+- Update `version` in [v.list](../Writerside/v.list) for the Writerside.
+  Check vales of `current_year` and `web_root`.
+
+- [Build a Web Archive with Writerside](https://www.jetbrains.com/help/writerside/local-build.html).
+
+- Go to the docs/kotlin/ directory of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
+  Remove everything except -lets--plot--kotlin/.
+  Then move there the content of docs/api-reference/ and of zip file with Web Archive.
+
+- Go to the root of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs)
+  and run the [sitemap.py](https://github.com/JetBrains/lets-plot-docs/blob/master/utils/sitemap.py) utility
+  to re-generate the sitemap.xml file:
+  `python utils/sitemap.py -i docs/ -f docs/sitemap.xml`
 
 Lets-Plot Kotlin API URL: https://lets-plot.org/kotlin/index.html  
 See also: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md) 
