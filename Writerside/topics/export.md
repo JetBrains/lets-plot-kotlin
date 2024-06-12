@@ -1,4 +1,4 @@
-# Export to SVG, HTML, PNG, JPEG and TIFF
+# Export to SVG, HTML and Raster
 
 ## Saving Plot in a File
 
