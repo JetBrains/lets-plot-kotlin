@@ -1,4 +1,15 @@
-# Tooltip Customization
+>
+>
+>
+> # Warning:
+>   This documentation page is outdated.
+>
+>   For up-to-date information, see the [Lets-Plot for Kotlin](https://lets-plot.org/kotlin/tooltips.html) documentation website.
+>
+>
+>
+
+## Tooltip Customization
 
 - [Tooltip `variables` parameter](#variables)
     - [Examples](#example-variables)

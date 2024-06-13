@@ -1,3 +1,14 @@
+>
+>
+>
+> # Warning:
+>   This documentation page is outdated.
+>
+>   For up-to-date information, see the [Lets-Plot for Kotlin](https://lets-plot.org/kotlin/formats.html) documentation website.
+>
+>
+>
+
 # Formatting
 
 Formatting provides the ability to do complex variable substitutions and value formatting.
