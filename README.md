@@ -128,15 +128,9 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 <a id="documentation"></a>
 ## Documentation
 
-* A quick introduction to the _Grammar of Graphics_ and Lets-Plot Kotlin API: [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb) 
+* _Lets-Plot Kotlin API_ documentation and API reference: https://lets-plot.org/kotlin
 
-* Lets-Plot Kotlin API docs: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md)
-
-* Lets-Plot Kotlin API reference: https://lets-plot.org/kotlin
-
-* The "Example Notebooks" reference: [examples.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md)
-
-* Example notebooks in the Binder: [mybinder.org](https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/HEAD?labpath=docs%2Fexamples%2Fjupyter-notebooks)
+* A quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_: [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb) 
 
 
 <a id="new"></a>
