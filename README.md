@@ -128,7 +128,7 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 <a id="documentation"></a>
 ## Documentation
 
-* _Lets-Plot Kotlin API_ documentation and API reference: https://lets-plot.org/kotlin
+* _Lets-Plot Kotlin API_ documentation and API reference: [**Lets-Plot for Kotlin**](https://lets-plot.org/kotlin)
 
 * A quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_: [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb) 
 
