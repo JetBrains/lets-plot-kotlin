@@ -14,4 +14,9 @@
     <footer>
         <copyright>2019-%current_year% JetBrains s.r.o.</copyright>
     </footer>
+    <build-profile instance="lpk">
+        <variables>
+            <noindex-content>false</noindex-content>
+        </variables>
+    </build-profile>
 </buildprofiles>
