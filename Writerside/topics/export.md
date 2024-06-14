@@ -22,7 +22,7 @@ var p = letsPlot(data) +
 ggsave(p, "density.png")
 ```
 
-<img src="ggsave_demo.png" alt="Couldn't load ggsave_demo.png" width="500" height="250"/>
+<img src="ggsave_demo.png" alt="Density plot" width="500" height="250"/>
 
 See `ggsave()` [documentation](%api_export%/ggsave.html) for more information about the function arguments and default values.
 

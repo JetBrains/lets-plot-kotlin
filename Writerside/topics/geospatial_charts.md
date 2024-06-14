@@ -113,19 +113,19 @@ magic to avoid possible compatibility issues.
 - The world map with *Lets-Plot* and *GeoTools*:
   [geotools_naturalearth.ipynb](%nb-geotools_naturalearth%)
 
-  <img src="geotools_naturalearth.png" alt="Couldn't load geotools_naturalearth.png" width="480" height="339"/>
+  <img src="geotools_naturalearth.png" alt="Using Lets-Plot with GeoTools to create maps" width="480" height="339"/>
 
 - Inset map of Kotlin island:
   [spatialdataset_kotlin_isl.ipynb](%nb-spatialdataset_kotlin_isl%)
 
-  <img src="spatialdataset_kotlin_isl.png" alt="Couldn't load spatialdataset_kotlin_isl.png" width="480"/>
+  <img src="spatialdataset_kotlin_isl.png" alt="Inset map of Kotlin island" width="480"/>
 
 - Using exotic map projections:
   [projection_provided.ipynb](%nb-projection_provided%)
 
-  <img src="projection_provided.png" alt="Couldn't load projection_provided.png" height="339"/>
+  <img src="projection_provided.png" alt="Using exotic map projections" height="339"/>
 
 - Label geometry:
   [geom_label.ipynb](%nb-geom_label%)
 
-  <img src="geom_label.png" alt="Couldn't load geom_label.png" width="480"/>
+  <img src="geom_label.png" alt="Label geometry" width="480"/>

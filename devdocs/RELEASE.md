@@ -32,25 +32,47 @@
 - Update `version` in [build.gradle.kts](../build.gradle.kts) for the `dokka` subproject
   `"dokka" -> <version>`
 
-- `./gradlew dokkaHtml`
-
 - Update `version` in [v.list](../Writerside/v.list) for the Writerside.
-  Check vales of `current_year` and `web_root`.
+  Check the values of `current_year` and `web_root`.
 
-- [Build a Web Archive with Writerside](https://www.jetbrains.com/help/writerside/local-build.html).
+- Build the docs ([using Docker](https://www.jetbrains.com/help/writerside/build-with-docker.html)):
+
+  ```Bash
+  ./docs/build_docs.sh
+  ```
+
+- Now the documentation site can be explored locally with the [server](https://www.npmjs.com/package/http-server):
+  ```Bash
+  http-server docs/build/
+  ```
 
 - Go to the docs/kotlin/ directory of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
   Remove everything except -lets--plot--kotlin/.
-  Then move there the content of docs/api-reference/ and of zip file with Web Archive.
+  Then move the contents of the docs/build/ directory there.
 
 - Go to the root of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs)
   and run the [sitemap.py](https://github.com/JetBrains/lets-plot-docs/blob/master/utils/sitemap.py) utility
   to re-generate the sitemap.xml file:
-  `python utils/sitemap.py -i docs/ -f docs/sitemap.xml`
 
-Lets-Plot Kotlin API URL: https://lets-plot.org/kotlin/index.html  
-See also: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md) 
+  ```Bash
+  python utils/sitemap.py -i docs/ -f docs/sitemap.xml
+  ```
 
+- Publish the documentation by committing changes to the master branch of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
+
+- [Publish the search index to Algolia](https://www.jetbrains.com/help/writerside/configure-search.html#create-the-build-configuration-on-ci-cd):
+
+  - For the first run: add the Algolia admin secret API key (`aligola.key=`) to the [local.properties](../local.properties) file.
+
+  - Run Bash script:
+
+    ```Bash
+    ./docs/update_algolia_index.sh
+    ```
+
+Lets-Plot Kotlin API URL: https://lets-plot.org/kotlin/api-reference/index.html
+
+See also: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md)
 
 ### Update Lets-Plot `library descriptor` in Jupyter Kotlin Kernel
 

@@ -1,14 +1,22 @@
 <buildprofiles xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <variables>
-        <web-root>https://lets-plot.org/kotlin</web-root>
+        <web-root>https://lets-plot.org</web-root>
         <header-logo>logo-dark.svg</header-logo>
         <custom-favicons>favicon.svg</custom-favicons>
         <product-web-url>%web_root%/kotlin/index.html</product-web-url>
         <include-in-head>../source/in-head.html</include-in-head>
+        <algolia-id>7961PKYRXV</algolia-id>
+        <algolia-index>lets-plot-kotlin</algolia-index>
+        <algolia-api-key>c281e6fa402631930df5a4d5baf863c5</algolia-api-key>
     </variables>
 
     <footer>
         <copyright>2019-%current_year% JetBrains s.r.o.</copyright>
     </footer>
+    <build-profile instance="lpk">
+        <variables>
+            <noindex-content>false</noindex-content>
+        </variables>
+    </build-profile>
 </buildprofiles>

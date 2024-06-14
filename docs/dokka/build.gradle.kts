@@ -11,6 +11,7 @@ plugins {
 
 val rootDir = rootProject.projectDir.toString().replace("\\", "/")
 val docsDir = "$rootDir/docs"
+val buildDir = "$docsDir/build"
 val dokkaDir = projectDir.toString().replace("\\", "/")
 val dokkaSrcDir = "$dokkaDir/source"
 
@@ -24,7 +25,7 @@ val gitHubImage = "$docsDir/images/homepage.svg"
 
 tasks.dokkaHtml {
     moduleName.set("Lets-Plot-Kotlin")
-    outputDirectory.set(File("$docsDir/api-reference"))
+    outputDirectory.set(File("$buildDir/api-reference"))
     pluginsMapConfiguration.set(
         mapOf(
             "org.jetbrains.dokka.base.DokkaBase" to """{
