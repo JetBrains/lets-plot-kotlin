@@ -1,3 +1,14 @@
+>
+>
+>
+> # Warning:
+>   This documentation page is outdated.
+>
+>   For up-to-date information, see the [Lets-Plot for Kotlin](https://lets-plot.org/kotlin) documentation website.
+>
+>
+>
+
 ## Lets-Plot Kotlin API Cookbooks
 
 (Unfinished, work in progress)

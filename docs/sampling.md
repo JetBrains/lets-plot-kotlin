@@ -1,4 +1,15 @@
-# Sampling in Lets-Plot
+>
+>
+>
+> # Warning:
+>   This documentation page is outdated.
+>
+>   For up-to-date information, see the [Lets-Plot for Kotlin](https://lets-plot.org/kotlin/sampling.html) documentation website.
+>
+>
+>
+
+## Sampling in Lets-Plot
 
 Sampling is a special technique of data transformation, which is built into Lets-Plot and is applied after `stat` transformation.
 

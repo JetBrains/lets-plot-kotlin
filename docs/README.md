@@ -1,3 +1,15 @@
+>
+>
+>
+> # Warning: 
+>   This documentation page is outdated.
+> 
+>   For up-to-date information, see the [Lets-Plot for Kotlin](https://lets-plot.org/kotlin) documentation website.
+> 
+> 
+>
+
+
 ## Lets-Plot Kotlin API 
      
 * Lets-Plot Kotlin API reference: https://lets-plot.org/kotlin

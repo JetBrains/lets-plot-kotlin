@@ -1,4 +1,15 @@
-# GeoTools Support
+>
+>
+>
+> # Warning:
+>   This documentation page is outdated.
+>
+>   For up-to-date information, see the [Lets-Plot for Kotlin](https://lets-plot.org/kotlin/geospatial-charts.html) documentation website.
+>
+>
+>
+
+## GeoTools Support
 
 - [Creating maps in JVM-based applications](#maps-in-jvm) 
     - [Maven artifacts](#maven-artifacts) 
