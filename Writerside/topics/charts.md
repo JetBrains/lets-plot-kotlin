@@ -67,6 +67,9 @@ Examples:
 [`boxplot`](%api_geom%/geom-boxplot.html),
 [`count`](%api_geom%/geom-count/index.html)/[`sum`](%api_stat%/stat-sum/index.html)
 
+To set to a custom order for a discrete variable, you can use the [`asDiscrete`](%api_lets_plot%/as-discrete.html) function,
+see: [Ordering Categories](as_discrete.md).
+
 Examples:
 
 - [Pie](%nb-geom_pie%)
@@ -78,16 +81,6 @@ Examples:
 - [Count stat](%nb-stat_count_2d%)
 - [Handling an overplotting on a scatter plot: `geomCount()`/`statSum()`](%nb-geom_count%)
 - [Viridis colors](%nb-colors_viridis%)
-
-
-## Ordering Categories, `asDiscrete()`
-
-[`asDiscrete`](%api_lets_plot%/as-discrete.html)
-
-Examples:
-
-- [Guide to ordering](%nb-ordering_examples%)
-- [Factor levels](%nb-factor_levels%)
 
 
 ## Contours
@@ -142,15 +135,6 @@ Examples:
 - [Function geometry](%nb-geom_function%)
 
 
-## Marginal Plots
-
-[`ggmarginal`](%api_lets_plot%/ggmarginal.html)
-
-Examples:
-
-- [Marginal plots](%nb-marginal_layers%)
-
-
 ## Visualization of Errors
 
 [`crossbar`](%api_geom%/geom-crossbar/index.html),
@@ -184,6 +168,15 @@ Examples:
 Examples:
 
 - [2d density](%nb-density_2d%)
+
+
+## Marginal Plots
+
+[`ggmarginal`](%api_lets_plot%/ggmarginal.html)
+
+Examples:
+
+- [Marginal plots](%nb-marginal_layers%)
 
 
 ## Time Series
