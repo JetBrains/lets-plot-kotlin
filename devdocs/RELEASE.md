@@ -52,6 +52,7 @@
   --output-dir /opt/sources/docs/writerside-lpk; \
   unzip -O UTF-8 -qq '/opt/sources/docs/writerside-lpk/webHelpLPK*.zip' -d /opt/sources/docs/build; \
   rm -rf /opt/sources/docs/writerside-lpk
+  "
   ```
 
 - Now the documentation site can be explored locally with the [server](https://www.npmjs.com/package/http-server):
