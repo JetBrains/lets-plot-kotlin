@@ -33,7 +33,7 @@ p = letsPlot(mpg)
 p + geomPoint { x = "displ"; y = "hwy"; color = "cyl" }
 ```
 
-<img src="as_discrete_1.png" width="480">
+<img src="as_discrete_1.png" width="480" alt="as_discrete_1.png"/>
 
 Let's annotate the 'cyl' variable as discrete using the `asDiscrete('cyl')` function.
 As a result, the data is divided into groups, a discrete color scale is assigned instead of a continuous one:
@@ -42,7 +42,7 @@ As a result, the data is divided into groups, a discrete color scale is assigned
 p + geomPoint { x = "displ"; y = "hwy"; color = asDiscrete("cyl") }
 ```
 
-<img src="as_discrete_2.png" width="480">
+<img src="as_discrete_2.png" width="480" alt="as_discrete_2.png"/>
 
 Set the 'cyl' variable in ascending order of its values:
 
@@ -50,7 +50,7 @@ Set the 'cyl' variable in ascending order of its values:
 p + geomPoint { x = "displ"; y = "hwy"; color = asDiscrete("cyl", order = 1) }
 ```
 
-<img src="as_discrete_3.png" width="480">
+<img src="as_discrete_3.png" width="480" alt="as_discrete_3.png"/>
 
 Boxplot example:
 
@@ -58,7 +58,7 @@ Boxplot example:
 p + geomBoxplot { x = "class"; y = "hwy" }
 ```
 
-<img src="as_discrete_4.png" width="480">
+<img src="as_discrete_4.png" width="480" alt="as_discrete_4.png"/>
 
 Order `x` alphabetically:
 
@@ -66,7 +66,7 @@ Order `x` alphabetically:
 p + geomBoxplot { x = asDiscrete("class", order = 1); y = "hwy" }
 ```
 
-<img src="as_discrete_5.png" width="480">
+<img src="as_discrete_5.png" width="480" alt="as_discrete_5.png"/>
 
 Order `x` by another variable - in descending order of the median:
 
@@ -74,7 +74,7 @@ Order `x` by another variable - in descending order of the median:
 p + geomBoxplot { x = asDiscrete("class", orderBy = "..middle.."); y = "hwy" }
 ```
 
-<img src="as_discrete_6.png" width="480">
+<img src="as_discrete_6.png" width="480" alt="as_discrete_6.png"/>
 
 Add `color` associated with the same variable.
 The ordering is also applied to it, which will be visible in the legend:
@@ -83,7 +83,7 @@ The ordering is also applied to it, which will be visible in the legend:
 p + geomBoxplot { x = asDiscrete("class", order = 1); y = "hwy"; color = "class" }
 ```
 
-<img src="as_discrete_7.png" width="480">
+<img src="as_discrete_7.png" width="480" alt="as_discrete_7.png"/>
 
 Two different ordering settings are specified for the `class` variable.
 These settings don't contradict each other. This means that they will be combined,
@@ -93,7 +93,7 @@ and the variable will be ordered in ascending order `ymax`:
 p + geomBoxplot { x = asDiscrete("class", orderBy = "..ymax.."); y = "hwy"; color = asDiscrete("class", order = 1) }
 ```
 
-<img src="as_discrete_8.png" width="480">
+<img src="as_discrete_8.png" width="480" alt="as_discrete_8.png"/>
 
 Example of ordering for two variables:
 
@@ -101,7 +101,7 @@ Example of ordering for two variables:
 p + geomBar { x = asDiscrete("manufacturer", order = 1); fill = asDiscrete("class", order = 1) }
 ```
 
-<img src="as_discrete_9.png" width="480">
+<img src="as_discrete_9.png" width="480" alt="as_discrete_9.png"/>
 
 Reorder `x` by counts to get from highest on the left to lowest on the right:
 
@@ -109,7 +109,7 @@ Reorder `x` by counts to get from highest on the left to lowest on the right:
 p + geomBar { x = asDiscrete("manufacturer", orderBy = "..count.."); fill = asDiscrete("class", order = 1) }
 ```
 
-<img src="as_discrete_10.png" width="480">
+<img src="as_discrete_10.png" width="480" alt="as_discrete_10.png"/>
 
 Apply sampling to the plot after reordering:
 
@@ -117,7 +117,7 @@ Apply sampling to the plot after reordering:
 p + geomBar(sampling = samplingPick(4)) { x = asDiscrete("manufacturer", orderBy = "..count.."); fill = asDiscrete("class", order = 1) }
 ```
 
-<img src="as_discrete_11.png" width="480">
+<img src="as_discrete_11.png" width="480" alt="as_discrete_11.png"/>
 
 
 ## Example Notebooks
