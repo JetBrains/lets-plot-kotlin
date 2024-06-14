@@ -32,27 +32,13 @@
 - Update `version` in [build.gradle.kts](../build.gradle.kts) for the `dokka` subproject
   `"dokka" -> <version>`
 
-- `./gradlew dokkaHtml`
-
 - Update `version` in [v.list](../Writerside/v.list) for the Writerside.
   Check the values of `current_year` and `web_root`.
 
-- Build the Writerside part [with Docker](https://www.jetbrains.com/help/writerside/build-with-docker.html):
+- Build the docs ([using Docker](https://www.jetbrains.com/help/writerside/build-with-docker.html)):
 
   ```Bash
-  docker run --rm -v .:/opt/sources \
-  registry.jetbrains.team/p/writerside/builder/writerside-builder:241.16003 \
-  /bin/bash -c "
-  export DISPLAY=:99 &&
-  Xvfb :99 &
-  /opt/builder/bin/idea.sh helpbuilderinspect \
-  --source-dir /opt/sources \
-  --product Writerside/lpk \
-  --runner other \
-  --output-dir /opt/sources/docs/writerside-lpk; \
-  unzip -O UTF-8 -qq '/opt/sources/docs/writerside-lpk/webHelpLPK*.zip' -d /opt/sources/docs/build; \
-  rm -rf /opt/sources/docs/writerside-lpk
-  "
+  ./docs/build_docs.sh
   ```
 
 - Now the documentation site can be explored locally with the [server](https://www.npmjs.com/package/http-server):
@@ -67,41 +53,22 @@
 - Go to the root of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs)
   and run the [sitemap.py](https://github.com/JetBrains/lets-plot-docs/blob/master/utils/sitemap.py) utility
   to re-generate the sitemap.xml file:
-  `python utils/sitemap.py -i docs/ -f docs/sitemap.xml`
+
+  ```Bash
+  python utils/sitemap.py -i docs/ -f docs/sitemap.xml
+  ```
 
 - Publish the documentation by committing changes to the master branch of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
 
 - [Publish the search index to Algolia](https://www.jetbrains.com/help/writerside/configure-search.html#create-the-build-configuration-on-ci-cd):
-  ```Bash
-  docker run --rm -v .:/opt/sources \
-  registry.jetbrains.team/p/writerside/builder/writerside-builder:241.16003 \
-  /bin/bash -c "
-  export DISPLAY=:99 &&
-  Xvfb :99 &
-  /opt/builder/bin/idea.sh helpbuilderinspect \
-  --source-dir /opt/sources \
-  --product Writerside/lpk \
-  --runner other \
-  --output-dir /opt/sources/docs/writerside-lpk; \
-  unzip -O UTF-8 -qq '/opt/sources/docs/writerside-lpk/algolia-indexes*.zip' -d /opt/sources/docs/algolia-index/; \
-  rm -rf /opt/sources/docs/writerside-lpk
-  "; \
-  docker run --rm -v .:/opt/sources \
-  registry.jetbrains.team/p/writerside/builder/algolia-publisher:2.0.32-3 \
-  /bin/bash -c "
-  env algolia-key='$ALGOLIA_KEY' java -jar /opt/builder/help-publication-agent.jar \
-  update-index \
-  --application-name '7961PKYRXV' \
-  --index-name 'lets-plot-kotlin' \
-  --product 'kotlin' \
-  --version '$CONFIG_JSON_VERSION' \
-  --index-directory /opt/sources/docs/algolia-index/ \
-  2>&1 | tee algolia-update-index-log.txt; \
-  rm -rf /opt/sources/docs/algolia-index
-  "
-  ```
-  Here `ALGOLIA_KEY` is the environment variable for the Algolia admin secret API key,
-  and `CONFIG_JSON_VERSION` is the version of the library - the same as in [v.list](../Writerside/v.list).
+
+  - For the first run: add the Algolia admin secret API key (`aligola.key=`) to the [local.properties](../local.properties) file.
+
+  - Run Bash script:
+
+    ```Bash
+    ./docs/update_algolia_index.sh
+    ```
 
 Lets-Plot Kotlin API URL: https://lets-plot.org/kotlin/api-reference/index.html
 
