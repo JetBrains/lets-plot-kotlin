@@ -45,7 +45,6 @@ fun guideLegend(
  * @param barHeight Color bar height.
  * @param nbin Number of bins in color bar.
  */
-@Suppress("SpellCheckingInspection")
 fun guideColorbar(
     title: String? = null,
     barWidth: Number? = null,

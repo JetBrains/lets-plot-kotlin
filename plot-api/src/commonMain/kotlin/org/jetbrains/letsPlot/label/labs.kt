@@ -17,7 +17,6 @@ import org.jetbrains.letsPlot.intern.Scale
  *
  * @param label The text for the x-axis label.
  */
-@Suppress("SpellCheckingInspection")
 fun xlab(label: String): Feature {
     return labs(x = label)
 }
