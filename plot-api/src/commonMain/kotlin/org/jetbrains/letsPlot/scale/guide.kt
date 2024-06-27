@@ -13,11 +13,13 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * Legend guide.
  * Legend type guide shows key (i.e., geoms) mapped onto values.
  *
+ * @param title Title of guide.
  * @param nrow A number of rows in legend's guide.
  * @param ncol A number of columns in legend's guide.
  * @param byRow A type of output: by row (default), or by column.
  */
 fun guideLegend(
+    title: String? = null,
     @Suppress("SpellCheckingInspection")
     nrow: Int? = null,
     @Suppress("SpellCheckingInspection")
@@ -25,7 +27,8 @@ fun guideLegend(
     byRow: Boolean? = null
 ): Map<String, Any> {
     return mapOf(
-        "name" to Option.Guide.LEGEND,
+        Option.Meta.NAME to Option.Guide.LEGEND,
+        Option.Guide.TITLE to title,
         Option.Guide.Legend.ROW_COUNT to nrow,
         Option.Guide.Legend.COL_COUNT to ncol,
         Option.Guide.Legend.BY_ROW to byRow
@@ -37,18 +40,21 @@ fun guideLegend(
  * Color bar guide shows continuous color scales mapped onto values.
  * Color bar is available with `scaleFill` and `scaleColor`.
  *
+ * @param title Title of guide.
  * @param barWidth Color bar width.
  * @param barHeight Color bar height.
  * @param nbin Number of bins in color bar.
  */
 @Suppress("SpellCheckingInspection")
 fun guideColorbar(
+    title: String? = null,
     barWidth: Number? = null,
     barHeight: Number? = null,
     nbin: Int? = null
 ): Map<String, Any> {
     return mapOf(
-        "name" to Option.Guide.COLOR_BAR,
+        Option.Meta.NAME to Option.Guide.COLOR_BAR,
+        Option.Guide.TITLE to title,
         Option.Guide.ColorBar.WIDTH to barWidth,
         Option.Guide.ColorBar.HEIGHT to barHeight,
         Option.Guide.ColorBar.BIN_COUNT to nbin

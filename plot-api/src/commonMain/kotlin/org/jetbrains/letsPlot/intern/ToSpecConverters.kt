@@ -74,6 +74,7 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     val features = plot.otherFeatures()
     val themeOptionList = features.filter { it.kind == Option.Plot.THEME }
     val metaInfoOptionList = features.filter { it.kind == Option.Plot.METAINFO }
+    val guidesOptionList = features.filter { it.kind == Option.Plot.GUIDES }
 
     // Merge themes
     ThemeOptionsUtil.toSpec(themeOptionList)?.let {
@@ -86,8 +87,13 @@ fun Plot.toSpec(): MutableMap<String, Any> {
         (l as MutableList<Map<String, Any>>).add(metaInfoOptions.toSpec())
     }
 
+    // Merge guides
+    OptionsUtil.toSpec(guidesOptionList)?.let {
+        spec[Option.Plot.GUIDES] = it
+    }
+
     @Suppress("ConvertArgumentToSet")
-    (features - themeOptionList - metaInfoOptionList).forEach {
+    (features - themeOptionList - metaInfoOptionList - guidesOptionList).forEach {
         spec[it.kind] = it.toSpec()
     }
 
