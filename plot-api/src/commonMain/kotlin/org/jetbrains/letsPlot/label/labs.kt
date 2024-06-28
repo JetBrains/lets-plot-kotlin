@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Feature
 import org.jetbrains.letsPlot.intern.FeatureList
 import org.jetbrains.letsPlot.intern.OptionsMap
-import org.jetbrains.letsPlot.intern.Scale
+import org.jetbrains.letsPlot.scale.titleGuides
 
 /**
  * Adds label to the x-axis.
@@ -67,7 +67,7 @@ fun labs(
     width: String? = null,
     height: String? = null,
     linetype: String? = null,
-    manual: String? = null,
+    manual: String? = null
 ): FeatureList {
     val list = ArrayList<Feature>()
     title?.let { list.add(ggtitle(it, subtitle)) }
@@ -81,16 +81,23 @@ fun labs(
         )
     }
 
-    x?.let { list.add(Scale(aesthetic = Aes.X, name = it)) }
-    y?.let { list.add(Scale(aesthetic = Aes.Y, name = it)) }
-    alpha?.let { list.add(Scale(aesthetic = Aes.ALPHA, name = it)) }
-    color?.let { list.add(Scale(aesthetic = Aes.COLOR, name = it)) }
-    fill?.let { list.add(Scale(aesthetic = Aes.FILL, name = it)) }
-    shape?.let { list.add(Scale(aesthetic = Aes.SHAPE, name = it)) }
-    size?.let { list.add(Scale(aesthetic = Aes.SIZE, name = it)) }
-    width?.let { list.add(Scale(aesthetic = Aes.WIDTH, name = it)) }
-    height?.let { list.add(Scale(aesthetic = Aes.HEIGHT, name = it)) }
-    linetype?.let { list.add(Scale(aesthetic = Aes.LINETYPE, name = it)) }
+    // use guides to set titles
+    titleGuides(x, y, alpha, color, fill, shape, size, width, height, linetype, manual)
+        .let(list::add)
 
+    return FeatureList(list)
+}
+
+
+/**
+ * Changes axis labels and legend titles.
+
+ * @param titles Name-value pairs where name should be an aesthetic name or group name used in the `layerKey()` function
+ *  and value should be a string, e.g. `"color"="New Color label"`.
+ *
+ */
+fun labs(vararg titles: Pair<String, String>): FeatureList {
+    val list = ArrayList<Feature>()
+    titleGuides(titles = titles).let(list::add)
     return FeatureList(list)
 }

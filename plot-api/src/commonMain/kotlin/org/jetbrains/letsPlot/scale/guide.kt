@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot.scale
 
+import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.filterNonNullValues
@@ -89,7 +90,7 @@ fun guides(
     shape: Any? = null,
     size: Any? = null,
     linetype: Any? = null,
-    manual: Any? = null,
+    manual: Any? = null
 ): OptionsMap {
     val options = HashMap<String, Any>()
 
@@ -110,5 +111,60 @@ fun guides(
     addValue("linetype", linetype)
     addValue(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, manual)
 
+    return OptionsMap(Option.Plot.GUIDES, options)
+}
+
+/**
+ * Function to set guides for scales.
+ * Name-guide pairs where name should be an aesthetic name or group name used in the `layerKey()` function.
+ *
+ */
+fun guides(
+    vararg guideOptions: Pair<String, Any>
+): OptionsMap {
+    return OptionsMap(Option.Plot.GUIDES, guideOptions.toMap())
+}
+
+// Guides with title (without name) is used by `labs()` function
+
+private fun titleGuide(title: String) = mapOf(Option.Guide.TITLE to title)
+
+internal fun titleGuides(
+    x: String? = null,
+    y: String? = null,
+    alpha: String? = null,
+    color: String? = null,
+    fill: String? = null,
+    shape: String? = null,
+    size: String? = null,
+    width: String? = null,
+    height: String? = null,
+    linetype: String? = null,
+    manual: String? = null
+): OptionsMap {
+    val options = HashMap<String, Any>()
+
+    fun addValue(keyGuide: String, value: String?) =
+        value?.let { options.put(keyGuide, titleGuide(it)) }
+
+    addValue("x", x)
+    addValue("y", y)
+    addValue("alpha", alpha)
+    addValue("color", color)
+    addValue("fill", fill)
+    addValue("shape", shape)
+    addValue("size", size)
+    addValue("width", width)
+    addValue("height", height)
+    addValue("linetype", linetype)
+    addValue(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, manual)
+
+    return OptionsMap(Option.Plot.GUIDES, options)
+}
+
+internal fun titleGuides(
+    vararg titles: Pair<String, String>
+): OptionsMap {
+    val options = titles.associate { (key, title) -> key to titleGuide(title) }
     return OptionsMap(Option.Plot.GUIDES, options)
 }

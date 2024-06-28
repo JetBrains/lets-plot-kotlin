@@ -49,6 +49,115 @@ class GuidesTest {
         )
     }
 
+    @Test
+    fun labsTest() {
+        val p = ggplot() + labs(x = "x title")
+        assertGuidesSpec(
+            p,
+            mapOf(
+                "x" to mapOf(
+                    "title" to "x title"
+                )
+            )
+        )
+    }
+
+    @Test
+    fun guidesAndLabsTest() {
+        val p = ggplot() + guides(color = guideLegend(nrow = 1)) + labs(color = "Title")
+        assertGuidesSpec(
+            p,
+            mapOf(
+                "color" to mapOf(
+                    "name" to "legend",
+                    "nrow" to 1.0,
+                    "title" to "Title"
+                )
+            )
+        )
+    }
+
+    @Test
+    fun plotAndAxisTitles() {
+        val p = ggplot() + labs(title = "Plot title", x = "x title")
+        assertGuidesSpec(
+            p,
+            mapOf(
+                "x" to mapOf(
+                    "title" to "x title"
+                )
+            )
+        )
+        // plot title
+        TestCase.assertEquals(
+            mapOf("text" to "Plot title"),
+            p.toSpec()[Option.Plot.TITLE]
+        )
+    }
+
+    @Test
+    fun titlesForNamedElements() {
+        val p = ggplot() + labs("a" to "A title", "b"  to "B title")
+        assertGuidesSpec(
+            p,
+            mapOf(
+                "a" to mapOf(
+                    "title" to "A title"
+                ),
+                "b" to mapOf(
+                    "title" to "B title"
+                )
+            )
+        )
+    }
+
+    @Test
+    fun guidesForNamedElements() {
+        val p = ggplot() + guides(
+            "a" to guideLegend("A title", nrow = 1),
+            "b" to guideLegend("B title")
+        )
+        assertGuidesSpec(
+            p,
+            mapOf(
+                "a" to mapOf(
+                    "name" to "legend",
+                    "title" to "A title",
+                    "nrow" to 1.0
+                ),
+                "b" to mapOf(
+                    "name" to "legend",
+                    "title" to "B title"
+                )
+            )
+        )
+    }
+
+    @Test
+    fun labsAndGuidesForNamedElements() {
+        val p = ggplot() + labs("a" to "A title", "b" to "B title") + guides(
+            "a" to guideLegend(nrow = 1),
+            "c" to guideLegend("C title")
+        )
+        assertGuidesSpec(
+            p,
+            mapOf(
+                "a" to mapOf(
+                    "name" to "legend",
+                    "title" to "A title",
+                    "nrow" to 1.0
+                ),
+                "b" to mapOf(
+                     "title" to "B title"
+                ),
+                "c" to mapOf(
+                    "name" to "legend",
+                    "title" to "C title"
+                )
+            )
+        )
+    }
+
     private fun assertGuidesSpec(
         p: Plot,
         expected: Map<String, Any>,
