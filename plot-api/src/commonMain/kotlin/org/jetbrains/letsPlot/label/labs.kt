@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.label
 
 import org.jetbrains.letsPlot.core.spec.Option
-import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.intern.Feature
 import org.jetbrains.letsPlot.intern.FeatureList
 import org.jetbrains.letsPlot.intern.OptionsMap
@@ -51,6 +50,7 @@ fun ylab(label: String): Feature {
  * @param width The legend title text.
  * @param height The legend title text.
  * @param linetype The legend title text.
+ * @param manual The custom legend title text.
  */
 fun labs(
     title: String? = null,
@@ -66,7 +66,8 @@ fun labs(
     size: String? = null,
     width: String? = null,
     height: String? = null,
-    linetype: String? = null
+    linetype: String? = null,
+    manual: String? = null,
 ): FeatureList {
     val list = ArrayList<Feature>()
     title?.let { list.add(ggtitle(it, subtitle)) }

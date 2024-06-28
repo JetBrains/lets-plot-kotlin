@@ -78,6 +78,8 @@ fun guideColorbar(
  *  The guide for size scale.
  * @param linetype String or guide function.
  *  The guide for linetype scale.
+ * @param manual String or guide function.
+ *  The guide for a custom legend.
  */
 @Suppress("SpellCheckingInspection")
 fun guides(
@@ -86,16 +88,27 @@ fun guides(
     fill: Any? = null,
     shape: Any? = null,
     size: Any? = null,
-    linetype: Any? = null
+    linetype: Any? = null,
+    manual: Any? = null,
 ): OptionsMap {
     val options = HashMap<String, Any>()
 
-    alpha?.let { options.put("alpha", it) }
-    color?.let { options.put("color", it) }
-    fill?.let { options.put("fill", it) }
-    shape?.let { options.put("shape", it) }
-    size?.let { options.put("size", it) }
-    linetype?.let { options.put("linetype", it) }
+    fun addValue(keyGuide: String, value: Any?) {
+        if (value != null) {
+            require(value is Map<*,*> || value is String) {
+                "Unknown guide value: $value. The guide value should be a String (e.g. name = \"none\") " +
+                        "or a call to a guide function (`guideColorbar()`/`guideLegend()`)"
+            }
+            options[keyGuide] = value
+        }
+    }
+    addValue("alpha", alpha)
+    addValue("color", color)
+    addValue("fill", fill)
+    addValue("shape", shape)
+    addValue("size", size)
+    addValue("linetype", linetype)
+    addValue(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, manual)
 
     return OptionsMap(Option.Plot.GUIDES, options)
 }
