@@ -168,3 +168,33 @@ internal fun titleGuides(
     val options = titles.associate { (key, title) -> key to titleGuide(title) }
     return OptionsMap(Option.Plot.GUIDES, options)
 }
+
+
+/**
+ * Function to configure a custom legend.
+ *
+ * @param label Text for the element in the custom legend.
+ * @param group Group name by which elements are combined into a legend group.
+ * @param index Position of the element in the custom legend.
+ * @param aesValues Dictionary which maps aesthetics to values to use in a custom legend.
+ *
+ */
+fun layerKey(
+    label: String,
+    group: String? = null,
+    index: Int? = null,
+    aesValues: Map<Aes<*>, Any>? = null
+): Map<String, Any> {
+    val options = HashMap<String, Any>()
+    options += mapOf(
+        Option.Layer.LayerKey.LABEL to label,
+        Option.Layer.LayerKey.GROUP to group,
+        Option.Layer.LayerKey.INDEX to index
+    ).filterNonNullValues()
+
+    aesValues?.let {
+        options += it.mapKeys { (aes,_) -> aes.name }
+    }
+
+    return options
+}
