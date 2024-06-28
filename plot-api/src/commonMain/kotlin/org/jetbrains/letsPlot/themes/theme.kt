@@ -125,6 +125,14 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
 
  *  It is acceptable to use None for any side; in this case, the default value for the plot inset side will be used.
  *
+ * @param plotTitlePosition default = "panel" ("panel", "plot").
+ *  Alignment of the plot title/subtitle.
+ *  A value of "panel" means that title and subtitle are aligned to the plot panels.
+ *  A value of "plot" means that title and subtitle are aligned to the entire plot (excluding margins).
+ * @param plotCaptionPosition  default = "panel" ("panel", "plot").
+ *  Alignment of the plot caption.
+ *  A value of "panel" means that caption is aligned to the plot panels.
+ *  A value of "plot" means that caption is aligned to the entire plot (excluding margins).
  * @param stripBackground Background of facet labels.
  * @param stripText Facet labels.
  *
@@ -218,6 +226,9 @@ class theme(
     plotMargin: Any? = null,
     plotInset: Any? = null,
 
+    plotTitlePosition: Any? = null,
+    plotCaptionPosition: Any? = null,
+
     stripBackground: Any? = null,
     stripText: Any? = null,
 
@@ -300,6 +311,9 @@ class theme(
         Option.Theme.PLOT_MESSAGE to plotMessage,
         Option.Theme.PLOT_MARGIN to plotMargin,
         Option.Theme.PLOT_INSET to plotInset,
+
+        Option.Theme.PLOT_TITLE_POSITION to plotTitlePosition,
+        Option.Theme.PLOT_CAPTION_POSITION to plotCaptionPosition,
 
         Option.Theme.FACET_STRIP_BGR_RECT to stripBackground,
         Option.Theme.FACET_STRIP_TEXT to stripText,
