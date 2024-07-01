@@ -5,9 +5,11 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.intern.toSpec
 import org.jetbrains.letsPlot.label.labs
+import org.jetbrains.letsPlot.label.labsAlt
 import org.jetbrains.letsPlot.scale.guideColorbar
 import org.jetbrains.letsPlot.scale.guideLegend
 import org.jetbrains.letsPlot.scale.guides
+import org.jetbrains.letsPlot.scale.guidesAlt
 import org.junit.Test
 
 class GuidesTest {
@@ -97,7 +99,7 @@ class GuidesTest {
 
     @Test
     fun titlesForNamedElements() {
-        val p = ggplot() + labs("a" to "A title", "b"  to "B title")
+        val p = ggplot() + labsAlt("a" to "A title", "b"  to "B title")
         assertGuidesSpec(
             p,
             mapOf(
@@ -113,7 +115,7 @@ class GuidesTest {
 
     @Test
     fun guidesForNamedElements() {
-        val p = ggplot() + guides(
+        val p = ggplot() + guidesAlt(
             "a" to guideLegend("A title", nrow = 1),
             "b" to guideLegend("B title")
         )
@@ -135,7 +137,7 @@ class GuidesTest {
 
     @Test
     fun labsAndGuidesForNamedElements() {
-        val p = ggplot() + labs("a" to "A title", "b" to "B title") + guides(
+        val p = ggplot() + labsAlt("a" to "A title", "b" to "B title") + guidesAlt(
             "a" to guideLegend(nrow = 1),
             "c" to guideLegend("C title")
         )

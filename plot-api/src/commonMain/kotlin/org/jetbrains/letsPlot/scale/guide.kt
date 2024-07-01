@@ -119,7 +119,7 @@ fun guides(
  * Name-guide pairs where name should be an aesthetic name or group name used in the `layerKey()` function.
  *
  */
-fun guides(
+fun guidesAlt(
     vararg guideOptions: Pair<String, Any>
 ): OptionsMap {
     return OptionsMap(Option.Plot.GUIDES, guideOptions.toMap())

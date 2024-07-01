@@ -96,7 +96,7 @@ fun labs(
  *  and value should be a string, e.g. `"color"="New Color label"`.
  *
  */
-fun labs(vararg titles: Pair<String, String>): FeatureList {
+fun labsAlt(vararg titles: Pair<String, String>): FeatureList {
     val list = ArrayList<Feature>()
     titleGuides(titles = titles).let(list::add)
     return FeatureList(list)
