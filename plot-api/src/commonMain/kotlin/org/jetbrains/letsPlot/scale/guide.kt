@@ -5,7 +5,6 @@
 
 package org.jetbrains.letsPlot.scale
 
-import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.filterNonNullValues
@@ -176,25 +175,57 @@ internal fun titleGuides(
  * @param label Text for the element in the custom legend.
  * @param group Group name by which elements are combined into a legend group.
  * @param index Position of the element in the custom legend.
- * @param aesValues Dictionary which maps aesthetics to values to use in a custom legend.
+ * @param aes Dictionary that maps aesthetics to values to be used in a custom legend.
+ *  Can be specified with the `aesOverrides` function.
  *
  */
 fun layerKey(
     label: String,
     group: String? = null,
     index: Int? = null,
-    aesValues: Map<Aes<*>, Any>? = null
+    aes: Map<String, Any>? = null
 ): Map<String, Any> {
     val options = HashMap<String, Any>()
+
     options += mapOf(
         Option.Layer.LayerKey.LABEL to label,
         Option.Layer.LayerKey.GROUP to group,
         Option.Layer.LayerKey.INDEX to index
     ).filterNonNullValues()
 
-    aesValues?.let {
-        options += it.mapKeys { (aes,_) -> aes.name }
-    }
+    aes?.let { options += it }
+
+    return options
+}
+
+/**
+ * Function to set new aesthetic values to override the default legend appearance.
+ *
+ */
+fun aesOverrides(
+    alpha: Any? = null,
+    color: Any? = null,
+    fill: Any? = null,
+    shape: Any? = null,
+    size: Any? = null,
+    width: Any? = null,
+    height: Any? = null,
+    linetype: Any? = null,
+    stroke: Any? = null,
+): Map<String, Any> {
+    val options = HashMap<String, Any>()
+
+    fun putValue(aesName: String, value: Any?) = value?.let { options.put(aesName, it) }
+
+    putValue("alpha", alpha)
+    putValue("color", color)
+    putValue("fill", fill)
+    putValue("shape", shape)
+    putValue("size", size)
+    putValue("width", width)
+    putValue("height", height)
+    putValue("linetype", linetype)
+    putValue("stroke", stroke)
 
     return options
 }
