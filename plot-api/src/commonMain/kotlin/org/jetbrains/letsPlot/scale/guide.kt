@@ -94,7 +94,7 @@ fun guides(
 ): OptionsMap {
     val options = HashMap<String, Any>()
 
-    fun addValue(keyGuide: String, value: Any?) {
+    fun putValue(keyGuide: String, value: Any?) {
         if (value != null) {
             require(value is Map<*,*> || value is String) {
                 "Unknown guide value: $value. The guide value should be a String (e.g. name = \"none\") " +
@@ -103,13 +103,13 @@ fun guides(
             options[keyGuide] = value
         }
     }
-    addValue("alpha", alpha)
-    addValue("color", color)
-    addValue("fill", fill)
-    addValue("shape", shape)
-    addValue("size", size)
-    addValue("linetype", linetype)
-    addValue(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, manual)
+    putValue("alpha", alpha)
+    putValue("color", color)
+    putValue("fill", fill)
+    putValue("shape", shape)
+    putValue("size", size)
+    putValue("linetype", linetype)
+    putValue(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, manual)
 
     return OptionsMap(Option.Plot.GUIDES, options)
 }
@@ -144,20 +144,20 @@ internal fun titleGuides(
 ): OptionsMap {
     val options = HashMap<String, Any>()
 
-    fun addValue(keyGuide: String, value: String?) =
+    fun putValue(keyGuide: String, value: String?) =
         value?.let { options.put(keyGuide, titleGuide(it)) }
 
-    addValue("x", x)
-    addValue("y", y)
-    addValue("alpha", alpha)
-    addValue("color", color)
-    addValue("fill", fill)
-    addValue("shape", shape)
-    addValue("size", size)
-    addValue("width", width)
-    addValue("height", height)
-    addValue("linetype", linetype)
-    addValue(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, manual)
+    putValue("x", x)
+    putValue("y", y)
+    putValue("alpha", alpha)
+    putValue("color", color)
+    putValue("fill", fill)
+    putValue("shape", shape)
+    putValue("size", size)
+    putValue("width", width)
+    putValue("height", height)
+    putValue("linetype", linetype)
+    putValue(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, manual)
 
     return OptionsMap(Option.Plot.GUIDES, options)
 }
