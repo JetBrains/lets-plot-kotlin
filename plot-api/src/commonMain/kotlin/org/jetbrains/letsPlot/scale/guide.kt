@@ -18,20 +18,28 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param ncol A number of columns in legend's guide.
  * @param byRow A type of output: by row (default), or by column.
  */
+/*
+ToDo Add parameter overrideAes
+  @param overrideAes Dictionary that maps aesthetic parameters to new values, overriding the default legend appearance.
+  Each value can be a constant applied to all keys or a list that changes particular keys.
+  Can be specified with the `aesOverrides()` function.
+*/
 fun guideLegend(
     title: String? = null,
     @Suppress("SpellCheckingInspection")
     nrow: Int? = null,
     @Suppress("SpellCheckingInspection")
     ncol: Int? = null,
-    byRow: Boolean? = null
+    byRow: Boolean? = null,
+    // overrideAes: Map<String, Any>? = null
 ): Map<String, Any> {
     return mapOf(
         Option.Meta.NAME to Option.Guide.LEGEND,
         Option.Guide.TITLE to title,
         Option.Guide.Legend.ROW_COUNT to nrow,
         Option.Guide.Legend.COL_COUNT to ncol,
-        Option.Guide.Legend.BY_ROW to byRow
+        Option.Guide.Legend.BY_ROW to byRow,
+        // Option.Guide.Legend.OVERRIDE_AES to overrideAes
     ).filterNonNullValues()
 }
 
@@ -45,18 +53,26 @@ fun guideLegend(
  * @param barHeight Color bar height.
  * @param nbin Number of bins in color bar.
  */
+/*
+ToDo Add parameter overrideAes
+  @param overrideAes Dictionary that maps aesthetic parameters to new values, overriding the default legend appearance.
+  Each value can be a constant applied to all keys or a list that changes particular keys.
+  Can be specified with the `aesOverrides()` function.
+*/
 fun guideColorbar(
     title: String? = null,
     barWidth: Number? = null,
     barHeight: Number? = null,
-    nbin: Int? = null
+    nbin: Int? = null,
+    // overrideAes: Map<String, Any>? = null
 ): Map<String, Any> {
     return mapOf(
         Option.Meta.NAME to Option.Guide.COLOR_BAR,
         Option.Guide.TITLE to title,
         Option.Guide.ColorBar.WIDTH to barWidth,
         Option.Guide.ColorBar.HEIGHT to barHeight,
-        Option.Guide.ColorBar.BIN_COUNT to nbin
+        Option.Guide.ColorBar.BIN_COUNT to nbin,
+        // Option.Guide.Legend.OVERRIDE_AES to overrideAes
     ).filterNonNullValues()
 }
 
@@ -176,7 +192,7 @@ internal fun titleGuides(
  * @param group Group name by which elements are combined into a legend group.
  * @param index Position of the element in the custom legend.
  * @param aes Dictionary that maps aesthetics to values to be used in a custom legend.
- *  Can be specified with the `aesOverrides` function.
+ *  Can be specified with the `aesOverrides()` function.
  *
  */
 fun layerKey(

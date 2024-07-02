@@ -97,7 +97,6 @@ fun labs(
  *
  */
 fun labsAlt(vararg titles: Pair<String, String>): FeatureList {
-    val list = ArrayList<Feature>()
-    titleGuides(titles = titles).let(list::add)
+    val list = listOf(titleGuides(titles = titles))
     return FeatureList(list)
 }
