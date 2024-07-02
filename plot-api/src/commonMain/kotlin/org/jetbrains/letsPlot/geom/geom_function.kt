@@ -32,6 +32,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param manualKey String or result of the call to the `layerKey()` function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
  * @param fn A function to use.
@@ -67,6 +69,7 @@ class geomFunction(
     geom: GeomOptions = Geom.line(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     tooltips: TooltipOptions? = null,
     fn: ((Double) -> Double)? = null,
     xlim: Pair<Number, Number>? = null,
@@ -88,6 +91,7 @@ class geomFunction(
         stat = stat,
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = null,
         tooltips = tooltips
     ) {

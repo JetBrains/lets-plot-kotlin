@@ -197,6 +197,10 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         spec[Option.Layer.SHOW_LEGEND] = false
     }
 
+    manualKey?.let {
+        spec[Option.Layer.MANUAL_KEY] = it
+    }
+
     return spec
 }
 
