@@ -31,7 +31,7 @@ fun guideLegend(
     @Suppress("SpellCheckingInspection")
     ncol: Int? = null,
     byRow: Boolean? = null,
-    // overrideAes: Map<String, Any>? = null
+    // aes: Map<String, Any>? = null
 ): Map<String, Any> {
     return mapOf(
         Option.Meta.NAME to Option.Guide.LEGEND,
@@ -39,7 +39,7 @@ fun guideLegend(
         Option.Guide.Legend.ROW_COUNT to nrow,
         Option.Guide.Legend.COL_COUNT to ncol,
         Option.Guide.Legend.BY_ROW to byRow,
-        // Option.Guide.Legend.OVERRIDE_AES to overrideAes
+        // Option.Guide.Legend.OVERRIDE_AES to aes
     ).filterNonNullValues()
 }
 
@@ -64,7 +64,7 @@ fun guideColorbar(
     barWidth: Number? = null,
     barHeight: Number? = null,
     nbin: Int? = null,
-    // overrideAes: Map<String, Any>? = null
+    // aes: Map<String, Any>? = null
 ): Map<String, Any> {
     return mapOf(
         Option.Meta.NAME to Option.Guide.COLOR_BAR,
@@ -72,7 +72,7 @@ fun guideColorbar(
         Option.Guide.ColorBar.WIDTH to barWidth,
         Option.Guide.ColorBar.HEIGHT to barHeight,
         Option.Guide.ColorBar.BIN_COUNT to nbin,
-        // Option.Guide.Legend.OVERRIDE_AES to overrideAes
+        // Option.Guide.Legend.OVERRIDE_AES to aes
     ).filterNonNullValues()
 }
 
@@ -109,22 +109,13 @@ fun guides(
 ): OptionsMap {
     val options = HashMap<String, Any>()
 
-    fun putValue(keyGuide: String, value: Any?) {
-        if (value != null) {
-            require(value is Map<*,*> || value is String) {
-                "Unknown guide value: $value. The guide value should be a String (e.g. name = \"none\") " +
-                        "or a call to a guide function (`guideColorbar()`/`guideLegend()`)"
-            }
-            options[keyGuide] = value
-        }
-    }
-    putValue("alpha", alpha)
-    putValue("color", color)
-    putValue("fill", fill)
-    putValue("shape", shape)
-    putValue("size", size)
-    putValue("linetype", linetype)
-    putValue(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, manual)
+    alpha?.let { options.put("alpha", it) }
+    color?.let { options.put("color", it) }
+    fill?.let { options.put("fill", it) }
+    shape?.let { options.put("shape", it) }
+    size?.let { options.put("size", it) }
+    linetype?.let { options.put("linetype", it) }
+    manual?.let { options.put(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, it) }
 
     return OptionsMap(Option.Plot.GUIDES, options)
 }
@@ -155,24 +146,23 @@ internal fun titleGuides(
     width: String? = null,
     height: String? = null,
     linetype: String? = null,
+    stroke: String? = null,
     manual: String? = null
 ): OptionsMap {
     val options = HashMap<String, Any>()
 
-    fun putValue(keyGuide: String, value: String?) =
-        value?.let { options.put(keyGuide, titleGuide(it)) }
-
-    putValue("x", x)
-    putValue("y", y)
-    putValue("alpha", alpha)
-    putValue("color", color)
-    putValue("fill", fill)
-    putValue("shape", shape)
-    putValue("size", size)
-    putValue("width", width)
-    putValue("height", height)
-    putValue("linetype", linetype)
-    putValue(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, manual)
+    x?.let { options.put("x", titleGuide(it)) }
+    y?.let { options.put("y", titleGuide(it)) }
+    alpha?.let { options.put("alpha", titleGuide(it)) }
+    color?.let { options.put("color", titleGuide(it)) }
+    fill?.let { options.put("fill", titleGuide(it)) }
+    shape?.let { options.put("shape", titleGuide(it)) }
+    size?.let { options.put("size", titleGuide(it)) }
+    width?.let { options.put("width", titleGuide(it)) }
+    height?.let { options.put("height", titleGuide(it)) }
+    linetype?.let { options.put("linetype", titleGuide(it)) }
+    stroke?.let { options.put("stroke", titleGuide(it)) }
+    manual?.let { options.put(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, titleGuide(it)) }
 
     return OptionsMap(Option.Plot.GUIDES, options)
 }
@@ -231,17 +221,15 @@ fun aesOverrides(
 ): Map<String, Any> {
     val options = HashMap<String, Any>()
 
-    fun putValue(aesName: String, value: Any?) = value?.let { options.put(aesName, it) }
-
-    putValue("alpha", alpha)
-    putValue("color", color)
-    putValue("fill", fill)
-    putValue("shape", shape)
-    putValue("size", size)
-    putValue("width", width)
-    putValue("height", height)
-    putValue("linetype", linetype)
-    putValue("stroke", stroke)
+    alpha?.let { options.put("alpha", it) }
+    color?.let { options.put("color", it) }
+    fill?.let { options.put("fill", it) }
+    shape?.let { options.put("shape", it) }
+    size?.let { options.put("size", it) }
+    width?.let { options.put("width", it) }
+    height?.let { options.put("height", it) }
+    linetype?.let { options.put("linetype", it) }
+    stroke?.let { options.put("stroke", it) }
 
     return options
 }
