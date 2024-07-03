@@ -93,7 +93,7 @@ fun labs(
  * Changes axis labels and legend titles.
 
  * @param titles Name-value pairs where name should be an aesthetic name or group name used in the `layerKey()` function
- *  and value should be a string, e.g. `"color"="New Color label"`.
+ *  and value should be a string, e.g. `labsAlt("Group" = "Color Zone")`.
  *
  */
 fun labsAlt(vararg titles: Pair<String, String>): FeatureList {

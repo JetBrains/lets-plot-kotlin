@@ -20,7 +20,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  */
 /*
 ToDo Add parameter overrideAes
-  @param overrideAes Dictionary that maps aesthetic parameters to new values, overriding the default legend appearance.
+  @param aes Dictionary that maps aesthetic parameters to new values, overriding the default legend appearance.
   Each value can be a constant applied to all keys or a list that changes particular keys.
   Can be specified with the `aesOverrides()` function.
 */
@@ -55,7 +55,7 @@ fun guideLegend(
  */
 /*
 ToDo Add parameter overrideAes
-  @param overrideAes Dictionary that maps aesthetic parameters to new values, overriding the default legend appearance.
+  @param aes Dictionary that maps aesthetic parameters to new values, overriding the default legend appearance.
   Each value can be a constant applied to all keys or a list that changes particular keys.
   Can be specified with the `aesOverrides()` function.
 */
@@ -122,7 +122,11 @@ fun guides(
 
 /**
  * Function to set guides for scales.
- * Name-guide pairs where name should be an aesthetic name or group name used in the `layerKey()` function.
+ *
+ * @param guideOptions Name-guide pairs where name should be an aesthetic name or group name used in the `layerKey()` function
+ *  and value can either be a string ("colorbar"/"legend" or "none" to hide the guide) or a call to a guide function
+ *  (`guideColorbar()`/`guideLegend()`) specifying additional arguments,
+ *  e.g. `guides("Group" to guideLegend(title = "Color Zone", ncol = 2)`.
  *
  */
 fun guidesAlt(
