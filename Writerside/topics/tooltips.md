@@ -4,6 +4,8 @@ You can customize the content, values formatting and appearance of tooltip for a
 
 [Learn more (datalore link)](%nbp-tooltips%).
 
+See also the [formatting reference](formats.md) to learn how to format numeric and date-time values in tooltips.
+
 
 ## Examples
 

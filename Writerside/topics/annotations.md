@@ -4,6 +4,8 @@ You can customize the content of annotations for pie and bar charts by using the
 
 [Learn more (datalore link)](%nbp-annotations%).
 
+See also the [formatting reference](formats.md) to learn how to format numeric and date-time values in annotations.
+
 
 ## Examples
 
