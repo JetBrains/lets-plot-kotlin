@@ -181,24 +181,24 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/geom_label_alpha_stroke.ipynb).
 
 <a id="recent_gallery_updates"></a>
-## Recent Updates in the [Gallery](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/gallery/)
+## Recent Updates in the [Gallery](https://lets-plot.org/kotlin/gallery.html)
 
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/geotools_naturalearth.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/geotools_naturalearth.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_nat_earth.png" alt="images/gal_nat_earth.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/mpg_daisy.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/mpg_daisy.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_mpg_daisy.png" alt="images/gal_mpg_daisy.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/palmer_penguins.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/palmer_penguins.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_penguins.png" alt="images/gal_penguins.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/pushkin.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/pushkin.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_pushkin_trips.png" alt="images/gal_pushkin_trips.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/spatialdataset_kotlin_isl.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/spatialdataset_kotlin_isl.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_kotlin_isl.png" alt="images/gal_kotlin_isl.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/wind_rose.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/wind_rose.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_wind_rose.png" alt="images/gal_wind_rose.png" width="128" height="128">
   </a>
 
