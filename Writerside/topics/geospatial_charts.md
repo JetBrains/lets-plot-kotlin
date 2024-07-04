@@ -2,11 +2,11 @@
 
 [GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
 
-Lets-Plot supports visualization of `SimpleFeature` objects organized in `SimpleFeatureCollection`, as well as
+*Lets-Plot* supports visualization of `SimpleFeature` objects organized in `SimpleFeatureCollection`, as well as
 individual `Geometry`  (`org.locationtech.jts.geom`) and `ReferencedEnvelope` (`org.geotools.geometry.jts`) objects.
 
-Lets-Plot API includes the [`SpatialDataset`](%api_spatial%) class serving as a bridge between external
-spatial data-types and Lets-Plot geometry layers.
+*Lets-Plot* API includes the [`SpatialDataset`](%api_spatial%) class serving as a bridge between external
+spatial data-types and *Lets-Plot* geometry layers.
 
 A set of Kotlin extension methods with the signature `toSpatialDataset(decimals: Int = 10): SpatialDataset` is provided
 to facilitate converting `GeoTools` objects to an instance of the `SpatialDataset` class.
@@ -24,7 +24,7 @@ The instance of `SpatialDataset` then can be passed to a plot geometry layer via
 letsPlot() + geomPolygon(map = data, fill = "white", color = "gray")
 ```
 
-The Lets-Plot library recognizes the following three 2D-geometry types:
+The *Lets-Plot* library recognizes the following three 2D-geometry types:
 
 - Points
 - Lines
@@ -40,7 +40,7 @@ All coordinates must be in decimal degree units, in "WGS 84" coordinates.
 
 ## Creating Maps in JVM-Based Applications
 
-For general information on using the Lets-Plot library in JVM-based application, see: [USAGE_BATIK_JFX_JS.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_BATIK_JFX_JS.md)
+For general information on using the *Lets-Plot* library in JVM-based application, see: [USAGE_BATIK_JFX_JS.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_BATIK_JFX_JS.md)
 
 ### Maven Artifacts
 
@@ -67,7 +67,7 @@ dependencies {
 The `lets-plot-kotlin-api` artifact was compiled with GeoTools v30.1. However, it doesn't declare any run-time dependency,
 so you are free to use other versions of the GeoTools toolkit.
 
-> Since v4.6.0 Lets-Plot is only compatible with GeoTools v30 and later.
+> Since v4.6.0 *Lets-Plot* is only compatible with GeoTools v30 and later.
 
 ### JVM-Based Examples
 
@@ -77,7 +77,7 @@ for rendering.
 
 ## Creating Maps in Notebooks
 
-Lets-Plot can visualize maps in [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](https://datalore.jetbrains.com) or [Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme).
+*Lets-Plot* can visualize maps in [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](https://datalore.jetbrains.com) or [Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme).
 
 You can include all necessary dependencies into your notebook using the following "line magics":
 

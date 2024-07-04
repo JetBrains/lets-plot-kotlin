@@ -72,4 +72,4 @@ letsPlot(data) { x = "rating"; fill = "cond" } + ggsize(700, 300) +
     </a>
 </p>
 
-You can read more about running Lets-Plot for Kotlin in notebooks and on different platforms [here](https://github.com/JetBrains/lets-plot-kotlin#usage).
+You can read more about running *Lets-Plot* for Kotlin in notebooks and on different platforms [here](https://github.com/JetBrains/lets-plot-kotlin#usage).
