@@ -8,6 +8,8 @@ package org.jetbrains.letsPlot
 import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
 import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
 import junit.framework.TestCase.assertEquals
+import org.jetbrains.letsPlot.MappingAnnotationSpecUtil.mappingAsDiscreteAnnotation
+import org.jetbrains.letsPlot.MappingAnnotationSpecUtil.mappingDataMeta
 import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -32,7 +34,9 @@ class MappingAsDiscreteTest {
                 "mapping" to mapOf("x" to "x"),
                 "layers" to emptyList<Any>(),
                 "scales" to emptyList<Any>(),
-                DATA_META to mappingDataMeta(asDiscreteAnnotation(Aes.X, "x"))
+                DATA_META to mappingDataMeta(
+                    mappingAsDiscreteAnnotation(Aes.X, "x")
+                )
             ),
             spec
         )
@@ -56,7 +60,9 @@ class MappingAsDiscreteTest {
                         "stat" to "identity",
                         "position" to "identity",
                         "mapping" to mapOf("x" to "x"),
-                        DATA_META to mappingDataMeta(asDiscreteAnnotation(Aes.X, "x"))
+                        DATA_META to mappingDataMeta(
+                            mappingAsDiscreteAnnotation(Aes.X, "x")
+                        )
                     )
                 )
             ),
@@ -86,8 +92,8 @@ class MappingAsDiscreteTest {
                         "position" to "identity",
                         "mapping" to mapOf("x" to "x", "y" to "y"),
                         DATA_META to mappingDataMeta(
-                            asDiscreteAnnotation(Aes.X, "x"),
-                            asDiscreteAnnotation(Aes.Y, "y")
+                            mappingAsDiscreteAnnotation(Aes.X, "x"),
+                            mappingAsDiscreteAnnotation(Aes.Y, "y")
                         )
                     )
                 )
@@ -111,23 +117,4 @@ class MappingAsDiscreteTest {
         assertTrue(Option.Meta.SeriesAnnotation.TAG in dataMeta)
     }
 
-    companion object {
-        private fun mappingDataMeta(vararg mappingAnnotations: Map<String, *>): Map<String, Any> {
-            return mapOf(
-                MappingAnnotation.TAG to mappingAnnotations.asList()
-            )
-        }
-
-        private fun asDiscreteAnnotation(aes: Aes<*>, label: String): Map<String, Any> {
-            return mapOf(
-                MappingAnnotation.AES to aes.name,
-                MappingAnnotation.ANNOTATION to MappingAnnotation.AS_DISCRETE,
-                MappingAnnotation.PARAMETERS to mapOf(
-                    MappingAnnotation.LABEL to label,
-                    MappingAnnotation.ORDER_BY to null,
-                    MappingAnnotation.ORDER to null
-                )
-            )
-        }
-    }
 }

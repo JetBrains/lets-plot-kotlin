@@ -57,6 +57,13 @@ kotlin {
                 implementation("io.github.microutils:kotlin-logging-js:$kotlinLoggingVersion")
             }
         }
+
+        jvmTest {
+            dependencies {
+                // assertj
+                implementation("org.assertj:assertj-core:3.19.0")
+            }
+        }
     }
 }
 

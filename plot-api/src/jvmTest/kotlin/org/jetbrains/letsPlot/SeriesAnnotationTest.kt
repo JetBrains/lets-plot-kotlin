@@ -5,157 +5,123 @@
 
 package org.jetbrains.letsPlot
 
+import org.assertj.core.api.Assertions.assertThat
+import org.jetbrains.letsPlot.SeriesAnnotationUtil.seriesAnnotation
+import org.jetbrains.letsPlot.SeriesAnnotationUtil.seriesDataMeta
 import org.jetbrains.letsPlot.core.spec.Option
-import org.jetbrains.letsPlot.commons.intern.datetime.Date
-import org.jetbrains.letsPlot.commons.intern.datetime.DateTime
-import org.jetbrains.letsPlot.commons.intern.datetime.Month
-import org.jetbrains.letsPlot.commons.intern.datetime.tz.TimeZone
+import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation.Types
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Test
-import java.time.Instant
-import kotlin.test.assertEquals
-import kotlin.test.assertTrue
+import java.time.*
 
 
 class SeriesAnnotationTest {
 
-    private fun checkDataSeries(
-        values: Any,
-        isDateTime: Boolean
-    ) {
-        val data = mapOf("v" to values)
-        val p = ggplot(data) + geomLine { x = "v" }
-        val spec = p.toSpec()
-        if (isDateTime) {
-            assertSeriesAnnotations(
-                spec,
-                expected = seriesAnnotations(dateTimeAnnotation("v"))
+    @Test
+    fun dtypes() {
+        val data = mapOf(
+            "byte-column" to listOf(1.toByte(), 2.toByte(), 3.toByte()),
+            "short-column" to listOf(1.toShort(), 2.toShort(), 3.toShort()),
+            "int-column" to listOf(1, 2, 3),
+            "long-column" to listOf(1L, 2L, 3L),
+            "double-column" to listOf(1.0, 2.0, 3.0),
+            "float-column" to listOf(1.0f, 2.0f, 3.0f),
+            "string-column" to listOf("a", "b", "c"),
+            "boolean-column" to listOf(true, false, true),
+            "java-instant-column" to listOf(Instant.parse("2021-01-01T00:00:00Z")),
+            "kotlin-instant-column" to listOf(kotlinx.datetime.Instant.parse("2021-01-01T00:00:00Z"))
+        )
+
+        val p = ggplot(data) + geomPoint()
+
+        assertThat(p.toSpec()[Option.Meta.DATA_META]).isEqualTo(
+            seriesDataMeta(
+                seriesAnnotation(column = "byte-column", type = Types.INTEGER),
+                seriesAnnotation(column = "short-column", type = Types.INTEGER),
+                seriesAnnotation(column = "int-column", type = Types.INTEGER),
+                seriesAnnotation(column = "long-column", type = Types.INTEGER),
+                seriesAnnotation(column = "double-column", type = Types.FLOATING),
+                seriesAnnotation(column = "float-column", type = Types.FLOATING),
+                seriesAnnotation(column = "string-column", type = Types.STRING),
+                seriesAnnotation(column = "boolean-column", type = Types.BOOLEAN),
+                seriesAnnotation(column = "java-instant-column", type = Types.DATE_TIME),
+                seriesAnnotation(column = "kotlin-instant-column", type = Types.DATE_TIME),
             )
-        } else {
-            assertNoSeriesAnnotation(spec)
-        }
-    }
-
-    @Test
-    fun `date-time series - different types of series`() {
-        val instant = TimeZone.UTC.toInstant(DateTime(Date(1, Month.FEBRUARY, 2003)))
-
-        run {
-            checkDataSeries(values = (listOf(instant)), isDateTime = true)
-        }
-        run {
-            checkDataSeries(values = (arrayOf(instant)), isDateTime = true)
-        }
-        run {
-            checkDataSeries(values = (sequenceOf(instant)), isDateTime = true)
-        }
-        run {
-            checkDataSeries(values = (listOf(instant).asIterable()), isDateTime = true)
-        }
-    }
-
-    @Test
-    fun `date-time series - java_time_Instant`() {
-        val instant = Instant.parse("2021-01-01T00:00:00Z")
-        checkDataSeries(values = listOf(instant), isDateTime = true)
-    }
-
-    @Test
-    fun `date-time series - kotlinx_datetime_Instant`() {
-        val instant = kotlinx.datetime.Instant.parse("2021-01-01T00:00:00Z")
-        checkDataSeries(values = listOf(instant), isDateTime = true)
+        )
     }
 
     @Test
     fun `no date-time data`() {
-        val instant = TimeZone.UTC.toInstant(DateTime(Date(1, Month.FEBRUARY, 2003)))
-        checkDataSeries(
-            values = listOf(instant.timeSinceEpoch), // it's List of Long
-            isDateTime = false
+        val instant = LocalDateTime.of(2003, Month.FEBRUARY, 1, 0, 0, 0).toInstant(ZoneOffset.UTC)
+        val data = mapOf(
+            "v" to listOf(instant.epochSecond) // it's List of Long
+        )
+        val p = ggplot(data) + geomLine { x = "v" }
+        assertThat(p.toSpec()[Option.Meta.DATA_META]).isEqualTo(
+            seriesDataMeta(
+                seriesAnnotation(column = "v", type = Types.INTEGER)
+            )
         )
     }
 
     @Test
     fun `empty data`() {
-        checkDataSeries(
-            values = emptyList<Any>(),
-            isDateTime = false
-        )
+        val data = mapOf("v" to emptyList<Any>())
+        val p = ggplot(data) + geomLine { x = "v" }
+        assertThat(p.toSpec()).doesNotContainKey(Option.Meta.DATA_META)
     }
 
     @Test
     fun `few series`() {
-        val dtSeries = listOf(TimeZone.UTC.toInstant(DateTime(Date(1, Month.FEBRUARY, 2003))))
-        val data = mapOf("v1" to dtSeries, "v2" to dtSeries, "v3" to listOf(1.0))
+        val dtSeries = listOf(LocalDateTime.of(2003, Month.FEBRUARY, 1, 0, 0, 0).toInstant(ZoneOffset.UTC))
+        val data = mapOf(
+            "v1" to dtSeries,
+            "v2" to dtSeries,
+            "v3" to listOf(1.0)
+        )
         val p = ggplot(data) + geomLine { x = "v1"; y = "v2"; color = "v3" }
 
-        assertSeriesAnnotations(
-            p.toSpec(),
-            expected = seriesAnnotations(dateTimeAnnotation("v1"), dateTimeAnnotation("v2")),
+        assertThat(p.toSpec()[Option.Meta.DATA_META]).isEqualTo(
+            seriesDataMeta(
+                seriesAnnotation(column = "v1", type = Types.DATE_TIME),
+                seriesAnnotation(column = "v2", type = Types.DATE_TIME),
+                seriesAnnotation(column = "v3", type = Types.FLOATING),
+            )
         )
     }
 
 
     @Test
     fun `factor levels series annotations`() {
-        val data = mapOf("v1" to listOf("a", "b", "c"), "v2" to listOf(1.0, 2.0, 3.0))
+        val data = mapOf(
+            "v1" to listOf("a", "b", "c"),
+            "v2" to listOf(1.0, 2.0, 3.0)
+        )
+
         val p = ggplot(data) {
             x = asDiscrete("v1", levels = listOf("b", "c", "a"))
             y = "v2"
             color = asDiscrete("v1", order = -1)
             fill = asDiscrete("v2", levels = listOf(3.0, 1.0, 2.0))
-        } +  geomPoint()
+        } + geomPoint()
 
-        assertSeriesAnnotations(
-            p.toSpec(),
-            expected = seriesAnnotations(
-                factorLevelsAnnotation("v1",  listOf("b", "c", "a"), order = -1),
-                factorLevelsAnnotation("v2",  listOf(3.0, 1.0, 2.0), order = null),
+        assertThat(p.toSpec()[Option.Meta.DATA_META]).isEqualTo(
+            seriesDataMeta(
+                seriesAnnotation(
+                    column = "v1",
+                    type = Types.STRING,
+                    factorLevels = listOf("b", "c", "a"),
+                    order = -1
+                ),
+                seriesAnnotation(
+                    column = "v2",
+                    type = Types.FLOATING,
+                    factorLevels = listOf(3.0, 1.0, 2.0)
+                )
             )
         )
     }
 
-    companion object {
-        // { 'series_annotations': [ {'column': 'name', 'type': 'datetime'}, { ... } ] }
-
-        private fun seriesAnnotations(vararg seriesAnnotations: Map<String, *>): Map<String, Any> {
-            return mapOf(
-                Option.Meta.SeriesAnnotation.TAG to seriesAnnotations.asList()
-            )
-        }
-
-        private fun dateTimeAnnotation(varName: String): Map<String, Any> {
-            return mapOf(
-                Option.Meta.SeriesAnnotation.COLUMN to varName,
-                Option.Meta.SeriesAnnotation.TYPE to Option.Meta.SeriesAnnotation.DateTime.DATE_TIME
-            )
-        }
-
-        // { 'series_annotations': [ {'column': 'name', 'factor_levels': levels, 'order': order}, { ... } ] }
-        private fun factorLevelsAnnotation(varName: String, levels: List<Any>, order: Int?): Map<String, Any?> {
-            return mapOf(
-                Option.Meta.SeriesAnnotation.COLUMN to varName,
-                Option.Meta.SeriesAnnotation.FACTOR_LEVELS to levels,
-                Option.Meta.SeriesAnnotation.ORDER to order
-            )
-        }
-
-        private fun assertSeriesAnnotations(
-            spec: MutableMap<String, Any>,
-            expected: Map<String, Any>
-        ) {
-            assertTrue(Option.Meta.DATA_META in spec, message = "Series should be detected as date/time")
-            assertEquals(
-                expected,
-                spec[Option.Meta.DATA_META]
-            )
-        }
-
-        private fun assertNoSeriesAnnotation(spec: MutableMap<String, Any>) {
-            assertTrue(Option.Meta.DATA_META !in spec, message = "Series shouldn't be detected as date/time")
-        }
-
-    }
 }
