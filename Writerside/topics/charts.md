@@ -8,7 +8,7 @@ and each column represents a variable that describes some property of each obser
 
 Data in this format is sometimes referred to as tidy data, flat data, primary data, atomic data, and unit record data.
 
-You can pass tidy data to Lets-Plot in form of a Kotlin `Map`.
+You can pass tidy data to *Lets-Plot* in form of a Kotlin `Map`.
 
 ## Basic Building Blocks
 
@@ -67,8 +67,8 @@ Examples:
 [`boxplot`](%api_geom%/geom-boxplot.html),
 [`count`](%api_geom%/geom-count/index.html)/[`sum`](%api_stat%/stat-sum/index.html)
 
-To set to a custom order for a discrete variable, you can use the [`asDiscrete`](%api_lets_plot%/as-discrete.html) function,
-see: [Ordering Categories](as_discrete.md).
+Learn more:
+<a href="as_discrete.md">Working with Categorical Variables and the <format style="bold">asDiscrete()</format> Function</a>
 
 Examples:
 
@@ -173,6 +173,8 @@ Examples:
 ## Marginal Plots
 
 [`ggmarginal`](%api_lets_plot%/ggmarginal.html)
+
+See also: [Joint Plot](bistro.md#joint-plot), [Residual Plot](bistro.md#residual-plot).
 
 Examples:
 

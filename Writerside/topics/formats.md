@@ -184,6 +184,34 @@ Let's apply the format string to the date `Aug 6, 2019` and the time `4:46:35`:
 %B %e %Y %H:%M %p      -->  "August 6 2019 04:46 AM"
 ```
 
+## Exponent Format
+
+The format of numbers in scientific notation can be further customised using the [`theme()`](%api_theme%/theme/index.html) parameter `exponentFormat`.
+
+### "e" notation
+
+```kotlin
+letsPlot() +
+    geomLabel(x = 0,
+              label = 10.0.pow(12).toString(),
+              labelFormat = ".2~e", size = 15) +
+    theme(exponentFormat = "e")
+```
+
+<img src="exponent_format_e.png" width="480" alt="e"/>
+
+### "pow" notation
+
+```kotlin
+letsPlot() +
+    geomLabel(x = 0,
+              label = 10.0.pow(12).toString(),
+              labelFormat = ".2~e", size = 15) +
+    theme(exponentFormat = "pow")
+```
+
+<img src="exponent_format_pow.png" width="480" alt="e"/>
+
 ## Tooltip Customization
 
 You can format text in tooltips, see: [Tooltip Customization](tooltips.md).
@@ -192,3 +220,4 @@ You can format text in tooltips, see: [Tooltip Customization](tooltips.md).
 
 - [Formatting labels on plots](%nb-formatting_axes_etc%)
 - [The `label_format` parameter in `geom_text()`](%nb-label_format%)
+- [Exponent format in Lets-Plot](%nb-superscript_exponent%)

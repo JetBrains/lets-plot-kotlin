@@ -35,8 +35,7 @@ class MappingMeta(
 }
 
 /**
- * Marks a numeric variable as categorical.
- * The plot will use a discrete scale for the aesthetic mapping.
+ * The function converts a column to a discrete scale and allows you to specify the order of its values.
  * It is similar to the `factor()` function from R but works differently - there is no data transformation.
  *
  * See also [as_discrete.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/as_discrete.md).
