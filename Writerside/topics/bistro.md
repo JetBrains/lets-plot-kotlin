@@ -1,8 +1,8 @@
 # 'bistro' Plots
 
-Exploratory Data Analysis (EDA) is an art of looking at one or more datasets in an effort to understand the underlying structure of the data contained there.
+"Bistro" plots is a collection of "compound plots" allowing users to generate intricate charts without the need for extensive coding.
 
-Below are a few instruments from the 'bistro' package that could help you with your EDA investigations.
+These plots build upon lets-plot's core functionality, combining multiple geoms, scales, and settings into ready-to-use functions.
 
 
 ## Correlation Plot

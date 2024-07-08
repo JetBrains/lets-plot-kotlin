@@ -212,10 +212,6 @@ letsPlot() +
 
 <img src="exponent_format_pow.png" width="480" alt="e"/>
 
-<note>
-  Superscript is not fully support by CairoSVG library and export to PNG/PDF may produce unexpected results.
-</note>
-
 ## Tooltip Customization
 
 You can format text in tooltips, see: [Tooltip Customization](tooltips.md).
