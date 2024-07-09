@@ -137,46 +137,7 @@ fun guidesAlt(
 
 // Guides with title (without name) is used by `labs()` function
 
-private fun titleGuide(title: String) = mapOf(Option.Guide.TITLE to title)
-
-internal fun titleGuides(
-    x: String? = null,
-    y: String? = null,
-    alpha: String? = null,
-    color: String? = null,
-    fill: String? = null,
-    shape: String? = null,
-    size: String? = null,
-    width: String? = null,
-    height: String? = null,
-    linetype: String? = null,
-    stroke: String? = null,
-    manual: String? = null
-): OptionsMap {
-    val options = HashMap<String, Any>()
-
-    x?.let { options.put("x", titleGuide(it)) }
-    y?.let { options.put("y", titleGuide(it)) }
-    alpha?.let { options.put("alpha", titleGuide(it)) }
-    color?.let { options.put("color", titleGuide(it)) }
-    fill?.let { options.put("fill", titleGuide(it)) }
-    shape?.let { options.put("shape", titleGuide(it)) }
-    size?.let { options.put("size", titleGuide(it)) }
-    width?.let { options.put("width", titleGuide(it)) }
-    height?.let { options.put("height", titleGuide(it)) }
-    linetype?.let { options.put("linetype", titleGuide(it)) }
-    stroke?.let { options.put("stroke", titleGuide(it)) }
-    manual?.let { options.put(Option.Layer.DEFAULT_LEGEND_GROUP_NAME, titleGuide(it)) }
-
-    return OptionsMap(Option.Plot.GUIDES, options)
-}
-
-internal fun titleGuides(
-    vararg titles: Pair<String, String>
-): OptionsMap {
-    val options = titles.associate { (key, title) -> key to titleGuide(title) }
-    return OptionsMap(Option.Plot.GUIDES, options)
-}
+internal fun guideTitleOption(title: String) = mapOf(Option.Guide.TITLE to title)
 
 
 /**

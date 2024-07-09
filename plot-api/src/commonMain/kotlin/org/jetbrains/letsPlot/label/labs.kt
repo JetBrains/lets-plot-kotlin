@@ -5,11 +5,11 @@
 
 package org.jetbrains.letsPlot.label
 
+import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.core.spec.Option
-import org.jetbrains.letsPlot.intern.Feature
-import org.jetbrains.letsPlot.intern.FeatureList
-import org.jetbrains.letsPlot.intern.OptionsMap
-import org.jetbrains.letsPlot.scale.titleGuides
+import org.jetbrains.letsPlot.core.spec.Option.Mapping.toOption
+import org.jetbrains.letsPlot.intern.*
+import org.jetbrains.letsPlot.scale.guideTitleOption
 
 /**
  * Adds label to the x-axis.
@@ -81,9 +81,32 @@ fun labs(
         )
     }
 
-    // use guides to set titles
-    titleGuides(x, y, alpha, color, fill, shape, size, width, height, linetype, manual)
-        .let(list::add)
+    // set titles via guides
+
+    val aesTitles = listOf(
+        Aes.X to x,
+        Aes.Y to y,
+        Aes.ALPHA to alpha,
+        Aes.COLOR to color,
+        Aes.FILL to fill,
+        Aes.SHAPE to shape,
+        Aes.SIZE to size,
+        Aes.WIDTH to width,
+        Aes.HEIGHT to height,
+        Aes.LINETYPE to linetype,
+    ).map { (aes, title) -> toOption(aes) to title }
+
+    val titleGuides = (aesTitles + listOf(Option.Layer.DEFAULT_LEGEND_GROUP_NAME to manual))
+        .associate { (key, title) -> key to title?.let(::guideTitleOption) }
+        .filterNonNullValues()
+
+    if (titleGuides.isNotEmpty()) {
+        list.add(
+            OptionsMap(
+                Option.Plot.GUIDES, titleGuides
+            )
+        )
+    }
 
     return FeatureList(list)
 }
@@ -97,6 +120,9 @@ fun labs(
  *
  */
 fun labsAlt(vararg titles: Pair<String, String>): FeatureList {
-    val list = listOf(titleGuides(titles = titles))
-    return FeatureList(list)
+    val guides = titles
+        .associate { (key, title) -> key to guideTitleOption(title) }
+        .let { OptionsMap(Option.Plot.GUIDES, it) }
+
+    return FeatureList(listOf(guides))
 }
