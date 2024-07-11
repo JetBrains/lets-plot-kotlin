@@ -36,6 +36,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param manualKey String or result of the call to the `layerKey()` function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
@@ -125,6 +127,7 @@ class geomLabel(
     stat: StatOptions = Stat.identity,
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val map: SpatialDataset? = null,
@@ -169,6 +172,7 @@ class geomLabel(
         stat = stat,
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips
     ) {

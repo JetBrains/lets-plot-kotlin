@@ -34,6 +34,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param manualKey String or result of the call to the `layerKey()` function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
@@ -92,6 +94,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomYDotplot(
     data: Map<*, *>? = null,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
@@ -127,6 +130,7 @@ class geomYDotplot(
         stat = Stat.yDotplot(),
         position = null,  // Default value depends on `stackGroups` flag.
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips,
         orientation = orientation
