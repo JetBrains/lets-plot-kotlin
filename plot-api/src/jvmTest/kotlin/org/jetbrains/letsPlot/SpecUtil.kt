@@ -5,8 +5,7 @@ import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
 import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 
-object SeriesAnnotationUtil {
-
+object SeriesUtil {
     fun seriesAnnotation(
         column: String,
         type: String? = null,
@@ -20,9 +19,6 @@ object SeriesAnnotationUtil {
             SeriesAnnotation.ORDER to order
         ).filterNonNullValues()
     }
-}
-
-object MappingAnnotationSpecUtil {
 
     fun mappingAsDiscreteAnnotation(
         aes: Aes<*>,

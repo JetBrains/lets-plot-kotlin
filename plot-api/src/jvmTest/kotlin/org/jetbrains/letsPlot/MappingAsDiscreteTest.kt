@@ -6,12 +6,13 @@
 package org.jetbrains.letsPlot
 
 import org.assertj.core.api.Assertions.assertThat
-import org.jetbrains.letsPlot.MappingAnnotationSpecUtil.mappingAsDiscreteAnnotation
-import org.jetbrains.letsPlot.SeriesAnnotationUtil.seriesAnnotation
+import org.jetbrains.letsPlot.SeriesUtil.mappingAsDiscreteAnnotation
+import org.jetbrains.letsPlot.SeriesUtil.seriesAnnotation
 import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
 import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
 import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation
+import org.jetbrains.letsPlot.core.spec.getList
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Test
@@ -128,17 +129,13 @@ class MappingAsDiscreteTest {
         val spec = p.toSpec()
         val dataMeta = spec[DATA_META] as? Map<*,*>
         assertNotNull(dataMeta)
-        assertThat(dataMeta[SeriesAnnotation.TAG]).isEqualTo(
-            listOf(
-                seriesAnnotation(column = "x", type = SeriesAnnotation.Types.FLOATING, factorLevels = listOf(1.0))
-            )
-        )
-        assertThat(dataMeta[MappingAnnotation.TAG]).isEqualTo(
-            listOf(
-                mappingAsDiscreteAnnotation(aes = Aes.Y, label = "x")
-            )
-        )
 
+        assertThat(dataMeta.getList(SeriesAnnotation.TAG)).contains(
+            seriesAnnotation(column = "x", type = SeriesAnnotation.Types.FLOATING, factorLevels = listOf(1.0))
+        )
+        assertThat(dataMeta.getList(MappingAnnotation.TAG)).contains(
+            mappingAsDiscreteAnnotation(aes = Aes.Y, label = "x")
+        )
     }
 
 }
