@@ -1,4 +1,15 @@
-# GeoTools Support
+>
+>
+>
+> # Warning:
+>   This documentation page is outdated.
+>
+>   For up-to-date information, see the [Lets-Plot for Kotlin](https://lets-plot.org/kotlin/geospatial-charts.html) documentation website.
+>
+>
+>
+
+## GeoTools Support
 
 - [Creating maps in JVM-based applications](#maps-in-jvm) 
     - [Maven artifacts](#maven-artifacts) 
@@ -60,7 +71,7 @@ the artifact `lets-plot-kotlin-geotools` must be included to make the `toSpatial
 
 You can include it into a Gradle project.
 ```groovy
-implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.2'
+implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.3'
 ```  
 
 [ ![Download](https://api.bintray.com/packages/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/images/download.svg)](https://bintray.com/jetbrains/lets-plot-maven/lets-plot-kotlin-jars/_latestVersion)
@@ -69,7 +80,7 @@ The `gt-geojson` artifact from GeoTools must be also included.
 ```groovy
 dependencies {   
     ...
-    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.2"
+    implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:4.7.3"
     implementation "org.geotools:gt-geojson:[30,)"               
     ...
 }
@@ -126,7 +137,7 @@ the `lets-plot-gt` magic to avoid possible compatibility issues.
 #### Example notebooks
 
 * The world map with *Lets-Plot* and *GeoTools*: 
-[geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geotools_naturalearth.ipynb)
+[geotools_naturalearth.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/geotools_naturalearth.ipynb)
 
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/naturalearth_world.png" alt="Couldn't load naturalearth_world.png" width="480" height="339"><br><br>
 

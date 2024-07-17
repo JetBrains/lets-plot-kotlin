@@ -1,0 +1,66 @@
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
+
+    function onDOMContentLoaded() {
+        addGitHubLinkToHeader();
+    }
+
+    function addGitHubLinkToHeader() {
+        function createGitHubLink() {
+            const gitHubLinkElem = document.createElement("a");
+            gitHubLinkElem.setAttribute("href", "https://github.com/JetBrains/lets-plot-kotlin");
+            gitHubLinkElem.setAttribute("id", "github-repo-link");
+            return gitHubLinkElem;
+        }
+
+        whenLoaded("header .wh-header").then((headerElem) => {
+            const switchersElem = headerElem.querySelector(".wh-header__switchers");
+            const gitHubLinkElem = createGitHubLink();
+            headerElem.insertBefore(gitHubLinkElem, switchersElem);
+        });
+    }
+
+    function whenLoaded(selector) {
+        return new Promise(resolve => {
+            const element = document.querySelector(selector);
+            if (element) {
+                resolve(element);
+            } else {
+                const observer = new MutationObserver(() => {
+                    const element = document.querySelector(selector);
+                    if (element) {
+                        observer.disconnect();
+                        resolve(element);
+                    }
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+            }
+        });
+    }
+</script>
+
+<style>
+    #github-repo-link {
+      width: 36px;
+      height: 36px;
+      background-image: url(https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/homepage.svg);
+      background-size: 24px 24px;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+    }
+
+    #github-repo-link:hover {
+      background-color: hsla(0, 0%, 100%, .1);
+    }
+
+    header .wh-header__switchers>button {
+      margin-left: 4px;
+      margin-right: 2px;
+    }
+
+    header .wh-header__search-button {
+      margin-left: 0;
+      margin-right: -6px;
+    }
+</style>

@@ -5,19 +5,17 @@
 
 package org.jetbrains.letsPlot.label
 
-import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.plot.base.Aes
-import org.jetbrains.letsPlot.intern.Feature
-import org.jetbrains.letsPlot.intern.FeatureList
-import org.jetbrains.letsPlot.intern.OptionsMap
-import org.jetbrains.letsPlot.intern.Scale
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.spec.Option.Mapping.toOption
+import org.jetbrains.letsPlot.intern.*
+import org.jetbrains.letsPlot.scale.guideTitleOption
 
 /**
  * Adds label to the x-axis.
  *
  * @param label The text for the x-axis label.
  */
-@Suppress("SpellCheckingInspection")
 fun xlab(label: String): Feature {
     return labs(x = label)
 }
@@ -37,7 +35,7 @@ fun ylab(label: String): Feature {
  *
  * ## Examples
  *
- * - [title_subtitle_caption.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb)
+ * - [title_subtitle_caption.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/title_subtitle_caption.ipynb)
 
  * @param title The plot title text.
  * @param subtitle The plot subtitle text.
@@ -52,6 +50,7 @@ fun ylab(label: String): Feature {
  * @param width The legend title text.
  * @param height The legend title text.
  * @param linetype The legend title text.
+ * @param manual The custom legend title text.
  */
 fun labs(
     title: String? = null,
@@ -67,7 +66,8 @@ fun labs(
     size: String? = null,
     width: String? = null,
     height: String? = null,
-    linetype: String? = null
+    linetype: String? = null,
+    manual: String? = null
 ): FeatureList {
     val list = ArrayList<Feature>()
     title?.let { list.add(ggtitle(it, subtitle)) }
@@ -81,16 +81,48 @@ fun labs(
         )
     }
 
-    x?.let { list.add(Scale(aesthetic = Aes.X, name = it)) }
-    y?.let { list.add(Scale(aesthetic = Aes.Y, name = it)) }
-    alpha?.let { list.add(Scale(aesthetic = Aes.ALPHA, name = it)) }
-    color?.let { list.add(Scale(aesthetic = Aes.COLOR, name = it)) }
-    fill?.let { list.add(Scale(aesthetic = Aes.FILL, name = it)) }
-    shape?.let { list.add(Scale(aesthetic = Aes.SHAPE, name = it)) }
-    size?.let { list.add(Scale(aesthetic = Aes.SIZE, name = it)) }
-    width?.let { list.add(Scale(aesthetic = Aes.WIDTH, name = it)) }
-    height?.let { list.add(Scale(aesthetic = Aes.HEIGHT, name = it)) }
-    linetype?.let { list.add(Scale(aesthetic = Aes.LINETYPE, name = it)) }
+    // set titles via guides
+
+    val aesTitles = listOf(
+        Aes.X to x,
+        Aes.Y to y,
+        Aes.ALPHA to alpha,
+        Aes.COLOR to color,
+        Aes.FILL to fill,
+        Aes.SHAPE to shape,
+        Aes.SIZE to size,
+        Aes.WIDTH to width,
+        Aes.HEIGHT to height,
+        Aes.LINETYPE to linetype,
+    ).map { (aes, title) -> toOption(aes) to title }
+
+    val titleGuides = (aesTitles + listOf(Option.Layer.DEFAULT_LEGEND_GROUP_NAME to manual))
+        .associate { (key, title) -> key to title?.let(::guideTitleOption) }
+        .filterNonNullValues()
+
+    if (titleGuides.isNotEmpty()) {
+        list.add(
+            OptionsMap(
+                Option.Plot.GUIDES, titleGuides
+            )
+        )
+    }
 
     return FeatureList(list)
+}
+
+
+/**
+ * Changes axis labels and legend titles.
+
+ * @param titles Name-value pairs where name should be an aesthetic name or group name used in the `layerKey()` function
+ *  and value should be a string, e.g. `labsAlt("Group" = "Color Zone")`.
+ *
+ */
+fun labsAlt(vararg titles: Pair<String, String>): FeatureList {
+    val guides = titles
+        .associate { (key, title) -> key to guideTitleOption(title) }
+        .let { OptionsMap(Option.Plot.GUIDES, it) }
+
+    return FeatureList(listOf(guides))
 }

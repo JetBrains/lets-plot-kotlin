@@ -103,7 +103,7 @@ In this case the latest `library descriptor` will be pulled from the [Kotlin Jup
 #### Library Descriptor Parameters
 
 ```
-%use lets-plot(api=4.7.2, lib=4.3.2, js=4.3.2, isolatedFrame=false)
+%use lets-plot(api=4.7.3, lib=4.3.3, js=4.3.3, isolatedFrame=false)
 ```                                                                 
 - `api` - version of the Lets-Plot Kotlin API.
 - `lib` - version of the Lets-Plot Multiplatform (JARs).
@@ -120,7 +120,7 @@ To learn how to embed Lets-Plot charts in [Compose Multiplatform](https://github
 <a id="in-jvm-js"></a>
 ### JVM and Kotlin/JS
 
-To learn more about creating plots in JVM or Kotlin/JS environment please read [USAGE_SWING_JFX_JS.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_SWING_JFX_JS.md). 
+To learn more about creating plots in JVM or Kotlin/JS environment please read [USAGE_SWING_JFX_JS.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_BATIK_JFX_JS.md). 
         
 #### Examples
 Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications are available in the [Lets-Plot Kotlin Mini Apps (Demos)](https://github.com/alshan/lets-plot-mini-apps) GitHub repository.
@@ -128,15 +128,9 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 <a id="documentation"></a>
 ## Documentation
 
-* A quick introduction to the _Grammar of Graphics_ and Lets-Plot Kotlin API: [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb) 
+* _Lets-Plot Kotlin API_ documentation and API reference: [**Lets-Plot for Kotlin**](https://lets-plot.org/kotlin)
 
-* Lets-Plot Kotlin API docs: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md)
-
-* Lets-Plot Kotlin API reference: https://lets-plot.org/kotlin
-
-* The "Example Notebooks" reference: [examples.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md)
-
-* Example notebooks in the Binder: [mybinder.org](https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/HEAD?labpath=docs%2Fexamples%2Fjupyter-notebooks)
+* A quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_: [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb) 
 
 
 <a id="new"></a>
@@ -187,24 +181,24 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/geom_label_alpha_stroke.ipynb).
 
 <a id="recent_gallery_updates"></a>
-## Recent Updates in the [Gallery](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/gallery/)
+## Recent Updates in the [Gallery](https://lets-plot.org/kotlin/gallery.html)
 
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/geotools_naturalearth.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/geotools_naturalearth.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_nat_earth.png" alt="images/gal_nat_earth.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/mpg_daisy.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/mpg_daisy.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_mpg_daisy.png" alt="images/gal_mpg_daisy.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/palmer_penguins.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/palmer_penguins.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_penguins.png" alt="images/gal_penguins.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/pushkin.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/pushkin.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_pushkin_trips.png" alt="images/gal_pushkin_trips.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/spatialdataset_kotlin_isl.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/spatialdataset_kotlin_isl.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_kotlin_isl.png" alt="images/gal_kotlin_isl.png" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/gallery/wind_rose.ipynb">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/wind_rose.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/images/gal_wind_rose.png" alt="images/gal_wind_rose.png" width="128" height="128">
   </a>
 

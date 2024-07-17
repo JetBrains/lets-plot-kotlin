@@ -7,13 +7,9 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Layer
-import org.jetbrains.letsPlot.intern.layer.PosOptions
-import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorOption
-import org.jetbrains.letsPlot.intern.layer.WithFillOption
+import org.jetbrains.letsPlot.intern.Options
+import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.Bin2dMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TileAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.Bin2dStatAesthetics
@@ -26,27 +22,33 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Divides the plane into a grid and color the bins by the count of cases in them.
  *
+ * By default, this geom uses `coordFixed()`.
+ * However, this may not be the best choice when the values on the X/Y axis have significantly different magnitudes.
+ * In such cases, try using `coordCartesian()`.
+ *
  * ## Examples
  *
- * - [density_2d.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/density_2d.ipynb)
+ * - [density_2d.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/density_2d.ipynb)
  *
  * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
  *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.bin2D()`. The statistical transformation to use on the data for this layer.
  *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param manualKey String or result of the call to the `layerKey()` function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
- *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function. Specifies appearance, style and content.
  * @param bins default = Pair(30, 30).
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binwidth`.
  * @param binWidth The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
  *  The default is to use bin widths that cover the entire range of the data.
- * @param drop default = true. 
+ * @param drop default = true.
  *  Specifies whether to remove all bins with 0 counts.
  * @param x X-axis value.
  * @param y Y-axis value.
@@ -55,7 +57,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
  * @param color Color of the geometry.
- *  String in the following formats: 
+ *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
@@ -63,14 +65,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  *  Or an instance of the `java.awt.Color` class.
  * @param fill Fill color.
- *  String in the following formats: 
+ *  String in the following formats:
  *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
  *  - HEX (e.g. "#0000FF")
  *  - color name (e.g. "red")
  *  - role name ("pen", "paper" or "brush")
  *
  *  Or an instance of the `java.awt.Color` class.
- * @param linetype Type of the line. 
+ * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
  * @param size Line width, default = 0 (i.e. tiles outline initially is not visible).
  * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
@@ -78,7 +80,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
- * @param mapping Set of aesthetic mappings. 
+ * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
  */
 class geomBin2D(
@@ -86,6 +88,7 @@ class geomBin2D(
     stat: StatOptions = Stat.bin2D(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val x: Number? = null,
@@ -116,6 +119,7 @@ class geomBin2D(
         stat = stat,
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips
     ) {

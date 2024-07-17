@@ -18,8 +18,8 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * ## Examples
  *
- * - [plot_grid.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/plot_grid.ipynb)
- * - [gggrid_scale_share.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/gggrid_scale_share.ipynb).
+ * - [plot_grid.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/plot_grid.ipynb)
+ * - [gggrid_scale_share.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/gggrid_scale_share.ipynb).
  *
  *  @param plots Collection of plots.
  *   Use Null-value to fill-in empty cells in grid.

@@ -10,7 +10,7 @@ package org.jetbrains.letsPlot.bistro.joint
  *
  * ## Examples
  *
- * - [joint_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/joint_plot.ipynb)
+ * - [joint_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/joint_plot.ipynb)
  *
  * @param data The data to be displayed.
  * @param x Name of the variable.

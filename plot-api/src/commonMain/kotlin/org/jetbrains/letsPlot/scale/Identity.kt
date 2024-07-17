@@ -39,7 +39,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -102,7 +102,7 @@ fun scaleIdentity(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -159,7 +159,7 @@ fun scaleColorIdentity(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -210,7 +210,7 @@ fun scaleFillIdentity(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -268,7 +268,7 @@ fun scaleShapeIdentity(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -326,7 +326,7 @@ fun scaleLinetypeIdentity(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -377,7 +377,7 @@ fun scaleAlphaIdentity(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -428,7 +428,7 @@ fun scaleSizeIdentity(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"
@@ -480,7 +480,7 @@ fun scaleLinewidthIdentity(
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
  * Examples:
  * - ".2f" -> "12.45"

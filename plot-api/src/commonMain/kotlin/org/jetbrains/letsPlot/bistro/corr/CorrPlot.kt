@@ -40,7 +40,7 @@ import kotlin.math.min
  *
  * ## Examples
  *
- * - [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+ * - [correlation_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/correlation_plot.ipynb)
  *
  * @param data Dataframe to compute correlations on.
  * @param title Plot title.

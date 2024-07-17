@@ -30,10 +30,10 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
  *
  * ## Examples
  *
- * - [image_101.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_101.ipynb)
- * - [image_extent.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_extent.ipynb)
- * - [image_fisher_boat.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_fisher_boat.ipynb)
- * - [image_grayscale.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/imshow/docs/examples/jupyter-notebooks/f-4.2.0/image_grayscale.ipynb)
+ * - [image_101.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/image_101.ipynb)
+ * - [image_extent.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/image_extent.ipynb)
+ * - [image_fisher_boat.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/image_fisher_boat.ipynb)
+ * - [image_grayscale.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/image_grayscale.ipynb)
  *
  * @param rasterData Specifies image type, size and pixel values. See [RasterData.create].
  *

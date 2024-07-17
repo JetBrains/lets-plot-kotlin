@@ -24,9 +24,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * ## Examples
  *
- * - [geom_label.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb)
+ * - [geom_label.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_label.ipynb)
  *
- * - [geom_label_alpha_stroke.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/geom_label_alpha_stroke.ipynb)
+ * - [geom_label_alpha_stroke.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_label_alpha_stroke.ipynb)
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
@@ -36,9 +36,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param manualKey String or result of the call to the `layerKey()` function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
- *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
  * @param map Data-structure containing series of planar shapes and, optionally,
@@ -111,7 +113,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * Format patterns in the `labelFormat` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
- * For more info see: [formats.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+ * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  * Note: the "$" must be escaped as "\$".
  *
  * Examples:
@@ -125,6 +127,7 @@ class geomLabel(
     stat: StatOptions = Stat.identity,
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val map: SpatialDataset? = null,
@@ -169,6 +172,7 @@ class geomLabel(
         stat = stat,
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips
     ) {

@@ -16,7 +16,7 @@ typealias AnnotationOptions = layerLabels
  *
  * ## Examples
  *
- * - [annotations_for_pie.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.2.0/annotations_for_pie.ipynb)
+ * - [annotations_for_pie.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/annotations_for_pie.ipynb)
  *
  * ```kotlin
  * val data = mapOf("name" to listOf("a", "b", "c", "d", "b"), "value" to listOf(40, 90, 10, 50, 20))

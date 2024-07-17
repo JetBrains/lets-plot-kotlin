@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  *
  * ## Examples
  *
- * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ * - [theme_flavors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_flavors.ipynb)
  */
 fun flavorDarcula() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -28,7 +28,7 @@ fun flavorDarcula() = OptionsMap(
  *
  * ## Examples
  *
- * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ * - [theme_flavors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_flavors.ipynb)
  */
 fun flavorSolarizedLight() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -40,7 +40,7 @@ fun flavorSolarizedLight() = OptionsMap(
  *
  * ## Examples
  *
- * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ * - [theme_flavors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_flavors.ipynb)
  */
 fun flavorSolarizedDark() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -52,7 +52,7 @@ fun flavorSolarizedDark() = OptionsMap(
  *
  * ## Examples
  *
- * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ * - [theme_flavors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_flavors.ipynb)
  */
 fun flavorHighContrastLight() = OptionsMap(
     kind = Option.Plot.THEME,
@@ -64,7 +64,7 @@ fun flavorHighContrastLight() = OptionsMap(
  *
  * ## Examples
  *
- * - [theme_flavors.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb)
+ * - [theme_flavors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_flavors.ipynb)
  */
 fun flavorHighContrastDark() = OptionsMap(
     kind = Option.Plot.THEME,

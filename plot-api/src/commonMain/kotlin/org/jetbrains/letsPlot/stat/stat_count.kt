@@ -33,7 +33,7 @@ import org.jetbrains.letsPlot.pos.positionStack
  *  false - do not show legend for this layer.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
- *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param x X-axis value (this value will produce cases or bins for bars).
  * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).
  * @param alpha Transparency level of a layer.

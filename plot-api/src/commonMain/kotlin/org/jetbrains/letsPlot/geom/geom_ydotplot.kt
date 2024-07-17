@@ -28,15 +28,17 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * ## Examples
  *
- * - [geom_ydotplot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb)
+ * - [geom_ydotplot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_ydotplot.ipynb)
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param manualKey String or result of the call to the `layerKey()` function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
- *  For more info see [sampling.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+ *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
  * @param orientation Specifies the axis that the layer's stat and geom should run along.
@@ -92,6 +94,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 class geomYDotplot(
     data: Map<*, *>? = null,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
@@ -127,6 +130,7 @@ class geomYDotplot(
         stat = Stat.yDotplot(),
         position = null,  // Default value depends on `stackGroups` flag.
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips,
         orientation = orientation

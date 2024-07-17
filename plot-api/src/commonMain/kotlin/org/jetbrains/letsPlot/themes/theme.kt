@@ -24,17 +24,17 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
  *
- * - [legend_and_axis.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/legend_and_axis.ipynb)
+ * - [legend_and_axis.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend_and_axis.ipynb)
  *
- * - [theme_label_text.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/theme_label_text.ipynb)
+ * - [theme_label_text.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_label_text.ipynb)
  *
- * - [superscript_exponent.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.6.0/superscript_exponent.ipynb)
+ * - [superscript_exponent.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/superscript_exponent.ipynb)
  *
- * - [theme_panel_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/theme_panel_inset.ipynb)
+ * - [theme_panel_inset.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_panel_inset.ipynb)
  *
- * - [theme_plot_inset.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_plot_inset.ipynb)
+ * - [theme_plot_inset.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_plot_inset.ipynb)
  *
  *
  * @param exponentFormat default="e" ("e", "pow"). Format for numeric labels in scientific notation.
@@ -125,6 +125,14 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
 
  *  It is acceptable to use None for any side; in this case, the default value for the plot inset side will be used.
  *
+ * @param plotTitlePosition default = "panel" ("panel", "plot").
+ *  Alignment of the plot title/subtitle.
+ *  A value of "panel" means that title and subtitle are aligned to the plot panels.
+ *  A value of "plot" means that title and subtitle are aligned to the entire plot (excluding margins).
+ * @param plotCaptionPosition  default = "panel" ("panel", "plot").
+ *  Alignment of the plot caption.
+ *  A value of "panel" means that caption is aligned to the plot panels.
+ *  A value of "plot" means that caption is aligned to the entire plot (excluding margins).
  * @param stripBackground Background of facet labels.
  * @param stripText Facet labels.
  *
@@ -218,6 +226,9 @@ class theme(
     plotMargin: Any? = null,
     plotInset: Any? = null,
 
+    plotTitlePosition: Any? = null,
+    plotCaptionPosition: Any? = null,
+
     stripBackground: Any? = null,
     stripText: Any? = null,
 
@@ -300,6 +311,9 @@ class theme(
         Option.Theme.PLOT_MESSAGE to plotMessage,
         Option.Theme.PLOT_MARGIN to plotMargin,
         Option.Theme.PLOT_INSET to plotInset,
+
+        Option.Theme.PLOT_TITLE_POSITION to plotTitlePosition,
+        Option.Theme.PLOT_CAPTION_POSITION to plotCaptionPosition,
 
         Option.Theme.FACET_STRIP_BGR_RECT to stripBackground,
         Option.Theme.FACET_STRIP_TEXT to stripText,
@@ -389,7 +403,7 @@ class theme(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
  */
 fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
 
@@ -400,9 +414,9 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
  *
- * - [theme_linetype.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb)
+ * - [theme_linetype.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_linetype.ipynb)
  *
  * @param fill Fill color. Accepts color core as string (HEX or rgb) or Color object.
  * @param color Border color. Accepts color core as string (HEX or rgb) or Color object.
@@ -433,9 +447,9 @@ fun elementRect(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
  *
- * - [theme_linetype.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.1/theme_linetype.ipynb)
+ * - [theme_linetype.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_linetype.ipynb)
  *
  * @param color Line color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Line width.
@@ -463,9 +477,9 @@ fun elementLine(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb)
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
  *
- * - [axis_text_angle.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.3.0/axis_text_angle.ipynb)
+ * - [axis_text_angle.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/axis_text_angle.ipynb)
  *
  * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
  * @param family Font family.
@@ -529,7 +543,7 @@ fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) = lis
  *
  * ## Examples
  *
- * - [geom_theme_colors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.4.2/geom_theme_colors.ipynb)
+ * - [geom_theme_colors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_theme_colors.ipynb)
  *
  * @param pen Color to use by name "pen".
  * @param brush Color to use by name "brush".

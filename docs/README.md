@@ -1,3 +1,15 @@
+>
+>
+>
+> # Warning: 
+>   This documentation page is outdated.
+> 
+>   For up-to-date information, see the [Lets-Plot for Kotlin](https://lets-plot.org/kotlin) documentation website.
+> 
+> 
+>
+
+
 ## Lets-Plot Kotlin API 
      
 * Lets-Plot Kotlin API reference: https://lets-plot.org/kotlin
@@ -22,21 +34,21 @@
 
 You can customize the content, values formatting and appearance of tooltip for any geometry layer in your plot.
 
-Learn more: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
+Learn more: [Tooltip Customization](https://lets-plot.org/kotlin/tooltips.html).
 
 <a id="formatting"></a>
 ### Formatting
 
 Formatting of numeric and date-time values in tooltips, legends, on the axes and *text geometry* layer.
 
-Learn more: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md).
+Learn more: [Formatting](https://lets-plot.org/kotlin/formats.html).
 
 <a id="sampling"></a>
 ### Data Sampling
 
 Sampling is a special technique of data transformation, which helps to deal with large datasets and overplotting.
 
-Learn more: [Data Sampling](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/sampling.md).
+Learn more: [Data Sampling](https://lets-plot.org/kotlin/sampling.html).
 
 <a id="export"></a>
 ### Saving Plot in a File
@@ -63,7 +75,7 @@ ggsave(p, "density.png")
 
 <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/images/ggsave_demo.png" alt="Couldn't load ggsave_demo.png" width="500" height="250"/>
 
-See `ggsave()` [documentation](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.export/ggsave.html)
+See `ggsave()` [documentation](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.export/ggsave.html)
 for more information about the function arguments and default values.
         
 Example notebook: [ggsave demo](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/export_to_file.ipynb).
@@ -78,5 +90,5 @@ Example notebook: [ggsave demo](https://nbviewer.org/github/JetBrains/lets-plot-
 Lets-Plot supports visualization of a set of `SimpleFeature`-s stored in `SimpleFeatureCollection`, as well as
 individual `Geometry` and `ReferencedEnvelope` objects.
 
-Learn more: [GeoTools Support](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md).
+Learn more: [Geospatial Charts](https://lets-plot.org/kotlin/geospatial-charts.html).
 
