@@ -6,6 +6,8 @@
 package org.jetbrains.letsPlot.spatial
 
 import junit.framework.TestCase.assertEquals
+import org.jetbrains.letsPlot.SeriesUtil
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.intern.Plot
@@ -87,9 +89,9 @@ class SpatialParamTest {
                 "data" to HashMap(dat),
                 "data_meta" to mapOf(
                     "geodataframe" to mapOf("geometry" to dat.geometryKey),
-                    "series_annotations" to listOf(
-                        mapOf("column" to "cat", "type" to "str"),
-                        mapOf("column" to "geometry", "type" to "str")
+                    Option.Meta.SeriesAnnotation.TAG to listOf(
+                        SeriesUtil.seriesAnnotation("cat", Option.Meta.SeriesAnnotation.Types.STRING),
+                        SeriesUtil.seriesAnnotation("geometry", Option.Meta.SeriesAnnotation.Types.STRING)
                     )
                 )
             )

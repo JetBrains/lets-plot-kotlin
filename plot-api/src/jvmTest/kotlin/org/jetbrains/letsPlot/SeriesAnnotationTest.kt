@@ -19,9 +19,6 @@ import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Test
 import java.time.Instant
-import java.time.LocalDateTime
-import java.time.Month
-import java.time.ZoneOffset
 
 
 class SeriesAnnotationTest {
@@ -62,19 +59,31 @@ class SeriesAnnotationTest {
     }
 
     @Test
-    fun `no date-time data`() {
-        val instant = LocalDateTime.of(2003, Month.FEBRUARY, 1, 0, 0, 0).toInstant(ZoneOffset.UTC)
+    fun `single null in data`() {
         val data = mapOf(
-            "v" to listOf(instant.epochSecond) // it's List of Long
+            "single_null" to listOf(1, null, 3),
         )
+
         val p = ggplot(data) + geomLine { x = "v" }
-        assertThat(p.toSpec()[DATA_META]).isEqualTo(
-            mapOf(
-                SeriesAnnotation.TAG to listOf(
-                    seriesAnnotation(column = "v", type = Types.INTEGER)
-                )
-            )
+        val spec = p.toSpec()
+
+        assertThat(spec.getList(DATA_META, SeriesAnnotation.TAG)).containsExactly(
+            seriesAnnotation(column = "single_null", type = Types.INTEGER),
         )
+    }
+
+    @Test
+    fun `all nulls in data`() {
+        val data = mapOf(
+            "all_nulls" to listOf(null, null, null),
+        )
+
+        val p = ggplot(data) + geomLine { x = "v" }
+        val spec = p.toSpec()
+
+        // Types.UNKNOWN should not be added to the SeriesAnnotation,
+        // and empty SeriesAnnotation should not be added to DATA_META
+        assertThat(spec.getList(DATA_META, SeriesAnnotation.TAG)).isNull()
     }
 
     @Test
