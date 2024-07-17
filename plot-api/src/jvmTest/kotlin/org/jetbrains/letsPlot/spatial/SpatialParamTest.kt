@@ -85,7 +85,13 @@ class SpatialParamTest {
                 "position" to "identity",
                 "mapping" to emptyMap<Any, Any>(),
                 "data" to HashMap(dat),
-                "data_meta" to mapOf("geodataframe" to mapOf("geometry" to dat.geometryKey))
+                "data_meta" to mapOf(
+                    "geodataframe" to mapOf("geometry" to dat.geometryKey),
+                    "series_annotations" to listOf(
+                        mapOf("column" to "cat", "type" to "str"),
+                        mapOf("column" to "geometry", "type" to "str")
+                    )
+                )
             )
         )
     }

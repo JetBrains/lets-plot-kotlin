@@ -6,15 +6,22 @@
 package org.jetbrains.letsPlot
 
 import org.assertj.core.api.Assertions.assertThat
+import org.jetbrains.letsPlot.MappingAnnotationSpecUtil.mappingAsDiscreteAnnotation
 import org.jetbrains.letsPlot.SeriesAnnotationUtil.seriesAnnotation
-import org.jetbrains.letsPlot.SeriesAnnotationUtil.seriesDataMeta
-import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
+import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
+import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation
 import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation.Types
+import org.jetbrains.letsPlot.core.spec.getList
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Test
-import java.time.*
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.Month
+import java.time.ZoneOffset
 
 
 class SeriesAnnotationTest {
@@ -36,18 +43,20 @@ class SeriesAnnotationTest {
 
         val p = ggplot(data) + geomPoint()
 
-        assertThat(p.toSpec()[Option.Meta.DATA_META]).isEqualTo(
-            seriesDataMeta(
-                seriesAnnotation(column = "byte-column", type = Types.INTEGER),
-                seriesAnnotation(column = "short-column", type = Types.INTEGER),
-                seriesAnnotation(column = "int-column", type = Types.INTEGER),
-                seriesAnnotation(column = "long-column", type = Types.INTEGER),
-                seriesAnnotation(column = "double-column", type = Types.FLOATING),
-                seriesAnnotation(column = "float-column", type = Types.FLOATING),
-                seriesAnnotation(column = "string-column", type = Types.STRING),
-                seriesAnnotation(column = "boolean-column", type = Types.BOOLEAN),
-                seriesAnnotation(column = "java-instant-column", type = Types.DATE_TIME),
-                seriesAnnotation(column = "kotlin-instant-column", type = Types.DATE_TIME),
+        assertThat(p.toSpec()[DATA_META]).isEqualTo(
+            mapOf(
+                SeriesAnnotation.TAG to listOf(
+                    seriesAnnotation(column = "byte-column", type = Types.INTEGER),
+                    seriesAnnotation(column = "short-column", type = Types.INTEGER),
+                    seriesAnnotation(column = "int-column", type = Types.INTEGER),
+                    seriesAnnotation(column = "long-column", type = Types.INTEGER),
+                    seriesAnnotation(column = "double-column", type = Types.FLOATING),
+                    seriesAnnotation(column = "float-column", type = Types.FLOATING),
+                    seriesAnnotation(column = "string-column", type = Types.STRING),
+                    seriesAnnotation(column = "boolean-column", type = Types.BOOLEAN),
+                    seriesAnnotation(column = "java-instant-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "kotlin-instant-column", type = Types.DATE_TIME)
+                )
             )
         )
     }
@@ -59,9 +68,11 @@ class SeriesAnnotationTest {
             "v" to listOf(instant.epochSecond) // it's List of Long
         )
         val p = ggplot(data) + geomLine { x = "v" }
-        assertThat(p.toSpec()[Option.Meta.DATA_META]).isEqualTo(
-            seriesDataMeta(
-                seriesAnnotation(column = "v", type = Types.INTEGER)
+        assertThat(p.toSpec()[DATA_META]).isEqualTo(
+            mapOf(
+                SeriesAnnotation.TAG to listOf(
+                    seriesAnnotation(column = "v", type = Types.INTEGER)
+                )
             )
         )
     }
@@ -70,7 +81,7 @@ class SeriesAnnotationTest {
     fun `empty data`() {
         val data = mapOf("v" to emptyList<Any>())
         val p = ggplot(data) + geomLine { x = "v" }
-        assertThat(p.toSpec()).doesNotContainKey(Option.Meta.DATA_META)
+        assertThat(p.toSpec()).doesNotContainKey(DATA_META)
     }
 
     @Test
@@ -83,11 +94,13 @@ class SeriesAnnotationTest {
         )
         val p = ggplot(data) + geomLine { x = "v1"; y = "v2"; color = "v3" }
 
-        assertThat(p.toSpec()[Option.Meta.DATA_META]).isEqualTo(
-            seriesDataMeta(
-                seriesAnnotation(column = "v1", type = Types.DATE_TIME),
-                seriesAnnotation(column = "v2", type = Types.DATE_TIME),
-                seriesAnnotation(column = "v3", type = Types.FLOATING),
+        assertThat(p.toSpec()[DATA_META]).isEqualTo(
+            mapOf(
+                SeriesAnnotation.TAG to listOf(
+                    seriesAnnotation(column = "v1", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "v2", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "v3", type = Types.FLOATING)
+                )
             )
         )
     }
@@ -107,19 +120,23 @@ class SeriesAnnotationTest {
             fill = asDiscrete("v2", levels = listOf(3.0, 1.0, 2.0))
         } + geomPoint()
 
-        assertThat(p.toSpec()[Option.Meta.DATA_META]).isEqualTo(
-            seriesDataMeta(
-                seriesAnnotation(
-                    column = "v1",
-                    type = Types.STRING,
-                    factorLevels = listOf("b", "c", "a"),
-                    order = -1
-                ),
-                seriesAnnotation(
-                    column = "v2",
-                    type = Types.FLOATING,
-                    factorLevels = listOf(3.0, 1.0, 2.0)
-                )
+        assertThat(p.toSpec().getList(DATA_META, MappingAnnotation.TAG)).containsExactlyInAnyOrder(
+            mappingAsDiscreteAnnotation(aes = Aes.X, label = "v1"),
+            mappingAsDiscreteAnnotation(aes = Aes.COLOR, label = "v1"),
+            mappingAsDiscreteAnnotation(aes = Aes.FILL, label = "v2"),
+        )
+
+        assertThat(p.toSpec().getList(DATA_META, SeriesAnnotation.TAG)).containsExactlyInAnyOrder(
+            seriesAnnotation(
+                column = "v1",
+                type = Types.STRING,
+                factorLevels = listOf("b", "c", "a"),
+                order = -1
+            ),
+            seriesAnnotation(
+                column = "v2",
+                type = Types.FLOATING,
+                factorLevels = listOf(3.0, 1.0, 2.0)
             )
         )
     }

@@ -5,19 +5,17 @@
 
 package org.jetbrains.letsPlot
 
+import org.assertj.core.api.Assertions.assertThat
+import org.jetbrains.letsPlot.MappingAnnotationSpecUtil.mappingAsDiscreteAnnotation
+import org.jetbrains.letsPlot.SeriesAnnotationUtil.seriesAnnotation
+import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
 import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
-import junit.framework.TestCase.assertEquals
-import org.jetbrains.letsPlot.MappingAnnotationSpecUtil.mappingAsDiscreteAnnotation
-import org.jetbrains.letsPlot.MappingAnnotationSpecUtil.mappingDataMeta
-import org.jetbrains.letsPlot.core.plot.base.Aes
-import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Test
-import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
-import kotlin.test.assertTrue
 
 class MappingAsDiscreteTest {
 
@@ -27,18 +25,22 @@ class MappingAsDiscreteTest {
         val p = ggplot(data) { x = asDiscrete("x") }
 
         val spec = p.toSpec()
-        assertEquals(
+        assertThat(spec).containsExactlyInAnyOrderEntriesOf(
             mapOf(
                 "kind" to "plot",
                 "data" to mapOf("x" to listOf(1.0)),
+                "data_meta" to mapOf(
+                    SeriesAnnotation.TAG to listOf(
+                        seriesAnnotation("x", SeriesAnnotation.Types.FLOATING)
+                    ),
+                    MappingAnnotation.TAG to listOf(
+                        mappingAsDiscreteAnnotation(Aes.X, "x")
+                    )
+                ),
                 "mapping" to mapOf("x" to "x"),
                 "layers" to emptyList<Any>(),
                 "scales" to emptyList<Any>(),
-                DATA_META to mappingDataMeta(
-                    mappingAsDiscreteAnnotation(Aes.X, "x")
-                )
             ),
-            spec
         )
     }
 
@@ -48,10 +50,15 @@ class MappingAsDiscreteTest {
         val p = ggplot(data) + geomPoint { x = asDiscrete("x") }
 
         val spec = p.toSpec()
-        assertEquals(
+        assertThat(spec).containsExactlyInAnyOrderEntriesOf(
             mapOf(
                 "kind" to "plot",
                 "data" to mapOf("x" to listOf(1.0)),
+                "data_meta" to mapOf(
+                    SeriesAnnotation.TAG to listOf(
+                        seriesAnnotation("x", SeriesAnnotation.Types.FLOATING)
+                    )
+                ),
                 "mapping" to emptyMap<String, Any>(),
                 "scales" to emptyList<Any>(),
                 "layers" to listOf(
@@ -60,13 +67,14 @@ class MappingAsDiscreteTest {
                         "stat" to "identity",
                         "position" to "identity",
                         "mapping" to mapOf("x" to "x"),
-                        DATA_META to mappingDataMeta(
-                            mappingAsDiscreteAnnotation(Aes.X, "x")
+                        DATA_META to mapOf(
+                            MappingAnnotation.TAG to listOf(
+                                mappingAsDiscreteAnnotation(Aes.X, "x")
+                            )
                         )
                     )
                 )
-            ),
-            spec
+            )
         )
     }
 
@@ -79,10 +87,16 @@ class MappingAsDiscreteTest {
         val p = ggplot(data) + geomPoint { x = asDiscrete("x"); y = asDiscrete("y") }
 
         val spec = p.toSpec()
-        assertEquals(
+        assertThat(spec).containsExactlyInAnyOrderEntriesOf(
             mapOf(
                 "kind" to "plot",
                 "data" to data,
+                "data_meta" to mapOf(
+                    SeriesAnnotation.TAG to listOf(
+                        seriesAnnotation("x", SeriesAnnotation.Types.FLOATING),
+                        seriesAnnotation("y", SeriesAnnotation.Types.FLOATING)
+                    )
+                ),
                 "mapping" to emptyMap<String, Any>(),
                 "scales" to emptyList<Any>(),
                 "layers" to listOf(
@@ -91,19 +105,20 @@ class MappingAsDiscreteTest {
                         "stat" to "identity",
                         "position" to "identity",
                         "mapping" to mapOf("x" to "x", "y" to "y"),
-                        DATA_META to mappingDataMeta(
-                            mappingAsDiscreteAnnotation(Aes.X, "x"),
-                            mappingAsDiscreteAnnotation(Aes.Y, "y")
+                        DATA_META to mapOf(
+                            MappingAnnotation.TAG to listOf(
+                                mappingAsDiscreteAnnotation(Aes.X, "x"),
+                                mappingAsDiscreteAnnotation(Aes.Y, "y")
+                            ),
                         )
                     )
                 )
-            ),
-            spec
+            )
         )
     }
 
     @Test
-    fun `skip mapping_annotations when factor levels are set`() {
+    fun `move levels from mapping_annotations to series_annotations`() {
         val data = mapOf("x" to listOf(1.0))
         val p = ggplot(data) {
             x = "x"
@@ -113,8 +128,17 @@ class MappingAsDiscreteTest {
         val spec = p.toSpec()
         val dataMeta = spec[DATA_META] as? Map<*,*>
         assertNotNull(dataMeta)
-        assertFalse(MappingAnnotation.TAG in dataMeta)
-        assertTrue(Option.Meta.SeriesAnnotation.TAG in dataMeta)
+        assertThat(dataMeta[SeriesAnnotation.TAG]).isEqualTo(
+            listOf(
+                seriesAnnotation(column = "x", type = SeriesAnnotation.Types.FLOATING, factorLevels = listOf(1.0))
+            )
+        )
+        assertThat(dataMeta[MappingAnnotation.TAG]).isEqualTo(
+            listOf(
+                mappingAsDiscreteAnnotation(aes = Aes.Y, label = "x")
+            )
+        )
+
     }
 
 }

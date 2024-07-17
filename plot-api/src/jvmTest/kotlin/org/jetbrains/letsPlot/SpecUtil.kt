@@ -6,11 +6,6 @@ import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 
 object SeriesAnnotationUtil {
-    fun seriesDataMeta(vararg seriesAnnotations: Map<String, *>): Map<String, Any> {
-        return mapOf(
-            SeriesAnnotation.TAG to seriesAnnotations.asList()
-        )
-    }
 
     fun seriesAnnotation(
         column: String,
@@ -28,11 +23,6 @@ object SeriesAnnotationUtil {
 }
 
 object MappingAnnotationSpecUtil {
-    fun mappingDataMeta(vararg mappingAnnotations: Map<String, *>): Map<String, Any> {
-        return mapOf(
-            MappingAnnotation.TAG to mappingAnnotations.asList()
-        )
-    }
 
     fun mappingAsDiscreteAnnotation(
         aes: Aes<*>,

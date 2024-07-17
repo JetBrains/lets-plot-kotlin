@@ -292,8 +292,9 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
                 is MappingMeta -> {
                     regularMapping[aes] = spec.variable
                     mappingMetaByVar.provideMap(spec.variable)[aes] = spec
-                    dataTypeByVar[spec.variable] = "TYPE_UNKNOWN"
+                    dataTypeByVar[spec.variable] = SeriesAnnotation.Types.UNKNOWN
                 }
+                is Collection<*> -> {} // no variable name, can't use inferred type
 
                 else -> throw IllegalArgumentException("Unsupported mapping spec: $spec")
             }
@@ -338,13 +339,15 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
                 return@mapNotNull null
             }
 
-            val mappingAnnotation = mutableMapOf<String, Any>()
+            val mappingAnnotation = mutableMapOf(
+                MappingAnnotation.AES to aes,
+                MappingAnnotation.ANNOTATION to "as_discrete",
+                MappingAnnotation.PARAMETERS to mutableMapOf(
+                    MappingAnnotation.LABEL to mappingMeta.label
+                )
+            )
 
-            if (mappingMeta.label != varName) {
-                mappingAnnotation.provideMap(MappingAnnotation.PARAMETERS)[MappingAnnotation.LABEL] = mappingMeta.label
-            }
-
-            // Don't duplicate order options - store them in mappingAnnotation only if they are not in seriesAnnotations
+            // Don't duplicate ordering options - store them in mappingAnnotation only if they are not in seriesAnnotations
             if (seriesAnnotations[varName]?.contains(SeriesAnnotation.FACTOR_LEVELS) != true) {
                 mappingMeta.levels?.let {
                     mappingAnnotation[SeriesAnnotation.FACTOR_LEVELS] = it
@@ -359,14 +362,7 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
                 }
             }
 
-            if (mappingAnnotation.isNotEmpty()) {
-                mappingAnnotation[MappingAnnotation.AES] = aes
-                mappingAnnotation[MappingAnnotation.ANNOTATION] = "as_discrete"
-                mappingAnnotation
-            } else {
-                null
-            }
-
+            mappingAnnotation
         }
     }
 
