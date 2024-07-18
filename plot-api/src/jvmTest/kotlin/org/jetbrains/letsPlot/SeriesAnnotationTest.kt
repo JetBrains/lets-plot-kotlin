@@ -113,4 +113,123 @@ class SeriesAnnotationTest {
             seriesAnnotation(column = "v1", type = Types.STRING, factorLevels = listOf("b", "c", "a"), order = -1)
         )
     }
+
+    @Test
+    fun asDiscrete() {
+        /*
+    # no order
+    p = ggplot(mapping=aes(x=as_discrete('foo'))) + geom_point()
+    assert p.as_dict()['data_meta']['mapping_annotations'] == [
+        {'aes': 'x', 'annotation': 'as_discrete', 'parameters': {'label': 'foo', 'order': None, 'order_by': None}}
+    ]
+    assert 'series_annotations' not in p.as_dict()['data_meta']
+
+    # with order
+    p = ggplot(mapping=aes(x=as_discrete('foo', order=1))) + geom_point()
+    assert p.as_dict()['data_meta']['mapping_annotations'] == [
+        {'aes': 'x', 'annotation': 'as_discrete', 'parameters': {'label': 'foo', 'order': 1, 'order_by': None}}
+    ]
+    assert 'series_annotations' not in p.as_dict()['data_meta']
+
+    # with order_by
+    p = ggplot(mapping=aes(x=as_discrete('foo', order_by='bar'))) + geom_point()
+    assert p.as_dict()['data_meta']['mapping_annotations'] == [
+        {'aes': 'x', 'annotation': 'as_discrete', 'parameters': {'label': 'foo', 'order': None, 'order_by': 'bar'}}
+    ]
+    assert 'series_annotations' not in p.as_dict()['data_meta']
+
+    # with levels
+    p = ggplot(mapping=aes(x=as_discrete('foo', levels=['a', 'b']))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'foo', 'factor_levels': ['a', 'b'], 'order': None}
+    ]
+    assert 'mapping_annotations' not in p.as_dict()['data_meta']
+
+    # with order and levels
+    p = ggplot(mapping=aes(x=as_discrete('foo', order=1, levels=['a', 'b']))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'foo', 'factor_levels': ['a', 'b'], 'order': 1}
+    ]
+    assert 'mapping_annotations' not in p.as_dict()['data_meta']
+
+    # with order_by and levels
+    p = ggplot(mapping=aes(x=as_discrete('foo', order_by='bar', levels=['a', 'b']))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'foo', 'factor_levels': ['a', 'b'], 'order': None}
+    ]
+    assert 'mapping_annotations' not in p.as_dict()['data_meta']
+
+    # with order, order_by and levels
+    p = ggplot(mapping=aes(x=as_discrete('foo', order=1, order_by='bar', levels=['a', 'b']))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'foo', 'factor_levels': ['a', 'b'], 'order': 1}
+    ]
+    assert 'mapping_annotations' not in p.as_dict()['data_meta']
+
+    from datetime import datetime
+    a = datetime(2020, 1, 1)
+    b = datetime(2020, 1, 2)
+
+    # with datetime
+    p = ggplot({'v': [a, b]}, aes(x=as_discrete('v'))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'v', 'type': 'datetime'}
+    ]
+    assert p.as_dict()['data_meta']['mapping_annotations'] == [
+        {'aes': 'x', 'annotation': 'as_discrete', 'parameters': {'label': 'v', 'order': None, 'order_by': None}}
+    ]
+
+    # with datetime and levels - WRONG, should be one annotation with type and factor_levels
+    p = ggplot({'v': [a, b]}, aes(x=as_discrete('v', levels=[b, a]))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'v', 'factor_levels': [b, a], 'order': None},
+        {'column': 'v', 'type': 'datetime'}
+    ]
+    assert 'mapping_annotations' not in p.as_dict()['data_meta']
+
+    # with datetime, levels and order - WRONG, should be one annotation with type, factor_levels and order
+    p = ggplot({'v': [a, b]}, aes(x=as_discrete('v', levels=[b, a], order=1))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'v', 'factor_levels': [b, a], 'order': 1},
+        {'column': 'v', 'type': 'datetime'}
+    ]
+    assert 'mapping_annotations' not in p.as_dict()['data_meta']
+
+    # with datetime, levels and order_by - WRONG, should be one annotation with type, factor_levels and order_by
+    p = ggplot({'v': [a, b]}, aes(x=as_discrete('v', levels=[b, a], order_by='v'))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'v', 'factor_levels': [b, a], 'order': None},
+        {'column': 'v', 'type': 'datetime'}
+    ]
+    assert 'mapping_annotations' not in p.as_dict()['data_meta']
+
+    # with datetime, levels, order and order_by - WRONG, should be one annotation with type, factor_levels, order and order_by
+    p = ggplot({'v': [a, b]}, aes(x=as_discrete('v', levels=[b, a], order=1, order_by='v'))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'v', 'factor_levels': [b, a], 'order': 1},
+        {'column': 'v', 'type': 'datetime'}
+    ]
+    assert 'mapping_annotations' not in p.as_dict()['data_meta']
+
+    # with datetime, order - WRONG, should be one annotation with type and order
+    p = ggplot({'v': [a, b]}, aes(x=as_discrete('v', order=1))) + geom_point()
+    assert p.as_dict()['data_meta']['series_annotations'] == [
+        {'column': 'v', 'type': 'datetime'}
+    ]
+    assert p.as_dict()['data_meta']['mapping_annotations'] == [
+        {'aes': 'x', 'annotation': 'as_discrete', 'parameters': {'label': 'v', 'order': 1, 'order_by': None}}
+    ]
+*/
+
+        val data = mapOf(
+            "v" to listOf("a", "b"),
+        )
+
+        (ggplot(data) { x = asDiscrete("v") } + geomPoint()).toSpec().let {
+            assertThat(it.getList(DATA_META, MappingAnnotation.TAG)).containsExactly(
+                mappingAsDiscreteAnnotation(aes = Aes.X, label = "v")
+            )
+            assertThat(it.getList(DATA_META, SeriesAnnotation.TAG)).isNull()
+        }
+    }
 }
