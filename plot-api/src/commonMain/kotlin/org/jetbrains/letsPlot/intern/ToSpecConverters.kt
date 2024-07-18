@@ -329,8 +329,8 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
             }
         }
 
-        if (SeriesAnnotation.Types.UNKNOWN != dataType && varName in mappingMetaByVar) {
-            val order = mappingMetaByVar[varName]?.values?.mapNotNull(MappingMeta::order)?.lastOrNull()
+        if (SeriesAnnotation.FACTOR_LEVELS in seriesAnnotation && varName in mappingMetaByVar) {
+            val order = mappingMetaByVar[varName]!!.values.mapNotNull(MappingMeta::order).lastOrNull()
             if (order != null) {
                 seriesAnnotation[SeriesAnnotation.ORDER] = order
             }
@@ -349,6 +349,11 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
                 return@mapNotNull null
             }
 
+            if (seriesAnnotations[varName]?.contains(SeriesAnnotation.FACTOR_LEVELS) == true) {
+                // Don't duplicate ordering options - store them in mappingAnnotation only if they are not in seriesAnnotations
+                return@mapNotNull null
+            }
+
             val mappingAnnotation = mutableMapOf(
                 MappingAnnotation.AES to aes,
                 MappingAnnotation.ANNOTATION to "as_discrete",
@@ -357,19 +362,16 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
                 )
             )
 
-            // Don't duplicate ordering options - store them in mappingAnnotation only if they are not in seriesAnnotations
-            if (seriesAnnotations[varName]?.contains(SeriesAnnotation.FACTOR_LEVELS) != true) {
-                mappingMeta.levels?.let {
-                    mappingAnnotation[SeriesAnnotation.FACTOR_LEVELS] = it
-                }
+            mappingMeta.levels?.let {
+                mappingAnnotation[SeriesAnnotation.FACTOR_LEVELS] = it
+            }
 
-                mappingMeta.orderBy?.let {
-                    mappingAnnotation.provideMap(MappingAnnotation.PARAMETERS)[MappingAnnotation.ORDER_BY] = it
-                }
+            mappingMeta.orderBy?.let {
+                mappingAnnotation.provideMap(MappingAnnotation.PARAMETERS)[MappingAnnotation.ORDER_BY] = it
+            }
 
-                mappingMeta.order?.let {
-                    mappingAnnotation.provideMap(MappingAnnotation.PARAMETERS)[MappingAnnotation.ORDER] = it
-                }
+            mappingMeta.order?.let {
+                mappingAnnotation.provideMap(MappingAnnotation.PARAMETERS)[MappingAnnotation.ORDER] = it
             }
 
             mappingAnnotation
