@@ -14,6 +14,7 @@ import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
 import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation
 import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation.Types
 import org.jetbrains.letsPlot.core.spec.getList
+import org.jetbrains.letsPlot.core.spec.getMap
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
@@ -22,6 +23,26 @@ import java.time.Instant
 
 
 class SeriesAnnotationTest {
+
+    /**
+    If levels are specified, the label should not be added to the mapping annotations.
+    It's a bug, but Why not fix - if both levels and label are specified, the levels get ignored.
+    */
+    @Test
+    fun `do not add label if factor level is specified`() {
+        val data = mapOf(
+            "X" to listOf(1, 0)
+        )
+
+        val p = ggplot(data) { x = asDiscrete("X", levels = listOf(0, 1), label = "The X") } + geomPoint()
+
+        assertThat(p.toSpec().getMap(DATA_META))
+            .doesNotContainKey(MappingAnnotation.TAG) // no MappingAnnotation - no label
+        assertThat(p.toSpec().getList(DATA_META, SeriesAnnotation.TAG))
+            .containsExactly(
+                seriesAnnotation(column = "X", type = Types.INTEGER, factorLevels = listOf(0, 1))
+            )
+    }
 
     @Test
     fun dtypes() {
@@ -232,7 +253,5 @@ class SeriesAnnotationTest {
                 mappingAsDiscreteAnnotation(aes = Aes.X, label = "v", order = 1)
             )
         }
-
-
     }
 }
