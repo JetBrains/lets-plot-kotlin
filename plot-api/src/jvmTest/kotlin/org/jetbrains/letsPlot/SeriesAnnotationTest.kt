@@ -125,11 +125,7 @@ class SeriesAnnotationTest {
             color = asDiscrete("v1", order = -1)
         } + geomPoint()
 
-        assertThat(p.toSpec().getList(DATA_META, MappingAnnotation.TAG)).containsExactlyInAnyOrder(
-            mappingAsDiscreteAnnotation(aes = Aes.X, label = "v1"),
-            mappingAsDiscreteAnnotation(aes = Aes.COLOR, label = "v1"),
-        )
-
+        assertThat(p.toSpec().getMap(DATA_META)).doesNotContainKey(MappingAnnotation.TAG)
         assertThat(p.toSpec().getList(DATA_META, SeriesAnnotation.TAG)).containsExactly(
             seriesAnnotation(column = "v1", type = Types.STRING, factorLevels = listOf("b", "c", "a"), order = -1)
         )

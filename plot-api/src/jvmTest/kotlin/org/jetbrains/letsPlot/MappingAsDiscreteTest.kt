@@ -13,10 +13,10 @@ import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
 import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
 import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation
 import org.jetbrains.letsPlot.core.spec.getList
+import org.jetbrains.letsPlot.core.spec.getMap
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.junit.Test
-import kotlin.test.assertNotNull
 
 class MappingAsDiscreteTest {
 
@@ -127,15 +127,10 @@ class MappingAsDiscreteTest {
         }
 
         val spec = p.toSpec()
-        val dataMeta = spec[DATA_META] as? Map<*,*>
-        assertNotNull(dataMeta)
 
-        assertThat(dataMeta.getList(SeriesAnnotation.TAG)).contains(
+        assertThat(spec.getMap(DATA_META)).doesNotContainKey(MappingAnnotation.TAG)
+        assertThat(spec.getList(DATA_META, SeriesAnnotation.TAG)).contains(
             seriesAnnotation(column = "x", type = SeriesAnnotation.Types.FLOATING, factorLevels = listOf(1.0))
         )
-        assertThat(dataMeta.getList(MappingAnnotation.TAG)).contains(
-            mappingAsDiscreteAnnotation(aes = Aes.Y, label = "x")
-        )
     }
-
 }
