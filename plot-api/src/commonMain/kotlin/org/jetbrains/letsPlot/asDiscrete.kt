@@ -13,9 +13,9 @@ import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
  */
 class MappingMeta(
     val variable: String,
-    private val annotation: String,
-    label: String,
-    orderBy: String?,
+    val annotation: String,
+    val label: String,
+    val orderBy: String?,
     val order: Int?,
     val levels: List<Any>?,
 ) {
@@ -24,14 +24,6 @@ class MappingMeta(
         MappingAnnotation.ORDER_BY to orderBy,
         MappingAnnotation.ORDER to order
     )
-
-    fun getAnnotatedData(aes: String): Map<String, Any> {
-        return mapOf(
-            MappingAnnotation.AES to aes,
-            MappingAnnotation.ANNOTATION to annotation,
-            MappingAnnotation.PARAMETERS to parameters
-        )
-    }
 }
 
 /**

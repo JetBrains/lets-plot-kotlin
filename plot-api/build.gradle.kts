@@ -12,6 +12,7 @@ plugins {
 val letsPlotVersion = extra["letsPlot.version"] as String
 val datetimeVersion = extra["datetime.version"] as String
 val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
+val assertjVersion = extra["assertj.version"] as String
 
 kotlin {
     jvm()
@@ -55,6 +56,13 @@ kotlin {
         named("jsMain") {
             dependencies {
                 implementation("io.github.microutils:kotlin-logging-js:$kotlinLoggingVersion")
+            }
+        }
+
+        jvmTest {
+            dependencies {
+                // assertj
+                implementation("org.assertj:assertj-core:$assertjVersion")
             }
         }
     }

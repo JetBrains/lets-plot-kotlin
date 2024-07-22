@@ -8,11 +8,12 @@ package org.jetbrains.letsPlot.intern
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.MappingMeta
-import org.jetbrains.letsPlot.commons.intern.datetime.Instant
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
 import org.jetbrains.letsPlot.core.spec.Option.Meta.KIND
 import org.jetbrains.letsPlot.core.spec.Option.Meta.Kind.PLOT
+import org.jetbrains.letsPlot.core.spec.Option.Meta.MappingAnnotation
+import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation
 import org.jetbrains.letsPlot.core.spec.Option.Scale.AES
 import org.jetbrains.letsPlot.core.spec.Option.Scale.BREAKS
 import org.jetbrains.letsPlot.core.spec.Option.Scale.CONTINUOUS_TRANSFORM
@@ -25,15 +26,18 @@ import org.jetbrains.letsPlot.core.spec.Option.Scale.LIMITS
 import org.jetbrains.letsPlot.core.spec.Option.Scale.NAME
 import org.jetbrains.letsPlot.core.spec.Option.Scale.NA_VALUE
 import org.jetbrains.letsPlot.core.spec.Option.Scale.POSITION
+import org.jetbrains.letsPlot.core.spec.provideMap
 import org.jetbrains.letsPlot.intern.figure.SubPlotsFigure
 import org.jetbrains.letsPlot.intern.layer.WithSpatialParameters
 import org.jetbrains.letsPlot.intern.standardizing.JvmStandardizing
 import org.jetbrains.letsPlot.intern.standardizing.MapStandardizing
-import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing
+import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.asList
+import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.isListy
 import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing.toList
 import org.jetbrains.letsPlot.spatial.CRSCode.isWGS84Code
 import org.jetbrains.letsPlot.spatial.GeometryFormat
 import org.jetbrains.letsPlot.spatial.SpatialDataset
+import kotlin.reflect.KClass
 
 fun Figure.toSpec(): MutableMap<String, Any> {
     return when (this) {
@@ -275,63 +279,169 @@ private fun asMappingData(rawMapping: Map<String, Any>): Map<String, Any> {
     }
 }
 
-private fun createDataMeta(data: Map<*, *>?, mappings: Map<String, Any>): Map<String, Any> {
+private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map<String, Any> {
     val spatialDataMeta: Map<String, Any> = if (data is SpatialDataset) {
         createGeoDataframeAnnotation(data)
     } else {
         emptyMap()
     }
 
-    data class VariableMeta(
-        val levels: List<Any>,
-        val aesthetics: List<String>,
-        val order: Int?,
-    )
-    val variablesMeta = mutableMapOf<String, VariableMeta>()
-    mappings
-        .filterValues { it is MappingMeta }
-        .forEach { (aes, mappingMeta) ->
-            mappingMeta as MappingMeta
+    // VarName to Type
+    val dataTypeByVar: MutableMap<String, String> = mutableMapOf()
 
-            val variableMeta = variablesMeta[mappingMeta.variable]
-            val levels = mappingMeta.levels ?: variableMeta?.levels ?: emptyList()
-            val order = mappingMeta.order ?: variableMeta?.order
-            val aesthetics = variableMeta?.aesthetics?.let { it + aes } ?: listOf(aes)
-            variablesMeta[mappingMeta.variable] = VariableMeta(levels, aesthetics, order)
+    // VarName to Dict[Aes, MappingMeta]
+    val mappingMetaByVar: MutableMap<String, MutableMap<String, MappingMeta>> = mutableMapOf()
+
+    // Aes to VarName
+    val regularMapping: MutableMap<String, String> = mutableMapOf()
+
+    if (mappingSpec.isNotEmpty()) {
+        mappingSpec.forEach { (aes, spec) ->
+            when (spec) {
+                is String -> regularMapping[aes] = spec
+                is MappingMeta -> {
+                    regularMapping[aes] = spec.variable
+                    mappingMetaByVar.provideMap(spec.variable)[aes] = spec
+                    dataTypeByVar[spec.variable] = SeriesAnnotation.Types.UNKNOWN
+                }
+                is Collection<*> -> {} // no variable name, can't use inferred type
+
+                else -> throw IllegalArgumentException("Unsupported mapping spec: $spec")
+            }
+        }
+    }
+
+    dataTypeByVar += inferType(data)
+
+    // fill series annotations
+    val seriesAnnotations = mutableMapOf<String, MutableMap<String, Any>>()
+    dataTypeByVar.forEach { (varName, dataType) ->
+        val seriesAnnotation = mutableMapOf<String, Any>()
+
+        if (dataType != SeriesAnnotation.Types.UNKNOWN) {
+            seriesAnnotation[SeriesAnnotation.TYPE] = dataType
         }
 
-    // mapping annotations
-    val aesListForAnnotations = variablesMeta.values.filter { it.levels.isEmpty() }.flatMap(VariableMeta::aesthetics)
-    val mappingAnnotations = createMappingAnnotations(
-        mappings.filterKeys { aes -> aes in aesListForAnnotations }
-    )
-    val mappingDataMeta = if (mappingAnnotations.isNotEmpty()) {
-        mapOf(
-            Option.Meta.MappingAnnotation.TAG to mappingAnnotations
-        )
+        if (varName in mappingMetaByVar) {
+            val levels = mappingMetaByVar[varName]?.values?.mapNotNull(MappingMeta::levels)?.lastOrNull()
+            if (levels != null) {
+                seriesAnnotation[SeriesAnnotation.FACTOR_LEVELS] = levels
+            }
+        }
+
+        if (SeriesAnnotation.FACTOR_LEVELS in seriesAnnotation && varName in mappingMetaByVar) {
+            val order = mappingMetaByVar[varName]!!.values.mapNotNull(MappingMeta::order).lastOrNull()
+            if (order != null) {
+                seriesAnnotation[SeriesAnnotation.ORDER] = order
+            }
+        }
+
+        if (seriesAnnotation.isNotEmpty()) {
+            seriesAnnotation[SeriesAnnotation.COLUMN] = varName
+            seriesAnnotations[varName] = seriesAnnotation
+        }
+    }
+
+    // fill mapping annotations
+    val mappingAnnotations = mappingMetaByVar.flatMap { (varName, varMeta) ->
+        varMeta.mapNotNull { (aes, mappingMeta) ->
+            if (mappingMeta.annotation != "as_discrete") {
+                return@mapNotNull null
+            }
+
+            if (seriesAnnotations[varName]?.contains(SeriesAnnotation.FACTOR_LEVELS) == true) {
+                // Don't duplicate ordering options - store them in mappingAnnotation only if they are not in seriesAnnotations
+                return@mapNotNull null
+            }
+
+            val mappingAnnotation = mutableMapOf(
+                MappingAnnotation.AES to aes,
+                MappingAnnotation.ANNOTATION to "as_discrete",
+                MappingAnnotation.PARAMETERS to mutableMapOf(
+                    MappingAnnotation.LABEL to mappingMeta.label
+                )
+            )
+
+            mappingMeta.levels?.let {
+                mappingAnnotation[SeriesAnnotation.FACTOR_LEVELS] = it
+            }
+
+            mappingMeta.orderBy?.let {
+                mappingAnnotation.provideMap(MappingAnnotation.PARAMETERS)[MappingAnnotation.ORDER_BY] = it
+            }
+
+            mappingMeta.order?.let {
+                mappingAnnotation.provideMap(MappingAnnotation.PARAMETERS)[MappingAnnotation.ORDER] = it
+            }
+
+            mappingAnnotation
+        }
+    }
+
+    val dataMeta = mutableMapOf<String, Any>()
+    if (seriesAnnotations.isNotEmpty()) {
+        dataMeta[SeriesAnnotation.TAG] = seriesAnnotations.values.toList()
+    }
+
+    if (mappingAnnotations.isNotEmpty()) {
+        dataMeta[MappingAnnotation.TAG] = mappingAnnotations
+    }
+
+    return spatialDataMeta + dataMeta
+}
+
+private fun inferType(data: Any?): Map<String, String> {
+    if (data == null) {
+        return emptyMap()
+    }
+
+    return if (data is Map<*, *>) {
+        data
+            .entries
+            .associate { (key, values) -> key.toString() to inferSeriesType(values) }
     } else {
         emptyMap()
     }
+}
 
-    // series annotations
-    val seriesAnnotations =
-        // with factor levels
-        variablesMeta
-            .filterValues { it.levels.isNotEmpty() }
-            .map { (variable, variableMeta) ->
-                createSeriesAnnotationWithLevels(variable, variableMeta.levels, variableMeta.order)
-            } +
-                // date-time series
-                createDateTimeSeriesAnnotations(data)
-    val seriesDataMeta: Map<String, Any> = if (seriesAnnotations.isNotEmpty()) {
-        mapOf(
-            Option.Meta.SeriesAnnotation.TAG to seriesAnnotations
-        )
-    } else {
-        emptyMap()
+private fun inferSeriesType(data: Any?): String {
+    if (data == null) {
+        return SeriesAnnotation.Types.UNKNOWN
     }
 
-    return spatialDataMeta + mappingDataMeta + seriesDataMeta
+    if (!isListy(data)) {
+        return SeriesAnnotation.Types.UNKNOWN
+    }
+
+    val l = asList(data).filterNotNull()
+    if (l.isEmpty()) {
+        return SeriesAnnotation.Types.UNKNOWN
+    }
+
+    val types = l.fold(mutableSetOf<KClass<*>>()) { acc, value -> acc.apply { acc + value::class } }
+
+    if (types.size > 1) {
+        return SeriesAnnotation.Types.UNKNOWN
+    }
+
+    // types.size == 1 means all elements are of the same type, so we can take any (let's take the first one)
+    val value = l.first()
+
+    return if (JvmStandardizing.isDateTimeJvm(value)) {
+        SeriesAnnotation.Types.DATE_TIME
+    } else {
+        when (value) {
+            is Byte -> SeriesAnnotation.Types.INTEGER
+            is Short -> SeriesAnnotation.Types.INTEGER
+            is Int -> SeriesAnnotation.Types.INTEGER
+            is Long -> SeriesAnnotation.Types.INTEGER
+            is Double -> SeriesAnnotation.Types.FLOATING
+            is Float -> SeriesAnnotation.Types.FLOATING
+            is String -> SeriesAnnotation.Types.STRING
+            is Boolean -> SeriesAnnotation.Types.BOOLEAN
+            else -> SeriesAnnotation.Types.UNKNOWN
+        }
+    }
 }
 
 private fun createGeoDataframeAnnotation(data: SpatialDataset): Map<String, Any> {
@@ -343,43 +453,6 @@ private fun createGeoDataframeAnnotation(data: SpatialDataset): Map<String, Any>
     )
 }
 
-private fun createMappingAnnotations(mappings: Map<String, Any>): List<Map<String, Any>> {
-    return mappings
-        .filter { it.value is MappingMeta }
-        .map { (it.value as MappingMeta).getAnnotatedData(it.key) }
-}
-
-private fun createDateTimeAnnotation(varName: String): Map<String, Any> {
-    return mapOf(
-        Option.Meta.SeriesAnnotation.COLUMN to varName,
-        Option.Meta.SeriesAnnotation.TYPE to Option.Meta.SeriesAnnotation.DateTime.DATE_TIME
-    )
-}
-
-private fun createDateTimeSeriesAnnotations(data: Map<*, *>?): List<Map<String, Any>> {
-    fun isDateTime(value: Any?): Boolean {
-        return value is Instant ||
-                (value?.let(JvmStandardizing::isDateTimeJvm) ?: false)
-    }
-
-    return data?.mapNotNull { (varName, values) ->
-        if (SeriesStandardizing.isListy(values)) {
-            val l = values?.let(SeriesStandardizing::asList)
-            if (!l.isNullOrEmpty() && l.all(::isDateTime)) {
-                return@mapNotNull createDateTimeAnnotation(varName as String)
-            }
-        }
-        return@mapNotNull null
-    } ?: emptyList()
-}
-
-private fun createSeriesAnnotationWithLevels(varName: String, levels: List<Any>, order: Int?): Map<String, Any?> {
-    return mapOf(
-        Option.Meta.SeriesAnnotation.COLUMN to varName,
-        Option.Meta.SeriesAnnotation.FACTOR_LEVELS to levels,
-        Option.Meta.SeriesAnnotation.ORDER to order
-    )
-}
 
 //private fun mergeThemeOptions(m0: Map<String, Any>, m1: Map<String, Any>): Map<String, Any> {
 //    val overlappingKeys = m0.keys.intersect(m1.keys)
