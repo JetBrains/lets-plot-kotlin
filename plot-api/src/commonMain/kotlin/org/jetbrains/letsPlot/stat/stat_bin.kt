@@ -7,13 +7,9 @@ package org.jetbrains.letsPlot.stat
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.intern.Layer
-import org.jetbrains.letsPlot.intern.layer.PosOptions
-import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorOption
-import org.jetbrains.letsPlot.intern.layer.WithFillOption
+import org.jetbrains.letsPlot.intern.Options
+import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramMapping
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
@@ -62,6 +58,8 @@ import org.jetbrains.letsPlot.pos.positionStack
  *  to find the best to illustrate the stories in your data.
  * @param center Specifies x-value to align bin centers to.
  * @param boundary Specifies x-value to align bin boundary (i.e. point between bins) to.
+ * @param trim default = false If false, each histogram is computed on the full range of the data.
+ *  If true, each histogram is computed over the range of that group.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -87,6 +85,7 @@ class statBin(
     override val binWidth: Number? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,
+    override val trim: Boolean? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: HistogramMapping.() -> Unit = {}

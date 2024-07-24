@@ -13,11 +13,13 @@ interface BinStatParameters : OptionsCapsule {
     val binWidth: Number?
     val center: Number?
     val boundary: Number?
+    val trim: Boolean?
 
     override fun seal() = Options.of(
         "bins" to bins,
         "binwidth" to binWidth,
         "center" to center,
-        "boundary" to boundary
+        "boundary" to boundary,
+        "trim" to trim
     )
 }

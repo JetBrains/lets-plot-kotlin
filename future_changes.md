@@ -15,6 +15,9 @@
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.4/theme_plot_title_position.ipynb).
 
+- `trim` parameter in `geomHistogram()` [[#1122]()].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.4/geom_histogram_trim.ipynb).
 
 ### Changed
 

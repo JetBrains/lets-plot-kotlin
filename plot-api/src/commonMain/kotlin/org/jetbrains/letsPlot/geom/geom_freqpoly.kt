@@ -7,8 +7,8 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Layer
+import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.PosOptions
 import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
@@ -66,6 +66,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  to find the best to illustrate the stories in your data.
  * @param center Specifies x-value to align bin centers to.
  * @param boundary Specifies x-value to align bin boundary (i.e. point between bins) to.
+ * @param trim default = false If false, each histogram is computed on the full range of the data.
+ *  If true, each histogram is computed over the range of that group.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.
@@ -91,6 +93,7 @@ class geomFreqpoly(
     override val binWidth: Number? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,
+    override val trim: Boolean? = null,
     override val colorBy: String? = null,
     mapping: LineMapping.() -> Unit = {}
 ) : LineAesthetics,
