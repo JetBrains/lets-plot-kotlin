@@ -74,7 +74,7 @@ object Stat {
         override val binWidth: Number? = null,
         override val center: Number? = null,
         override val boundary: Number? = null,
-        override val trim: Boolean? = null,
+        override val threshold: Number? = null,
         mapping: BinStatMapping.() -> Unit = {}
     ) : BinStatParameters,
         StatOptions(
@@ -136,7 +136,7 @@ object Stat {
         override val binWidth: Number? = null,
         override val center: Number? = null,
         override val boundary: Number? = null,
-        override val trim: Boolean? = null,
+        override val threshold: Number? = null,
         mapping: SummaryBinStatMapping.() -> Unit = {}
     ) : SummaryBinStatParameters,
         StatOptions(

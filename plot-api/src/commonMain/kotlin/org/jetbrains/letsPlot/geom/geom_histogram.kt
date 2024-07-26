@@ -73,8 +73,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  to find the best to illustrate the stories in your data.
  * @param center Specifies x-value to align bin centers to.
  * @param boundary Specifies x-value to align bin boundary (i.e. point between bins) to.
- * @param trim default = false If false, each histogram is computed on the full range of the data.
- *  If true, each histogram is computed over the range of that group.
+ * @param threshold default = null
+ *  Only bins with a `..count..` greater than the threshold will be displayed.
+ *  This is useful for free scales in facets - use threshold=0 to make the plot take up the entire panel space.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -104,7 +105,7 @@ class geomHistogram(
     override val binWidth: Number? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,
-    override val trim: Boolean? = null,
+    override val threshold: Number? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: HistogramMapping.() -> Unit = {}

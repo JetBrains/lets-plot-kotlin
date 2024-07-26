@@ -52,8 +52,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  exploring multiple widths to find the best to illustrate the stories in your data.
  * @param center Specifies x-value to align bin centers to.
  * @param boundary Specifies x-value to align bin boundary (i.e. point between bins) to.
- * @param trim default = false If false, each histogram is computed on the full range of the data.
- *  If true, each histogram is computed over the range of that group.
+ * @param threshold default = null
+ *  Only bins with a `..count..` greater than the threshold will be displayed.
+ *  This is useful for free scales in facets - use threshold=0 to make the plot take up the entire panel space.
  * @param x X-axis coordinates for vertical interval / position of mid-point for horizontal interval.
  * @param y Y-axis coordinates for horizontal interval / position of mid-point for vertical interval.
  * @param ymin Lower bound for vertical interval.
@@ -118,7 +119,7 @@ class statSummaryBin(
     override val binWidth: Number? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,
-    override val trim: Boolean? = null,
+    override val threshold: Number? = null,
     override val fn: String? = null,
     override val fnMin: String? = null,
     override val fnMax: String? = null,

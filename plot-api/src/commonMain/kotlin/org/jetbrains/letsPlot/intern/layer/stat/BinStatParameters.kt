@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
@@ -13,13 +14,13 @@ interface BinStatParameters : OptionsCapsule {
     val binWidth: Number?
     val center: Number?
     val boundary: Number?
-    val trim: Boolean?
+    val threshold: Number?
 
     override fun seal() = Options.of(
-        "bins" to bins,
-        "binwidth" to binWidth,
-        "center" to center,
-        "boundary" to boundary,
-        "trim" to trim
+        Option.Stat.Bin.BINS to bins,
+        Option.Stat.Bin.BINWIDTH to binWidth,
+        Option.Stat.Bin.CENTER to center,
+        Option.Stat.Bin.BOUNDARY to boundary,
+        Option.Stat.Bin.THRESHOLD to threshold
     )
 }
