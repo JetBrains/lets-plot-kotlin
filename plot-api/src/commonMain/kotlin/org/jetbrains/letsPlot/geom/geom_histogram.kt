@@ -105,7 +105,7 @@ class geomHistogram(
     override val binWidth: Number? = null,
     override val center: Number? = null,
     override val boundary: Number? = null,
-    override val threshold: Number? = 0,
+    override val threshold: Number? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: HistogramMapping.() -> Unit = {}
