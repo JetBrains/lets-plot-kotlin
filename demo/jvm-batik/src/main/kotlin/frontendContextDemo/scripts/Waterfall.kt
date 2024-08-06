@@ -33,7 +33,7 @@ object Waterfall {
                     fill = "lightgrey",
                     size = 3.0,
                     alpha = 0.75,
-                    lineType = "dotted",
+                    linetype = "dotted",
                     width = 0.4,
                     showLegend = true,
                     relativeTooltips = layerTooltips()
@@ -50,8 +50,8 @@ object Waterfall {
                     totalTitle = "result",
                     sortedValue = true,
                     maxValues = 3,
-                    hLine = elementLine(color = "magenta", size = 5),
-                    hLineOnTop = false,
+                    hline = elementLine(color = "magenta", size = 5),
+                    hlineOntop = false,
                     connector = elementLine(color = "cyan", size = 1.5),
                     label = elementText(color = "flow_type", family = "Times", face = "bold", size = 5, angle = 45),
                     labelFormat = "d"
