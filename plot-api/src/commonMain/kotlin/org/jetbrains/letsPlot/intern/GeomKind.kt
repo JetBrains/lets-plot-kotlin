@@ -43,6 +43,9 @@ enum class GeomKind {
     V_LINE {
         override fun optionName() = "vline"
     },
+    BAND {
+        override fun optionName() = "band"
+    },
     BOX_PLOT {
         override fun optionName() = "boxplot"
     },

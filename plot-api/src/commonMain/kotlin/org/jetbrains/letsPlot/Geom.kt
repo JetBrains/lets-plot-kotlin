@@ -289,6 +289,32 @@ object Geom {
     }
 
     @Suppress("ClassName")
+    class band(
+        override val xmin: Number? = null,
+        override val xmax: Number? = null,
+        override val ymin: Number? = null,
+        override val ymax: Number? = null,
+        override val alpha: Number? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val size: Number? = null,
+        override val linetype: Any? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
+        mapping: BandMapping.() -> Unit = {}
+    ) : BandAesthetics,
+        WithColorOption,
+        WithFillOption,
+        GeomOptions(
+            GeomKind.BAND,
+            BandMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+
+        override fun seal() = super<BandAesthetics>.seal() + super<WithColorOption>.seal() + super<WithFillOption>.seal()
+    }
+
+    @Suppress("ClassName")
     class rect(
         override val xmin: Number? = null,
         override val xmax: Number? = null,
