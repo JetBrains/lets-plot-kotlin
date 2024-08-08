@@ -2,6 +2,10 @@
 
 ### Added
 
+- `geomBand()` [[#733](https://github.com/JetBrains/lets-plot/issues/733)]:
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.4/us_unemployment.ipynb).
+
 - Legend title in `guideLegend()` and `guideColorbar()`.
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.4/legend_title.ipynb).
