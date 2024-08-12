@@ -11,6 +11,7 @@
     <toc-element topic="gallery.md"/>
     <toc-element topic="charts.md"/>
     <toc-element toc-title="Key Features">
+        <toc-element topic="aesthetics.md"/>
         <toc-element topic="as_discrete.md"/>
         <toc-element topic="multiplot.md"/>
         <toc-element topic="bistro.md"/>
