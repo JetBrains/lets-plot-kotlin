@@ -119,9 +119,10 @@ The number format can be used in a template to create a string with variable sub
 The string template contains “replacement fields” surrounded by curly braces `{}`.
 Anything that is not contained in braces is considered literal text, which is copied unchanged to the result string.
 If you need to include a brace character in the literal text, it can be escaped by doubling: {{ and }}.
-This approach is used in function `layerTooltips()` to customize the content of tooltips.
+This approach is used in functions [`layerTooltips()`](%api_tooltips%/layer-tooltips/index.html) and [`layerLabels()`](%api_annotations%/layer-labels/index.html)
+to customize the content of tooltips and annotations.
 
-See: [Tooltip Customization in Lets-Plot](tooltips.md).
+See: [Tooltip Customization in Lets-Plot](tooltips.md) and [Annotating Charts in Lets-Plot](annotations.md).
 
 ## Date and Time Format
 
@@ -215,6 +216,10 @@ letsPlot() +
 ## Tooltip Customization
 
 You can format text in tooltips, see: [Tooltip Customization](tooltips.md).
+
+## Annotating Charts
+
+You can format text in annotations, see: [Annotating Charts](annotations.md).
 
 ## Demo Notebooks
 

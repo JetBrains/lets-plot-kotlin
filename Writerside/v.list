@@ -8,6 +8,8 @@
     <!-- API -->
     <var name="api_reference" value="%web_root%/kotlin/api-reference"/>
     <var name="api_lets_plot" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot"/>
+    <var name="api_annotations" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.annotations"/>
+    <var name="api_bistro" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.bistro"/>
     <var name="api_coord" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.coord"/>
     <var name="api_export" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.export"/>
     <var name="api_geom" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.geom"/>
@@ -18,7 +20,7 @@
     <var name="api_spatial" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.spatial"/>
     <var name="api_stat" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.stat"/>
     <var name="api_theme" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.themes"/>
-    <var name="api_bistro" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.bistro"/>
+    <var name="api_tooltips" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.tooltips"/>
 
     <!-- NOTEBOOKS -->
     <var name="nbviewer_examples" value="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples"/>
