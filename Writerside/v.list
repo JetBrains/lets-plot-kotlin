@@ -64,6 +64,7 @@
     <var name="nb-geom_curve" value="%nbviewer_cookbook%/geom_curve.ipynb"/>
     <var name="nb-geom_dotplot" value="%nbviewer_cookbook%/geom_dotplot.ipynb"/>
     <var name="nb-geom_function" value="%nbviewer_cookbook%/geom_function.ipynb"/>
+    <var name="nb-geom_histogram_threshold" value="%nbviewer_cookbook%/geom_histogram_threshold.ipynb"/>
     <var name="nb-geom_label" value="%nbviewer_cookbook%/geom_label.ipynb"/>
     <var name="nb-geom_lollipop" value="%nbviewer_cookbook%/geom_lollipop.ipynb"/>
     <var name="nb-geom_pie" value="%nbviewer_cookbook%/geom_pie.ipynb"/>
@@ -126,5 +127,6 @@
     <var name="nb-tooltip_config" value="%nbviewer_cookbook%/tooltip_config.ipynb"/>
     <var name="nb-tooltip_title" value="%nbviewer_cookbook%/tooltip_title.ipynb"/>
     <var name="nb-tooltips_theme" value="%nbviewer_cookbook%/tooltips_theme.ipynb"/>
+    <var name="nb-waterfall_plot" value="%nbviewer_cookbook%/waterfall_plot.ipynb"/>
     <var name="nb-y_orientation" value="%nbviewer_cookbook%/y_orientation.ipynb"/>
 </vars>

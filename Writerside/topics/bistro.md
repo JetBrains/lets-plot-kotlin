@@ -39,3 +39,12 @@ See: [Joint plot](%nb-joint_plot%)
 <img src="residual_plot.png" alt="Residual plot" width="480"/>
 
 See: [Residual plot](%nb-residual_plot%)
+
+
+## Waterfall Plot
+
+[`waterfallPlot`](%api_bistro%.residual/waterfall-plot.html) - function that produces a waterfall plot showing the cumulative effect of sequentially introduced values.
+
+<img src="waterfall_plot.png" alt="Waterfall plot" width="480"/>
+
+See: [Waterfall plot](%nb-waterfall_plot%)

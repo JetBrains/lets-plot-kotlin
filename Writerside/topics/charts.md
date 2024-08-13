@@ -111,6 +111,7 @@ Examples:
 - [Violin plot](%nb-geom_violin%)
 - [Ridgeline plot](%nb-ridgeline_plot%)
 - [The `orientation` parameter](%nb-y_orientation%)
+- [Parameter `threshold` in `geomHistogram()`](%nb-geom_histogram_threshold%)
 
 
 ## Stats
