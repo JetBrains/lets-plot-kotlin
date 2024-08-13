@@ -65,10 +65,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param color Color of the geometry.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param size Font size.
- * @param family default = "sans" ("sans", "serif", "mono" or any other like "Times New Roman").
- *  Font family.
- * @param fontface default = "plain" ("plain", "bold", "italic", "bold italic").
- *  Font style and weight.
+ * @param family default = "sans".
+ *  For more info see: [aesthetics.html#font-family](https://lets-plot.org/kotlin/aesthetics.html#font-family).
+ * @param fontface default = "plain".
+ *  For more info see: [aesthetics.html#font-face](https://lets-plot.org/kotlin/aesthetics.html#font-face).
  * @param hjust ("left", "middle", "right") or number between 0 ("left") and 1 ("right")
  *  or "inward" (aligns text towards the plot center), "outward" (away from the plot center).
  *  Horizontal text alignment.
