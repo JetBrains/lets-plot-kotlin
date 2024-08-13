@@ -424,7 +424,6 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
  * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
- *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param blank Mark as a 'blank' element.
  */
 fun elementRect(
@@ -457,7 +456,6 @@ fun elementRect(
  * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
- *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param blank Mark as a 'blank' element.
  */
 fun elementLine(
