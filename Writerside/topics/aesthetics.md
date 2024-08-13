@@ -26,6 +26,8 @@ Colors and fills of geometries can be specified in the following ways:
     </li>
 </list>
 
+- An instance of the `java.awt.Color` class.
+
 ## Point Shapes
 
 ![Point shapes](aesthetics_shape.png)
