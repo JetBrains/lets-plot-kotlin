@@ -29,6 +29,7 @@ Lines:
 
 Areas:
 [`area`](%api_geom%/geom-area/index.html),
+[`band`](%api_geom%/geom-band/index.html),
 [`ribbon`](%api_geom%/geom-ribbon/index.html)
 
 Polygons:
