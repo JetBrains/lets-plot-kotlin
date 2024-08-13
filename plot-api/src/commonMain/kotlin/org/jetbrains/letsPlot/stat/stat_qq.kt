@@ -42,6 +42,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param shape Shape of the point.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param size Size of the point.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param distribution default = "norm".

@@ -62,6 +62,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Line width, default = 0 (i.e. tiles outline initially is not visible).
  * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").

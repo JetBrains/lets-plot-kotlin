@@ -47,6 +47,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fill Color to paint shape's inner points.
  *  Is applied only to the points of shapes having inner points.
  * @param shape Shape of the point.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param size Size of the point.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param angle Rotation angle of the shape, in degrees.

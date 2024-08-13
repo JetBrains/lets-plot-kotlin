@@ -51,6 +51,7 @@ package org.jetbrains.letsPlot.bistro.qq
  * @param size default = 3.0.
  *  Size of the points.
  * @param shape Shape of the points.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param lineColor default = "#FF0000".
  *  Color of the fitting line.
  * @param lineSize default = 0.75.
@@ -58,7 +59,8 @@ package org.jetbrains.letsPlot.bistro.qq
  * @param linetype Int or String.
  *  Type of the fitting line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *  5 = "longdash", 6 = "twodash"
+ *  5 = "longdash", 6 = "twodash".
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  */
 fun qqPlot(
     data: Map<*, *>,

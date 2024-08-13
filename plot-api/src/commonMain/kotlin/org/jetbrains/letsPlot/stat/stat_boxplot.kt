@@ -48,12 +48,15 @@ import org.jetbrains.letsPlot.pos.positionDodge
  * @param linetype Type of the line of border.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param shape Shape of the outliers.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param width Width of boxplot. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the boxes.
  * @param outlierAlpha Default transparency aesthetic for outliers.
  * @param outlierColor Color aesthetic for outliers.
  * @param outlierFill Fill aesthetic for outliers.
  * @param outlierShape Shape aesthetic for outliers.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param outlierSize Size aesthetic for outliers.
  * @param outlierStroke Default width of the border for outliers.
  * @param outlierAngle Rotation angle of the shape for outliers, in degrees.

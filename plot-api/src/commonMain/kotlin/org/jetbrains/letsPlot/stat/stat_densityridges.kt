@@ -47,6 +47,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param linetype Type of the line of border.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Defines line width.
  * @param weight Used by the stat to compute weighted density.
  * @param tailsCutoff Extends domain of each ridge on `tailsCutoff * bw` if `trim = false`.

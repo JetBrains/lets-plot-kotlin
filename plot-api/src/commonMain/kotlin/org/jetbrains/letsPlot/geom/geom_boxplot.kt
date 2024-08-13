@@ -50,6 +50,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param outlierColor Color aesthetic for outliers.
  * @param outlierFill Fill aesthetic for outliers.
  * @param outlierShape Shape aesthetic for outliers.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param outlierSize Size aesthetic for outliers.
  * @param outlierStroke Default width of the border for outliers.
  * @param outlierAngle Rotation angle of the shape for outliers, in degrees.
@@ -82,6 +83,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param linetype Type of the line of border.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".

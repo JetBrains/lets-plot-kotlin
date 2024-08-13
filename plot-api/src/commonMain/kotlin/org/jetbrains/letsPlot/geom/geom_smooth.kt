@@ -56,7 +56,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines line width for conditional mean and confidence bounds lines.
  * @param linetype Type of the line of conditional mean line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *  5 = "longdash", 6 = "twodash"
+ *  5 = "longdash", 6 = "twodash".
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param method default = "lm".
  *  Smoothing method: lm (Linear Model) or loess (Locally Estimated Scatterplot Smoothing).
  * @param n default = 80. Number of points to evaluate smoother at.
