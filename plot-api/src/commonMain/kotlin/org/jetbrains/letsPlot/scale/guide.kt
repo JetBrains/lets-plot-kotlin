@@ -143,8 +143,17 @@ internal fun guideTitleOption(title: String) = mapOf(Option.Guide.TITLE to title
 /**
  * Function to configure a custom legend.
  *
+ * ## Notes
+ *
+ * The group name specified with the `group` parameter can be used in the `labs()` and `guides()` functions
+ * to further customize the display of this group (e.g. change its name).
+ * In particular, items in the "manual" group will be displayed without a title unless you change it manually.
+ *
+ * If you set the same group and label for a legend element in different layers, they will merge into one complex legend element.
+ *
  * @param label Text for the element in the custom legend.
- * @param group Group name by which elements are combined into a legend group.
+ * @param group default = "manual".
+ *  Group name by which elements are combined into a legend group.
  * @param index Position of the element in the custom legend.
  * @param aes Dictionary that maps aesthetics to values to be used in a custom legend.
  *  Can be specified with the `aesOverrides()` function.
