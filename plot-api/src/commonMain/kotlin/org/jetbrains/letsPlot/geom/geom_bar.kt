@@ -56,21 +56,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
  * @param color Color of the geometry.
- *  String in the following formats: 
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fill Fill color.
- *  String in the following formats: 
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param width Width of a bar.
  * @param size Defines bar line width.
  * @param weight Used by `Stat.count()` stat to compute weighted sum instead of simple count.

@@ -40,23 +40,11 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param explode For pie geometry it is a values to explode slices away from their center point, detaching it from the main pie.
  * @param size Geometry size.
  * @param fill Fill color.
- *  String in the following formats:
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
  * @param color Color of the geometry.
- *  String in the following formats:
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param stroke Geometry border width.
  * @param weight Used by the stat to compute weighted sum instead of simple count.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").

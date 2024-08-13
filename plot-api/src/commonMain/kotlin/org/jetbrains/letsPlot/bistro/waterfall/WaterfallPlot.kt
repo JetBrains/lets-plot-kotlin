@@ -19,8 +19,10 @@ package org.jetbrains.letsPlot.bistro.waterfall
  * @param group Grouping variable.
  *  Each group calculates its own statistics.
  * @param color Color of the box boundary lines.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  *  Use "flow_type" to color lines by the direction of the flow.
  * @param fill Fill color of the boxes.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  *  Use "flow_type" to color boxes by the direction of the flow.
  * @param size default = 0.0.
  *  Line width of the box boundary lines.

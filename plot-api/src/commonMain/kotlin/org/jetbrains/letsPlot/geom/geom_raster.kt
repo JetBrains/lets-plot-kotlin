@@ -43,13 +43,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param y Coordinates of the center of rectangles.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param fill Fill color.
- *  String in the following formats: 
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red") 
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
  * @param mapping Set of aesthetic mappings.
