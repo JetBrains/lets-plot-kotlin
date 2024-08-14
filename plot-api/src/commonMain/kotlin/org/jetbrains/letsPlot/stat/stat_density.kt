@@ -84,6 +84,7 @@ class statDensity(
     geom: GeomOptions = GeomOptions(GeomKind.DENSITY),
     position: PosOptions = positionStack(),
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -115,6 +116,7 @@ class statDensity(
         stat = density(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
 

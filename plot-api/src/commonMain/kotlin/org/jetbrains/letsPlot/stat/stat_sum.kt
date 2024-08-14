@@ -66,6 +66,7 @@ class statSum(
     geom: GeomOptions = Geom.point(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     override val x: Any? = null,
@@ -90,6 +91,7 @@ class statSum(
         stat = Stat.sum(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips,
     ) {

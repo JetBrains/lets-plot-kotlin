@@ -78,6 +78,7 @@ class statQQ(
     geom: GeomOptions = Geom.qq(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val sample: Number? = null,
     override val alpha: Number? = null,
@@ -103,6 +104,7 @@ class statQQ(
         stat = Stat.qq(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
 
