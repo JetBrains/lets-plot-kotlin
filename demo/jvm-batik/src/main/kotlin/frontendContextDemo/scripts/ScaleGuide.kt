@@ -37,13 +37,26 @@ object ScaleGuide {
 
                 // Use 'guides' function
                 (letsPlot(data) + ggsize(600, 200) +
-                        ggtitle("Use 'guides' function.") +
-                        geomTile {
-                            x = "x"
-                            fill = colors
-                            alpha = "x"
-                        } +
-                        guides(alpha = "none", fill = guideLegend(nrow = 2))).show()
+                    ggtitle("Use 'guides' function") +
+                    geomTile {
+                        x = "x"
+                        fill = colors
+                        alpha = "x"
+                    } +
+                    scaleFillIdentity(guide = guideLegend()) +
+                    guides(alpha = "none", fill = guideLegend(nrow = 2))
+                ).show()
+
+                (letsPlot(data) + ggsize(600, 200) +
+                    ggtitle("Overriding aes") +
+                    geomTile {
+                        x = "x"
+                        fill = colors
+                        alpha = "x"
+                    } +
+                    scaleFillIdentity(guide = guideLegend(nrow = 2, color = "gray", alpha = 0.4)) +
+                    guides(alpha = "none")
+                ).show()
             }
 
             run {
