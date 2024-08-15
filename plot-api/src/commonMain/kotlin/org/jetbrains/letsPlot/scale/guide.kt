@@ -204,7 +204,7 @@ fun layerKey(
         Option.Layer.LayerKey.INDEX to index
     ).filterNonNullValues()
 
-    aesOverrides(alpha, color, fill, shape, size, width, height, linetype, stroke).let { options += it }
+    aesOverrides(alpha, color, fill, shape, size, width, height, linetype, stroke)?.let { options += it }
 
     return options
 }
@@ -223,7 +223,7 @@ internal fun aesOverrides(
     height: Any? = null,
     linetype: Any? = null,
     stroke: Any? = null,
-): Map<String, Any> {
+): Map<String, Any>? {
     val options = HashMap<String, Any>()
 
     alpha?.let { options.put("alpha", it) }
@@ -236,5 +236,5 @@ internal fun aesOverrides(
     linetype?.let { options.put("linetype", it) }
     stroke?.let { options.put("stroke", it) }
 
-    return options
+    return if (options.isEmpty()) null else options
 }
