@@ -17,13 +17,16 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param nrow A number of rows in legend's guide.
  * @param ncol A number of columns in legend's guide.
  * @param byRow A type of output: by row (default), or by column.
+ * @param alpha Transparency. Can be a single value or a list to customize each key.
+ * @param color Line color. Can be a single value or a list to customize each key.
+ * @param fill Fill color. Can be a single value or a list to customize each key.
+ * @param shape Shape of the point. Can be a single value or a list to customize each key.
+ * @param size Size of a geometry. Can be a single value or a list to customize each key.
+ * @param width Width. Can be a single value or a list to customize each key.
+ * @param height Height. Can be a single value or a list to customize each key.
+ * @param linetype Type of the line. Can be a single value or a list to customize each key.
+ * @param stroke Width of the shape border. Can be a single value or a list to customize each key.
  */
-/*
-ToDo Add parameter overrideAes
-  @param aes Dictionary that maps aesthetic parameters to new values, overriding the default legend appearance.
-  Each value can be a constant applied to all keys or a list that changes particular keys.
-  Can be specified with the `aesOverrides()` function.
-*/
 fun guideLegend(
     title: String? = null,
     @Suppress("SpellCheckingInspection")
@@ -31,15 +34,25 @@ fun guideLegend(
     @Suppress("SpellCheckingInspection")
     ncol: Int? = null,
     byRow: Boolean? = null,
-    // aes: Map<String, Any>? = null
+    alpha: Any? = null,
+    color: Any? = null,
+    fill: Any? = null,
+    shape: Any? = null,
+    size: Any? = null,
+    width: Any? = null,
+    height: Any? = null,
+    linetype: Any? = null,
+    stroke: Any? = null
 ): Map<String, Any> {
+    val overrides = aesOverrides(alpha, color, fill, shape, size, width, height, linetype, stroke)
+
     return mapOf(
         Option.Meta.NAME to Option.Guide.LEGEND,
         Option.Guide.TITLE to title,
         Option.Guide.Legend.ROW_COUNT to nrow,
         Option.Guide.Legend.COL_COUNT to ncol,
         Option.Guide.Legend.BY_ROW to byRow,
-        // Option.Guide.Legend.OVERRIDE_AES to aes
+        Option.Guide.Legend.OVERRIDE_AES to overrides
     ).filterNonNullValues()
 }
 
@@ -52,27 +65,39 @@ fun guideLegend(
  * @param barWidth Color bar width.
  * @param barHeight Color bar height.
  * @param nbin Number of bins in color bar.
+ * @param alpha Transparency. Can be a single value or a list to customize each key.
+ * @param color Line color. Can be a single value or a list to customize each key.
+ * @param fill Fill color. Can be a single value or a list to customize each key.
+ * @param shape Shape of the point. Can be a single value or a list to customize each key.
+ * @param size Size of a geometry. Can be a single value or a list to customize each key.
+ * @param width Width. Can be a single value or a list to customize each key.
+ * @param height Height. Can be a single value or a list to customize each key.
+ * @param linetype Type of the line. Can be a single value or a list to customize each key.
+ * @param stroke Width of the shape border. Can be a single value or a list to customize each key.
  */
-/*
-ToDo Add parameter overrideAes
-  @param aes Dictionary that maps aesthetic parameters to new values, overriding the default legend appearance.
-  Each value can be a constant applied to all keys or a list that changes particular keys.
-  Can be specified with the `aesOverrides()` function.
-*/
 fun guideColorbar(
     title: String? = null,
     barWidth: Number? = null,
     barHeight: Number? = null,
     nbin: Int? = null,
-    // aes: Map<String, Any>? = null
+    alpha: Any? = null,
+    color: Any? = null,
+    fill: Any? = null,
+    shape: Any? = null,
+    size: Any? = null,
+    width: Any? = null,
+    height: Any? = null,
+    linetype: Any? = null,
+    stroke: Any? = null
 ): Map<String, Any> {
+    val overrides = aesOverrides(alpha, color, fill, shape, size, width, height, linetype, stroke)
     return mapOf(
         Option.Meta.NAME to Option.Guide.COLOR_BAR,
         Option.Guide.TITLE to title,
         Option.Guide.ColorBar.WIDTH to barWidth,
         Option.Guide.ColorBar.HEIGHT to barHeight,
         Option.Guide.ColorBar.BIN_COUNT to nbin,
-        // Option.Guide.Legend.OVERRIDE_AES to aes
+        Option.Guide.Legend.OVERRIDE_AES to overrides
     ).filterNonNullValues()
 }
 
@@ -146,34 +171,21 @@ internal fun guideTitleOption(title: String) = mapOf(Option.Guide.TITLE to title
  * @param label Text for the element in the custom legend.
  * @param group Group name by which elements are combined into a legend group.
  * @param index Position of the element in the custom legend.
- * @param aes Dictionary that maps aesthetics to values to be used in a custom legend.
- *  Can be specified with the `aesOverrides()` function.
+ * @param alpha Transparency. Can be a single value or a list to customize each key.
+ * @param color Line color. Can be a single value or a list to customize each key.
+ * @param fill Fill color. Can be a single value or a list to customize each key.
+ * @param shape Shape of the point. Can be a single value or a list to customize each key.
+ * @param size Size of a geometry. Can be a single value or a list to customize each key.
+ * @param width Width. Can be a single value or a list to customize each key.
+ * @param height Height. Can be a single value or a list to customize each key.
+ * @param linetype Type of the line. Can be a single value or a list to customize each key.
+ * @param stroke Width of the shape border. Can be a single value or a list to customize each key.
  *
  */
 fun layerKey(
     label: String,
     group: String? = null,
     index: Int? = null,
-    aes: Map<String, Any>? = null
-): Map<String, Any> {
-    val options = HashMap<String, Any>()
-
-    options += mapOf(
-        Option.Layer.LayerKey.LABEL to label,
-        Option.Layer.LayerKey.GROUP to group,
-        Option.Layer.LayerKey.INDEX to index
-    ).filterNonNullValues()
-
-    aes?.let { options += it }
-
-    return options
-}
-
-/**
- * Function to set new aesthetic values to override the default legend appearance.
- *
- */
-fun aesOverrides(
     alpha: Any? = null,
     color: Any? = null,
     fill: Any? = null,
@@ -186,6 +198,34 @@ fun aesOverrides(
 ): Map<String, Any> {
     val options = HashMap<String, Any>()
 
+    options += mapOf(
+        Option.Layer.LayerKey.LABEL to label,
+        Option.Layer.LayerKey.GROUP to group,
+        Option.Layer.LayerKey.INDEX to index
+    ).filterNonNullValues()
+
+    aesOverrides(alpha, color, fill, shape, size, width, height, linetype, stroke)?.let { options += it }
+
+    return options
+}
+
+/**
+ * Function to set new aesthetic values to override the default legend appearance.
+ *
+ */
+internal fun aesOverrides(
+    alpha: Any? = null,
+    color: Any? = null,
+    fill: Any? = null,
+    shape: Any? = null,
+    size: Any? = null,
+    width: Any? = null,
+    height: Any? = null,
+    linetype: Any? = null,
+    stroke: Any? = null,
+): Map<String, Any>? {
+    val options = HashMap<String, Any>()
+
     alpha?.let { options.put("alpha", it) }
     color?.let { options.put("color", it) }
     fill?.let { options.put("fill", it) }
@@ -196,5 +236,5 @@ fun aesOverrides(
     linetype?.let { options.put("linetype", it) }
     stroke?.let { options.put("stroke", it) }
 
-    return options
+    return if (options.isEmpty()) null else options
 }

@@ -70,6 +70,7 @@ class statCount(
     geom: GeomOptions = Geom.bar(),
     position: PosOptions = positionStack(),
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -93,6 +94,7 @@ class statCount(
         stat = Stat.count(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
 

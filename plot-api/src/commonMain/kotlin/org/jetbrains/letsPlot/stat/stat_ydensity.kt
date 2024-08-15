@@ -91,6 +91,7 @@ class statYDensity(
     geom: GeomOptions = GeomOptions(GeomKind.VIOLIN),
     position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -126,6 +127,7 @@ class statYDensity(
         stat = Stat.yDensity(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
 

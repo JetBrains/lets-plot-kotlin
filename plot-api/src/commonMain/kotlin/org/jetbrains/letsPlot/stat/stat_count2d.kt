@@ -70,6 +70,7 @@ class statCount2D(
     geom: GeomOptions = Geom.pie(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -93,6 +94,7 @@ class statCount2D(
         stat = Stat.count2d(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
 
