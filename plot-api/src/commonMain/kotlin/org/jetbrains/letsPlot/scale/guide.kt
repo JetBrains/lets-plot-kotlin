@@ -17,11 +17,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param nrow A number of rows in legend's guide.
  * @param ncol A number of columns in legend's guide.
  * @param byRow A type of output: by row (default), or by column.
- * @param alpha Transparency. Can be a single value or a list to customize each key.
+ * @param alpha Transparency level. Can be a single value or a list to customize each key.
  * @param color Line color. Can be a single value or a list to customize each key.
  * @param fill Fill color. Can be a single value or a list to customize each key.
  * @param shape Shape of the point. Can be a single value or a list to customize each key.
- * @param size Size of a geometry. Can be a single value or a list to customize each key.
+ * @param size Size of the geometry. Can be a single value or a list to customize each key.
  * @param width Width. Can be a single value or a list to customize each key.
  * @param height Height. Can be a single value or a list to customize each key.
  * @param linetype Type of the line. Can be a single value or a list to customize each key.
@@ -65,11 +65,11 @@ fun guideLegend(
  * @param barWidth Color bar width.
  * @param barHeight Color bar height.
  * @param nbin Number of bins in color bar.
- * @param alpha Transparency. Can be a single value or a list to customize each key.
+ * @param alpha Transparency level. Can be a single value or a list to customize each key.
  * @param color Line color. Can be a single value or a list to customize each key.
  * @param fill Fill color. Can be a single value or a list to customize each key.
  * @param shape Shape of the point. Can be a single value or a list to customize each key.
- * @param size Size of a geometry. Can be a single value or a list to customize each key.
+ * @param size Size of the geometry. Can be a single value or a list to customize each key.
  * @param width Width. Can be a single value or a list to customize each key.
  * @param height Height. Can be a single value or a list to customize each key.
  * @param linetype Type of the line. Can be a single value or a list to customize each key.
@@ -171,15 +171,15 @@ internal fun guideTitleOption(title: String) = mapOf(Option.Guide.TITLE to title
  * @param label Text for the element in the custom legend.
  * @param group Group name by which elements are combined into a legend group.
  * @param index Position of the element in the custom legend.
- * @param alpha Transparency. Can be a single value or a list to customize each key.
- * @param color Line color. Can be a single value or a list to customize each key.
- * @param fill Fill color. Can be a single value or a list to customize each key.
- * @param shape Shape of the point. Can be a single value or a list to customize each key.
- * @param size Size of a geometry. Can be a single value or a list to customize each key.
- * @param width Width. Can be a single value or a list to customize each key.
- * @param height Height. Can be a single value or a list to customize each key.
- * @param linetype Type of the line. Can be a single value or a list to customize each key.
- * @param stroke Width of the shape border. Can be a single value or a list to customize each key.
+ * @param alpha Transparency level.
+ * @param color Line color.
+ * @param fill Fill color.
+ * @param shape Shape of the point.
+ * @param size Size of the geometry.
+ * @param width Width.
+ * @param height Height.
+ * @param linetype Type of the line.
+ * @param stroke Width of the shape border.
  *
  */
 fun layerKey(
