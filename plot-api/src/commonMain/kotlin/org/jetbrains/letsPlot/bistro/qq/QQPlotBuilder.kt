@@ -37,6 +37,7 @@ internal class QQPlotBuilder(
     private val quantiles: Pair<Number, Number>? = null,
     private val group: String? = null,
     private val showLegend: Boolean = true,
+    private val manualKey: Any? = null,
     private val color: String? = null,
     private val fill: String? = null,
     alpha: Number? = null,
@@ -69,6 +70,7 @@ internal class QQPlotBuilder(
         val mapping = qqMapping()
         return geomQQ(
             showLegend = showLegend,
+            manualKey = manualKey,
             color = color,
             fill = fill,
             alpha = myAlpha,
@@ -77,6 +79,7 @@ internal class QQPlotBuilder(
             stat = Stat.qq(myDistribution, dParams, mapping)
         ) + geomQQLine(
             showLegend = showLegend,
+            manualKey = manualKey,
             color = myLineColor,
             size = myLineSize,
             linetype = linetype,
@@ -88,6 +91,7 @@ internal class QQPlotBuilder(
         val mapping = qq2Mapping()
         return geomQQ2(
             showLegend = showLegend,
+            manualKey = manualKey,
             color = color,
             fill = fill,
             alpha = myAlpha,
@@ -96,6 +100,7 @@ internal class QQPlotBuilder(
             stat = Stat.qq2(mapping)
         ) + geomQQ2Line(
             showLegend = showLegend,
+            manualKey = manualKey,
             color = myLineColor,
             size = myLineSize,
             linetype = linetype,
