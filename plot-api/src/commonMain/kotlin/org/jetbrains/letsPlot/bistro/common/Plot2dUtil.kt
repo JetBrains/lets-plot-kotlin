@@ -94,11 +94,12 @@ object Plot2dUtil {
         alpha: Number?,
         colorBy: String?,
         showLegend: Boolean,
+        manualKey: Any?,
     ): Feature {
 
         return when (geomKind) {
             "point" -> {
-                geomPoint(color = color, size = size, alpha = alpha, showLegend = showLegend)
+                geomPoint(color = color, size = size, alpha = alpha, showLegend = showLegend, manualKey = manualKey)
             }
 
             "tile" -> {
@@ -108,7 +109,8 @@ object Plot2dUtil {
                     color = color,
                     size = size,
                     alpha = alpha,
-                    showLegend = showLegend
+                    showLegend = showLegend,
+                    manualKey = manualKey
                 ) {
                     fill = colorBy.takeIf { it != null } ?: "..count.."
                 }
@@ -119,7 +121,8 @@ object Plot2dUtil {
                     color = color,
                     size = size,
                     alpha = alpha,
-                    showLegend = showLegend
+                    showLegend = showLegend,
+                    manualKey = manualKey
                 ) {
                     this.color = colorBy.takeIf { it != null } ?: "..group.."
                 }
@@ -130,7 +133,8 @@ object Plot2dUtil {
                     color = color,
                     size = size,
                     alpha = alpha,
-                    showLegend = showLegend
+                    showLegend = showLegend,
+                    manualKey = manualKey
                 ) {
                     fill = colorBy.takeIf { it != null } ?: "..group.."
                 }
@@ -148,7 +152,8 @@ object Plot2dUtil {
         binWidth2d: Pair<Number, Number>?,
         color: String?,
         colorBy: String?,
-        showLegend: Boolean
+        showLegend: Boolean,
+        manualKey: Any?
     ): Feature {
         fun parseMarginalLayer(geomKind: String, side: Char, size: Any?): Feature {
             val marginalColor = when {
@@ -164,7 +169,8 @@ object Plot2dUtil {
                         color = marginalColor,
                         fill = marginalColor,
                         alpha = MARGINAL_ALPHA,
-                        showLegend = showLegend
+                        showLegend = showLegend,
+                        manualKey = manualKey
                     )
                 }
 
@@ -185,7 +191,8 @@ object Plot2dUtil {
                         alpha = MARGINAL_ALPHA,
                         bins = bins,
                         binWidth = binWidth,
-                        showLegend = showLegend
+                        showLegend = showLegend,
+                        manualKey = manualKey
                     )
                 }
 
@@ -194,7 +201,8 @@ object Plot2dUtil {
                         color = marginalColor,
                         fill = marginalColor,
                         alpha = MARGINAL_ALPHA,
-                        showLegend = showLegend
+                        showLegend = showLegend,
+                        manualKey = manualKey
                     )
                 }
 

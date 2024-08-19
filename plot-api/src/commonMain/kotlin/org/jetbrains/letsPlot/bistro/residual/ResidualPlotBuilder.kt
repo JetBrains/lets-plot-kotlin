@@ -33,6 +33,7 @@ internal class ResidualPlotBuilder(
     private val alpha: Number?,
     private val colorBy: String?,
     private val showLegend: Boolean,
+    private val manualKey: Any?,
     private val hline: Boolean,
     private val marginal: String
 ) {
@@ -93,7 +94,8 @@ internal class ResidualPlotBuilder(
             size,
             alpha,
             colorBy,
-            showLegend
+            showLegend,
+            manualKey
         )
 
         // HLine
@@ -103,7 +105,7 @@ internal class ResidualPlotBuilder(
 
         // marginals
         if (marginal != "none") {
-            layers += Plot2dUtil.getMarginalLayers(marginal, bins2d, binWidth2d, color, colorBy, showLegend)
+            layers += Plot2dUtil.getMarginalLayers(marginal, bins2d, binWidth2d, color, colorBy, showLegend, manualKey)
         }
 
         return layers

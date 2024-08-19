@@ -91,6 +91,7 @@ fun residualPlot(
     alpha: Number? = null,
     colorBy: String? = null,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     hline: Boolean = true,
     marginal: String = ResidualPlotBuilder.DEF_MARGINAL
 ) = ResidualPlotBuilder(
@@ -110,6 +111,7 @@ fun residualPlot(
     alpha,
     colorBy,
     showLegend,
+    manualKey,
     hline,
     marginal
 ).build()

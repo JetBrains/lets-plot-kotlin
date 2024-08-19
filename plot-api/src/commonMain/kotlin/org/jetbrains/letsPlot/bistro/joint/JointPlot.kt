@@ -73,6 +73,7 @@ fun jointPlot(
     alpha: Number? = null,
     colorBy: String? = null,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     regLine: Boolean? = null,
     se: Boolean = true,
     marginal: String? = null
@@ -88,6 +89,7 @@ fun jointPlot(
     alpha,
     colorBy,
     showLegend,
+    manualKey,
     regLine,
     se,
     marginal

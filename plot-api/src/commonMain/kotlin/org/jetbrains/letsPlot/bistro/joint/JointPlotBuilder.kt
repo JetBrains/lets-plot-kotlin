@@ -28,6 +28,7 @@ internal class JointPlotBuilder(
     private val alpha: Number?,
     private val colorBy: String?,
     private val showLegend: Boolean,
+    private val manualKey: Any?,
     private val regLine: Boolean?,
     private val se: Boolean,
     private val marginal: String?
@@ -64,7 +65,8 @@ internal class JointPlotBuilder(
             size,
             alpha,
             colorBy,
-            showLegend
+            showLegend,
+            manualKey
         )
 
         // smooth layer
@@ -94,7 +96,8 @@ internal class JointPlotBuilder(
                 binWidth2d,
                 color,
                 colorBy,
-                showLegend
+                showLegend,
+                manualKey
             )
         }
 
