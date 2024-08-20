@@ -57,6 +57,7 @@ class statQQ2Line(
     geom: GeomOptions = Geom.path(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -78,6 +79,7 @@ class statQQ2Line(
         stat = Stat.qq2Line(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
 

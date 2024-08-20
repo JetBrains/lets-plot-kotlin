@@ -76,6 +76,7 @@ class statDensityRidges(
     geom: GeomOptions = GeomOptions(GeomKind.AREA_RIDGES),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -110,6 +111,7 @@ class statDensityRidges(
         stat = Stat.densityRidges(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
     override fun seal(): Options {

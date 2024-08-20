@@ -64,6 +64,7 @@ class statContourFilled(
     geom: GeomOptions = GeomOptions(GeomKind.CONTOURF),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -90,6 +91,7 @@ class statContourFilled(
         stat = Stat.contourFilled(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
     override fun seal(): Options {

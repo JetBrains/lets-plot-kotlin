@@ -86,6 +86,7 @@ class statSummary(
     geom: GeomOptions = Geom.pointrange(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
@@ -121,6 +122,7 @@ class statSummary(
         stat = Stat.summary(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips,
         orientation = orientation

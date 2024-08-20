@@ -62,6 +62,7 @@ class statBin(
     geom: GeomOptions = Geom.histogram(),
     position: PosOptions = positionStack(),
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -90,6 +91,7 @@ class statBin(
         stat = Stat.bin(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
     override fun seal(): Options {

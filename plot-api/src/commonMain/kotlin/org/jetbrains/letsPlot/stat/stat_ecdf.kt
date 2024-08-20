@@ -64,6 +64,7 @@ class statECDF(
     geom: GeomOptions = Geom.step(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
@@ -87,6 +88,7 @@ class statECDF(
         stat = Stat.ecdf(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips,
         orientation = orientation

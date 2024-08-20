@@ -65,6 +65,7 @@ class statQQLine(
     geom: GeomOptions = Geom.qqLine(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val sample: Number? = null,
     override val alpha: Number? = null,
@@ -87,6 +88,7 @@ class statQQLine(
         stat = Stat.qqLine(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
 

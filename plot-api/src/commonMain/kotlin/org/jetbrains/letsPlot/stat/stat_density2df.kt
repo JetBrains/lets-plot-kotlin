@@ -71,6 +71,7 @@ class statDensity2DFilled(
     geom: GeomOptions = GeomOptions(GeomKind.DENSITY2DF),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -102,6 +103,7 @@ class statDensity2DFilled(
         stat = Stat.density2DFilled(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
     override fun seal(): Options {

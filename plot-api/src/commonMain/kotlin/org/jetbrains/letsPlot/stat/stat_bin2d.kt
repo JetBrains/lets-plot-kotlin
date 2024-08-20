@@ -68,6 +68,7 @@ class statBin2D(
     geom: GeomOptions = Geom.tile(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -97,6 +98,7 @@ class statBin2D(
         stat = Stat.bin2D(),
         position = position,
         showLegend = showLegend,
+        manualKey = manualKey,
         sampling = sampling
     ) {
     override fun seal(): Options {
