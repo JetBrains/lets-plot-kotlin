@@ -67,7 +67,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
   - [Compose Multiplatform](#in-compose-multiplatform)
   - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-- [What is new in 4.7.0](#new)
+- [What is new in 4.8.0](#new)
 - [Recent Updates in the Gallery](#recent_gallery_updates)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
@@ -103,7 +103,7 @@ In this case the latest `library descriptor` will be pulled from the [Kotlin Jup
 #### Library Descriptor Parameters
 
 ```
-%use lets-plot(api=4.7.3, lib=4.3.3, js=4.3.3, isolatedFrame=false)
+%use lets-plot(api=4.8.0, lib=4.4.0, js=4.4.0, isolatedFrame=false)
 ```                                                                 
 - `api` - version of the Lets-Plot Kotlin API.
 - `lib` - version of the Lets-Plot Multiplatform (JARs).
@@ -134,51 +134,36 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 
 
 <a id="new"></a>
-## What is new in 4.7.0
+## What is new in 4.8.0
 
-- #### `coordPolar()`
+- #### Waterfall Plot
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24e/images/waterfall.png" alt="f-24e/images/waterfall.png" width="460" height="220">
 
-  The polar coordinate system is most commonly used for pie charts, but</br>
-  it can also be used for constructing **Spider or Radar charts** using the `flat` option.
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/waterfall_plot.ipynb).
 
+- #### **`geomBand()`**:
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24e/images/geom_band.png" alt="f-24e/images/geom_band.png.png" width="615" height="220">
+
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/geom_band.ipynb).
+
+- #### Custom Legends
+  - `manualKey` parameter in plot layer
+  - `layerKey()` function
     <br>
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24a/images/polar_coord_pie.png" alt="f-24a/images/polar_coord_pie.png" width="256" height="214">
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24a/images/radar_chart.png" alt="f-24a/images/radar_chart.png" width="256" height="196">
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24e/images/custom_legend.png" alt="f-24e/images/custom_legend.png.png" width="294" height="147">
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/coord_polar.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/manual_legend.ipynb).
 
-- #### In the `theme()`:
+- #### Customizing Legends Appearance
+  Override aesthetics in the `guideLegend()` function.
 
-  - `panelInset`  parameter - primarily used for plots with polar coordinates.
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/theme_panel_inset.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/legend_override_aes.ipynb).
 
-  - `panelBorderOntop` parameter - enables the drawing of panel border on top of the plot geoms.
-  - `panelGridOntop, panelGridOntopX, panelGridOntopY` parameters - enable the drawing of grid lines on top of the plot geoms.
 
-- #### `geomCurve()`
+- #### And More
 
-    <br>
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24a/images/curve_annotation.png" alt="f-24a/images/curve_annotation.png" width="338" height="296">
+  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md) for a full list of changes.
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/geom_curve.ipynb).
-
-- #### [**UNIQUE**] Visualizing Graph-like Data with `geomSegment()` and `geomCurve()`
-
-  - Aesthetics `sizeStart, sizeEnd, strokeStart` and `strokeEnd` enable better alignment of</br>
-    segments/curves with nodes of the graph by considering the size of the nodes.
-
-  - The `spacer` parameter allows for additional manual fine-tuning.
-
-    <br>
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24a/images/graph_simple.png" alt="f-24a/images/graph_simple.png" width="384" height="252">
-
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/graph_edges.ipynb).
-
-- #### The `alphaStroke` Parameter in `geomLabel()`
-
-  Use the `alphaStroke` parameter to apply `alpha` to entire `label`. By default, `alpha` is only applied to the label background.
-
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.7.0/geom_label_alpha_stroke.ipynb).
 
 <a id="recent_gallery_updates"></a>
 ## Recent Updates in the [Gallery](https://lets-plot.org/kotlin/gallery.html)

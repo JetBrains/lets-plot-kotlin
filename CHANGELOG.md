@@ -5,6 +5,58 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
+## [4.8.0] - 2024-08-20
+
+This release is 100% compatible with [Lets-Plot v 4.4.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.4.0).
+
+### Added
+
+- Waterfall plot [[#975](https://github.com/JetBrains/lets-plot/issues/975)]:
+
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/waterfall_plot.ipynb).
+
+- `geomBand()` [[#733](https://github.com/JetBrains/lets-plot/issues/733)]:
+
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/us_unemployment.ipynb).
+
+- Custom legends [[#774](https://github.com/JetBrains/lets-plot/issues/774)]:
+  - `manualKey` parameter in plot layer
+  - `layerKey()` function
+
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/manual_legend.ipynb).
+
+- In legends:
+  - `title` parameter in `guideLegend()` and `guideColorbar()` functions
+
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/legend_title.ipynb).
+
+  - override aesthetics in the `guideLegend()` function [[#807](https://github.com/JetBrains/lets-plot/issues/807)]:
+
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/legend_override_aes.ipynb).
+
+- `plotTitlePosition` and `plotCaptionPosition` parameters in `theme()` [[#1027](https://github.com/JetBrains/lets-plot/issues/1027)].
+
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/theme_plot_title_position.ipynb).
+
+- `threshold` parameter in `geomHistogram()` [[#1122](https://github.com/JetBrains/lets-plot/issues/1122)].
+
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/geom_histogram_threshold.ipynb).
+
+### Changed
+
+- The triangular point shape is now anchored to the data point via the centroid
+
+### Fixed
+
+- ggsave (.svg) transforms geom_text integer to float [[#626](https://github.com/JetBrains/lets-plot/issues/626)].
+- Int DataFrame column names are being converted to float string representation [[#901](https://github.com/JetBrains/lets-plot/issues/901)].
+- `linetype` = 0 ("blank") should make lines invisible [[#712](https://github.com/JetBrains/lets-plot/issues/712)].
+- `geomDensity2D, geomDensity2DFilled`: support weight aesthetic [[#791](https://github.com/JetBrains/lets-plot/issues/791)].
+- Discrete axis labels unnecessarily rotate 90 degrees when applying coord system limits.
+- Axis title via `labs()` breaks the date-time scale [[#1113](https://github.com/JetBrains/lets-plot/issues/1113)].
+- JavaFX IllegalArgumentException: Unsupported attribute `display` in Pane.
+                             
+
 ## [4.7.3] - 2024-05-30
 
 This release is 100% compatible with [Lets-Plot v 4.3.3](https://github.com/JetBrains/lets-plot/releases/tag/v4.3.3).
