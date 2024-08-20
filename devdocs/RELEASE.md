@@ -46,7 +46,7 @@
   http-server docs/build/
   ```
 
-- Go to the docs/kotlin/ directory of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
+- Go to the docs/kotlin/ directory of the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) repository.
   Remove everything except -lets--plot--kotlin/.
   Then move the contents of the docs/build/ directory there.
 
@@ -58,7 +58,7 @@
   python utils/sitemap.py -i docs/ -f docs/sitemap.xml
   ```
 
-- Publish the documentation by committing changes to the master branch of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs).
+- Publish the documentation by committing changes to the master branch of the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) repository.
 
 - [Publish the search index to Algolia](https://www.jetbrains.com/help/writerside/configure-search.html#create-the-build-configuration-on-ci-cd):
 
