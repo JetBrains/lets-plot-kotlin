@@ -92,6 +92,7 @@
     <var name="nb-label_format" value="%nbviewer_cookbook%/label_format.ipynb"/>
     <var name="nb-legend" value="%nbviewer_cookbook%/legend.ipynb"/>
     <var name="nb-lines" value="%nbviewer_cookbook%/lines.ipynb"/>
+    <var name="nb-manual_legend" value="%nbviewer_cookbook%/manual_legend.ipynb"/>
     <var name="nb-marginal_layers" value="%nbviewer_cookbook%/marginal_layers.ipynb"/>
     <var name="nb-margins" value="%nbviewer_cookbook%/margins.ipynb"/>
     <var name="nb-multiple_color_scales" value="%nbviewer_cookbook%/multiple_color_scales.ipynb"/>
