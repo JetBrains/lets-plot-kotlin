@@ -52,27 +52,17 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param linewidth Stick width.
  * @param color Color of the geometry.
- *  String in the following formats:
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fill Fill color.
  *  Is applied only to the points of shapes having inner area.
- *  String in the following formats:
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param shape Shape of the point.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param linetype Type of the stick line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param fatten default = 2.5.
  *  A multiplicative factor applied to size of the point.
  * @param slope The baseline slope.

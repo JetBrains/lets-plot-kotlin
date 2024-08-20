@@ -223,7 +223,7 @@ Complete themes: `themeBW, themeGrey, themeLight, themeClassic, themeMinimal` an
 Use the `theme()` function to modify components of a theme.
                            
 * [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
-* [legend_and_axis.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend_and_axis.ipynb)
+* [legend.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend.ipynb)
 * [Title, subtitle, caption](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/title_subtitle_caption.ipynb)
 * [font size and family](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/font_size_and_family.ipynb)
 * [label hjust, vjust](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/hjust_vjust.ipynb)

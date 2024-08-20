@@ -1,5 +1,15 @@
 # Miscellaneous
 
+## Manual Legend
+
+In Lets-Plot, as in ggplot2, legends are automatically generated based on the aesthetic mappings in the plot.
+Sometimes, however, this automatic generation doesn't provide the precise control needed for complex visualizations.
+Parameter `manualKey` and aesthetic parameters of the [`guideLegend()`](%api_scale%/guide-legend.html) function addresses this limitation.
+
+See: [manual_legend.ipynb](%nb-manual_legend%)
+
+<img src="manual_legend.png" alt="Custom Legend with manualKey Option" width="480"/>
+
 ## Multiple Color Scales
 
 Use `colorBy`/`fillBy` parameters and `paint_a`/`paint_b`/`paint_c` aesthetics if you need to display two different layers with the same color aesthetic but different color scales.

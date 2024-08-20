@@ -43,13 +43,7 @@ package org.jetbrains.letsPlot.bistro.qq
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param color Color of a points.
- *  String in the following formats: 
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fill Color to paint shape's inner points.
  *  Is applied only to the points of shapes having inner points.
  * @param alpha default = 0.5.
@@ -57,6 +51,7 @@ package org.jetbrains.letsPlot.bistro.qq
  * @param size default = 3.0.
  *  Size of the points.
  * @param shape Shape of the points.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param lineColor default = "#FF0000".
  *  Color of the fitting line.
  * @param lineSize default = 0.75.
@@ -64,7 +59,8 @@ package org.jetbrains.letsPlot.bistro.qq
  * @param linetype Int or String.
  *  Type of the fitting line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *  5 = "longdash", 6 = "twodash"
+ *  5 = "longdash", 6 = "twodash".
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  */
 fun qqPlot(
     data: Map<*, *>,

@@ -72,22 +72,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param explode Values to explode slices away from their center point, detaching it from the main pie.
  * @param size Pie diameter.
  * @param fill Fill color.
- *  String in the following formats:
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of inner and outer arcs of pie sector.
- *  String in the following formats:
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param stroke Width of inner and outer arcs of pie sector.
  * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.
  * @param hole default = 0.0.
@@ -99,13 +87,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Line width between sectors.
  *  Spacers are not applied to exploded sectors and to sides of adjacent sectors.
  * @param spacerColor Color for spacers between sectors. By default, the "paper" color is used.
- *  String in the following formats:
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param sizeUnit Relates the size of the pie chart to the length of the unit step along one of the axes.
  *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").

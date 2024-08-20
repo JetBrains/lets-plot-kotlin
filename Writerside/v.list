@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
 <vars>
-    <var name="version" value="4.7.3"/>
+    <var name="version" value="4.7.4"/>
     <var name="current_year" value="2024"/>
     <var name="web_root" value="https://lets-plot.org"/>
 
     <!-- API -->
     <var name="api_reference" value="%web_root%/kotlin/api-reference"/>
     <var name="api_lets_plot" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot"/>
+    <var name="api_annotations" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.annotations"/>
+    <var name="api_bistro" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.bistro"/>
     <var name="api_coord" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.coord"/>
     <var name="api_export" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.export"/>
     <var name="api_geom" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.geom"/>
@@ -18,7 +20,7 @@
     <var name="api_spatial" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.spatial"/>
     <var name="api_stat" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.stat"/>
     <var name="api_theme" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.themes"/>
-    <var name="api_bistro" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.bistro"/>
+    <var name="api_tooltips" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.tooltips"/>
 
     <!-- NOTEBOOKS -->
     <var name="nbviewer_examples" value="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples"/>
@@ -33,6 +35,7 @@
     <var name="nb-palmer_penguins" value="%nbviewer_demo%/palmer_penguins.ipynb"/>
     <var name="nb-pushkin" value="%nbviewer_demo%/pushkin.ipynb"/>
     <var name="nb-spatialdataset_kotlin_isl" value="%nbviewer_demo%/spatialdataset_kotlin_isl.ipynb"/>
+    <var name="nb-us_unemployment" value="%nbviewer_demo%/us_unemployment.ipynb"/>
     <var name="nb-wind_rose" value="%nbviewer_demo%/wind_rose.ipynb"/>
     <!-- Cookbooks -->
     <var name="nb-aes_size_color_variadic_lines" value="%nbviewer_cookbook%/aes_size_color_variadic_lines.ipynb"/>
@@ -63,6 +66,7 @@
     <var name="nb-geom_curve" value="%nbviewer_cookbook%/geom_curve.ipynb"/>
     <var name="nb-geom_dotplot" value="%nbviewer_cookbook%/geom_dotplot.ipynb"/>
     <var name="nb-geom_function" value="%nbviewer_cookbook%/geom_function.ipynb"/>
+    <var name="nb-geom_histogram_threshold" value="%nbviewer_cookbook%/geom_histogram_threshold.ipynb"/>
     <var name="nb-geom_label" value="%nbviewer_cookbook%/geom_label.ipynb"/>
     <var name="nb-geom_lollipop" value="%nbviewer_cookbook%/geom_lollipop.ipynb"/>
     <var name="nb-geom_pie" value="%nbviewer_cookbook%/geom_pie.ipynb"/>
@@ -86,9 +90,9 @@
     <var name="nb-jittered_points" value="%nbviewer_cookbook%/jittered_points.ipynb"/>
     <var name="nb-joint_plot" value="%nbviewer_cookbook%/joint_plot.ipynb"/>
     <var name="nb-label_format" value="%nbviewer_cookbook%/label_format.ipynb"/>
-    <var name="nb-legend_and_axis" value="%nbviewer_cookbook%/legend_and_axis.ipynb"/>
-    <var name="nb-legend_text_multiline" value="%nbviewer_cookbook%/legend_text_multiline.ipynb"/>
+    <var name="nb-legend" value="%nbviewer_cookbook%/legend.ipynb"/>
     <var name="nb-lines" value="%nbviewer_cookbook%/lines.ipynb"/>
+    <var name="nb-manual_legend" value="%nbviewer_cookbook%/manual_legend.ipynb"/>
     <var name="nb-marginal_layers" value="%nbviewer_cookbook%/marginal_layers.ipynb"/>
     <var name="nb-margins" value="%nbviewer_cookbook%/margins.ipynb"/>
     <var name="nb-multiple_color_scales" value="%nbviewer_cookbook%/multiple_color_scales.ipynb"/>
@@ -125,5 +129,6 @@
     <var name="nb-tooltip_config" value="%nbviewer_cookbook%/tooltip_config.ipynb"/>
     <var name="nb-tooltip_title" value="%nbviewer_cookbook%/tooltip_title.ipynb"/>
     <var name="nb-tooltips_theme" value="%nbviewer_cookbook%/tooltips_theme.ipynb"/>
+    <var name="nb-waterfall_plot" value="%nbviewer_cookbook%/waterfall_plot.ipynb"/>
     <var name="nb-y_orientation" value="%nbviewer_cookbook%/y_orientation.ipynb"/>
 </vars>

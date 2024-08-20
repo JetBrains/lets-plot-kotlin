@@ -37,16 +37,11 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param sample Y-axis value.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
- *  String in the following formats:
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param linetype Type of the line.
  *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
  *  5 = "longdash", 6 = "twodash".
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Lines width.
  * @param distribution default = "norm".
  *  Distribution function to use: "norm", "uniform", "t", "gamma", "exp", "chi2".

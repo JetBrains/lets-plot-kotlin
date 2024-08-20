@@ -23,8 +23,8 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
  * This geom is not as flexible as `geomRaster()` or `geomTile()`
  * but vastly superior in the terms of rendering efficiency.
  *
- * Notes
- * -----
+ * ## Notes
+ *
  * This geom doesn't understand any aesthetics.
  * It doesn't support color scales either.
  *

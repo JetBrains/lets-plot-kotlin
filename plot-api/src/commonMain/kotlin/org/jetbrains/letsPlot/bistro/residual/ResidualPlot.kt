@@ -40,13 +40,7 @@ package org.jetbrains.letsPlot.bistro.residual
  *  If only one value given - interpret it as list of two equal values.
  *  Applicable simultaneously for "tile" geom and "histogram" marginal.
  * @param color Color of a geometry.
- *  String in the following formats: 
- *  - RGB/RGBA (e.g. "rgb(0, 0, 255)")
- *  - HEX (e.g. "#0000FF")
- *  - color name (e.g. "red")
- *  - role name ("pen", "paper" or "brush")
- *
- *  Or an instance of the `java.awt.Color` class.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param size Size of a geometry.
  * @param alpha Transparency level of a geometry. 
  *  Understands numbers between 0 and 1.
