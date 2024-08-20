@@ -110,7 +110,7 @@ See [formats.html](https://lets-plot.org/kotlin/formats.html).
 
 - [title_subtitle_caption.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/title_subtitle_caption.ipynb)
 
-- [legend_and_axis.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend_and_axis.ipynb)
+- [legend.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend.ipynb)
 
 # Package org.jetbrains.letsPlot.sampling
 

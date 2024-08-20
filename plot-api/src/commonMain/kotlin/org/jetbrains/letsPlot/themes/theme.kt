@@ -26,7 +26,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
  *
- * - [legend_and_axis.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend_and_axis.ipynb)
+ * - [legend.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend.ipynb)
  *
  * - [theme_label_text.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_label_text.ipynb)
  *

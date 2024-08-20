@@ -95,7 +95,7 @@ fun scaleFillContinuous(
  *
  * ## Examples
  *
- * - [legend_and_axis.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend_and_axis.ipynb)
+ * - [legend.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend.ipynb)
  *
  * @param name The name of the scale - used as the axis label or the legend title. If null, the default, the name of the scale
  *  is taken from the first mapping used for that aesthetic.

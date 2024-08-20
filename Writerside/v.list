@@ -90,8 +90,7 @@
     <var name="nb-jittered_points" value="%nbviewer_cookbook%/jittered_points.ipynb"/>
     <var name="nb-joint_plot" value="%nbviewer_cookbook%/joint_plot.ipynb"/>
     <var name="nb-label_format" value="%nbviewer_cookbook%/label_format.ipynb"/>
-    <var name="nb-legend_and_axis" value="%nbviewer_cookbook%/legend_and_axis.ipynb"/>
-    <var name="nb-legend_text_multiline" value="%nbviewer_cookbook%/legend_text_multiline.ipynb"/>
+    <var name="nb-legend" value="%nbviewer_cookbook%/legend.ipynb"/>
     <var name="nb-lines" value="%nbviewer_cookbook%/lines.ipynb"/>
     <var name="nb-marginal_layers" value="%nbviewer_cookbook%/marginal_layers.ipynb"/>
     <var name="nb-margins" value="%nbviewer_cookbook%/margins.ipynb"/>
