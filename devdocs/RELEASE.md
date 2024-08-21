@@ -50,7 +50,7 @@
   Remove everything except -lets--plot--kotlin/.
   Then move the contents of the docs/build/ directory there.
 
-- Go to the root of the [lets-plot-docs repository](https://github.com/JetBrains/lets-plot-docs)
+- Go to the root of the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) repository
   and run the [sitemap.py](https://github.com/JetBrains/lets-plot-docs/blob/master/utils/sitemap.py) utility
   to re-generate the sitemap.xml file:
 

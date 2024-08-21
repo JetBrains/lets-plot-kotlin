@@ -7,7 +7,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should
 
 ## [4.8.0] - 2024-08-20
 
-This release is 100% compatible with [Lets-Plot v 4.4.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.4.0).
+This release is 100% compatible with Lets-Plot [v 4.4.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.4.0),  [v 4.4.1](https://github.com/JetBrains/lets-plot/releases/tag/v4.4.1).
 
 ### Added
 
