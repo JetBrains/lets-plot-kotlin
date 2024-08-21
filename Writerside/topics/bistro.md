@@ -43,7 +43,7 @@ See: [Residual plot](%nb-residual_plot%)
 
 ## Waterfall Plot
 
-[`waterfallPlot`](%api_bistro%.residual/waterfall-plot.html) - function that produces a waterfall plot showing the cumulative effect of sequentially introduced values.
+[`waterfallPlot`](%api_bistro%.waterfall/waterfall-plot.html) - function that produces a waterfall plot showing the cumulative effect of sequentially introduced values.
 
 <img src="waterfall_plot.png" alt="Waterfall plot" width="480"/>
 
