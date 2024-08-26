@@ -21,6 +21,16 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * A violin plot is a mirrored density plot with an additional grouping as for a boxplot.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..violinwidth.. : density scaled for the violin plot, according to area, counts or to a constant maximum width (mapped by default).
+ * - ..density.. : density estimate.
+ * - ..count.. : density * number of points.
+ * - ..scaled.. : density estimate, scaled to maximum of 1.
+ * - ..quantile.. : quantile estimate.
+ *
  * ## Examples
  *
  * - [geom_violin.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_violin.ipynb)

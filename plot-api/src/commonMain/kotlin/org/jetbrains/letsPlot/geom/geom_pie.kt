@@ -23,6 +23,17 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Draws pie chart.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..count.. : number of points with same (x,y) coordinate.
+ * - ..sum.. : total number of points with same (x,y) coordinate.
+ * - ..prop.. : groupwise proportion.
+ * - ..proppct.. : groupwise proportion in percent.
+ * - ..sumprop.. : proportion of points with same (x,y) coordinate among all points in the dataset.
+ * - ..sumpct.. : proportion of points with same (x,y) coordinate among all points in the dataset in percent.
+ *
  * ## Examples
  *
  * - [geom_pie.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_pie.ipynb)

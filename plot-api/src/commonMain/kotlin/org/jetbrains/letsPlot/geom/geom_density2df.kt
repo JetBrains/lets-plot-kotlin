@@ -26,6 +26,13 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * However, this may not be the best choice when the values on the X/Y axis have significantly different magnitudes.
  * In such cases, try using `coordCartesian()`.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..group.. : number of density estimate contour band.
+ * - ..level.. : calculated value of the density estimate for given contour band.
+ *
  * ## Examples
  *
  * - [density_2d.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/density_2d.ipynb)

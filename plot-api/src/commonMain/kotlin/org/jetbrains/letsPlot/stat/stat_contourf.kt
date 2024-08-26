@@ -24,6 +24,12 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 /**
  * Displays filled contours of a 3d surface in 2d.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..level.. : height of a contour.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the contour stat for this layer, default is filled contour,

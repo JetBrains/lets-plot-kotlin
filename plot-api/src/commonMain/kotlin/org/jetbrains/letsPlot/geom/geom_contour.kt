@@ -22,6 +22,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays contours of a 3d surface in 2d.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..level.. : height of a contour.
+ *
  * ## Examples
  *
  * - [contours.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/contours.ipynb)

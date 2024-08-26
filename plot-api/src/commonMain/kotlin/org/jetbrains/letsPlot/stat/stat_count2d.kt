@@ -23,6 +23,17 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 /**
  * Displays a distribution of counts by dividing the plane into a grid and counting the number of observations in each category of each rectangle.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..count.. : number of points with same (x,y) coordinate.
+ * - ..sum.. : total number of points with same (x,y) coordinate.
+ * - ..prop.. : groupwise proportion.
+ * - ..proppct.. : groupwise proportion in percent.
+ * - ..sumprop.. : proportion of points with same (x,y) coordinate among all points in the dataset.
+ * - ..sumpct.. : proportion of points with same (x,y) coordinate among all points in the dataset in percent.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the 2D count stat for this layer, default is `Geom.pie()`,

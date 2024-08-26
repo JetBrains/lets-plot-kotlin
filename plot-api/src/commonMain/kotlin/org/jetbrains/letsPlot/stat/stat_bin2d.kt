@@ -24,6 +24,12 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 /**
  * Displays a 2d distribution by dividing the plane into a grid and counting the number of observations in each rectangle.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..count.. : number of points with coordinates in the same bin.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
  *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the bin2D stat for this layer, default is `Geom.tile()`,

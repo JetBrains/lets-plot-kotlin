@@ -25,6 +25,19 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays quantile-quantile plot.
  *
+ * ## Notes
+ *
+ * The Q-Q plot is used for comparing two probability distributions
+ * (sample and theoretical) by plotting their quantiles against each other.
+ *
+ * If the two distributions being compared are similar, the points in the Q-Q plot
+ * will approximately lie on the straight line.
+ *
+ * Computed variables:
+ *
+ * - ..theoretical.. : theoretical quantiles.
+ * - ..sample.. : sample quantiles.
+ *
  * ## Examples
  *
  * - [qq_plots.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/qq_plots.ipynb)

@@ -24,6 +24,16 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 /**
  * Plots the sum of the `y` and `height` aesthetics versus `x`. Heights of the ridges are relatively scaled.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..height.. : density scaled for the ridges, according to area, counts or to a constant maximum height.
+ * - ..density.. : density estimate.
+ * - ..count.. : density * number of points.
+ * - ..scaled.. : density estimate, scaled to maximum of 1.
+ * - ..quantile.. : quantile estimate.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the ridges stat for this layer, default is area ridges,

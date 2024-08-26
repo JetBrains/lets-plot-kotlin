@@ -24,6 +24,16 @@ import org.jetbrains.letsPlot.pos.positionDodge
 /**
  * Displays a violin plot.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..violinwidth.. : density scaled for the violin plot, according to area, counts or to a constant maximum width (mapped by default).
+ * - ..density.. : density estimate.
+ * - ..count.. : density * number of points.
+ * - ..scaled.. : density estimate, scaled to maximum of 1.
+ * - ..quantile.. : quantile estimate.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the y-density stat for this layer, default is violin,

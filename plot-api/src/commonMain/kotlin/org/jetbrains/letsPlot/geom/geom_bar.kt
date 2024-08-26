@@ -25,6 +25,17 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays a bar chart which makes the height of the bar proportional to the number of observed variable values, mapped to x-axis.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..count.. : number of points with same x-axis coordinate.
+ * - ..sum.. : total number of points with same x-axis coordinate.
+ * - ..prop.. : groupwise proportion.
+ * - ..proppct.. : groupwise proportion in percent.
+ * - ..sumprop.. : proportion of points with same x-axis coordinate among all points in the dataset.
+ * - ..sumpct.. : proportion of points with same x-axis coordinate among all points in the dataset in percent.
+ *
  * ## Examples
  *
  * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)

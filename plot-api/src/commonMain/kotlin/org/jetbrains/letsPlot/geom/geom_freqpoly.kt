@@ -23,6 +23,16 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays a line chart which makes the y value proportional to the number of observed variable values, mapped to x axis.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..count.. : number of points with x-axis coordinate in the same bin.
+ * - ..density.. : normalised number of points so that plot area is 1.
+ * - ..sumprop.. : normalised number of points so that sum of y-values is 1.
+ * - ..sumpct.. : normalised number of points so that sum of y-values is 100.
+ * - ..binwidth.. : width of each bin.
+ *
  * ## Examples
  *
  * - [distributions.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/distributions.ipynb)

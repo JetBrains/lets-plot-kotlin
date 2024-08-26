@@ -15,6 +15,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays a distribution by dividing variable mapped to x-axis into bins and applying aggregation functions to each bin.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..y.. : result of calculating of `fn`.
+ * - ..ymin.. : result of calculating of `fnMin`.
+ * - ..ymax.. : result of calculating of `fnMax`.
+ *
  * ## Examples
  *
  * - [stat_summary_bin.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/stat_summary_bin.ipynb)

@@ -3,6 +3,20 @@ package org.jetbrains.letsPlot.bistro.waterfall
 /**
  * A waterfall plot shows the cumulative effect of sequentially introduced positive or negative values.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..x.. : category id.
+ * - ..xlabel.. : category name.
+ * - ..ymin.. : lower value of the change.
+ * - ..ymax.. : upper value of the change.
+ * - ..measure.. : kind of a calculation: absolute, relative or total.
+ * - ..flow_type.. : direction of the flow: increasing, decreasing, or the result (total).
+ * - ..initial.. : initial value of the change.
+ * - ..value.. : current cumsum (result of the change) or absolute value (depending on the "measure" column).
+ * - ..dy.. : value of the change.
+ *
  * ## Examples
  *
  * - [waterfall_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/waterfall_plot.ipynb)

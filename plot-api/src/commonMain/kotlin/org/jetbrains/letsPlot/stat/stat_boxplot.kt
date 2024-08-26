@@ -19,6 +19,16 @@ import org.jetbrains.letsPlot.pos.positionDodge
  * Displays the distribution of data based on a five number summary ("minimum", first quartile (Q1),
  * median, third quartile (Q3), and "maximum"), and "outlying" points individually.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..lower.. : lower hinge, 25% quantile.
+ * - ..middle.. : median, 50% quantile.
+ * - ..upper.. : upper hinge, 75% quantile.
+ * - ..ymin.. : lower whisker = smallest observation greater than or equal to lower hinge - 1.5 * IQR.
+ * - ..ymax.. : upper whisker = largest observation less than or equal to upper hinge + 1.5 * IQR.
+ *
  * @param data The data to be displayed. If null, the default, the data is inherited
  *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the boxplot stat for this layer, default is `Geom.boxplot()`,

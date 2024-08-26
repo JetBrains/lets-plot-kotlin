@@ -23,6 +23,13 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 /**
  * Displays quantile-quantile fitting line.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..theoretical.. : theoretical quantiles.
+ * - ..sample.. : sample quantiles.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the Q-Q stat for this layer, default is `Geom.qqLine()`,

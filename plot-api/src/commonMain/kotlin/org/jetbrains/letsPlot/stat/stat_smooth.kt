@@ -23,6 +23,17 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 /**
  * Displays a smoothed conditional mean.
  *
+ * ## Notes
+ *
+ * `statSmooth()` aids the eye in seeing patterns in the presence of overplotting.
+ *
+ * Computed variables:
+ *
+ * - ..y.. : predicted (smoothed) value.
+ * - ..ymin.. : lower pointwise confidence interval around the mean.
+ * - ..ymax.. : upper pointwise confidence interval around the mean.
+ * - ..se.. : standard error.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the smooth stat for this layer, default is smoothed line,

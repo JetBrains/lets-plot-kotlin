@@ -20,6 +20,17 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Adds a smoothed conditional mean.
  *
+ * ## Notes
+ *
+ * `geomSmooth()` aids the eye in seeing patterns in the presence of overplotting.
+ *
+ * Computed variables:
+ *
+ * - ..y.. : predicted (smoothed) value.
+ * - ..ymin.. : lower pointwise confidence interval around the mean.
+ * - ..ymax.. : upper pointwise confidence interval around the mean.
+ * - ..se.. : standard error.
+ *
  * ## Examples
  *
  * - [geom_smooth.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_smooth.ipynb)

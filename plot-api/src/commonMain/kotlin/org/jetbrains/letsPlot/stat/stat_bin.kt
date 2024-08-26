@@ -20,6 +20,16 @@ import org.jetbrains.letsPlot.pos.positionStack
 /**
  * Displays a 1d distribution by dividing variable mapped to x-axis into bins and counting the number of observations in each bin.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..count.. : number of points with x-axis coordinate in the same bin.
+ * - ..density.. : normalised number of points so that plot area is 1.
+ * - ..sumprop.. : normalised number of points so that sum of y-values is 1.
+ * - ..sumpct.. : normalised number of points so that sum of y-values is 100.
+ * - ..binwidth.. : width of each bin.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the bin stat for this layer, default is `Geom.histogram()`,

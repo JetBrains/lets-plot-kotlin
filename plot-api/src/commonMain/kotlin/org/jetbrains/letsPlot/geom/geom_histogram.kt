@@ -21,6 +21,16 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays a 1d distribution by dividing variable mapped to x axis into bins and counting the number of observations in each bin.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..count.. : number of points with x-axis coordinate in the same bin.
+ * - ..density.. : normalised number of points so that plot area is 1.
+ * - ..sumprop.. : normalised number of points so that sum of y-values is 1.
+ * - ..sumpct.. : normalised number of points so that sum of y-values is 100.
+ * - ..binwidth.. : width of each bin.
+ *
  * ## Examples
  *
  * - [distributions.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/distributions.ipynb)

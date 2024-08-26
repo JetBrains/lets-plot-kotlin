@@ -24,6 +24,15 @@ import org.jetbrains.letsPlot.pos.positionStack
 /**
  * Displays a density estimate.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..density.. : density estimate (mapped by default).
+ * - ..count.. : density * number of points.
+ * - ..scaled.. : density estimate, scaled to maximum of 1.
+ * - ..quantile.. : quantile estimate.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the density stat for this layer, default is density,

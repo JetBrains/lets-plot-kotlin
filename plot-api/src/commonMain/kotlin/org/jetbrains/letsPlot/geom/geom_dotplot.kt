@@ -22,9 +22,18 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
- * 
  * Dotplot represents individual observations in a batch of data with circular dots.
  * The diameter of a dot corresponds to the maximum width or bin width, depending on the binning algorithm.
+ *
+ * ## Notes
+ *
+ * With "dotdensity" binning, the bin positions are determined by the data and binwidth, which is the maximum width of each bin.
+ * With "histodot" binning, the bins have fixed positions and fixed widths, much like a histogram.
+ *
+ * Computed variables:
+ *
+ * - ..count.. : number of points with x-axis coordinate in the same bin.
+ * - ..binwidth.. : max width of each bin if method is "dotdensity"; width of each bin if method is "histodot".
  *
  * ## Examples
  *

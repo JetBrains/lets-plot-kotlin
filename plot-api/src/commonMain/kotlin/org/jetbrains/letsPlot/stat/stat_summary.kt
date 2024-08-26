@@ -21,6 +21,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays the aggregated values of a single continuous variable grouped along the x-axis.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..y.. : result of calculating of `fn`.
+ * - ..ymin.. : result of calculating of `fnMin`.
+ * - ..ymax.. : result of calculating of `fnMax`.
+ *
  * ## Examples
  *
  * - [stat_summary.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/stat_summary.ipynb)

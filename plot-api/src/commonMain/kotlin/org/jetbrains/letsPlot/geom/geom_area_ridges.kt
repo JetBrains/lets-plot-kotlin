@@ -21,6 +21,16 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Plots the sum of the `y` and `height` aesthetics versus `x`. Heights of the ridges are relatively scaled.
  *
+ * ## Notes
+ *
+ * Computed variables:
+ *
+ * - ..height.. : density scaled for the ridges, according to area, counts or to a constant maximum height.
+ * - ..density.. : density estimate.
+ * - ..count.. : density * number of points.
+ * - ..scaled.. : density estimate, scaled to maximum of 1.
+ * - ..quantile.. : quantile estimate.
+ *
  * ## Examples
  *
  * - [ridgeline_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/ridgeline_plot.ipynb)

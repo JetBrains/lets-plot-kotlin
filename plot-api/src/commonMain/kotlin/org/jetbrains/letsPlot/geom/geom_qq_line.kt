@@ -24,6 +24,16 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays quantile-quantile fitting line.
  *
+ * ## Notes
+ *
+ * The Q-Q line plot is used for comparing two probability distributions
+ * (sample and theoretical) by plotting line passed through the pair of corresponding quantiles.
+ *
+ * Computed variables:
+ *
+ * - ..theoretical.. : theoretical quantiles.
+ * - ..sample.. : sample quantiles.
+ *
  * ## Examples
  *
  * - [qq_plots.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/qq_plots.ipynb)
