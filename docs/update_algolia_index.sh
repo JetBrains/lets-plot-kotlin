@@ -25,7 +25,7 @@ algolia_index_tmp_path="docs/algolia-index"
 # Read version of the library from the v.list
 config_json_version=""
 while read line; do
-  key="$( echo $line | grep -oP 'name="(\w+)"' )"
+  key="$( echo $line | (grep -oP 'name="(\w+)"' || echo "") )"
   if [ "$key" = 'name="version"' ]; then
     config_json_version="$( echo $line | grep -oP "\d\.\d\.\d" )"
     break
