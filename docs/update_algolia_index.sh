@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Stop script execution if a command has an error
+set -e
+
 # Check if Docker is available
 if ! command -v docker &> /dev/null
 then
@@ -62,6 +65,8 @@ docker run --rm -v $root_path:/opt/sources \
   unzip -O UTF-8 -qq '/opt/sources/${writerside_artifacts_tmp_path}/algolia-indexes*.zip' -d /opt/sources/${algolia_index_tmp_path}/; \
   rm -rf /opt/sources/${writerside_artifacts_tmp_path}
   "; \
+
+# Run Docker (to update Aligola index)
 docker run --rm -v $root_path:/opt/sources \
   $algolia_publisher_docker_image \
   /bin/bash -c "

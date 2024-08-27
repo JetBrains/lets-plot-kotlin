@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Stop script execution if a command has an error
+set -e
+
 # Check if Docker is available
 if ! command -v docker &> /dev/null
 then
@@ -17,9 +20,11 @@ writerside_artifacts_tmp_path="docs/writerside-lpk"
 sys_user_id=$(id -u)
 sys_group_id=$(id -g)
 
-# Clean build dir, run Dokka, run Docker (to build Writerside part)
-rm -rf $root_path/$build_path && \
-./gradlew dokkaHtml && \
+# Clean build dir
+rm -rf $root_path/$build_path
+# Run Dokka
+./gradlew dokkaHtml
+# Run Docker (to build Writerside part)
 docker run --rm -v $root_path:/opt/sources \
   $docker_image \
   /bin/bash -c "
