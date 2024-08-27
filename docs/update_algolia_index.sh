@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Check if Docker is available
+if ! command -v docker &> /dev/null
+then
+    printf "ERROR: docker could not be found.\n"
+    exit 1
+fi
+
 algolia_app_name="7961PKYRXV"
 algolia_index_name="lets-plot-kotlin"
 config_json_product="kotlin"
@@ -22,7 +29,7 @@ while read line; do
   fi
 done < $root_path/Writerside/v.list
 if [ "$config_json_version" = "" ]; then
-  printf "Error: Cannot read library version.\n"
+  printf "ERROR: Cannot read library version.\n"
   exit 1
 fi
 
@@ -37,7 +44,7 @@ while read line; do
   fi
 done < $root_path/local.properties
 if [ "$aligola_key" = "" ]; then
-  printf "Error: The Aligola key cannot be empty.\n"
+  printf "ERROR: The Aligola key cannot be empty.\n"
   exit 1
 fi
 

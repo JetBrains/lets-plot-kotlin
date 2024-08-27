@@ -28,7 +28,12 @@
   - `git tag vX.X.X && git push --tags`
 
 ##### 5. Re-generate the documentation (HTML)
-   
+
+- To build documentation, you need to be able to access Docker from the console. Check with the command:
+  ```Bash
+  docker -v
+  ```
+
 - Update `version` in [build.gradle.kts](../build.gradle.kts) for the `dokka` subproject
   `"dokka" -> <version>`
 

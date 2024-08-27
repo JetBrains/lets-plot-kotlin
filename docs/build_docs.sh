@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Check if Docker is available
+if ! command -v docker &> /dev/null
+then
+    printf "ERROR: docker could not be found.\n"
+    exit 1
+fi
+
 docker_image="registry.jetbrains.team/p/writerside/builder/writerside-builder:241.16003"
 instance_id="lpk"
 
