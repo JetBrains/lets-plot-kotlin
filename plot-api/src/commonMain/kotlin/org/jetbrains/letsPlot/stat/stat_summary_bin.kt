@@ -35,6 +35,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param inheritAes default = true.
+ *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
@@ -96,6 +98,7 @@ class statSummaryBin(
     geom: GeomOptions = Geom.pointrange(),
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    inheritAes: Boolean? = null,
     manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
@@ -137,6 +140,7 @@ class statSummaryBin(
         stat = Stat.summaryBin(),
         position = position,
         showLegend = showLegend,
+        inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips,

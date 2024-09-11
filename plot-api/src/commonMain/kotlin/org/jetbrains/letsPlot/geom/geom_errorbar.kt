@@ -39,6 +39,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param inheritAes default = true.
+ *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
  * @param manualKey String or result of the call to the `layerKey()` function.
  *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
  * @param sampling Result of the call to the `samplingXxx()` function.
@@ -76,6 +78,7 @@ class geomErrorBar(
     stat: StatOptions = Stat.identity,
     position: PosOptions = positionIdentity,
     showLegend: Boolean = true,
+    inheritAes: Boolean? = null,
     manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
@@ -102,6 +105,7 @@ class geomErrorBar(
         stat = stat,
         position = position,
         showLegend = showLegend,
+        inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltips

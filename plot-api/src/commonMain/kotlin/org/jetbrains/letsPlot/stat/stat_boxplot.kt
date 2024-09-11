@@ -37,6 +37,8 @@ import org.jetbrains.letsPlot.pos.positionDodge
  *  `positionStack()`, `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  If false - do not show legend for this layer.
+ * @param inheritAes default = true.
+ *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
@@ -92,6 +94,7 @@ fun statBoxplot(
     geom: GeomOptions = Geom.boxplot(),
     position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
+    inheritAes: Boolean? = null,
     sampling: SamplingOptions? = null,
     x: Number? = null,
     y: Number? = null,
@@ -133,6 +136,7 @@ fun statBoxplot(
         geom,
         position,
         showLegend,
+        inheritAes,
         sampling,
         x, y,
         lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, angle, width, weight, fatten,
@@ -187,6 +191,7 @@ private class statBoxplotInternal(
     geom: GeomOptions = Geom.boxplot(),
     position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
+    inheritAes: Boolean? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -226,6 +231,7 @@ private class statBoxplotInternal(
         stat = Stat.boxplot(),
         position = position,
         showLegend = showLegend,
+        inheritAes = inheritAes,
         sampling = sampling
 
     ) {
@@ -246,6 +252,7 @@ private class statBoxplotOutlierInternal(
     geom: GeomOptions = Geom.point(),
     position: PosOptions = positionDodge(),
     showLegend: Boolean = true,
+    inheritAes: Boolean? = null,
     sampling: SamplingOptions? = null,
     override val x: Number? = null,
     override val y: Number? = null,
@@ -273,6 +280,7 @@ private class statBoxplotOutlierInternal(
         stat = Stat.boxplotOutlier(),
         position = position,
         showLegend = showLegend,
+        inheritAes = inheritAes,
         sampling = sampling
 
     ) {

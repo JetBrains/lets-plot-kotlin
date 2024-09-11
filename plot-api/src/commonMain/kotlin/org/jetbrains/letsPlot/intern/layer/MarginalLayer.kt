@@ -19,6 +19,7 @@ internal class MarginalLayer(
     stat = geomLayer.stat,
     position = geomLayer.position,
     showLegend = geomLayer.showLegend,
+    inheritAes = geomLayer.inheritAes,
     sampling = geomLayer.sampling,
     tooltips = geomLayer.tooltips,
     labels = null,

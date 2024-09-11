@@ -115,6 +115,7 @@ abstract class Layer(
     val stat: StatOptions,
     val position: PosOptions?,
     val showLegend: Boolean,
+    val inheritAes: Boolean?,
     val manualKey: Any? = null,
     val sampling: SamplingOptions? = null,
     val tooltips: TooltipOptions? = null,

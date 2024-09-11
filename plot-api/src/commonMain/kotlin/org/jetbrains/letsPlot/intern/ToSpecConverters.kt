@@ -193,12 +193,14 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         }
     }
 
-//    val allParameters = parameters + geom.parameters + stat.parameters
-//    spec.putAll(allParameters.map)
     val allParameters = parameters.map
     spec.putAll(allParameters)
     if (!showLegend) {
         spec[Option.Layer.SHOW_LEGEND] = false
+    }
+
+    inheritAes?.let {
+        spec[Option.Layer.INHERIT_AES] = it
     }
 
     manualKey?.let {
@@ -304,6 +306,7 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
                     mappingMetaByVar.provideMap(spec.variable)[aes] = spec
                     dataTypeByVar[spec.variable] = SeriesAnnotation.Types.UNKNOWN
                 }
+
                 is Collection<*> -> {} // no variable name, can't use inferred type
 
                 else -> throw IllegalArgumentException("Unsupported mapping spec: $spec")

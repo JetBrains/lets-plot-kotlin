@@ -5,8 +5,8 @@
 
 package org.jetbrains.letsPlot.geom
 
-import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.*
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.scale.scaleGrey
@@ -189,6 +189,7 @@ fun geomImshow(
         stat = Stat.identity,
         position = null,
         showLegend = showLegend,
+        inheritAes = false,
         sampling = null,
         orientation = null,
         tooltips = null,
