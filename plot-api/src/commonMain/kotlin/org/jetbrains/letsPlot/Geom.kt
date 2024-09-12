@@ -24,9 +24,9 @@ import org.jetbrains.letsPlot.intern.layer.geom.*
  * ```
  */
 object Geom {
-//    val blank = GeomOptions(
-//        GeomKind.BLANK
-//    )
+    internal val blank = GeomOptions(
+        GeomKind.BLANK
+    )
 
     @Suppress("ClassName")
     class point(
