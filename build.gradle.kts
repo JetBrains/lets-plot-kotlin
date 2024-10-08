@@ -14,6 +14,9 @@ plugins {
     id("io.codearte.nexus-staging") apply false
 
     id("io.github.gradle-nexus.publish-plugin")
+
+    id("com.google.devtools.ksp") apply false
+    // kotlin("jupyter.api") apply false
 }
 
 val localProps = Properties()

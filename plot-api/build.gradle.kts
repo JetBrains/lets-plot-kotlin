@@ -7,6 +7,10 @@ plugins {
     kotlin("multiplatform")
     `maven-publish`
     signing
+    // Add the KSP plugin before the Jupyter API to avoid ksp versions incompatibility.
+    // May be removed when using further versions of the jupyter api
+    id("com.google.devtools.ksp")
+    kotlin("jupyter.api") version "0.12.0-308"
 }
 
 val letsPlotVersion = extra["letsPlot.version"] as String
@@ -63,6 +67,8 @@ kotlin {
             dependencies {
                 // assertj
                 implementation("org.assertj:assertj-core:$assertjVersion")
+
+                implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
             }
         }
     }
@@ -171,6 +177,10 @@ tasks {
     val jvmMainClasses by getting {
         dependsOn += saveVersions
     }
+}
+
+tasks.processJupyterApiResources {
+    libraryProducers = listOf("org.jetbrains.letsPlot.jupyter.Integration")
 }
 
 //task printIt {

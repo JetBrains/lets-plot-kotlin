@@ -16,6 +16,9 @@ pluginManagement {
         val nexusStagingVersion = extra["nexusStaging.version"] as String
         val nexusPublishVersion = extra["nexusPublish.version"] as String
 
+        val kspVersion = extra["ksp.version"] as String
+        // val jupyterApiVersion = extra["jupyterApi.version"] as String
+
         kotlin("multiplatform") version kotlinVersion
         kotlin("jvm").version(kotlinVersion)
 
@@ -23,6 +26,9 @@ pluginManagement {
 
         id("io.codearte.nexus-staging") version nexusStagingVersion
         id("io.github.gradle-nexus.publish-plugin") version nexusPublishVersion
+
+        id("com.google.devtools.ksp") version kspVersion
+       // kotlin("jupyter.api") version jupyterApiVersion
     }
 }
 
