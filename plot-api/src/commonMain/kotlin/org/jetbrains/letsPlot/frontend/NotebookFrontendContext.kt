@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot.frontend
 
+import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.FrontendContext
 import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.core.util.PlotHtmlHelper
@@ -48,6 +49,10 @@ class NotebookFrontendContext(
 
     fun getHtml(plotBunch: GGBunch): String {
         return getDisplayHtml(plotBunch.toSpec())
+    }
+
+    fun getHtml(figure: Figure): String {
+        return getDisplayHtml(figure.toSpec())
     }
 
     // Used by alternative kotlin lets-plot API
