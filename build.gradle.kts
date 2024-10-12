@@ -14,6 +14,11 @@ plugins {
     id("io.codearte.nexus-staging") apply false
 
     id("io.github.gradle-nexus.publish-plugin")
+
+    // Add the KSP plugin before the Jupyter API to avoid ksp versions incompatibility.
+    // May be removed when using further versions of the jupyter api
+    id("com.google.devtools.ksp") apply false
+    kotlin("jupyter.api") apply false
 }
 
 val localProps = Properties()

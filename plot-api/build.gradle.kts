@@ -177,3 +177,22 @@ tasks {
 //    print("${project.name}: ${uri(project.localMavenRepository)}")
 //}
 
+// Provide jvm resources to jupyter module
+// https://youtrack.jetbrains.com/issue/KTIJ-16582/Consumer-Kotlin-JVM-library-cannot-access-a-Kotlin-Multiplatform-JVM-target-resources-in-multi-module-Gradle-project
+tasks {
+    val jvmProcessResources by getting
+    val fixMissingResources by creating(Copy::class) {
+        dependsOn(jvmProcessResources)
+        from(layout.buildDirectory.dir("processedResources/jvm/main"))
+        into(layout.buildDirectory.dir("classes/kotlin/jvm/main"))
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+    val jvmJar by getting(Jar::class) {
+        dependsOn(fixMissingResources)
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+}
+
+tasks.named("jvmTest") {
+    dependsOn("fixMissingResources")
+}
