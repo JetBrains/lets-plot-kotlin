@@ -39,7 +39,7 @@ kotlin {
 
         named("jvmMain") {
             dependencies {
-               implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
+                implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
                 api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
                 // Use "-jvm" variant to work around the issue where LPK JS (IR) artefact becomes dependent on
                 // the "kotlinx-datetime".
