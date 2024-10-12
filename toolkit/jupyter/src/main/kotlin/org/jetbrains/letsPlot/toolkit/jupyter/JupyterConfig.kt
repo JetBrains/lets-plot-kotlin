@@ -1,4 +1,4 @@
-package org.jetbrains.letsPlot.jupyter
+package org.jetbrains.letsPlot.toolkit.jupyter
 
 /**
  * Lets-Plot config for Jupyter.

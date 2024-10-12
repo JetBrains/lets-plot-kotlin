@@ -1,8 +1,9 @@
-package org.jetbrains.letsPlot.jupyter
+package org.jetbrains.letsPlot.toolkit.jupyter
 
+import org.junit.jupiter.api.TestInfo
 import kotlin.test.Test
 
-internal class SubPlotsFigureTest : JupyterTest() {
+class SubPlotsFigureTest : JupyterTest() {
 
     private val grid = """
     val data1 = mapOf(
@@ -25,7 +26,7 @@ internal class SubPlotsFigureTest : JupyterTest() {
     fun `compilation of SubPlotsFigure in jupyter`() = grid.checkCompilation()
 
     @Test
-    fun `SubPlotsFigure output in jupyter`() {
-        assertOutput(execRendered(grid))
+    fun `SubPlotsFigure output in jupyter`(testInfo: TestInfo) {
+        assertOutput(execRendered(grid), testInfo)
     }
 }

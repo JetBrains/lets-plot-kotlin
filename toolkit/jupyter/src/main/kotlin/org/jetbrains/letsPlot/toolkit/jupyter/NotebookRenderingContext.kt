@@ -1,4 +1,4 @@
-package org.jetbrains.letsPlot.jupyter
+package org.jetbrains.letsPlot.toolkit.jupyter
 
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -9,6 +9,8 @@ import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.awt.plot.PlotSvgExport
 import org.jetbrains.letsPlot.frontend.NotebookFrontendContext
 import org.jetbrains.letsPlot.intern.toSpec
+import org.jetbrains.letsPlot.toolkit.jupyter.util.extendedByJson
+import org.jetbrains.letsPlot.toolkit.jupyter.util.serializeSpec
 import java.util.*
 
 internal class NotebookRenderingContext(
@@ -22,7 +24,7 @@ internal class NotebookRenderingContext(
      */
     private fun figureToMimeJson(figure: Figure): JsonObject {
         val spec = figure.toSpec()
-        val html = frontendContext.getHtml(figure)
+        val html = frontendContext.getDisplayHtml(figure.toSpec())
         return buildJsonObject {
             put(MimeTypes.HTML, JsonPrimitive(html))
             put("application/plot+json", buildJsonObject {

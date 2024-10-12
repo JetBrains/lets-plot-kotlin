@@ -7,11 +7,6 @@ plugins {
     kotlin("jvm")
     `maven-publish`
     signing
-    // Add the KSP plugin before the Jupyter API to avoid ksp versions incompatibility.
-    // May be removed when using further versions of the jupyter api
-    id("com.google.devtools.ksp")
-    // Use jupyter API version compatible with java 1.8
-    kotlin("jupyter.api") version "0.12.0-139"
 }
 
 val geoToolsVersion = extra["geotools.version"] as String
@@ -106,8 +101,4 @@ signing {
     if (!(project.version as String).contains("SNAPSHOT")) {
         sign(publishing.publications)
     }
-}
-
-tasks.processJupyterApiResources {
-    libraryProducers = listOf("org.jetbrains.letsPlot.toolkit.geotools.jupyter.Integration")
 }

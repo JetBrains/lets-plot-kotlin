@@ -1,4 +1,4 @@
-package org.jetbrains.letsPlot.jupyter
+package org.jetbrains.letsPlot.toolkit.jupyter.util
 
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement

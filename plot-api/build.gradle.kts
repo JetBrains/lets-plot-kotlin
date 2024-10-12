@@ -7,10 +7,6 @@ plugins {
     kotlin("multiplatform")
     `maven-publish`
     signing
-    // Add the KSP plugin before the Jupyter API to avoid ksp versions incompatibility.
-    // May be removed when using further versions of the jupyter api
-    id("com.google.devtools.ksp")
-    kotlin("jupyter.api") version "0.12.0-308"
 }
 
 val letsPlotVersion = extra["letsPlot.version"] as String
@@ -43,7 +39,7 @@ kotlin {
 
         named("jvmMain") {
             dependencies {
-                implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
+               implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
                 api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
                 // Use "-jvm" variant to work around the issue where LPK JS (IR) artefact becomes dependent on
                 // the "kotlinx-datetime".
@@ -67,8 +63,6 @@ kotlin {
             dependencies {
                 // assertj
                 implementation("org.assertj:assertj-core:$assertjVersion")
-
-                implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
             }
         }
     }
@@ -179,11 +173,26 @@ tasks {
     }
 }
 
-tasks.processJupyterApiResources {
-    libraryProducers = listOf("org.jetbrains.letsPlot.jupyter.Integration")
-}
-
 //task printIt {
 //    print("${project.name}: ${uri(project.localMavenRepository)}")
 //}
 
+// Provide jvm resources to jupyter module
+// https://youtrack.jetbrains.com/issue/KTIJ-16582/Consumer-Kotlin-JVM-library-cannot-access-a-Kotlin-Multiplatform-JVM-target-resources-in-multi-module-Gradle-project
+tasks {
+    val jvmProcessResources by getting
+    val fixMissingResources by creating(Copy::class) {
+        dependsOn(jvmProcessResources)
+        from(layout.buildDirectory.dir("processedResources/jvm/main"))
+        into(layout.buildDirectory.dir("classes/kotlin/jvm/main"))
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+    val jvmJar by getting(Jar::class) {
+        dependsOn(fixMissingResources)
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+}
+
+tasks.named("jvmTest") {
+    dependsOn("fixMissingResources")
+}

@@ -1,21 +1,13 @@
 package org.jetbrains.letsPlot.toolkit.geotools.jupyter
 
 import org.jetbrains.kotlinx.jupyter.testkit.JupyterReplTestCase
-import org.jetbrains.kotlinx.jupyter.testkit.ReplProvider
 import kotlin.test.Test
 
-class NaturalEarthTest : JupyterReplTestCase(
-    ReplProvider.forLibrariesTesting(listOf("lets-plot-kotlin-geotools"))
-) {
+class NaturalEarthTest : JupyterReplTestCase() {
     private val geotoolsDependencies = """
         USE {
-            repositories {
-                maven("https://repo.osgeo.org/repository/release")
-            }
-
             dependencies {
-                implementation("org.geotools:gt-main:32.0")
-                implementation("org.geotools:gt-shapefile:32.0")
+                implementation("org.geotools:gt-shapefile:30.0")
             }
         }
     """.trimIndent()
@@ -39,7 +31,7 @@ class NaturalEarthTest : JupyterReplTestCase(
     """.trimIndent()
 
     @Test
-    fun `Plot output in jupyter`() {
+    fun `natural earth example compilation in jupyter`() {
         execRendered(geotoolsDependencies)
         execRendered(naturalEarthMap)
     }

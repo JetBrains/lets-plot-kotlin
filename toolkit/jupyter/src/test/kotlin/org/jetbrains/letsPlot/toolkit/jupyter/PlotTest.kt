@@ -1,8 +1,9 @@
-package org.jetbrains.letsPlot.jupyter
+package org.jetbrains.letsPlot.toolkit.jupyter
 
+import org.junit.jupiter.api.TestInfo
 import kotlin.test.Test
 
-internal class PlotTest : JupyterTest() {
+class PlotTest : JupyterTest() {
 
     private val plot = """
     val data = mapOf(
@@ -19,7 +20,7 @@ internal class PlotTest : JupyterTest() {
     fun `compilation of Plot in jupyter`() = plot.checkCompilation()
 
     @Test
-    fun `Plot output in jupyter`() {
-        assertOutput(execRendered(plot))
+    fun `Plot output in jupyter`(testInfo: TestInfo) {
+        assertOutput(execRendered(plot), testInfo)
     }
 }

@@ -1,8 +1,9 @@
-package org.jetbrains.letsPlot.jupyter
+package org.jetbrains.letsPlot.toolkit.jupyter
 
+import org.junit.jupiter.api.TestInfo
 import kotlin.test.Test
 
-internal class GGBunchTest : JupyterTest() {
+class GGBunchTest : JupyterTest() {
 
     private val bunch = """
     val data1 = mapOf(
@@ -36,7 +37,7 @@ internal class GGBunchTest : JupyterTest() {
     fun `compilation of GGBunch in jupyter`() = bunch.checkCompilation()
 
     @Test
-    fun `GGBunch output in jupyter`() {
-        assertOutput(execRendered(bunch))
+    fun `GGBunch output in jupyter`(testInfo: TestInfo) {
+        assertOutput(execRendered(bunch), testInfo)
     }
 }

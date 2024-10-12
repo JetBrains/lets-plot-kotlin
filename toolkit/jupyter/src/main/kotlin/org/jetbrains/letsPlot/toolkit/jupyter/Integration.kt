@@ -1,7 +1,8 @@
-package org.jetbrains.letsPlot.jupyter
+package org.jetbrains.letsPlot.toolkit.jupyter
 
-import org.jetbrains.kotlinx.jupyter.api.*
-import org.jetbrains.kotlinx.jupyter.api.libraries.ExecutionHost
+import org.jetbrains.kotlinx.jupyter.api.HTML
+import org.jetbrains.kotlinx.jupyter.api.Notebook
+import org.jetbrains.kotlinx.jupyter.api.declare
 import org.jetbrains.kotlinx.jupyter.api.libraries.JupyterIntegration
 import org.jetbrains.kotlinx.jupyter.api.libraries.resources
 import org.jetbrains.letsPlot.Figure
@@ -14,12 +15,20 @@ import org.jetbrains.letsPlot.frontend.NotebookFrontendContext
 internal class Integration(private val notebook: Notebook, private val options: MutableMap<String, String?>) :
     JupyterIntegration() {
 
-    private val config = JupyterConfig()
+    // used by kandy-lets-plot
+    internal val config = JupyterConfig()
     private lateinit var frontendContext: NotebookFrontendContext
+
+    // Take integration options from descriptor by default;
+    // If used via Kotlin Notebook plugin as a dependency,
+    // provide defaults (versions from `VersionChecker`
+    // and empty `isolatedFrame`)
+    private val api = options["api"] ?: VersionChecker.letsPlotKotlinAPIVersion
+    private val js = VersionChecker.letsPlotJsVersion
+    private val isolatedFrame = options["isolatedFrame"] ?: ""
 
 
     override fun Builder.onLoaded() {
-
         import("org.jetbrains.letsPlot.*")
         import("org.jetbrains.letsPlot.geom.*")
         import("org.jetbrains.letsPlot.geom.extras.*")
@@ -43,15 +52,7 @@ internal class Integration(private val notebook: Notebook, private val options: 
         import("org.jetbrains.letsPlot.intern.toSpec")
         import("org.jetbrains.letsPlot.spatial.SpatialDataset")
 
-
         onLoaded {
-            // Take integration options from descriptor by default;
-            // If used via Kotlin Notebook plugin as a dependency,
-            // provide defaults (versions from `VersionChecker`
-            // and empty `isolatedFrame`)
-            val api = options["api"] ?: VersionChecker.letsPlotKotlinAPIVersion
-            val js = options["js"] ?: VersionChecker.letsPlotJsVersion
-            val isolatedFrame = options["isolatedFrame"] ?: ""
             val isolatedFrameParam = if (isolatedFrame.isNotEmpty()) isolatedFrame.toBoolean() else null
             frontendContext = LetsPlot.setupNotebook(js, isolatedFrameParam) { display(HTML(it), null) }
             LetsPlot.apiVersion = api
@@ -71,28 +72,15 @@ internal class Integration(private val notebook: Notebook, private val options: 
                 url(scriptUrl(jsVersion))
             }
         }
-        renderWithHostTemp<Figure> { host, value ->
+        renderWithHost<Figure> { host, value ->
             // For cases when Integration is added via Kotlin Notebook project dependency;
-            // display configure HTML with the first `Figure rendering
+            // display configure HTML with the first `Figure` rendering
             if (!firstFigureRendered) {
                 firstFigureRendered = true
                 host.execute { display(HTML(frontendContext.getConfigureHtml()), null) }
             }
             NotebookRenderingContext(config, frontendContext).figureToMimeResult(value)
         }
-    }
-
-
-    // copy-pasted from jupyter api;
-    // it is not possible to use `renderWithHost` directly because it is inline and built with JVM 11
-    private inline fun <reified T : Any> Builder.renderWithHostTemp(noinline renderer: CodeCell.(ExecutionHost, T) -> Any) {
-        val execution =
-            ResultHandlerExecution { host, property ->
-                val currentCell = notebook.currentCell
-                    ?: throw IllegalStateException("Current cell should not be null on renderer invocation")
-                FieldValue(renderer(currentCell, host, property.value as T), null)
-            }
-        addRenderer(SubtypeRendererTypeHandler(T::class, execution))
     }
 
 }

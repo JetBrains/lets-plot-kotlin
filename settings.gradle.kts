@@ -17,7 +17,7 @@ pluginManagement {
         val nexusPublishVersion = extra["nexusPublish.version"] as String
 
         val kspVersion = extra["ksp.version"] as String
-        // val jupyterApiVersion = extra["jupyterApi.version"] as String
+        val jupyterApiVersion = extra["jupyterApi.version"] as String
 
         kotlin("multiplatform") version kotlinVersion
         kotlin("jvm").version(kotlinVersion)
@@ -28,7 +28,7 @@ pluginManagement {
         id("io.github.gradle-nexus.publish-plugin") version nexusPublishVersion
 
         id("com.google.devtools.ksp") version kspVersion
-       // kotlin("jupyter.api") version jupyterApiVersion
+        kotlin("jupyter.api") version jupyterApiVersion
     }
 }
 
@@ -45,6 +45,9 @@ include("js-frontend-app")
 include("geotools")
 include("geotools-batik")
 include("dokka")
+include("jupyter")
+include("geotools-jupyter")
+include("util")
 
 project(":demo-common").projectDir = File("./demo/demo-common")
 project(":jvm-javafx").projectDir = File("./demo/jvm-javafx")
@@ -56,3 +59,8 @@ project(":geotools").projectDir = File("./toolkit/geotools")
 project(":geotools-batik").projectDir = File("./demo/geotools-batik")
 
 project(":dokka").projectDir = File("./docs/dokka")
+
+project(":jupyter").projectDir = File("./toolkit/jupyter")
+project(":geotools-jupyter").projectDir = File("./toolkit/geotools-jupyter")
+
+project(":util").projectDir = File("./toolkit/util")
