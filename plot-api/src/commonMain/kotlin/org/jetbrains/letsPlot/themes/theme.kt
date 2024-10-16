@@ -134,7 +134,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  A value of "panel" means that caption is aligned to the plot panels.
  *  A value of "plot" means that caption is aligned to the entire plot (excluding margins).
  * @param stripBackground Background of facet labels.
+ * @param stripBackgroundX Horizontal facet background.
+ * @param stripBackgroundY Vertical facet background.
  * @param stripText Facet labels.
+ * @param stripTextX Horizontal facet labels.
+ * @param stripTextY Vertical facet labels.
  *
  * @param axisTooltip Axes tooltips.
  * @param axisTooltipX Axes tooltips.
@@ -230,7 +234,11 @@ class theme(
     plotCaptionPosition: Any? = null,
 
     stripBackground: Any? = null,
+    stripBackgroundX: Any? = null,
+    stripBackgroundY: Any? = null,
     stripText: Any? = null,
+    stripTextX: Any? = null,
+    stripTextY: Any? = null,
 
     axisTooltip: Any? = null,
     axisTooltipX: Any? = null,
@@ -316,7 +324,11 @@ class theme(
         Option.Theme.PLOT_CAPTION_POSITION to plotCaptionPosition,
 
         Option.Theme.FACET_STRIP_BGR_RECT to stripBackground,
+        Option.Theme.FACET_STRIP_BGR_RECT_X to stripBackgroundX,
+        Option.Theme.FACET_STRIP_BGR_RECT_Y to stripBackgroundY,
         Option.Theme.FACET_STRIP_TEXT to stripText,
+        Option.Theme.FACET_STRIP_TEXT_X to stripTextX,
+        Option.Theme.FACET_STRIP_TEXT_Y to stripTextY,
 
         Option.Theme.AXIS_TOOLTIP to axisTooltip,
         Option.Theme.AXIS_TOOLTIP_X to axisTooltipX,
