@@ -58,8 +58,9 @@ import org.jetbrains.letsPlot.pos.positionDodge
  * @param size Lines width and outliers size.
  * @param stroke Width of the outlier shape border. Applied only to the shapes having border.
  * @param linetype Type of the line of border.
- *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *  5 = "longdash", 6 = "twodash".
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param shape Shape of the outliers.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
