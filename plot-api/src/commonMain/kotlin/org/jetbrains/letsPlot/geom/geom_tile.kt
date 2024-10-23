@@ -54,8 +54,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param size Line width, default = 0 (i.e. tiles outline initially is not visible).
  * @param linetype Type of the line.
- *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *  5 = "longdash", 6 = "twodash".
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
