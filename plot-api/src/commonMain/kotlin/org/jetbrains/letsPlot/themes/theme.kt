@@ -73,7 +73,26 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param legendBackground Background of legend.
  * @param legendText Legend item labels.
  * @param legendTitle Title of legend.
- *
+ * @param legendMargin Margin around each legend.
+ *  Margins around the text.
+ *  The margin may be specified using a number or a list of numbers:
+ *  - a number or list of one number - the same margin it applied to all four sides;
+ *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
+ *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
+ *  the third - to the bottom;
+ *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
+ *  It is acceptable to use `null` for any side; in this case, the default side value for the legend margin side will be used.
+ * @param legendSpacing Spacing between legends.
+ * @param legendSpacingX Spacing between legends in the horizontal direction.
+ * @param legendSpacingY Spacing between legends in the horizontal direction.
+ * @param legendKey Background underneath legend keys.
+ * @param legendKeySize Size of legend keys.
+ * @param legendKeyWidth Key background width.
+ * @param legendKeyHeight Key background height.
+ * @param legendKeySpacing Spacing between legend keys
+ * @param legendKeySpacingX Spacing between legend keys in the horizontal direction.
+ * @param legendKeySpacingY Spacing between legend keys in the horizontal direction.
+ * @param legendBoxSpacing Spacing between plotting area and legend box.
  * @param panelBackground Background of plotting area.
  * @param panelBorder Border around plotting area.
  * @param panelBorderOntop Option to place border around plotting area over the data layers.
@@ -134,7 +153,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  A value of "panel" means that caption is aligned to the plot panels.
  *  A value of "plot" means that caption is aligned to the entire plot (excluding margins).
  * @param stripBackground Background of facet labels.
+ * @param stripBackgroundX Horizontal facet background.
+ * @param stripBackgroundY Vertical facet background.
  * @param stripText Facet labels.
+ * @param stripTextX Horizontal facet labels.
+ * @param stripTextY Vertical facet labels.
  *
  * @param axisTooltip Axes tooltips.
  * @param axisTooltipX Axes tooltips.
@@ -195,6 +218,20 @@ class theme(
     legendBackground: Any? = null,
     legendText: Any? = null,
     legendTitle: Any? = null,
+    legendMargin: Any? = null,
+    legendSpacing: Number? = null,
+    legendSpacingX: Number? = null,
+    legendSpacingY: Number? = null,
+
+    legendKey: Any? = null,
+    legendKeySize: Number? = null,
+    legendKeyWidth: Number? = null,
+    legendKeyHeight: Number? = null,
+    legendKeySpacing: Number? = null,
+    legendKeySpacingX: Number? = null,
+    legendKeySpacingY: Number? = null,
+
+    legendBoxSpacing: Number? = null,
 
     panelBackground: Any? = null,
     panelBorder: Any? = null,
@@ -230,7 +267,11 @@ class theme(
     plotCaptionPosition: Any? = null,
 
     stripBackground: Any? = null,
+    stripBackgroundX: Any? = null,
+    stripBackgroundY: Any? = null,
     stripText: Any? = null,
+    stripTextX: Any? = null,
+    stripTextY: Any? = null,
 
     axisTooltip: Any? = null,
     axisTooltipX: Any? = null,
@@ -285,6 +326,20 @@ class theme(
         Option.Theme.LEGEND_BKGR_RECT to legendBackground,
         Option.Theme.LEGEND_TEXT to legendText,
         Option.Theme.LEGEND_TITLE to legendTitle,
+        Option.Theme.LEGEND_MARGIN to legendMargin,
+        Option.Theme.LEGEND_SPACING to legendSpacing,
+        Option.Theme.LEGEND_SPACING_X to legendSpacingX,
+        Option.Theme.LEGEND_SPACING_Y to legendSpacingY,
+
+        Option.Theme.LEGEND_KEY_RECT to legendKey,
+        Option.Theme.LEGEND_KEY_SIZE to legendKeySize,
+        Option.Theme.LEGEND_KEY_WIDTH to legendKeyWidth,
+        Option.Theme.LEGEND_KEY_HEIGHT to legendKeyHeight,
+        Option.Theme.LEGEND_KEY_SPACING to legendKeySpacing,
+        Option.Theme.LEGEND_KEY_SPACING_X to legendKeySpacingX,
+        Option.Theme.LEGEND_KEY_SPACING_Y to legendKeySpacingY,
+
+        Option.Theme.LEGEND_BOX_SPACING to legendBoxSpacing,
 
         Option.Theme.PANEL_BKGR_RECT to panelBackground,
         Option.Theme.PANEL_BORDER_RECT to panelBorder,
@@ -316,7 +371,11 @@ class theme(
         Option.Theme.PLOT_CAPTION_POSITION to plotCaptionPosition,
 
         Option.Theme.FACET_STRIP_BGR_RECT to stripBackground,
+        Option.Theme.FACET_STRIP_BGR_RECT_X to stripBackgroundX,
+        Option.Theme.FACET_STRIP_BGR_RECT_Y to stripBackgroundY,
         Option.Theme.FACET_STRIP_TEXT to stripText,
+        Option.Theme.FACET_STRIP_TEXT_X to stripTextX,
+        Option.Theme.FACET_STRIP_TEXT_Y to stripTextY,
 
         Option.Theme.AXIS_TOOLTIP to axisTooltip,
         Option.Theme.AXIS_TOOLTIP_X to axisTooltipX,
@@ -348,11 +407,11 @@ class theme(
         return newTheme
     }
 
-    fun legendPositionNone() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_NONE)
-    fun legendPositionLeft() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_LEFT)
-    fun legendPositionRight() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_RIGHT)
-    fun legendPositionBottom() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_BOTTOM)
-    fun legendPositionTop() = withOption(Option.Theme.LEGEND_POSITION, VAL_LEGEND_POS_TOP)
+    fun legendPositionNone() = withOption(Option.Theme.LEGEND_POSITION, Option.Theme.Legend.POSITION_NONE)
+    fun legendPositionLeft() = withOption(Option.Theme.LEGEND_POSITION, Option.Theme.Legend.POSITION_LEFT)
+    fun legendPositionRight() = withOption(Option.Theme.LEGEND_POSITION, Option.Theme.Legend.POSITION_RIGHT)
+    fun legendPositionBottom() = withOption(Option.Theme.LEGEND_POSITION, Option.Theme.Legend.POSITION_BOTTOM)
+    fun legendPositionTop() = withOption(Option.Theme.LEGEND_POSITION, Option.Theme.Legend.POSITION_TOP)
 
     /**
      * Specifies the legend position relative to the plot drawing area.
@@ -367,7 +426,7 @@ class theme(
         )
     }
 
-    fun legendJustificationCenter() = withOption(Option.Theme.LEGEND_JUSTIFICATION, VAL_LEGEND_JUSTIFICATION_CENTER)
+    fun legendJustificationCenter() = withOption(Option.Theme.LEGEND_JUSTIFICATION, Option.Theme.Legend.JUSTIFICATION_CENTER)
 
     /**
      * Specifies the anchor point for positioning legend inside plot.
@@ -381,20 +440,23 @@ class theme(
         )
     }
 
-    fun legendDirectionHorizontal() = withOption(Option.Theme.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_HORIZONTAL)
-    fun legendDirectionVertical() = withOption(Option.Theme.LEGEND_DIRECTION, VAL_LEGEND_DIRECTION_VERTICAL)
+    fun legendDirectionHorizontal() = withOption(Option.Theme.LEGEND_DIRECTION, Option.Theme.Legend.DIRECTION_HORIZONTAL)
+    fun legendDirectionVertical() = withOption(Option.Theme.LEGEND_DIRECTION, Option.Theme.Legend.DIRECTION_VERTICAL)
 
-    private companion object {
-        private const val VAL_ELEMENT_BLANK = "blank"
-        private const val VAL_LEGEND_POS_NONE = "none"
-        private const val VAL_LEGEND_POS_LEFT = "left"
-        private const val VAL_LEGEND_POS_RIGHT = "right"
-        private const val VAL_LEGEND_POS_BOTTOM = "bottom"
-        private const val VAL_LEGEND_POS_TOP = "top"
-        private const val VAL_LEGEND_JUSTIFICATION_CENTER = "center"
-        private const val VAL_LEGEND_DIRECTION_HORIZONTAL = "horizontal"
-        private const val VAL_LEGEND_DIRECTION_VERTICAL = "vertical"
-    }
+    /**
+     *  Arrangement of multiple legends: horizontal or vertical.
+     */
+    fun legendBoxHorizontal() = withOption(Option.Theme.LEGEND_BOX, Option.Theme.Legend.ARRANGEMENT_HORIZONTAL)
+    fun legendBoxVertical() = withOption(Option.Theme.LEGEND_BOX, Option.Theme.Legend.ARRANGEMENT_VERTICAL)
+
+    /**
+     *  Justification of each legend within the overall bounding box, when there are multiple legends.
+     */
+    fun legendBoxJustificationLeft() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_LEFT)
+    fun legendBoxJustificationRight() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_RIGHT)
+    fun legendBoxJustificationTop() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_TOP)
+    fun legendBoxJustificationBottom() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_BOTTOM)
+    fun legendBoxJustificationCenter() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_CENTER)
 }
 
 /**
