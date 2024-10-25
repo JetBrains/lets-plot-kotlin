@@ -484,8 +484,9 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
  * @param color Border color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Border line width.
  * @param linetype Type of the line.
- *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *  5 = "longdash", 6 = "twodash".
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  * @param blank Mark as a 'blank' element.
  */
 fun elementRect(
@@ -516,8 +517,9 @@ fun elementRect(
  * @param color Line color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Line width.
  * @param linetype Type of the line.
- *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *  5 = "longdash", 6 = "twodash".
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  * @param blank Mark as a 'blank' element.
  */
 fun elementLine(
