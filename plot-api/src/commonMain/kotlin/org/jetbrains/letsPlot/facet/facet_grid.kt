@@ -33,9 +33,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param xFormat Specifies the format pattern for displaying faceting values in columns.
  * @param yFormat Specifies the format pattern for displaying faceting values in rows.
  * @param xLabWidth Specifies the maximum label length (in characters) before a line break is applied to faceting values in columns.
- *  If the original facet label already contains `\n` as a text separator, the line breaking is not applied.
  * @param yLabWidth Specifies the maximum label length (in characters) before a line break is applied to faceting values in rows.
- *  If the original facet label already contains `\n` as a text separator, the line breaking is not applied.
  *
  * Format pattern in the `xFormat`/`yFormat` parameters can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
