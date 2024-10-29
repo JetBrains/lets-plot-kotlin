@@ -64,7 +64,7 @@ object QQ {
                 p.show()
             }
             run {
-                val p = qqPlot(gData, sample = "y", group = "g", alpha = 0.8, color = "black", shape = 21) +
+                val p = qqPlot(gData, sample = "y", group = "g", alpha = 0.8, color = "black", shape = 21, marginal = "box:tr") +
                         ggtitle("Bistro grouping") +
                         xlab("Normal distribution quantiles") +
                         scaleColorBrewer(type = "qual", palette = "Set1") +
