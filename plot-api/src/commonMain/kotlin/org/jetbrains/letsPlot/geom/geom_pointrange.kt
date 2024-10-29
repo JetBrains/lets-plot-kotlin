@@ -50,7 +50,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- *  Set tooltips='none' to hide tooltips from the layer.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param fatten default = 5.0.
  *  A multiplicative factor applied to size of the middle point.
  * @param x X-axis coordinates for vertical interval / position of mid-point for horizontal interval.

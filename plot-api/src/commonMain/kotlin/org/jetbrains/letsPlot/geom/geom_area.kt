@@ -47,7 +47,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- *  Set tooltips='none' to hide tooltips from the layer.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param flat default = false.
  *  true - keeps a line straight (corresponding to a loxodrome in case of Mercator projection).
  *  false - allows a line to be reprojected, so it can become a curve.

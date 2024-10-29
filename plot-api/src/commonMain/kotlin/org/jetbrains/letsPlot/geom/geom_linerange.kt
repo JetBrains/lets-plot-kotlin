@@ -46,7 +46,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- *  Set tooltips='none' to hide tooltips from the layer.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param x X-axis coordinates for vertical line range.
  * @param ymin Lower bound for vertical line range.
  * @param ymax Upper bound for vertical line range.

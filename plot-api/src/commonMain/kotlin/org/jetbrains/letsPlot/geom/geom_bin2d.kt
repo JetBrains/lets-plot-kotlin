@@ -53,7 +53,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- *  Set tooltips='none' to hide tooltips from the layer.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param bins default = Pair(30, 30).
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binwidth`.
  * @param binWidth The width of the bins in both directions, vertical and horizontal. Overrides `bins`.

@@ -38,7 +38,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- *  Set tooltips='none' to hide tooltips from the layer.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
  *  Possible values: "x", "y".
  * @param map Data-structure containing series of planar shapes and, optionally, associates data series (for example:

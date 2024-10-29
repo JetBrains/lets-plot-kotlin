@@ -44,7 +44,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- *  Set tooltips='none' to hide tooltips from the layer.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param direction "hv" or "HV" stands for horizontal then vertical (default); "vh" or "VH" stands for vertical then horizontal.
  * @param x X-axis value.
  * @param y Y-axis value.

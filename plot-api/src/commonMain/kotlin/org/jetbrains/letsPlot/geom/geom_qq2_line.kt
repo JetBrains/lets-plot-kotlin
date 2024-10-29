@@ -47,7 +47,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
- *  Set tooltips='none' to hide tooltips from the layer.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param quantiles default = [0.25, 0.75].
  *  Pair of quantiles to use when fitting the Q-Q line.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
