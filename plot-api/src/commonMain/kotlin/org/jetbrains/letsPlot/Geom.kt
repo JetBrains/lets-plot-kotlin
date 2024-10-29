@@ -389,6 +389,7 @@ object Geom {
         override val nudgeY: Number? = null,
         override val sizeUnit: String? = null,
         override val colorBy: String? = null,
+        override val checkOverlap: Boolean? = null,
         mapping: TextMapping.() -> Unit = {}
     ) : TextAesthetics,
         TextParameters,
@@ -432,6 +433,7 @@ object Geom {
         override val sizeUnit: String? = null,
         override val colorBy: String? = null,
         override val fillBy: String? = null,
+        override val checkOverlap: Boolean? = null,
         mapping: LabelMapping.() -> Unit = {}
     ) : LabelAesthetics,
         LabelParameters,

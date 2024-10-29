@@ -88,6 +88,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
+ * @param checkOverlap Skips plotting text that overlaps previous text in the same layer.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -134,6 +135,7 @@ class geomText(
     override val nudgeY: Number? = null,
     override val sizeUnit: String? = null,
     override val colorBy: String? = null,
+    override val checkOverlap: Boolean? = null,
     mapping: TextMapping.() -> Unit = {}
 
 ) : TextAesthetics,
