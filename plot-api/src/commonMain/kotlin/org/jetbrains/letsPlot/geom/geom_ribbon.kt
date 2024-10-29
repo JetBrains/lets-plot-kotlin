@@ -46,6 +46,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set tooltips='none' to hide tooltips from the layer.
  * @param x X-axis coordinates for horizontal ribbon.
  * @param ymin Y-axis coordinates of the lower bound for horizontal ribbon.
  * @param ymax Y-axis coordinates of the upper bound for horizontal ribbon.

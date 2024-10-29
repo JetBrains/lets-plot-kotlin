@@ -52,6 +52,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set tooltips='none' to hide tooltips from the layer.
  * @param x X-axis coordinates.
  * @param bins When method is "histodot", this specifies number of bins (default = 30). Overridden by `binWidth`.
  * @param center When method is "histodot", this specifies x-value to align bin centers to.

@@ -36,6 +36,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set tooltips='none' to hide tooltips from the layer.
  * @param curvature default=0.5.
  *  The amount of curvature.
  *  Negative values produce left-hand curves, positive values produce right-hand curves,

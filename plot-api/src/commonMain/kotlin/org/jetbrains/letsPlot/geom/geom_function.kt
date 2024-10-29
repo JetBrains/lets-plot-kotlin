@@ -38,6 +38,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set tooltips='none' to hide tooltips from the layer.
  * @param fn A function to use.
  * @param xlim default = Pair(0, 1).
  *  Range of the function.

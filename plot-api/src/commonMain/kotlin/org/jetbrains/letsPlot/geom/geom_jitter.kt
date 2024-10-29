@@ -47,6 +47,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set tooltips='none' to hide tooltips from the layer.
  * @param seed A random seed to make the jitter reproducible.
  *  If null (the default value), the seed is initialised with a random value.
  * @param width Width for jitter, default = 0.4. Typically ranges between 0 and 0.5. 

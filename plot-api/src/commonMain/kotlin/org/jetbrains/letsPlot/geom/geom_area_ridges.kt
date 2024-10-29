@@ -54,6 +54,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set tooltips='none' to hide tooltips from the layer.
  * @param x X-axis coordinates.
  * @param y Y-axis coordinates.
  * @param height Height of the ridge. Assumed to be between 0 and 1, though this is not required.
