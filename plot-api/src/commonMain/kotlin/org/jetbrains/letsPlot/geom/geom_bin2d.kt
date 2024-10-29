@@ -32,6 +32,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - ..count.. : number of points with coordinates in the same bin.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [density_2d.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/density_2d.ipynb)

@@ -26,6 +26,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * or a horizontal interval, defined by `y`, `xmin`, `xmax`.
  * The mean is represented by horizontal (vertical) line.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)

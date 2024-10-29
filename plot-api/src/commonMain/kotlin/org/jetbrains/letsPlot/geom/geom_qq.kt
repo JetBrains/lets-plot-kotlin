@@ -38,6 +38,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..theoretical.. : theoretical quantiles.
  * - ..sample.. : sample quantiles.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [qq_plots.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/qq_plots.ipynb)

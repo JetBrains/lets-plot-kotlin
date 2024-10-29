@@ -31,6 +31,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..scaled.. : density estimate, scaled to maximum of 1.
  * - ..quantile.. : quantile estimate.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [geom_violin.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_violin.ipynb)

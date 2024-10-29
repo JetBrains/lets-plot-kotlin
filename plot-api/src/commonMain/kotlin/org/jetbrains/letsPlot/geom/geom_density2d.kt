@@ -33,6 +33,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..group.. : number of density estimate contour line.
  * - ..level.. : calculated value of the density estimate for given contour line.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [density_2d.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/density_2d.ipynb)

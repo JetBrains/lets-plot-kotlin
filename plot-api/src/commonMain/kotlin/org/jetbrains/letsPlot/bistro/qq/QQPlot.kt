@@ -12,6 +12,11 @@ package org.jetbrains.letsPlot.bistro.qq
  * ('normal' or as otherwise specified by the `distribution` parameter).
  * Alternatively, supply `x` and `y` parameters to compare the distribution of `x` with the distribution of `y`.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [qq_plots.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/qq_plots.ipynb)

@@ -31,6 +31,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * If the two distributions being compared are similar, the points in the Q-Q plot
  * will approximately lie on the straight line.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [qq_plots.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/qq_plots.ipynb)

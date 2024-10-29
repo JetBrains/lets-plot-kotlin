@@ -28,6 +28,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - ..level.. : height of a contour.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [contours.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/contours.ipynb)

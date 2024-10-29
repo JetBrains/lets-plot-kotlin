@@ -23,6 +23,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * Displays a y interval defined by `ymin` and `ymax`.
  * Draws a ribbon bounded by `ymin` and `ymax`, or a vertical ribbon, bounded by `xmin`, `xmax`.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [ribbon.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/ribbon.ipynb)

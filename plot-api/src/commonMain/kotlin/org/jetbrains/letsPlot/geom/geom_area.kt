@@ -24,6 +24,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays the development of quantitative values over an interval. This is the continuous analog of `geomBar()`.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [marginal_layers.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/marginal_layers.ipynb)

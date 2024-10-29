@@ -29,6 +29,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..ymin.. : result of calculating of `fnMin`.
  * - ..ymax.. : result of calculating of `fnMax`.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [stat_summary.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/stat_summary.ipynb)

@@ -30,6 +30,9 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *
  * - ..count.. : number of points with coordinates in the same bin.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
  *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the bin2D stat for this layer, default is `Geom.tile()`,

@@ -23,6 +23,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Connects observations in the order in which they appear in the data by stairs.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [lines.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/lines.ipynb)

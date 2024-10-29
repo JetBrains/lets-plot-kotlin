@@ -33,6 +33,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..sumpct.. : normalised number of points so that sum of y-values is 100.
  * - ..binwidth.. : width of each bin.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [distributions.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/distributions.ipynb)

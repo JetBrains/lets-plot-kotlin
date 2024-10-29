@@ -21,6 +21,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..prop.. : proportion of points with same x-axis and y-axis coordinates.
  * - ..proppct.. : proportion of points with same x-axis and y-axis coordinates in percent.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [geom_count.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_count.ipynb)

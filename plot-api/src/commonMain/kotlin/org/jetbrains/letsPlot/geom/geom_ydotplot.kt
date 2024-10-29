@@ -35,6 +35,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..count.. : number of points with y-axis coordinate in the same bin.
  * - ..binwidth.. : max width of each bin if method is "dotdensity"; width of each bin if method is "histodot".
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [geom_ydotplot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_ydotplot.ipynb)
