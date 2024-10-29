@@ -92,7 +92,7 @@ fun qqPlot(
     quantiles: Pair<Number, Number>? = null,
     group: String? = null,
     showLegend: Boolean = true,
-    marginal: String = QQPlotBuilder.DEF_MARGINAL,
+    marginal: String? = null,
     color: String? = null,
     fill: String? = null,
     alpha: Number? = null,

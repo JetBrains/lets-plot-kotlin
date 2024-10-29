@@ -7,7 +7,6 @@ package org.jetbrains.letsPlot.bistro.qq
 
 import org.jetbrains.letsPlot.core.spec.Option.Plot.BISTRO
 import org.jetbrains.letsPlot.core.spec.back.transform.bistro.qq.Option.QQ
-import org.jetbrains.letsPlot.core.spec.back.transform.bistro.qq.QQPlotOptionsBuilder
 import org.jetbrains.letsPlot.intern.OptionsMap
 import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.intern.filterNonNullValues
@@ -23,7 +22,7 @@ internal class QQPlotBuilder(
     private val quantiles: Pair<Number, Number>?,
     private val group: String?,
     private val showLegend: Boolean,
-    private val marginal: String,
+    private val marginal: String?,
     private val color: String?,
     private val fill: String?,
     private val alpha: Number?,
@@ -57,9 +56,5 @@ internal class QQPlotBuilder(
                 QQ.LINE_TYPE to linetype
             ).filterNonNullValues()
         )
-    }
-
-    companion object {
-        const val DEF_MARGINAL = QQPlotOptionsBuilder.DEF_MARGINAL
     }
 }
