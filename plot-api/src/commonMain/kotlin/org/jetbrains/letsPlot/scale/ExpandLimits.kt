@@ -32,7 +32,7 @@ import org.jetbrains.letsPlot.intern.Feature
  *
  * ## Examples
  *
- * ToDo
+ * - [expand_limits.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/expand_limits.ipynb)
  *
  */
 fun expandLimits(
