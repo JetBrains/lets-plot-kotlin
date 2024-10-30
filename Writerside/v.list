@@ -36,6 +36,7 @@
     <var name="nb-palmer_penguins" value="%nbviewer_demo%/palmer_penguins.ipynb"/>
     <var name="nb-pushkin" value="%nbviewer_demo%/pushkin.ipynb"/>
     <var name="nb-spatialdataset_kotlin_isl" value="%nbviewer_demo%/spatialdataset_kotlin_isl.ipynb"/>
+    <var name="nb-sunshine_hours" value="%nbviewer_demo%/sunshine_hours.ipynb"/>
     <var name="nb-us_unemployment" value="%nbviewer_demo%/us_unemployment.ipynb"/>
     <var name="nb-wind_rose" value="%nbviewer_demo%/wind_rose.ipynb"/>
     <!-- Cookbooks -->

@@ -7,6 +7,11 @@
         </a>
     </li>
     <li>
+        <a href="%nb-sunshine_hours%">
+            <img alt="Sunshine hours" src="square-sunshine_hours.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-us_unemployment%">
             <img alt="Unemployment in the US since 1967" src="square-us_unemployment.png"/>
         </a>
