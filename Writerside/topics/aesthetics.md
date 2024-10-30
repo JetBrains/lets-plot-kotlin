@@ -4,9 +4,9 @@
 
 Colors and fills of geometries can be specified in the following ways:
 
-- RGB/RGBA (e.g. `"rgb(0, 0, 255)"`).
+- RGB/RGBA (e.g. `"rgb(0, 0, 255)"`, `"rgba(0, 0, 255, 0.5)"`).
 
-- HEX (e.g. `"#0000ff"`).
+- HEX (e.g. `"#0000ff"`, `"#00f"`).
 
 - A name, one of:
 
@@ -34,7 +34,19 @@ Colors and fills of geometries can be specified in the following ways:
 
 ## Line Types
 
-![Line types](aesthetics_linetype.png)
+### Predefined Patterns
+
+![Predefined line types](aesthetics_linetype.png)
+
+### Custom Patterns
+
+Ways to specify the `linetype`:
+
+- list, defining the pattern of dashes and gaps used to draw the line: `[dash, gap, ...]`;
+- list with specified offset: `[offset, [dash, gap, ...]]`;
+- string of an even number (up to eight) of hexadecimal digits which give the lengths in consecutive positions in the string.
+
+![Custom line types](aesthetics_custom_linetype.png)
 
 ## Text
 
