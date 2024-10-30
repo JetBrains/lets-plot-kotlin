@@ -2,6 +2,11 @@
 
 <list columns="3">
     <li>
+        <a href="%nb-lp_verse%">
+            <img alt="The observable LP-verse" src="square-lp_verse.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-us_unemployment%">
             <img alt="Unemployment in the US since 1967" src="square-us_unemployment.png"/>
         </a>

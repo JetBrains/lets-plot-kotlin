@@ -1,5 +1,26 @@
 # Miscellaneous
 
+## Extended Text Markup
+
+In tooltips/labels/texts and wherever else there is text, you can use:
+
+- Interactive links, e.g. `<a href="https://github.com">GitHub</a>`.
+
+  See: [lp_verse.ipynb](%nb-lp_verse%)
+
+  <img src="lp_verse.png" alt="The observable LP-verse" width="480"/>
+
+- LaTeX formulas with
+
+    - superscript, e.g. `\( a^b \)`;
+    - subscript, e.g. `\( x_i \)`;
+    - Greek letters, e.g. `\( \Omega \)`, and
+    - some special symbols, e.g. `\( a \cdot b \neq c \)`.
+
+  See: [latex_support.ipynb](%nb-latex_support%)
+
+  <img src="latex_support.png" alt="LaTeX Support" width="480"/>
+
 ## Manual Legend
 
 In Lets-Plot, as in ggplot2, legends are automatically generated based on the aesthetic mappings in the plot.
