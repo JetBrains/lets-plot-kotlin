@@ -1015,7 +1015,7 @@ the Lets-Plot Kotlin API.
   - `orderBy` - name of the variable by which the ordering will be performed;
   - `order` - ordering direction: 1 for ascending direction and -1 for descending (default).
 
-  See: [as_discrete](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/as_discrete.md).
+  See: [as_discrete](https://github.com/JetBrains/lets-plot-kotlin/blob/98742bfaa7c685da75007f306b1662007a9eb6c2/docs/as_discrete.md).
 
 ### Changed 
 
@@ -1049,7 +1049,7 @@ the Lets-Plot Kotlin API.
 - In tooltip customization API:
   - `layerTooltips(variables)` - the new parameter `variables` defines a list of variable names, which values will be
     placed in the general multiline tooltip.
-    See: [Tooltip Customization](https://github.com/JetBrains/lets-plot/blob/master/docs/tooltips.md#variables).
+    See: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/dc0a84a900a7f7fbbee88dfccf9af73228fccf33/docs/tooltips.md#variables).
 
 
 - [lets-plot-mini-apps](https://github.com/alshan/lets-plot-mini-apps) GitHub repository containing examples of using
@@ -1129,7 +1129,7 @@ the Lets-Plot Kotlin API.
 
   Demo: [Formatting demo](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/4b8eca44cf9533b9e9e2114fe2f332f909459b2e/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
 
-  See also: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
+  See also: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/4b8eca44cf9533b9e9e2114fe2f332f909459b2e/docs/formats.md)
 
 
 - The `guides()` function [[#52](https://github.com/JetBrains/lets-plot/issues/52)].
@@ -1140,7 +1140,7 @@ the Lets-Plot Kotlin API.
       geom_xxx(tooltips=layer_tooltips().color("red"))
       ```
 
-  See: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md).
+  See: [Tooltip Customization](https://github.com/JetBrains/lets-plot-kotlin/blob/4b8eca44cf9533b9e9e2114fe2f332f909459b2e/docs/tooltips.md).
 
 ### Changed
 
@@ -1190,9 +1190,9 @@ See the Lets-Plot [CHANGELOG.md](https://github.com/JetBrains/lets-plot/blob/mas
 
 ### Added
 
-- GeoTools support (see [geotools.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/geotools.md)).
+- GeoTools support (see [geotools.md](https://github.com/JetBrains/lets-plot-kotlin/blob/8209109b9a1630b509baea03ae6e7970ff90e13a/docs/geotools.md)).
 - API for tooltip customization (
-  see [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/tooltips.md)).
+  see [tooltips.md](https://github.com/JetBrains/lets-plot-kotlin/blob/8209109b9a1630b509baea03ae6e7970ff90e13a/docs/tooltips.md)).
 - `geom_map()`.
 - `labelFormat` parameter in `geom_text()`.
 - `reverse` parameter in `scale_x/y_discrete()`.
