@@ -8,7 +8,7 @@
 
 - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)
 
-More examples you can find [here](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md).
+More examples you can find [here](https://nbviewer.org/github/JetBrains/lets-plot-docs/tree/master/source/kotlin_examples/).
 
 # Package org.jetbrains.letsPlot.bistro.corr
 
