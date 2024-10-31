@@ -54,7 +54,7 @@
 - [Plot title, subtitle and caption](%nb-title_subtitle_caption%)
 - [Theme colors for geometries](%nb-geom_theme_colors%)
 - [Theme flavors](%nb-theme_flavors%)
-- [Customizing the Legend](%nb-legend%)
+- [Customizing the legend](%nb-legend%)
 - [Tooltip customization](%nb-tooltip_config%)
 - [Set font faces](%nb-set_font_faces%)
 - [Set font size and family](%nb-font_size_and_family%)
