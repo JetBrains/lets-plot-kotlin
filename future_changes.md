@@ -4,47 +4,49 @@ This release is 100% compatible with Lets-Plot [v 4.5.1](https://github.com/JetB
 
 ### Added
 
-- ToDo: `ggtb()`: enable **zoom/pan** interactivity on plot [[#983](https://github.com/JetBrains/lets-plot/issues/983)],[[#1019](https://github.com/JetBrains/lets-plot/issues/1019)]
+- `ggtb()`: enable **zoom/pan** interactivity on plot [[#38](https://github.com/JetBrains/lets-plot-kotlin/issues/38)],[[#983](https://github.com/JetBrains/lets-plot/issues/983)],[[#1019](https://github.com/JetBrains/lets-plot/issues/1019)]
 
-  ToDo: See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-24g/interact_pan_zoom.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/interact_pan_zoom.ipynb).
 
 - Interactive **links** in tooltips/labels/texts [[#1091](https://github.com/JetBrains/lets-plot/issues/1091)].
 
-  ToDo: See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/lp_verse.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/lp_verse.ipynb).
 
-- ToDo: Formatting:
+- Formatting:
   - **LaTeX** support: superscript, subscript ([[#861](https://github.com/JetBrains/lets-plot/issues/861)]) and Greek letters ([[#960](https://github.com/JetBrains/lets-plot/issues/960)]).
 
     See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/latex_support.ipynb).
 
-  - Scientific notation: **compact form**. Enable the compact form using the  `exponent_format` parameter in `theme()` [[#1071](https://github.com/JetBrains/lets-plot/issues/1071)].
+  - Scientific notation: **compact form**. Enable the compact form using the  `exponentFormat` parameter in `theme()` [[#1071](https://github.com/JetBrains/lets-plot/issues/1071)].
 
     See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/superscript_exponent.ipynb).
 
-- ToDo: In `theme()`:
-  - `legend_margin, legend_spacing, legend_spacing_x, legend_spacing_y, legend_box, legend_box_just, legend_box_spacing` parameters [[#1180](https://github.com/JetBrains/lets-plot/issues/1180)].
+- In `theme()`:
+  - parameters `legendMargin, legendSpacing, legendSpacingX, legendSpacingY, legendBoxSpacing`,
+  
+    and functions `legendBoxHorizontal/Vertical(), legendBoxJustificationLeft/Right/Top/Bottom/Center()` [[#1180](https://github.com/JetBrains/lets-plot/issues/1180)].
 
-    ToDo: See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-24g/theme_legend_margins.ipynb).
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_legend_margins.ipynb).
 
-  - `legend_key, legend_key_size, legend_key_width, legend_key_height, legend_key_spacing, legend_key_spacing_x, legend_key_spacing_y` parameters  [[#1181](https://github.com/JetBrains/lets-plot/issues/1181)].
+  - parameters `legendKey, legendKeySize/Width/Height/Spacing/SpacingX/SpacingY`[[#1181](https://github.com/JetBrains/lets-plot/issues/1181)].
 
-    ToDo: See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-24g/theme_legend_key.ipynb).
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_legend_key.ipynb).
 
-  - `strip_background_x, strip_background_y, strip_text_x, strip_text_y` parameters [[#1195](https://github.com/JetBrains/lets-plot/issues/1195)].
+  - parameters `stripBackgroundX/Y, stripTextX/Y` [[#1195](https://github.com/JetBrains/lets-plot/issues/1195)].
 
-    ToDo: See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-24g/theme_facet_strip_xy.ipynb).
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_facet_strip_xy.ipynb).
 
 - Custom `linetype` patterns [[#1198](https://github.com/JetBrains/lets-plot/issues/1198)]:
   - a list specifying the pattern of dashes and gaps used to draw the line: `listOf(dash, gap, dash, gap, ...)`;
-    - a list with a specified offset: `listOf(offset, listOf(dash, gap, dash, gap, ...))`;
+  - a list with a specified offset: `listOf(offset, listOf(dash, gap, dash, gap, ...))`;
   - a string of an even number (up to eight) of hexadecimal digits specifying the lengths in consecutive positions in the string.
 
-  ToDo: See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-24g/linetype_custom.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/linetype_custom.ipynb).
 
 - Geometries:
   - `geomBlank()` [[#831](https://github.com/JetBrains/lets-plot/issues/831)].
 
-  - ToDo: `base` parameter in `waterfall_plot()` [[#1159](https://github.com/JetBrains/lets-plot/issues/1159)].
+  - ToDo: `base` parameter in `waterfallPlot()` [[#1159](https://github.com/JetBrains/lets-plot/issues/1159)].
 
     ToDo: See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-24g/waterfall_plot_base.ipynb).
 
@@ -67,7 +69,7 @@ This release is 100% compatible with Lets-Plot [v 4.5.1](https://github.com/JetB
 
 ### Changed
 
-- ToDo: Parameters `labwidth` in `facetWrap()`, `x_labwidth, y_labwidth` in `facet_grid()`: the maximum label length is applied after splitting at `\n` separators, if present.
+- Parameters `labwidth` in `facetWrap()`, `xLabwidth, yLabwidth` in `facetGrid()`: the maximum label length is applied after splitting at `\n` separators, if present.
 
 - `themeLight()` is now the default theme in `qqPlot()`.
 
