@@ -49,7 +49,7 @@ The numeric format strings are used to format common numeric types. The general 
   - `e` - exponent notation;
   - `f` - fixed point notation;
   - `g` - either decimal or exponent notation, rounded to significant digits;
-  - `s` - decimal notation with an SI prefix, rounded to significant digits;
+  - `s` - decimal notation followed by SI prefix symbol, rounded to significant digits;
   - `%` - multiply by 100, and then decimal notation with a percent sign;
   - `b` - binary notation, rounded to integer;
   - `o` - octal notation, rounded to integer;
@@ -58,7 +58,7 @@ The numeric format strings are used to format common numeric types. The general 
   - `X` - hexadecimal notation, using upper-case letters, rounded to integer;
   - `c` - simple toString.
 
-  The following SI prefixes are supported for `s` type:
+  The following prefix symbols are supported for `s` type:
 
   - `y` - yocto, 10⁻²⁴
   - `z` - zepto, 10⁻²¹
@@ -80,26 +80,26 @@ The numeric format strings are used to format common numeric types. The general 
 
 ### Number Format Examples
 
-Let's format the number `42`:
+Let's format the number `1024`:
 
 ```
-08d       -->  "00000042"
-_<8d      -->  "______42"
-_=8d      -->  "___42___"
-_=+8d     -->  "+_____42"
-_^11.0%   -->  "____42%____"
-_^11,.0%  -->  "__42,200%__"
-+08,d     -->  "+0,000,042"
-.1f       -->  "42.0"
-+.3f      -->  "+42.000"
-b         -->  "101010"
-#b        -->  "0b101010"
-o         -->  "52"
-e         -->  "4.200000e+1"
-~e        -->  "4.2e+1"
-s         -->  "42.0000"
-020,s     -->  "000,000,000,042.0000"
-020.0%    -->  "0000000000000004200%"
+010d      -->  "0000001024"
+_<10d     -->  "1024______"
+_=10d     -->  "______1024"
+_=+10d    -->  "+_____1024"
+_^11.0%   -->  "__102400%__"
+_^11,.0%  -->  "_102,400%__"
++010,d    -->  "+00,001,024"
+.1f       -->  "1024.0"
++.3f      -->  "+1024.000"
+b         -->  "10000000000"
+#b        -->  "0b10000000000"
+o         -->  "2000"
+e         -->  "1.024000e+3"
+~e        -->  "1.024e+3"
+s         -->  "1.02400k"
+020,s     -->  "0,000,000,001.02400k"
+020.0%    -->  "0000000000000102400%"
 ```
 
 Some other examples:
