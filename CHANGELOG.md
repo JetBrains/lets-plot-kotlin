@@ -679,7 +679,7 @@ This release is 100% compatible with [Lets-Plot v 4.3.1](https://github.com/JetB
 
 - `vjust` parameter in `positionStack()` and `positionFill()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/position_stack.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/03c5a54d8c667be733eec951e9c8364a547ee3e2/docs/examples/jupyter-notebooks/position_stack.ipynb).
 
 ### Changed
 
@@ -711,7 +711,7 @@ This release is 100% compatible with [Lets-Plot v 4.3.1](https://github.com/JetB
 
 - New theme: `themeBW()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/complete_themes.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/b526b48dbb57c968107aa6a6ac6f5cd2ca9bca58/docs/examples/jupyter-notebooks/complete_themes.ipynb).
 
 - Color schemes (flavors) applicable to existing themes:
   - `flavorDarcula()`
@@ -720,33 +720,33 @@ This release is 100% compatible with [Lets-Plot v 4.3.1](https://github.com/JetB
   - `flavorHighContrastLight()`
   - `flavorHighContrastDark()`
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/theme_flavors.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/b526b48dbb57c968107aa6a6ac6f5cd2ca9bca58/docs/examples/jupyter-notebooks/theme_flavors.ipynb).
 
 - Viridis color scales: `scaleColorViridis()`, `scaleFillViridis()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/colors_viridis.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/b526b48dbb57c968107aa6a6ac6f5cd2ca9bca58/docs/examples/jupyter-notebooks/colors_viridis.ipynb).
 
 - New parameters in theme's `elementText()`:
   - `size, family`
-    ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/font_size_and_family.ipynb))
+    ([example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/b526b48dbb57c968107aa6a6ac6f5cd2ca9bca58/docs/examples/jupyter-notebooks/font_size_and_family.ipynb))
   - `hjust, vjust` for plot title, subtitle, caption, legend and axis titles
-    ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/hjust_vjust.ipynb))
+    ([example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/b526b48dbb57c968107aa6a6ac6f5cd2ca9bca58/docs/examples/jupyter-notebooks/hjust_vjust.ipynb))
   - `margin` for plot title, subtitle, caption, axis titles and tick labels
-    ([example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/text_margins.ipynb))
+    ([example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/b526b48dbb57c968107aa6a6ac6f5cd2ca9bca58/docs/examples/jupyter-notebooks/text_margins.ipynb))
 
 - Parameter `whiskerWidth` in `geomBoxplot()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/boxplot_whisker_width.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/b526b48dbb57c968107aa6a6ac6f5cd2ca9bca58/docs/examples/jupyter-notebooks/boxplot_whisker_width.ipynb).
 
 - New geometry `geomLabel()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_label.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/b526b48dbb57c968107aa6a6ac6f5cd2ca9bca58/docs/examples/jupyter-notebooks/geom_label.ipynb).
 
 ### Changed
 
 - New tooltip style after applying `coordFlip()`  [[#580](https://github.com/JetBrains/lets-plot/issues/580)].
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/b526b48dbb57c968107aa6a6ac6f5cd2ca9bca58/docs/examples/jupyter-notebooks/coord_flip.ipynb).
 
 ### Fixed
 
@@ -827,15 +827,15 @@ the Lets-Plot Kotlin API.
     - `statQQ2Line()`
   - quick Q-Q: `qqPlot()`
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/qq_plots.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/3754904cd622548cebc8023fc773c4cd7c49b281/docs/examples/jupyter-notebooks/qq_plots.ipynb).
 
 - Marginal plots: the `ggmarginal()` function.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/marginal_layers.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/3754904cd622548cebc8023fc773c4cd7c49b281/docs/examples/jupyter-notebooks/marginal_layers.ipynb).
 
 - Parameter `orientation` in geoms: `bar, boxplot, density, histogram, freqpoly, smooth, violin`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/y_orientation.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/3754904cd622548cebc8023fc773c4cd7c49b281/docs/examples/jupyter-notebooks/y_orientation.ipynb).
 
 - New in *plot theme*:
   - `face` parameter in `elementText()`.
@@ -851,7 +851,7 @@ the Lets-Plot Kotlin API.
     - `tooltipText, tooltipTitleText` - tooltip text options;
     - `axisTooltipText, axisTooltipTextX, axisTooltipTextY` - axis tooltip text options.
 
-    See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltips_theme.ipynb).
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/3754904cd622548cebc8023fc773c4cd7c49b281/docs/examples/jupyter-notebooks/tooltips_theme.ipynb).
 
 - `scaleColorGradientN()` and `scaleFillGradientN()` functions [[#504](https://github.com/JetBrains/lets-plot/issues/504)].
 
@@ -885,15 +885,15 @@ the Lets-Plot Kotlin API.
 - New geometries:
   - `geomViolin()`
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_violin.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/2be6958d014258555060bea8c74aa3b149fda72d/docs/examples/jupyter-notebooks/geom_violin.ipynb).
 
   - `geomDotplot()`
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_dotplot.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/2be6958d014258555060bea8c74aa3b149fda72d/docs/examples/jupyter-notebooks/geom_dotplot.ipynb).
 
   - `geomYDotplot()`
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/2be6958d014258555060bea8c74aa3b149fda72d/docs/examples/jupyter-notebooks/geom_ydotplot.ipynb).
 
 
 - Plot subtitle and caption:
@@ -901,18 +901,18 @@ the Lets-Plot Kotlin API.
   `caption` parameter in `labs()`,
   `plotSubtitle` and `plotCaption` parameters in `theme()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/2be6958d014258555060bea8c74aa3b149fda72d/docs/examples/jupyter-notebooks/title_subtitle_caption.ipynb).
 
 - Multi-line labels: The 'newline' character (`\n`) now works as `line break` in plot title, subtitle and caption, in legend's title and in tooltips.
 
 - In tooltip customization API: the `title()` option defines a tooltip "title" text which will always appear above the rest of the tooltip content.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_title.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/2be6958d014258555060bea8c74aa3b149fda72d/docs/examples/jupyter-notebooks/tooltip_title.ipynb).
 
 - Parameter `scales` in `facetGrid()/facetWrap()` [[#451](https://github.com/JetBrains/lets-plot/issues/451),
   [#479](https://github.com/JetBrains/lets-plot/issues/479)].
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets_free_scales.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/2be6958d014258555060bea8c74aa3b149fda72d/docs/examples/jupyter-notebooks/facets_free_scales.ipynb).
 
 
 ### Changed
@@ -939,7 +939,7 @@ the Lets-Plot Kotlin API.
 
 - `scaleXTime()` and `scaleYTime()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/scale_time.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/a5047caf0f7affa5df2a4f195ced6d9bc6102e74/docs/examples/jupyter-notebooks/scale_time.ipynb).
 
 - `plotBackground, legendBackground` parameters in `theme()` [[#485](https://github.com/JetBrains/lets-plot/issues/485)].
 - `axisOntop, axisOntopX, axisOntopY` parameters in `theme()`
@@ -962,7 +962,7 @@ the Lets-Plot Kotlin API.
 
 - `coordFlip()`.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/coord_flip.ipynb)
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/6e84077ede25219397c9b3e6aef63763a52b07ee/docs/examples/jupyter-notebooks/coord_flip.ipynb)
   .
 
 - Date-time formatting support:
@@ -970,7 +970,7 @@ the Lets-Plot Kotlin API.
   - date/time scales apply date-time formatting to the `breaks`.
 
   See `Out[7, 8, 10]` in
-  the [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+  the [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/6e84077ede25219397c9b3e6aef63763a52b07ee/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
   .
 
 - Pre-configured themes:
@@ -979,7 +979,7 @@ the Lets-Plot Kotlin API.
 
 - Theme modification: more parameters were added to the `theme()` function.
 
-  See: [example notebook](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/themes.ipynb).
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/6e84077ede25219397c9b3e6aef63763a52b07ee/docs/examples/jupyter-notebooks/themes.ipynb).
 
 > Note: fonts size, family and face still can not be configured.
 
@@ -1116,7 +1116,7 @@ the Lets-Plot Kotlin API.
   - Ascending/descending ordering of faceting values.
   - Formatting of faceting values.
 
-  See: [Facets demo](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/facets.ipynb)
+  See: [Facets demo](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/4b8eca44cf9533b9e9e2114fe2f332f909459b2e/docs/examples/jupyter-notebooks/facets.ipynb)
 
 - The `format` parameter in positional scales: formatting tick labels on X/Y axis. Supported types are `number`
   and `date/time`.
@@ -1127,7 +1127,7 @@ the Lets-Plot Kotlin API.
    scale_x_continuous(format="is {.2f}")
    ```
 
-  Demo: [Formatting demo](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
+  Demo: [Formatting demo](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/4b8eca44cf9533b9e9e2114fe2f332f909459b2e/docs/examples/jupyter-notebooks/formatting_axes_etc.ipynb)
 
   See also: [Formatting](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/formats.md)
 
@@ -1165,17 +1165,17 @@ See the Lets-Plot [CHANGELOG.md](https://github.com/JetBrains/lets-plot/blob/mas
 
 - Correlation plot builder.
 
-  Example: [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+  Example: [correlation_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/1ed0ba7a2ed7f458a8a24c1ccee729c7d1b77449/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
 
 - The `gggrid()` plot layout utility
 
-  Example: [correlation_plot.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
+  Example: [correlation_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/1ed0ba7a2ed7f458a8a24c1ccee729c7d1b77449/docs/examples/jupyter-notebooks/correlation_plot.ipynb)
 
 - In tooltip customization API:
     - options: `center` and `middle` (anchor).
     - option 'minWidth'.
 
-  Example: [tooltip_config.ipynb](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
+  Example: [tooltip_config.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/1ed0ba7a2ed7f458a8a24c1ccee729c7d1b77449/docs/examples/jupyter-notebooks/tooltip_config.ipynb)
 
 - The `naText` parameter in `geom_text()`
 
