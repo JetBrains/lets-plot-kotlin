@@ -14,7 +14,7 @@
      
 * Lets-Plot Kotlin API reference: https://lets-plot.org/kotlin
 
-* The "Example Notebooks" reference: [examples.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/examples.md)
+* The "Example Notebooks" reference: [kotlin_examples/](https://nbviewer.org/github/JetBrains/lets-plot-docs/tree/master/source/kotlin_examples/)
 
 * Example notebooks in the Binder: [mybinder.org](https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/HEAD?labpath=docs%2Fexamples%2Fjupyter-notebooks)
 
@@ -78,7 +78,7 @@ ggsave(p, "density.png")
 See `ggsave()` [documentation](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.export/ggsave.html)
 for more information about the function arguments and default values.
         
-Example notebook: [ggsave demo](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/export_to_file.ipynb).
+Example notebook: [ggsave demo](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/export_to_file.ipynb).
 
 <a id="geotools"></a>
 ### GeoTools support
