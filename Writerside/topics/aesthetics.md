@@ -42,8 +42,8 @@ Colors and fills of geometries can be specified in the following ways:
 
 Ways to specify the `linetype`:
 
-- list, defining the pattern of dashes and gaps used to draw the line: `[dash, gap, ...]`;
-- list with specified offset: `[offset, [dash, gap, ...]]`;
+- list, defining the pattern of dashes and gaps used to draw the line: `listOf(dash, gap, ...)`;
+- pair of offset and pattern: `offset to listOf(dash, gap, ...)`;
 - string of an even number (up to eight) of hexadecimal digits which give the lengths in consecutive positions in the string.
 
 ![Custom line types](aesthetics_custom_linetype.png)
