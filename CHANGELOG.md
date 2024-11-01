@@ -13,7 +13,7 @@ This release is 100% compatible with Lets-Plot [v 4.5.1](https://github.com/JetB
 
 - `ggtb()`: enable **zoom/pan** interactivity on plot [[#38](https://github.com/JetBrains/lets-plot-kotlin/issues/38)],[[#983](https://github.com/JetBrains/lets-plot/issues/983)],[[#1019](https://github.com/JetBrains/lets-plot/issues/1019)]
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//interact_pan_zoom.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/interact_pan_zoom.ipynb).
 
 - Interactive **links** in tooltips/labels/texts [[#1091](https://github.com/JetBrains/lets-plot/issues/1091)].
 
@@ -59,17 +59,17 @@ This release is 100% compatible with Lets-Plot [v 4.5.1](https://github.com/JetB
 
   - `checkOverlap` parameter in `geomText()` and `geomLabel()`.
 
-    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//check_overlap.ipynb).
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/check_overlap.ipynb).
 
   - `marginal` parameter in `qqPlot()`:
 
-    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//qq_plot_marginal.ipynb).
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/qq_plot_marginal.ipynb).
 
   - `inheritAes` parameter in layers [[#1172](https://github.com/JetBrains/lets-plot/issues/1172)].
 
 - `expandLimits()` [[#820](https://github.com/JetBrains/lets-plot/issues/820)].
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//check_overlap.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/check_overlap.ipynb).
 
 - Support for 3-character hex color codes
 

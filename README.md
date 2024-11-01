@@ -139,34 +139,34 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 - #### Panning and Zooming
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/ggtb.png" alt="f-24g/images/ggtb.png" width="300" height="134">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//interact_pan_zoom.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/interact_pan_zoom.ipynb).
 
 - #### Clickable Links
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/lp_verse.png" alt="f-24g/images/lp_verse.png" width="400" height="270">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//interactive_links.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/interactive_links.ipynb).
 
 - #### LaTeX Support: Subscript, Superscript, Greek Letters and Special Characters
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/latex.png" alt="f-24g/images/latex.png" width="300" height="227">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//latex_support.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/latex_support.ipynb).
 
 - #### Compact Scientific Notation Formatting
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/compact_exp.png" alt="f-24g/images/compact_exp.png" width="400" height="174">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//superscript_exponent.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/superscript_exponent.ipynb).
 
 - #### QQ-Plot: Marginal Distributions
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/gg_marins.png" alt="f-24g/images/gg_marins.png" width="400" height="249">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//qq_plot_marginal.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/qq_plot_marginal.ipynb).
 
 - #### More Theme Settings
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/theme_legend_scheme.png" alt="f-24g/images/theme_legend_scheme.png" width="400" height="320">
 
-  See examples: [legend margins](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//theme_legend_margins.ipynb),
-  [legend key](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//theme_legend_key.ipynb),
-  [facet strip](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0//theme_facet_strip_xy.ipynb).
+  See examples: [legend margins](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_legend_margins.ipynb),
+  [legend key](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_legend_key.ipynb),
+  [facet strip](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_facet_strip_xy.ipynb).
 
 
 - #### And More
