@@ -2,6 +2,11 @@
 
 <list columns="3">
     <li>
+        <a href="%nb-interact_pan_zoom%">
+            <img alt="Zoom and Pan interactivity" src="square-interact_pan_zoom.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-lp_verse%">
             <img alt="The observable LP-verse" src="square-lp_verse.png"/>
         </a>

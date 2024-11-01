@@ -1,5 +1,15 @@
 # Miscellaneous
 
+## Panning and Zooming
+
+Use the [`ggtb`](%api_interact%/ggtb.html) function to enable ``Pan`` and ``Zoom`` interactivity on a chart.
+
+This function adds a toolbar containing three tool-buttons: pan, rubber-band zoom, and center-point zoom.
+
+See: [interact_pan_zoom.ipynb](%nb-interact_pan_zoom%)
+
+<img src="interact_pan_zoom.png" alt="Zoom and Pan interactivity" width="480"/>
+
 ## Extended Text Markup
 
 In tooltips/labels/texts and wherever else there is text, you can use:

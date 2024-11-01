@@ -12,8 +12,9 @@
     <var name="api_bistro" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.bistro"/>
     <var name="api_coord" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.coord"/>
     <var name="api_export" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.export"/>
-    <var name="api_geom" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.geom"/>
     <var name="api_facet" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.facet"/>
+    <var name="api_geom" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.geom"/>
+    <var name="api_interact" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.interact"/>
     <var name="api_label" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.label"/>
     <var name="api_position" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.pos"/>
     <var name="api_scale" value="%api_reference%/-lets--plot--kotlin/org.jetbrains.letsPlot.scale"/>
@@ -31,6 +32,7 @@
     <var name="nbp-annotations" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/mynA4kNRFpu3XYl2b7tlBd"/>
     <!-- Gallery -->
     <var name="nb-geotools_naturalearth" value="%nbviewer_demo%/geotools_naturalearth.ipynb"/>
+    <var name="nb-interact_pan_zoom" value="%nbviewer_demo%/interact_pan_zoom.ipynb"/>
     <var name="nb-lp_verse" value="%nbviewer_demo%/lp_verse.ipynb"/>
     <var name="nb-mpg_daisy" value="%nbviewer_demo%/mpg_daisy.ipynb"/>
     <var name="nb-palmer_penguins" value="%nbviewer_demo%/palmer_penguins.ipynb"/>
