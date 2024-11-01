@@ -69,7 +69,7 @@ This release is 100% compatible with Lets-Plot [v 4.5.1](https://github.com/JetB
 
 - `expandLimits()` [[#820](https://github.com/JetBrains/lets-plot/issues/820)].
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/check_overlap.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/expand_limits.ipynb).
 
 - Support for 3-character hex color codes
 
