@@ -100,12 +100,12 @@ magic to avoid possible compatibility issues.
 
 ```
 %use lets-plot
-%use lets-plot-gt(gt=22.5)
+%use lets-plot-gt(gt=31)
 ```
 
 ```
-@file:DependsOn("org.geotools:gt-shapefile:22.5")
-@file:DependsOn("org.geotools:gt-cql:22.5")
+@file:DependsOn("org.geotools:gt-shapefile:31")
+@file:DependsOn("org.geotools:gt-cql:31")
 ```
 
 ### Example Notebooks

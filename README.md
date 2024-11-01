@@ -67,7 +67,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
   - [Compose Multiplatform](#in-compose-multiplatform)
   - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-- [What is new in 4.8.0](#new)
+- [What is new in 4.9.0](#new)
 - [Recent Updates in the Gallery](#recent_gallery_updates)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
@@ -103,7 +103,7 @@ In this case the latest `library descriptor` will be pulled from the [Kotlin Jup
 #### Library Descriptor Parameters
 
 ```
-%use lets-plot(api=4.8.0, lib=4.4.1, js=4.4.1, isolatedFrame=false)
+%use lets-plot(api=4.9.0, lib=4.5.1, js=4.5.1, isolatedFrame=false)
 ```                                                                 
 - `api` - version of the Lets-Plot Kotlin API.
 - `lib` - version of the Lets-Plot Multiplatform (JARs).
@@ -134,30 +134,39 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 
 
 <a id="new"></a>
-## What is new in 4.8.0
+## What is new in 4.9.0
 
-- #### Waterfall Plot
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24e/images/waterfall.png" alt="f-24e/images/waterfall.png" width="460" height="220">
+- #### Panning and Zooming
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/ggtb.png" alt="f-24g/images/ggtb.png" width="300" height="134">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/waterfall_plot.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/interact_pan_zoom.ipynb).
 
-- #### **`geomBand()`**:
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24e/images/geom_band.png" alt="f-24e/images/geom_band.png.png" width="615" height="220">
+- #### Clickable Links
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/lp_verse.png" alt="f-24g/images/lp_verse.png" width="400" height="270">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/geom_band.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/interactive_links.ipynb).
 
-- #### Custom Legends
-  - `manualKey` parameter in plot layer
-  - `layerKey()` function
-    <br>
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24e/images/custom_legend.png" alt="f-24e/images/custom_legend.png.png" width="294" height="147">
+- #### LaTeX Support: Subscript, Superscript, Greek Letters and Special Characters
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/latex.png" alt="f-24g/images/latex.png" width="300" height="227">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/manual_legend.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/latex_support.ipynb).
 
-- #### Customizing Legends Appearance
-  Override aesthetics in the `guideLegend()` function.
+- #### Compact Scientific Notation Formatting
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/compact_exp.png" alt="f-24g/images/compact_exp.png" width="400" height="174">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.8.0/legend_override_aes.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/superscript_exponent.ipynb).
+
+- #### QQ-Plot: Marginal Distributions
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/gg_marins.png" alt="f-24g/images/gg_marins.png" width="400" height="249">
+
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/qq_plot_marginal.ipynb).
+
+- #### More Theme Settings
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/theme_legend_scheme.png" alt="f-24g/images/theme_legend_scheme.png" width="400" height="320">
+
+  See examples: [legend margins](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_legend_margins.ipynb),
+  [legend key](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_legend_key.ipynb),
+  [facet strip](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_facet_strip_xy.ipynb).
 
 
 - #### And More
