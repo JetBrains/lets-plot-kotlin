@@ -46,9 +46,9 @@ This release is 100% compatible with Lets-Plot [v 4.5.1](https://github.com/JetB
 - Geometries:
   - `geomBlank()` [[#831](https://github.com/JetBrains/lets-plot/issues/831)].
 
-  - ToDo: `base` parameter in `waterfallPlot()` [[#1159](https://github.com/JetBrains/lets-plot/issues/1159)].
+  - `base` parameter in `waterfallPlot()` [[#1159](https://github.com/JetBrains/lets-plot/issues/1159)].
 
-    ToDo: See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-24g/waterfall_plot_base.ipynb).
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/waterfall_plot_base.ipynb).
 
   - `checkOverlap` parameter in `geomText()` and `geomLabel()`.
 

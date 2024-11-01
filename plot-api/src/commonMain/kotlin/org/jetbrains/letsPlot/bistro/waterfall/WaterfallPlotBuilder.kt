@@ -21,6 +21,7 @@ internal class WaterfallPlotBuilder(
     private val showLegend: Boolean?,
     private val relativeTooltips: Any?,
     private val absoluteTooltips: Any?,
+    private val base: Number?,
     private val calcTotal: Boolean?,
     private val totalTitle: String?,
     private val sortedValue: Boolean?,
@@ -56,6 +57,7 @@ internal class WaterfallPlotBuilder(
                     is TooltipOptions -> absoluteTooltips.options
                     else -> absoluteTooltips
                 },
+                Waterfall.BASE to base,
                 Waterfall.CALCULATE_TOTAL to calcTotal,
                 Waterfall.TOTAL_TITLE to totalTitle,
                 Waterfall.SORTED_VALUE to sortedValue,
