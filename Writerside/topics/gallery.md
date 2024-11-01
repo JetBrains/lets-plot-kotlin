@@ -2,6 +2,11 @@
 
 <list columns="3">
     <li>
+        <a href="%nb-legend_theme%">
+            <img alt="Customize legend appearance" src="square-legend_theme.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-interact_pan_zoom%">
             <img alt="Zoom and Pan interactivity" src="square-interact_pan_zoom.png"/>
         </a>

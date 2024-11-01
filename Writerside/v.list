@@ -33,6 +33,7 @@
     <!-- Gallery -->
     <var name="nb-geotools_naturalearth" value="%nbviewer_demo%/geotools_naturalearth.ipynb"/>
     <var name="nb-interact_pan_zoom" value="%nbviewer_demo%/interact_pan_zoom.ipynb"/>
+    <var name="nb-legend_theme" value="%nbviewer_cookbook%/legend_theme.ipynb"/>
     <var name="nb-lp_verse" value="%nbviewer_demo%/lp_verse.ipynb"/>
     <var name="nb-mpg_daisy" value="%nbviewer_demo%/mpg_daisy.ipynb"/>
     <var name="nb-palmer_penguins" value="%nbviewer_demo%/palmer_penguins.ipynb"/>
