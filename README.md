@@ -144,7 +144,7 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 - #### Clickable Links
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/lp_verse.png" alt="f-24g/images/lp_verse.png" width="400" height="270">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/interactive_links.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/lp_verse.ipynb).
 
 - #### LaTeX Support: Subscript, Superscript, Greek Letters and Special Characters
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/latex.png" alt="f-24g/images/latex.png" width="300" height="227">
