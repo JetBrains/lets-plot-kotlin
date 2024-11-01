@@ -34,7 +34,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  *
  * ## Examples
  *
- * ToDo
+ * - [interact_pan_zoom.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/interact_pan_zoom.ipynb)
  *
  * @return OptionsMap - toolbar feature specification.
  */
