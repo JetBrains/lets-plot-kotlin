@@ -62,6 +62,8 @@ package org.jetbrains.letsPlot.bistro.waterfall
  *  Specifies appearance, style and content.
  *  When "none", tooltips are not shown.
  *  When "detailed", a more detailed (compared to the default) version of the tooltips is shown.
+ * @param base default = 0.0.
+ *  Values with measure "absolute" or "total" are relative to this value.
  * @param sortedValue default = false.
  *  Sorts categories by absolute value of the changes.
  * @param threshold Groups all categories under a certain threshold value into "Other" category.
@@ -109,6 +111,7 @@ fun waterfallPlot(
     showLegend: Boolean? = null,
     relativeTooltips: Any? = null,
     absoluteTooltips: Any? = null,
+    base: Number? = null,
     calcTotal: Boolean? = null,
     totalTitle: String? = null,
     sortedValue: Boolean? = null,
@@ -134,6 +137,7 @@ fun waterfallPlot(
     showLegend = showLegend,
     relativeTooltips = relativeTooltips,
     absoluteTooltips = absoluteTooltips,
+    base = base,
     calcTotal = calcTotal,
     totalTitle = totalTitle,
     sortedValue = sortedValue,
