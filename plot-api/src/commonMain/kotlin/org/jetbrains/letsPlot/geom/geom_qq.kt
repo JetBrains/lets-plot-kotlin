@@ -38,6 +38,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..theoretical.. : theoretical quantiles.
  * - ..sample.. : sample quantiles.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [qq_plots.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/qq_plots.ipynb)
@@ -57,8 +60,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
- * @param tooltips Result of the call to the layerTooltips() function.
+ * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param distribution default = "norm".
  *  Distribution function to use: "norm", "uniform", "t", "gamma", "exp", "chi2".
  * @param dParams Additional parameters passed on to distribution function.

@@ -32,6 +32,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - ..count.. : number of points with coordinates in the same bin.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [density_2d.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/density_2d.ipynb)
@@ -51,7 +54,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
- * @param tooltips Result of the call to the `layerTooltips()` function. Specifies appearance, style and content.
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param bins default = Pair(30, 30).
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binwidth`.
  * @param binWidth The width of the bins in both directions, vertical and horizontal. Overrides `bins`.

@@ -29,6 +29,9 @@ import org.jetbrains.letsPlot.pos.positionDodge
  * - ..ymin.. : lower whisker = smallest observation greater than or equal to lower hinge - 1.5 * IQR.
  * - ..ymax.. : upper whisker = largest observation less than or equal to upper hinge + 1.5 * IQR.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * @param data The data to be displayed. If null, the default, the data is inherited
  *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the boxplot stat for this layer, default is `Geom.boxplot()`,

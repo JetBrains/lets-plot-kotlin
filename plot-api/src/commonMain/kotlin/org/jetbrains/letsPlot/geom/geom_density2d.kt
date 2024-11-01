@@ -33,6 +33,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..group.. : number of density estimate contour line.
  * - ..level.. : calculated value of the density estimate for given contour line.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [density_2d.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/density_2d.ipynb)
@@ -54,6 +57,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param kernel The kernel used to calculate the density function. Choose among "gaussian", "cosine", "optcosine",
  *  "rectangular" (or "uniform"), "triangular", "biweight" (or "quartic"), "epanechikov" (or "parabolic").
  * @param bw The method (or exact value) of bandwidth. Either a String (choose among "nrd0" and "nrd"),

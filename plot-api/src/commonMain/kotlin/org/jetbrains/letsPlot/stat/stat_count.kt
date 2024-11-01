@@ -34,6 +34,9 @@ import org.jetbrains.letsPlot.pos.positionStack
  * - ..sumprop.. : proportion of points with same x-axis coordinate among all points in the dataset.
  * - ..sumpct.. : proportion of points with same x-axis coordinate among all points in the dataset in percent.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the count stat for this layer, default is `Geom.bar()`,

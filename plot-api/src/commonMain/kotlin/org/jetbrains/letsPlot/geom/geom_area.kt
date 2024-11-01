@@ -24,6 +24,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays the development of quantitative values over an interval. This is the continuous analog of `geomBar()`.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [marginal_layers.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/marginal_layers.ipynb)
@@ -47,6 +52,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param flat default = false.
  *  true - keeps a line straight (corresponding to a loxodrome in case of Mercator projection).
  *  false - allows a line to be reprojected, so it can become a curve.

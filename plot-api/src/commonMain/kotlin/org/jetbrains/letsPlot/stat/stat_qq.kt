@@ -31,6 +31,9 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * - ..theoretical.. : theoretical quantiles.
  * - ..sample.. : sample quantiles.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the Q-Q stat for this layer, default is `Geom.qq()`,

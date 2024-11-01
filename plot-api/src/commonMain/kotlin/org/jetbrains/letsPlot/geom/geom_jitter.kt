@@ -26,6 +26,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays jittered points, especially for discrete plots or dense plots.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [jittered_points.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/jittered_points.ipynb)
@@ -47,6 +52,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param seed A random seed to make the jitter reproducible.
  *  If null (the default value), the seed is initialised with a random value.
  * @param width Width for jitter, default = 0.4. Typically ranges between 0 and 0.5. 

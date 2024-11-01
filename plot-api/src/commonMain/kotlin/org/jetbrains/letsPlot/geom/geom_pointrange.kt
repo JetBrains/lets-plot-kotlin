@@ -27,6 +27,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * or a horizontal interval, defined by `y`, `xmin`, `xmax`.
  * The mid-point is defined by `y` or `x`, respectively.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)
@@ -50,6 +55,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param fatten default = 5.0.
  *  A multiplicative factor applied to size of the middle point.
  * @param x X-axis coordinates for vertical interval / position of mid-point for horizontal interval.

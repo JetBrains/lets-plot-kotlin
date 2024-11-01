@@ -2,6 +2,26 @@
 
 <list columns="3">
     <li>
+        <a href="%nb-legend_theme%">
+            <img alt="Customize legend appearance" src="square-legend_theme.png"/>
+        </a>
+    </li>
+    <li>
+        <a href="%nb-interact_pan_zoom%">
+            <img alt="Zoom and Pan interactivity" src="square-interact_pan_zoom.png"/>
+        </a>
+    </li>
+    <li>
+        <a href="%nb-lp_verse%">
+            <img alt="The observable LP-verse" src="square-lp_verse.png"/>
+        </a>
+    </li>
+    <li>
+        <a href="%nb-sunshine_hours%">
+            <img alt="Sunshine hours" src="square-sunshine_hours.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-us_unemployment%">
             <img alt="Unemployment in the US since 1967" src="square-us_unemployment.png"/>
         </a>

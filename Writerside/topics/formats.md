@@ -49,7 +49,7 @@ The numeric format strings are used to format common numeric types. The general 
   - `e` - exponent notation;
   - `f` - fixed point notation;
   - `g` - either decimal or exponent notation, rounded to significant digits;
-  - `s` - decimal notation with an SI prefix, rounded to significant digits;
+  - `s` - decimal notation followed by SI prefix symbol, rounded to significant digits;
   - `%` - multiply by 100, and then decimal notation with a percent sign;
   - `b` - binary notation, rounded to integer;
   - `o` - octal notation, rounded to integer;
@@ -58,7 +58,7 @@ The numeric format strings are used to format common numeric types. The general 
   - `X` - hexadecimal notation, using upper-case letters, rounded to integer;
   - `c` - simple toString.
 
-  The following SI prefixes are supported for `s` type:
+  The following prefix symbols are supported for `s` type:
 
   - `y` - yocto, 10⁻²⁴
   - `z` - zepto, 10⁻²¹
@@ -80,26 +80,26 @@ The numeric format strings are used to format common numeric types. The general 
 
 ### Number Format Examples
 
-Let's format the number `42`:
+Let's format the number `1024`:
 
 ```
-08d       -->  "00000042"
-_<8d      -->  "______42"
-_=8d      -->  "___42___"
-_=+8d     -->  "+_____42"
-_^11.0%   -->  "____42%____"
-_^11,.0%  -->  "__42,200%__"
-+08,d     -->  "+0,000,042"
-.1f       -->  "42.0"
-+.3f      -->  "+42.000"
-b         -->  "101010"
-#b        -->  "0b101010"
-o         -->  "52"
-e         -->  "4.200000e+1"
-~e        -->  "4.2e+1"
-s         -->  "42.0000"
-020,s     -->  "000,000,000,042.0000"
-020.0%    -->  "0000000000000004200%"
+010d      -->  "0000001024"
+_<10d     -->  "1024______"
+_=10d     -->  "______1024"
+_=+10d    -->  "+_____1024"
+_^11.0%   -->  "__102400%__"
+_^11,.0%  -->  "_102,400%__"
++010,d    -->  "+00,001,024"
+.1f       -->  "1024.0"
++.3f      -->  "+1024.000"
+b         -->  "10000000000"
+#b        -->  "0b10000000000"
+o         -->  "2000"
+e         -->  "1.024000e+3"
+~e        -->  "1.024e+3"
+s         -->  "1.02400k"
+020,s     -->  "0,000,000,001.02400k"
+020.0%    -->  "0000000000000102400%"
 ```
 
 Some other examples:
@@ -187,31 +187,27 @@ Let's apply the format string to the date `Aug 6, 2019` and the time `4:46:35`:
 
 ## Exponent Format
 
-The format of numbers in scientific notation can be further customised using the [`theme()`](%api_theme%/theme/index.html) parameter `exponentFormat`.
+The appearance of numbers in scientific notation can be further customized using the `exponentFormat` parameter of the [`theme()`](%api_theme%/theme/index.html) function:
 
-### "e" notation
+- Scientific notation is used for numbers formatted with the `e` or `g` types.
 
-```kotlin
-letsPlot() +
-    geomLabel(x = 0,
-              label = 10.0.pow(12).toString(),
-              labelFormat = ".2~e", size = 15) +
-    theme(exponentFormat = "e")
-```
+- The `exponentFormat` parameter can take a string value:
 
-<img src="exponent_format_e.png" width="480" alt="e"/>
+  - `"e"` for e-notation (e.g. 1e+6);
+  - `"pow_full"` for power-notation (e.g. ${ 1 \cdot 10^6 }$). This will enable superscript formatting for the exponent;
+  - `"pow"` works as `"pow_full"` but will shorten powers of 10 (e.g. $10^6$ instead of ${ 1 \cdot 10^6 }$).
 
-### "pow" notation
+- Additionally, the `exponentFormat` parameter can be a tuple with three elements, where:
 
-```kotlin
-letsPlot() +
-    geomLabel(x = 0,
-              label = 10.0.pow(12).toString(),
-              labelFormat = ".2~e", size = 15) +
-    theme(exponentFormat = "pow")
-```
+  - the first value specifies the appearance (`"e"`/`"pow"`/`"pow_full"`);
+  - the second value sets the minimum exponent at which scientific notation starts being used (-7 by default);
+  - the third value sets the maximum exponent at which scientific notation starts being used (6 by default).
 
-<img src="exponent_format_pow.png" width="480" alt="e"/>
+  This only makes sense when the `g` type formatting is applied.
+
+It can be summarized in the following table:
+
+![Scientific notation table](formats_scientific_notation_table.png)
 
 ## Tooltip Customization
 
