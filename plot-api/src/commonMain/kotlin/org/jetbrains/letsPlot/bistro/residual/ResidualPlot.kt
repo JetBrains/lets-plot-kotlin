@@ -9,6 +9,11 @@ package org.jetbrains.letsPlot.bistro.residual
 /**
  * Produces a residual plot that shows the difference between the observed response and the fitted response values.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [residual_plot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/residual_plot.ipynb)

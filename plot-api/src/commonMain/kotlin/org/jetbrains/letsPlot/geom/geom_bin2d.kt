@@ -32,6 +32,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - ..count.. : number of points with coordinates in the same bin.
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [density_2d.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/density_2d.ipynb)
@@ -51,7 +54,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
- * @param tooltips Result of the call to the `layerTooltips()` function. Specifies appearance, style and content.
+ * @param tooltips Result of the call to the `layerTooltips()` function.
+ *  Specifies appearance, style and content.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param bins default = Pair(30, 30).
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binwidth`.
  * @param binWidth The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
@@ -69,7 +74,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param linetype Type of the line.
- *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Line width, default = 0 (i.e. tiles outline initially is not visible).
  * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.

@@ -8,7 +8,10 @@
 
 - remove _"-SNAPSHOT"_ qualifier (the 'version' property in the root 'build.gradle.kts').
 
-> Also, update the artifacts' version in [README.md](../README.md), [USAGE_BATIK_JFX_JS.md](../USAGE_BATIK_JFX_JS.md) and [geospatial-charts.html](../Writerside/topics/geospatial_charts.md).
+> Update the artifact version in 
+>  - [README.md](../README.md)
+>  - [USAGE_BATIK_JFX_JS.md](../USAGE_BATIK_JFX_JS.md)
+>  - [geospatial-charts.md](../Writerside/topics/geospatial_charts.md).
 
 ##### 3. Build and release artifacts to Sonatype repository / Maven Central
 

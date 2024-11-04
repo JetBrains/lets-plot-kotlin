@@ -12,6 +12,11 @@ package org.jetbrains.letsPlot.bistro.qq
  * ('normal' or as otherwise specified by the `distribution` parameter).
  * Alternatively, supply `x` and `y` parameters to compare the distribution of `x` with the distribution of `y`.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [qq_plots.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/qq_plots.ipynb)
@@ -42,6 +47,24 @@ package org.jetbrains.letsPlot.bistro.qq
  *  If it is specified and color-parameters isn't then different groups will have different colors.
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
+ * @param marginal default = "dens:tr".
+ *  Description of marginal layers packed to string value.
+ *  Different marginals are separated by the ',' char.
+ *  Parameters of a marginal are separated by the ':' char.
+ *
+ *  First parameter of a marginal is a geometry name.
+ *  Possible values: "dens"/"density", "hist"/"histogram", "box"/"boxplot".
+ *
+ *  Second parameter is a string specifying which sides of the plot the marginal layer will appear on.
+ *  Possible values: 't' (top), 'b' (bottom), 'l' (left), 'r' (right).
+ *
+ *  Third parameter (optional) is size of marginal.
+ *  To suppress marginals use `marginal="none"`.
+ *
+ *  Examples:
+ *  - "hist:tr:0.3",
+ *  - "dens:tr,hist:bl",
+ *  - "box:tr:.05, hist:bl, dens:bl".
  * @param color Color of a points.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fill Color to paint shape's inner points.
@@ -56,10 +79,12 @@ package org.jetbrains.letsPlot.bistro.qq
  *  Color of the fitting line.
  * @param lineSize default = 0.75.
  *  Width of the fitting line.
- * @param linetype Int or String.
+ * @param linetype Int or String or List or Pair.
  *  Type of the fitting line.
- *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *  5 = "longdash", 6 = "twodash".
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
+ *
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  */
 fun qqPlot(
@@ -72,6 +97,7 @@ fun qqPlot(
     quantiles: Pair<Number, Number>? = null,
     group: String? = null,
     showLegend: Boolean = true,
+    marginal: String? = null,
     color: String? = null,
     fill: String? = null,
     alpha: Number? = null,
@@ -90,6 +116,7 @@ fun qqPlot(
         quantiles,
         group,
         showLegend,
+        marginal,
         color,
         fill,
         alpha,

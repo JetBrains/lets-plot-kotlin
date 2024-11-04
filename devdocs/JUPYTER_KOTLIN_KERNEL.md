@@ -27,10 +27,10 @@ a) After installing via `$ pip install`:
 b) After installing from local sources via `$ ./gradlew install`:  
 > ~/.jupyter_kotlin/cache/libraries/
 
-**Note:** If the `%useLatestDescriptors` **_line magic_** is included in Jupyter notebook,  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; then Kotlin kernel will pull the latest repository version of descriptors and  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; store them in this location:
-        
+> [!NOTE]  
+> If the `%useLatestDescriptors` **_line magic_** is included in Jupyter notebook,
+> Kotlin kernel will pull the latest repository version of descriptors and store them in this location:
+>
 > ~/.jupyter_kotlin/cache/
          
 

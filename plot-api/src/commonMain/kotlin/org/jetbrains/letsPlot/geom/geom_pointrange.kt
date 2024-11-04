@@ -27,6 +27,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * or a horizontal interval, defined by `y`, `xmin`, `xmax`.
  * The mid-point is defined by `y` or `x`, respectively.
  *
+ * ## Notes
+ *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)
@@ -50,6 +55,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param fatten default = 5.0.
  *  A multiplicative factor applied to size of the middle point.
  * @param x X-axis coordinates for vertical interval / position of mid-point for horizontal interval.
@@ -67,8 +73,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param linewidth Line width.
  * @param linetype Type of the line of border.
- *  Codes and names: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash",
- *  5 = "longdash", 6 = "twodash".
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param shape Shape of the mid-point.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).

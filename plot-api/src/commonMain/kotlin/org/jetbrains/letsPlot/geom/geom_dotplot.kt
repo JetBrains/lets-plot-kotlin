@@ -35,6 +35,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..count.. : number of points with x-axis coordinate in the same bin.
  * - ..binwidth.. : max width of each bin if method is "dotdensity"; width of each bin if method is "histodot".
  *
+ * To hide axis tooltips, set "blank" or the result of `elementBlank()`
+ * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ *
  * ## Examples
  *
  * - [geom_dotplot.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_dotplot.ipynb)
@@ -52,6 +55,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
+ *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param x X-axis coordinates.
  * @param bins When method is "histodot", this specifies number of bins (default = 30). Overridden by `binWidth`.
  * @param center When method is "histodot", this specifies x-value to align bin centers to.
