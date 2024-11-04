@@ -1,11 +1,11 @@
-package org.jetbrains.letsPlot.toolkit.jupyter.util
+package org.jetbrains.letsPlot.toolkit.json
 
 import kotlinx.serialization.json.*
 
-typealias LetsPlotSpec = Map<String, Any>
+typealias JsonMap = Map<String, Any>
 
-fun serializeSpec(spec: LetsPlotSpec): JsonElement {
-    return serialize(spec)
+fun serializeJsonMap(map: JsonMap): JsonElement {
+    return serialize(map)
 }
 
 private fun serializeAny(obj: Any?): JsonElement {
@@ -16,7 +16,7 @@ private fun serializeAny(obj: Any?): JsonElement {
         is String -> JsonPrimitive(obj)
         is Boolean -> JsonPrimitive(obj)
         is Number -> JsonPrimitive(obj)
-        else -> error("Don't know how to parse object [$obj] of class ${obj::class}")
+        else -> error("Don't know how to serialize object [$obj] of class ${obj::class}")
     }
 }
 
@@ -37,16 +37,17 @@ private fun serialize(list: List<*>): JsonArray {
     }
 }
 
-fun deserializeSpec(json: JsonElement): LetsPlotSpec {
-    if (json !is JsonObject) error("LetsPlot spec should be a key-value object, but it's $json")
+fun deserializeJsonMap(json: JsonElement): JsonMap {
+    if (json !is JsonObject) error("Input json should be a key-value object, but it's $json")
     val map = deserializeMap(json)
 
+    // TODO: add null handling
     for (value in map.values) {
-        if (value == null) error("LetsPlot spec shouldn't have null values on the top level")
+        if (value == null) error("Input json shouldn't have null values on the top level")
     }
 
     @Suppress("UNCHECKED_CAST")
-    return map as LetsPlotSpec
+    return map as JsonMap
 }
 
 private fun deserializeAny(json: JsonElement): Any? {

@@ -11,14 +11,14 @@ dependencies {
 }
 
 
-val artifactBaseName = "lets-plot-kotlin-util"
+val artifactBaseName = "lets-plot-kotlin-json"
 val artifactGroupId = project.group as String
 val artifactVersion = project.version as String
 
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("letsPlotKotlinUtil") {
+            create<MavenPublication>("letsPlotKotlinJson") {
                 groupId = artifactGroupId
                 artifactId = artifactBaseName
                 version = artifactVersion
@@ -28,7 +28,7 @@ afterEvaluate {
                 pom {
                     name.set("Lets-Plot Kotlin Util")
                     description.set(
-                        "Lets-Plot Kotlin Util For Spec Serialization."
+                        "Lets-Plot Kotlin Util For Json Serialization."
                     )
                     url.set("https://github.com/JetBrains/lets-plot-kotlin")
                     licenses {

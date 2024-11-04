@@ -9,8 +9,8 @@ import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.awt.plot.PlotSvgExport
 import org.jetbrains.letsPlot.frontend.NotebookFrontendContext
 import org.jetbrains.letsPlot.intern.toSpec
-import org.jetbrains.letsPlot.toolkit.jupyter.util.extendedByJson
-import org.jetbrains.letsPlot.toolkit.jupyter.util.serializeSpec
+import org.jetbrains.letsPlot.toolkit.jupyter.json.extendedByJson
+import org.jetbrains.letsPlot.toolkit.json.serializeJsonMap
 import java.util.*
 
 internal class NotebookRenderingContext(
@@ -29,7 +29,7 @@ internal class NotebookRenderingContext(
             put(MimeTypes.HTML, JsonPrimitive(html))
             put("application/plot+json", buildJsonObject {
                 put("output_type", JsonPrimitive("lets_plot_spec"))
-                put("output", serializeSpec(spec))
+                put("output", serializeJsonMap(spec))
                 put("apply_color_scheme", JsonPrimitive(config.themeApplied))
                 put("swing_enabled", JsonPrimitive(config.swingEnabled))
             })

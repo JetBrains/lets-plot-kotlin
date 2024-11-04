@@ -19,7 +19,7 @@ dependencies {
     implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
     implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
 
-    implementation(projects.util)
+    implementation(projects.json)
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
     testImplementation(kotlin("test"))
