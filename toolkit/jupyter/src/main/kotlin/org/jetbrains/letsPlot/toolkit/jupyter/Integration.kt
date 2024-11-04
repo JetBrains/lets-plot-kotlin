@@ -44,6 +44,7 @@ internal class Integration(private val notebook: Notebook, private val options: 
         import("org.jetbrains.letsPlot.font.*")
         import("org.jetbrains.letsPlot.coord.*")
         import("org.jetbrains.letsPlot.pos.*")
+        import("org.jetbrains.letsPlot.interact.*")
         import("org.jetbrains.letsPlot.bistro.corr.*")
         import("org.jetbrains.letsPlot.bistro.qq.*")
         import("org.jetbrains.letsPlot.bistro.joint.*")
