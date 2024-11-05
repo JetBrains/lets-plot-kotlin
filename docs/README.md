@@ -4,4 +4,4 @@
 
 * The "Example Notebooks" reference: [kotlin_examples/](https://nbviewer.org/github/JetBrains/lets-plot-docs/tree/master/source/kotlin_examples/)
 
-* Example notebooks in the Binder: [mybinder.org](https://mybinder.org/v2/gh/JetBrains/lets-plot-kotlin/HEAD?labpath=docs%2Fexamples%2Fjupyter-notebooks)
+* Example notebooks in the Binder: [mybinder.org](https://mybinder.org/v2/gh/JetBrains/lets-plot-docs/HEAD?labpath=source%2Fkotlin_examples)
