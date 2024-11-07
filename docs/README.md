@@ -1,7 +1,5 @@
-## Lets-Plot Kotlin API 
-     
-* Lets-Plot Kotlin API reference: https://lets-plot.org/kotlin/api-reference/
+## Lets-Plot Kotlin Documentation
 
-* The "Example Notebooks" reference: [kotlin_examples/](https://nbviewer.org/github/JetBrains/lets-plot-docs/tree/master/source/kotlin_examples/)
+* [Get Started | Lets-Plot for Kotlin](https://lets-plot.org/kotlin/get-started.html)
 
-* Example notebooks in the Binder: [mybinder.org](https://mybinder.org/v2/gh/JetBrains/lets-plot-docs/HEAD?labpath=source%2Fkotlin_examples)
+* [API reference | Lets-Plot for Kotlin](https://lets-plot.org/kotlin/api-reference/)
