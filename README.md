@@ -139,7 +139,7 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 - #### Panning and Zooming
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/ggtb.png" alt="f-24g/images/ggtb.png" width="300" height="134">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/interact_pan_zoom.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/interact_pan_zoom.ipynb).
 
 - #### Clickable Links
   <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/lp_verse.png" alt="f-24g/images/lp_verse.png" width="400" height="270">

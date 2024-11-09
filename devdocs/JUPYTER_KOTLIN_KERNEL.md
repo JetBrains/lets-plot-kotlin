@@ -58,8 +58,11 @@ Otherwise, Kotlin Kernel uses 'bundled' descriptors installed to:
 
 `$ ./gradlew publishLetsPlotKotlinKernelPublicationToMavenLocalRepository`  
 `$ ./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository`
+`$ ./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository`
+`$ ./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository`
+`$ ./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository`
 
-It will publish `lets-plot-kotlin-api-kernel-<version>` artifact to the `<project root>/.maven-publish-dev-repo/` folder.
+It will publish `lets-plot-kotlin-api-kernel-<version>` etc. artifacts to `<project root>/.maven-publish-dev-repo/` folder.
 
 #### 2) Edit "lets-plot.json" (see info above about its location):
 

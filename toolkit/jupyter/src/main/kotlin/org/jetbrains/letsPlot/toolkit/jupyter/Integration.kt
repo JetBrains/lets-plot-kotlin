@@ -4,6 +4,7 @@ import org.jetbrains.kotlinx.jupyter.api.HTML
 import org.jetbrains.kotlinx.jupyter.api.Notebook
 import org.jetbrains.kotlinx.jupyter.api.declare
 import org.jetbrains.kotlinx.jupyter.api.libraries.JupyterIntegration
+import org.jetbrains.kotlinx.jupyter.api.libraries.repositories
 import org.jetbrains.kotlinx.jupyter.api.libraries.resources
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.LetsPlot
