@@ -13,7 +13,7 @@ This release is 100% compatible with Lets-Plot [v 4.5.1](https://github.com/JetB
 
 - `ggtb()`: enable **zoom/pan** interactivity on plot [[#38](https://github.com/JetBrains/lets-plot-kotlin/issues/38)],[[#983](https://github.com/JetBrains/lets-plot/issues/983)],[[#1019](https://github.com/JetBrains/lets-plot/issues/1019)]
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/interact_pan_zoom.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/interact_pan_zoom.ipynb).
 
 - Interactive **links** in tooltips/labels/texts [[#1091](https://github.com/JetBrains/lets-plot/issues/1091)].
 
