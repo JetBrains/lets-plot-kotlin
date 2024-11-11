@@ -24,9 +24,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * ## Examples
  *
- * - [geom_label.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_label.ipynb)
- *
- * - [geom_label_alpha_stroke.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_label_alpha_stroke.ipynb)
+ * - [text_geoms.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/Lb69ZPTQWq3XbupPxnQ4Rh)
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
