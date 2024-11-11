@@ -37,7 +37,7 @@ In Lets-Plot, as in ggplot2, legends are automatically generated based on the ae
 Sometimes, however, this automatic generation doesn't provide the precise control needed for complex visualizations.
 Parameter `manualKey` and aesthetic parameters of the [`guideLegend()`](%api_scale%/guide-legend.html) function addresses this limitation.
 
-See: [manual_legend.ipynb](%nb-manual_legend%)
+See: [legend.ipynb](%nb-legend%), [manual_legend.ipynb](%nb-manual_legend%)
 
 <img src="manual_legend.png" alt="Custom Legend with manualKey Option" width="480"/>
 

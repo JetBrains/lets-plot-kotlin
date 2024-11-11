@@ -33,13 +33,13 @@
     <!-- Gallery -->
     <var name="nb-geotools_naturalearth" value="%nbviewer_demo%/geotools_naturalearth.ipynb"/>
     <var name="nb-interact_pan_zoom" value="%nbviewer_demo%/interact_pan_zoom.ipynb"/>
-    <var name="nb-legend_theme" value="%nbviewer_cookbook%/legend_theme.ipynb"/>
     <var name="nb-lp_verse" value="%nbviewer_demo%/lp_verse.ipynb"/>
     <var name="nb-mpg_daisy" value="%nbviewer_demo%/mpg_daisy.ipynb"/>
     <var name="nb-palmer_penguins" value="%nbviewer_demo%/palmer_penguins.ipynb"/>
     <var name="nb-pushkin" value="%nbviewer_demo%/pushkin.ipynb"/>
     <var name="nb-spatialdataset_kotlin_isl" value="%nbviewer_demo%/spatialdataset_kotlin_isl.ipynb"/>
     <var name="nb-sunshine_hours" value="%nbviewer_demo%/sunshine_hours.ipynb"/>
+    <var name="nb-theme_legend_scheme" value="%nbviewer_demo%/theme_legend_scheme.ipynb"/>
     <var name="nb-us_unemployment" value="%nbviewer_demo%/us_unemployment.ipynb"/>
     <var name="nb-wind_rose" value="%nbviewer_demo%/wind_rose.ipynb"/>
     <!-- Cookbooks -->
@@ -97,6 +97,7 @@
     <var name="nb-label_format" value="%nbviewer_cookbook%/label_format.ipynb"/>
     <var name="nb-latex_support" value="%nbviewer_cookbook%/latex_support.ipynb"/>
     <var name="nb-legend" value="%nbviewer_cookbook%/legend.ipynb"/>
+    <var name="nb-legend_theme" value="%nbviewer_cookbook%/legend_theme.ipynb"/>
     <var name="nb-lines" value="%nbviewer_cookbook%/lines.ipynb"/>
     <var name="nb-manual_legend" value="%nbviewer_cookbook%/manual_legend.ipynb"/>
     <var name="nb-marginal_layers" value="%nbviewer_cookbook%/marginal_layers.ipynb"/>
