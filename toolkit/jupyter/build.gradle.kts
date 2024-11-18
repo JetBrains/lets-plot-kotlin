@@ -14,13 +14,13 @@ dependencies {
     // All LP/LPK implementations to be loaded in notebook
     implementation(projects.plotApi)
 
-    implementation("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
+//    implementation("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:platf-awt-jvm:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
-    implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
+//    implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
 
     implementation(projects.json)
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+//    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
     testImplementation(kotlin("test"))
 }

@@ -15,15 +15,17 @@ repositories {
 val geoToolsVersion = extra["geotools.version"] as String
 
 dependencies {
-    implementation(projects.plotApi)
+    compileOnly(projects.plotApi)
     // basic LPK jupyter integration
-    implementation(projects.jupyter)
+    compileOnly(projects.jupyter)
 
     // geotools implementations
     implementation(projects.geotools)
     implementation("org.geotools:gt-main:$geoToolsVersion")
     implementation("org.geotools:gt-geojson:$geoToolsVersion")
 
+    testImplementation(projects.plotApi)
+    testImplementation(projects.jupyter)
     testImplementation(kotlin("test"))
 }
 

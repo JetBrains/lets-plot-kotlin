@@ -7,7 +7,7 @@ plugins {
 val serializationVersion = extra["serialization.version"] as String
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+    api("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
 
     testImplementation(kotlin("test"))
 }

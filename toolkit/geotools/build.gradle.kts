@@ -12,11 +12,12 @@ plugins {
 val geoToolsVersion = extra["geotools.version"] as String
 
 dependencies {
-    implementation(projects.plotApi)
+    compileOnly(projects.plotApi)
 
     compileOnly("org.geotools:gt-main:$geoToolsVersion")
     compileOnly("org.geotools:gt-geojson:$geoToolsVersion")
 
+    testImplementation(projects.plotApi)
     testImplementation(kotlin("test"))
     testImplementation("org.geotools:gt-main:$geoToolsVersion")
     testImplementation("org.geotools:gt-geojson:$geoToolsVersion")

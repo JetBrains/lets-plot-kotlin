@@ -4,7 +4,6 @@ import org.jetbrains.kotlinx.jupyter.api.HTML
 import org.jetbrains.kotlinx.jupyter.api.Notebook
 import org.jetbrains.kotlinx.jupyter.api.declare
 import org.jetbrains.kotlinx.jupyter.api.libraries.JupyterIntegration
-import org.jetbrains.kotlinx.jupyter.api.libraries.repositories
 import org.jetbrains.kotlinx.jupyter.api.libraries.resources
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.LetsPlot
@@ -13,7 +12,7 @@ import org.jetbrains.letsPlot.export.VersionChecker
 import org.jetbrains.letsPlot.frontend.NotebookFrontendContext
 
 @Suppress("unused")
-internal class Integration(private val notebook: Notebook, private val options: MutableMap<String, String?>) :
+internal class Integration(private val notebook: Notebook, options: MutableMap<String, String?>) :
     JupyterIntegration() {
 
     // used by kandy-lets-plot
@@ -24,8 +23,8 @@ internal class Integration(private val notebook: Notebook, private val options: 
     // If used via Kotlin Notebook plugin as a dependency,
     // provide defaults (versions from `VersionChecker`
     // and empty `isolatedFrame`)
-    private val api = options["api"] ?: VersionChecker.letsPlotKotlinAPIVersion
-    private val js = VersionChecker.letsPlotJsVersion
+    private val lpkVersion = options["v"] ?: VersionChecker.letsPlotKotlinAPIVersion
+    private val lpJsVersion = VersionChecker.letsPlotJsVersion
     private val isolatedFrame = options["isolatedFrame"] ?: ""
 
 
@@ -56,12 +55,12 @@ internal class Integration(private val notebook: Notebook, private val options: 
 
         onLoaded {
             val isolatedFrameParam = if (isolatedFrame.isNotEmpty()) isolatedFrame.toBoolean() else null
-            frontendContext = LetsPlot.setupNotebook(js, isolatedFrameParam) { display(HTML(it), null) }
-            LetsPlot.apiVersion = api
+            frontendContext = LetsPlot.setupNotebook(lpJsVersion, isolatedFrameParam) { display(HTML(it), null) }
+            LetsPlot.apiVersion = lpkVersion
             // Load library JS
             display(HTML(frontendContext.getConfigureHtml()), null)
             // add figure renders AFTER frontendContext initialization
-            addRenders(js)
+            addRenders(lpJsVersion)
             declare("letsPlotNotebookConfig" to config)
         }
     }

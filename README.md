@@ -103,11 +103,9 @@ In this case the latest `library descriptor` will be pulled from the [Kotlin Jup
 #### Library Descriptor Parameters
 
 ```
-%use lets-plot(api=4.9.0, lib=4.5.1, js=4.5.1, isolatedFrame=false)
+%use lets-plot(v=4.9.0, isolatedFrame=false)
 ```                                                                 
-- `api` - version of the Lets-Plot Kotlin API.
-- `lib` - version of the Lets-Plot Multiplatform (JARs).
-- `js`  - version of the Lets-PLot Multiplatform JavaScript bundle.
+- `v` - version of the Lets-Plot Kotlin API.
 - `isolatedFrame` - If `false`: load JS just once per notebook (default in Jupyter).
   If `true`: include Lets-Plot JS in each output (default in [Datalore](https://datalore.jetbrains.com/) notebooks).
 
