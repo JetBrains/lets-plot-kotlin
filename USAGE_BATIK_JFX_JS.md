@@ -52,7 +52,7 @@ plugins {
 
 dependencies {
     // Lets-Plot Kotlin API 
-    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.9.1")
+    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.9.2")
     // Lets-Plot Multiplatform (Batik rendering)
     implementation("org.jetbrains.lets-plot:lets-plot-batik:4.5.1")
 }
@@ -75,7 +75,7 @@ plugins {
 
 dependencies {
     // Lets-Plot Kotlin API 
-    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.9.1")
+    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.9.2")
     // Lets-Plot Multiplatform (JFX Scene rendering)
     implementation("org.jetbrains.lets-plot:lets-plot-jfx:4.5.1")
 }
@@ -95,7 +95,7 @@ kotlin {
         named("jsMain") {
             dependencies {
                 // Lets-Plot Kotlin API 
-                implementation("org.jetbrains.lets-plot:lets-plot-kotlin-js:4.9.1")
+                implementation("org.jetbrains.lets-plot:lets-plot-kotlin-js:4.9.2")
             }
         }
     }

@@ -11,16 +11,11 @@ val letsPlotKotlinVersion = project.version as String
 val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
 
 dependencies {
-    // All LP/LPK implementations to be loaded in notebook
     implementation(projects.plotApi)
+    implementation(projects.json)
 
-//    implementation("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:platf-awt-jvm:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
-//    implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
-
-    implementation(projects.json)
-//    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
     testImplementation(kotlin("test"))
 }
@@ -50,6 +45,16 @@ val artifactBaseName = "lets-plot-kotlin-jupyter"
 val artifactGroupId = project.group as String
 val artifactVersion = project.version as String
 
+val jarJavaDocs by tasks.creating(Jar::class) {
+    archiveClassifier.set("javadoc")
+    group = "lets plot"
+    from("$rootDir/README.md")
+}
+
+java {
+    withSourcesJar()
+}
+
 afterEvaluate {
 
     publishing {
@@ -62,6 +67,7 @@ afterEvaluate {
                 version = artifactVersion
 
                 from(components["java"])
+                artifact(jarJavaDocs)
 
                 pom {
                     name.set("Lets-Plot Kotlin Jupyter Integration")

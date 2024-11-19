@@ -5,9 +5,10 @@
 > **Note**: make sure that **version** is set to "0.0.0-SNAPSHOT" in `build.gradle.kts`.
 
 `./gradlew :plot-api:publishAllPublicationsToMavenLocalRepository`
-
 `./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository`
-
+`./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository`
+`./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository`
+`./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository`
 
 ### Publishing to Sonatype Maven Repository
                    
@@ -29,8 +30,10 @@ sonatype.password=<your Sonatype password>
 Specify "x.y.z-SNAPSHOT" version in `build.gradle.kts` file.
 
 `./gradlew :plot-api:publishAllPublicationsToSonatypeRepository`
-
 `./gradlew publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository`
+`./gradlew publishletsPlotKotlinJupyterPublicationToSonatypeRepository`
+`./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToSonatypeRepository`
+`./gradlew publishLetsPlotKotlinJsonPublicationToSonatypeRepository`
 
 > You can find published SNAPSHOT artifacts here https://oss.sonatype.org/index.html#view-repositories;snapshots~browsestorage \
 > In the "Browse Storage" tab enter ‘Path lookup’: org/jetbrains/lets-plot
@@ -45,7 +48,13 @@ Specify "x.y.z-SNAPSHOT" version in `build.gradle.kts` file.
 
 > **Note**: Publish tasks should be invoked with a single command to avoid splitting of the staging repository.
 
-`./gradlew :plot-api:publishAllPublicationsToSonatypeRepository publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository`
+```shell
+./gradlew :plot-api:publishAllPublicationsToSonatypeRepository \
+          publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository \
+          publishletsPlotKotlinJupyterPublicationToSonatypeRepository \
+          publishletsPlotKotlinGeotoolsJupyterPublicationToSonatypeRepository \
+          publishLetsPlotKotlinJsonPublicationToSonatypeRepository
+```
 
 > Check artifacts are uploaded to staging repository:
 >
@@ -63,23 +72,4 @@ Specify "x.y.z-SNAPSHOT" version in `build.gradle.kts` file.
 > https://oss.sonatype.org/index.html#view-repositories;releases~browsestorage
 >
 > In the "Browse Storage" tab enter ‘Path lookup’: org/jetbrains/lets-plot
-
-
-### Miscellanea
-
-Individually Lets-Plot Kotlin API artifacts can be published with commands:
-
-- "Kotlin kernel":
-  - `./gradlew publishLetsPlotKotlinKernelPublicationToSonatypeRepository`
-                                       
-
-- Multi-platform:
-  - `./gradlew :plot-api:publishKotlinMultiplatformPublicationToSonatypeRepository`
-  - `./gradlew :plot-api:publishJvmPublicationToSonatypeRepository`
-  - `./gradlew :plot-api:publishJsPublicationToSonatypeRepository`
-
-> **Note**: Each publish command will open a separate Nexus staging repository.
-> 
-> In case you want to upload artifacts to one repository, call the necessary tasks with one command.
-
 

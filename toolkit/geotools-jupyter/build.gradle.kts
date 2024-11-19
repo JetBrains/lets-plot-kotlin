@@ -51,6 +51,16 @@ val artifactBaseName = "lets-plot-kotlin-geotools-jupyter"
 val artifactGroupId = project.group as String
 val artifactVersion = project.version as String
 
+val jarJavaDocs by tasks.creating(Jar::class) {
+    archiveClassifier.set("javadoc")
+    group = "lets plot"
+    from("$rootDir/README.md")
+}
+
+java {
+    withSourcesJar()
+}
+
 afterEvaluate {
 
     publishing {
@@ -63,6 +73,7 @@ afterEvaluate {
                 version = artifactVersion
 
                 from(components["java"])
+                artifact(jarJavaDocs)
 
                 pom {
                     name.set("Lets-Plot Kotlin Geotools Jupyter Integration")

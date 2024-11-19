@@ -14,11 +14,19 @@
 >  - [geospatial-charts.md](../Writerside/topics/geospatial_charts.md).
 
 ##### 3. Build and release artifacts to Sonatype repository / Maven Central
+                           
+```shell
+./gradlew clean
+./gradlew build
 
-- `./gradlew clean`
-- `./gradlew build`
-- `./gradlew :plot-api:publishAllPublicationsToSonatypeRepository publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository`
-- `./gradlew findSonatypeStagingRepository closeAndReleaseSonatypeStagingRepository`
+./gradlew :plot-api:publishAllPublicationsToSonatypeRepository \
+          publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository \
+          publishletsPlotKotlinJupyterPublicationToSonatypeRepository \
+          publishletsPlotKotlinGeotoolsJupyterPublicationToSonatypeRepository \
+          publishLetsPlotKotlinJsonPublicationToSonatypeRepository
+
+./gradlew findSonatypeStagingRepository closeAndReleaseSonatypeStagingRepository
+```
 
 > **Note**: For more details see [PUBLISHING.md](PUBLISHING.md).
 

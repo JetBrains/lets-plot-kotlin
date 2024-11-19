@@ -59,13 +59,13 @@ Clear Maven cache:
 
 #### 1) Publish artifacts to the local dev-repo:
 
-`$ ./gradlew publishJvmPublicationToMavenLocalRepository`
-`$ ./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository`
-`$ ./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository`
-`$ ./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository`
-`$ ./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository`
+`./gradlew publishJvmPublicationToMavenLocalRepository`
+`./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository`
+`./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository`
+`./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository`
+`./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository`
 
-It will publish `lets-plot-kotlin-api-kernel-<version>` etc. artifacts to `<project root>/.maven-publish-dev-repo/` folder.
+It will publish all artifacts to `<project root>/.maven-publish-dev-repo/` folder.
 
 #### 2) Edit "lets-plot.json" (see info above about its location):
 
