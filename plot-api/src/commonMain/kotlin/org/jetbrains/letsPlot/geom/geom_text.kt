@@ -23,7 +23,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * ## Examples
  *
- * - [label_format.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/label_format.ipynb)
+ * - [text_geoms.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/Lb69ZPTQWq3XbupPxnQ4Rh)
  *
  * - [formatting_axes_etc.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/formatting_axes_etc.ipynb)
  *

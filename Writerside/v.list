@@ -33,13 +33,13 @@
     <!-- Gallery -->
     <var name="nb-geotools_naturalearth" value="%nbviewer_demo%/geotools_naturalearth.ipynb"/>
     <var name="nb-interact_pan_zoom" value="%nbviewer_demo%/interact_pan_zoom.ipynb"/>
-    <var name="nb-legend_theme" value="%nbviewer_cookbook%/legend_theme.ipynb"/>
     <var name="nb-lp_verse" value="%nbviewer_demo%/lp_verse.ipynb"/>
     <var name="nb-mpg_daisy" value="%nbviewer_demo%/mpg_daisy.ipynb"/>
     <var name="nb-palmer_penguins" value="%nbviewer_demo%/palmer_penguins.ipynb"/>
     <var name="nb-pushkin" value="%nbviewer_demo%/pushkin.ipynb"/>
     <var name="nb-spatialdataset_kotlin_isl" value="%nbviewer_demo%/spatialdataset_kotlin_isl.ipynb"/>
     <var name="nb-sunshine_hours" value="%nbviewer_demo%/sunshine_hours.ipynb"/>
+    <var name="nb-theme_legend_scheme" value="%nbviewer_demo%/theme_legend_scheme.ipynb"/>
     <var name="nb-us_unemployment" value="%nbviewer_demo%/us_unemployment.ipynb"/>
     <var name="nb-wind_rose" value="%nbviewer_demo%/wind_rose.ipynb"/>
     <!-- Cookbooks -->
@@ -72,12 +72,10 @@
     <var name="nb-geom_dotplot" value="%nbviewer_cookbook%/geom_dotplot.ipynb"/>
     <var name="nb-geom_function" value="%nbviewer_cookbook%/geom_function.ipynb"/>
     <var name="nb-geom_histogram_threshold" value="%nbviewer_cookbook%/geom_histogram_threshold.ipynb"/>
-    <var name="nb-geom_label" value="%nbviewer_cookbook%/geom_label.ipynb"/>
     <var name="nb-geom_lollipop" value="%nbviewer_cookbook%/geom_lollipop.ipynb"/>
     <var name="nb-geom_pie" value="%nbviewer_cookbook%/geom_pie.ipynb"/>
     <var name="nb-geom_smooth" value="%nbviewer_cookbook%/geom_smooth.ipynb"/>
     <var name="nb-geom_spoke" value="%nbviewer_cookbook%/geom_spoke.ipynb"/>
-    <var name="nb-geom_text_and_label_new_features" value="%nbviewer_cookbook%/geom_text_and_label_new_features.ipynb"/>
     <var name="nb-geom_theme_colors" value="%nbviewer_cookbook%/geom_theme_colors.ipynb"/>
     <var name="nb-geom_violin" value="%nbviewer_cookbook%/geom_violin.ipynb"/>
     <var name="nb-geom_ydotplot" value="%nbviewer_cookbook%/geom_ydotplot.ipynb"/>
@@ -94,9 +92,9 @@
     <var name="nb-image_grayscale" value="%nbviewer_cookbook%/image_grayscale.ipynb"/>
     <var name="nb-jittered_points" value="%nbviewer_cookbook%/jittered_points.ipynb"/>
     <var name="nb-joint_plot" value="%nbviewer_cookbook%/joint_plot.ipynb"/>
-    <var name="nb-label_format" value="%nbviewer_cookbook%/label_format.ipynb"/>
     <var name="nb-latex_support" value="%nbviewer_cookbook%/latex_support.ipynb"/>
     <var name="nb-legend" value="%nbviewer_cookbook%/legend.ipynb"/>
+    <var name="nb-legend_theme" value="%nbviewer_cookbook%/legend_theme.ipynb"/>
     <var name="nb-lines" value="%nbviewer_cookbook%/lines.ipynb"/>
     <var name="nb-manual_legend" value="%nbviewer_cookbook%/manual_legend.ipynb"/>
     <var name="nb-marginal_layers" value="%nbviewer_cookbook%/marginal_layers.ipynb"/>
@@ -126,6 +124,7 @@
     <var name="nb-stat_summary" value="%nbviewer_cookbook%/stat_summary.ipynb"/>
     <var name="nb-stat_summary_bin" value="%nbviewer_cookbook%/stat_summary_bin.ipynb"/>
     <var name="nb-superscript_exponent" value="%nbviewer_cookbook%/superscript_exponent.ipynb"/>
+    <var name="nb-text_geoms" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/Lb69ZPTQWq3XbupPxnQ4Rh"/>
     <var name="nb-text_margins" value="%nbviewer_cookbook%/text_margins.ipynb"/>
     <var name="nb-theme_flavors" value="%nbviewer_cookbook%/theme_flavors.ipynb"/>
     <var name="nb-theme_plot_margin" value="%nbviewer_cookbook%/theme_plot_margin.ipynb"/>

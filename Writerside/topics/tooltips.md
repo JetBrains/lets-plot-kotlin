@@ -1,6 +1,7 @@
 # Tooltip Customization
 
-You can customize the content, values formatting and appearance of tooltip for any geometry layer in your plot.
+You can customize the content, values formatting and appearance of tooltip for any geometry layer by using the parameter `tooltips`.
+The parameter takes as value the result of the [`layerToltips()`](%api_tooltips%/layer-tooltips/index.html) function call.
 
 [Learn more (datalore link)](%nbp-tooltips%).
 

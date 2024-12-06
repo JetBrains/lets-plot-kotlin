@@ -12,6 +12,28 @@
 [`guideColorbar()`](%api_scale%/guide-colorbar.html),
 [`guides()`](%api_scale%/guides.html)
 
+### Examples
+
+- [Themes overview](%nb-themes%)
+- [Default theme](%nb-default_theme%)
+- [Applying common theme to a plot group](%nb-gggrid_theme%)
+- [Plot margins](%nb-theme_plot_margin%)
+- [Option to show/hide plot messages](%nb-theme_plot_message%)
+- [Justification for text elements](%nb-hjust_vjust%)
+- [Margins](%nb-margins%)
+- [`margin` parameter of `elementText()`](%nb-text_margins%)
+- [Panel border](%nb-panel_border%)
+- [Tooltip properties in `theme()`](%nb-tooltips_theme%)
+- [Plot title, subtitle and caption](%nb-title_subtitle_caption%)
+- [Theme colors for geometries](%nb-geom_theme_colors%)
+- [Customize legend appearance](%nb-legend_theme%)
+- [Tooltip customization](%nb-tooltip_config%)
+- [Set font faces](%nb-set_font_faces%)
+- [Set font size and family](%nb-font_size_and_family%)
+- [Rotation of axis labels](%nb-axis_text_angle%)
+- [Exponent format in Lets-Plot](%nb-superscript_exponent%)
+- [Annotation labels on pie-chart](%nb-annotations_for_pie%)
+
 ## Predefined Themes
 
 [`minimal2`](%api_theme%/theme-minimal2.html),
@@ -27,6 +49,17 @@
     <img alt="All predefined themes" src="complete_themes.png" style="block"/>
 </a>
 
+### Predefined Themes Examples
+
+- [Default theme](%nb-default_theme%)
+- [Theme flavors](%nb-theme_flavors%)
+- [Applying common theme to a plot group](%nb-gggrid_theme%)
+- [Margins](%nb-margins%)
+- [`margin` parameter of `elementText()`](%nb-text_margins%)
+- [Theme colors for geometries](%nb-geom_theme_colors%)
+- [Axis position](%nb-axis_position%)
+- [Exponent format in Lets-Plot](%nb-superscript_exponent%)
+
 ## Color Schemes (Flavors)
 
 [`darcula`](%api_theme%/flavor-darcula.html),
@@ -39,26 +72,9 @@
     <img alt="Theme colors for geometries" src="flavors.png" style="block"/>
 </a>
 
-## Examples
+### Flavors Examples
 
-- [Default theme](%nb-default_theme%)
-- [Themes overview](%nb-themes%)
-- [Applying common theme to a plot group](%nb-gggrid_theme%)
-- [Plot margins](%nb-theme_plot_margin%)
-- [Option to show/hide plot messages](%nb-theme_plot_message%)
-- [Justification for text elements](%nb-hjust_vjust%)
-- [Margins](%nb-margins%)
-- [`margin` parameter of `elementText()`](%nb-text_margins%)
-- [Panel border](%nb-panel_border%)
-- [Tooltip properties in `theme()`](%nb-tooltips_theme%)
-- [Plot title, subtitle and caption](%nb-title_subtitle_caption%)
-- [Theme colors for geometries](%nb-geom_theme_colors%)
 - [Theme flavors](%nb-theme_flavors%)
-- [Customizing the legend](%nb-legend%)
-- [Tooltip customization](%nb-tooltip_config%)
-- [Set font faces](%nb-set_font_faces%)
-- [Set font size and family](%nb-font_size_and_family%)
-- [Axis position](%nb-axis_position%)
-- [Rotation of axis labels](%nb-axis_text_angle%)
-- [Exponent format in Lets-Plot](%nb-superscript_exponent%)
+- [Applying common theme to a plot group](%nb-gggrid_theme%)
+- [Theme colors for geometries](%nb-geom_theme_colors%)
 - [Annotation labels on pie-chart](%nb-annotations_for_pie%)

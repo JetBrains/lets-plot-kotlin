@@ -78,6 +78,10 @@ The numeric format strings are used to format common numeric types. The general 
   - `Z` - zetta, 10²¹
   - `Y` - yotta, 10²⁴
 
+<note>
+  These formatting rules are compatible with formatting from the d3 library, so you can find out more about the options listed above by visiting <a href="https://d3js.org/d3-format">this page</a>.
+</note>
+
 ### Number Format Examples
 
 Let's format the number `1024`:
@@ -107,11 +111,19 @@ Some other examples:
 ```
 format   number        result
 .1f      0.42          "0.4"
-.3g      0.4449        "0.445"
-,.12g    -4200000      "-4,200,000" 
-0,.2f    1234567.449   "1,234,567.45"
+0,.1f    1234567.89    "1,234,567.9"
 +$,.2f   1e4           "+$10,000.00"
++$,.2~f  1e4           "+$10,000"
+~g       0.0000042     "0.0000042"
+~g       0.00000042    "4.2e-7"
+~g       420000        "420000"
+~g       4200000       "4.2e+6"
+,.2g     -4231         "-4,2e+3"
+,.6g     -4231         "-4,231.00"
+,.6~g    -4231         "-4,231"
 ```
+
+See more examples <a href="https://observablehq.com/@d3/d3-format">here</a>.
 
 ## String Template
 
@@ -220,5 +232,5 @@ You can format text in annotations, see: [Annotating Charts](annotations.md).
 ## Demo Notebooks
 
 - [Formatting labels on plots](%nb-formatting_axes_etc%)
-- [The `label_format` parameter in `geom_text()`](%nb-label_format%)
+- [Text geoms](%nb-text_geoms%)
 - [Exponent format in Lets-Plot](%nb-superscript_exponent%)
