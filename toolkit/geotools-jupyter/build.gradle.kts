@@ -15,15 +15,17 @@ repositories {
 val geoToolsVersion = extra["geotools.version"] as String
 
 dependencies {
-    implementation(projects.plotApi)
+    compileOnly(projects.plotApi)
     // basic LPK jupyter integration
-    implementation(projects.jupyter)
+    compileOnly(projects.jupyter)
 
     // geotools implementations
     implementation(projects.geotools)
     implementation("org.geotools:gt-main:$geoToolsVersion")
     implementation("org.geotools:gt-geojson:$geoToolsVersion")
 
+    testImplementation(projects.plotApi)
+    testImplementation(projects.jupyter)
     testImplementation(kotlin("test"))
 }
 
@@ -49,6 +51,16 @@ val artifactBaseName = "lets-plot-kotlin-geotools-jupyter"
 val artifactGroupId = project.group as String
 val artifactVersion = project.version as String
 
+val jarJavaDocs by tasks.creating(Jar::class) {
+    archiveClassifier.set("javadoc")
+    group = "lets plot"
+    from("$rootDir/README.md")
+}
+
+java {
+    withSourcesJar()
+}
+
 afterEvaluate {
 
     publishing {
@@ -61,6 +73,7 @@ afterEvaluate {
                 version = artifactVersion
 
                 from(components["java"])
+                artifact(jarJavaDocs)
 
                 pom {
                     name.set("Lets-Plot Kotlin Geotools Jupyter Integration")

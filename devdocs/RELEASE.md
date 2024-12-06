@@ -8,17 +8,25 @@
 
 - remove _"-SNAPSHOT"_ qualifier (the 'version' property in the root 'build.gradle.kts').
 
-> Update the artifact version in 
+> Update the artifact version in (also GeoTools version if needed): 
 >  - [README.md](../README.md)
 >  - [USAGE_BATIK_JFX_JS.md](../USAGE_BATIK_JFX_JS.md)
 >  - [geospatial-charts.md](../Writerside/topics/geospatial_charts.md).
 
 ##### 3. Build and release artifacts to Sonatype repository / Maven Central
+                           
+```shell
+./gradlew clean
+./gradlew build
 
-- `./gradlew clean`
-- `./gradlew build`
-- `./gradlew :plot-api:publishAllPublicationsToSonatypeRepository publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository`
-- `./gradlew findSonatypeStagingRepository closeAndReleaseSonatypeStagingRepository`
+./gradlew :plot-api:publishAllPublicationsToSonatypeRepository \
+          publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository \
+          publishletsPlotKotlinJupyterPublicationToSonatypeRepository \
+          publishletsPlotKotlinGeotoolsJupyterPublicationToSonatypeRepository \
+          publishLetsPlotKotlinJsonPublicationToSonatypeRepository
+
+./gradlew findSonatypeStagingRepository closeAndReleaseSonatypeStagingRepository
+```
 
 > **Note**: For more details see [PUBLISHING.md](PUBLISHING.md).
 

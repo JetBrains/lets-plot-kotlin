@@ -54,15 +54,18 @@ Otherwise, Kotlin Kernel uses 'bundled' descriptors installed to:
 
 ## Conducting experiments with Kotlin Kernel locally.
 
+Clear Maven cache:
+`$ rm -rf ~/.m2/repository/org/jetbrains/lets-plot`                          
+
 #### 1) Publish artifacts to the local dev-repo:
 
-`$ ./gradlew publishLetsPlotKotlinKernelPublicationToMavenLocalRepository`  
-`$ ./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository`
-`$ ./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository`
-`$ ./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository`
-`$ ./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository`
+`./gradlew publishJvmPublicationToMavenLocalRepository`
+`./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository`
+`./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository`
+`./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository`
+`./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository`
 
-It will publish `lets-plot-kotlin-api-kernel-<version>` etc. artifacts to `<project root>/.maven-publish-dev-repo/` folder.
+It will publish all artifacts to `<project root>/.maven-publish-dev-repo/` folder.
 
 #### 2) Edit "lets-plot.json" (see info above about its location):
 
@@ -87,9 +90,7 @@ The kernel can download a newer descriptor at any moment.
 - configure the artifacts version (published Lets-Plot JS):
   ```
   "properties": {
-    "api": "3.1.2-alpha2",
-    "lib": "2.3.0-rc2",
-    "js": "2.3.0rc2",
+    "v": "3.1.2-alpha2",
     "isolatedFrame": ""
   },
   ```

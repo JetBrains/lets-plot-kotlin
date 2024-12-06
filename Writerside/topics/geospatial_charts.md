@@ -53,21 +53,16 @@ You can include it into a Gradle project.
 implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:%version%'
 ```
 
-The `gt-geojson` artifact from GeoTools must be also included.
+The `gt-geojson` artifact from GeoTools must be also included (see compatible version in [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)).
 
 ```groovy
 dependencies {   
     ...
     implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:%version%"
-    implementation "org.geotools:gt-geojson:[30,)"               
+    implementation "org.geotools:gt-geojson:[32.1]"               
     ...
 }
 ```
-
-The `lets-plot-kotlin-api` artifact was compiled with GeoTools v30.1. However, it doesn't declare any run-time dependency,
-so you are free to use other versions of the GeoTools toolkit.
-
-> Since v4.6.0 *Lets-Plot* is only compatible with GeoTools v30 and later.
 
 ### JVM-Based Examples
 
@@ -86,26 +81,11 @@ You can include all necessary dependencies into your notebook using the followin
 %use lets-plot-gt
 ```
 
-By default, the `lets-plot-gt` magic installs the latest version of GeoTools artifacts - it uses "[30,)" version specification.
-
-Thus, when declaring additional GeoTools dependencies in your notebook, you can do it as follows:
+When declaring additional GeoTools dependencies, check the compatible version in the [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md):
 
 ```
-@file:DependsOn("org.geotools:gt-shapefile:[30,)")
-@file:DependsOn("org.geotools:gt-cql:[30,)")
-```
-
-If you have to use any different then the latest version of GeoTools, use the `gt` parameter in the `lets-plot-gt`
-magic to avoid possible compatibility issues.
-
-```
-%use lets-plot
-%use lets-plot-gt(gt=31)
-```
-
-```
-@file:DependsOn("org.geotools:gt-shapefile:31")
-@file:DependsOn("org.geotools:gt-cql:31")
+@file:DependsOn("org.geotools:gt-shapefile:[32.1]")
+@file:DependsOn("org.geotools:gt-cql:[32.1]")
 ```
 
 ### Example Notebooks

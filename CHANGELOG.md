@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
+## [4.9.2] - 2024-11-19
+
+Same as 4.9.1, added missing Maven artifacts.
+
+## [4.9.1] - 2024-11-18
+
+This release is 100% compatible with Lets-Plot [v 4.5.1](https://github.com/JetBrains/lets-plot/releases/tag/v4.5.1),
+GeoTools [v 32.1](https://github.com/geotools/geotools/releases/tag/32.0)
+
+### Changed
+
+- Migrated to new Kotlin Jupyter integration.
+
+
 ## [4.9.0] - 2024-11-01
 
 This release is 100% compatible with Lets-Plot [v 4.5.1](https://github.com/JetBrains/lets-plot/releases/tag/v4.5.1).

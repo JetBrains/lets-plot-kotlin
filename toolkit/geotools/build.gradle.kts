@@ -12,11 +12,12 @@ plugins {
 val geoToolsVersion = extra["geotools.version"] as String
 
 dependencies {
-    implementation(projects.plotApi)
+    compileOnly(projects.plotApi)
 
     compileOnly("org.geotools:gt-main:$geoToolsVersion")
     compileOnly("org.geotools:gt-geojson:$geoToolsVersion")
 
+    testImplementation(projects.plotApi)
     testImplementation(kotlin("test"))
     testImplementation("org.geotools:gt-main:$geoToolsVersion")
     testImplementation("org.geotools:gt-geojson:$geoToolsVersion")
@@ -26,15 +27,8 @@ val artifactBaseName = "lets-plot-kotlin-geotools"
 val artifactGroupId = project.group as String
 val artifactVersion = project.version as String
 
-val jarClasses by tasks.creating(Jar::class) {
-    group = "lets plot"
-    from(sourceSets.main.get().output)
-}
-
-val jarSources by tasks.creating(Jar::class) {
-    archiveClassifier.set("sources")
-    group = "lets plot"
-    from(sourceSets.main.get().allSource)
+java {
+    withSourcesJar()
 }
 
 val jarJavaDocs by tasks.creating(Jar::class) {
@@ -52,12 +46,7 @@ afterEvaluate {
                 artifactId = artifactBaseName
                 version = artifactVersion
 
-                // This leads to 'maven-publish' failure: "Publishing is not able to resolve a dependency
-                // on a project with multiple publications that have different coordinates."
-//            from(components["java"])
-
-                artifact(jarClasses)
-                artifact(jarSources)
+                from(components["java"])
                 artifact(jarJavaDocs)
 
                 pom {
