@@ -106,6 +106,6 @@ When declaring additional GeoTools dependencies, check the compatible version in
   <img src="projection_provided.png" alt="Using exotic map projections" height="339"/>
 
 - Label geometry:
-  [geom_label.ipynb](%nb-geom_label%)
+  [text_geoms.ipynb](%nb-text_geoms%)
 
-  <img src="geom_label.png" alt="Label geometry" width="480"/>
+  <img src="text_geoms.png" alt="Text geoms" width="480"/>

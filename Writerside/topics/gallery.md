@@ -2,8 +2,8 @@
 
 <list columns="3">
     <li>
-        <a href="%nb-legend_theme%">
-            <img alt="Customize legend appearance" src="square-legend_theme.png"/>
+        <a href="%nb-theme_legend_scheme%">
+            <img alt="Theme legend scheme" src="square-theme_legend_scheme.png"/>
         </a>
     </li>
     <li>

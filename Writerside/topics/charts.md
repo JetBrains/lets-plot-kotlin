@@ -219,3 +219,17 @@ Examples:
 
 - [Flipped coordinates](%nb-coord_flip%)
 - [Polar coordinate system](%nb-coord_polar%)
+
+
+## Legends and Guides
+
+[`guideLegend()`](%api_scale%/guide-legend.html),
+[`guideColorbar()`](%api_scale%/guide-colorbar.html),
+[`guides()`](%api_scale%/guides.html),
+[`layerKey()`](%api_scale%/layer-key.html)
+
+Examples:
+
+- [Legend customization](%nb-legend%)
+- [Manual legend](%nb-manual_legend%)
+- [Customize legend appearance](%nb-legend_theme%)
