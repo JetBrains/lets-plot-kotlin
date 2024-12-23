@@ -175,8 +175,8 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 <a id="recent_gallery_updates"></a>
 ## Recent Updates in the [Gallery](https://lets-plot.org/kotlin/gallery.html)
 
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend_theme.ipynb">
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-legend_theme.png" alt="Customize legend appearance" width="128" height="128">
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/theme_legend_scheme.ipynb">
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-theme_legend_scheme.png" alt="Customize legend appearance" width="128" height="128">
   </a>
   <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/interact_pan_zoom.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-interact_pan_zoom.png" alt="Zoom and Pan interactivity" width="128" height="128">

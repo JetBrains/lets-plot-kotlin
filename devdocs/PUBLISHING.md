@@ -3,12 +3,13 @@
 > **Note**: our custom local Maven repository location is `<project root>/.maven-publish-dev-repo`.
 
 > **Note**: make sure that **version** is set to "0.0.0-SNAPSHOT" in `build.gradle.kts`.
-
-`./gradlew :plot-api:publishAllPublicationsToMavenLocalRepository`
-`./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository`
-`./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository`
-`./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository`
-`./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository`
+```bash
+./gradlew :plot-api:publishAllPublicationsToMavenLocalRepository
+./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository
+./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository
+./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository
+./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository
+```
 
 ### Publishing to Sonatype Maven Repository
                    
@@ -28,13 +29,13 @@ sonatype.password=<your Sonatype password>
 #### SNAPSHOT version
 
 Specify "x.y.z-SNAPSHOT" version in `build.gradle.kts` file.
-
-`./gradlew :plot-api:publishAllPublicationsToSonatypeRepository`
-`./gradlew publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository`
-`./gradlew publishletsPlotKotlinJupyterPublicationToSonatypeRepository`
-`./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToSonatypeRepository`
-`./gradlew publishLetsPlotKotlinJsonPublicationToSonatypeRepository`
-
+```bash
+./gradlew :plot-api:publishAllPublicationsToSonatypeRepository
+./gradlew publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository
+./gradlew publishletsPlotKotlinJupyterPublicationToSonatypeRepository
+./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToSonatypeRepository
+./gradlew publishLetsPlotKotlinJsonPublicationToSonatypeRepository
+```
 > You can find published SNAPSHOT artifacts here https://oss.sonatype.org/index.html#view-repositories;snapshots~browsestorage \
 > In the "Browse Storage" tab enter ‘Path lookup’: org/jetbrains/lets-plot
 
