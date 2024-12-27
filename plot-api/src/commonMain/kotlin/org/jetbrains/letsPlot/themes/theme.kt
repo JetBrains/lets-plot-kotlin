@@ -548,7 +548,7 @@ fun elementLine(
  * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
  * @param family Font family.
  * @param face Font face ("plain", "italic", "bold", "bold_italic").
- * @param size Text size in pt.
+ * @param size Text size in px.
  * @param angle Angle to rotate the text (in degrees).
  * @param hjust Horizontal justification (in `[0, 1]`).
  *  - 0 - left-justified
