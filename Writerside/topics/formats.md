@@ -231,6 +231,7 @@ You can format text in annotations, see: [Annotating Charts](annotations.md).
 
 ## Demo Notebooks
 
+- [Formatting numbers](%nb-formatting%)
 - [Formatting labels on plots](%nb-formatting_axes_etc%)
 - [Text geoms](%nb-text_geoms%)
 - [Exponent format in Lets-Plot](%nb-superscript_exponent%)
