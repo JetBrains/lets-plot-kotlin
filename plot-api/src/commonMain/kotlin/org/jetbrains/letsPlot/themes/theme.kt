@@ -37,9 +37,22 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * - [theme_plot_inset.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_plot_inset.ipynb)
  *
  *
- * @param exponentFormat default="e" ("e", "pow"). Format for numeric labels in scientific notation.
- *  e for "e" notation (e.g. 1e+6);
- *  pow for "power" notation (e.g. 1x10^6). This will enable superscript formatting for the exponent.
+ * @param exponentFormat default="e" ("e", "pow", "pow_full").
+ *  Controls the appearance of numbers formatted with "e" or "g" types.
+ *
+ *  Value is either a string - style, or a list: `listOf(style, lower_exp_bound, upper_exp_bound)`
+ *  where `style` can be:
+ *
+ *  - "e" : e-notation (e.g., 1e+6)
+ *  - "pow" : superscript powers of 10 in shortened form (e.g., 10^6)
+ *  - "pow_full" : superscript powers of 10 with coefficient (e.g., 1×10^6)
+ *
+ *  For "g" type formatting, scientific notation is applied when the number's exponent
+ *  is less than or equal to the `lower_exp_bound` (-7 by default) or greater than or equal
+ *  to the `upper_exp_bound` (6 by default, but can be affected by `precision` in format specifier).
+ *
+ *  See: [Formatting](https://lets-plot.org/kotlin/formats.html)
+ *
  * @param line All line elements.
  * @param rect All rectangle elements.
  * @param text All text elements.
