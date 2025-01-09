@@ -197,27 +197,25 @@ Let's apply the format string to the date `Aug 6, 2019` and the time `4:46:35`:
 %B %e %Y %H:%M %p      -->  "August 6 2019 04:46 AM"
 ```
 
-## Exponent Format
+## Scientific Notation
 
-The appearance of numbers in scientific notation can be further customized using the `exponentFormat` parameter of the [`theme()`](%api_theme%/theme/index.html) function:
+The `exponentFormat` parameter of the [`theme()`](%api_theme%/theme/index.html) function controls the appearance of numbers formatted with `e` or `g` types.
+Scientific notation can be displayed using regular e-notation or with superscript powers of 10.
+For `g` type formatting, you can also specify when scientific notation should be applied based on exponent bounds.
 
-- Scientific notation is used for numbers formatted with the `e` or `g` types.
+The value is either a string - `style`, or a tuple: (`style`, `lower exp.bound`, `upper exp.bound`).
+Where the `style` can be:
 
-- The `exponentFormat` parameter can take a string value:
+- `"e"` for e-notation (e.g., 1e+6);
 
-  - `"e"` for e-notation (e.g. 1e+6);
-  - `"pow_full"` for power-notation (e.g. ${ 1 \cdot 10^6 }$). This will enable superscript formatting for the exponent;
-  - `"pow"` works as `"pow_full"` but will shorten powers of 10 (e.g. $10^6$ instead of ${ 1 \cdot 10^6 }$).
+- `"pow"` for superscript powers of 10 in shortened form (e.g., $10^6$);
 
-- Additionally, the `exponentFormat` parameter can be a tuple with three elements, where:
+- `"pow_full"` for superscript powers of 10 with coefficient (e.g., $1 \cdot 10^6$).
 
-  - the first value specifies the appearance (`"e"`/`"pow"`/`"pow_full"`);
-  - the second value sets the minimum exponent at which scientific notation starts being used (-7 by default);
-  - the third value sets the maximum exponent at which scientific notation starts being used (6 by default).
+For `g` type formatting, scientific notation is applied when the number's exponent is less than or equal to the `lower exp.bound` (-7 by default)
+or greater than or equal to the `upper exp.bound` (6 by default, but can be affected by `precision` in format specifier).
 
-  This only makes sense when the `g` type formatting is applied.
-
-It can be summarized in the following table:
+The following table demonstrates the behavior with format string `",~g"`:
 
 ![Scientific notation table](formats_scientific_notation_table.png)
 
