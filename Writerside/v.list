@@ -2,7 +2,7 @@
 <!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
 <vars>
     <var name="version" value="4.9.3"/>
-    <var name="current_year" value="2024"/>
+    <var name="current_year" value="2025"/>
     <var name="web_root" value="https://lets-plot.org"/>
 
     <!-- API -->
@@ -49,6 +49,7 @@
     <var name="nb-annotations_for_pie" value="%nbviewer_cookbook%/annotations_for_pie.ipynb"/>
     <var name="nb-axis_position" value="%nbviewer_cookbook%/axis_position.ipynb"/>
     <var name="nb-axis_text_angle" value="%nbviewer_cookbook%/axis_text_angle.ipynb"/>
+    <var name="nb-bar" value="%nbviewer_cookbook%/bar.ipynb"/>
     <var name="nb-bar_annotations" value="%nbviewer_cookbook%/bar_annotations.ipynb"/>
     <var name="nb-boxplot_whisker_width" value="%nbviewer_cookbook%/boxplot_whisker_width.ipynb"/>
     <var name="nb-colors_viridis" value="%nbviewer_cookbook%/colors_viridis.ipynb"/>
