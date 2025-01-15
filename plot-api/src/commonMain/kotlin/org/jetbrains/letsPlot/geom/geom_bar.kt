@@ -41,6 +41,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * ## Examples
  *
+ * - [bar.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/bar.ipynb)
+ *
+ * - [bar_annotations.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/bar_annotations.ipynb)
+ *
  * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)
  *
  * - [stat_count_2d.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/stat_count_2d.ipynb)

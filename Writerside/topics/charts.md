@@ -73,7 +73,8 @@ Learn more:
 
 Examples:
 
-- [Pie](%nb-geom_pie%)
+- [Barchart](%nb-bar%)
+- [Pie-chart](%nb-geom_pie%)
 - [Annotation labels on pie-chart](%nb-annotations_for_pie%)
 - [Annotated barchart](%nb-bar_annotations%)
 - ['boxplot_outlier' statistics](%nb-stat_boxplot_outlier%)
