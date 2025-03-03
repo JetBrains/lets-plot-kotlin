@@ -105,6 +105,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Spacers are not applied to exploded sectors and to sides of adjacent sectors.
  * @param spacerColor Color for spacers between sectors. By default, the "paper" color is used.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param start Specify the angle at which the first sector starts. Accept values between 0 and 360.
+ * Default is a negative angle of the first sector.
+ * @param direction Specify angle direction, 1=clockwise, -1=counter-clockwise.
+ * Default is 1.
  * @param sizeUnit Relates the size of the pie chart to the length of the unit step along one of the axes.
  *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -142,6 +146,8 @@ class geomPie(
     override val strokeSide: String? = null,
     override val spacerWidth: Number? = null,
     override val spacerColor: Any? = null,
+    override val start: Number? = null,
+    override val direction: Int? = null,
     override val sizeUnit: String? = null,
     override val fillBy: String? = null,
     override val colorBy: String? = null,

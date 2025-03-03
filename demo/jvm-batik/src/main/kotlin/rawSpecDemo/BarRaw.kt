@@ -8,8 +8,8 @@ package rawSpecDemo
 import org.jetbrains.letsPlot.awt.plot.MonolithicAwt
 import org.jetbrains.letsPlot.batik.plot.util.BatikMapperComponent
 import org.jetbrains.letsPlot.batik.plot.util.BatikMessageCallback
-import org.jetbrains.letsPlot.commons.geometry.DoubleVector
 import org.jetbrains.letsPlot.commons.intern.json.JsonSupport
+import org.jetbrains.letsPlot.core.util.sizing.SizingPolicy
 import org.jetbrains.letsPlot.datamodel.svg.dom.SvgSvgElement
 import javax.swing.JFrame
 import javax.swing.SwingUtilities
@@ -64,10 +64,10 @@ object BarRaw {
         @Suppress("UNCHECKED_CAST")
         val component = MonolithicAwt.buildPlotFromRawSpecs(
             plotSpec = spec as MutableMap<String, Any>,
-            plotSize = DoubleVector(600.0, 300.0),
-            plotMaxWidth = null,
+            sizingPolicy = SizingPolicy.fixed(600.0, 300.0),
             svgComponentFactory = SVG_COMPONENT_FACTORY_BATIK,
-            executor = AWT_EDT_EXECUTOR
+            executor = AWT_EDT_EXECUTOR,
+            containerSize = null
         ) {
             for (message in it) {
                 println("PLOT MESSAGE: $message")

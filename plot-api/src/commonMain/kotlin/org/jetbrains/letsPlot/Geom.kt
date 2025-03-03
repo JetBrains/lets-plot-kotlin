@@ -770,6 +770,8 @@ object Geom {
         override val strokeSide: String? = null,
         override val spacerWidth: Number? = null,
         override val spacerColor: Any? = null,
+        override val start: Number? = null,
+        override val direction: Int? = null,
         override val sizeUnit: String? = null,
         override val fillBy: String? = null,
         override val colorBy: String? = null,

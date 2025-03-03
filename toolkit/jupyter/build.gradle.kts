@@ -14,7 +14,7 @@ dependencies {
     implementation(projects.plotApi)
     implementation(projects.json)
 
-    implementation("org.jetbrains.lets-plot:platf-awt-jvm:$letsPlotVersion")
+    implementation("org.jetbrains.lets-plot:platf-awt:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
 
     testImplementation(kotlin("test"))

@@ -26,8 +26,6 @@ kotlin {
                 api("org.jetbrains.lets-plot:plot-base:$letsPlotVersion")
                 api("org.jetbrains.lets-plot:plot-builder:$letsPlotVersion")
                 api("org.jetbrains.lets-plot:plot-stem:$letsPlotVersion")
-
-                api("org.jetbrains.lets-plot:deprecated-in-v4:$letsPlotVersion")
             }
         }
         commonTest {

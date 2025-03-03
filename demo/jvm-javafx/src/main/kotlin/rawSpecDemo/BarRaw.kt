@@ -7,8 +7,8 @@ package rawSpecDemo
 
 import javafx.application.Platform
 import org.jetbrains.letsPlot.awt.plot.MonolithicAwt
-import org.jetbrains.letsPlot.commons.geometry.DoubleVector
 import org.jetbrains.letsPlot.commons.intern.json.JsonSupport
+import org.jetbrains.letsPlot.core.util.sizing.SizingPolicy
 import org.jetbrains.letsPlot.datamodel.svg.dom.SvgSvgElement
 import org.jetbrains.letsPlot.jfx.plot.util.SceneMapperJfxPanel
 import javax.swing.JFrame
@@ -52,9 +52,9 @@ object BarRaw {
         @Suppress("UNCHECKED_CAST")
         val component = MonolithicAwt.buildPlotFromRawSpecs(
             plotSpec = spec as MutableMap<String, Any>,
-            plotSize = DoubleVector(600.0, 300.0),
-            plotMaxWidth = null,
+            sizingPolicy = SizingPolicy.fixed(600.0, 300.0),
             svgComponentFactory = SVG_COMPONENT_FACTORY_JFX,
+            containerSize = null,
             executor = EXECUTOR_JFX
         ) {
             for (message in it) {

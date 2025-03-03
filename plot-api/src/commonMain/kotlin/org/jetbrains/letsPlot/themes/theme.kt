@@ -606,6 +606,66 @@ fun elementText(
     Option.Theme.Elem.BLANK to blank,
 ).filterNonNullValues()
 
+
+/**
+ * Specifies how non-data components of the plot are drawn.
+ * This theme element draws texts with Markdown support.
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
+ *
+ * - [axis_text_angle.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/axis_text_angle.ipynb)
+ *
+ * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param family Font family.
+ * @param face Font face ("plain", "italic", "bold", "bold_italic").
+ * @param size Text size in px.
+ * @param angle Angle to rotate the text (in degrees).
+ * @param hjust Horizontal justification (in `[0, 1]`).
+ *  - 0 - left-justified
+ *  - 1 - right-justified
+ *  - 0.5 - center-justified
+ *  Can be used with values out of range, but behaviour is not specified.
+ * @param vjust Vertical justification (in `[0, 1]`).
+ *  - 0 - bottom-justified
+ *  - 1 - top-justified
+ *  - 0.5 - middle-justified
+ *  Can be used with values out of range, but behaviour is not specified.
+ * @param margin Margins around the text.
+ *  Margins around the text.
+ *  The margin may be specified using a number or a list of numbers:
+ *  - a number or list of one number - the same margin it applied to all four sides;
+ *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
+ *  - a list of three numbers -  the first margin applies to the top, the second - to the right and left,
+ *  the third - to the bottom;
+ *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
+ *  It is acceptable to use `null` for any side; in this case, the default side value for this element will be used.
+ * @param blank Mark as a 'blank' element.
+ */
+fun elementMarkdown(
+    color: Any? = null,
+    family: Any? = null,
+    face: Any? = null,
+    size: Number? = null,
+    angle: Number? = null,
+    hjust: Number? = null,
+    vjust: Number? = null,
+    margin: Any? = null,
+    blank: Boolean = false,
+) = mapOf(
+    "markdown" to true,
+    Option.Theme.Elem.COLOR to color,
+    Option.Theme.Elem.FONT_FAMILY to family,
+    Option.Theme.Elem.FONT_FACE to face,
+    Option.Theme.Elem.SIZE to size,
+    Option.Theme.Elem.ANGLE to angle,
+    Option.Theme.Elem.HJUST to hjust,
+    Option.Theme.Elem.VJUST to vjust,
+    Option.Theme.Elem.MARGIN to margin,
+    Option.Theme.Elem.BLANK to blank
+).filterNonNullValues()
+
 @Suppress("DeprecatedCallableAddReplaceWith")
 @Deprecated(
     message = "Please, replace with one number or a list of numbers.\n" +
