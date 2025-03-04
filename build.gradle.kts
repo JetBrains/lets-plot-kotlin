@@ -3,6 +3,9 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
+import org.jetbrains.kotlin.gradle.dsl.KotlinCommonCompilerOptions
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import java.util.*
 
 plugins {
@@ -89,7 +92,7 @@ subprojects {
 
     afterEvaluate {
         // Add LICENSE file to the META-INF folder inside published JAR files
-        tasks.filterIsInstance(org.gradle.jvm.tasks.Jar::class.java)
+        tasks.filterIsInstance<org.gradle.jvm.tasks.Jar>()
             .forEach {
                 it.metaInf {
                     from("$rootDir") {
@@ -115,6 +118,36 @@ if (!(sonatypeUsername.isNullOrBlank()
 
             nexusUrl.set(uri("https://oss.sonatype.org/service/local/"))
             snapshotRepositoryUrl.set(uri("https://oss.sonatype.org/content/repositories/snapshots/"))
+        }
+    }
+}
+
+// Fix warnings in all projects.
+subprojects {
+    fun KotlinCommonCompilerOptions.configCompilerWarnings() {
+        freeCompilerArgs.addAll(
+            // Suppress expect/actual classes are in Beta warning.
+            "-Xexpect-actual-classes",
+
+        )
+    }
+    plugins.withId("org.jetbrains.kotlin.multiplatform") {
+        extensions.configure<KotlinMultiplatformExtension> {
+            targets.configureEach {
+                compilations.configureEach {
+                    compileTaskProvider.get().compilerOptions {
+                        configCompilerWarnings()
+                    }
+                }
+            }
+        }
+    }
+
+    plugins.withId("org.jetbrains.kotlin.jvm") {
+        extensions.configure<KotlinJvmProjectExtension> {
+            compilerOptions {
+                configCompilerWarnings()
+            }
         }
     }
 }
