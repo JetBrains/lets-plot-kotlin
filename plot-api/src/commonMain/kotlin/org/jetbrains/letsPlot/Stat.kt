@@ -161,6 +161,20 @@ object Stat {
     }
 
     @Suppress("ClassName")
+    class binhex(
+        override val bins: Pair<Int, Int>? = null,
+        override val binWidth: Pair<Number?, Number?>? = null,
+        override val drop: Boolean? = null,
+        mapping: BinHexStatMapping.() -> Unit = {}
+    ) : BinHexStatParameters,
+        StatOptions(
+            StatKind.BINHEX,
+            mapping = BinHexStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class contour(
         override val bins: Int? = null,
         override val binWidth: Number? = null,

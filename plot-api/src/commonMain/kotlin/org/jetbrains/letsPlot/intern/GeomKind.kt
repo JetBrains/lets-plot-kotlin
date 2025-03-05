@@ -20,6 +20,7 @@ enum class GeomKind {
     BIN_2D {
         override fun optionName() = "bin2d"
     },
+    HEX,
     MAP,
     ERROR_BAR {
         override fun optionName() = "errorbar"
