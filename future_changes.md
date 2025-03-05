@@ -5,6 +5,8 @@ GeoTools [v 32.1](https://github.com/geotools/geotools/releases/tag/32.0)
 
 ### Added
 
+- Parameters `start` and `direction` in `geom_pie()` [[#1280](https://github.com/JetBrains/lets-plot/issues/1280)].  
+See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/geom_pie_params.ipynb).
 
 ### Changed
 
