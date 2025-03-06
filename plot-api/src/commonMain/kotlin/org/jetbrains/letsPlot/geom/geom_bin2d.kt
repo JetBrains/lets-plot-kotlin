@@ -58,7 +58,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param bins default = Pair(30, 30).
- *  Number of bins in both directions, vertical and horizontal. Overridden by `binwidth`.
+ *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
  * @param binWidth The width of the bins in both directions, vertical and horizontal. Overrides `bins`.
  *  The default is to use bin widths that cover the entire range of the data.
  * @param drop default = true.
