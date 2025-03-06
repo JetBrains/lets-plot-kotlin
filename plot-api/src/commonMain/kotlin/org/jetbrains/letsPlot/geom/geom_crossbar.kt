@@ -9,11 +9,7 @@ import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Layer
-import org.jetbrains.letsPlot.intern.layer.PosOptions
-import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorOption
-import org.jetbrains.letsPlot.intern.layer.WithFillOption
+import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.CrossBarAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.CrossBarMapping
 import org.jetbrains.letsPlot.pos.positionDodge
@@ -76,6 +72,15 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
+ * @param widthUnit default = "res".
+ *  Unit for the width of the crossbar.
+ *  Possible values:
+ *
+ *  - 'res': the unit equals the smallest distance between adjacent crossbars along the corresponding axis;
+ *  - 'identity': a unit of 1 corresponds to a difference of 1 in data space;
+ *  - 'size': a unit of 1 corresponds to the diameter of a point with size=1;
+ *  - 'px': the unit is measured in screen pixels.
+ *
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -106,10 +111,12 @@ class geomCrossbar(
     override val fill: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
+    override val widthUnit: String? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: CrossBarMapping.() -> Unit = {}
 ) : CrossBarAesthetics,
+    WithWidthUnitOption,
     WithColorOption,
     WithFillOption,
     Layer(
@@ -126,6 +133,7 @@ class geomCrossbar(
     ) {
     override fun seal(): Options {
         return super<CrossBarAesthetics>.seal() +
+                super<WithWidthUnitOption>.seal() +
                 super<WithColorOption>.seal() +
                 super<WithFillOption>.seal() +
                 Options.of("fatten" to fatten)
