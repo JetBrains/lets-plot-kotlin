@@ -64,19 +64,19 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Unit for width of the tile.
  *  Possible values:
  *
- *  - 'res': the unit equals the smallest distance between adjacent tiles along the corresponding axis;
- *  - 'identity': a unit of 1 corresponds to a difference of 1 in data space;
- *  - 'size': a unit of 1 corresponds to the diameter of a point with size=1;
- *  - 'px': the unit is measured in screen pixels.
+ *  - "res": the unit equals the smallest distance between adjacent tiles along the corresponding axis;
+ *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with size=1;
+ *  - "px": the unit is measured in screen pixels.
  *
  * @param heightUnit default = "res".
  *  Unit for height of the tile.
  *  Possible values:
  *
- *  - 'res': the unit equals the smallest distance between adjacent tiles along the corresponding axis;
- *  - 'identity': a unit of 1 corresponds to a difference of 1 in data space;
- *  - 'size': a unit of 1 corresponds to the diameter of a point with size=1;
- *  - 'px': the unit is measured in screen pixels.
+ *  - "res": the unit equals the smallest distance between adjacent tiles along the corresponding axis;
+ *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with size=1;
+ *  - "px": the unit is measured in screen pixels.
  *
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.

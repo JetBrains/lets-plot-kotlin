@@ -78,10 +78,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Unit for the width of the boxplot.
  *  Possible values:
  *
- *  - 'res': the unit equals the smallest distance between adjacent boxes along the corresponding axis;
- *  - 'identity': a unit of 1 corresponds to a difference of 1 in data space;
- *  - 'size': a unit of 1 corresponds to the diameter of a point with size=1;
- *  - 'px': the unit is measured in screen pixels.
+ *  - "res": the unit equals the smallest distance between adjacent boxes along the corresponding axis;
+ *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with size=1;
+ *  - "px": the unit is measured in screen pixels.
  *
  * @param coef default = 1.5.
  *  Length of the whiskers as multiple of IQR.
