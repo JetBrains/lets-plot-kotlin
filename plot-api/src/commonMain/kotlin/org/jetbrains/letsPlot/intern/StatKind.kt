@@ -19,6 +19,7 @@ enum class StatKind {
     YDOTPLOT,
     BIN,
     BIN2D,
+    BINHEX,
     BOXPLOT,
     BOXPLOT_OUTLIER,
     CONTOUR,

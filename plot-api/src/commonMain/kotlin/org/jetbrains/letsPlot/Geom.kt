@@ -207,6 +207,34 @@ object Geom {
     }
 
     @Suppress("ClassName")
+    class hex(
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val width: Number? = null,
+        override val height: Number? = null,
+        override val alpha: Number? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val linetype: Any? = null,
+        override val size: Number? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
+        mapping: HexMapping.() -> Unit = {}
+    ) : HexAesthetics,
+        WithColorOption,
+        WithFillOption,
+        GeomOptions(
+            GeomKind.HEX,
+            HexMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+
+        override fun seal() = super<HexAesthetics>.seal() +
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
+    }
+
+    @Suppress("ClassName")
     class raster(
         override val x: Number? = null,
         override val y: Number? = null,
