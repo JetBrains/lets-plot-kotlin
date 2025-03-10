@@ -114,7 +114,7 @@ object ErrorBar {
                         geomErrorBar(
                             position = positionDodgeV(height = 0.9),
                             color = "black",
-                            height = 0.1
+                            width = 0.1
                         ) {
                             xmin = "min"; xmax = "max"; group = "supp"
                         }
@@ -128,7 +128,7 @@ object ErrorBar {
                     xmin = "min"
                     xmax = "max"
                     color = "supp"
-                } + geomErrorBar(position = positionDodgeV(height = 0.3), height = 0.2) + ggtitle("Horizontal errorbar")
+                } + geomErrorBar(position = positionDodgeV(height = 0.3), width = 0.2) + ggtitle("Horizontal errorbar")
                 p.show()
             }
 
@@ -138,7 +138,7 @@ object ErrorBar {
                     xmin = "min"
                     xmax = "max"
                     color = "supp"
-                } + geomErrorBar(position = positionDodgeV(height = 0.3), height = 0.2) +
+                } + geomErrorBar(position = positionDodgeV(height = 0.3), width = 0.2) +
                         coordFlip() +
                         ggtitle("Horizontal errorbar + coordFlip()")
                 p.show()

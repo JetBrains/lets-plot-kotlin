@@ -59,8 +59,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param y Y-axis coordinates for the horizontal error bar.
  * @param xmin Lower bound for the horizontal error bar.
  * @param xmax Upper bound for the horizontal error bar.
- * @param height Height of the whiskers of the horizontal error bar. Typically ranges between 0 and 1.
- *  Values that are greater than 1 lead to overlapping of the bars.
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
  * @param color Color of geometry lines.
@@ -73,15 +71,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param size Line width.
  * @param widthUnit default = "res".
  *  Unit for the whisker width of the vertical error bar.
- *  Possible values:
- *
- *  - "res": the unit equals the smallest distance between adjacent error bars along the corresponding axis;
- *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
- *  - "size": a unit of 1 corresponds to the diameter of a point with size=1;
- *  - "px": the unit is measured in screen pixels.
- *
- * @param heightUnit default = "res".
- *  Unit for the whisker width of the horizontal error bar.
  *  Possible values:
  *
  *  - "res": the unit equals the smallest distance between adjacent error bars along the corresponding axis;
@@ -111,18 +100,15 @@ class geomErrorBar(
     override val y: Number? = null,
     override val xmin: Number? = null,
     override val xmax: Number? = null,
-    override val height: Number? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
     override val size: Number? = null,
     override val widthUnit: String? = null,
-    override val heightUnit: String? = null,
     override val colorBy: String? = null,
     mapping: ErrorBarMapping.() -> Unit = {}
 ) : ErrorBarAesthetics,
     WithWidthUnitOption,
-    WithHeightUnitOption,
     WithColorOption,
     Layer(
         mapping = ErrorBarMapping().apply(mapping).seal(),
@@ -138,6 +124,5 @@ class geomErrorBar(
     ) {
     override fun seal() = super<ErrorBarAesthetics>.seal() +
             super<WithWidthUnitOption>.seal() +
-            super<WithHeightUnitOption>.seal() +
             super<WithColorOption>.seal()
 }
