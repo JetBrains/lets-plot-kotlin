@@ -22,10 +22,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Displays density function contour.
  *
- * By default, this geom uses `coordFixed()`.
- * However, this may not be the best choice when the values on the X/Y axis have significantly different magnitudes.
- * In such cases, try using `coordCartesian()`.
- *
  * ## Notes
  *
  * Computed variables:
