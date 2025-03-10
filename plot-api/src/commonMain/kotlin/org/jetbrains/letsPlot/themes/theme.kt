@@ -578,7 +578,7 @@ fun elementLine(
  *  The margin may be specified using a number or a list of numbers:
  *  - a number or list of one number - the same margin it applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
- *  - a list of three numbers -  the first margin applies to the top, the second - to the right and left,
+ *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
  *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
  *  It is acceptable to use `null` for any side; in this case, the default side value for this element will be used.
@@ -637,7 +637,7 @@ fun elementText(
  *  The margin may be specified using a number or a list of numbers:
  *  - a number or list of one number - the same margin it applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
- *  - a list of three numbers -  the first margin applies to the top, the second - to the right and left,
+ *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
  *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
  *  It is acceptable to use `null` for any side; in this case, the default side value for this element will be used.

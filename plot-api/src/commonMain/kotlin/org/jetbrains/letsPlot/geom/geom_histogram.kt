@@ -78,7 +78,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param center Specifies x-value to align bin centers to.
  * @param boundary Specifies x-value to align bin boundary (i.e. point between bins) to.
  * @param threshold default = null
- *  Only bins with a `..count..` greater than the threshold will be displayed.
+ *  If a bin's `..count..` is less than the threshold, it will be removed, but only if it is on the left or right edge of the histogram.
  *  This is useful for free scales in facets - use threshold=0 to make the plot take up the entire panel space.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
