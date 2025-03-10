@@ -8,10 +8,7 @@ package org.jetbrains.letsPlot.geom
 import org.jetbrains.letsPlot.Geom.boxplot
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.*
-import org.jetbrains.letsPlot.intern.layer.PosOptions
-import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorOption
-import org.jetbrains.letsPlot.intern.layer.WithFillOption
+import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotMapping
 import org.jetbrains.letsPlot.intern.layer.geom.BoxplotParameters
@@ -77,6 +74,15 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  A multiplicative factor applied to size of the middle bar.
  * @param whiskerWidth default = 0.0.
  *  A multiplicative factor applied to the box width to draw horizontal segments on whiskers.
+ * @param widthUnit default = "res".
+ *  Unit for the width of the boxplot.
+ *  Possible values:
+ *
+ *  - "res": the unit equals the smallest distance between adjacent boxes along the corresponding axis;
+ *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with size=1;
+ *  - "px": the unit is measured in screen pixels.
+ *
  * @param coef default = 1.5.
  *  Length of the whiskers as multiple of IQR.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -143,6 +149,7 @@ fun geomBoxplot(
     varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     coef: Number? = null,
+    widthUnit: String? = null,
     colorBy: String? = null,
     fillBy: String? = null,
     mapping: BoxplotMapping .() -> Unit = {}
@@ -160,6 +167,7 @@ fun geomBoxplot(
         orientation,
         x, y, lower, middle, upper, ymin, ymax, alpha, color, fill, size, linetype, shape, angle, width, weight, fatten,
         whiskerWidth, varWidth, coef,
+        widthUnit,
         colorBy, fillBy,
         mapping
     )
@@ -237,6 +245,7 @@ private class geomBoxplotInternal(
     override val varWidth: Boolean? = null,
     @Suppress("SpellCheckingInspection")
     override val coef: Number? = null,
+    override val widthUnit: String? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: BoxplotMapping .() -> Unit = {}
@@ -244,6 +253,7 @@ private class geomBoxplotInternal(
     BoxplotParameters,
     BoxplotStatAesthetics,
     BoxplotStatParameters,
+    WithWidthUnitOption,
     WithColorOption,
     WithFillOption,
     Layer(
@@ -264,6 +274,7 @@ private class geomBoxplotInternal(
                 super<BoxplotParameters>.seal() +
                 super<BoxplotStatAesthetics>.seal() +
                 super<BoxplotStatParameters>.seal() +
+                super<WithWidthUnitOption>.seal() +
                 super<WithColorOption>.seal() +
                 super<WithFillOption>.seal()
     }

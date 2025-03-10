@@ -4,11 +4,7 @@ import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.layer.PosOptions
-import org.jetbrains.letsPlot.intern.layer.SamplingOptions
-import org.jetbrains.letsPlot.intern.layer.StatOptions
-import org.jetbrains.letsPlot.intern.layer.WithColorOption
-import org.jetbrains.letsPlot.intern.layer.WithFillOption
+import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.BinHexMapping
 import org.jetbrains.letsPlot.intern.layer.geom.HexAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.BinHexStatAesthetics
@@ -70,6 +66,24 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Line width, default = 0 (i.e. hexagons outline initially is not visible).
  * @param weight Used by `Stat.binhex()`stat to compute weighted sum instead of simple count.
+ * @param widthUnit default = "res".
+ *  Unit for width of the hexagon.
+ *  Possible values:
+ *
+ *  - "res": if `stat = Stat.binhex()`, the unit equals the hexagonal bin width (binWidth.first); otherwise, it represents the smallest distance between adjacent hexagons along the corresponding axis;
+ *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with size=1;
+ *  - "px": the unit is measured in screen pixels.
+ *
+ * @param heightUnit default = "res".
+ *  Unit for height of the hexagon.
+ *  Possible values:
+ *
+ *  - "res": if `stat = Stat.binhex()`, the unit equals the hexagonal bin height (binWidth.second); otherwise, it represents the smallest distance between adjacent hexagons along the corresponding axis;
+ *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with size=1;
+ *  - "px": the unit is measured in screen pixels.
+ *
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -99,12 +113,16 @@ class geomHex(
     override val bins: Pair<Int, Int>? = null,
     override val binWidth: Pair<Number?, Number?>? = null,
     override val drop: Boolean? = null,
+    override val widthUnit: String? = null,
+    override val heightUnit: String? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     mapping: BinHexMapping.() -> Unit = {}
 ) : HexAesthetics,
     BinHexStatAesthetics,
     BinHexStatParameters,
+    WithWidthUnitOption,
+    WithHeightUnitOption,
     WithColorOption,
     WithFillOption,
     Layer(
@@ -123,6 +141,8 @@ class geomHex(
         return super<HexAesthetics>.seal() +
                 super<BinHexStatAesthetics>.seal() +
                 super<BinHexStatParameters>.seal() +
+                super<WithWidthUnitOption>.seal() +
+                super<WithHeightUnitOption>.seal() +
                 super<WithColorOption>.seal() +
                 super<WithFillOption>.seal()
     }

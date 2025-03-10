@@ -8,11 +8,15 @@ GeoTools [v 32.1](https://github.com/geotools/geotools/releases/tag/32.0)
 - Geometries:
   - `geomHex()` [[#556](https://github.com/JetBrains/lets-plot/issues/556)].
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/geom_hex.ipynb).
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/geom_hex.ipynb).
+
+  - Parameters `widthUnit` and `heightUnit` in `geomErrorBar()`, `geomBoxplot()`, `geomCrossbar()`, `geomTile()` and `geomHex()` [[#1288](https://github.com/JetBrains/lets-plot/issues/1288)]:
+
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/param_width_unit.ipynb).
 
   - Parameters `start` and `direction` in `geomPie()` [[#1280](https://github.com/JetBrains/lets-plot/issues/1280)].  
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/geom_pie_params.ipynb).
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/geom_pie_params.ipynb).
 
 - Texts and labels:
   - `hjust` and `vjust` parameters for axis labels [[#1227](https://github.com/JetBrains/lets-plot/issues/1227)],[[#1230](https://github.com/JetBrains/lets-plot/issues/1230)].
@@ -25,5 +29,6 @@ GeoTools [v 32.1](https://github.com/geotools/geotools/releases/tag/32.0)
 
 ### Changed
 
+- [**BREAKING**] The `height` parameter has been deprecated for the `geomErrorBar`.
 
 ### Fixed
