@@ -27,6 +27,9 @@ GeoTools [v 32.1](https://github.com/geotools/geotools/releases/tag/32.0)
 
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.10.0/multiline_axis_labels.ipynb).
 
+  - Markdown support for plot **title**, **subtitle**, **caption**, and axis labels [[#1256](https://github.com/JetBrains/lets-plot/issues/1256)].
+
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/markdown.ipynb).
 ### Changed
 
 - [**BREAKING**] The `height` parameter has been deprecated for the `geomErrorBar`.
