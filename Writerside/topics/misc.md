@@ -20,7 +20,7 @@ In tooltips/labels/texts and wherever else there is text, you can use:
 
   <img src="lp_verse.png" alt="The observable LP-verse" width="480"/>
 
-- LaTeX formulas with
+- Limited LaTeX support:
 
     - superscript, e.g. `\( a^b \)`;
     - subscript, e.g. `\( x_i \)`;
@@ -30,6 +30,17 @@ In tooltips/labels/texts and wherever else there is text, you can use:
   See: [latex_support.ipynb](%nb-latex_support%)
 
   <img src="latex_support.png" alt="LaTeX Support" width="480"/>
+
+- Limited markdown support:
+
+  - emphasis (`*`, `**`, `***`, `_`, `__`, `___`),
+  - coloring with inline style (`<span style='color:red'>text</span>`),
+  - links with anchor tags (`<a href="https://lets-plot.org">Lets-Plot</a>`), and
+  - multiple lines using double space and a newline delimiter (`\n`).
+
+  See: [markdown.ipynb](%nb-markdown%)
+
+  <img src="markdown.png" alt="Markdown support" width="480"/>
 
 ## Manual Legend
 

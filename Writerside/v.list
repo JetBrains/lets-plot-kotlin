@@ -73,6 +73,7 @@
     <var name="nb-geom_curve" value="%nbviewer_cookbook%/geom_curve.ipynb"/>
     <var name="nb-geom_dotplot" value="%nbviewer_cookbook%/geom_dotplot.ipynb"/>
     <var name="nb-geom_function" value="%nbviewer_cookbook%/geom_function.ipynb"/>
+    <var name="nb-geom_hex" value="%nbviewer_cookbook%/geom_hex.ipynb"/>
     <var name="nb-geom_histogram_threshold" value="%nbviewer_cookbook%/geom_histogram_threshold.ipynb"/>
     <var name="nb-geom_lollipop" value="%nbviewer_cookbook%/geom_lollipop.ipynb"/>
     <var name="nb-geom_pie" value="%nbviewer_cookbook%/geom_pie.ipynb"/>
@@ -101,9 +102,11 @@
     <var name="nb-manual_legend" value="%nbviewer_cookbook%/manual_legend.ipynb"/>
     <var name="nb-marginal_layers" value="%nbviewer_cookbook%/marginal_layers.ipynb"/>
     <var name="nb-margins" value="%nbviewer_cookbook%/margins.ipynb"/>
+    <var name="nb-markdown" value="%nbviewer_cookbook%/markdown.ipynb"/>
     <var name="nb-multiple_color_scales" value="%nbviewer_cookbook%/multiple_color_scales.ipynb"/>
     <var name="nb-ordering_examples" value="%nbviewer_cookbook%/ordering_examples.ipynb"/>
     <var name="nb-panel_border" value="%nbviewer_cookbook%/panel_border.ipynb"/>
+    <var name="nb-param_width_unit" value="%nbviewer_cookbook%/param_width_unit.ipynb"/>
     <var name="nb-plot_grid" value="%nbviewer_cookbook%/plot_grid.ipynb"/>
     <var name="nb-position_stack" value="%nbviewer_cookbook%/position_stack.ipynb"/>
     <var name="nb-projection_provided" value="%nbviewer_cookbook%/projection_provided.ipynb"/>

@@ -165,12 +165,15 @@ Examples:
 ## Bivariate Distribution
 
 [`2d bins`](%api_geom%/geom-bin2-d/index.html),
+[`2d hexagonal bins`](%api_geom%/geom-hex/index.html),
 [`2d density`](%api_geom%/geom-density2-d/index.html),
 [`filled 2d density`](%api_geom%/geom-density2-d-filled/index.html)
 
 Examples:
 
 - [2d density](%nb-density_2d%)
+- [Hexagonal heatmap](%nb-geom_hex%)
+- [Absolute unit specification for width and height aesthetics](%nb-param_width_unit%)
 
 
 ## Marginal Plots

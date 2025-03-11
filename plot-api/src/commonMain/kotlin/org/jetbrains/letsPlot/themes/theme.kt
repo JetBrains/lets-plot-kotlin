@@ -613,9 +613,7 @@ fun elementText(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
- *
- * - [axis_text_angle.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/axis_text_angle.ipynb)
+ * - [markdown.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/markdown.ipynb)
  *
  * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
  * @param family Font family.
