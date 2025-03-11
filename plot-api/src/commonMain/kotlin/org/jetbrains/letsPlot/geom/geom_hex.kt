@@ -25,9 +25,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * To hide axis tooltips, set "blank" or the result of `elementBlank()`
  * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
  *
+ * ## Examples
+ *
+ * - [geom_hex.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_hex.ipynb)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
  *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.binhex()`. The statistical transformation to use on the data for this layer.
+ * @param stat default = `Stat.binhex()`.
+ *  The statistical transformation to use on the data for this layer.
  *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
  * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).

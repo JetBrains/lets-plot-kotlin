@@ -70,7 +70,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Line width.
  * @param widthUnit default = "res".
- *  Unit for the whisker width of the vertical error bar.
+ *  Unit for the whisker width of the error bar.
  *  Possible values:
  *
  *  - "res": the unit equals the smallest distance between adjacent error bars along the corresponding axis;

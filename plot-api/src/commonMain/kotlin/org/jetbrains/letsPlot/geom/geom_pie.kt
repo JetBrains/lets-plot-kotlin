@@ -49,6 +49,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [geom_pie_size_unit.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_pie_size_unit.ipynb)
  *
+ * - [geom_pie_params.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_pie_params.ipynb)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.count2d()`. The statistical transformation to use on the data for this layer.
@@ -106,9 +108,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param spacerColor Color for spacers between sectors. By default, the "paper" color is used.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param start Specify the angle at which the first sector starts. Accept values between 0 and 360.
- * Default is a negative angle of the first sector.
- * @param direction Specify angle direction, 1=clockwise, -1=counter-clockwise.
- * Default is 1.
+ *  Default is a negative angle of the first sector.
+ * @param direction default = 1.
+ *  Specify angle direction, 1=clockwise, -1=counter-clockwise.
  * @param sizeUnit Relates the size of the pie chart to the length of the unit step along one of the axes.
  *  Possible values: "x", "y". If not specified, no fitting is performed.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
