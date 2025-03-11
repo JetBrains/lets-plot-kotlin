@@ -172,6 +172,8 @@ Examples:
 Examples:
 
 - [2d density](%nb-density_2d%)
+- [Hexagonal heatmap](%nb-geom_hex%)
+- [Absolute unit specification for width and height aesthetics](%nb-param_width_unit%)
 
 
 ## Marginal Plots
