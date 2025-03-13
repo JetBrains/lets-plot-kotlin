@@ -37,6 +37,4 @@ GeoTools [v 32.1](https://github.com/geotools/geotools/releases/tag/32.0)
 
 - [**BREAKING**] The `height` parameter has been deprecated for the `geomErrorBar`.
 
-- [**BREAKING**] `geomTile`, `geomBin2D`, `geomContour`, `geomContourFilled`, `geomDensity2D`, `geomDensity2DFilled` : default coordinate system changed from 'fixed' to 'cartesian'.
-
 ### Fixed
