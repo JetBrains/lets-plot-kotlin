@@ -75,13 +75,19 @@ fun positionJitter(width: Number? = null, height: Number? = null, seed: Int? = n
  *
  * @param x Nudging width.
  * @param y Nudging height.
+ * @param unit ("identity", "size", "px"), default="identity". Units for x and y nudging.
+ *  Possible values:
+ *  - 'identity': a unit of 1 corresponds to a difference of 1 in data space;
+ *  - 'size': a unit of 1 corresponds to the diameter of a point with `size=1`;
+ *  - 'px': the unit is measured in screen pixels.
  */
-fun positionNudge(x: Number? = null, y: Number? = null) =
+fun positionNudge(x: Number? = null, y: Number? = null, unit: String? = null) =
     PosOptions(
         PosKind.NUDGE,
         Options.of(
             Option.Pos.Nudge.WIDTH to x,
-            Option.Pos.Nudge.HEIGHT to y
+            Option.Pos.Nudge.HEIGHT to y,
+            Option.Pos.Nudge.UNIT to unit
         )
     )
 

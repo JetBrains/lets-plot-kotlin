@@ -32,7 +32,12 @@ GeoTools [v 32.1](https://github.com/geotools/geotools/releases/tag/32.0)
   - Markdown support for plot **title**, **subtitle**, **caption**, and axis labels [[#1256](https://github.com/JetBrains/lets-plot/issues/1256)].
 
     See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/markdown.ipynb).
+- In the `nudge` position adjustment -
+  the ability to specify absolute shift values for `nudge`:
+  - `unit` parameter in `positionNudge()`.
+  - `nudgeUnit` parameter in `geomText()` and `geomLabel()`
 
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/position_nudge_unit.ipynb).
 ### Changed
 
 - [**BREAKING**] The `height` parameter has been deprecated for the `geomErrorBar`.

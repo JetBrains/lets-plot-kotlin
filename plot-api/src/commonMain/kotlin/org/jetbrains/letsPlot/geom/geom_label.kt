@@ -91,6 +91,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Enables the applying of 'alpha' to 'color' (label text and border).
  * @param sizeUnit Relates the size of the text label to the length of the unit step along one of the axes.
  *  Possible values: "x", "y". If not specified, no fitting is performed.
+ * @param nudgeUnit ("identity", "size", "px") Units for x and y nudging.
+ * Possible values:
+ *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with `size=1`;
+ *  - "px": the unit is measured in screen pixels.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
@@ -141,6 +146,7 @@ class geomLabel(
     override val naText: String? = null,
     override val nudgeX: Number? = null,
     override val nudgeY: Number? = null,
+    override val nudgeUnit: String? = null,
     override val labelPadding: Number? = null,
     override val labelR: Number? = null,
     override val labelSize: Number? = null,

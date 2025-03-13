@@ -416,6 +416,7 @@ object Geom {
         override val nudgeX: Number? = null,
         override val nudgeY: Number? = null,
         override val sizeUnit: String? = null,
+        override val nudgeUnit: String? = null,
         override val colorBy: String? = null,
         override val checkOverlap: Boolean? = null,
         mapping: TextMapping.() -> Unit = {}
@@ -454,6 +455,7 @@ object Geom {
         override val naText: String? = null,
         override val nudgeX: Number? = null,
         override val nudgeY: Number? = null,
+        override val nudgeUnit: String? = null,
         override val labelPadding: Number? = null,
         override val labelR: Number? = null,
         override val labelSize: Number? = null,

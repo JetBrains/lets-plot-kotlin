@@ -14,6 +14,7 @@ interface TextParameters : OptionsCapsule {
     val naText: String?
     val nudgeX: Number?
     val nudgeY: Number?
+    val nudgeUnit: String?
     val checkOverlap: Boolean?
 
     override fun seal() = Options.of(
@@ -21,6 +22,7 @@ interface TextParameters : OptionsCapsule {
         Option.Geom.Text.NA_TEXT to naText,
         Option.Geom.Text.NUDGE_X to nudgeX,
         Option.Geom.Text.NUDGE_Y to nudgeY,
+        Option.Geom.Text.NUDGE_UNIT to nudgeUnit,
         Option.Geom.Text.CHECK_OVERLAP to checkOverlap
     )
 }
