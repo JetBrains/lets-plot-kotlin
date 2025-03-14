@@ -24,18 +24,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
+ * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  *
  * - [legend.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/legend.ipynb)
  *
- * - [theme_label_text.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_label_text.ipynb)
- *
  * - [superscript_exponent.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/superscript_exponent.ipynb)
- *
- * - [theme_panel_inset.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_panel_inset.ipynb)
- *
- * - [theme_plot_inset.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_plot_inset.ipynb)
- *
  *
  * @param exponentFormat default="e" ("e", "pow", "pow_full").
  *  Controls the appearance of numbers formatted with "e" or "g" types.
@@ -478,7 +471,7 @@ class theme(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
+ * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  */
 fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
 
@@ -489,9 +482,7 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
- *
- * - [theme_linetype.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_linetype.ipynb)
+ * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  *
  * @param fill Fill color. Accepts color core as string (HEX or rgb) or Color object.
  * @param color Border color. Accepts color core as string (HEX or rgb) or Color object.
@@ -523,9 +514,7 @@ fun elementRect(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
- *
- * - [theme_linetype.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/theme_linetype.ipynb)
+ * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  *
  * @param color Line color. Accepts color core as string (HEX or rgb) or Color object.
  * @param size Line width.
@@ -554,7 +543,7 @@ fun elementLine(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/themes.ipynb)
+ * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  *
  * - [axis_text_angle.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/axis_text_angle.ipynb)
  *
@@ -612,6 +601,8 @@ fun elementText(
  * This theme element draws texts with Markdown support.
  *
  * ## Examples
+ *
+ * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  *
  * - [markdown.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/markdown.ipynb)
  *

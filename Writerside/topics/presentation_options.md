@@ -16,14 +16,10 @@
 
 - [Themes overview](%nb-themes%)
 - [Default theme](%nb-default_theme%)
-- [Applying common theme to a plot group](%nb-gggrid_theme%)
-- [Plot margins](%nb-theme_plot_margin%)
-- [Option to show/hide plot messages](%nb-theme_plot_message%)
 - [Justification for text elements](%nb-hjust_vjust%)
 - [Margins](%nb-margins%)
 - [`margin` parameter of `elementText()`](%nb-text_margins%)
 - [Panel border](%nb-panel_border%)
-- [Tooltip properties in `theme()`](%nb-tooltips_theme%)
 - [Plot title, subtitle and caption](%nb-title_subtitle_caption%)
 - [Theme colors for geometries](%nb-geom_theme_colors%)
 - [Customize legend appearance](%nb-legend_theme%)
@@ -52,8 +48,8 @@
 ### Predefined Themes Examples
 
 - [Default theme](%nb-default_theme%)
+- [Themes overview](%nb-themes%)
 - [Theme flavors](%nb-theme_flavors%)
-- [Applying common theme to a plot group](%nb-gggrid_theme%)
 - [Margins](%nb-margins%)
 - [`margin` parameter of `elementText()`](%nb-text_margins%)
 - [Theme colors for geometries](%nb-geom_theme_colors%)
@@ -75,6 +71,6 @@
 ### Flavors Examples
 
 - [Theme flavors](%nb-theme_flavors%)
-- [Applying common theme to a plot group](%nb-gggrid_theme%)
+- [Themes overview](%nb-themes%)
 - [Theme colors for geometries](%nb-geom_theme_colors%)
 - [Annotation labels on pie-chart](%nb-annotations_for_pie%)

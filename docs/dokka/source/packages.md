@@ -174,7 +174,7 @@ See [tooltips.html](https://lets-plot.org/kotlin/tooltips.html).
 
 - [tooltip_title.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/tooltip_title.ipynb)
 
-- [tooltips_theme.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/tooltips_theme.ipynb)
+- [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h#Tooltips)
 
 # Package org.jetbrains.letsPlot.annotations
 
