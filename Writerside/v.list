@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
 <vars>
-    <var name="version" value="4.9.3"/>
+    <var name="version" value="4.9.4"/>
     <var name="current_year" value="2025"/>
     <var name="web_root" value="https://lets-plot.org"/>
 
@@ -84,7 +84,6 @@
     <var name="nb-geom_ydotplot" value="%nbviewer_cookbook%/geom_ydotplot.ipynb"/>
     <var name="nb-ggbunch" value="%nbviewer_cookbook%/ggbunch.ipynb"/>
     <var name="nb-gggrid_scale_share" value="%nbviewer_cookbook%/gggrid_scale_share.ipynb"/>
-    <var name="nb-gggrid_theme" value="%nbviewer_cookbook%/gggrid_theme.ipynb"/>
     <var name="nb-graph_edges" value="%nbviewer_cookbook%/graph_edges.ipynb"/>
     <var name="nb-hjust_vjust" value="%nbviewer_cookbook%/hjust_vjust.ipynb"/>
     <var name="nb-horizontal_error_bars" value="%nbviewer_cookbook%/horizontal_error_bars.ipynb"/>
@@ -108,6 +107,7 @@
     <var name="nb-panel_border" value="%nbviewer_cookbook%/panel_border.ipynb"/>
     <var name="nb-param_width_unit" value="%nbviewer_cookbook%/param_width_unit.ipynb"/>
     <var name="nb-plot_grid" value="%nbviewer_cookbook%/plot_grid.ipynb"/>
+    <var name="nb-position_nudge_unit" value="%nbviewer_cookbook%/position_nudge_unit.ipynb"/>
     <var name="nb-position_stack" value="%nbviewer_cookbook%/position_stack.ipynb"/>
     <var name="nb-projection_provided" value="%nbviewer_cookbook%/projection_provided.ipynb"/>
     <var name="nb-qq_plots" value="%nbviewer_cookbook%/qq_plots.ipynb"/>
@@ -132,13 +132,10 @@
     <var name="nb-text_geoms" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/Lb69ZPTQWq3XbupPxnQ4Rh"/>
     <var name="nb-text_margins" value="%nbviewer_cookbook%/text_margins.ipynb"/>
     <var name="nb-theme_flavors" value="%nbviewer_cookbook%/theme_flavors.ipynb"/>
-    <var name="nb-theme_plot_margin" value="%nbviewer_cookbook%/theme_plot_margin.ipynb"/>
-    <var name="nb-theme_plot_message" value="%nbviewer_cookbook%/theme_plot_message.ipynb"/>
-    <var name="nb-themes" value="%nbviewer_cookbook%/themes.ipynb"/>
+    <var name="nb-themes" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h"/>
     <var name="nb-title_subtitle_caption" value="%nbviewer_cookbook%/title_subtitle_caption.ipynb"/>
     <var name="nb-tooltip_config" value="%nbviewer_cookbook%/tooltip_config.ipynb"/>
     <var name="nb-tooltip_title" value="%nbviewer_cookbook%/tooltip_title.ipynb"/>
-    <var name="nb-tooltips_theme" value="%nbviewer_cookbook%/tooltips_theme.ipynb"/>
     <var name="nb-waterfall_plot" value="%nbviewer_cookbook%/waterfall_plot.ipynb"/>
     <var name="nb-y_orientation" value="%nbviewer_cookbook%/y_orientation.ipynb"/>
 </vars>

@@ -12,4 +12,4 @@ See also the [formatting reference](formats.md) to learn how to format numeric a
 
 - [Tooltip title](%nb-tooltip_title%)
 - [Tooltip customization](%nb-tooltip_config%)
-- [Tooltip properties in `theme()`](%nb-tooltips_theme%)
+- [Tooltip properties in `theme()`](%nb-themes%)
