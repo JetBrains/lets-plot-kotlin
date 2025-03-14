@@ -107,6 +107,7 @@
     <var name="nb-panel_border" value="%nbviewer_cookbook%/panel_border.ipynb"/>
     <var name="nb-param_width_unit" value="%nbviewer_cookbook%/param_width_unit.ipynb"/>
     <var name="nb-plot_grid" value="%nbviewer_cookbook%/plot_grid.ipynb"/>
+    <var name="nb-position_nudge_unit" value="%nbviewer_cookbook%/position_nudge_unit.ipynb"/>
     <var name="nb-position_stack" value="%nbviewer_cookbook%/position_stack.ipynb"/>
     <var name="nb-projection_provided" value="%nbviewer_cookbook%/projection_provided.ipynb"/>
     <var name="nb-qq_plots" value="%nbviewer_cookbook%/qq_plots.ipynb"/>

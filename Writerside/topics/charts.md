@@ -58,6 +58,7 @@ Examples:
 - [Ribbon geometry](%nb-ribbon%)
 - [How to draw curve fast](%nb-algebraic_curve%)
 - [`stroke` aesthetic](%nb-aes_stroke%)
+- [Configuring nudge units in position adjustments](%nb-position_nudge_unit%)
 
 
 ## Discrete
