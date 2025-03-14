@@ -87,6 +87,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param nudgeY Vertical adjustment to nudge labels by.
  * @param sizeUnit Relates the size of the text to the length of the unit step along one of the axes.
  *  Possible values: "x", "y". If not specified, no fitting is performed.
+ * @param nudgeUnit ("identity", "size", "px") Units for x and y nudging.
+ * Possible values:
+ *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with `size=1`;
+ *  - "px": the unit is measured in screen pixels.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param checkOverlap Skips plotting text that overlaps previous text in the same layer.
@@ -135,6 +140,7 @@ class geomText(
     override val nudgeX: Number? = null,
     override val nudgeY: Number? = null,
     override val sizeUnit: String? = null,
+    override val nudgeUnit: String? = null,
     override val colorBy: String? = null,
     override val checkOverlap: Boolean? = null,
     mapping: TextMapping.() -> Unit = {}
