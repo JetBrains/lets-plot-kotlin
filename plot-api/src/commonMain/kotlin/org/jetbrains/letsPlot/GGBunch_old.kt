@@ -23,6 +23,11 @@ import org.jetbrains.letsPlot.intern.toSpec
  *
  * - [geom_smooth.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_smooth.ipynb)
  */
+@Deprecated(
+    message = "Class GGBunch is replaced with function ggbunch()." +
+            "Please use it to combine several plots into a single figure with custom layout.",
+    level = DeprecationLevel.WARNING
+)
 class GGBunch : Figure {
     private val items: MutableList<PlotItem> = ArrayList()
 

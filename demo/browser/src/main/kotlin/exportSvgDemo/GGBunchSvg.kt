@@ -6,26 +6,34 @@
 package exportSvgDemo
 
 import BrowserDemoUtil
-import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.awt.plot.PlotSvgExport
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomDensity
+import org.jetbrains.letsPlot.ggbunch
 import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.themes.elementRect
+import org.jetbrains.letsPlot.themes.theme
+import org.jetbrains.letsPlot.themes.themeBW
 import kotlin.math.abs
 
 @Suppress("DuplicatedCode")
 object GGBunchSvg {
     @JvmStatic
     fun main(args: Array<String>) {
-        val density = letsPlot(densityData()) + geomDensity(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
-        val boxplot = letsPlot(boxplotData()) { x = "cat"; y = "val" } + geomBoxplot(outlierColor = "red")
+        val theme = themeBW() + theme(plotBackground = elementRect(size = 1))
+        val density = letsPlot(densityData()) +
+                geomDensity(color = "red", alpha = 0.3, size = 5.0) { x = "x" } + theme
+        val boxplot = letsPlot(boxplotData()) { x = "cat"; y = "val" } +
+                geomBoxplot(outlierColor = "red") + theme
 
-        // Create plot spec using lets-plot Kotlin API
-        val w = 300
-        val h = 250
-        val bunch = GGBunch()
-        bunch.addPlot(density, 0, 0, w, h)
-        bunch.addPlot(boxplot, w + 10, h + 10, w, h)
+        // Plots in opposite corners
+        val bunch = ggbunch(
+            listOf(density, boxplot),
+            regions = listOf(
+                listOf(0, 0, 0.49, 0.49),
+                listOf(0.51, 0.51, 0.49, 0.49),
+            )
+        )
 
         val spec = bunch.toSpec()
 

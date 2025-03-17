@@ -6,39 +6,42 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBrowserContext
-import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomDensity
-import org.jetbrains.letsPlot.ggsize
+import org.jetbrains.letsPlot.ggbunch
 import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.themes.elementRect
+import org.jetbrains.letsPlot.themes.theme
+import org.jetbrains.letsPlot.themes.themeBW
 import kotlin.math.abs
 
 object GGBunchDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBrowserContext.eval("GGBunch: Density + Boxplot") {
-            val density = letsPlot(densityData()) + geomDensity(color = "red", alpha = 0.3, size = 5.0) { x = "x" }
-            val boxplot = letsPlot(boxplotData()) { x = "cat"; y = "val" } + geomBoxplot(outlierColor = "red")
+        ScriptInBrowserContext.eval("ggbunch(): Density + Boxplot") {
+            val theme = themeBW() + theme(plotBackground = elementRect(size = 1))
+            val density = letsPlot(densityData()) +
+                    geomDensity(color = "red", alpha = 0.3, size = 5.0) { x = "x" } + theme
+            val boxplot = letsPlot(boxplotData()) { x = "cat"; y = "val" } +
+                    geomBoxplot(outlierColor = "red") + theme
 
-            // set plot size via `addPlot` func param
-            val w = 300
-            val h = 250
-            var bunch = GGBunch()
-            bunch.addPlot(density, 0, 0, w, h)
-            bunch.addPlot(boxplot, w + 10, h + 10, w, h)
-            bunch.show()
+            // Plots in opposite corners
+            ggbunch(
+                listOf(density, boxplot),
+                regions = listOf(
+                    listOf(0, 0, 0.49, 0.49),
+                    listOf(0.51, 0.51, 0.49, 0.49),
+                )
+            ).show()
 
-            // set plot size via `ggsize`
-            bunch = GGBunch()
-            bunch.addPlot(density + ggsize(w, h), 0, 0)
-            bunch.addPlot(boxplot + ggsize(w, h), w + 10, h + 10)
-            bunch.show()
-
-            // default plot sizes
-            bunch = GGBunch()
-            bunch.addPlot(density, 0, 0)
-            bunch.addPlot(boxplot, w + 10, h + 10)
-            bunch.show()
+            // Overlapped plots
+            ggbunch(
+                listOf(density, boxplot),
+                regions = listOf(
+                    listOf(0, 0, 0.6, 0.6),
+                    listOf(0.4, 0.4, 0.6, 0.6),
+                )
+            ).show()
         }
     }
 

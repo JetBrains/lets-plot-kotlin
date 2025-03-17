@@ -6,8 +6,8 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
-import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.gggrid
 import org.jetbrains.letsPlot.ggsize
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.scale.scaleColorContinuous
@@ -39,10 +39,7 @@ object ScaleLimitsContinuous {
 
             // Each plot uses different size limits
             run {
-                val b = GGBunch()
-                    .addPlot(p0, 0, 0)
-                    .addPlot(p1, 0, 100)
-                b.show()
+                gggrid(listOf(p0, p1), ncol = 1).show()
             }
 
             // Both plots use the same size limits
@@ -50,10 +47,12 @@ object ScaleLimitsContinuous {
                 val scales = scaleSize(limits = 0 to 9) +
                         scaleColorContinuous(limits = 0 to 9) +
                         scaleXContinuous(limits = 0 to 9)
-                val b = GGBunch()
-                    .addPlot(p0 + scales, 0, 0)
-                    .addPlot(p1 + scales, 0, 100)
-                b.show()
+                gggrid(
+                    listOf(
+                        p0 + scales,
+                        p1 + scales,
+                    ), ncol = 1
+                ).show()
             }
         }
     }
