@@ -215,4 +215,4 @@ Please make sure you read it.
 
 Code and documentation released under
 the [MIT license](https://github.com/JetBrains/lets-plot-kotlin/blob/master/LICENSE).
-Copyright © 2019-2024, JetBrains s.r.o.
+Copyright © 2019-2025, JetBrains s.r.o.
