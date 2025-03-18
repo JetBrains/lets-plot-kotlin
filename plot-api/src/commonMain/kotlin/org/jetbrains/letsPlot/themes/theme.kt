@@ -602,9 +602,9 @@ fun elementText(
  *
  * ## Examples
  *
- * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
- *
  * - [markdown.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/markdown.ipynb)
+ *
+ * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  *
  * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
  * @param family Font family.
