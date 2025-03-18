@@ -71,25 +71,18 @@ class SubPlotsFigure(
 
     companion object {
         private fun withFeature(self: SubPlotsFigure, feature: Feature): SubPlotsFigure {
-            require(feature is OptionsMap) { "plot grid: unsupported feature $feature" }
-            require(feature.kind in listOf(Plot.SIZE, Plot.THEME)) {
-                "plot grid: unsupported feature ${feature.kind}"
-            }
+            val featureOptions = validateFeature(feature)
 
             return SubPlotsFigure(
                 figures = self.figures,
                 layout = self.layout,
-                features = self.features + listOf(feature)
+                features = self.features + listOf(featureOptions)
             )
         }
 
         private fun withFeatureList(self: SubPlotsFigure, featureList: FeatureList): SubPlotsFigure {
             val features = featureList.elements.map { feature ->
-                require(feature is OptionsMap) { "plot grid: unsupported feature $feature" }
-                require(feature.kind in listOf(Plot.SIZE, Plot.THEME)) {
-                    "plot grid: unsupported feature ${feature.kind}"
-                }
-                feature
+                validateFeature(feature)
             }
 
             return SubPlotsFigure(
@@ -97,6 +90,21 @@ class SubPlotsFigure(
                 layout = self.layout,
                 features = self.features + features
             )
+        }
+
+        private fun validateFeature(feature: Feature): OptionsMap {
+            require(feature is OptionsMap) { "composite figure: unsupported feature $feature" }
+            require(
+                feature.kind in listOf(
+                    Plot.SIZE,
+                    Plot.THEME,
+                    Plot.TITLE,
+                    Plot.CAPTION,
+                    Meta.Kind.GG_TOOLBAR
+                )
+            ) { "composite figure: unsupported feature ${feature.kind}" }
+
+            return feature
         }
     }
 }

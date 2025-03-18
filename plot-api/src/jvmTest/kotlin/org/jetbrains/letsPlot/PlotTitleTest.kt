@@ -10,6 +10,7 @@ import org.jetbrains.letsPlot.intern.PlotAssert.Companion.assertThat
 import org.jetbrains.letsPlot.intern.toSpec
 import org.jetbrains.letsPlot.label.ggtitle
 import org.junit.Test
+import kotlin.test.assertTrue
 
 class PlotTitleTest {
 
@@ -28,6 +29,35 @@ class PlotTitleTest {
                 "ggtitle" to mapOf("text" to "Let's plot!")
             ),
             spec
+        )
+    }
+
+    @Suppress("SpellCheckingInspection")
+    @Test
+    fun `gggrid title`() {
+        val list = listOf(ggplot(), ggplot())
+        val grid = gggrid(list) + ggtitle("Let's plot!")
+
+        val spec = grid.toSpec()
+        assertTrue(spec.containsKey("ggtitle"))
+        assertEquals(
+            mapOf("text" to "Let's plot!"),
+            spec.getValue("ggtitle")
+        )
+    }
+
+
+    @Suppress("SpellCheckingInspection")
+    @Test
+    fun `ggbunch title`() {
+        val list = listOf(ggplot(), ggplot())
+        val bunch = ggbunch(list, regions = emptyList()) + ggtitle("Let's plot!")
+
+        val spec = bunch.toSpec()
+        assertTrue(spec.containsKey("ggtitle"))
+        assertEquals(
+            mapOf("text" to "Let's plot!"),
+            spec.getValue("ggtitle")
         )
     }
 }

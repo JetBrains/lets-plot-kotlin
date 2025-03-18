@@ -31,12 +31,27 @@ class PlotSizeTest {
         )
     }
 
+    @Suppress("SpellCheckingInspection")
     @Test
-    fun `plot grid size`() {
+    fun `gggrid size`() {
         val list = listOf(ggplot(), ggplot())
         val grid = gggrid(list) + ggsize(5, 10)
 
         val spec = grid.toSpec()
+        assertTrue(spec.containsKey("ggsize"))
+        assertEquals(
+            mapOf("height" to 10.0, "width" to 5.0),
+            spec.getValue("ggsize")
+        )
+    }
+
+    @Suppress("SpellCheckingInspection")
+    @Test
+    fun `ggbunch size`() {
+        val list = listOf(ggplot(), ggplot())
+        val bunch = ggbunch(list, regions= emptyList()) + ggsize(5, 10)
+
+        val spec = bunch.toSpec()
         assertTrue(spec.containsKey("ggsize"))
         assertEquals(
             mapOf("height" to 10.0, "width" to 5.0),
