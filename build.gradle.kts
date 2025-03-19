@@ -34,8 +34,9 @@ allprojects {
     group = "org.jetbrains.lets-plot"
     version = when (name) {
         "dokka" -> "4.9.4"
-//        else -> "4.9.4-SNAPSHOT"
-        else -> "0.0.0-SNAPSHOT"  // for local publishing only
+//        else -> "4.10.0-SNAPSHOT"
+        else -> "4.10.0-rc1"
+//        else -> "0.0.0-SNAPSHOT"  // for local publishing only
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {

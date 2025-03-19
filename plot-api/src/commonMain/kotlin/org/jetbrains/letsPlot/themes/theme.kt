@@ -15,9 +15,19 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * Use `theme()` to modify individual components of a theme,
  * allowing you to control the appearance of all non-data components of the plot.
  *
- * All parameters responsible for styling of lines, rectangles (often called "background") and texts accept:
- * - string "blank" or the result of the `elementBlank()` function.
- * - the result of `elementLine()`, `elementRect()` or `elementText()` respectively.
+ * Most parameters in `theme()` control styling of text, line, and rectangular elements.
+ *
+ * All styling parameters accept:
+ * - String "blank" or result of `elementBlank()` to hide the element
+ * - Additionally, based on element type:
+ *   - Text elements: result of `elementText()`
+ *   - Rectangular elements: result of `elementRect()`
+ *   - Line elements: result of `elementLine()`
+ *
+ * Parameter naming follows a pattern:
+ * - Parameters controlling text elements end with "Text" or "Title" (e.g., `axisText`, `plotTitle`)
+ * - Parameters controlling rectangular elements end with "Background" or "Rect" (e.g., `panelBackground`)
+ * - Parameters controlling line elements end with "Line", "Grid", "Ticks", or "Border" (e.g., `axisLine`, `panelGrid`)
  *
  * Settings passed via more specific parameters override settings passed via less specific parameters.
  * For example, parameter `axisLineX` is more specific than parameter `axisLine`.
@@ -99,6 +109,9 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param legendKeySpacingX Spacing between legend keys in the horizontal direction.
  * @param legendKeySpacingY Spacing between legend keys in the horizontal direction.
  * @param legendBoxSpacing Spacing between plotting area and legend box.
+ * @param legendTicks Tick mark lines in colorbar.
+ * @param legendTicksLength Length of tick marks in colorbar.
+ *
  * @param panelBackground Background of plotting area.
  * @param panelBorder Border around plotting area.
  * @param panelBorderOntop Option to place border around plotting area over the data layers.
@@ -184,7 +197,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * @param geom Geometry colors.
  */
-@Suppress("ClassName", "FunctionName")
+@Suppress("ClassName")
 class theme(
     exponentFormat: Any? = null,
 
@@ -194,11 +207,8 @@ class theme(
     title: Any? = null,
     axis: Any? = null,
 
-    @Suppress("SpellCheckingInspection")
     axisOntop: Boolean? = null,
-    @Suppress("SpellCheckingInspection")
     axisOntopX: Boolean? = null,
-    @Suppress("SpellCheckingInspection")
     axisOntopY: Boolean? = null,
 
     axisTitle: Any? = null,
@@ -239,9 +249,11 @@ class theme(
 
     legendBoxSpacing: Number? = null,
 
+    legendTicks: Any? = null,
+    legendTicksLength: Number? = null,
+
     panelBackground: Any? = null,
     panelBorder: Any? = null,
-    @Suppress("SpellCheckingInspection")
     panelBorderOntop: Boolean? = null,
 
     panelGrid: Any? = null,
@@ -252,11 +264,8 @@ class theme(
     panelGridMajorY: Any? = null,
     panelGridMinorY: Any? = null,
 
-    @Suppress("SpellCheckingInspection")
     panelGridOntop: Boolean? = null,
-    @Suppress("SpellCheckingInspection")
     panelGridOntopX: Boolean? = null,
-    @Suppress("SpellCheckingInspection")
     panelGridOntopY: Boolean? = null,
 
     panelInset: Any? = null,
@@ -347,6 +356,9 @@ class theme(
 
         Option.Theme.LEGEND_BOX_SPACING to legendBoxSpacing,
 
+        Option.Theme.LEGEND_TICKS to legendTicks,
+        Option.Theme.LEGEND_TICKS_LENGTH to legendTicksLength,
+
         Option.Theme.PANEL_BKGR_RECT to panelBackground,
         Option.Theme.PANEL_BORDER_RECT to panelBorder,
         Option.Theme.PANEL_BORDER_ONTOP to panelBorderOntop,
@@ -432,7 +444,8 @@ class theme(
         )
     }
 
-    fun legendJustificationCenter() = withOption(Option.Theme.LEGEND_JUSTIFICATION, Option.Theme.Legend.JUSTIFICATION_CENTER)
+    fun legendJustificationCenter() =
+        withOption(Option.Theme.LEGEND_JUSTIFICATION, Option.Theme.Legend.JUSTIFICATION_CENTER)
 
     /**
      * Specifies the anchor point for positioning legend inside plot.
@@ -446,7 +459,9 @@ class theme(
         )
     }
 
-    fun legendDirectionHorizontal() = withOption(Option.Theme.LEGEND_DIRECTION, Option.Theme.Legend.DIRECTION_HORIZONTAL)
+    fun legendDirectionHorizontal() =
+        withOption(Option.Theme.LEGEND_DIRECTION, Option.Theme.Legend.DIRECTION_HORIZONTAL)
+
     fun legendDirectionVertical() = withOption(Option.Theme.LEGEND_DIRECTION, Option.Theme.Legend.DIRECTION_VERTICAL)
 
     /**
@@ -459,10 +474,15 @@ class theme(
      *  Justification of each legend within the overall bounding box, when there are multiple legends.
      */
     fun legendBoxJustificationLeft() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_LEFT)
-    fun legendBoxJustificationRight() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_RIGHT)
+    fun legendBoxJustificationRight() =
+        withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_RIGHT)
+
     fun legendBoxJustificationTop() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_TOP)
-    fun legendBoxJustificationBottom() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_BOTTOM)
-    fun legendBoxJustificationCenter() = withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_CENTER)
+    fun legendBoxJustificationBottom() =
+        withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_BOTTOM)
+
+    fun legendBoxJustificationCenter() =
+        withOption(Option.Theme.LEGEND_BOX_JUST, Option.Theme.Legend.JUSTIFICATION_CENTER)
 }
 
 /**
