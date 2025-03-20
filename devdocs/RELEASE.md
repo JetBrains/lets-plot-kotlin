@@ -91,18 +91,6 @@ Lets-Plot Kotlin API URL: https://lets-plot.org/kotlin/api-reference/index.html
 
 See also: [docs/README.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/docs/README.md)
 
-### Update Lets-Plot `library descriptor` in Jupyter Kotlin Kernel
-
-- Edit [lets-plot.json](https://github.com/Kotlin/kotlin-jupyter-libraries/blob/master/lets-plot.json) and 
-[lets-plot-gt.json](https://github.com/Kotlin/kotlin-jupyter-libraries/blob/master/lets-plot-gt.json)
-in the [kotlin-jupyter-libraries](https://github.com/Kotlin/kotlin-jupyter-libraries) GitHub project.
-
-- Create a PR and get it merged into 'master'.
-
-> **Note**: the new descriptor will become the default only with the next release of the Kotlin Kernel.
-> 
-> Until then, the `%useLatestDescriptors` line magic must be included in notebooks.    
-
 ### Demo Notebooks
 
 ##### 1. Edit `binder/environment.yml` file.
@@ -120,4 +108,16 @@ This is optional - needed only if newer version of 'kotlin-jupyter-kernel' is re
  * Open the link: https://github.com/JetBrains/lets-plot-kotlin/releases/new
  * Fill `Tag version` and `Release title` with the released version: "vX.X.X"
  * Fill the description field - copy from the CHANGELOG.md
+
+### Update Lets-Plot `library descriptor` in Jupyter Kotlin Kernel
+
+- Edit [lets-plot.json](https://github.com/Kotlin/kotlin-jupyter-libraries/blob/master/lets-plot.json) and
+  [lets-plot-gt.json](https://github.com/Kotlin/kotlin-jupyter-libraries/blob/master/lets-plot-gt.json)
+  in the [kotlin-jupyter-libraries](https://github.com/Kotlin/kotlin-jupyter-libraries) GitHub project.
+
+- Create a PR and get it merged into 'master'.
+
+> **Note**: the new descriptor will become the default only with the next release of the Kotlin Kernel.
+>
+> Until then, the `%useLatestDescriptors` line magic must be included in notebooks.    
  
