@@ -5,6 +5,94 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
+## [4.10.0] - 2025-03-20
+
+This release is 100% compatible with Lets-Plot [v 4.6.1](https://github.com/JetBrains/lets-plot/releases/tag/v4.6.1),
+GeoTools [v 32.1](https://github.com/geotools/geotools/releases/tag/32.1)
+
+### Added
+
+- Grouping plots:
+  - `ggbunch()` function: combining plots with custom layout.
+
+    See demos:
+    - [Magnifier Inset Effect](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/magnifier_inset.ipynb).
+    - [Map of Kotlin Island with Inset](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/ggbunch_kotlin_isl.ipynb).
+
+  - Support for plot **title, subtitle, caption, margins** and **insets** in `gggrid()` and `ggbunch()`.
+
+- Geometries:
+  - `geomHex()` [[#556](https://github.com/JetBrains/lets-plot/issues/556)].
+
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/geom_hex.ipynb).
+
+  - Parameters 
+    - `widthUnit` in `geomErrorBar()`, `geomBoxplot()`, `geomCrossbar()` [[#1288](https://github.com/JetBrains/lets-plot/issues/1288)].
+    - `widthUnit` and `heightUnit` in `geomTile()` and `geomHex()`.
+
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/param_width_unit.ipynb).
+
+  - Parameters `start` and `direction` in `geomPie()` [[#1280](https://github.com/JetBrains/lets-plot/issues/1280)].
+
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/geom_pie_params.ipynb).
+
+- Texts and labels:
+  - `hjust` and `vjust` parameters for axis labels [[#1227](https://github.com/JetBrains/lets-plot/issues/1227)],[[#1230](https://github.com/JetBrains/lets-plot/issues/1230)].
+
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/axis_label_justification.ipynb).
+
+  - Multiline support for axis labels [[#948](https://github.com/JetBrains/lets-plot/issues/948)].
+
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/multiline_axis_labels.ipynb).
+
+  - Markdown support for plot **title**, **subtitle**, **caption**, and axis labels [[#1256](https://github.com/JetBrains/lets-plot/issues/1256)].
+
+    See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/markdown.ipynb).
+  
+- In the `nudge` position adjustment -
+  the ability to specify absolute shift values for `nudge`:
+  - `unit` parameter in `positionNudge()`.
+  - `nudgeUnit` parameter in `geomText()` and `geomLabel()`
+
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/position_nudge_unit.ipynb).
+
+- Theme:
+  - Parameters `legendTicks` and `legendTicksLength` for fine-grained control over colorbar tick marks [[#1262](https://github.com/JetBrains/lets-plot/issues/1262)].
+
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/theme_legend_ticks.ipynb).
+
+- Aliases for transparent color: `""` (blank string), `"blank"` and `"transparent"` color [[#1281](https://github.com/JetBrains/lets-plot/issues/1281)].
+
+### Changed
+
+- [**DEPRECATED**] class `GGBunch` is deprecated. Please use `ggbunch()` function instead.
+- [**BREAKING**] The `height` parameter has been deprecated for the `geomErrorBar`.
+- Axis breaks: the minimum distance between axis labels was reduced to avoid unsuitable layouts.
+- Axis breaks: changed default `lower_exp_bound` to -7 and `upper_exp_bound` to 6 (same as in `theme(...)`).
+- Axis labels: changed default justification for rotated labels.
+- Axis labels: changed orientation of automatic vertical labels.
+- [**BREAKING**] geoms `tile, bin2d, contour, contourf, density2d, density2df` : default coordinate system changed from 'fixed' to 'cartesian'.
+- [**BREAKING**] tiles in `geomBin2d()` are sized according to the `binwidth` value, not the maximum possible.
+- [**BREAKING**] In Lets-Plot JS API v 4.6.0 (only Lets-Plot/JS users): signature of "buildPlotFromXXX" functions changed, see current Kotlin/JS declarations:
+  - [`buildPlotFromRawSpecs()`](https://github.com/JetBrains/lets-plot/blob/38d0b24ecb3c74420814da8a66a91819d84bedd7/js-package/src/jsMain/kotlin/MonolithicJs.kt#L81)
+  - [`buildPlotFromProcessedSpecs()`](https://github.com/JetBrains/lets-plot/blob/38d0b24ecb3c74420814da8a66a91819d84bedd7/js-package/src/jsMain/kotlin/MonolithicJs.kt#L158)
+- [**BREAKING**] In Lets-Plot v 4.6.0, Maven artifacts:
+  - artifacts `platf-awt`, `platf-batik`, `platf-jfx-swing` are no longer published with a "-jvm" suffix.
+    Before, these artifacts could be used in dependencies either with or without the "-jvm" suffix. Now only without suffix.
+  - artifact "org.jetbrains.lets-plot:deprecated-in-v4-jvm" is removed.
+
+### Fixed
+- Incorrectly rendered Area chart [[#1295](https://github.com/JetBrains/lets-plot/issues/1295)].
+- Tooltip should not cover and hide the geometry that it provides info for [[#1275](https://github.com/JetBrains/lets-plot/issues/1275)].
+- General purpose `scaleContinuous`: can't use the `expand` parameter [[#1285](https://github.com/JetBrains/lets-plot/issues/1285)].
+- Error when using `stat='summary'` if the data contains NaN values [[#1301](https://github.com/JetBrains/lets-plot/issues/1301)].
+- Broken `plotBackground` in `gggrid` [[#1124](https://github.com/JetBrains/lets-plot/issues/1124)].
+- `plotBackground` not inheriting from `rect` [[#1278](https://github.com/JetBrains/lets-plot/issues/1278)]
+- `gggrid`: allow title and other labels for the entire figure [[#715](https://github.com/JetBrains/lets-plot/issues/715)].
+- `ggbunch`: overall title [[#321](https://github.com/JetBrains/lets-plot/issues/321)].
+- Expand discrete axis according to tile size with `geomTile` [[#1284](https://github.com/JetBrains/lets-plot/issues/1284)].
+
+
 ## [4.9.3] - 2024-12-16
 
 This release is 100% compatible with Lets-Plot [v 4.5.2](https://github.com/JetBrains/lets-plot/releases/tag/v4.5.2),

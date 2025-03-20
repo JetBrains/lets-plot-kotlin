@@ -67,7 +67,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
   - [Compose Multiplatform](#in-compose-multiplatform)
   - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-- [What is new in 4.9.0](#new)
+- [What is new in 4.10.0](#new)
 - [Recent Updates in the Gallery](#recent_gallery_updates)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
@@ -103,7 +103,7 @@ In this case the latest `library descriptor` will be pulled from the [Kotlin Jup
 #### Library Descriptor Parameters
 
 ```
-%use lets-plot(v=4.9.0, isolatedFrame=false)
+%use lets-plot(v=4.10.0, isolatedFrame=false)
 ```                                                                 
 - `v` - version of the Lets-Plot Kotlin API.
 - `isolatedFrame` - If `false`: load JS just once per notebook (default in Jupyter).
@@ -132,39 +132,38 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 
 
 <a id="new"></a>
-## What is new in 4.9.0
+## What is new in 4.10.0
 
-- #### Panning and Zooming
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/ggtb.png" alt="f-24g/images/ggtb.png" width="300" height="134">
+- #### Markdown Support in *Title*, *Subtitle*, *Caption*, and Axis Labels
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-25a/images/markdown.png" alt="Markdown Support" width="400" height="237">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.9.0/interact_pan_zoom.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/markdown.ipynb).
 
-- #### Clickable Links
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/lp_verse.png" alt="f-24g/images/lp_verse.png" width="400" height="270">
+- #### Support for Multiline Axis Labels, Text Justification in Axis Labels
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-25a/images/multiline_axis_labels.png" alt="Multiline Axis Labels" width="400" height="275">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/lp_verse.ipynb).
+  See examples: [multiline axis labels](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/multiline_axis_labels.ipynb),
+  [axis label justification](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/axis_label_justification.ipynb).
 
-- #### LaTeX Support: Subscript, Superscript, Greek Letters and Special Characters
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/latex.png" alt="f-24g/images/latex.png" width="300" height="227">
+- #### `geomHex()` Geometry
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-25a/images/geom_hex.png" alt="Geometry Hex" width="370" height="296">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/latex_support.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/geom_hex.ipynb).
 
-- #### Compact Scientific Notation Formatting
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/compact_exp.png" alt="f-24g/images/compact_exp.png" width="400" height="174">
+- #### `ggbunch()` Function: Combining Plots with Custom Layout
+  It replaces the deprecated `GGBunch` class.  <br/>
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-25a/images/magnifier_inset.png" alt="Magnifier Inset" width="400" height="251">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/superscript_exponent.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/magnifier_inset.ipynb).
 
-- #### QQ-Plot: Marginal Distributions
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/gg_marins.png" alt="f-24g/images/gg_marins.png" width="400" height="249">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.10.0/ggbunch_kotlin_isl.png" alt="Map of Kotlin Isl." width="400" height="254">
 
-  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/qq_plot_marginal.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/ggbunch_kotlin_isl.ipynb).
 
-- #### More Theme Settings
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-24g/images/theme_legend_scheme.png" alt="f-24g/images/theme_legend_scheme.png" width="400" height="320">
+- #### Parameters `start` and `direction` in `geom_pie()` Geometry
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-25a/images/geom_pie_params.png" alt="Pie Params" width="400" height="119">
 
-  See examples: [legend margins](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_legend_margins.ipynb),
-  [legend key](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_legend_key.ipynb),
-  [facet strip](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/tree/master/docs/examples/jupyter-notebooks/f-4.9.0/theme_facet_strip_xy.ipynb).
+  See [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/geom_pie_params.ipynb).
 
 
 - #### And More
