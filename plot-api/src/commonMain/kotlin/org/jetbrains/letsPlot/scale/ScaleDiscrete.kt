@@ -25,6 +25,9 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits List of data values.
  *  A vector specifying values to display with the scale and their order in guides (axis).
+ * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
+ *  The vector size == 1 => only multiplicative expand (and additive expand by default).
+ *  Defaults: multiplicative = 0, additive = 0.2.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -56,6 +59,7 @@ fun scaleDiscrete(
     labels: Any? = null,
     lablim: Int? = null,
     limits: List<Any>? = null,
+    expand: Any? = null,
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null,
@@ -68,6 +72,7 @@ fun scaleDiscrete(
     labels = labels,
     lablim = lablim,
     limits = limits,
+    expand = expand,
     naValue = naValue,
     format = format,
     guide = guide,
