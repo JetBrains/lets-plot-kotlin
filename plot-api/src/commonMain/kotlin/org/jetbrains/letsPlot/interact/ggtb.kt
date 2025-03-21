@@ -29,7 +29,6 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  * Limitations:
  *
  * - The toolbar does not work with interactive maps.
- * - The toolbar is not compatible with GGBunch.
  * - The toolbar cannot be used with plots using a polar coordinate system.
  *
  * ## Examples

@@ -29,7 +29,7 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *
  * - [export_to_file.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/export_to_file.ipynb)
  *
- * @param plot Plot or GGBunch to export.
+ * @param plot Plot to export.
  * @param filename The name of file. It mast end with file extention corresponding
  *      to one of the supported formats: svg, html (or htm), png, jpeg (or jpg) or tiff (or tif)
  * @param scale Scaling factor (only for raster formats). Default: 2.0
