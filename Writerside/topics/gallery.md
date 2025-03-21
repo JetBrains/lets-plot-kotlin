@@ -2,6 +2,11 @@
 
 <list columns="3">
     <li>
+        <a href="%nb-magnifier_inset%">
+            <img alt="Creating magnifier inset effect with ggbunch()" src="square-magnifier_inset.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-theme_legend_scheme%">
             <img alt="Theme legend scheme" src="square-theme_legend_scheme.png"/>
         </a>

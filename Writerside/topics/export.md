@@ -2,7 +2,7 @@
 
 ## Saving Plot in a File
 
-The `ggsave()` function is a convenient way of saving a plot or a GGBunch object in a file.
+The `ggsave()` function is a convenient way of saving a plot or a multiplot in a file.
 
 The supported export formats are: `SVG`, `HTML`, `PNG`, `JPEG` and `TIFF`.
 

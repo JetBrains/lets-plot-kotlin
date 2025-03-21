@@ -27,7 +27,7 @@ config_json_version=""
 while read line; do
   key="$( echo $line | (grep -oP 'name="(\w+)"' || echo "") )"
   if [ "$key" = 'name="version"' ]; then
-    config_json_version="$( echo $line | grep -oP "\d\.\d\.\d" )"
+    config_json_version="$( echo $line | grep -oP "\d+\.\d+\.\d+" )"
     break
   fi
 done < $root_path/Writerside/v.list

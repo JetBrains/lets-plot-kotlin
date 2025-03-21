@@ -10,14 +10,14 @@ Examples:
 - [Creating multi-panel plots using facets](%nb-facets%)
 - [Free scales on faceted plot](%nb-facets_free_scales%)
 
-## `GGBunch`
+## `ggbunch`
 
-- [`GGBunch`](%api_lets_plot%/-g-g-bunch/index.html) - create a collection of plots that can have arbitrary location and size.
+- [`ggbunch`](%api_lets_plot%/ggbunch.html) - create a collection of plots that can have arbitrary location and size.
 
 Examples:
 
-- [The `GGBunch` class](%nb-ggbunch%)
 - [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
+- [The `ggbunch()` function](%nb-ggbunch%)
 
 ## `gggrid`
 
