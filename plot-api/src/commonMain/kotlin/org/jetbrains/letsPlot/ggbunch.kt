@@ -16,8 +16,9 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  *  ## Examples
  *
- * - [Map of Kotlin Island with Inset](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/spatialdataset_kotlin_isl.ipynb)
- * - [Diamonds Magnifier](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.10.0/magnifier_inset.ipynb).
+ * - [Map of Kotlin island with inset](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/spatialdataset_kotlin_isl.ipynb)
+ *
+ * - [Diamonds magnifier](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/magnifier_inset.ipynb)
  *
  *  @param plots
  *   A list where each element is one of:
