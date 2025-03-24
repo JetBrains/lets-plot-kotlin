@@ -174,6 +174,9 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 <a id="recent_gallery_updates"></a>
 ## Recent Updates in the [Gallery](https://lets-plot.org/kotlin/gallery.html)
 
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/magnifier_inset.ipynb">
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-magnifier_inset.png" alt="Creating magnifier inset effect with ggbunch()" width="128" height="128">
+  </a>
   <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/theme_legend_scheme.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-theme_legend_scheme.png" alt="Customize legend appearance" width="128" height="128">
   </a>
@@ -189,12 +192,7 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
   <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/us_unemployment.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-us_unemployment.png" alt="Unemployment in the US since 1967" width="128" height="128">
   </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/palmer_penguins.ipynb">
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-palmer_penguins.png" alt="Palmer penguins" width="128" height="128">
-  </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/wind_rose.ipynb">
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-wind_rose.png" alt="Wind rose" width="128" height="128">
-  </a>
+
 
 <a id="change_log"></a>
 ## Change Log
