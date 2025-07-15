@@ -197,11 +197,11 @@ tasks {
         dependsOn(jvmProcessResources)
         from(layout.buildDirectory.dir("processedResources/jvm/main"))
         into(layout.buildDirectory.dir("classes/kotlin/jvm/main"))
-        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
     val jvmJar by getting(Jar::class) {
         dependsOn(fixMissingResources)
-        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
 }
 
