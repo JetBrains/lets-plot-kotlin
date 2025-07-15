@@ -14,20 +14,26 @@ Also update "What's New" section in the README.md file.
 >  - [USAGE_BATIK_JFX_JS.md](../USAGE_BATIK_JFX_JS.md)
 >  - [geospatial-charts.md](../Writerside/topics/geospatial_charts.md).
 
-##### 3. Build and release artifacts to Sonatype repository / Maven Central
+##### 3. Build and publish artifacts to Sonatype Central repository
                            
 ```shell
 ./gradlew clean
 ./gradlew build
 
-./gradlew :plot-api:publishAllPublicationsToSonatypeRepository \
-          publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository \
-          publishletsPlotKotlinJupyterPublicationToSonatypeRepository \
-          publishletsPlotKotlinGeotoolsJupyterPublicationToSonatypeRepository \
-          publishLetsPlotKotlinJsonPublicationToSonatypeRepository
+./gradlew :plot-api:publishAllPublicationsToMavenRepository \
+          publishLetsPlotKotlinGeoToolsPublicationToMavenRepository \
+          publishletsPlotKotlinJupyterPublicationToMavenRepository \
+          publishletsPlotKotlinGeotoolsJupyterPublicationToMavenRepository \
+          publishLetsPlotKotlinJsonPublicationToMavenRepository
 
-./gradlew findSonatypeStagingRepository closeAndReleaseSonatypeStagingRepository
+
+./gradlew uploadMavenArtifacts
 ```
+Go to the Sonatype Central Repository deployments page:
+
+https://central.sonatype.com/publishing/deployments
+
+Check all artifacts were uploaded and validated, then push the "Publish" button.
 
 > **Note**: For more details see [PUBLISHING.md](PUBLISHING.md).
 

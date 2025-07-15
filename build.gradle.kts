@@ -3,6 +3,10 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
+import okhttp3.MultipartBody
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.asRequestBody
 import org.jetbrains.kotlin.gradle.dsl.KotlinCommonCompilerOptions
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
@@ -50,6 +54,64 @@ allprojects {
     }
 }
 
+// Sonatype Central Repository settings:
+val sonatypeUsername by extra { localProps["sonatype.username"] ?: "" }
+val sonatypePassword by extra { localProps["sonatype.password"] ?: "" }
+
+// Define the Maven Repository URL. Currently set to a local path for uploading
+// artifacts to the Sonatype Central Repository.
+val mavenReleasePublishUrl by extra { layout.buildDirectory.dir("maven/artifacts").get().toString() }
+
+// define Maven Snapshot repository URL.
+val mavenSnapshotPublishUrl by extra { "https://central.sonatype.com/repository/maven-snapshots/" }
+
+// Configure a workaround tasks for publishing to the Sonatype Central Repository,
+// as there is currently no official Gradle plugin support.
+// Refer to documentation: https://central.sonatype.org/publish/publish-portal-gradle/
+val packageMavenArtifacts by tasks.registering(Zip::class) {
+    from(mavenReleasePublishUrl)
+    archiveFileName.set("${project.name}-artifacts.zip")
+    destinationDirectory.set(layout.buildDirectory)
+}
+val uploadMavenArtifacts by tasks.registering {
+    dependsOn(packageMavenArtifacts)
+
+    doLast {
+        val uriBase = "https://central.sonatype.com/api/v1/publisher/upload"
+        val publishingType = "USER_MANAGED"
+        val deploymentName = "${project.name}-$version"
+        val uri = "$uriBase?name=$deploymentName&publishingType=$publishingType"
+
+        val userName = sonatypeUsername as String
+        val password = sonatypePassword as String
+        val base64Auth = Base64.getEncoder().encode("$userName:$password".toByteArray()).toString(Charsets.UTF_8)
+        val bundleFile = packageMavenArtifacts.get().archiveFile.get().asFile
+
+        println("Sending request to $uri...")
+
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url(uri)
+            .header("Authorization", "Bearer $base64Auth")
+            .post(
+                MultipartBody.Builder()
+                    .setType(MultipartBody.FORM)
+                    .addFormDataPart("bundle", bundleFile.name, bundleFile.asRequestBody())
+                    .build()
+            )
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            val statusCode = response.code
+            println("Upload status code: $statusCode")
+            println("Upload result: ${response.body!!.string()}")
+            if (statusCode != 201) {
+                error("Upload error to Central repository. Status code $statusCode.")
+            }
+        }
+    }
+}
+
 subprojects {
     repositories {
         // GeoTools repository must be before Maven Central
@@ -70,7 +132,7 @@ subprojects {
         }
 
         // SNAPSHOTS
-        maven(url = "https://oss.sonatype.org/content/repositories/snapshots")
+        maven(url = mavenSnapshotPublishUrl)
 
         mavenLocal()
     }
@@ -100,25 +162,6 @@ subprojects {
                     }
                 }
             }
-    }
-}
-
-// Nexus publish plugin settings:
-val sonatypeUsername = localProps["sonatype.username"] as String?
-val sonatypePassword = localProps["sonatype.password"] as String?
-val sonatypeProfileId = localProps["sonatype.profileID"] as String?
-if (!(sonatypeUsername.isNullOrBlank()
-            || sonatypePassword.isNullOrBlank()
-            || sonatypeProfileId.isNullOrBlank())) {
-    nexusPublishing.repositories {
-        sonatype {
-            username.set(sonatypeUsername)
-            password.set(sonatypePassword)
-            stagingProfileId.set(sonatypeProfileId)
-
-            nexusUrl.set(uri("https://oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://oss.sonatype.org/content/repositories/snapshots/"))
-        }
     }
 }
 

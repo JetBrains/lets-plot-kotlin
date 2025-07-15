@@ -11,7 +11,7 @@
 ./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository
 ```
 
-### Publishing to Sonatype Maven Repository
+### Publishing to Sonatype Central repository
                    
 > **Note**: when publishing a "Release" version to Sonatype, PGP signature is required.
 >
@@ -30,47 +30,40 @@ sonatype.password=<your Sonatype password>
 
 Specify "x.y.z-SNAPSHOT" version in `build.gradle.kts` file.
 ```bash
-./gradlew :plot-api:publishAllPublicationsToSonatypeRepository
-./gradlew publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository
-./gradlew publishletsPlotKotlinJupyterPublicationToSonatypeRepository
-./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToSonatypeRepository
-./gradlew publishLetsPlotKotlinJsonPublicationToSonatypeRepository
+./gradlew :plot-api:publishAllPublicationsToMavenRepository
+./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenRepository
+./gradlew publishletsPlotKotlinJupyterPublicationToMavenRepository
+./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenRepository
+./gradlew publishLetsPlotKotlinJsonPublicationToMavenRepository
 ```
-> You can find published SNAPSHOT artifacts here https://oss.sonatype.org/index.html#view-repositories;snapshots~browsestorage \
-> In the "Browse Storage" tab enter ‘Path lookup’: org/jetbrains/lets-plot
 
-> **Note**: SNAPSHOT artifacts are available at "https://oss.sonatype.org/content/repositories/snapshots" repository.
+> **Note**: SNAPSHOT artifacts are available at "https://central.sonatype.com/repository/maven-snapshots/" repository.
 
 #### "Release" version
 
   a) Specify RELEASE or PRE-RELEASE (i.e. "x.y.z-alpha1", "x.y.z-rc1" etc.) version in `build.gradle.kts` file.
 
-  b) Upload to the Nexus staging repository:
-
-> **Note**: Publish tasks should be invoked with a single command to avoid splitting of the staging repository.
+  b) Build and publish artifacts to a local build directory:
 
 ```shell
-./gradlew :plot-api:publishAllPublicationsToSonatypeRepository \
-          publishLetsPlotKotlinGeoToolsPublicationToSonatypeRepository \
-          publishletsPlotKotlinJupyterPublicationToSonatypeRepository \
-          publishletsPlotKotlinGeotoolsJupyterPublicationToSonatypeRepository \
-          publishLetsPlotKotlinJsonPublicationToSonatypeRepository
+./gradlew :plot-api:publishAllPublicationsToMavenRepository \
+          publishLetsPlotKotlinGeoToolsPublicationToMavenRepository \
+          publishletsPlotKotlinJupyterPublicationToMavenRepository \
+          publishletsPlotKotlinGeotoolsJupyterPublicationToMavenRepository \
+          publishLetsPlotKotlinJsonPublicationToMavenRepository
 ```
 
-> Check artifacts are uploaded to staging repository:
+> Check all artifacts are published to the local directory:
 >
-> https://oss.sonatype.org/index.html#stagingRepositories
+> `<project root>/build/maven/artifacts`
 >
-> Should see repository: "orgjetbrainslets-plot-NNNN" (where NNNN is a number)
-> with profile: "org.jetbrains.lets-plot".
 
-  c) Publish all artifacts to "Releases" repository (from the staging):
+  c) Package and upload all artifacts to the Sonatype Central repository:
 
-`./gradlew findSonatypeStagingRepository closeAndReleaseSonatypeStagingRepository`
+`./gradlew uploadMavenArtifacts`
 
-> Check artifacts are uploaded to Nexus Releases repository:
->
-> https://oss.sonatype.org/index.html#view-repositories;releases~browsestorage
->
-> In the "Browse Storage" tab enter ‘Path lookup’: org/jetbrains/lets-plot
+  d) Check artifacts are uploaded to the Sonatype Central repository and have the status "Validated":
 
+ https://central.sonatype.com/publishing/deployments
+
+  e) Push the button "Publish"

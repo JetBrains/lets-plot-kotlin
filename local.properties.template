@@ -14,7 +14,6 @@
 # -------------------------------------------------------------------
 #sonatype.username=
 #sonatype.password=
-#sonatype.profileID=
 
 # Algolia admin secret API key to publish search index
 #aligola.key=

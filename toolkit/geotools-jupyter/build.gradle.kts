@@ -106,6 +106,18 @@ afterEvaluate {
                 val localMavenRepository: String by project
                 url = uri(localMavenRepository)
             }
+            maven {
+                if (version.toString().endsWith("-SNAPSHOT")) {
+                    url = uri(rootProject.project.extra["mavenSnapshotPublishUrl"].toString())
+
+                    credentials {
+                        username = rootProject.project.extra["sonatypeUsername"].toString()
+                        password = rootProject.project.extra["sonatypePassword"].toString()
+                    }
+                } else {
+                    url = uri(rootProject.project.extra["mavenReleasePublishUrl"].toString())
+                }
+            }
         }
     }
 }
