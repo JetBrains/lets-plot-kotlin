@@ -17,7 +17,7 @@ internal object Standardizing {
             is org.jetbrains.letsPlot.commons.values.Color -> value.toHexColor()
             is Map<*, *> -> MapStandardizing.standardize(value)
             is Enum<*> -> value.name
-            is Instant -> value.timeSinceEpoch
+            is Instant -> value.toEpochMilliseconds()
             else -> {
                 if (JvmStandardizing.isJvm(value)) {
                     JvmStandardizing.standardize(value)

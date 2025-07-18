@@ -9,7 +9,7 @@ import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.commons.intern.datetime.Date
 import org.jetbrains.letsPlot.commons.intern.datetime.DateTime
 import org.jetbrains.letsPlot.commons.intern.datetime.Month
-import org.jetbrains.letsPlot.commons.intern.datetime.tz.TimeZone
+import org.jetbrains.letsPlot.commons.intern.datetime.TimeZone
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.scale.scaleXDateTime
@@ -25,12 +25,12 @@ object ScaleDateTime {
             val hour = 60.0 * minute
             val day = 24.0 * hour
 
-            val instant = TimeZone.UTC.toInstant(DateTime(Date(1, Month.FEBRUARY, 2003)))
+            val instant = DateTime(Date(1, Month.FEBRUARY, 2003)).toInstant(TimeZone.UTC)
 
             val nDays = 30
             val rnd = Random(0)
 
-            val days = (0..nDays).map { instant.timeSinceEpoch + it * day }
+            val days = (0..nDays).map { instant.toEpochMilliseconds() + it * day }
             val daysData = mapOf<String, Any>(
                 "days" to days,
                 "val" to (0..nDays).map { rnd.nextDouble(0.0, 20.0) }
@@ -61,7 +61,7 @@ object ScaleDateTime {
 
             val nSeconds = 1000
             val secondsData = mapOf<String, Any>(
-                "seconds" to (0..nSeconds).map { instant.timeSinceEpoch + it * second },
+                "seconds" to (0..nSeconds).map { instant.toEpochMilliseconds() + it * second },
                 "val" to (0..nSeconds).map { rnd.nextDouble(0.0, 10.0) }
             )
 

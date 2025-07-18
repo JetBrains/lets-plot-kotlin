@@ -127,6 +127,6 @@ class layerLabels(vararg variables: String) {
         private const val FIELD = Option.LinesSpec.Format.FIELD
         private const val FORMAT = Option.LinesSpec.Format.FORMAT
         private const val LINES = Option.LinesSpec.LINES
-        private const val ANNOTATION_SIZE = Option.Layer.ANNOTATION_SIZE
+        private const val ANNOTATION_SIZE = Option.AnnotationSpec.ANNOTATION_SIZE
     }
 }

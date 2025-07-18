@@ -68,7 +68,7 @@ internal object ResidualUtil {
         val df = DataFrameUtil.fromMap(groupData)
         val afterSampling = applySampling(df, model, loessCriticalSize, samplingSeed)
         val xs = getNumeric(afterSampling, x)
-        val xRange = SeriesUtil.range(xs)
+        val xRange = DoubleSpan.encloseAll(xs)
         val predictor: (Double) -> Double = model.getPredictor(
             xs = xs,
             ys = getNumeric(afterSampling, y)

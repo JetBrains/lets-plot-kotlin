@@ -7,7 +7,6 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.commons.intern.datetime.*
-import org.jetbrains.letsPlot.commons.intern.datetime.tz.TimeZone
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
@@ -22,10 +21,10 @@ object DateTimeAnnotation {
         ScriptInBatikContext.eval("Series Annotations", maxCol = 2) {
 
             run {
-                val instant = TimeZone.UTC.toInstant(DateTime(Date(1, Month.FEBRUARY, 2003)))
+                val instant = DateTime(Date(1, Month.FEBRUARY, 2003)).toInstant(TimeZone.UTC)
                 val nDays = 30
                 val rnd = Random(0)
-                val days = (0..nDays).map { instant.timeSinceEpoch + it * Duration.DAY.duration }.map(::Instant)
+                val days = (0..nDays).map { instant.toEpochMilliseconds() + it * Duration.DAY.totalMillis }.map(::Instant)
                 val daysData = mapOf<String, Any>(
                     "days" to days,
                     "val" to (0..nDays).map { rnd.nextDouble(0.0, 20.0) }
