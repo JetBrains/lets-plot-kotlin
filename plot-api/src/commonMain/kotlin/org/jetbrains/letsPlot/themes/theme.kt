@@ -46,11 +46,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  Value is either a string - style, or a list: `listOf(style, lower_exp_bound, upper_exp_bound)`
  *  where `style` can be:
  *
- *  - "e" : e-notation (e.g., 1e+6)
- *  - "pow" : superscript powers of 10 in shortened form (e.g., 10^6)
- *  - "pow_full" : superscript powers of 10 with coefficient (e.g., 1×10^6)
+ *  - `"e"` : e-notation (e.g., 1e+6)
+ *  - `"pow"` : superscript powers of 10 in shortened form (e.g., 10^6)
+ *  - `"pow_full"` : superscript powers of 10 with coefficient (e.g., 1×10^6)
  *
- *  For "g" type formatting, scientific notation is applied when the number's exponent
+ *  For `"g"` type formatting, scientific notation is applied when the number's exponent
  *  is less than or equal to the `lower_exp_bound` (-7 by default) or greater than or equal
  *  to the `upper_exp_bound` (6 by default, but can be affected by `precision` in format specifier).
  *
@@ -90,9 +90,8 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param legendText Legend item labels.
  * @param legendTitle Title of legend.
  * @param legendMargin Margin around each legend.
- *  Margins around the text.
  *  The margin may be specified using a number or a list of numbers:
- *  - a number or list of one number - the same margin it applied to all four sides;
+ *  - a single number or a list of one number - the same margin it applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
@@ -100,14 +99,14 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  It is acceptable to use `null` for any side; in this case, the default side value for the legend margin side will be used.
  * @param legendSpacing Spacing between legends.
  * @param legendSpacingX Spacing between legends in the horizontal direction.
- * @param legendSpacingY Spacing between legends in the horizontal direction.
+ * @param legendSpacingY Spacing between legends in the vertical direction.
  * @param legendKey Background underneath legend keys.
  * @param legendKeySize Size of legend keys.
  * @param legendKeyWidth Key background width.
  * @param legendKeyHeight Key background height.
  * @param legendKeySpacing Spacing between legend keys
  * @param legendKeySpacingX Spacing between legend keys in the horizontal direction.
- * @param legendKeySpacingY Spacing between legend keys in the horizontal direction.
+ * @param legendKeySpacingY Spacing between legend keys in the vertical direction.
  * @param legendBoxSpacing Spacing between plotting area and legend box.
  * @param legendTicks Tick mark lines in colorbar.
  * @param legendTicksLength Length of tick marks in colorbar.
@@ -129,9 +128,9 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param panelGridOntopY Option to place Y-axis major grid lines and minor grid lines over the data layers.
  *
  * @param panelInset Inset for a panel.
- *  The inset behaves like a padding for `coordPolar(transofrmBkgr = false)` otherwise it behaves like a margin around the panel.
+ *  The inset behaves like a padding for `coordPolar(transformBkgr = false)` otherwise it behaves like a margin around the panel.
  *  The inset may be specified using a number or a list of numbers:
- *  - a number or list of one number - the same inset it applied to all four sides;
+ *  - a single number or a list of one number - the same inset it applied to all four sides;
  *  - a list of two numbers - the first inset applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
@@ -144,11 +143,10 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param plotCaption Plot caption.
  * @param plotMessage Plot message (e.g. sampling messages).
  *  Set an `elementBlank()` to show nothing.
- *  Set an `elementText()` to show sampling messages (`elementText()` options don't affect a message text).
+ *  Set an `elementText()` to show sampling messages (`elementText()` options do not affect the message text).
  * @param plotMargin Margin around entire plot.
- *  Margins around the text.
  *  The margin may be specified using a number or a list of numbers:
- *  - a number or list of one number - the same margin it applied to all four sides;
+ *  - a single number or a list of one number - the same margin it applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
@@ -156,12 +154,12 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  It is acceptable to use `null` for any side; in this case, the default side value for the plot margin side will be used.
  * @param plotInset Inset for a plotting area, including the axes with their labels, but without titles.
  *  The inset may be specified using a number or a list of numbers:
- *  - a number or list of one number - the same inset it applied to all four sides;
+ *  - a single number or a list of one number - the same inset it applied to all four sides;
  *  - a list of two numbers - the first inset applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first inset applies to the top, the second - to the right and left, the third - to the bottom;
  *  - a list of four numbers - the insets are applied to the top, right, bottom and left in that order.
 
- *  It is acceptable to use None for any side; in this case, the default value for the plot inset side will be used.
+ *  It is acceptable to use `null` for any side; in this case, the default value for the plot inset side will be used.
  *
  * @param plotTitlePosition default = "panel" ("panel", "plot").
  *  Alignment of the plot title/subtitle.
@@ -504,13 +502,13 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
  *
  * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  *
- * @param fill Fill color. Accepts color core as string (HEX or rgb) or Color object.
- * @param color Border color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param fill Fill color. Accepts color code as a string (HEX or rgb) or Color object.
+ * @param color Border color. Accepts color code as a string (HEX or rgb) or Color object.
  * @param size Border line width.
  * @param linetype Type of the line.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
- *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
+ *  or a pattern like `offset to listOf(dash, gap, ...)` or just `listOf(dash, gap, ...)`.
  * @param blank Mark as a 'blank' element.
  */
 fun elementRect(
@@ -536,7 +534,7 @@ fun elementRect(
  *
  * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  *
- * @param color Line color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param color Line color. Accepts color code as a string (HEX or rgb) or Color object.
  * @param size Line width.
  * @param linetype Type of the line.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
@@ -567,7 +565,7 @@ fun elementLine(
  *
  * - [axis_text_angle.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/axis_text_angle.ipynb)
  *
- * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param color Text color. Accepts color code as a string (HEX or rgb) or Color object.
  * @param family Font family.
  * @param face Font face ("plain", "italic", "bold", "bold_italic").
  * @param size Text size in px.
@@ -576,16 +574,15 @@ fun elementLine(
  *  - 0 - left-justified
  *  - 1 - right-justified
  *  - 0.5 - center-justified
- *  Can be used with values out of range, but behaviour is not specified.
+ *  Values outside this range are allowed, but the behavior is unspecified.
  * @param vjust Vertical justification (in `[0, 1]`).
  *  - 0 - bottom-justified
  *  - 1 - top-justified
  *  - 0.5 - middle-justified
- *  Can be used with values out of range, but behaviour is not specified.
+ *  Values outside this range are allowed, but the behavior is unspecified.
  * @param margin Margins around the text.
- *  Margins around the text.
  *  The margin may be specified using a number or a list of numbers:
- *  - a number or list of one number - the same margin it applied to all four sides;
+ *  - a single number or a list of one number - the same margin it applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
@@ -626,7 +623,7 @@ fun elementText(
  *
  * - [themes.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h)
  *
- * @param color Text color. Accepts color core as string (HEX or rgb) or Color object.
+ * @param color Text color. Accepts color code as a string (HEX or rgb) or Color object.
  * @param family Font family.
  * @param face Font face ("plain", "italic", "bold", "bold_italic").
  * @param size Text size in px.
@@ -635,16 +632,15 @@ fun elementText(
  *  - 0 - left-justified
  *  - 1 - right-justified
  *  - 0.5 - center-justified
- *  Can be used with values out of range, but behaviour is not specified.
+ *  Values outside this range are allowed, but the behavior is unspecified.
  * @param vjust Vertical justification (in `[0, 1]`).
  *  - 0 - bottom-justified
  *  - 1 - top-justified
  *  - 0.5 - middle-justified
- *  Can be used with values out of range, but behaviour is not specified.
+ *  Values outside this range are allowed, but the behavior is unspecified.
  * @param margin Margins around the text.
- *  Margins around the text.
  *  The margin may be specified using a number or a list of numbers:
- *  - a number or list of one number - the same margin it applied to all four sides;
+ *  - a single number or a list of one number - the same margin it applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
