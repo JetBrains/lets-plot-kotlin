@@ -5,14 +5,6 @@
 
 package org.jetbrains.letsPlot
 
-import org.jetbrains.letsPlot.core.spec.Option
-import org.jetbrains.letsPlot.core.spec.Option.GGBunch.ITEMS
-import org.jetbrains.letsPlot.core.spec.Option.GGBunch.Item
-import org.jetbrains.letsPlot.core.spec.Option.Meta.KIND
-import org.jetbrains.letsPlot.frontend.CurrentFrontendContext
-import org.jetbrains.letsPlot.intern.Plot
-import org.jetbrains.letsPlot.intern.toSpec
-
 /**
  * Collection of plots created by ggplot function. Use method `addPlot()` to add plot to 'bunch'.
  * Each plot can have arbitrary location and size. Use `show()` to draw all plots in bunch.
@@ -26,46 +18,46 @@ import org.jetbrains.letsPlot.intern.toSpec
 @Deprecated(
     message = "Class GGBunch is replaced with function ggbunch()." +
             "Please use it to combine several plots into a single figure with custom layout.",
-    level = DeprecationLevel.WARNING
+    level = DeprecationLevel.ERROR
 )
 class GGBunch : Figure {
-    private val items: MutableList<PlotItem> = ArrayList()
+//    private val items: MutableList<PlotItem> = ArrayList()
 
-    fun addPlot(plot: Plot, x: Int, y: Int, width: Int? = null, height: Int? = null): GGBunch {
-        items.add(PlotItem(plot, x, y, width, height))
-        return this;
-    }
+//    fun addPlot(plot: Plot, x: Int, y: Int, width: Int? = null, height: Int? = null): GGBunch {
+//        items.add(PlotItem(plot, x, y, width, height))
+//        return this;
+//    }
 
-    fun toSpec(): MutableMap<String, Any> {
-        val spec = HashMap<String, Any>()
-        spec[KIND] = Option.Meta.Kind.GG_BUNCH
-
-        val itemSpecs = ArrayList<Map<String, Any?>>()
-        for (item in items) {
-            itemSpecs.add(
-                mapOf(
-                    Item.FEATURE_SPEC to item.plot.toSpec(),
-                    Item.X to item.x,
-                    Item.Y to item.y,
-                    Item.WIDTH to item.width,
-                    Item.HEIGHT to item.height
-                )
-            )
-        }
-
-        spec[ITEMS] = itemSpecs
-        return spec
-    }
+//    fun toSpec(): MutableMap<String, Any> {
+//        val spec = HashMap<String, Any>()
+//        spec[KIND] = Option.Meta.Kind.GG_BUNCH
+//
+//        val itemSpecs = ArrayList<Map<String, Any?>>()
+//        for (item in items) {
+//            itemSpecs.add(
+//                mapOf(
+//                    Item.FEATURE_SPEC to item.plot.toSpec(),
+//                    Item.X to item.x,
+//                    Item.Y to item.y,
+//                    Item.WIDTH to item.width,
+//                    Item.HEIGHT to item.height
+//                )
+//            )
+//        }
+//
+//        spec[ITEMS] = itemSpecs
+//        return spec
+//    }
 
     override fun show() {
-        CurrentFrontendContext.display(this.toSpec())
+//        CurrentFrontendContext.display(this.toSpec())
     }
 
-    private class PlotItem(
-        val plot: Plot,
-        val x: Int,
-        val y: Int,
-        val width: Int?,
-        val height: Int?
-    )
+//    private class PlotItem(
+//        val plot: Plot,
+//        val x: Int,
+//        val y: Int,
+//        val width: Int?,
+//        val height: Int?
+//    )
 }

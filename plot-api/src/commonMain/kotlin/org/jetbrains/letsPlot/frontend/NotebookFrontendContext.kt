@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.frontend
 
 import org.jetbrains.letsPlot.FrontendContext
-import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.core.util.PlotHtmlHelper
 import org.jetbrains.letsPlot.core.util.PlotHtmlHelper.scriptUrl
 import org.jetbrains.letsPlot.intern.Plot
@@ -31,7 +30,7 @@ class NotebookFrontendContext(
 
     fun getConfigureHtml(): String {
         return if (isolatedFrame) {
-            // Do not pre-load JS library
+            // Do not preload JS library
             ""
         } else {
             PlotHtmlHelper.getDynamicConfigureHtml(scriptUrl(jsVersion), false)
@@ -46,9 +45,9 @@ class NotebookFrontendContext(
         return getDisplayHtml(figure.toSpec())
     }
 
-    fun getHtml(plotBunch: GGBunch): String {
-        return getDisplayHtml(plotBunch.toSpec())
-    }
+//    fun getHtml(plotBunch: GGBunch): String {
+//        return getDisplayHtml(plotBunch.toSpec())
+//    }
 
     // Used by alternative kotlin lets-plot API
     // https://github.com/nikitinas/lets-plot-dsl.git

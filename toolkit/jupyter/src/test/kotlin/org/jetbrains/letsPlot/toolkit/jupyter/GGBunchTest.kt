@@ -26,18 +26,22 @@ class GGBunchTest : JupyterTest() {
                 axisTitleY = elementText(color = "blue", size = 14)) +
             ggsize(300, 300)
 
-    val bunch = GGBunch()
-        .addPlot(plot1, 0, 0)
-        .addPlot(plot2, 350, 0)
+    val bunch = ggbunch(
+        listOf(plot1, plot2),
+        regions = listOf(
+            listOf(0, 0, 0.5, 1), // Plot 1: x=0, y=0, width=0.5, height=1
+            listOf(0.5, 0, 0.5, 1) // Plot 2: x=0.5, y=0, width=0.5, height=1
+        )
+    )
 
     bunch
     """.trimIndent()
 
     @Test
-    fun `compilation of GGBunch in jupyter`() = bunch.checkCompilation()
+    fun `compilation of ggbunch in jupyter`() = bunch.checkCompilation()
 
     @Test
-    fun `GGBunch output in jupyter`(testInfo: TestInfo) {
+    fun `ggbunch output in jupyter`(testInfo: TestInfo) {
         assertOutput(execRendered(bunch), testInfo)
     }
 }

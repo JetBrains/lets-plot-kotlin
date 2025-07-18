@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.intern
 
 import org.jetbrains.letsPlot.Figure
-import org.jetbrains.letsPlot.GGBunch
 import org.jetbrains.letsPlot.MappingMeta
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.spec.Option.Meta.DATA_META
@@ -43,7 +42,7 @@ fun Figure.toSpec(): MutableMap<String, Any> {
     return when (this) {
         is Plot -> this.toSpec()
         is SubPlotsFigure -> this.toSpec()
-        is GGBunch -> this.toSpec()
+//        is GGBunch -> this.toSpec()
         else -> throw IllegalArgumentException("Unsupported figure type ${this::class.simpleName}")
     }
 }
@@ -72,7 +71,7 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     spec[Option.Plot.LAYERS] = plot.layers().map(Layer::toSpec)
     spec[Option.Plot.SCALES] = plot.scales().flatMap(Scale::toSpec)
 
-    // Width of plot in percents of the available in frontend width.
+    // Width of plot in percentages of the available in frontend width.
     plot.widthScale?.let { spec["widthScale"] = it }
 
     val features = plot.otherFeatures()
