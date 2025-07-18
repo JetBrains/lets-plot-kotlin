@@ -10,7 +10,7 @@ plugins {
 }
 
 val letsPlotVersion = extra["letsPlot.version"] as String
-val datetimeVersion = extra["datetime.version"] as String
+//val kotlinxDatetimeVersion = extra["kotlinx.datetime.version"] as String
 val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
 val assertjVersion = extra["assertj.version"] as String
 
@@ -31,7 +31,6 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$datetimeVersion")
             }
         }
 
@@ -41,11 +40,11 @@ kotlin {
                 api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
                 api("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
 
-                // Use "-jvm" variant to work around the issue where LPK JS (IR) artefact becomes dependent on
+                // Use "-jvm" variant to work around the issue where LPK JS (IR) artifact becomes dependent on
                 // the "kotlinx-datetime".
                 // See also:
                 // https://youtrack.jetbrains.com/issue/KT-52812/JSIR-compiler-error-Could-not-find-orgjetbrainskotlinxkotlinx-datetime-in-USERLibraryApplication-Supportkotlindaemon
-                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime-jvm:$datetimeVersion")
+//                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime-jvm:$kotlinxDatetimeVersion")
 
                 compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$letsPlotVersion")
                 compileOnly("org.jetbrains.lets-plot:lets-plot-jfx:$letsPlotVersion")
@@ -113,7 +112,7 @@ afterEvaluate {
                     }
                 }
 
-                // Add "javadocs" to each publication or Maven won't publish it.
+                // Add "Javadocs" to each publication or Maven won't publish it.
                 artifact(jarJavaDocs)
 
                 pom {
