@@ -484,6 +484,128 @@ object Geom {
     }
 
     @Suppress("ClassName")
+    class textRepel(
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val label: String? = null,
+        override val alpha: Number? = null,
+        override val color: Any? = null,
+        override val size: Number? = null,
+        override val family: String? = null,
+        override val fontface: String? = null,
+        override val hjust: Any? = null,
+        override val vjust: Any? = null,
+        override val angle: Number? = null,
+        override val shape: Any? = null,
+        override val pointSize: Any? = null,
+        override val pointStroke: Any? = null,
+        override val segmentColor: Any? = null,
+        override val segmentSize: Any? = null,
+        override val segmentAlpha: Any? = null,
+        override val linetype: Any? = null,
+        override val lineheight: Number? = null,
+        override val labelFormat: String? = null,
+        override val naText: String? = null,
+        override val nudgeX: Number? = null,
+        override val nudgeY: Number? = null,
+        override val sizeUnit: String? = null,
+        override val nudgeUnit: String? = null,
+        override val colorBy: String? = null,
+        override val checkOverlap: Boolean? = null,
+        override val seed: Int? = null,
+        override val maxIter: Int? = null,
+        override val maxTime: Double? = null,
+        override val direction: String? = null,
+        override val pointPadding: Float? = null,
+        override val boxPadding: Float? = null,
+        override val maxOverlaps: Int? = null,
+        override val minSegmentLength: Float? = null,
+        override val arrow: Map<String, Any>? = null,
+        mapping: TextRepelMapping.() -> Unit = {},
+    ) : TextRepelAesthetics,
+        TextParameters,
+        RepelParameters,
+        WithSizeUnitOption,
+        WithColorOption,
+        GeomOptions(
+            GeomKind.TEXT_REPEL,
+            TextRepelMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+
+        override fun seal() = super<TextRepelAesthetics>.seal() +
+                super<TextParameters>.seal() +
+                super<RepelParameters>.seal() +
+                super<WithSizeUnitOption>.seal() +
+                super<WithColorOption>.seal()
+    }
+
+    @Suppress("ClassName")
+    class labelRepel(
+        override val x: Number? = null,
+        override val y: Number? = null,
+        override val label: String? = null,
+        override val alpha: Number? = null,
+        override val color: Any? = null,
+        override val fill: Any? = null,
+        override val size: Number? = null,
+        override val family: String? = null,
+        override val fontface: String? = null,
+        override val hjust: Any? = null,
+        override val vjust: Any? = null,
+        override val angle: Number? = null,
+        override val shape: Any? = null,
+        override val pointSize: Any? = null,
+        override val pointStroke: Any? = null,
+        override val segmentColor: Any? = null,
+        override val segmentSize: Any? = null,
+        override val segmentAlpha: Any? = null,
+        override val linetype: Any? = null,
+        override val lineheight: Number? = null,
+        override val labelFormat: String? = null,
+        override val naText: String? = null,
+        override val nudgeX: Number? = null,
+        override val nudgeY: Number? = null,
+        override val nudgeUnit: String? = null,
+        override val labelPadding: Number? = null,
+        override val labelR: Number? = null,
+        override val labelSize: Number? = null,
+        override val alphaStroke: Boolean? = null,
+        override val sizeUnit: String? = null,
+        override val colorBy: String? = null,
+        override val fillBy: String? = null,
+        override val checkOverlap: Boolean? = null,
+        override val seed: Int? = null,
+        override val maxIter: Int? = null,
+        override val maxTime: Double? = null,
+        override val direction: String? = null,
+        override val pointPadding: Float? = null,
+        override val boxPadding: Float? = null,
+        override val maxOverlaps: Int? = null,
+        override val minSegmentLength: Float? = null,
+        override val arrow: Map<String, Any>? = null,
+        mapping: LabelRepelMapping.() -> Unit = {},
+    ) : LabelRepelAesthetics,
+        LabelParameters,
+        RepelParameters,
+        WithSizeUnitOption,
+        WithColorOption,
+        WithFillOption,
+        GeomOptions(
+            GeomKind.LABEL_REPEL,
+            LabelRepelMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+
+        override fun seal() = super<LabelRepelAesthetics>.seal() +
+                super<LabelParameters>.seal() +
+                super<RepelParameters>.seal() +
+                super<WithSizeUnitOption>.seal() +
+                super<WithColorOption>.seal() +
+                super<WithFillOption>.seal()
+    }
+
+    @Suppress("ClassName")
     class boxplot(
         override val x: Number? = null,
         override val y: Number? = null,
