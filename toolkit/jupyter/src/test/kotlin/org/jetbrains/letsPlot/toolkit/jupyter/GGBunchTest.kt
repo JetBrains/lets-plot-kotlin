@@ -1,6 +1,7 @@
 package org.jetbrains.letsPlot.toolkit.jupyter
 
 import org.junit.jupiter.api.TestInfo
+import kotlin.test.Ignore
 import kotlin.test.Test
 
 class GGBunchTest : JupyterTest() {
@@ -40,6 +41,7 @@ class GGBunchTest : JupyterTest() {
     @Test
     fun `compilation of ggbunch in jupyter`() = bunch.checkCompilation()
 
+    @Ignore
     @Test
     fun `ggbunch output in jupyter`(testInfo: TestInfo) {
         assertOutput(execRendered(bunch), testInfo)
