@@ -6,7 +6,6 @@ import org.jetbrains.letsPlot.geom.extras.arrow
 import org.jetbrains.letsPlot.geom.geomSpoke
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.scale.scaleColorGradient
-import org.jetbrains.letsPlot.themes.elementText
 import org.jetbrains.letsPlot.themes.theme
 import org.jetbrains.letsPlot.themes.themeMinimal
 import org.jetbrains.letsPlot.tooltips.layerTooltips
@@ -78,7 +77,7 @@ object Spoke {
                         scaleColorGradient(low = "#3288bd", high = "#d53e4f", guide = "none") +
                         coordFixed(xlim = ab, ylim = ab) +
                         themeMinimal() +
-                        theme(axisText = elementText(margin = 10), axisTitle = "blank")
+                        theme(axisTextSpacing = 10.0, plotMargin = 6.0, axisTitle = "blank")
 
                 p.show()
             }

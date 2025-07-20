@@ -82,6 +82,10 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param axisTicksLengthX Length of tick marks.
  * @param axisTicksLengthY Length of tick marks.
  *
+ * @param axisTextSpacing Spacing between the axis label text and its tick mark.
+ * @param axisTextSpacingX Spacing between the axis label text and its tick mark.
+ * @param axisTextSpacingY Spacing between the axis label text and its tick mark.
+ *
  * @param axisLine Lines along axes.
  * @param axisLineX Lines along axes.
  * @param axisLineY Lines along axes.
@@ -225,6 +229,10 @@ class theme(
     axisTicksLengthX: Number? = null,
     axisTicksLengthY: Number? = null,
 
+    axisTextSpacing: Number? = null,
+    axisTextSpacingX: Number? = null,
+    axisTextSpacingY: Number? = null,
+
     axisLine: Any? = null,
     axisLineX: Any? = null,
     axisLineY: Any? = null,
@@ -331,6 +339,10 @@ class theme(
         Option.Theme.AXIS_TICKS_LENGTH to axisTicksLength,
         Option.Theme.AXIS_TICKS_LENGTH_X to axisTicksLengthX,
         Option.Theme.AXIS_TICKS_LENGTH_Y to axisTicksLengthY,
+
+        Option.Theme.AXIS_TEXT_SPACING to axisTextSpacing,
+        Option.Theme.AXIS_TEXT_SPACING_X to axisTextSpacingX,
+        Option.Theme.AXIS_TEXT_SPACING_Y to axisTextSpacingY,
 
         Option.Theme.AXIS_LINE to axisLine,
         Option.Theme.AXIS_LINE_X to axisLineX,
