@@ -8,6 +8,9 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 - Geometries:
   - `geomTextRepel()` and `geomLabelRepel()` [[#1092](https://github.com/JetBrains/lets-plot/issues/1092)].  
    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/ggrepel.ipynb).
+- Layer Labels (Annotations):
+
+  - New `inheritColor()` option in annotations configuration (see example notebooks above)
 
 - Plot Layout:
 

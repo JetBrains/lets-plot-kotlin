@@ -11,8 +11,24 @@ typealias AnnotationOptions = layerLabels
 
 
 /**
- *  Configures annotations (for pie chart).
- *  Defines the content and format for displaying the value.
+* Configure annotations for geometry layers.
+ *
+ * Annotations are currently supported for bar, pie, and crossbar geometry
+ * layers. This class provides methods to customize the appearance and
+ * content of text labels displayed on these geometries.
+ *
+ * Notes
+ * -----
+ * By default, annotation text color is automatically selected for optimal
+ * contrast: white text appears on darker filled geometries, and black text
+ * appears on lighter filled geometries.
+ *
+ * The text color can be manually specified using:
+ * ``theme(labelText=elementText(color=...))``
+ *
+ * Alternatively, the ``inheritColor()`` method can be used to override both
+ * automatic and manual color settings, making the annotation text use the
+ * geometry's ``color`` aesthetic instead.
  *
  * ## Examples
  *
@@ -121,6 +137,10 @@ class layerLabels(vararg variables: String) {
         return setOption(ANNOTATION_SIZE, value)
     }
 
+    fun inheritColor(): layerLabels {
+        return setOption(USE_LAYER_COLOR, true)
+    }
+
     private companion object {
         private const val VARIABLES = Option.LinesSpec.VARIABLES
         private const val FORMATS = Option.LinesSpec.FORMATS
@@ -128,5 +148,6 @@ class layerLabels(vararg variables: String) {
         private const val FORMAT = Option.LinesSpec.Format.FORMAT
         private const val LINES = Option.LinesSpec.LINES
         private const val ANNOTATION_SIZE = Option.AnnotationSpec.ANNOTATION_SIZE
+        private const val USE_LAYER_COLOR = Option.AnnotationSpec.USE_LAYER_COLOR
     }
 }
