@@ -441,6 +441,10 @@ private fun inferSeriesType(data: Any?): String {
             is Float -> SeriesAnnotation.Types.FLOATING
             is String -> SeriesAnnotation.Types.STRING
             is Boolean -> SeriesAnnotation.Types.BOOLEAN
+            is kotlinx.datetime.Instant -> SeriesAnnotation.Types.DATE_TIME
+            is kotlinx.datetime.LocalDate -> SeriesAnnotation.Types.DATE_TIME
+            is kotlinx.datetime.LocalTime -> SeriesAnnotation.Types.DATE_TIME
+            is kotlinx.datetime.LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
             else -> SeriesAnnotation.Types.UNKNOWN
         }
     }

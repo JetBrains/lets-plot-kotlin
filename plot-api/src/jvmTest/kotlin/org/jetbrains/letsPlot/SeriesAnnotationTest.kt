@@ -27,7 +27,7 @@ class SeriesAnnotationTest {
     /**
     If levels are specified, the label should not be added to the mapping annotations.
     It's a bug, but Why not fix - if both levels and label are specified, the levels get ignored.
-    */
+     */
     @Test
     fun `do not add label if factor level is specified`() {
         val data = mapOf(
@@ -55,8 +55,18 @@ class SeriesAnnotationTest {
             "float-column" to listOf(1.0f, 2.0f, 3.0f),
             "string-column" to listOf("a", "b", "c"),
             "boolean-column" to listOf(true, false, true),
+
             "java-instant-column" to listOf(Instant.parse("2021-01-01T00:00:00Z")),
-            "kotlin-instant-column" to listOf(kotlinx.datetime.Instant.parse("2021-01-01T00:00:00Z"))
+            "java-date-column" to listOf(java.util.Date.from(java.time.Instant.parse("2021-01-01T00:00:00Z"))),
+            "java-zoned-datetime-column" to listOf(java.time.ZonedDateTime.parse("2021-01-01T00:00:00Z")),
+            "java-local-date-column" to listOf(java.time.LocalDate.parse("2021-01-01")),
+            "java-local-time-column" to listOf(java.time.LocalTime.parse("12:34:56")),
+            "java-local-datetime-column" to listOf(java.time.LocalDateTime.parse("2021-01-01T12:34:56")),
+
+            "kotlin-instant-column" to listOf(kotlinx.datetime.Instant.parse("2021-01-01T00:00:00Z")),
+            "kotlin-local-date-column" to listOf(kotlinx.datetime.LocalDate.parse("2021-01-01")),
+            "kotlin-local-time-column" to listOf(kotlinx.datetime.LocalTime.parse("12:34:56")),
+            "kotlin-local-datetime-column" to listOf(kotlinx.datetime.LocalDateTime.parse("2021-01-01T12:34:56")),
         )
 
         val p = ggplot(data) + geomPoint()
@@ -72,8 +82,18 @@ class SeriesAnnotationTest {
                     seriesAnnotation(column = "float-column", type = Types.FLOATING),
                     seriesAnnotation(column = "string-column", type = Types.STRING),
                     seriesAnnotation(column = "boolean-column", type = Types.BOOLEAN),
+
                     seriesAnnotation(column = "java-instant-column", type = Types.DATE_TIME),
-                    seriesAnnotation(column = "kotlin-instant-column", type = Types.DATE_TIME)
+                    seriesAnnotation(column = "java-date-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "java-zoned-datetime-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "java-local-date-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "java-local-time-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "java-local-datetime-column", type = Types.DATE_TIME),
+
+                    seriesAnnotation(column = "kotlin-instant-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "kotlin-local-date-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "kotlin-local-time-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "kotlin-local-datetime-column", type = Types.DATE_TIME),
                 )
             )
         )
@@ -193,7 +213,9 @@ class SeriesAnnotationTest {
             assertThat(it.getList(DATA_META, MappingAnnotation.TAG)).isNull()
         }
 
-        (ggplot(data) { x = asDiscrete("v", order = 1, orderBy = "bar", levels = listOf("b", "a")) } + geomPoint()).toSpec().let {
+        (ggplot(data) {
+            x = asDiscrete("v", order = 1, orderBy = "bar", levels = listOf("b", "a"))
+        } + geomPoint()).toSpec().let {
             assertThat(it.getList(DATA_META, SeriesAnnotation.TAG)).containsExactly(
                 seriesAnnotation(column = "v", type = Types.STRING, factorLevels = listOf("b", "a"), order = 1),
                 seriesAnnotation(column = "bar", type = Types.STRING)
@@ -220,21 +242,27 @@ class SeriesAnnotationTest {
             assertThat(it.getList(DATA_META, MappingAnnotation.TAG)).isNull()
         }
 
-        (ggplot(mapOf("v" to listOf(a, b))) { x = asDiscrete("v", levels = listOf(b, a), order = 1) } + geomPoint()).toSpec().let {
+        (ggplot(mapOf("v" to listOf(a, b))) {
+            x = asDiscrete("v", levels = listOf(b, a), order = 1)
+        } + geomPoint()).toSpec().let {
             assertThat(it.getList(DATA_META, SeriesAnnotation.TAG)).containsExactly(
                 seriesAnnotation(column = "v", type = Types.DATE_TIME, factorLevels = listOf(b, a), order = 1)
             )
             assertThat(it.getList(DATA_META, MappingAnnotation.TAG)).isNull()
         }
 
-        (ggplot(mapOf("v" to listOf(a, b))) { x = asDiscrete("v", levels = listOf(b, a), orderBy = "v") } + geomPoint()).toSpec().let {
+        (ggplot(mapOf("v" to listOf(a, b))) {
+            x = asDiscrete("v", levels = listOf(b, a), orderBy = "v")
+        } + geomPoint()).toSpec().let {
             assertThat(it.getList(DATA_META, SeriesAnnotation.TAG)).containsExactly(
                 seriesAnnotation(column = "v", type = Types.DATE_TIME, factorLevels = listOf(b, a))
             )
             assertThat(it.getList(DATA_META, MappingAnnotation.TAG)).isNull()
         }
 
-        (ggplot(mapOf("v" to listOf(a, b))) { x = asDiscrete("v", levels = listOf(b, a), order = 1, orderBy = "v") } + geomPoint()).toSpec().let {
+        (ggplot(mapOf("v" to listOf(a, b))) {
+            x = asDiscrete("v", levels = listOf(b, a), order = 1, orderBy = "v")
+        } + geomPoint()).toSpec().let {
             assertThat(it.getList(DATA_META, SeriesAnnotation.TAG)).containsExactly(
                 seriesAnnotation(column = "v", type = Types.DATE_TIME, factorLevels = listOf(b, a), order = 1)
             )

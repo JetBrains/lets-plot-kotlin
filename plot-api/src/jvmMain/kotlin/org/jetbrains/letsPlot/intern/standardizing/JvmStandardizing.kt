@@ -9,8 +9,9 @@ import java.time.*
 import java.util.*
 
 private val AWT_PRESENT: Boolean = try {
+    @Suppress("KotlinConstantConditions")
     java.awt.Color.WHITE == java.awt.Color.WHITE
-} catch (e: NoClassDefFoundError) {
+} catch (_: NoClassDefFoundError) {
     false     // Android
 }
 
@@ -23,10 +24,7 @@ actual object JvmStandardizing {
             is LocalDate -> true
             is LocalTime -> true
             is LocalDateTime -> true
-            else -> when {
-                isKotlinxDateTime(o) -> true
-                else -> false
-            }
+            else -> false
         }
     }
 
@@ -46,32 +44,14 @@ actual object JvmStandardizing {
         }
 
         return when (o) {
-            is Date -> o.time
-            is Instant -> o.toEpochMilli()
-            is ZonedDateTime -> o.toInstant().toEpochMilli()
-            is LocalDate -> noTimeZoneError(o)
-            is LocalTime -> noTimeZoneError(o)
-            is LocalDateTime -> noTimeZoneError(o)
-//            is java.awt.Color -> "#%02x%02x%02x".format(o.red, o.green, o.blue)
-            else -> when {
-                isKotlinxDateTime(o) -> when (o) {
-                    is kotlinx.datetime.Instant -> o.toEpochMilliseconds()
-                    is kotlinx.datetime.LocalDate -> noTimeZoneError(o)
-                    is kotlinx.datetime.LocalDateTime -> noTimeZoneError(o)
-                    else -> unsupportedTypeError(o)
-                }
-
-                else -> unsupportedTypeError(o)
-            }
+            is Date -> o.time.toDouble()
+            is Instant -> o.toEpochMilli().toDouble()
+            is ZonedDateTime -> o.toInstant().toEpochMilli().toDouble()
+            is LocalDate -> o.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli().toDouble()
+            is LocalTime -> LocalDateTime.of(LocalDate.EPOCH, o).toInstant(ZoneOffset.UTC).toEpochMilli().toDouble()
+            is LocalDateTime -> o.toInstant(ZoneOffset.UTC).toEpochMilli().toDouble()
+            else -> unsupportedTypeError(o)
         }
-    }
-
-    private fun isKotlinxDateTime(o: Any) = o.javaClass.name.startsWith("kotlinx.datetime.")
-
-    private fun noTimeZoneError(time: Any): Nothing {
-        throw IllegalArgumentException(
-            "Can't convert ${time::class.qualifiedName} to the number of milliseconds from the epoch of 1970-01-01T00:00:00Z."
-        )
     }
 
     private fun unsupportedTypeError(o: Any) {
