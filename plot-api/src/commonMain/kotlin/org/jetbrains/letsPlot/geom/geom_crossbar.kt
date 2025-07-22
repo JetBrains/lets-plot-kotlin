@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.annotations.AnnotationOptions
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.*
@@ -51,6 +52,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param tooltips Result of the call to the `layerTooltips()` function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
+ * @param labels Result of the call to the `layerLabels()` function.
+ *  Specifies style and content of the annotations.
  * @param fatten default = 2.5.
  *  A multiplicative factor applied to size of the middle bar.
  * @param x X-axis coordinates for vertical bar / position of median for horizontal bar.
@@ -98,6 +101,7 @@ class geomCrossbar(
     manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    labels: AnnotationOptions? = null,
     val fatten: Number? = null,
     override val x: Number? = null,
     override val ymin: Number? = null,
@@ -129,8 +133,9 @@ class geomCrossbar(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
-        tooltips = tooltips
-    ) {
+        tooltips = tooltips,
+        labels = labels
+        ) {
     override fun seal(): Options {
         return super<CrossBarAesthetics>.seal() +
                 super<WithWidthUnitOption>.seal() +

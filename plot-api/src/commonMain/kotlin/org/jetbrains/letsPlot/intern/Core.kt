@@ -119,7 +119,7 @@ abstract class Layer(
     val manualKey: Any? = null,
     val sampling: SamplingOptions? = null,
     val tooltips: TooltipOptions? = null,
-    val labels: AnnotationOptions? = null, // currently supported for Pie chart only
+    val labels: AnnotationOptions? = null,
     val orientation: String? = null,
 ) : OptionsCapsule, Feature() {
 
