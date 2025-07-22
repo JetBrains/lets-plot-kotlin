@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.intern.standardizing
 
 expect object StandardizingTestJvmValues {
-    fun getTestValues(): List<Any?>
-    fun getExpectedValues(): List<Any?>
-
+    fun getTestValues(): List<Any>
+    fun getExpectedValues(): List<Any>
 }

@@ -9,13 +9,14 @@ import java.time.*
 import java.util.*
 
 actual object StandardizingTestJvmValues {
-    actual fun getTestValues(): List<Any?> {
+    actual fun getTestValues(): List<Any> {
         val zonedDateTime = ZonedDateTime.of(2023, 1, 1, 12, 30, 45, 0, ZoneId.of("UTC"))
         val instant = zonedDateTime.toInstant()
         val localDate = zonedDateTime.toLocalDate()
         val localTime = zonedDateTime.toLocalTime()
         val localDateTime = zonedDateTime.toLocalDateTime()
         val date = Date.from(instant)
+        val offsetDateTime: OffsetDateTime = zonedDateTime.toOffsetDateTime()
 
         return listOf(
             zonedDateTime,
@@ -24,10 +25,11 @@ actual object StandardizingTestJvmValues {
             localTime,
             localDateTime,
             date,
+            offsetDateTime,
         )
     }
 
-    actual fun getExpectedValues(): List<Any?> {
+    actual fun getExpectedValues(): List<Any> {
         // Expected timestamp for 2023-01-01T12:30:45Z
         val expectedTimestamp = 1672576245000L
 
@@ -43,7 +45,7 @@ actual object StandardizingTestJvmValues {
                 is LocalTime -> expectedLocalTimeTimestamp
                 is LocalDateTime -> expectedTimestamp // Same as ZonedDateTime because here we use UTC
                 else -> expectedTimestamp
-            }
+            }.toDouble()
         }
     }
 }

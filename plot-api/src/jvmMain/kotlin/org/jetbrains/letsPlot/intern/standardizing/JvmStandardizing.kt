@@ -21,6 +21,7 @@ actual object JvmStandardizing {
             is Date -> true
             is Instant -> true
             is ZonedDateTime -> true
+            is OffsetDateTime -> true
             is LocalDate -> true
             is LocalTime -> true
             is LocalDateTime -> true
@@ -47,6 +48,7 @@ actual object JvmStandardizing {
             is Date -> o.time.toDouble()
             is Instant -> o.toEpochMilli().toDouble()
             is ZonedDateTime -> o.toInstant().toEpochMilli().toDouble()
+            is OffsetDateTime -> o.toInstant().toEpochMilli().toDouble()
             is LocalDate -> o.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli().toDouble()
             is LocalTime -> LocalDateTime.of(LocalDate.EPOCH, o).toInstant(ZoneOffset.UTC).toEpochMilli().toDouble()
             is LocalDateTime -> o.toInstant(ZoneOffset.UTC).toEpochMilli().toDouble()

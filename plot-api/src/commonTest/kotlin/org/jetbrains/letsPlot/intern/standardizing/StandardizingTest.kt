@@ -57,7 +57,7 @@ class StandardizingTest {
         val kLocalTime = KLocalTime(12, 30, 45)
         val kLocalDateTime = KLocalDateTime(2023, 1, 1, 12, 30, 45)
 
-        val values = listOf(
+        val values = listOf<Any>(
             kInstant,
             kLocalDate,
             kLocalTime,
@@ -66,16 +66,17 @@ class StandardizingTest {
 
         val expectedValues = values.map {
             when (it) {
-                is KLocalDate -> expectedLocalDateTimestamp.toDouble() // Same as ZonedDateTime because here we use UTC
-                is KLocalTime -> expectedLocalTimeTimestamp.toDouble() // Same as ZonedDateTime because here we use UTC
-                is KLocalDateTime -> expectedTimestamp.toDouble() // Same as ZonedDateTime because here we use UTC
-                else -> expectedTimestamp.toDouble()
-            }
+                is KLocalDate -> expectedLocalDateTimestamp
+                is KLocalTime -> expectedLocalTimeTimestamp
+                is KLocalDateTime -> expectedTimestamp      // Same as ZonedDateTime because here we use UTC
+                else -> expectedTimestamp
+            }.toDouble()
         } + StandardizingTestJvmValues.getExpectedValues()
 
 
-        val standardizedValues = SeriesStandardizing.toList(values + StandardizingTestJvmValues.getTestValues())
-        values.zip(expectedValues).zip(standardizedValues) { (a, b), c ->
+        val inputValues = values + StandardizingTestJvmValues.getTestValues()
+        val standardizedValues = SeriesStandardizing.toList(inputValues)
+        inputValues.zip(expectedValues).zip(standardizedValues) { (a, b), c ->
             Triple(a, b, c)
         }
             .forEach { (input, expected, result) ->
@@ -149,4 +150,5 @@ class StandardizingTest {
     }
 }
 
+@Suppress("unused")
 private enum class State { Idle, Working }
