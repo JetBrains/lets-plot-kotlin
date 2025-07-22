@@ -12,6 +12,7 @@ plugins {
 val letsPlotVersion = extra["letsPlot.version"] as String
 val kotlinxDatetimeVersion = extra["kotlinx.datetime.version"] as String
 val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
+val kotlinxCoroutinesVersion = extra["kotlinx.coroutines.version"] as String
 val assertjVersion = extra["assertj.version"] as String
 
 kotlin {
@@ -27,12 +28,14 @@ kotlin {
                 api("org.jetbrains.lets-plot:plot-builder:$letsPlotVersion")
                 api("org.jetbrains.lets-plot:plot-stem:$letsPlotVersion")
 
-                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}")            }
+                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}")
+            }
         }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
-            }
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinxCoroutinesVersion}")            }
         }
 
         named("jvmMain") {
@@ -61,7 +64,6 @@ kotlin {
 
         jvmTest {
             dependencies {
-                // assertj
                 implementation("org.assertj:assertj-core:$assertjVersion")
             }
         }

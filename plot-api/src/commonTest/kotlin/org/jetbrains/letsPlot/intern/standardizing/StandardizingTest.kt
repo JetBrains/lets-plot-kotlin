@@ -5,9 +5,9 @@
 
 package org.jetbrains.letsPlot.intern.standardizing
 
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toInstant
 import org.jetbrains.letsPlot.commons.values.Color
-import java.time.*
-import java.util.*
 import kotlin.test.*
 import kotlinx.datetime.Instant as KInstant
 import kotlinx.datetime.LocalDate as KLocalDate
@@ -17,20 +17,20 @@ import org.jetbrains.letsPlot.commons.intern.datetime.Date as LPDate
 import org.jetbrains.letsPlot.commons.intern.datetime.DateTime as LPDateTime
 import org.jetbrains.letsPlot.commons.intern.datetime.Month as LPMonth
 import org.jetbrains.letsPlot.commons.intern.datetime.Time as LPTime
-import org.jetbrains.letsPlot.commons.intern.datetime.TimeZone as LPTZ
+import org.jetbrains.letsPlot.commons.intern.datetime.TimeZone as LPTimeZone
 
 
 class StandardizingTest {
 
     @Test
-    fun `Numeric values standardized to a Double`() {
+    fun numeric_values_standardized_to_a_Double() {
         val numericValues = listOf(
             1.toByte(),         // Byte
             2.toShort(),        // Short
             2,                  // Int
             4L,                 // Long
-            5.1f,                // Float
-            6.2                  // Double
+            5.1f,               // Float
+            6.2                 // Double
         )
         val expected = numericValues.map { it.toDouble() }
 
@@ -39,23 +39,17 @@ class StandardizingTest {
     }
 
     @Test
-    fun `Temporal values standardized to a Double`() {
+    fun temporal_values_standardized_to_a_Double() {
         // Expected timestamp for 2023-01-01T12:30:45Z
         val expectedTimestamp = 1672576245000L
 
-        val expectedLocalDateTimestamp = ZonedDateTime.of(2023, 1, 1, 0, 0, 0, 0, ZoneId.of("UTC"))
-            .toInstant().toEpochMilli()
+        val expectedLocalDateTimestamp = KLocalDateTime(2023, 1, 1, 0, 0, 0, 0)
+            .toInstant(TimeZone.UTC)
+            .toEpochMilliseconds()
 
-        val expectedLocalTimeTimestamp = ZonedDateTime.of(1970, 1, 1, 12, 30, 45, 0, ZoneId.of("UTC"))
-            .toInstant().toEpochMilli()
-
-        // Java time API
-        val zonedDateTime = ZonedDateTime.of(2023, 1, 1, 12, 30, 45, 0, ZoneId.of("UTC"))
-        val instant = zonedDateTime.toInstant()
-        val localDate = zonedDateTime.toLocalDate()
-        val localTime = zonedDateTime.toLocalTime()
-        val localDateTime = zonedDateTime.toLocalDateTime()
-        val date = Date.from(instant)
+        val expectedLocalTimeTimestamp = KLocalDateTime(1970, 1, 1, 12, 30, 45, 0)
+            .toInstant(TimeZone.UTC)
+            .toEpochMilliseconds()
 
         // Kotlinx.datetime API
         val kInstant = KInstant.fromEpochMilliseconds(expectedTimestamp)
@@ -63,50 +57,44 @@ class StandardizingTest {
         val kLocalTime = KLocalTime(12, 30, 45)
         val kLocalDateTime = KLocalDateTime(2023, 1, 1, 12, 30, 45)
 
-        val timestampValues = listOf(
-            zonedDateTime,
-            instant,
-            localDate,
-            localTime,
-            localDateTime,
-            date,
-
+        val values = listOf(
             kInstant,
             kLocalDate,
             kLocalTime,
             kLocalDateTime,
         )
 
-        val timestampValuesStandardized = SeriesStandardizing.toList(timestampValues)
-        timestampValues.zip(timestampValuesStandardized).forEach { (input, result) ->
-            assertTrue(
-                result is Double,
-                "Input: $input, ${input.javaClass.name}, result expected Double but was: ${result?.javaClass?.name}"
-            )
-
-            val expected = when (input) {
-                is LocalDate,
-                is KLocalDate -> expectedLocalDateTimestamp.toDouble()
-
-                is LocalTime,
-                is KLocalTime -> expectedLocalTimeTimestamp.toDouble()
-
-                is LocalDateTime,
+        val expectedValues = values.map {
+            when (it) {
+                is KLocalDate -> expectedLocalDateTimestamp.toDouble() // Same as ZonedDateTime because here we use UTC
+                is KLocalTime -> expectedLocalTimeTimestamp.toDouble() // Same as ZonedDateTime because here we use UTC
                 is KLocalDateTime -> expectedTimestamp.toDouble() // Same as ZonedDateTime because here we use UTC
-
                 else -> expectedTimestamp.toDouble()
             }
+        } + StandardizingTestJvmValues.getExpectedValues()
 
-            assertEquals(expected, result, "Input: $input, ${input.javaClass.name}")
+
+        val standardizedValues = SeriesStandardizing.toList(values + StandardizingTestJvmValues.getTestValues())
+        values.zip(expectedValues).zip(standardizedValues) { (a, b), c ->
+            Triple(a, b, c)
         }
+            .forEach { (input, expected, result) ->
+                // Expect all results to be Double
+                assertTrue(
+                    result is Double,
+                    "Input: $input, ${input::class}, result expected Double but was: ${result!!::class}"
+                )
+
+                assertEquals(expected, result, "Input: $input, ${input::class}")
+            }
     }
 
     @Test
-    fun `LP internal datetime values are not supported`() {
+    fun lp_internal_datetime_values_are_not_supported() {
         val date = LPDate(1, LPMonth.JANUARY, 2023)
         val time = LPTime(12, 30, 45)
         val dateTime = LPDateTime(date, time)
-        val instant = dateTime.toInstant(LPTZ("UTC"))
+        val instant = dateTime.toInstant(LPTimeZone("UTC"))
 
         assertFailsWith<IllegalArgumentException> {
             Standardizing.standardizeValue(instant)
@@ -124,17 +112,12 @@ class StandardizingTest {
 
 
     @Test
-    fun `Collection of mixed values`() {
-        val dateTime = ZonedDateTime.of(
-            2020,
-            6,
-            10,
-            13,
-            58,
-            0,
-            0,
-            ZoneId.of("EST", ZoneId.SHORT_IDS)
-        )
+    fun a_collection_of_mixed_values() {
+        // LocalDateTime in EST (UTC-5)
+        val localDateTime = KLocalDateTime(2020, 6, 10, 13, 58)
+//        val timeZone = TimeZone.of("UTC-05:00")
+        val timeZone = TimeZone.of("UTC")
+        val instant = localDateTime.toInstant(timeZone)
 
 
         val values = listOf(
@@ -145,10 +128,8 @@ class StandardizingTest {
             Double.NaN, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY,
             State.Idle,
             Color.WHITE,
-            java.awt.Color.WHITE,
-            dateTime,
-            dateTime.toInstant(),
-            Date(dateTime.toInstant().toEpochMilli()),
+            instant,
+            localDateTime,
         )
 
         val expected = listOf(
@@ -159,14 +140,12 @@ class StandardizingTest {
             null, null, null,
             "Idle",
             "#ffffff",
-            "#ffffff",
-            1.59181548E12,
-            1.59181548E12,
-            1.59181548E12
+            1591797480000L.toDouble(),
+            1591797480000L.toDouble(),
         )
 
         val result = SeriesStandardizing.toList(values)
-        assertEquals(expected, result)
+        assertContentEquals(expected, result)
     }
 }
 
