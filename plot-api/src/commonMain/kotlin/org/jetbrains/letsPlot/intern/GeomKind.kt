@@ -52,6 +52,7 @@ enum class GeomKind {
     },
     AREA_RIDGES,
     VIOLIN,
+    SINA,
     LIVE_MAP,
     POINT,
     RIBBON,

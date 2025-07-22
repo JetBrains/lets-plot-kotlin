@@ -257,6 +257,26 @@ object Stat {
     }
 
     @Suppress("ClassName")
+    class sina(
+        override val scale: String? = null,
+        override val tailsCutoff: Number? = null,
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val n: Int? = null,
+        override val trim: Boolean? = null,
+        override val adjust: Number? = null,
+        override val fullScanMax: Int? = null,
+        override val quantiles: List<Number>? = null,
+        mapping: SinaStatMapping.() -> Unit = {}
+    ) : SinaStatParameters,
+        StatOptions(
+            StatKind.SINA,
+            mapping = SinaStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class densityRidges(
         override val tailsCutoff: Number? = null,
         override val quantiles: List<Number>? = null,

@@ -15,6 +15,7 @@ enum class StatKind {
     DENSITY2DF,
     DENSITYRIDGES,
     YDENSITY,
+    SINA,
     DOTPLOT,
     YDOTPLOT,
     BIN,
