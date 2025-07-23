@@ -11,7 +11,7 @@ package org.jetbrains.letsPlot.bistro.waterfall
  * - ..xlabel.. : category name.
  * - ..ymin.. : lower value of the change.
  * - ..ymax.. : upper value of the change.
- * - ..measure.. : kind of a calculation: absolute, relative or total.
+ * - ..measure.. : kind of calculation: absolute, relative or total.
  * - ..flow_type.. : direction of the flow: increasing, decreasing, or the result (total).
  * - ..initial.. : initial value of the change.
  * - ..value.. : current cumsum (result of the change) or absolute value (depending on the "measure" column).
@@ -86,11 +86,21 @@ package org.jetbrains.letsPlot.bistro.waterfall
  * @param connector Line between neighbouring boxes connecting the end of the previous box and the beginning of the next box.
  *  Set "blank" or result of `elementBlank()` to draw nothing.
  *  Set `elementLine()` to specify parameters.
- * @param label Label on the box.
- *  Shows change value.
- *  Set "blank" or result of `elementBlank()` to draw nothing.
- *  Set `elementText()` to specify parameters.
- *  Use "flow_type" for `color` parameter of the `elementText()` to color labels by the direction of the flow.
+ * @param relativeLabels Result of the call to the `layerLabels()` function.
+ * Specify content and formatting of annotation labels on relative change bars.
+ * If specified, overrides `labelFormat` for relative bars.
+ * See `layer_labels() <https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.annotations/layer-labels/index.html>`__.
+ * @param absoluteLabels Result of the call to the `layerLabels()` function.
+ * Specify content and formatting of annotation labels on absolute value bars.
+ * If specified, overrides `labelFormat` for absolute bars.
+ * See `layer_labels() <https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.annotations/layer-labels/index.html>`__.
+ * @param label Label on the bar.
+ * Style configuration for labels on bars. Applied to default labels or to
+ * relative/absolute labels when `relativeLabels` or `absoluteLabels` are specified.
+ * Set "blank" or result of `elementBlank()` to draw nothing.
+ * Set `elementText()` to specify style parameters.
+ * Use `elementText(color="inherit")` to make labels inherit the color of bar borders.
+ * See `elementText() <https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.themes/element-text.html>`__.
  * @param labelFormat Format used to transform label mapping values to a string.
  *  For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *  Note: the "$" must be escaped as "\$".
@@ -99,7 +109,10 @@ package org.jetbrains.letsPlot.bistro.waterfall
  *  - ".2f" -> "12.45"
  *  - "Score: {.2f}" -> "Score: 12.45"
  *  - "Score: {}" -> "Score: 12.454789"
- *
+ * @param backgroundLayers will be added behind the waterfall
+ * Background layers to be added to the plot. Accepts either:
+ *  - A single layer (e.g., `geomBar { ... }`).
+ *  - A list of layers (`List<Layer>`).
  */
 fun waterfallPlot(
     data: Map<*, *>,
@@ -125,8 +138,11 @@ fun waterfallPlot(
     hline: Any? = null,
     hlineOntop: Boolean? = null,
     connector: Any? = null,
+    relativeLabels: Any? = null,
+    absoluteLabels: Any? = null,
     label: Any? = null,
-    labelFormat: String? = null
+    labelFormat: String? = null,
+    backgroundLayers: Any? = null
 ) = WaterfallPlotBuilder(
     data = data,
     x = x,
@@ -151,6 +167,9 @@ fun waterfallPlot(
     hline = hline,
     hlineOntop = hlineOntop,
     connector = connector,
+    relativeLabels = relativeLabels,
+    absoluteLabels = absoluteLabels,
     label = label,
-    labelFormat = labelFormat
+    labelFormat = labelFormat,
+    backgroundLayers =  backgroundLayers
 ).build()

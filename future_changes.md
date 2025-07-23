@@ -13,8 +13,16 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   - Support in `geomCrossbar()`
 
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/geom_crossbar_annotation.ipynb).
+  
+- Support in `waterfallPlot()` via `relativeLabels` and `absoluteLabels` parameters.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/waterfall_plot_annotations.ipynb).
 
   - New `inheritColor()` option in annotations configuration (see example notebooks above)
+
+- `waterfallPlot()` - support for combining waterfall bars with other geometry layers [[#1344](https://github.com/JetBrains/lets-plot/issues/1344)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/waterfall_plot_layers.ipynb).
 
 - Plot Layout:
 
