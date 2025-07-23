@@ -10,6 +10,18 @@ Data in this format is sometimes referred to as tidy data, flat data, primary da
 
 You can pass tidy data to *Lets-Plot* in form of a Kotlin `Map`.
 
+## Aesthetics
+
+- <a href="aesthetics.md#point-shapes">Point shapes</a>
+
+- <a href="aesthetics.md#line-types">Line types</a>
+
+- <a href="aesthetics.md#color-and-fill">Color and fill</a>
+
+- <a href="named_colors.md">Named colors reference</a>
+
+- <a href="aesthetics.md#text">Text</a>
+
 ## Basic Building Blocks
 
 Points:
