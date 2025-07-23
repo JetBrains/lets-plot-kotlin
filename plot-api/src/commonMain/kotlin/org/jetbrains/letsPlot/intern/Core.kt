@@ -6,7 +6,7 @@
 package org.jetbrains.letsPlot.intern
 
 import org.jetbrains.letsPlot.Figure
-import org.jetbrains.letsPlot.annotations.AnnotationOptions
+import org.jetbrains.letsPlot.annotations.layerLabels
 import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.frontend.CurrentFrontendContext
@@ -119,7 +119,7 @@ abstract class Layer(
     val manualKey: Any? = null,
     val sampling: SamplingOptions? = null,
     val tooltips: TooltipOptions? = null,
-    val labels: AnnotationOptions? = null,
+    val labels: layerLabels? = null,
     val orientation: String? = null,
 ) : OptionsCapsule, Feature() {
 

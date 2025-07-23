@@ -1,6 +1,6 @@
 package org.jetbrains.letsPlot.bistro.waterfall
 
-import org.jetbrains.letsPlot.annotations.AnnotationOptions
+import org.jetbrains.letsPlot.annotations.layerLabels
 import org.jetbrains.letsPlot.core.spec.Option.Plot.BISTRO
 import org.jetbrains.letsPlot.core.spec.back.transform.bistro.waterfall.Option.Waterfall
 import org.jetbrains.letsPlot.intern.*
@@ -71,11 +71,11 @@ internal class WaterfallPlotBuilder(
                 Waterfall.H_LINE_ON_TOP to hlineOntop,
                 Waterfall.CONNECTOR to connector,
                 Waterfall.RELATIVE_LABELS to when (relativeLabels) {
-                    is AnnotationOptions -> relativeLabels.options
+                    is layerLabels -> relativeLabels.options
                     else -> relativeLabels
                 },
                 Waterfall.ABSOLUTE_LABELS to when (absoluteLabels) {
-                    is AnnotationOptions -> absoluteLabels.options
+                    is layerLabels -> absoluteLabels.options
                     else -> absoluteLabels
                 },
                 Waterfall.LABEL to label,

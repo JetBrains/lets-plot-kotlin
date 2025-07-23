@@ -7,7 +7,7 @@ package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInBatikContext
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.annotations.AnnotationOptions
+import org.jetbrains.letsPlot.annotations.layerLabels
 import org.jetbrains.letsPlot.asDiscrete
 import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.coord.coordFixed
@@ -97,7 +97,7 @@ object Pie {
             (p2 + ggtitle("With annotations") +
                     geomPie(
                         stat = Stat.identity, size = 20, stroke = 1, color = Color.BLACK, hole = 0.6,
-                        labels = AnnotationOptions("count").format("count", "d").size(14),
+                        labels = layerLabels("count").format("count", "d").size(14),
                         tooltips = tooltipsNone
                     ) {
                         slice = "count"
