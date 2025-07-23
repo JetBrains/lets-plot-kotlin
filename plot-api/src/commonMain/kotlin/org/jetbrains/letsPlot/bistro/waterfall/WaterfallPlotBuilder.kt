@@ -1,5 +1,6 @@
 package org.jetbrains.letsPlot.bistro.waterfall
 
+import org.jetbrains.letsPlot.annotations.AnnotationOptions
 import org.jetbrains.letsPlot.core.spec.Option.Plot.BISTRO
 import org.jetbrains.letsPlot.core.spec.back.transform.bistro.waterfall.Option.Waterfall
 import org.jetbrains.letsPlot.intern.*
@@ -30,8 +31,11 @@ internal class WaterfallPlotBuilder(
     private val hline: Any?,
     private val hlineOntop: Boolean?,
     private val connector: Any?,
+    private val relativeLabels: Any?,
+    private val absoluteLabels: Any?,
     private val label: Any?,
-    private val labelFormat: String?
+    private val labelFormat: String?,
+    private val backgroundLayers: Any?
 ) {
     fun build(): Plot {
         return letsPlot(data) + OptionsMap(
@@ -66,8 +70,26 @@ internal class WaterfallPlotBuilder(
                 Waterfall.H_LINE to hline,
                 Waterfall.H_LINE_ON_TOP to hlineOntop,
                 Waterfall.CONNECTOR to connector,
+                Waterfall.RELATIVE_LABELS to when (relativeLabels) {
+                    is AnnotationOptions -> relativeLabels.options
+                    else -> relativeLabels
+                },
+                Waterfall.ABSOLUTE_LABELS to when (absoluteLabels) {
+                    is AnnotationOptions -> absoluteLabels.options
+                    else -> absoluteLabels
+                },
                 Waterfall.LABEL to label,
-                Waterfall.LABEL_FORMAT to labelFormat
+                Waterfall.LABEL_FORMAT to labelFormat,
+                Waterfall.BACKGROUND_LAYERS to when (backgroundLayers) {
+                    is Layer -> listOf(backgroundLayers.toSpec())
+                    is FeatureList -> backgroundLayers.elements.map {
+                        when (it) {
+                            is Layer -> it.toSpec()
+                            else -> error("Invalid type in backgroundLayers list")
+                        }
+                    }
+                    else -> backgroundLayers
+                }
             ).filterNonNullValues()
         )
     }
