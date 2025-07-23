@@ -1,0 +1,35 @@
+div[data-tab-id="by-shade"] div.table>div {
+  width: 100%;
+  border: none;
+}
+div[data-tab-id="by-shade"] div.table table td:nth-child(n + 1) {
+  width: 50%;
+}
+div[data-tab-id="by-shade"] div.table table td:nth-child(n + 2) {
+  width: 20%;
+}
+div[data-tab-id="by-shade"] div.table table td:nth-child(n + 3) {
+  width: 30%;
+}
+div[data-tab-id="by-name"] div.table table td:nth-child(n + 1) {
+  width: 50%;
+}
+div[data-tab-id="by-name"] div.table table td:nth-child(n + 2) {
+  width: 20%;
+}
+div[data-tab-id="by-name"] div.table table td:nth-child(n + 3) {
+  width: 30%;
+}
+
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(1) td { background-color: #800000; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(2) td { background-color: #8B0000; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(3) td { background-color: #8B4513; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(4) td { background-color: #A52A2A; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(5) td { background-color: #B22222; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(6) td { background-color: #A0522D; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(7) td { background-color: #CD5C5C; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(8) td { background-color: #D2691E; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(9) td { background-color: #CD853F; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(10) td { background-color: #BC8F8F; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(11) td { background-color: #D2B48C; color: white; }
+div[data-tab-id="by-shade"] div.table:nth-of-type(1) table tr:nth-of-type(12) td { background-color: #DEB887; color: black; }

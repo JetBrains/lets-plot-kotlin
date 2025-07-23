@@ -1,35 +1,5 @@
 # Aesthetics
 
-## Color and Fill
-
-Colors and fills of geometries can be specified in the following ways:
-
-- RGB/RGBA (e.g. `"rgb(0, 0, 255)"`, `"rgba(0, 0, 255, 0.5)"`).
-
-- HEX (e.g. `"#0000ff"`, `"#00f"`).
-
-- Blank string (`""`) or aliases: `"blank"`, `"transparent"` for a fully transparent color.
-
-- A name, one of:
-
-  ![Color names](aesthetics_color.png)
-
-- A system color name, one of:
-
-<list columns="3">
-    <li>
-        <img alt="Color 'pen'" src="aesthetics_color_pen.png"/>
-    </li>
-    <li>
-        <img alt="Color 'brush'" src="aesthetics_color_brush.png"/>
-    </li>
-    <li>
-        <img alt="Color 'paper'" src="aesthetics_color_paper.png"/>
-    </li>
-</list>
-
-- An instance of the `java.awt.Color` class.
-
 ## Point Shapes
 
 ![Point shapes](aesthetics_shape.png)
@@ -67,3 +37,31 @@ You can also use the name of any other font installed on your system (e.g. `"Tim
 ![Font faces](aesthetics_font_face.png)
 
 The default font face is `'plain'`.
+
+## Color and Fill
+
+Colors and fills of geometries can be specified in the following ways:
+
+- **RGB**/**RGBA** - e.g. `"rgb(0, 0, 255)"`, `"rgba(0, 0, 255, 0.5)"`.
+
+- **HEX** - e.g. `"#0077ff"`, `"#07f"`.
+
+- **Transparent** - an empty string (`""`) or the aliases `"blank"` and `"transparent"` for a fully transparent color.
+
+- **Named colors** from <a href="named_colors.md">a predefined list of color names</a>.
+
+- **System colors** depending on the current theme <a href="presentation_options.md#color-schemes-flavors">flavor</a>, one of:
+
+  <list columns="3">
+      <li>
+          <img alt="Color 'pen'" src="aesthetics_color_pen.png"/>
+      </li>
+      <li>
+          <img alt="Color 'brush'" src="aesthetics_color_brush.png"/>
+      </li>
+      <li>
+          <img alt="Color 'paper'" src="aesthetics_color_paper.png"/>
+      </li>
+  </list>
+
+- An instance of the `java.awt.Color` class.
