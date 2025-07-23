@@ -10,6 +10,18 @@ Data in this format is sometimes referred to as tidy data, flat data, primary da
 
 You can pass tidy data to *Lets-Plot* in form of a Kotlin `Map`.
 
+## Aesthetics
+
+- <a href="aesthetics.md#point-shapes">Point shapes</a>
+
+- <a href="aesthetics.md#line-types">Line types</a>
+
+- <a href="aesthetics.md#color-and-fill">Color and fill</a>
+
+- <a href="named_colors.md">Named colors reference</a>
+
+- <a href="aesthetics.md#text">Text</a>
+
 ## Basic Building Blocks
 
 Points:
@@ -43,7 +55,9 @@ Tiles:
 
 Text:
 [`text`](%api_geom%/geom-text/index.html),
-[`label`](%api_geom%/geom-label/index.html)
+[`text repel`](%api_geom%/geom-text-repel/index.html),
+[`label`](%api_geom%/geom-label/index.html),
+[`label repel`](%api_geom%/geom-label-repel/index.html)
 
 Examples:
 
@@ -103,6 +117,7 @@ Examples:
 [`dotplot`](%api_geom%/geom-dotplot/index.html),
 [`y-dotplot`](%api_geom%/geom-y-dotplot/index.html),
 [`violin`](%api_geom%/geom-violin/index.html),
+[`sina`](%api_geom%/geom-sina/index.html),
 [`ridgeline`](%api_geom%/geom-area-ridges/index.html),
 [`frequency polygon`](%api_geom%/geom-freqpoly/index.html)
 

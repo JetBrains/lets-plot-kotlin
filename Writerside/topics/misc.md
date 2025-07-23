@@ -27,6 +27,8 @@ In tooltips/labels/texts and wherever else there is text, you can use:
     - Greek letters, e.g. `\( \Omega \)`, and
     - some special symbols, e.g. `\( a \cdot b \neq c \)`.
 
+  Learn more: <a href="latex.md">LaTeX Support</a>.
+
   See: [latex_support.ipynb](%nb-latex_support%)
 
   <img src="latex_support.png" alt="LaTeX Support" width="480"/>
