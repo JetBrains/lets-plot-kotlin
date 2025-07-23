@@ -19,16 +19,16 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Displays a 1d distribution by dividing variable mapped to x axis into bins and counting the number of observations in each bin.
+ * Display a 1D distribution by dividing the variable mapped to the x-axis into bins and counting the number of observations in each bin.
  *
  * ## Notes
  *
  * Computed variables:
  *
- * - ..count.. : number of points with x-axis coordinate in the same bin.
- * - ..density.. : normalised number of points so that plot area is 1.
- * - ..sumprop.. : normalised number of points so that sum of y-values is 1.
- * - ..sumpct.. : normalised number of points so that sum of y-values is 100.
+ * - ..count.. : number of points with the x-axis coordinate in the same bin.
+ * - ..density.. : normalized number of points so that plot area is 1.
+ * - ..sumprop.. : normalized number of points so that sum of y-values is 1.
+ * - ..sumpct.. : normalized number of points so that sum of y-values is 100.
  * - ..binwidth.. : width of each bin.
  *
  * To hide axis tooltips, set "blank" or the result of `elementBlank()`
@@ -76,7 +76,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  the entire range of the data. You should always override this value, exploring multiple widths 
  *  to find the best to illustrate the stories in your data.
  * @param center Specifies x-value to align bin centers to.
- * @param boundary Specifies x-value to align bin boundary (i.e. point between bins) to.
+ * @param boundary Specifies x-value to align bin boundary (i.e., point between bins) to.
  * @param threshold default = null
  *  If a bin's `..count..` is less than the threshold, it will be removed, but only if it is on the left or right edge of the histogram.
  *  This is useful for free scales in facets - use threshold=0 to make the plot take up the entire panel space.

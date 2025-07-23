@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Connects points in the order of the variable on the x-axis.
+ * Connect points in the order of the variable on the x-axis.
  * In the case points need to be connected in the order in which they appear in the data, use 'geomPath'.
  *
  * ## Notes

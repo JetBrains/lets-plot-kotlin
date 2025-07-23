@@ -47,7 +47,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param xlim default = Pair(0, 1).
  *  Range of the function.
  * @param n default = 512.
- *  Number of points to interpolate along the x axis.
+ *  Number of points to interpolate along the x-axis.
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param alpha Transparency level of a layer.

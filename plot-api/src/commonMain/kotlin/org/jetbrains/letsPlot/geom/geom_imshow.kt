@@ -215,7 +215,7 @@ fun geomImshow(
 /**
  * Updates channels in the given `Raster` object.
  *
- * @return The used `min` and `max` data values (i.e. values before normalization)
+ * @return The used `min` and `max` data values (i.e., values before normalization)
  */
 private fun normalize2d(raster: Raster, norm: Boolean, vMin: Float?, vMax: Float?, maxLum: Int): Pair<Double, Double> {
     @Suppress("NAME_SHADOWING")

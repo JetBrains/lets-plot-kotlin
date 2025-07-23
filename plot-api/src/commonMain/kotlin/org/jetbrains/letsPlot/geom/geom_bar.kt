@@ -23,18 +23,18 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Displays a bar chart which makes the height of the bar proportional to the number of observed variable values, mapped to x-axis.
+ * Display a bar chart which makes the height of the bar proportional to the number of observed variable values, mapped to the x-axis.
  *
  * ## Notes
  *
  * Computed variables:
  *
- * - ..count.. : number of points with same x-axis coordinate.
- * - ..sum.. : total number of points with same x-axis coordinate.
+ * - ..count.. : number of points with the same x-axis coordinate.
+ * - ..sum.. : total number of points with the same x-axis coordinate.
  * - ..prop.. : groupwise proportion.
  * - ..proppct.. : groupwise proportion in percent.
- * - ..sumprop.. : proportion of points with same x-axis coordinate among all points in the dataset.
- * - ..sumpct.. : proportion of points with same x-axis coordinate among all points in the dataset in percent.
+ * - ..sumprop.. : proportion of points with the same x-axis coordinate among all points in the dataset.
+ * - ..sumpct.. : proportion of points with the same x-axis coordinate among all points in the dataset in percent.
  *
  * To hide axis tooltips, set "blank" or the result of `elementBlank()`
  * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.

@@ -25,7 +25,8 @@ package org.jetbrains.letsPlot.bistro.waterfall
  * @param x Name of a variable.
  * @param y Name of a numeric variable.
  * @param measure Kind of a calculation.
- *  Values in 'measure' column could be:
+ * It takes the name of a data column.
+ * The values in the column could be:
  *  - "absolute" - the value is shown as is;
  *  - "relative" - the value is shown as a difference from the previous value;
  *  - "total" - the value is shown as a cumulative sum of all previous values.
@@ -35,9 +36,13 @@ package org.jetbrains.letsPlot.bistro.waterfall
  * @param color Color of the box boundary lines.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  *  Use "flow_type" to color lines by the direction of the flow.
+ *  Flow type names: "Absolute", "Increase", "Decrease" and "Total".
+ *  You could use these names to change the default colors with the `scaleColorManual()` function.
  * @param fill Fill color of the boxes.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  *  Use "flow_type" to color boxes by the direction of the flow.
+ *  Flow type names: "Absolute", "Increase", "Decrease" and "Total".
+ *  You could use these names to change the default colors with the `scaleFillManual()` function.
  * @param size default = 0.0.
  *  Line width of the box boundary lines.
  * @param alpha Transparency level of the boxes. Understands numbers between 0 and 1.

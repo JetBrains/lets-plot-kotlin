@@ -72,12 +72,16 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see: [aesthetics.html#font-family](https://lets-plot.org/kotlin/aesthetics.html#font-family).
  * @param fontface default = "plain".
  *  For more info see: [aesthetics.html#font-face](https://lets-plot.org/kotlin/aesthetics.html#font-face).
- * @param hjust ("left", "middle", "right") or number between 0 ("left") and 1 ("right")
- *  or "inward" (aligns label towards the plot center), "outward" (away from the plot center).
- *  Horizontal label alignment.
- * @param vjust ("bottom", "center", "top") or number between 0 ("bottom") and 1 ("top")
- *  or "inward" (aligns label towards the plot center), "outward" (away from the plot center).
- *  Vertical label alignment.
+ * @param hjust horizontal text alignment relative to the x-coordinate.
+ *  Possible values: 0 or "left" - left-aligned (text starts at x),
+ *  0.5 or "middle" (default) - text is centered on x,
+ *  1 or "right" - right-aligned (text ends at x).
+ *  There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
+ * @param vjust vertical text alignment relative to the y-coordinate.
+ *  Possible values: 0 or "bottom" - bottom-aligned (bottom of text at y),
+ *  0.5 or "center" (default) - middle of text at y,
+ *  1 or "top" - top-aligned (top of text at y).
+ *  There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
  * @param angle Label rotation angle in degrees.
  * @param lineheight Line height multiplier applied to the font size in the case of multi-line text.
  * @param labelFormat Specifies the format pattern for displaying mapped values.
@@ -89,8 +93,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param labelSize default = 1.0. Size of label border.
  * @param alphaStroke default = false.
  *  Enables the applying of 'alpha' to 'color' (label text and border).
- * @param sizeUnit Relates the size of the text label to the length of the unit step along one of the axes.
- *  Possible values: "x", "y". If not specified, no fitting is performed.
+ * @param sizeUnit ("x", "y", "min", "max").
+ *  Relate the size of the text label to the length of the unit step along one of the axes.
+ *  "x" uses the unit step along the x-axis, "y" uses the unit step along the y-axis.
+ *  "min" uses the smaller of the unit steps along the x- and y-axes.
+ *  "max" uses the larger of the unit steps along the x- and y-axes.
+ *  If not specified, no fitting is performed.
  * @param nudgeUnit ("identity", "size", "px") Units for x and y nudging.
  * Possible values:
  *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;

@@ -17,9 +17,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * Computed variables:
  *
- * - ..n.. : number of points with same x-axis and y-axis coordinates.
- * - ..prop.. : proportion of points with same x-axis and y-axis coordinates.
- * - ..proppct.. : proportion of points with same x-axis and y-axis coordinates in percent.
+ * - ..n.. : number of points with the same x-axis and y-axis coordinates.
+ * - ..prop.. : proportion of points with the same x-axis and y-axis coordinates.
+ * - ..proppct.. : proportion of points with the same x-axis and y-axis coordinates in percent.
  *
  * To hide axis tooltips, set "blank" or the result of `elementBlank()`
  * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.

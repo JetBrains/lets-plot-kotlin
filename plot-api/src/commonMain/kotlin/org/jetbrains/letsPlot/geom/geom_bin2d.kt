@@ -74,7 +74,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
- * @param size Line width, default = 0 (i.e. tiles outline initially is not visible).
+ * @param size Line width, default = 0 (i.e., tiles outline initially is not visible).
  * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.

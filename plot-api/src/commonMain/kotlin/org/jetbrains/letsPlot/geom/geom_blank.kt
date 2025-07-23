@@ -68,8 +68,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param size Size of the point.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param angle Rotation angle of the shape, in degrees.
- * @param sizeUnit Relates the size of the point to the length of the unit step along one of the axes.
- *  Possible values: "x", "y". If not specified, no fitting is performed.
+ * @param sizeUnit ("x", "y", "min", "max").
+ *  Relate the size of the geom to the length of the unit step along one of the axes.
+ *  "x" uses the unit step along the x-axis, "y" uses the unit step along the y-axis.
+ *  "min" uses the smaller of the unit steps along the x- and y-axes.
+ *  "max" uses the larger of the unit steps along the x- and y-axes.
+ *  If not specified, no fitting is performed.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").

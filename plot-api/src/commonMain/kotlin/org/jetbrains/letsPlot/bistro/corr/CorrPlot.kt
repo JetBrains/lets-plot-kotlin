@@ -36,7 +36,7 @@ import kotlin.math.min
 /**
  * Correlation plot builder.
  *
- * The terminal `build()` method will create a fully configured 'Plot' (i.e. Figure) object.
+ * The terminal `build()` method will create a fully configured 'Plot' (i.e., Figure) object.
  *
  * ## Notes
  *

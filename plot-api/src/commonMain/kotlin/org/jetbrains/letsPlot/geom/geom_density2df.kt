@@ -58,7 +58,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param weight Used by density stat to compute weighted density.
  * @param n The number of sampled points for plotting the function (on x and y direction correspondingly).
  * @param adjust Adjust the value of bandwidth by multiplying it. Changes how smooth the frequency curve is.
- * @param contour If true, contour the results of the 2d density estimation.
+ * @param contour If true, contour the results of the 2D density estimation.
  * @param bins Number of levels.
  * @param binWidth Distance between levels.
  * @param x X-axis coordinates.

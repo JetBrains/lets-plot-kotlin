@@ -32,7 +32,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * Computed variables:
  *
- * - ..count.. : number of points with x-axis coordinate in the same bin.
+ * - ..count.. : number of points with the x-axis coordinate in the same bin.
  * - ..binwidth.. : max width of each bin if method is "dotdensity"; width of each bin if method is "histodot".
  *
  * To hide axis tooltips, set "blank" or the result of `elementBlank()`
@@ -60,7 +60,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param bins When method is "histodot", this specifies number of bins (default = 30). Overridden by `binWidth`.
  * @param center When method is "histodot", this specifies x-value to align bin centers to.
  * @param boundary When method is "histodot", this specifies x-value to align bin boundary
- *  (i.e. point between bins) to.
+ *  (i.e., point between bins) to.
  * @param method default = "dotdensity".
  *  Use "dotdensity" for dot-density binning,
  *  or "histodot" for fixed bin widths (like in geomHistogram).

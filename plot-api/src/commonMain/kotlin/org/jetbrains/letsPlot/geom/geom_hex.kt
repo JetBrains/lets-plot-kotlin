@@ -69,7 +69,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
- * @param size Line width, default = 0 (i.e. hexagons outline initially is not visible).
+ * @param size Line width, default = 0 (i.e., hexagons outline initially is not visible).
  * @param weight Used by `Stat.binhex()`stat to compute weighted sum instead of simple count.
  * @param widthUnit default = "res".
  *  Unit for width of the hexagon.

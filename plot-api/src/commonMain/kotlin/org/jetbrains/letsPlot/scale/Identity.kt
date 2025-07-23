@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * This will not produce a legend unless you also supply the breaks and labels.
  *
  * Input data expected: List of Strings containing
- * - names of colors (i.e. "green")
+ * - names of colors (i.e., "green")
  * - hex codes of colors (i.e "x00ff00")
  * - css colors (i.e "rgb(0,255,0)")
  *
@@ -80,7 +80,7 @@ fun scaleIdentity(
  * This will not produce a legend unless you also supply the breaks and labels.
  *
  * Input data expected: List of Strings containing
- * - names of colors (i.e. "green")
+ * - names of colors (i.e., "green")
  * - hex codes of colors (i.e "x00ff00")
  * - css colors (i.e "rgb(0,255,0)")
  *
@@ -137,7 +137,7 @@ fun scaleColorIdentity(
  * This will not produce a legend unless you also supply the breaks and labels.
  *
  * Input data expected: List of Strings containing
- * - names of colors (i.e. "green")
+ * - names of colors (i.e., "green")
  * - hex codes of colors (i.e "x00ff00")
  * - css colors (i.e "rgb(0,255,0)")
  *

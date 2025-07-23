@@ -14,7 +14,7 @@ import org.jetbrains.letsPlot.spatial.SpatialDataset
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 /**
- * Add text labels that repel away from each other and from data points.
+ * Add repelling text labels that avoid overlapping with other labels and data points.
  *
  *  ## Examples
  *
@@ -55,7 +55,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param label Text to add to plot.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
  * @param color Color of the geometry.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param size Font size.
@@ -63,12 +64,16 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see: [aesthetics.html#font-family](https://lets-plot.org/kotlin/aesthetics.html#font-family).
  * @param fontface default = "plain".
  *  For more info see: [aesthetics.html#font-face](https://lets-plot.org/kotlin/aesthetics.html#font-face).
- * @param hjust ("left", "middle", "right") or number between 0 ("left") and 1 ("right")
- *  or "inward" (aligns text towards the plot center), "outward" (away from the plot center).
- *  Horizontal text alignment.
- * @param vjust ("bottom", "center", "top") or number between 0 ("bottom") and 1 ("top")
- *  or "inward" (aligns text towards the plot center), "outward" (away from the plot center).
- *  Vertical text alignment.
+ * @param hjust horizontal text alignment relative to the x-coordinate.
+ *  Possible values: 0 or "left" - left-aligned (text starts at x),
+ *  0.5 or "middle" (default) - text is centered on x,
+ *  1 or "right" - right-aligned (text ends at x).
+ *  There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
+ * @param vjust vertical text alignment relative to the y-coordinate.
+ *  Possible values: 0 or "bottom" - bottom-aligned (bottom of text at y),
+ *  0.5 or "center" (default) - middle of text at y,
+ *  1 or "top" - top-aligned (top of text at y).
+ *  There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
  * @param angle Text rotation angle in degrees.
  * @param lineheight Line height multiplier applied to the font size in the case of multi-line text.
  * @param labelFormat Specifies the format pattern for displaying mapped values.
@@ -76,9 +81,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Text to show for missing values.
  * @param nudgeX Horizontal adjustment to nudge labels by.
  * @param nudgeY Vertical adjustment to nudge labels by.
- * @param sizeUnit Relates the size of the text to the length of the unit step along one of the axes.
- *  Possible values: "x", "y". If not specified, no fitting is performed.
- * @param nudgeUnit ("identity", "size", "px") Units for x and y nudging.
+ * @param sizeUnit ("x", "y", "min", "max").
+ *  Relate the size of the text to the length of the unit step along one of the axes.
+ *  "x" uses the unit step along the x-axis, "y" uses the unit step along the y-axis.
+ *  "min" uses the smaller of the unit steps along the x- and y-axes.
+ *  "max" uses the larger of the unit steps along the x- and y-axes.
+ *  If not specified, no fitting is performed.
+ * @param nudgeUnit ("identity", "size", "px")
+ *  Units for x and y nudging.
  * Possible values:
  *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
  *  - "size": a unit of 1 corresponds to the diameter of a point with `size=1`;
@@ -87,14 +97,19 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines the color aesthetic for the geometry.
  * @param checkOverlap Skips plotting text that overlaps previous text in the same layer.
  * @param seed Random seed for reproducibility.
- * @param maxIter Maximum number of iterations for the repulsion algorithm.
- * @param maxTime Maximum allowed time in seconds for resolving label collisions.
+ * @param maxIter default = 2000.
+ *  Maximum number of iterations used to resolve collisions.
+ * @param maxTime default = 5.
+ *  Maximum allowed time in seconds for resolving label collisions.
  * @param direction default = "both" ("both", "x", "y").
- *  Defines the direction in which labels can be moved.
- * @param pointPadding Padding around the data point.
- * @param boxPadding Padding around the label box.
- * @param maxOverlaps Max number of overlapping labels to allow.
- * @param minSegmentLength Minimum length of the connecting line segment. Shorter ones are omitted.
+ *  Direction in which text labels can be moved.
+ * @param pointPadding Padding around data points to prevent overlap with text labels.
+ * @param boxPadding Padding around text labels to prevent overlap between labels.
+ * @param maxOverlaps default = 10.
+ *  The maximum number of overlapping text labels allowed.
+ *  Additional text labels will be hidden.
+ * @param minSegmentLength Minimum length of the line connecting the label to the point.
+ *  Shorter segments will be omitted.
  * @param arrow Specification for arrow head, as created by `arrow()` function.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are

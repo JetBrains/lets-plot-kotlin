@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Connects observations in the order in which they appear in the data.
+ * Connect observations in the order they appear in the data.
  *
  * ## Examples
  *

@@ -22,7 +22,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 
 @Suppress("ClassName")
 /**
- * Displays a 2d distribution by dividing the plane into a grid and counting the number of observations in each rectangle.
+ * Displays a 2D distribution by dividing the plane into a grid and counting the number of observations in each rectangle.
  *
  * ## Notes
  *

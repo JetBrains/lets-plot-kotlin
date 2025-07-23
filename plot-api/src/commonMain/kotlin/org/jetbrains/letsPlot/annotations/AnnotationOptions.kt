@@ -11,14 +11,14 @@ typealias AnnotationOptions = layerLabels
 
 
 /**
-* Configure annotations for geometry layers.
+ * Configure annotations for geometry layers.
  *
  * Annotations are currently supported for bar, pie, and crossbar geometry
  * layers. This class provides methods to customize the appearance and
  * content of text labels displayed on these geometries.
  *
- * Notes
- * -----
+ * ## Notes
+ *
  * By default, annotation text color is automatically selected for optimal
  * contrast: white text appears on darker filled geometries, and black text
  * appears on lighter filled geometries.
@@ -137,6 +137,14 @@ class layerLabels(vararg variables: String) {
         return setOption(ANNOTATION_SIZE, value)
     }
 
+
+    /**
+     * Use the layer's color for the annotation text.
+     *
+     * When enabled, the annotation text will inherit the color from the
+     * layer it's associated with, rather than using a default or
+     * explicitly set color.
+     */
     fun inheritColor(): layerLabels {
         return setOption(USE_LAYER_COLOR, true)
     }

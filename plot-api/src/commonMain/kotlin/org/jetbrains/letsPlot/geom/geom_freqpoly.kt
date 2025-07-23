@@ -21,7 +21,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName", "SpellCheckingInspection")
 /**
- * Displays a line chart which makes the y value proportional to the number of observed variable values, mapped to x axis.
+ * Displays a line chart which makes the y value proportional to the number of observed variable values, mapped to x-axis.
  *
  * ## Notes
  *
@@ -77,7 +77,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  the entire range of the data. You should always override this value, exploring multiple widths 
  *  to find the best to illustrate the stories in your data.
  * @param center Specifies x-value to align bin centers to.
- * @param boundary Specifies x-value to align bin boundary (i.e. point between bins) to.
+ * @param boundary Specifies x-value to align bin boundary (i.e., point between bins) to.
  * @param threshold default = null
  *  Only bins with a `..count..` greater than the threshold will be displayed.
  *  This is useful for free scales in facets - use threshold=0 to make the plot take up the entire panel space.

@@ -34,7 +34,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *   Whether to stretch each plot to match the aspect ratio of its cell (`fit = true`),
  *   or to preserve the original aspect ratio of plots (`fit = false`).
  *  @param align default = false.
- *   If `true`, align inner areas (i.e. "geom" bounds) of plots.
+ *   If `true`, align inner areas (i.e., "geom" bounds) of plots.
  *   However, cells containing other (sub)grids are not participating in the plot "inner areas" layouting.
  *  @param sharex String or Boolean
  *   Controls sharing of X-axis limits between subplots in the grid.

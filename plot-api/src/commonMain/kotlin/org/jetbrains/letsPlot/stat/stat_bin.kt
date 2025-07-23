@@ -18,7 +18,7 @@ import org.jetbrains.letsPlot.pos.positionStack
 
 @Suppress("ClassName")
 /**
- * Displays a 1d distribution by dividing variable mapped to x-axis into bins and counting the number of observations in each bin.
+ * Displays a 1D distribution by dividing variable mapped to x-axis into bins and counting the number of observations in each bin.
  *
  * ## Notes
  *
@@ -60,7 +60,7 @@ import org.jetbrains.letsPlot.pos.positionStack
  *  the entire range of the data. You should always override this value, exploring multiple widths
  *  to find the best to illustrate the stories in your data.
  * @param center Specifies x-value to align bin centers to.
- * @param boundary Specifies x-value to align bin boundary (i.e. point between bins) to.
+ * @param boundary Specifies x-value to align bin boundary (i.e., point between bins) to.
  * @param threshold default = null
  *  Only bins with a `..count..` greater than the threshold will be displayed.
  *  This is useful for free scales in facets - use threshold=0 to make the plot take up the entire panel space.

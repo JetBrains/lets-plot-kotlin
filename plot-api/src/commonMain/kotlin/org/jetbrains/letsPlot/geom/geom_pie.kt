@@ -27,12 +27,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * Computed variables:
  *
- * - ..count.. : number of points with same (x,y) coordinate.
- * - ..sum.. : total number of points with same (x,y) coordinate.
+ * - ..count.. : number of points with the same (x,y) coordinate.
+ * - ..sum.. : total number of points with the same (x,y) coordinate.
  * - ..prop.. : groupwise proportion.
  * - ..proppct.. : groupwise proportion in percent.
- * - ..sumprop.. : proportion of points with same (x,y) coordinate among all points in the dataset.
- * - ..sumpct.. : proportion of points with same (x,y) coordinate among all points in the dataset in percent.
+ * - ..sumprop.. : proportion of points with the same (x,y) coordinate among all points in the dataset.
+ * - ..sumpct.. : proportion of points with the same (x,y) coordinate among all points in the dataset in percent.
  *
  * To hide axis tooltips, set "blank" or the result of `elementBlank()`
  * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
@@ -111,8 +111,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Default is a negative angle of the first sector.
  * @param direction default = 1.
  *  Specify angle direction, 1=clockwise, -1=counter-clockwise.
- * @param sizeUnit Relates the size of the pie chart to the length of the unit step along one of the axes.
- *  Possible values: "x", "y". If not specified, no fitting is performed.
+ * @param sizeUnit ("x", "y", "min", "max").
+ *  Relate the size of the pie chart to the length of the unit step along one of the axes.
+ *  "x" uses the unit step along the x-axis, "y" uses the unit step along the y-axis.
+ *  "min" uses the smaller of the unit steps along the x- and y-axes.
+ *  "max" uses the larger of the unit steps along the x- and y-axes.
+ *  If not specified, no fitting is performed.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").

@@ -56,27 +56,27 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  *  See: [Formatting](https://lets-plot.org/kotlin/formats.html)
  *
- * @param line All line elements.
- * @param rect All rectangle elements.
- * @param text All text elements.
- * @param title All line elements: plot, axes, legends.
- * @param axis All axis elements: lines, ticks, texts, titles.
+ * @param line Style settings for all line elements.
+ * @param rect Style settings for all rectangular elements.
+ * @param text Style settings for all text elements.
+ * @param title Style settings for all title elements: plot, axes, legends.
+ * @param axis Style settings for all axis elements: lines, ticks, texts, titles.
  *
  * @param axisOntop Option to place axis (lines, tick-marks and labels) over the data layers.
  * @param axisOntopX Option to place X-axis (lines, tick-marks and labels) over the data layers.
  * @param axisOntopY Option to place Y-axis (lines, tick-marks and labels) over the data layers.
  *
- * @param axisTitle Labels of axes.
- * @param axisTitleX Labels of axes.
- * @param axisTitleY Labels of axes.
+ * @param axisTitle Style settings for axis titles.
+ * @param axisTitleX Style settings for axis titles.
+ * @param axisTitleY Style settings for axis titles.
  *
- * @param axisText Tick labels along axes.
- * @param axisTextX Tick labels along axes.
- * @param axisTextY Tick labels along axes.
+ * @param axisText Style settings for tick labels along axes.
+ * @param axisTextX Style settings for tick labels along axes.
+ * @param axisTextY Style settings for tick labels along axes.
  *
- * @param axisTicks Tick marks along axes.
- * @param axisTicksX Tick marks along axes.
- * @param axisTicksY Tick marks along axes.
+ * @param axisTicks Style settings for tick marks along axes.
+ * @param axisTicksX Style settings for tick marks along axes.
+ * @param axisTicksY Style settings for tick marks along axes.
  *
  * @param axisTicksLength Length of tick marks.
  * @param axisTicksLengthX Length of tick marks.
@@ -86,16 +86,16 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param axisTextSpacingX Spacing between the axis label text and its tick mark.
  * @param axisTextSpacingY Spacing between the axis label text and its tick mark.
  *
- * @param axisLine Lines along axes.
- * @param axisLineX Lines along axes.
- * @param axisLineY Lines along axes.
+ * @param axisLine Style settings for lines along axes.
+ * @param axisLineX Style settings for lines along axes.
+ * @param axisLineY Style settings for lines along axes.
  *
- * @param legendBackground Background of legend.
- * @param legendText Legend item labels.
- * @param legendTitle Title of legend.
+ * @param legendBackground Style settings for background of legend.
+ * @param legendText Style settings for legend item labels.
+ * @param legendTitle Style settings for legend title.
  * @param legendMargin Margin around each legend.
  *  The margin may be specified using a number or a list of numbers:
- *  - a single number or a list of one number - the same margin it applied to all four sides;
+ *  - a single number or a list of one number - the same margin is applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
@@ -104,7 +104,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param legendSpacing Spacing between legends.
  * @param legendSpacingX Spacing between legends in the horizontal direction.
  * @param legendSpacingY Spacing between legends in the vertical direction.
- * @param legendKey Background underneath legend keys.
+ * @param legendKey Style settings for legend key background.
  * @param legendKeySize Size of legend keys.
  * @param legendKeyWidth Key background width.
  * @param legendKeyHeight Key background height.
@@ -112,20 +112,20 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param legendKeySpacingX Spacing between legend keys in the horizontal direction.
  * @param legendKeySpacingY Spacing between legend keys in the vertical direction.
  * @param legendBoxSpacing Spacing between plotting area and legend box.
- * @param legendTicks Tick mark lines in colorbar.
+ * @param legendTicks Style settings for tick marks in colorbars.
  * @param legendTicksLength Length of tick marks in colorbar.
  *
- * @param panelBackground Background of plotting area.
- * @param panelBorder Border around plotting area.
+ * @param panelBackground Style settings for background of plotting area.
+ * @param panelBorder Style settings for border around plotting area.
  * @param panelBorderOntop Option to place border around plotting area over the data layers.
  *
- * @param panelGrid Grid lines.
- * @param panelGridMajor Grid lines.
- * @param panelGridMinor Grid lines.
- * @param panelGridMajorX Grid lines.
- * @param panelGridMinorX Grid lines.
- * @param panelGridMajorY Grid lines.
- * @param panelGridMinorY Grid lines.
+ * @param panelGrid Style settings for grid lines.
+ * @param panelGridMajor Style settings for major grid lines.
+ * @param panelGridMinor Style settings for minor grid lines.
+ * @param panelGridMajorX Style settings for major grid lines.
+ * @param panelGridMinorX Style settings for minor grid lines.
+ * @param panelGridMajorY Style settings for major grid lines.
+ * @param panelGridMinorY Style settings for minor grid lines.
  *
  * @param panelGridOntop Option to place major grid lines and minor grid lines over the data layers.
  * @param panelGridOntopX Option to place X-axis major grid lines and minor grid lines over the data layers.
@@ -134,23 +134,23 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param panelInset Inset for a panel.
  *  The inset behaves like a padding for `coordPolar(transformBkgr = false)` otherwise it behaves like a margin around the panel.
  *  The inset may be specified using a number or a list of numbers:
- *  - a single number or a list of one number - the same inset it applied to all four sides;
+ *  - a single number or a list of one number - the same inset is applied to all four sides;
  *  - a list of two numbers - the first inset applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
  *  - a list of four numbers - the insets are applied to the top, right, bottom and left in that order.
- *  It is acceptable to use `null` for any side; in this case, the default value for the plot inset side will be used.
+ *  It is acceptable to use `null` for any side; in this case, the default value for the panel inset side will be used.
  *
- * @param plotBackground Background of the entire plot.
- * @param plotTitle Plot title.
- * @param plotSubtitle Plot subtitle.
- * @param plotCaption Plot caption.
- * @param plotMessage Plot message (e.g. sampling messages).
+ * @param plotBackground Style settings for overall plot background.
+ * @param plotTitle Style settings for plot title.
+ * @param plotSubtitle Style settings for plot subtitle.
+ * @param plotCaption Style settings for plot caption.
+ * @param plotMessage Style settings for plot message (e.g. sampling messages).
  *  Set an `elementBlank()` to show nothing.
  *  Set an `elementText()` to show sampling messages (`elementText()` options do not affect the message text).
  * @param plotMargin Margin around entire plot.
  *  The margin may be specified using a number or a list of numbers:
- *  - a single number or a list of one number - the same margin it applied to all four sides;
+ *  - a single number or a list of one number - the same margin is applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
@@ -158,7 +158,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  It is acceptable to use `null` for any side; in this case, the default side value for the plot margin side will be used.
  * @param plotInset Inset for a plotting area, including the axes with their labels, but without titles.
  *  The inset may be specified using a number or a list of numbers:
- *  - a single number or a list of one number - the same inset it applied to all four sides;
+ *  - a single number or a list of one number - the same inset is applied to all four sides;
  *  - a list of two numbers - the first inset applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first inset applies to the top, the second - to the right and left, the third - to the bottom;
  *  - a list of four numbers - the insets are applied to the top, right, bottom and left in that order.
@@ -173,31 +173,31 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  Alignment of the plot caption.
  *  A value of "panel" means that caption is aligned to the plot panels.
  *  A value of "plot" means that caption is aligned to the entire plot (excluding margins).
- * @param stripBackground Background of facet labels.
- * @param stripBackgroundX Horizontal facet background.
- * @param stripBackgroundY Vertical facet background.
- * @param stripText Facet labels.
- * @param stripTextX Horizontal facet labels.
- * @param stripTextY Vertical facet labels.
+ * @param stripBackground Style settings for facet strip background.
+ * @param stripBackgroundX Style settings for horizontal facet strip background.
+ * @param stripBackgroundY Style settings for vertical facet strip background.
+ * @param stripText Style settings for facet labels.
+ * @param stripTextX Style settings for horizontal facet labels.
+ * @param stripTextY Style settings for vertical facet labels.
  *
- * @param axisTooltip Axes tooltips.
- * @param axisTooltipX Axes tooltips.
- * @param axisTooltipY Axes tooltips.
+ * @param axisTooltip Style settings for axes tooltips.
+ * @param axisTooltipX Style settings for axes tooltips.
+ * @param axisTooltipY Style settings for axes tooltips.
  *
- * @param axisTooltipText Text in axes tooltips.
- * @param axisTooltipTextX Text in axes tooltips.
- * @param axisTooltipTextY Text in axes tooltips.
+ * @param axisTooltipText Style settings for text in axes tooltips.
+ * @param axisTooltipTextX Style settings for text in axes tooltips.
+ * @param axisTooltipTextY Style settings for text in axes tooltips.
  *
- * @param tooltip General tooltip.
- * @param tooltipText Text in general tooltip.
- * @param tooltipTitleText Tooltip title text.
+ * @param tooltip Style settings for general tooltip.
+ * @param tooltipText Style settings for text in general tooltip.
+ * @param tooltipTitleText Style settings for tooltip title text.
  *
- * @param labelText Annotation text.
+ * @param labelText Style settings for annotation text.
  *  Annotations are currently supported for pie and bar charts.
  *  Set `elementText()` to specify annotation text parameters: font family and face, text size,
  *  text color (relevant for a pie chart - for those annotations that are outside the pie).
  *
- * @param geom Geometry colors.
+ * @param geom Color settings for geometries.
  */
 @Suppress("ClassName")
 class theme(
@@ -569,7 +569,7 @@ fun elementLine(
 
 /**
  * Specifies how non-data components of the plot are drawn.
- * This theme element draws texts.
+ * This theme element draws text.
  *
  * ## Examples
  *
@@ -594,7 +594,7 @@ fun elementLine(
  *  Values outside this range are allowed, but the behavior is unspecified.
  * @param margin Margins around the text.
  *  The margin may be specified using a number or a list of numbers:
- *  - a single number or a list of one number - the same margin it applied to all four sides;
+ *  - a single number or a list of one number - the same margin is applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
@@ -627,7 +627,7 @@ fun elementText(
 
 /**
  * Specifies how non-data components of the plot are drawn.
- * This theme element draws texts with Markdown support.
+ * This theme element draws text with Markdown support.
  *
  * ## Examples
  *
@@ -652,7 +652,7 @@ fun elementText(
  *  Values outside this range are allowed, but the behavior is unspecified.
  * @param margin Margins around the text.
  *  The margin may be specified using a number or a list of numbers:
- *  - a single number or a list of one number - the same margin it applied to all four sides;
+ *  - a single number or a list of one number - the same margin is applied to all four sides;
  *  - a list of two numbers - the first margin applies to the top and bottom, the second - to the left and right;
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
@@ -693,7 +693,7 @@ fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) = lis
 
 
 /**
- * Specifies new values for the named colors.
+ * Specify custom values for named geom colors used in plot elements.
  *
  * ## Examples
  *

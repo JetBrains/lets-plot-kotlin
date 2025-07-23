@@ -20,7 +20,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Fills contours of a 3d surface in 2d.
+ * Fills contours of a 3D surface in 2D.
  *
  * ## Notes
  *
