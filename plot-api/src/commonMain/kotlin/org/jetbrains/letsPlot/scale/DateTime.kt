@@ -13,7 +13,11 @@ import org.jetbrains.letsPlot.intern.Scale
 import org.jetbrains.letsPlot.intern.checkScaleExpand
 
 /**
- * Position scale x for date/time data.
+ * Position scale for the x-axis with date/time data.
+ * The input is expected to be either a series of integers representing milliseconds since the Unix epoch,
+ * or kotlinx.datetime, or java.util datetime objects.
+ * Assumes UTC timezone if no timezone information is present in the data (naive datetime).
+ * For timezone-aware datetime objects, the timezone information from the data is preserved.
  *
  * ## Examples
  *
@@ -79,7 +83,11 @@ fun scaleXDateTime(
 }
 
 /**
- * Position scale y for date/time data.
+ * Position scale for the y-axis with date/time data.
+ * The input is expected to be either a series of integers representing milliseconds since the Unix epoch,
+ * or kotlinx.datetime, or java.util datetime objects.
+ * Assumes UTC timezone if no timezone information is present in the data (naive datetime).
+ * For timezone-aware datetime objects, the timezone information from the data is preserved.
  *
  * ## Examples
  *
