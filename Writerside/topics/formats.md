@@ -161,6 +161,10 @@ The list of supported directives to format date/time values:
 - `%P` - like %p but in lowercase: "am" or "pm";
 - `%S` - second as a zero-padded decimal number (00, 01, …, 59).
 
+<note>
+If no timezone information is present (naive datetime), Lets-Plot assumes UTC timezone. For timezone-aware datetime objects, the timezone information from the data is preserved and used for rendering.
+</note>
+
 ### Datetime Format Examples
 
 Let's apply the format string to the date `Aug 6, 2019` and the time `4:46:35`:
