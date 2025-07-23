@@ -60,7 +60,7 @@ class DataSeriesTimeStandardizeTest(
             val instants = listOf<Instant?>(zonedDateTime0.toInstant(), zonedDateTime1.toInstant(), null)
             val zonedDateTimes = listOf<ZonedDateTime?>(zonedDateTime0, zonedDateTime1, null)
 
-            // Expected after standardisation
+            // Expected after standardization
             val expectedList = listOf<Double?>(1591815480000.0, 1591815840000.0, null)
             val expectedMap = mapOf(
                 "dateTimes" to expectedList,
@@ -69,7 +69,7 @@ class DataSeriesTimeStandardizeTest(
             )
 
             // Test data
-            return listOf<Array<Any>>(
+            return listOf(
                 arrayOf(
                     // lists
                     mapOf(

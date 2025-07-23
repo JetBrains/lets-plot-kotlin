@@ -86,8 +86,12 @@ class SeriesAnnotationTest {
 
                     seriesAnnotation(column = "java-instant-column", type = Types.DATE_TIME),
                     seriesAnnotation(column = "java-date-column", type = Types.DATE_TIME),
-                    seriesAnnotation(column = "java-zoned-datetime-column", type = Types.DATE_TIME),
-                    seriesAnnotation(column = "java-offset-datetime-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "java-zoned-datetime-column", type = Types.DATE_TIME, timeZoneId = "UTC"),
+                    seriesAnnotation(
+                        column = "java-offset-datetime-column",
+                        type = Types.DATE_TIME,
+                        timeZoneId = "UTC"
+                    ),
                     seriesAnnotation(column = "java-local-date-column", type = Types.DATE),
                     seriesAnnotation(column = "java-local-time-column", type = Types.TIME),
                     seriesAnnotation(column = "java-local-datetime-column", type = Types.DATE_TIME),

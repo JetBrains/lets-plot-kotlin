@@ -42,7 +42,6 @@ fun Figure.toSpec(): MutableMap<String, Any> {
     return when (this) {
         is Plot -> this.toSpec()
         is SubPlotsFigure -> this.toSpec()
-//        is GGBunch -> this.toSpec()
         else -> throw IllegalArgumentException("Unsupported figure type ${this::class.simpleName}")
     }
 }
@@ -111,7 +110,6 @@ fun Layer.toSpec(): MutableMap<String, Any> {
         spec[Option.PlotBase.DATA] = asPlotData(data)
     }
 
-//    val allMappings = (mapping + geom.mapping + stat.mapping).map
     val allMappings = mapping.map
     spec[Option.PlotBase.MAPPING] = asMappingData(allMappings)
 
@@ -313,7 +311,8 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
         }
     }
 
-    dataTypeByVar += inferType(data)
+    dataTypeByVar += inferDTypes(data)
+    val timeZoneByVar = detectTimeZones(data)
 
     // fill series annotations
     val seriesAnnotations = mutableMapOf<String, MutableMap<String, Any>>()
@@ -322,6 +321,10 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
 
         if (dataType != SeriesAnnotation.Types.UNKNOWN) {
             seriesAnnotation[SeriesAnnotation.TYPE] = dataType
+        }
+
+        if (varName in timeZoneByVar) {
+            seriesAnnotation[SeriesAnnotation.TIME_ZONE] = timeZoneByVar.getValue(varName)
         }
 
         if (varName in mappingMetaByVar) {
@@ -392,21 +395,16 @@ private fun createDataMeta(data: Map<*, *>?, mappingSpec: Map<String, Any>): Map
     return spatialDataMeta + dataMeta
 }
 
-private fun inferType(data: Any?): Map<String, String> {
-    if (data == null) {
-        return emptyMap()
-    }
-
+private fun inferDTypes(data: Any?): Map<String, String> {
     return if (data is Map<*, *>) {
-        data
-            .entries
-            .associate { (key, values) -> key.toString() to inferSeriesType(values) }
+        data.entries
+            .associate { (key, values) -> key.toString() to inferSeriesDType(values) }
     } else {
         emptyMap()
     }
 }
 
-private fun inferSeriesType(data: Any?): String {
+private fun inferSeriesDType(data: Any?): String {
     if (data == null) {
         return SeriesAnnotation.Types.UNKNOWN
     }
@@ -430,25 +428,62 @@ private fun inferSeriesType(data: Any?): String {
     val value = l.first()
 
     return if (JvmStandardizing.isJvm(value)) {
-        JvmStandardizing.typeAnnotation(value)
+        JvmStandardizing.getTypeAnnotation(value)
     } else {
-        when (value) {
-            is Byte -> SeriesAnnotation.Types.INTEGER
-            is Short -> SeriesAnnotation.Types.INTEGER
-            is Int -> SeriesAnnotation.Types.INTEGER
-            is Long -> SeriesAnnotation.Types.INTEGER
-            is Double -> SeriesAnnotation.Types.FLOATING
-            is Float -> SeriesAnnotation.Types.FLOATING
-            is String -> SeriesAnnotation.Types.STRING
-            is Boolean -> SeriesAnnotation.Types.BOOLEAN
-            is kotlinx.datetime.Instant -> SeriesAnnotation.Types.DATE_TIME
-            is kotlinx.datetime.LocalDate -> SeriesAnnotation.Types.DATE
-            is kotlinx.datetime.LocalTime -> SeriesAnnotation.Types.TIME
-            is kotlinx.datetime.LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
+        when {
+            value is String -> SeriesAnnotation.Types.STRING
+            value is Boolean -> SeriesAnnotation.Types.BOOLEAN
+
+            // Primitive numeric types: using `::class` comparisons instead of `is` checks
+            // due to Kotlin/JS type coercion issues
+            value::class == Byte::class -> SeriesAnnotation.Types.INTEGER
+            value::class == Short::class -> SeriesAnnotation.Types.INTEGER
+            value::class == Int::class -> SeriesAnnotation.Types.INTEGER
+            value::class == Long::class -> SeriesAnnotation.Types.INTEGER
+            value::class == Double::class -> SeriesAnnotation.Types.FLOATING
+            value::class == Float::class -> SeriesAnnotation.Types.FLOATING
+
+            value is kotlinx.datetime.Instant -> SeriesAnnotation.Types.DATE_TIME
+            value is kotlinx.datetime.LocalDate -> SeriesAnnotation.Types.DATE
+            value is kotlinx.datetime.LocalTime -> SeriesAnnotation.Types.TIME
+            value is kotlinx.datetime.LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
+
             else -> SeriesAnnotation.Types.UNKNOWN
         }
     }
 }
+
+private fun detectTimeZones(data: Any?): Map<String, String> {
+    return if (data is Map<*, *>) {
+        @Suppress("UNCHECKED_CAST")
+        data.entries
+            .associate { (key, values) ->
+                key.toString() to detectSeriesTimeZoneID(values)
+            }.filterNonNullValues() as Map<String, String>
+    } else {
+        emptyMap()
+    }
+}
+
+private fun detectSeriesTimeZoneID(data: Any?): String? {
+    val data = if (isListy(data)) {
+        asList(data!!).filterNotNull()
+    } else {
+        null
+    }
+
+    if (data == null || data.isEmpty()) return null
+
+    val value = data.first()
+
+    return if (JvmStandardizing.isJvm(value)) {
+        JvmStandardizing.getTimeZoneAnnotation(value)
+    } else {
+        //
+        null
+    }
+}
+
 
 private fun createGeoDataframeAnnotation(data: SpatialDataset): Map<String, Any> {
     require(data.geometryFormat == GeometryFormat.GEOJSON) { "Only GEOJSON geometry format is supported." }

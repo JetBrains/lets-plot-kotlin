@@ -6,7 +6,6 @@
 package org.jetbrains.letsPlot.intern.standardizing
 
 internal object SeriesStandardizing {
-    @Suppress("SpellCheckingInspection")
     fun isListy(rawValue: Any?) = when (rawValue) {
         is List<*> -> true
         is Iterable<*> -> true
