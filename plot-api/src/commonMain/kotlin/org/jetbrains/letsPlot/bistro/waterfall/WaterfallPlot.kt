@@ -110,9 +110,7 @@ package org.jetbrains.letsPlot.bistro.waterfall
  *  - "Score: {.2f}" -> "Score: 12.45"
  *  - "Score: {}" -> "Score: 12.454789"
  * @param backgroundLayers will be added behind the waterfall
- * Background layers to be added to the plot. Accepts either:
- *  - A single layer (e.g., `geomBar { ... }`).
- *  - A list of layers (`List<Layer>`).
+ * Background layers to be added to the plot, a single Layer or FeatureList.
  */
 fun waterfallPlot(
     data: Map<*, *>,

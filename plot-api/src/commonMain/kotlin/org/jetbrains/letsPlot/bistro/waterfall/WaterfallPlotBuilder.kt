@@ -82,7 +82,7 @@ internal class WaterfallPlotBuilder(
                 Waterfall.LABEL_FORMAT to labelFormat,
                 Waterfall.BACKGROUND_LAYERS to when (backgroundLayers) {
                     is Layer -> listOf(backgroundLayers.toSpec())
-                    is List<*> -> backgroundLayers.map {
+                    is FeatureList -> backgroundLayers.elements.map {
                         when (it) {
                             is Layer -> it.toSpec()
                             else -> error("Invalid type in backgroundLayers list")
