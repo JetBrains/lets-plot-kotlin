@@ -43,7 +43,9 @@ Tiles:
 
 Text:
 [`text`](%api_geom%/geom-text/index.html),
-[`label`](%api_geom%/geom-label/index.html)
+[`text repel`](%api_geom%/geom-text-repel/index.html),
+[`label`](%api_geom%/geom-label/index.html),
+[`label repel`](%api_geom%/geom-label-repel/index.html)
 
 Examples:
 
@@ -103,6 +105,7 @@ Examples:
 [`dotplot`](%api_geom%/geom-dotplot/index.html),
 [`y-dotplot`](%api_geom%/geom-y-dotplot/index.html),
 [`violin`](%api_geom%/geom-violin/index.html),
+[`sina`](%api_geom%/geom-sina/index.html),
 [`ridgeline`](%api_geom%/geom-area-ridges/index.html),
 [`frequency polygon`](%api_geom%/geom-freqpoly/index.html)
 
