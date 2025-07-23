@@ -59,6 +59,7 @@ class SeriesAnnotationTest {
             "java-instant-column" to listOf(Instant.parse("2021-01-01T00:00:00Z")),
             "java-date-column" to listOf(java.util.Date.from(java.time.Instant.parse("2021-01-01T00:00:00Z"))),
             "java-zoned-datetime-column" to listOf(java.time.ZonedDateTime.parse("2021-01-01T00:00:00Z")),
+            "java-offset-datetime-column" to listOf(java.time.OffsetDateTime.parse("2021-01-01T00:00:00Z")),
             "java-local-date-column" to listOf(java.time.LocalDate.parse("2021-01-01")),
             "java-local-time-column" to listOf(java.time.LocalTime.parse("12:34:56")),
             "java-local-datetime-column" to listOf(java.time.LocalDateTime.parse("2021-01-01T12:34:56")),
@@ -86,13 +87,14 @@ class SeriesAnnotationTest {
                     seriesAnnotation(column = "java-instant-column", type = Types.DATE_TIME),
                     seriesAnnotation(column = "java-date-column", type = Types.DATE_TIME),
                     seriesAnnotation(column = "java-zoned-datetime-column", type = Types.DATE_TIME),
-                    seriesAnnotation(column = "java-local-date-column", type = Types.DATE_TIME),
-                    seriesAnnotation(column = "java-local-time-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "java-offset-datetime-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "java-local-date-column", type = Types.DATE),
+                    seriesAnnotation(column = "java-local-time-column", type = Types.TIME),
                     seriesAnnotation(column = "java-local-datetime-column", type = Types.DATE_TIME),
 
                     seriesAnnotation(column = "kotlin-instant-column", type = Types.DATE_TIME),
-                    seriesAnnotation(column = "kotlin-local-date-column", type = Types.DATE_TIME),
-                    seriesAnnotation(column = "kotlin-local-time-column", type = Types.DATE_TIME),
+                    seriesAnnotation(column = "kotlin-local-date-column", type = Types.DATE),
+                    seriesAnnotation(column = "kotlin-local-time-column", type = Types.TIME),
                     seriesAnnotation(column = "kotlin-local-datetime-column", type = Types.DATE_TIME),
                 )
             )

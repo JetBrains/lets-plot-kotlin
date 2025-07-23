@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.standardizing
 
+import org.jetbrains.letsPlot.core.spec.Option.Meta.SeriesAnnotation
 import java.time.*
 import java.util.*
 
@@ -16,7 +17,22 @@ private val AWT_PRESENT: Boolean = try {
 }
 
 actual object JvmStandardizing {
-    actual fun isDateTimeJvm(o: Any): Boolean {
+    actual fun typeAnnotation(o: Any): String {
+        return when (o) {
+            is Date -> SeriesAnnotation.Types.DATE_TIME
+            is Instant -> SeriesAnnotation.Types.DATE_TIME
+            is ZonedDateTime -> SeriesAnnotation.Types.DATE_TIME
+            is OffsetDateTime -> SeriesAnnotation.Types.DATE_TIME
+            is LocalDate -> SeriesAnnotation.Types.DATE
+            is LocalTime -> SeriesAnnotation.Types.TIME
+            is LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
+            else -> SeriesAnnotation.Types.UNKNOWN
+        }
+    }
+
+    actual fun isJvm(o: Any): Boolean {
+        if (AWT_PRESENT && o is java.awt.Color) return true
+
         return when (o) {
             is Date -> true
             is Instant -> true
@@ -29,34 +45,24 @@ actual object JvmStandardizing {
         }
     }
 
-    actual fun isJvm(o: Any): Boolean {
-        return when {
-            isDateTimeJvm(o) -> true
-            AWT_PRESENT && o is java.awt.Color -> true
-            else -> false
-        }
-    }
-
     actual fun standardize(o: Any): Any {
-        if (AWT_PRESENT &&
-            o is java.awt.Color
-        ) {
+        if (AWT_PRESENT && o is java.awt.Color) {
             return "#%02x%02x%02x".format(o.red, o.green, o.blue)
         }
 
         return when (o) {
-            is Date -> o.time.toDouble()
-            is Instant -> o.toEpochMilli().toDouble()
-            is ZonedDateTime -> o.toInstant().toEpochMilli().toDouble()
-            is OffsetDateTime -> o.toInstant().toEpochMilli().toDouble()
-            is LocalDate -> o.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli().toDouble()
-            is LocalTime -> LocalDateTime.of(LocalDate.EPOCH, o).toInstant(ZoneOffset.UTC).toEpochMilli().toDouble()
-            is LocalDateTime -> o.toInstant(ZoneOffset.UTC).toEpochMilli().toDouble()
-            else -> unsupportedTypeError(o)
-        }
-    }
-
-    private fun unsupportedTypeError(o: Any) {
-        throw IllegalArgumentException("Can't standardize value \"$o\" of type ${o::class.qualifiedName} as string or number.")
+            is Date -> o.time
+            is Instant -> o.toEpochMilli()
+            is ZonedDateTime -> o.toInstant().toEpochMilli()
+            is OffsetDateTime -> o.toInstant().toEpochMilli()
+            is LocalDate -> o.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli()
+            is LocalTime -> LocalDateTime.of(LocalDate.EPOCH, o).toInstant(ZoneOffset.UTC).toEpochMilli()
+            is LocalDateTime -> o.toInstant(ZoneOffset.UTC).toEpochMilli()
+            else -> {
+                throw IllegalArgumentException(
+                    "Can't standardize value \"$o\" of type ${o::class.qualifiedName} as string or number."
+                )
+            }
+        }.toDouble()
     }
 }

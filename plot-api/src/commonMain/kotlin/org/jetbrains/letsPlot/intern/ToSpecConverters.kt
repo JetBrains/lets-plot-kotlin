@@ -429,8 +429,8 @@ private fun inferSeriesType(data: Any?): String {
     // types.size == 1 means all elements are of the same type, so we can take any (let's take the first one)
     val value = l.first()
 
-    return if (JvmStandardizing.isDateTimeJvm(value)) {
-        SeriesAnnotation.Types.DATE_TIME
+    return if (JvmStandardizing.isJvm(value)) {
+        JvmStandardizing.typeAnnotation(value)
     } else {
         when (value) {
             is Byte -> SeriesAnnotation.Types.INTEGER
@@ -442,8 +442,8 @@ private fun inferSeriesType(data: Any?): String {
             is String -> SeriesAnnotation.Types.STRING
             is Boolean -> SeriesAnnotation.Types.BOOLEAN
             is kotlinx.datetime.Instant -> SeriesAnnotation.Types.DATE_TIME
-            is kotlinx.datetime.LocalDate -> SeriesAnnotation.Types.DATE_TIME
-            is kotlinx.datetime.LocalTime -> SeriesAnnotation.Types.DATE_TIME
+            is kotlinx.datetime.LocalDate -> SeriesAnnotation.Types.DATE
+            is kotlinx.datetime.LocalTime -> SeriesAnnotation.Types.TIME
             is kotlinx.datetime.LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
             else -> SeriesAnnotation.Types.UNKNOWN
         }
@@ -458,15 +458,3 @@ private fun createGeoDataframeAnnotation(data: SpatialDataset): Map<String, Any>
         )
     )
 }
-
-
-//private fun mergeThemeOptions(m0: Map<String, Any>, m1: Map<String, Any>): Map<String, Any> {
-//    val overlappingKeys = m0.keys.intersect(m1.keys)
-//    val keysToMerge = overlappingKeys.filter {
-//        m0[it] is Map<*, *> && m1[it] is Map<*, *>
-//    }
-//    val m2 = keysToMerge.map {
-//        it to (m0[it] as Map<*, *> + m1[it] as Map<*, *>)
-//    }.toMap()
-//    return m0 + m1 + m2
-//}

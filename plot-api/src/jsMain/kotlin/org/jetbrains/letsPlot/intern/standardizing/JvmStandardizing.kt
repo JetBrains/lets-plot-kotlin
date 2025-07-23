@@ -6,11 +6,12 @@
 package org.jetbrains.letsPlot.intern.standardizing
 
 actual object JvmStandardizing {
-    actual fun isDateTimeJvm(o: Any): Boolean {
-        return false
-    }
     actual fun isJvm(o: Any): Boolean {
         return false
+    }
+
+    actual fun typeAnnotation(o: Any): String {
+        throw IllegalStateException("Not supported in Kotlin/JS")
     }
 
     actual fun standardize(o: Any): Any {
