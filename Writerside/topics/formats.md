@@ -227,6 +227,16 @@ The following table demonstrates the behavior with format string `",~g"`:
 
 You can format text in tooltips, see: [Tooltip Customization](tooltips.md).
 
+### Axis Tooltips
+
+To format the axis tooltips, follow the rules:
+
+- the scale's `format` parameter is applied to tick labels only and does not affect tooltips;
+
+- the [`format()`](%api_tooltips%/layer-tooltips/format.html) method of [`layerTooltips()`](%api_tooltips%/layer-tooltips/index.html) is also applied to the axis tooltip;
+
+- if the [`format()`](%api_tooltips%/layer-tooltips/format.html) method is not specified, the tooltip will get the value after applying the default formatting from the scale (without using the specified format for the scale).
+
 ## Annotating Charts
 
 You can format text in annotations, see: [Annotating Charts](annotations.md).
