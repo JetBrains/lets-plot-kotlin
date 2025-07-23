@@ -23,6 +23,7 @@
         <toc-element topic="formats.md"/>
         <toc-element topic="sampling.md"/>
         <toc-element topic="export.md"/>
+        <toc-element topic="latex.md"/>
         <toc-element topic="misc.md"/>
     </toc-element>
 </instance-profile>
