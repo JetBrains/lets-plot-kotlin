@@ -453,7 +453,10 @@ private fun inferSeriesDType(data: Any?): String {
     }
 }
 
-private fun detectTimeZones(data: Any?): Map<String, String> {
+/**
+ * Not private to allow access from tests
+ */
+internal fun detectTimeZones(data: Any?): Map<String, String> {
     return if (data is Map<*, *>) {
         @Suppress("UNCHECKED_CAST")
         data.entries

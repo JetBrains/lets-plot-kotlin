@@ -13,7 +13,6 @@ import org.jetbrains.letsPlot.commons.intern.datetime.Instant
 import org.jetbrains.letsPlot.commons.intern.datetime.Time
 
 internal object Standardizing {
-//    private val UTC_LP by lazy { TimeZone("UTC") }
 
     fun standardizeValue(value: Any?): Any? {
         return when (value) {
