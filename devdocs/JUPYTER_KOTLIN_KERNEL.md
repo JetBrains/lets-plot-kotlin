@@ -8,7 +8,7 @@ Lets-Plot library descriptors are files:
 - lets-plot.json
 - lets-plot-gt.json
 
-After installing kotlin kernel the "bundled" library descriptors are located in
+After installing kotlin kernel, the "bundled" library descriptors are located in
 
 > /opt/anaconda3/envs/<env name>/lib/python3.7/site-packages/run_kotlin_kernel/libraries/
 
@@ -44,10 +44,10 @@ Clear Maven cache:
 #### Publish artifacts to the local dev-repo:
                                                      
 ```bash
-./gradlew publishJvmPublicationToMavenLocalRepository
-./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository
-./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository
-./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository
+./gradlew publishJvmPublicationToMavenLocalRepository && \
+./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository && \
+./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository && \
+./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository && \
 ./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository
 ```
 

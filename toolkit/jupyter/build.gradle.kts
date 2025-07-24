@@ -7,8 +7,8 @@ plugins {
 }
 
 val letsPlotVersion = extra["letsPlot.version"] as String
-val letsPlotKotlinVersion = project.version as String
-val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
+//val letsPlotKotlinVersion = project.version as String
+//val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
 
 dependencies {
     implementation(projects.plotApi)
