@@ -52,8 +52,8 @@ fun coordFixed(
  *  so that horizontal axis becomes vertical and vice versa.
  */
 fun coordCartesian(
-    xlim: Pair<Number?, Number?>? = null,
-    ylim: Pair<Number?, Number?>? = null,
+    xlim: Pair<Any?, Any?>? = null,
+    ylim: Pair<Any?, Any?>? = null,
     flip: Boolean = false
 ): OptionsMap {
     return OptionsMap(
@@ -78,8 +78,8 @@ fun coordCartesian(
  *  so that horizontal axis becomes vertical and vice versa.
  */
 fun coordMap(
-    xlim: Pair<Number?, Number?>? = null,
-    ylim: Pair<Number?, Number?>? = null,
+    xlim: Pair<Any?, Any?>? = null,
+    ylim: Pair<Any?, Any?>? = null,
     flip: Boolean = false
 ): OptionsMap {
     return OptionsMap(
@@ -107,8 +107,8 @@ fun coordMap(
  * @param ylim Limits for y-axes.
  */
 fun coordFlip(
-    xlim: Pair<Number?, Number?>? = null,
-    ylim: Pair<Number?, Number?>? = null
+    xlim: Pair<Any?, Any?>? = null,
+    ylim: Pair<Any?, Any?>? = null,
 ): OptionsMap {
     return OptionsMap(
         Option.Plot.COORD,
@@ -137,8 +137,8 @@ fun coordFlip(
  * @param transformBkgr If true, the background is transformed to a circle, rectangle otherwise, default = true.
  */
 fun coordPolar(
-    xlim: Pair<Number?, Number?>? = null,
-    ylim: Pair<Number?, Number?>? = null,
+    xlim: Pair<Any?, Any?>? = null,
+    ylim: Pair<Any?, Any?>? = null,
     theta: String? = null,
     start: Number? = null,
     direction: Int? = null,
