@@ -191,16 +191,17 @@ tasks {
 //    print("${project.name}: ${uri(project.localMavenRepository)}")
 //}
 
-// Provide jvm resources to jupyter module
-// https://youtrack.jetbrains.com/issue/KTIJ-16582/Consumer-Kotlin-JVM-library-cannot-access-a-Kotlin-Multiplatform-JVM-target-resources-in-multi-module-Gradle-project
 tasks {
+    // Copy resources from resources/jvm/main to classes/kotlin/jvm/main to fix:
+    // https://youtrack.jetbrains.com/issue/KTIJ-16582/Consumer-Kotlin-JVM-library-cannot-access-a-Kotlin-Multiplatform-JVM-target-resources-in-multi-module-Gradle-project
     val jvmProcessResources by getting
     val fixMissingResources by creating(Copy::class) {
         dependsOn(jvmProcessResources)
         from(layout.buildDirectory.dir("processedResources/jvm/main"))
         into(layout.buildDirectory.dir("classes/kotlin/jvm/main"))
-        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
+    // Set EXCLUDE strategy for duplicates to avoid conflicts when building DMG deliverable.
+    // See: https://github.com/JetBrains/lets-plot-kotlin/issues/279
     val jvmJar by getting(Jar::class) {
         dependsOn(fixMissingResources)
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE

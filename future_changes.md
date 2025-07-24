@@ -78,10 +78,11 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 ### Fixed
 
 - `geomBoxplot`: unable to draw a y-oriented plot with `stat = Stat.identity` [[#1319](https://github.com/JetBrains/lets-plot/issues/1319)].
-- Can't add layer which uses continuous data to a plot where other layers use discrete input [[#1323](https://github.com/JetBrains/lets-plot/issues/1323)].
+- Can't add a layer which uses continuous data to a plot where other layers use discrete input [[#1323](https://github.com/JetBrains/lets-plot/issues/1323)].
 - Multiline legend labels were not vertically centered with their keys [[#1331](https://github.com/JetBrains/lets-plot/issues/1331)].
 - Poor alignment in legend between columns [[#1332](https://github.com/JetBrains/lets-plot/issues/1332)].
 - Ordered data was re-ordered by `geomBoxplot` [[#1342](https://github.com/JetBrains/lets-plot/issues/1342)].
 - `asDiscrete()` does not work with aes addition [[#1363](https://github.com/JetBrains/lets-plot/issues/1363)].
 - Sec: CVE-2024-47554 (commons-io) [[#1231](https://github.com/JetBrains/lets-plot/issues/1231)]
+- java.util.zip.ZipException: duplicate entry: letsPlotKotlinAPI/version.properties [[#279](https://github.com/JetBrains/lets-plot-kotlin/issues/279)]
 
