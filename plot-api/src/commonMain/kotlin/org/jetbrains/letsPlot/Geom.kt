@@ -318,10 +318,10 @@ object Geom {
 
     @Suppress("ClassName")
     class band(
-        override val xmin: Number? = null,
-        override val xmax: Number? = null,
-        override val ymin: Number? = null,
-        override val ymax: Number? = null,
+        override val xmin: Any? = null,
+        override val xmax: Any? = null,
+        override val ymin: Any? = null,
+        override val ymax: Any? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val fill: Any? = null,
@@ -339,7 +339,8 @@ object Geom {
         ) {
         override val parameters = this.seal()
 
-        override fun seal() = super<BandAesthetics>.seal() + super<WithColorOption>.seal() + super<WithFillOption>.seal()
+        override fun seal() =
+            super<BandAesthetics>.seal() + super<WithColorOption>.seal() + super<WithFillOption>.seal()
     }
 
     @Suppress("ClassName")
