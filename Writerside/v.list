@@ -90,7 +90,6 @@
     <var name="nb-gggrid_scale_share" value="%nbviewer_cookbook%/gggrid_scale_share.ipynb"/>
     <var name="nb-graph_edges" value="%nbviewer_cookbook%/graph_edges.ipynb"/>
     <var name="nb-hjust_vjust" value="%nbviewer_cookbook%/hjust_vjust.ipynb"/>
-    <var name="nb-horizontal_error_bars" value="%nbviewer_cookbook%/horizontal_error_bars.ipynb"/>
     <var name="nb-horizontal_geoms" value="%nbviewer_cookbook%/horizontal_geoms.ipynb"/>
     <var name="nb-image_101" value="%nbviewer_cookbook%/image_101.ipynb"/>
     <var name="nb-image_extent" value="%nbviewer_cookbook%/image_extent.ipynb"/>

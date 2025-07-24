@@ -168,7 +168,6 @@ Examples:
 Examples:
 
 - [Plotting means and error ranges](%nb-error_bars%)
-- [Horizontal error bars and vertical "dodge"](%nb-horizontal_error_bars%)
 - [Geometries with dual orientation](%nb-horizontal_geoms%)
 
 
