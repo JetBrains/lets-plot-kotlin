@@ -130,7 +130,7 @@ See more examples <a href="https://observablehq.com/@d3/d3-format">here</a>.
 The number format can be used in a template to create a string with variable substitution.
 The string template contains “replacement fields” surrounded by curly braces `{}`.
 Anything that is not contained in braces is considered literal text, which is copied unchanged to the result string.
-If you need to include a brace character in the literal text, it can be escaped by doubling: {{ and }}.
+If you need to include a brace character in the literal text, it can be escaped by doubling: `{{` and `}}`.
 This approach is used in functions [`layerTooltips()`](%api_tooltips%/layer-tooltips/index.html) and [`layerLabels()`](%api_annotations%/layer-labels/index.html)
 to customize the content of tooltips and annotations.
 

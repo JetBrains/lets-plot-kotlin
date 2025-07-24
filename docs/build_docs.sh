@@ -10,7 +10,7 @@ then
     exit 1
 fi
 
-docker_image="registry.jetbrains.team/p/writerside/builder/writerside-builder:241.16003"
+docker_image="registry.jetbrains.team/p/writerside/builder/writerside-builder:2025.04.8412"
 instance_id="lpk"
 
 root_path=$PWD

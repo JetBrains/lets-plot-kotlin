@@ -45,13 +45,18 @@ import org.jetbrains.letsPlot.pos.positionDodge
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
- * @param x X-axis value.
- * @param y Y-axis value.
- * @param lower Lower hinge, 25% quantile.
- * @param middle Median, 50% quantile.
- * @param upper Upper hinge, 75% quantile.
- * @param ymin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR
- * @param ymax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR
+ * @param x X-axis value for vertical boxplot.
+ * @param lower Lower hinge, 25% quantile for vertical boxplot.
+ * @param middle Median, 50% quantile for vertical boxplot.
+ * @param upper Upper hinge, 75% quantile for vertical boxplot.
+ * @param ymin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR for vertical boxplot.
+ * @param ymax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR for vertical boxplot.
+ * @param y Y-axis value for horizontal boxplot.
+ * @param xlower Lower hinge, 25% quantile for horizontal boxplot.
+ * @param xmiddle Median, 50% quantile for horizontal boxplot.
+ * @param xupper Upper hinge, 75% quantile for horizontal boxplot.
+ * @param xmin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR for horizontal boxplot.
+ * @param xmax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR for horizontal boxplot.
  * @param alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
  * @param color Color of the geometry.

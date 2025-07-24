@@ -2,6 +2,11 @@
 
 <list columns="3">
     <li>
+        <a href="%nb-trading_chart%">
+            <img alt="Bitcoin daily trend visualization (2024)" src="square-trading_chart.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-magnifier_inset%">
             <img alt="Creating magnifier inset effect with ggbunch()" src="square-magnifier_inset.png"/>
         </a>

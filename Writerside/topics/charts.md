@@ -64,6 +64,8 @@ Examples:
 - [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
 - [Drawing graph edges](%nb-graph_edges%)
 - [Formatting labels on plots](%nb-formatting_axes_etc%)
+- [Text geoms](%nb-text_geoms%)
+- [Repelled labels](%nb-ggrepel%)
 - [Variadic lines in `geomPath()` and `geomLine()`](%nb-aes_size_color_variadic_lines%)
 - [Spoke geometry](%nb-geom_spoke%)
 - [Curve geometry](%nb-geom_curve%)
@@ -90,6 +92,7 @@ Examples:
 
 - [Barchart](%nb-bar%)
 - [Pie-chart](%nb-geom_pie%)
+- [Combining discrete and continuous layers](%nb-numeric_data_on_discrete_scale%)
 - [Annotation labels on pie-chart](%nb-annotations_for_pie%)
 - [Annotated barchart](%nb-bar_annotations%)
 - ['boxplot_outlier' statistics](%nb-stat_boxplot_outlier%)
@@ -127,6 +130,7 @@ Examples:
 - [Dotplot geometry](%nb-geom_dotplot%)
 - [Y-Dotplot geometry](%nb-geom_ydotplot%)
 - [Violin plot](%nb-geom_violin%)
+- [Sina plot](%nb-geom_sina%)
 - [Ridgeline plot](%nb-ridgeline_plot%)
 - [The `orientation` parameter](%nb-y_orientation%)
 - [Parameter `threshold` in `geomHistogram()`](%nb-geom_histogram_threshold%)
@@ -164,7 +168,6 @@ Examples:
 Examples:
 
 - [Plotting means and error ranges](%nb-error_bars%)
-- [Horizontal error bars and vertical "dodge"](%nb-horizontal_error_bars%)
 - [Geometries with dual orientation](%nb-horizontal_geoms%)
 
 

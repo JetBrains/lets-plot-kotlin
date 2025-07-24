@@ -41,6 +41,7 @@
     <var name="nb-spatialdataset_kotlin_isl" value="%nbviewer_demo%/spatialdataset_kotlin_isl.ipynb"/>
     <var name="nb-sunshine_hours" value="%nbviewer_demo%/sunshine_hours.ipynb"/>
     <var name="nb-theme_legend_scheme" value="%nbviewer_demo%/theme_legend_scheme.ipynb"/>
+    <var name="nb-trading_chart" value="%nbviewer_demo%/trading_chart.ipynb"/>
     <var name="nb-us_unemployment" value="%nbviewer_demo%/us_unemployment.ipynb"/>
     <var name="nb-wind_rose" value="%nbviewer_demo%/wind_rose.ipynb"/>
     <!-- Cookbooks -->
@@ -78,16 +79,17 @@
     <var name="nb-geom_histogram_threshold" value="%nbviewer_cookbook%/geom_histogram_threshold.ipynb"/>
     <var name="nb-geom_lollipop" value="%nbviewer_cookbook%/geom_lollipop.ipynb"/>
     <var name="nb-geom_pie" value="%nbviewer_cookbook%/geom_pie.ipynb"/>
+    <var name="nb-geom_sina" value="%nbviewer_cookbook%/geom_sina.ipynb"/>
     <var name="nb-geom_smooth" value="%nbviewer_cookbook%/geom_smooth.ipynb"/>
     <var name="nb-geom_spoke" value="%nbviewer_cookbook%/geom_spoke.ipynb"/>
     <var name="nb-geom_theme_colors" value="%nbviewer_cookbook%/geom_theme_colors.ipynb"/>
     <var name="nb-geom_violin" value="%nbviewer_cookbook%/geom_violin.ipynb"/>
     <var name="nb-geom_ydotplot" value="%nbviewer_cookbook%/geom_ydotplot.ipynb"/>
     <var name="nb-ggbunch" value="%nbviewer_cookbook%/ggbunch.ipynb"/>
+    <var name="nb-ggrepel" value="%nbviewer_cookbook%/ggrepel.ipynb"/>
     <var name="nb-gggrid_scale_share" value="%nbviewer_cookbook%/gggrid_scale_share.ipynb"/>
     <var name="nb-graph_edges" value="%nbviewer_cookbook%/graph_edges.ipynb"/>
     <var name="nb-hjust_vjust" value="%nbviewer_cookbook%/hjust_vjust.ipynb"/>
-    <var name="nb-horizontal_error_bars" value="%nbviewer_cookbook%/horizontal_error_bars.ipynb"/>
     <var name="nb-horizontal_geoms" value="%nbviewer_cookbook%/horizontal_geoms.ipynb"/>
     <var name="nb-image_101" value="%nbviewer_cookbook%/image_101.ipynb"/>
     <var name="nb-image_extent" value="%nbviewer_cookbook%/image_extent.ipynb"/>
@@ -104,6 +106,7 @@
     <var name="nb-margins" value="%nbviewer_cookbook%/margins.ipynb"/>
     <var name="nb-markdown" value="%nbviewer_cookbook%/markdown.ipynb"/>
     <var name="nb-multiple_color_scales" value="%nbviewer_cookbook%/multiple_color_scales.ipynb"/>
+    <var name="nb-numeric_data_on_discrete_scale" value="%nbviewer_cookbook%/numeric_data_on_discrete_scale.ipynb"/>
     <var name="nb-ordering_examples" value="%nbviewer_cookbook%/ordering_examples.ipynb"/>
     <var name="nb-panel_border" value="%nbviewer_cookbook%/panel_border.ipynb"/>
     <var name="nb-param_width_unit" value="%nbviewer_cookbook%/param_width_unit.ipynb"/>
