@@ -10,7 +10,11 @@ actual object JvmStandardizing {
         return false
     }
 
-    actual fun typeAnnotation(o: Any): String {
+    actual fun getTypeAnnotation(o: Any): String {
+        throw IllegalStateException("Not supported in Kotlin/JS")
+    }
+
+    actual fun getTimeZoneAnnotation(o: Any): String? {
         throw IllegalStateException("Not supported in Kotlin/JS")
     }
 

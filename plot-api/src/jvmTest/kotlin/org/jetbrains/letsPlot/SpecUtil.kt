@@ -9,12 +9,14 @@ object SeriesUtil {
     fun seriesAnnotation(
         column: String,
         type: String? = null,
+        timeZoneId: String? = null,
         factorLevels: List<Any>? = null,
         order: Int? = null
     ): Map<String, Any> {
         return mapOf(
             SeriesAnnotation.COLUMN to column,
             SeriesAnnotation.TYPE to type,
+            SeriesAnnotation.TIME_ZONE to timeZoneId,
             SeriesAnnotation.FACTOR_LEVELS to factorLevels,
             SeriesAnnotation.ORDER to order
         ).filterNonNullValues()

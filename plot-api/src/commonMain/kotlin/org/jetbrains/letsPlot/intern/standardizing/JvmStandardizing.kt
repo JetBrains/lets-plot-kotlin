@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.intern.standardizing
 
 expect object JvmStandardizing {
     fun isJvm(o: Any): Boolean
-    fun typeAnnotation(o: Any): String
+    fun getTypeAnnotation(o: Any): String
+    fun getTimeZoneAnnotation(o: Any): String?
     fun standardize(o: Any): Any
 }

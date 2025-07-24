@@ -7,7 +7,7 @@ package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.Stat
-import org.jetbrains.letsPlot.annotations.AnnotationOptions
+import org.jetbrains.letsPlot.annotations.layerLabels
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
@@ -134,7 +134,7 @@ class geomPie(
     manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
-    labels: AnnotationOptions? = null,
+    labels: layerLabels? = null,
     override val map: SpatialDataset? = null,
     override val mapJoin: Pair<Any, Any>? = null,
     override val useCRS: String? = null,

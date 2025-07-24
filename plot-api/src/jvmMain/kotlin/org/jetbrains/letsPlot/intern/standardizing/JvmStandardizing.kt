@@ -17,19 +17,6 @@ private val AWT_PRESENT: Boolean = try {
 }
 
 actual object JvmStandardizing {
-    actual fun typeAnnotation(o: Any): String {
-        return when (o) {
-            is Date -> SeriesAnnotation.Types.DATE_TIME
-            is Instant -> SeriesAnnotation.Types.DATE_TIME
-            is ZonedDateTime -> SeriesAnnotation.Types.DATE_TIME
-            is OffsetDateTime -> SeriesAnnotation.Types.DATE_TIME
-            is LocalDate -> SeriesAnnotation.Types.DATE
-            is LocalTime -> SeriesAnnotation.Types.TIME
-            is LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
-            else -> SeriesAnnotation.Types.UNKNOWN
-        }
-    }
-
     actual fun isJvm(o: Any): Boolean {
         if (AWT_PRESENT && o is java.awt.Color) return true
 
@@ -42,6 +29,27 @@ actual object JvmStandardizing {
             is LocalTime -> true
             is LocalDateTime -> true
             else -> false
+        }
+    }
+
+    actual fun getTypeAnnotation(o: Any): String {
+        return when (o) {
+            is Date -> SeriesAnnotation.Types.DATE_TIME
+            is Instant -> SeriesAnnotation.Types.DATE_TIME
+            is ZonedDateTime -> SeriesAnnotation.Types.DATE_TIME
+            is OffsetDateTime -> SeriesAnnotation.Types.DATE_TIME
+            is LocalDate -> SeriesAnnotation.Types.DATE
+            is LocalTime -> SeriesAnnotation.Types.TIME
+            is LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
+            else -> SeriesAnnotation.Types.UNKNOWN
+        }
+    }
+
+    actual fun getTimeZoneAnnotation(o: Any): String? {
+        return when (o) {
+            is ZonedDateTime -> if (o.zone.id == "Z") "UTC" else o.zone.id
+            is OffsetDateTime -> if (o.offset.id == "Z") "UTC" else "UTC" + o.offset.id
+            else -> null
         }
     }
 

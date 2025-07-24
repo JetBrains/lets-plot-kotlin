@@ -40,6 +40,18 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Changed
 
+- Continuous data on discrete scales:
+
+  Continuous data when used with discrete positional scales is no longer transformed to discrete data. <br>
+  Instead, it remains continuous, allowing for precise positioning of continuous elements relative to discrete ones. <br>
+  This resolves issues where combining discrete and continuous data in the same plot was difficult or impossible: [[#1279](https://github.com/JetBrains/lets-plot/issues/1279)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/numeric_data_on_discrete_scale.ipynb).
+
+> [!TIP]
+> New way of handling continuous data on discrete scales could potentially break existing plots.
+> If you want to restore a broken plot to its original form, you can use the [`asDiscrete()`](https://lets-plot.org/kotlin/as-discrete.html) function to annotate continuous data as discrete.
+
 - Plot layout: reduced margins and spacing for title, caption, axes, and legend.
 - Updated RGB values for `lightgray` and `green`. To restore the previous colors, use `gray75` and `lime`, respectively.
 
