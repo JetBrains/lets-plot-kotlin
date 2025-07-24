@@ -32,8 +32,8 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 - More variants to specify a color by name:
 
     - all HTML/CSS colors;
-    - various naming styles, e.g., `dark-gray`, `darkgrey`, `dark_grey`, `DARKGRAY`, etc.;
-    - grayscale colors from `gray0` (black) to `gray100` (white);
+    - various naming styles, e.g., `"dark-gray"`, `"darkgrey"`, `"dark_grey"`, `"DARKGRAY"`, etc.;
+    - grayscale colors from `"gray0"` (black) to `"gray100"` (white);
 
   See [the complete list of named colors](https://lets-plot.org/python/pages/named_colors.html).
 
@@ -56,11 +56,22 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 - [**BREAKING**] `waterfallPlot()`: special "flow_type" value for `label=elementText(color=...)` replaced with "inherit". See `label` in the [documentation](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.bistro.waterfall/waterfall-plot.html).
 - [**DEPRECATED**] The `positionDodgeV()` function and the `"dodgev"` value for the `position` parameter are deprecated and will be removed in future releases.
 - Plot layout: reduced margins and spacing for title, caption, axes, and legend.
-- Updated RGB values for `lightgray` and `green`. To restore the previous colors, use `gray75` and `lime`, respectively.
+- Updated RGB values for `"lightgray"` and `"green"`. To restore the previous colors, use `"gray75"` and `"lime"`, respectively.
+- `waterfallPlot()`: the appearance of the legend has been improved.
+- `geomViolin()`: tooltips are not shown in the centerline of the violin if `showHalf != 0`.
+- `geomCrossbar()`: the midline is not shown in the legend when `fatten` is set to 0, or when there is no mapping for it.
+- `geomPointrange()`: the midpoint will not be drawn if the `y` aesthetic is set to `null`.
+- `geomBand()`: the `alpha` aesthetic only affects the inner part of the geometry, as in `geomRect()`.
+- `geomBand()`: show tooltip over the whole band, not just at the edges.
 
 
 ### Fixed
 
+- `geomBoxplot`: unable to draw a y-oriented plot with `stat = Stat.identity` [[#1319](https://github.com/JetBrains/lets-plot/issues/1319)].
+- Can't add layer which uses continuous data to a plot where other layers use discrete input [[#1323](https://github.com/JetBrains/lets-plot/issues/1323)].
 - Multiline legend labels were not vertically centered with their keys [[#1331](https://github.com/JetBrains/lets-plot/issues/1331)].
 - Poor alignment in legend between columns [[#1332](https://github.com/JetBrains/lets-plot/issues/1332)].
+- Ordered data was re-ordered by `geomBoxplot` [[#1342](https://github.com/JetBrains/lets-plot/issues/1342)].
+- `asDiscrete()` does not work with aes addition [[#1363](https://github.com/JetBrains/lets-plot/issues/1363)].
+- Sec: CVE-2024-47554 (commons-io) [[#1231](https://github.com/JetBrains/lets-plot/issues/1231)]
 
