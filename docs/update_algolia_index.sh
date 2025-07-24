@@ -14,7 +14,7 @@ algolia_app_name="7961PKYRXV"
 algolia_index_name="lets-plot-kotlin"
 config_json_product="kotlin"
 
-builder_docker_image="registry.jetbrains.team/p/writerside/builder/writerside-builder:241.16003"
+builder_docker_image="registry.jetbrains.team/p/writerside/builder/writerside-builder:2025.04.8412"
 algolia_publisher_docker_image="registry.jetbrains.team/p/writerside/builder/algolia-publisher:2.0.32-3"
 instance_id="lpk"
 
