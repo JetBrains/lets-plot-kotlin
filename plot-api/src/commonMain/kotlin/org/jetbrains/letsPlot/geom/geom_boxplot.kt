@@ -90,11 +90,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
  * @param x x-axis coordinate for vertical boxplot.
- * @param lower Lower hinge, 25% quantile.
- * @param middle Median, 50% quantile.
- * @param upper Upper hinge, 75% quantile.
- * @param ymin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR
- * @param ymax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR
+ * @param lower Lower hinge, 25% quantile for vertical boxplot.
+ * @param middle Median, 50% quantile for vertical boxplot.
+ * @param upper Upper hinge, 75% quantile for vertical boxplot.
+ * @param ymin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR for vertical boxplot.
+ * @param ymax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR for vertical boxplot.
  * @param y y-axis coordinate for horizontal boxplot.
  * @param xlower Lower hinge, 25% quantile for horizontal boxplot.
  * @param xmiddle Median, 50% quantile for horizontal boxplot.
