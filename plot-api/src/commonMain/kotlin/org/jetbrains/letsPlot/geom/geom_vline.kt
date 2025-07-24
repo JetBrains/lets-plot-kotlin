@@ -72,7 +72,7 @@ class geomVLine(
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
-    override val xintercept: Number? = null,
+    override val xintercept: Any? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,

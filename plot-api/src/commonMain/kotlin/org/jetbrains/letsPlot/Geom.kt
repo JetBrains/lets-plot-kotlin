@@ -277,7 +277,7 @@ object Geom {
     @Suppress("ClassName")
     class hline(
         @Suppress("SpellCheckingInspection")
-        override val yintercept: Number? = null,
+        override val yintercept: Any? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,
@@ -298,7 +298,7 @@ object Geom {
     @Suppress("ClassName")
     class vline(
         @Suppress("SpellCheckingInspection")
-        override val xintercept: Number? = null,
+        override val xintercept: Any? = null,
         override val alpha: Number? = null,
         override val color: Any? = null,
         override val linetype: Any? = null,

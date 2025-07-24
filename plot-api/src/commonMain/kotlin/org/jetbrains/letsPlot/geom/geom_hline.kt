@@ -72,7 +72,7 @@ class geomHLine(
     tooltips: TooltipOptions? = null,
     orientation: String? = null,
     @Suppress("SpellCheckingInspection")
-    override val yintercept: Number? = null,
+    override val yintercept: Any? = null,
     override val alpha: Number? = null,
     override val color: Any? = null,
     override val linetype: Any? = null,
