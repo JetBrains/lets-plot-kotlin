@@ -1,9 +1,6 @@
 <buildprofiles xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <variables>
-        <custom-css>custom.css</custom-css>
-    </variables>
-    <variables>
         <web-root>https://lets-plot.org</web-root>
         <header-logo>logo-dark.svg</header-logo>
         <custom-favicons>favicon.svg</custom-favicons>
@@ -12,6 +9,7 @@
         <algolia-id>7961PKYRXV</algolia-id>
         <algolia-index>lets-plot-kotlin</algolia-index>
         <algolia-api-key>c281e6fa402631930df5a4d5baf863c5</algolia-api-key>
+        <custom-css>custom.css</custom-css>
     </variables>
     <footer>
         <copyright>2019-%current_year% JetBrains s.r.o.</copyright>
