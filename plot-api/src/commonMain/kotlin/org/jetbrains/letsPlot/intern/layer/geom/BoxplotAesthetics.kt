@@ -16,6 +16,11 @@ interface BoxplotAesthetics : OptionsCapsule {
     val upper: Any?
     val ymin: Any?
     val ymax: Any?
+    val xlower: Any?
+    val xmiddle: Any?
+    val xupper: Any?
+    val xmin: Any?
+    val xmax: Any?
     val alpha: Any?
     val color: Any?
     val fill: Any?
@@ -34,6 +39,11 @@ interface BoxplotAesthetics : OptionsCapsule {
             "upper" to upper,
             "ymin" to ymin,
             "ymax" to ymax,
+            "xlower" to xlower,
+            "xmiddle" to xmiddle,
+            "xupper" to xupper,
+            "xmin" to xmin,
+            "xmax" to xmax,
             "alpha" to alpha,
             "color" to color,
             "fill" to fill,

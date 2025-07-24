@@ -52,6 +52,9 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 > New way of handling continuous data on discrete scales could potentially break existing plots.
 > If you want to restore a broken plot to its original form, you can use the [`asDiscrete()`](https://lets-plot.org/kotlin/as-discrete.html) function to annotate continuous data as discrete.
 
+- [**BREAKING**] `geomBoxplot()`: when y-oriented, it now uses aesthetics `xlower`/`xmiddle`/`xupper` instead of  `lower`/`middle`/`upper` [[#1319](https://github.com/JetBrains/lets-plot/issues/1319)].
+- [**BREAKING**] `waterfallPlot()`: special "flow_type" value for `label=elementText(color=...)` replaced with "inherit". See `label` in the [documentation](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.bistro.waterfall/waterfall-plot.html).
+- [**DEPRECATED**] The `positionDodgeV()` function and the `"dodgev"` value for the `position` parameter are deprecated and will be removed in future releases.
 - Plot layout: reduced margins and spacing for title, caption, axes, and legend.
 - Updated RGB values for `lightgray` and `green`. To restore the previous colors, use `gray75` and `lime`, respectively.
 
