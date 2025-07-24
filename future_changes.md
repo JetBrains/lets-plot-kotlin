@@ -40,7 +40,14 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
   See [the complete list of named colors](https://lets-plot.org/python/pages/named_colors.html).
 
+- `sizeUnit` parameter in `geomPoint()`, `geomText/Label()` and `geomPie()` accepts two new values: `"min"` and `"max"` [[#260](https://github.com/JetBrains/lets-plot/issues/260)].
 
+  `"min"` sets the size unit to the smaller of the unit steps along the x and y axes, while `"max"` sets it to the larger. <br>
+  This allows for more flexible relative sizing of points, pies and text in plots.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/size_unit_min_max.ipynb).
+  
+  
 ### Changed
 
 - Continuous data on discrete scales:
