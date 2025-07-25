@@ -23,6 +23,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  *
  * - [formatting_axes_etc.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/formatting_axes_etc.ipynb)
  *
+ * - [trading_chart.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/trading_chart.ipynb)
+ *
  * @param name The name of the scale - used as the axis label or the legend title.
  *  If null, the default, the name of the scale is taken from the first mapping used for that aesthetic.
  * @param breaks A list of data values specifying the positions of ticks,

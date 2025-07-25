@@ -17,6 +17,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [us_unemployment.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/us_unemployment.ipynb)
  *
+ * - [numeric_data_on_discrete_scale.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/numeric_data_on_discrete_scale.ipynb)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.count()`. The statistical transformation to use on the data for this layer.

@@ -31,6 +31,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [lines.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/lines.ipynb)
  *
+ * - [time_date_datetime.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/time_date_datetime.ipynb)
+ *
+ * - [trading_chart.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/trading_chart.ipynb)
+ *
  * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
