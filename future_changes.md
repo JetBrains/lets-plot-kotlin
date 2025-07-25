@@ -1,100 +1,13 @@
-## [4.11.0] - 2025-07-dd
+## [4.11.1] - 2025-mm-dd
 
 This release is 100% compatible with Lets-Plot [v 4.7.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.7.0),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
 
-- Time Series Plotting [[#278](https://github.com/JetBrains/lets-plot-kotlin/issues/278)],
-  [[discussion](https://github.com/JetBrains/lets-plot-kotlin/discussions/92#discussioncomment-12976040)],
-  [[#678](https://github.com/JetBrains/lets-plot/issues/678)],
-  [[LPK-129](https://github.com/JetBrains/lets-plot-kotlin/issues/129)]:
-  - Support temporal data types from `kotlinx.datetime`, `java.time`, and `java.util`.
-  - Support for timezone-aware `kotlinx.datetime.LocalDateTime`, `java.time.ZonedDateTime`, and `java.time.OffsetDateTime` objects.
-
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/time_date_datetime.ipynb).
-
-- Geometries:
-
-  - `geomSina()` [[#1298](https://github.com/JetBrains/lets-plot/issues/1298)].  
-
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/geom_sina.ipynb).
-
-  - `geomTextRepel()` and `geomLabelRepel()` [[#1092](https://github.com/JetBrains/lets-plot/issues/1092)].  
-
-   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/ggrepel.ipynb).
-
-- Layer Labels (Annotations):
-  - Support in `geomCrossbar()`
-
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/geom_crossbar_annotation.ipynb).
-
-  - Support in `waterfallPlot()` via `relativeLabels` and `absoluteLabels` parameters.
-
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/waterfall_plot_annotations.ipynb).
-
-  - New `inheritColor()` option in annotations configuration (see example notebooks above)
-
-- `waterfallPlot()` - support for combining waterfall bars with other geometry layers [[#1344](https://github.com/JetBrains/lets-plot/issues/1344)].
-
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/waterfall_plot_layers.ipynb).
-
-- Plot Layout:
-
-  - New `axisTextSpacing`, `axisTextSpacingX`, and `axisTextSpacingY` parameters in `theme()` to control spacing between axis ticks and labels.
-  - See new [plot layout diagram](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-25b/plot_layout_scheme.ipynb) notebook showing various layout options and their effects on plot appearance.
-
-- More variants to specify a color by name:
-
-  - all HTML/CSS colors;
-  - various naming styles, e.g., `"dark-gray"`, `"darkgrey"`, `"dark_grey"`, `"DARKGRAY"`, etc.;
-  - grayscale colors from `"gray0"` (black) to `"gray100"` (white);
-
-  See [the complete list of named colors](https://lets-plot.org/kotlin/named-colors.html).
-
-- `sizeUnit` parameter in `geomPoint()`, `geomText/Label()` and `geomPie()` accepts two new values: `"min"` and `"max"` [[#260](https://github.com/JetBrains/lets-plot/issues/260)].
-
-  `"min"` sets the size unit to the smaller of the unit steps along the x and y axes, while `"max"` sets it to the larger. <br>
-  This allows for more flexible relative sizing of points, pies and text in plots.
-
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/size_unit_min_max.ipynb).
-
 
 ### Changed
 
-- Continuous data on discrete scales:
-
-  Continuous data when used with discrete positional scales is no longer transformed to discrete data. <br>
-  Instead, it remains continuous, allowing for precise positioning of continuous elements relative to discrete ones. <br>
-  This resolves issues where combining discrete and continuous data in the same plot was difficult or impossible: [[#1279](https://github.com/JetBrains/lets-plot/issues/1279)].
-
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/numeric_data_on_discrete_scale.ipynb).
-
-> [!TIP]
-> New way of handling continuous data on discrete scales could potentially break existing plots.
-> If you want to restore a broken plot to its original form, you can use the [`asDiscrete()`](https://lets-plot.org/kotlin/as-discrete.html) function to annotate continuous data as discrete.
-
-- [**BREAKING**] `geomBoxplot()`: when y-oriented, it now uses aesthetics `xlower`/`xmiddle`/`xupper` instead of  `lower`/`middle`/`upper` [[#1319](https://github.com/JetBrains/lets-plot/issues/1319)].
-- [**BREAKING**] `waterfallPlot()`: special "flow_type" value for `label=elementText(color=...)` replaced with "inherit". See `label` in the [documentation](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.bistro.waterfall/waterfall-plot.html).
-- [**DEPRECATED**] The `positionDodgeV()` function and the `"dodgev"` value for the `position` parameter are deprecated and will be removed in future releases.
-- Plot layout: reduced margins and spacing for title, caption, axes, and legend.
-- Updated RGB values for `"lightgray"` and `"green"`. To restore the previous colors, use `"gray75"` and `"lime"`, respectively.
-- `waterfallPlot()`: the appearance of the legend has been improved.
-- `geomViolin()`: tooltips are not shown in the centerline of the violin if `showHalf != 0`.
-- `geomCrossbar()`: the midline is not shown in the legend when `fatten` is set to 0, or when there is no mapping for it.
-- `geomPointrange()`: the midpoint will not be drawn if the `y` aesthetic is set to `null`.
-- `geomBand()`: the `alpha` aesthetic only affects the inner part of the geometry, as in `geomRect()`.
-- `geomBand()`: show tooltip over the whole band, not just at the edges.
-
 
 ### Fixed
-
-- `geomBoxplot`: unable to draw a y-oriented plot with `stat = Stat.identity` [[#1319](https://github.com/JetBrains/lets-plot/issues/1319)].
-- Can't add a layer which uses continuous data to a plot where other layers use discrete input [[#1323](https://github.com/JetBrains/lets-plot/issues/1323)].
-- Multiline legend labels were not vertically centered with their keys [[#1331](https://github.com/JetBrains/lets-plot/issues/1331)].
-- Poor alignment in legend between columns [[#1332](https://github.com/JetBrains/lets-plot/issues/1332)].
-- Ordered data was re-ordered by `geomBoxplot` [[#1342](https://github.com/JetBrains/lets-plot/issues/1342)].
-- `asDiscrete()` does not work with aes addition [[#1363](https://github.com/JetBrains/lets-plot/issues/1363)].
-- Sec: CVE-2024-47554 (commons-io) [[#1231](https://github.com/JetBrains/lets-plot/issues/1231)]
-- java.util.zip.ZipException: duplicate entry: letsPlotKotlinAPI/version.properties [[#279](https://github.com/JetBrains/lets-plot-kotlin/issues/279)]
 

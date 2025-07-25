@@ -59,7 +59,7 @@ The `gt-geojson` artifact from GeoTools must be also included (see compatible ve
 dependencies {   
     ...
     implementation "org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:%version%"
-    implementation "org.geotools:gt-geojson:[32.1]"               
+    implementation "org.geotools:gt-geojson:[33.2]"               
     ...
 }
 ```
@@ -84,8 +84,8 @@ You can include all necessary dependencies into your notebook using the followin
 When declaring additional GeoTools dependencies, check the compatible version in the [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md):
 
 ```
-@file:DependsOn("org.geotools:gt-shapefile:[32.1]")
-@file:DependsOn("org.geotools:gt-cql:[32.1]")
+@file:DependsOn("org.geotools:gt-shapefile:[33.2]")
+@file:DependsOn("org.geotools:gt-cql:[33.2]")
 ```
 
 ### Example Notebooks
