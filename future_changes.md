@@ -1,4 +1,4 @@
-## [4.11.0] - 2025-mm-dd
+## [4.11.0] - 2025-07-dd
 
 This release is 100% compatible with Lets-Plot [v 4.7.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.7.0),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
@@ -6,20 +6,23 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 ### Added
 
 - Geometries:
+
   - `geomSina()` [[#1298](https://github.com/JetBrains/lets-plot/issues/1298)].  
+
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/geom_sina.ipynb).
 
   - `geomTextRepel()` and `geomLabelRepel()` [[#1092](https://github.com/JetBrains/lets-plot/issues/1092)].  
+
    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/ggrepel.ipynb).
 
 - Layer Labels (Annotations):
   - Support in `geomCrossbar()`
 
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/geom_crossbar_annotation.ipynb).
-  
-- Support in `waterfallPlot()` via `relativeLabels` and `absoluteLabels` parameters.
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/waterfall_plot_annotations.ipynb).
+  - Support in `waterfallPlot()` via `relativeLabels` and `absoluteLabels` parameters.
+
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/waterfall_plot_annotations.ipynb).
 
   - New `inheritColor()` option in annotations configuration (see example notebooks above)
 
@@ -29,16 +32,16 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 - Plot Layout:
 
-    - New `axisTextSpacing`, `axisTextSpacingX`, and `axisTextSpacingY` parameters in `theme()` to control spacing between axis ticks and labels.
-    - See new [plot layout diagram](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-25b/plot_layout_scheme.ipynb) notebook showing various layout options and their effects on plot appearance.
+  - New `axisTextSpacing`, `axisTextSpacingX`, and `axisTextSpacingY` parameters in `theme()` to control spacing between axis ticks and labels.
+  - See new [plot layout diagram](https://nbviewer.org/github/JetBrains/lets-plot/blob/master/docs/f-25b/plot_layout_scheme.ipynb) notebook showing various layout options and their effects on plot appearance.
 
 - More variants to specify a color by name:
 
-    - all HTML/CSS colors;
-    - various naming styles, e.g., `"dark-gray"`, `"darkgrey"`, `"dark_grey"`, `"DARKGRAY"`, etc.;
-    - grayscale colors from `"gray0"` (black) to `"gray100"` (white);
+  - all HTML/CSS colors;
+  - various naming styles, e.g., `"dark-gray"`, `"darkgrey"`, `"dark_grey"`, `"DARKGRAY"`, etc.;
+  - grayscale colors from `"gray0"` (black) to `"gray100"` (white);
 
-  See [the complete list of named colors](https://lets-plot.org/python/pages/named_colors.html).
+  See [the complete list of named colors](https://lets-plot.org/kotlin/named-colors.html).
 
 - `sizeUnit` parameter in `geomPoint()`, `geomText/Label()` and `geomPie()` accepts two new values: `"min"` and `"max"` [[#260](https://github.com/JetBrains/lets-plot/issues/260)].
 
@@ -46,8 +49,8 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   This allows for more flexible relative sizing of points, pies and text in plots.
 
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/size_unit_min_max.ipynb).
-  
-  
+
+
 ### Changed
 
 - Continuous data on discrete scales:
