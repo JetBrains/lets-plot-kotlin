@@ -28,14 +28,17 @@ kotlin {
                 api("org.jetbrains.lets-plot:plot-builder:$letsPlotVersion")
                 api("org.jetbrains.lets-plot:plot-stem:$letsPlotVersion")
 
-                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}")
+                // Required for proper building of Kotlin/JS artifacts.
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinxCoroutinesVersion}")
             }
         }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinxCoroutinesVersion}")            }
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinxCoroutinesVersion}")
+            }
         }
 
         named("jvmMain") {

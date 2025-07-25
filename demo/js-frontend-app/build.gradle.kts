@@ -7,8 +7,8 @@ plugins {
     kotlin("multiplatform")
 }
 
-val kotlinxCoroutinesVersion = extra["kotlinx.coroutines.version"] as String
-val kotlinxDatetimeVersion = extra["kotlinx.datetime.version"] as String
+//val kotlinxCoroutinesVersion = extra["kotlinx.coroutines.version"] as String
+//val kotlinxDatetimeVersion = extra["kotlinx.datetime.version"] as String
 
 kotlin {
     js {
@@ -21,8 +21,8 @@ kotlin {
             dependencies {
 //                implementation("io.github.microutils:kotlin-logging-js:$kotlinLoggingVersion")
                 implementation(projects.plotApi)
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinxCoroutinesVersion}")
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinxDatetimeVersion")
+//                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${kotlinxCoroutinesVersion}")
+//                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinxDatetimeVersion")
             }
         }
     }
