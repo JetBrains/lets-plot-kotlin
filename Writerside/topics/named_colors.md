@@ -846,6 +846,7 @@ letsPlot(dataMap) { x = "x" } +
     </tab>
     <tab id="by-name" title="By name">
 		<table class="named-colors-table by-name" >
+        <thead><tr></tr></thead>
 		<tr>
 		<td class="dark-text" style="background-color:#F0F8FF;">alice_blue</td>
 		<td class="dark-text" style="background-color:#F0F8FF;">#F0F8FF</td>
