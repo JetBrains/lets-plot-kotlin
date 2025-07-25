@@ -137,6 +137,7 @@
     <var name="nb-text_margins" value="%nbviewer_cookbook%/text_margins.ipynb"/>
     <var name="nb-theme_flavors" value="%nbviewer_cookbook%/theme_flavors.ipynb"/>
     <var name="nb-themes" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/rjq52BpjPak2geihq3ol1h"/>
+    <var name="nb-time_date_datetime" value="%nbviewer_cookbook%/time_date_datetime.ipynb"/>
     <var name="nb-title_subtitle_caption" value="%nbviewer_cookbook%/title_subtitle_caption.ipynb"/>
     <var name="nb-tooltip_config" value="%nbviewer_cookbook%/tooltip_config.ipynb"/>
     <var name="nb-tooltip_title" value="%nbviewer_cookbook%/tooltip_title.ipynb"/>

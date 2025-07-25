@@ -216,6 +216,7 @@ Examples:
 Examples:
 
 - [Scale time](%nb-scale_time%)
+- [Plotting time series](%nb-time_date_datetime%)
 
 
 ## Images
