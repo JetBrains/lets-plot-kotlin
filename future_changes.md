@@ -5,6 +5,15 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
 
+- Time Series Plotting [[#278](https://github.com/JetBrains/lets-plot-kotlin/issues/278)],
+  [[discussion](https://github.com/JetBrains/lets-plot-kotlin/discussions/92#discussioncomment-12976040)],
+  [[#678](https://github.com/JetBrains/lets-plot/issues/678)],
+  [[LPK-129](https://github.com/JetBrains/lets-plot-kotlin/issues/129)]:
+  - Support temporal data types from `kotlinx.datetime`, `java.time`, and `java.util`.
+  - Support for timezone-aware `kotlinx.datetime.LocalDateTime`, `java.time.ZonedDateTime`, and `java.time.OffsetDateTime` objects.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/time_date_datetime.ipynb).
+
 - Geometries:
 
   - `geomSina()` [[#1298](https://github.com/JetBrains/lets-plot/issues/1298)].  
