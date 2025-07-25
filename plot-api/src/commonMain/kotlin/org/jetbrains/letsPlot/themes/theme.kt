@@ -14,6 +14,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
 /**
  * Use `theme()` to modify individual components of a theme,
  * allowing you to control the appearance of all non-data components of the plot.
+ * See also the [Plot Layout Diagrams](https://lets-plot.org/kotlin/presentation-options.html#plot-layout-diagrams) section.
  *
  * Most parameters in `theme()` control styling of text, line, and rectangular elements.
  *
