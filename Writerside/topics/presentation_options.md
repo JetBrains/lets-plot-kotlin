@@ -83,16 +83,12 @@ Option names on the diagrams (e.g., `axisTextSpacingX`) correspond to [`theme()`
 
 **Simple options** accept numeric values directly, e.g. `theme(axisTextSpacingX = 10)`.
 
-**Composite options** shown as `axisTitleX: Any?` accept [`elementText()`](%api_theme%/element-text.html) or [`elementRect()`](%api_theme%/element-rect.html) function results, e.g. `theme(axisTitleX = elementText(margin = listOf(5, 5)))`.
+**Composite options** shown as `axisTitleX: margin` accept [`elementText()`](%api_theme%/element-text.html) or [`elementRect()`](%api_theme%/element-rect.html) function results, e.g. `theme(axisTitleX = elementText(margin = listOf(5, 5)))`.
 
 ### Plot Panel Layout
 
 <img src="plot_layout_scheme.png" alt="Plot layout scheme and theme parameters" style="block"/>
 
-The main plot area consists of nested elements such as the panel, axes, titles, and captions, each with configurable margins and spacing parameters.
-
 ### Legend Box Layout
 
 <img src="theme_legend_scheme.png" alt="Theme legend scheme" style="block"/>
-
-The legend area consists of key-label pairs grouped into blocks, with configurable spacing between keys, labels, and blocks.
