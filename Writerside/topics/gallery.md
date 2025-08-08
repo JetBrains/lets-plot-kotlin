@@ -62,8 +62,18 @@
         </a>
     </li>
     <li>
+        <a href="%nb-periodic_table%">
+            <img alt="Mendeleev's periodic table of elements" src="square-periodic_table.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-palmer_penguins%">
             <img alt="Palmer penguins" src="square-palmer_penguins.png"/>
+        </a>
+    </li>
+    <li>
+        <a href="%nb-post-punk_remake%">
+            <img alt="A post-punk chart remake" src="square-post-punk_remake.png"/>
         </a>
     </li>
     <li>
@@ -74,6 +84,11 @@
     <li>
         <a href="%nb-spatialdataset_kotlin_isl%">
             <img alt="Inset map of Kotlin island" src="square-spatialdataset_kotlin_isl.png"/>
+        </a>
+    </li>
+    <li>
+        <a href="%nb-klein_bottle%">
+            <img alt="Klein bottle visualization" src="square-klein_bottle.png"/>
         </a>
     </li>
 </list>

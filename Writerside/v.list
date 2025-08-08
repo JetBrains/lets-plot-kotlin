@@ -34,10 +34,13 @@
     <var name="nb-europe_capitals" value="%nbviewer_demo%/europe_capitals.ipynb"/>
     <var name="nb-geotools_naturalearth" value="%nbviewer_demo%/geotools_naturalearth.ipynb"/>
     <var name="nb-interact_pan_zoom" value="%nbviewer_demo%/interact_pan_zoom.ipynb"/>
+    <var name="nb-klein_bottle" value="%nbviewer_demo%/klein_bottle.ipynb"/>
     <var name="nb-lp_verse" value="%nbviewer_demo%/lp_verse.ipynb"/>
     <var name="nb-magnifier_inset" value="%nbviewer_demo%/magnifier_inset.ipynb"/>
     <var name="nb-mpg_daisy" value="%nbviewer_demo%/mpg_daisy.ipynb"/>
     <var name="nb-palmer_penguins" value="%nbviewer_demo%/palmer_penguins.ipynb"/>
+    <var name="nb-periodic_table" value="%nbviewer_demo%/periodic_table.ipynb"/>
+    <var name="nb-post-punk_remake" value="%nbviewer_demo%/post-punk_remake.ipynb"/>
     <var name="nb-pushkin" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/zsJCczXy0RTjcczKj3BGMk"/>
     <var name="nb-raincloud" value="%nbviewer_demo%/raincloud.ipynb"/>
     <var name="nb-spatialdataset_kotlin_isl" value="%nbviewer_demo%/spatialdataset_kotlin_isl.ipynb"/>
