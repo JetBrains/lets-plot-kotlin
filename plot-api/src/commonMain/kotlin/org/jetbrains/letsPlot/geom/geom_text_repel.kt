@@ -75,6 +75,19 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  1 or "top" - top-aligned (top of text at y).
  *  There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
  * @param angle Text rotation angle in degrees.
+ * @param shape Shape of the point.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
+ * @param pointSize A value representing the visual size of the point associated with the label.
+ *  Set to 0 to prevent label repulsion from data points.
+ * @param pointStroke Width of the point border.
+ * @param segmentColor Color of the line segment connecting the label to the point.
+ * @param segmentSize Width of the line segment connecting the label to the point.
+ * @param segmentAlpha Transparency level of the line segment. Understands numbers between 0 and 1.
+ * @param linetype Type of the line.
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param lineheight Line height multiplier applied to the font size in the case of multi-line text.
  * @param labelFormat Specifies the format pattern for displaying mapped values.
  * @param naText default = "n/a".
