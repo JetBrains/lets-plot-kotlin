@@ -2,6 +2,16 @@
 
 <list columns="3">
     <li>
+        <a href="%nb-raincloud%">
+            <img alt="Raincloud plot" src="square-raincloud.png"/>
+        </a>
+    </li>
+    <li>
+        <a href="%nb-europe_capitals%">
+            <img alt="Lets-Plot GeoTools with texts and labels" src="square-europe_capitals.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-trading_chart%">
             <img alt="Bitcoin daily trend visualization (2024)" src="square-trading_chart.png"/>
         </a>
@@ -52,8 +62,18 @@
         </a>
     </li>
     <li>
+        <a href="%nb-periodic_table%">
+            <img alt="Mendeleev's periodic table of elements" src="square-periodic_table.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-palmer_penguins%">
             <img alt="Palmer penguins" src="square-palmer_penguins.png"/>
+        </a>
+    </li>
+    <li>
+        <a href="%nb-post-punk_remake%">
+            <img alt="A post-punk chart remake" src="square-post-punk_remake.png"/>
         </a>
     </li>
     <li>
@@ -64,6 +84,11 @@
     <li>
         <a href="%nb-spatialdataset_kotlin_isl%">
             <img alt="Inset map of Kotlin island" src="square-spatialdataset_kotlin_isl.png"/>
+        </a>
+    </li>
+    <li>
+        <a href="%nb-klein_bottle%">
+            <img alt="Klein bottle visualization" src="square-klein_bottle.png"/>
         </a>
     </li>
 </list>

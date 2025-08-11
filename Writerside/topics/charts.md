@@ -213,10 +213,36 @@ Examples:
 [`scaleXTime()`](%api_scale%/scale-x-time.html),
 [`scaleYTime()`](%api_scale%/scale-y-time.html)
 
+*Lets-Plot* handles all temporal data types through a unified "datetime" scale (excluding duration, which is handled by the "time" scale).
+This is in contrast to R's ggplot2, which provides separate "date", "time", and "datetime" scales.
+
+**Supported temporal data types**:
+
+- `kotlinx.datetime` library:
+
+  - `Instant`
+  - `LocalDate`
+  - `LocalTime`
+  - `LocalDateTime`
+
+- `java.time` package:
+
+  - `Instant`
+  - `LocalDate`
+  - `LocalTime`
+  - `LocalDateTime`
+  - `ZonedDateTime` (timezone-aware)
+  - `OffsetDateTime` (timezone-aware with offset)
+
+- `java.util` package:
+
+  - `Date`
+
 Examples:
 
 - [Scale time](%nb-scale_time%)
 - [Plotting time series](%nb-time_date_datetime%)
+- [Bitcoin daily trend visualization](%nb-trading_chart%)
 
 
 ## Images
