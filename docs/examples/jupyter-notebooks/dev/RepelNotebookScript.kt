@@ -25,6 +25,9 @@ import org.jetbrains.letsPlot.scale.ylim
 import org.jetbrains.letsPlot.themes.theme
 import kotlin.random.Random
 
+// add dependency for this script
+// implementation("org.jetbrains.kotlinx:dataframe:1.0.0-Beta2")
+
 fun main() {
     /*
     # Dynamic Text Positioning with Repel Geometries
