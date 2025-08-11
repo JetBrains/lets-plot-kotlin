@@ -73,7 +73,7 @@
 
   See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md) for a full list of changes.
 
-## Recent Updates in the Gallery
+## Recent Updates in the [Gallery](gallery.md)
 
 <list columns="4">
     <li>
