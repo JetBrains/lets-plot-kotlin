@@ -116,26 +116,6 @@
             <img alt="Sunshine hours" src="square-sunshine_hours.png"/>
         </a>
     </li>
-    <li>
-        <a href="%nb-us_unemployment%">
-            <img alt="Unemployment in the US since 1967" src="square-us_unemployment.png"/>
-        </a>
-    </li>
-    <li>
-        <a href="%nb-periodic_table%">
-            <img alt="Mendeleev's periodic table of elements" src="square-periodic_table.png"/>
-        </a>
-    </li>
-    <li>
-        <a href="%nb-post-punk_remake%">
-            <img alt="A post-punk chart remake" src="square-post-punk_remake.png"/>
-        </a>
-    </li>
-    <li>
-        <a href="%nb-klein_bottle%">
-            <img alt="Klein bottle visualization" src="square-klein_bottle.png"/>
-        </a>
-    </li>
 </list>
 
 ## Change Log
