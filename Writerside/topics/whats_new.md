@@ -88,7 +88,7 @@
     </li>
     <li>
         <a href="%nb-trading_chart%">
-            <img alt="Bitcoin daily trend visualization (2024)" src="square-trading_chart.png"/>
+            <img alt="Bitcoin daily trend visualization" src="square-trading_chart.png"/>
         </a>
     </li>
     <li>

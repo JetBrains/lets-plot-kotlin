@@ -204,6 +204,15 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
 <a id="recent_gallery_updates"></a>
 ## Recent Updates in the [Gallery](https://lets-plot.org/kotlin/gallery.html)
 
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/raincloud.ipynb">
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-raincloud.png" alt="Raincloud plot" width="128" height="128">
+  </a>
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/europe_capitals.ipynb">
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-europe_capitals.png" alt="Lets-Plot GeoTools with texts and labels" width="128" height="128">
+  </a>
+  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/trading_chart.ipynb">
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-trading_chart.png" alt="Bitcoin daily trend visualization" width="128" height="128">
+  </a>
   <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/magnifier_inset.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-magnifier_inset.png" alt="Creating magnifier inset effect with ggbunch()" width="128" height="128">
   </a>
@@ -218,9 +227,6 @@ Examples of using of the Lets-Plot Kotlin API in JVM and Kotlin/JS applications 
   </a>
   <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/sunshine_hours.ipynb">
     <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-sunshine_hours.png" alt="Sunshine hours" width="128" height="128">
-  </a>
-  <a href="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/us_unemployment.ipynb">
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot-kotlin/master/Writerside/images/previews/square-us_unemployment.png" alt="Unemployment in the US since 1967" width="128" height="128">
   </a>
 
 
