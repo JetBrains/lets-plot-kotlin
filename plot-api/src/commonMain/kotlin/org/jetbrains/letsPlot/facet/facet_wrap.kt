@@ -33,6 +33,8 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  The `order` values are positionally matched to variables in `facets`.
  * @param format Specifies the format pattern for displaying faceting values.
  *  The `format` values are positionally matched to variables in `facets`.
+ * @param drop Specifies whether to drop unused factor levels (the default behavior)
+ *  or to show all factor levels regardless of whether they occur in the data.
  * @param dir Direction: either "h" for horizontal, the default, or "v", for vertical.
  * @param labWidth Specifies the maximum label length (in characters) before a line break is applied.
  *  The `labWidth` values are positionally matched to variables in `facets`.
@@ -55,6 +57,7 @@ fun facetWrap(
     scales: String? = null,
     order: Any? = 1,
     format: Any? = null,
+    drop: Boolean = true,
     dir: String = "h",
     labWidth: Any? = null
 ): OptionsMap {
@@ -68,6 +71,7 @@ fun facetWrap(
             Option.Facet.SCALES to scales,
             Option.Facet.FACETS_ORDER to order,
             Option.Facet.FACETS_FORMAT to format,
+            Option.Facet.DROP_UNUSED_LEVELS to drop,
             Option.Facet.FACETS_FILL_DIR to dir,
             Option.Facet.FACETS_LABWIDTH to labWidth
         ).filterNonNullValues()
