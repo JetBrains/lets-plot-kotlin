@@ -37,8 +37,10 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  * @param w Width of the output image in units.
  * @param h Height of the output image in units.
  * @param unit Unit of the output image. One of: `"in"`, `"cm"`, `"mm"`, `"px"`.
- *      Only applicable when exporting to SVG, PNG, JPG, or TIFF.
- *      Default: "in" (inches).
+ *      Only applicable when exporting to SVG, PNG, JPG, or TIFF. For HTML, the unit is always `"px"` (pixels).
+ *      Default:
+ *      "px" (pixels) for SVG,
+ *      "in" (inches) for the raster formats (PNG, JPG, and TIFF).
  * @param dpi Resolution in dots per inch.
  *      Only applicable when exporting to the raster formats: PNG, JPG, or TIFF.
   *     The default value depends on the [unit]:
