@@ -38,9 +38,12 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  * @param h Height of the output image in units.
  * @param unit Unit of the output image. One of: `"in"`, `"cm"`, `"mm"`, `"px"`.
  *      Only applicable when exporting to SVG, PNG, JPG, or TIFF.
- * @param dpi Resolution in dots per inch to store in the exported file metadata.
+ *      Default: "in" (inches).
+ * @param dpi Resolution in dots per inch.
  *      Only applicable when exporting to the raster formats: PNG, JPG, or TIFF.
- *      Default: no metadata is stored.
+  *     The default value depends on the [unit]:
+ *         - for `"px"` it is `96` (output image will have the same pixel size as [w] and [h] values)
+ *         - for physical units (`"in"`, `"cm"`, `"mm"`) it is `300`.
  * @param path Path to a directory to save image files in.
  *      Default: `${user.dir}/lets-plot-images`
  *
@@ -86,11 +89,11 @@ fun ggsave(
     plot: Figure,
     filename: String,
     scale: Number? = null,
+    dpi: Number? = null,
+    path: String? = null,
     w: Number? = null,
     h: Number? = null,
-    unit: String? = null,
-    dpi: Number? = null,
-    path: String? = null
+    unit: String? = null
 ): String {
 
     @Suppress("NAME_SHADOWING")
