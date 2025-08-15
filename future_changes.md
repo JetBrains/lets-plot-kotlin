@@ -5,6 +5,11 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
 
+- ggsave():
+  - support font synthesis for *italic* and **bold** styles.
+  - `w`, `h` and `unit` parameters support [[#281]https://github.com/JetBrains/lets-plot-kotlin/issues/281],
+    [[#1368](https://github.com/JetBrains/lets-plot/issues/1368)]. 
+
 ### Changed
 
 - `facetWrap()` now drops factor levels that do not appear in the data (i.e., empty panels) by default [[#1322](https://github.com/JetBrains/lets-plot/issues/1322)]. <br>
