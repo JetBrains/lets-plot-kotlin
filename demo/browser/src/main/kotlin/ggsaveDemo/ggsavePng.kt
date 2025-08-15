@@ -12,6 +12,7 @@ import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.ggsize
 import org.jetbrains.letsPlot.label.ggtitle
+import java.io.File
 
 @Suppress("DuplicatedCode", "ClassName")
 object ggsavePng {
@@ -39,14 +40,30 @@ object ggsavePng {
         for ((scale, DPI) in scales.zip(DPIs)) {
             val pathname = ggsave(p, "ggsave_${scale}_$DPI.png", scale = scale, dpi = DPI, path = path)
             println(pathname)
+            val fileUrl = File(pathname).toURI().toString()
 
             val html = """
                 <p>Scaling factor: $scale, DPI: $DPI</p>
-                <img src="$pathname" width="${plotSize.x}" height="${plotSize.y}"/>
+                <img src="$fileUrl" width="${plotSize.x}" height="${plotSize.y}"/>
             """.trimIndent()
             elements.add(html)
         }
 
+        val pngPlotSize = plotSize.div(2)
+        val pathname = ggsave(p, "ggsave_${pngPlotSize.x}x${pngPlotSize.y}.png",
+            scale = 1.0,
+            w = pngPlotSize.x,
+            h = pngPlotSize.y,
+            unit="px",
+            path = path)
+        println(pathname)
+        val fileUrl = File(pathname).toURI().toString()
+
+        val html = """
+                <p>Size: ${pngPlotSize.x}x${pngPlotSize.y}</p>
+                <img src="$fileUrl"/>
+            """.trimIndent()
+        elements.add(html)
 
         BrowserDemoUtil.openInBrowser(elements.joinToString(separator = ""))
     }
