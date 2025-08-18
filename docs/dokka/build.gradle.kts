@@ -3,59 +3,58 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
+import org.jetbrains.dokka.gradle.DokkaTask
 import java.time.LocalDateTime
 
 plugins {
     id("org.jetbrains.dokka")
 }
 
-val rootDir = rootProject.projectDir.toString().replace("\\", "/")
-val docsDir = "$rootDir/docs"
-val buildDir = "$docsDir/build"
-val dokkaDir = projectDir.toString().replace("\\", "/")
-val dokkaSrcDir = "$dokkaDir/source"
+val libVersion = "4.11.0"
+
+val rootDirectory = rootProject.projectDir.toString().replace("\\", "/")
+val docsDirectory = "$rootDirectory/docs"
+val dokkaDirectory = projectDir.toString().replace("\\", "/")
+val dokkaSrcDirectory = "$dokkaDirectory/source"
 
 val gitHubLink = "https://github.com/JetBrains/lets-plot-kotlin"
 val customFooterMessage = "Copyright © 2019-${LocalDateTime.now().year} JetBrains s.r.o."
-val customStyleSheet = "$dokkaSrcDir/custom.css"
-val customScript = "$dokkaSrcDir/custom.js"
-val logoLightImage = "$docsDir/images/logo-icon.svg"
-val logoDarkImage = "$docsDir/images/logo-dark.svg"
-val gitHubImage = "$docsDir/images/homepage.svg"
+val customStyleSheet = "$dokkaSrcDirectory/custom.css"
+val customScript = "$dokkaSrcDirectory/custom.js"
+val logoLightImage = "$docsDirectory/images/logo-icon.svg"
+val logoDarkImage = "$docsDirectory/images/logo-dark.svg"
+val gitHubImage = "$docsDirectory/images/homepage.svg"
 
-tasks.dokkaHtml {
-    moduleName.set("Lets-Plot-Kotlin")
-    outputDirectory.set(File("$buildDir/api-reference"))
-    pluginsMapConfiguration.set(
-        mapOf(
-            "org.jetbrains.dokka.base.DokkaBase" to """{
-                |"customAssets": ["$customScript", "$logoLightImage", "$logoDarkImage", "$gitHubImage"],
-                |"customStyleSheets": ["$customStyleSheet"],
-                |"homepageLink": "$gitHubLink",
-                |"footerMessage": "$customFooterMessage"
-                |}""".trimMargin()
+evaluationDependsOn(":plot-api")
+
+rootProject.project(":plot-api")
+    .tasks.named<DokkaTask>("dokkaHtml")
+    .configure {
+        moduleName.set("Lets-Plot-Kotlin")
+        outputDirectory.set(File("$docsDirectory/build/api-reference"))
+        pluginsMapConfiguration.set(
+            mapOf(
+                "org.jetbrains.dokka.base.DokkaBase" to """
+                {
+                  "homepageLink": "$gitHubLink",
+                  "footerMessage": "$customFooterMessage",
+                  "customAssets": [
+                    "$customScript",
+                    "$logoLightImage",
+                    "$logoDarkImage",
+                    "$gitHubImage"
+                  ],
+                  "customStyleSheets": [
+                    "$customStyleSheet"
+                  ]
+                }
+                """.trimIndent()
+            )
         )
-    )
-    dokkaSourceSets {
-        configureEach {
-            skipDeprecated.set(true)
-            includes.from("$dokkaSrcDir/packages.md")
-            perPackageOption {
-                matchingRegex.set(""".*\.frontend.*""")
-                suppress.set(true)
-            }
-            perPackageOption {
-                matchingRegex.set(""".*\.intern.*""")
-                suppress.set(true)
-            }
-            perPackageOption {
-                matchingRegex.set(""".*\.intern\.layer.*""")
-                suppress.set(false)
-            }
-        }
-        register("plotAPI") {
-            displayName.set("Plot API")
-            sourceRoots.from("$rootDir/plot-api/src/commonMain", "$rootDir/plot-api/src/jvmMain")
-        }
+    }
+
+gradle.taskGraph.whenReady {
+    if (hasTask(":plot-api:dokkaHtml")) {
+        rootProject.project(":plot-api").version = libVersion
     }
 }

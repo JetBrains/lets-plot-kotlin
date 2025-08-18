@@ -5,6 +5,7 @@
 
 plugins {
     kotlin("multiplatform")
+    id("org.jetbrains.dokka")
     `maven-publish`
     signing
 }
@@ -71,6 +72,28 @@ kotlin {
             }
         }
     }
+}
+
+tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
+    dokkaSourceSets.configureEach {
+        skipDeprecated.set(true)
+        includes.from("${rootProject.projectDir}/docs/dokka/source/packages.md")
+
+        perPackageOption {
+            matchingRegex.set(""".*\.frontend.*""")
+            suppress.set(true)
+        }
+        perPackageOption {
+            matchingRegex.set(""".*\.intern.*""")
+            suppress.set(true)
+        }
+        perPackageOption {
+            matchingRegex.set(""".*\.intern\.layer.*""")
+            suppress.set(false)
+        }
+    }
+
+    dokkaSourceSets.named("commonMain") { displayName.set("Plot API") }
 }
 
 

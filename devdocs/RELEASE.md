@@ -82,7 +82,7 @@ This is optional: needed only if a newer version of 'kotlin-jupyter-kernel' is r
       
 ##### Set Release Version
 
-- In [build.gradle.kts](../build.gradle.kts) update:`"dokka" -> <version>`
+- In [build.gradle.kts](../docs/dokka/build.gradle.kts) update `libVersion` for the Dokka.
 
 - In [v.list](../Writerside/v.list) update `version` for the Writerside.
   Check the values of `current_year` and `web_root`.
