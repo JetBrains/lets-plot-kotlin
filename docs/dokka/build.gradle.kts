@@ -48,6 +48,10 @@ tasks.dokkaHtml {
                 matchingRegex.set(""".*\.intern.*""")
                 suppress.set(true)
             }
+            perPackageOption {
+                matchingRegex.set(""".*\.intern\.layer.*""")
+                suppress.set(false)
+            }
         }
         register("plotAPI") {
             displayName.set("Plot API")
