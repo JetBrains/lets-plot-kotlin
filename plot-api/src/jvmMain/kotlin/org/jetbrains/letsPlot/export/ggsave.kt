@@ -23,8 +23,44 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  * Supported formats: SVG, HTML, PNG, JPEG and TIFF.
  * Note: in some configurations raster formats might not be supported.
  *
- * If [path] is not specified, the output file will be saved in
+ * If `path` is not specified, the output file will be saved in
  * `${user.dir}/lets-plot-images`.
+ *
+ * ## Notes
+ *
+ * The output format is inferred from the file extension.
+ *
+ * **For PNG and PDF:**
+ *
+ * - If `w`, `h`, `unit`, and `dpi` are all specified:
+ *
+ *   - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
+ *   - The output size is computed from the given dimensions and DPI.
+ *   - The plot is resized to fit the specified `w` x `h` area, which may affect the layout.
+ *
+ * - If only `dpi` is specified:
+ *   - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is converted to inches assuming the standard display PPI of 96 PPI.
+ *   - The output size is computed from this size and `dpi`.
+ *     - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
+ *     - Useful for printing - the plot will appear nearly the same size as on screen.
+ *
+ * - If `w` and `h` are not specified:
+ *   - The `scale` parameter is used to determine the output size.
+ *
+ *   - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
+ *   - Useful for generating high-resolution images suitable for publication.
+ *
+ * **For SVG:**
+ *
+ * - If `w`, `h`, and `unit` are specified:
+ *   - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
+ *   - The output size is set from the given values.
+ *
+ * **For HTML:**
+ *
+ * - If `w` and `h` are specified:
+ *   - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
+ *   - The output size is determined directly from the specified `w` and `h`, which are treated as pixel values.
  *
  * ## Examples
  *
@@ -32,58 +68,25 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *
  * @param plot Plot to export.
  * @param filename Name of the file. Must include an extension matching
- *      one of the supported formats: `.svg`, `.html`/`.htm`, `.png`, `.jpeg`/`.jpg`, or `.tiff`/`.tif`
+ *  one of the supported formats: `.svg`, `.html`/`.htm`, `.png`, `.jpeg`/`.jpg`, or `.tiff`/`.tif`
  * @param scale Scaling factor (only for raster formats). Default: 2.0
  * @param w Width of the output image in units.
  * @param h Height of the output image in units.
  * @param unit Unit of the output image. One of: `"in"`, `"cm"`, `"mm"`, `"px"`.
- *      Only applicable when exporting to SVG, PNG, JPG, or TIFF. For HTML, the unit is always `"px"` (pixels).
- *      Default:
- *      "px" (pixels) for SVG,
- *      "in" (inches) for the raster formats (PNG, JPG, and TIFF).
+ *  Only applicable when exporting to SVG, PNG, JPG, or TIFF. For HTML, the unit is always `"px"` (pixels).
+ *  Default:
+ *  "px" (pixels) for SVG,
+ *  "in" (inches) for the raster formats (PNG, JPG, and TIFF).
  * @param dpi Resolution in dots per inch.
- *      Only applicable when exporting to the raster formats: PNG, JPG, or TIFF.
-  *     The default value depends on the [unit]:
- *         - for `"px"` it is `96` (output image will have the same pixel size as [w] and [h] values)
- *         - for physical units (`"in"`, `"cm"`, `"mm"`) it is `300`.
+ *  Only applicable when exporting to the raster formats: PNG, JPG, or TIFF.
+ *  The default value depends on the `unit`:
+ *
+ *  - for `"px"` it is `96` (output image will have the same pixel size as `w` and `h` values)
+ *  - for physical units (`"in"`, `"cm"`, `"mm"`) it is `300`.
  * @param path Path to a directory to save image files in.
- *      Default: `${user.dir}/lets-plot-images`
+ *  Default: `${user.dir}/lets-plot-images`
  *
  * @return Absolute pathname of the created file.
- *
- * ### Notes
- *
- * The output format is inferred from the file extension.
- *
- * **For PNG and PDF:**
- *
- * - If [w], [h], [unit], and [dpi] are all specified:
- *
- *   - The plot's pixel size (default or set via [ggsize()](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot/ggsize.html) is ignored.
- *   - The output size is computed from the given dimensions and DPI.
- *   - The plot is resized to fit the specified [w] x [h] area, which may affect the layout.
- *
- * - If only [dpi] is specified:
- *   - The plot's pixel size (default or set via [ggsize()](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot/ggsize.html)) is converted to inches assuming the standard display PPI of 96 PPI.
- *   - The output size is computed from this size and [dpi].
- *     - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
- *     - Useful for printing - the plot will appear nearly the same size as on screen.
- *
- * - If [w] and [h] are not specified:
- *   - The [scale] parameter is used to determine the output size.
- *
- *   - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
- *   - Useful for generating high-resolution images suitable for publication.
- *
- * **For SVG:**
- * - If [w], [h], and [unit] are specified:
- *   - The plot's pixel size (default or set via [ggsize()](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot/ggsize.html)) is ignored.
- *   - The output size is set from the given values.
- *
- * **For HTML:**
- * - If [w] and [h] are specified:
- *   - The plot's pixel size (default or set via [ggsize()](https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot/ggsize.html)) is ignored.
- *   - The output size is determined directly from the specified [w] and [h], which are treated as pixel values.
  *
  */
 @Suppress("SpellCheckingInspection")
