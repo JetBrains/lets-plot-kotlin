@@ -34,33 +34,39 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *
  * - If `w`, `h`, `unit`, and `dpi` are all specified:
  *
- *   - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
- *   - The output size is computed from the given dimensions and DPI.
- *   - The plot is resized to fit the specified `w` x `h` area, which may affect the layout.
+ *     - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
+ *     - The output size is computed from the given dimensions and DPI.
+ *
+ *         - The plot is resized to fit the specified `w` x `h` area, which may affect the layout.
  *
  * - If only `dpi` is specified:
- *   - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is converted to inches assuming the standard display PPI of 96 PPI.
- *   - The output size is computed from this size and `dpi`.
- *     - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
- *     - Useful for printing - the plot will appear nearly the same size as on screen.
+ *
+ *     - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is converted to inches assuming the standard display PPI of 96 PPI.
+ *     - The output size is computed from this size and `dpi`.
+ *
+ *         - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
+ *         - Useful for printing - the plot will appear nearly the same size as on screen.
  *
  * - If `w` and `h` are not specified:
- *   - The `scale` parameter is used to determine the output size.
  *
- *   - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
- *   - Useful for generating high-resolution images suitable for publication.
+ *     - The `scale` parameter is used to determine the output size.
+ *
+ *         - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
+ *         - Useful for generating high-resolution images suitable for publication.
  *
  * **For SVG:**
  *
  * - If `w`, `h`, and `unit` are specified:
- *   - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
- *   - The output size is set from the given values.
+ *
+ *     - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
+ *     - The output size is set from the given values.
  *
  * **For HTML:**
  *
  * - If `w` and `h` are specified:
- *   - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
- *   - The output size is determined directly from the specified `w` and `h`, which are treated as pixel values.
+ *
+ *     - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
+ *     - The output size is determined directly from the specified `w` and `h`, which are treated as pixel values.
  *
  * ## Examples
  *
