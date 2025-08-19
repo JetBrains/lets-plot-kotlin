@@ -92,9 +92,6 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
             suppress.set(false)
         }
     }
-
-    dokkaSourceSets.named("commonMain") { displayName.set("Plot API") }
-    dokkaSourceSets.named("jvmMain") { displayName.set("Plot API (JVM)") }
 }
 
 
