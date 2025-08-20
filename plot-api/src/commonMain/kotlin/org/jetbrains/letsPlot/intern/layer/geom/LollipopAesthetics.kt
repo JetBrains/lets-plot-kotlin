@@ -13,15 +13,15 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  *
  * @param x X-axis value.
  * @param y Y-axis value.
- * @param size Lollipop head size.
- * @param stroke Lollipop head stroke width.
- * @param linewidth Lollipop stick width.
- * @param color Lollipop head and stick color.
+ * @param size Size.
+ * @param stroke Stroke width.
+ * @param linewidth Line width.
+ * @param color Color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Lollipop head fill color.
+ * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param shape Lollipop head shape.
+ * @param shape Shape.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param linetype Lollipop stick line type.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),

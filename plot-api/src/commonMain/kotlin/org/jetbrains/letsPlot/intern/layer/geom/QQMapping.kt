@@ -15,12 +15,12 @@ import org.jetbrains.letsPlot.intern.layer.stat.QQStatAesthetics
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
  * @param color Point color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Q-Q point fill color.
+ * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param shape Q-Q point shape.
+ * @param shape Shape.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param size Point size.
- * @param stroke Q-Q point stroke width.
+ * @param stroke Stroke width.
  * @param group Grouping key. Observations with the same value form one group.
  *  If not set, grouping may be inferred from other aesthetics (e.g., color, shape).
  * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed.
