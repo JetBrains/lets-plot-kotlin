@@ -8,6 +8,25 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic parameters supported by [geomLineRange()][org.jetbrains.letsPlot.geom.geomLineRange].
+ *
+ * @param x X-axis coordinates for vertical line range.
+ * @param ymin Lower bound for vertical line range.
+ * @param ymax Upper bound for vertical line range.
+ * @param y Y-axis coordinates for horizontal line range.
+ * @param xmin Lower bound for horizontal line range.
+ * @param xmax Upper bound for horizontal line range.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Line color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param linetype Type of the line.
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
+ * @param size Line width.
+ */
 interface LineRangeAesthetics : OptionsCapsule {
     val x: Any?
     val ymin: Any?

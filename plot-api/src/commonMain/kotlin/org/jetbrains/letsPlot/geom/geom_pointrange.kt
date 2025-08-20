@@ -64,14 +64,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param ymax Upper bound for vertical interval.
  * @param xmin Lower bound for horizontal interval.
  * @param xmax Upper bound for horizontal interval.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Point and line color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @param fill Point fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Lines width, size of mid-point.
+ * @param size Point size and line width.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
- * @param linewidth Line width.
+ * @param linewidth Line width (if different from point size).
  * @param linetype Type of the line of border.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
