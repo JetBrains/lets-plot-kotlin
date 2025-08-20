@@ -45,12 +45,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
  *  Possible values: "x", "y".
- * @param yintercept The value of y at the point where the line crosses the y-axis.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param yintercept Y-intercept value where the line crosses the y-axis.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Line color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Width of the line.
- * @param linetype Type of the line.
+ * @param size Line width.
+ * @param linetype Line type.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
