@@ -43,8 +43,8 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param x X-axis coordinates of the center of rectangles.
  * @param y Coordinates of the center of rectangles.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param fill Fill color.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param fill Raster tile fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.

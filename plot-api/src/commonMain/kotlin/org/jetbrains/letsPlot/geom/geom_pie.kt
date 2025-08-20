@@ -90,12 +90,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param slice Values associated to pie sectors.
  * @param explode Values to explode slices away from their center point, detaching it from the main pie.
  * @param size Pie diameter.
- * @param fill Fill color.
+ * @param fill Pie sector fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of inner and outer arcs of pie sector.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Pie sector border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param stroke Width of inner and outer arcs of pie sector.
+ * @param stroke Width of pie sector border.
  * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.
  * @param hole default = 0.0.
  *  A multiplicative factor applied to the pie diameter to draw donut-like chart.
