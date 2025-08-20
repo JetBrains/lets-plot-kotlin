@@ -61,17 +61,16 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
  *  Possible values: "x", "y".
  * @param x X-axis coordinates.
- * @param alpha Transparency level of a layer.
- *  Understands numbers between 0 and 1.
- * @param color Color of geometry lines.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Density curve outline color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Line width.
+ * @param size Density curve outline width.
  * @param linetype Type of the line.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
- * @param fill Fill color.
+ * @param fill Density curve fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param weight Used by "density" stat to compute weighted density.
  * @param bw The method (or exact value) of bandwidth. Can be String ("nrd0" or "nrd") or Double.
