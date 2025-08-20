@@ -77,15 +77,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
  * @param sample Y-axis value.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Q-Q plot point color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Color to paint shape's inner points.
- *  Is applied only to the points of shapes having inner points.
+ * @param fill Q-Q plot point fill color. Applied only to the points of shapes having inner points.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param shape Shape of the point.
+ * @param shape Q-Q plot point shape.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
- * @param size Size of the point.
+ * @param size Q-Q plot point size.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are

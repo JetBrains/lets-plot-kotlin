@@ -58,14 +58,13 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param x X-axis value.
  * @param y Y-axis value.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Two-sample Q-Q plot point color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Color to paint shape's inner points.
- *  Is applied only to the points of shapes having inner points.
- * @param shape Shape of the point.
+ * @param fill Two-sample Q-Q plot point fill color. Applied only to the points of shapes having inner points.
+ * @param shape Two-sample Q-Q plot point shape.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
- * @param size Size of the point.
+ * @param size Two-sample Q-Q plot point size.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param angle Rotation angle of the shape, in degrees.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
