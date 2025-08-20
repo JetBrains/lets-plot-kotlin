@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  * @param x X-axis coordinate of raster center.
  * @param y Y-axis coordinate of raster center.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param fill Raster fill color.
+ * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  */
 interface RasterAesthetics : OptionsCapsule {

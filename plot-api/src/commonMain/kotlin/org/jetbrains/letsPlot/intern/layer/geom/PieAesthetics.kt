@@ -17,10 +17,10 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  * @param explode Distance to explode pie slice from center.
  * @param size Overall pie size.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Pie slice border color.
+ * @param color Border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param stroke Pie slice border width.
- * @param fill Pie slice fill color.
+ * @param stroke Border width.
+ * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  */
 interface PieAesthetics : OptionsCapsule {

@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  * @param ymin Lower pointwise confidence interval around the mean.
  * @param ymax Upper pointwise confidence interval around the mean.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Smooth line color.
+ * @param color Line color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fill Filling color for the confidence interval around the line.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).

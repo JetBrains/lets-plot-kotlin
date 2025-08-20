@@ -14,12 +14,12 @@ import org.jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
  * @param x X-axis value (this value will produce cases or bins for bars).
  * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Bar border color.
+ * @param color Border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Bar fill color.
+ * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param width Bar width.
- * @param size Bar border width.
+ * @param size Border width.
  * @param group Grouping key. Observations with the same value form one group.
  *  If not set, grouping may be inferred from other aesthetics (e.g., color, fill).
  * @param weight Used by `Stat.count()` stat to compute weighted sum instead of simple count.

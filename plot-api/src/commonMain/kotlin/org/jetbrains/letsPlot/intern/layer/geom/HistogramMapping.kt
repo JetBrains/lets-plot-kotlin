@@ -15,11 +15,11 @@ import org.jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
  * @param y Y-axis value (this value will be used to multiply the bar heights), setting y to "..density.." produces
  *  normalized (density) histogram.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Histogram bar border color.
+ * @param color Border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Histogram bar fill color.
+ * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Histogram bar border width.
+ * @param size Border width.
  * @param weight Used by `Stat.bin()` to compute weighted sum instead of simple count.
  * @param group Grouping key. Observations with the same value form one group.
  *  If not set, grouping may be inferred from other aesthetics (e.g., color, shape).

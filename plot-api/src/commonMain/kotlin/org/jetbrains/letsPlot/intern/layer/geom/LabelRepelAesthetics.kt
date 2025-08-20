@@ -16,9 +16,9 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  * @param y Y-axis coordinate.
  * @param label Text to display.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Label text color.
+ * @param color Text color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Label background fill color.
+ * @param fill Background fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param size Label text size.
  * @param family Font family.
