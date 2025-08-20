@@ -90,10 +90,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param slice Values associated to pie sectors.
  * @param explode Values to explode slices away from their center point, detaching it from the main pie.
  * @param size Pie diameter.
- * @param fill Pie sector fill color.
+ * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Pie sector border color.
+ * @param color Border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param stroke Width of pie sector border.
  * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.

@@ -58,7 +58,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
  * @param color Repelled text color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Repelled text font size.
+ * @param size Font size.
  * @param family default = "sans".
  *  For more info see: [aesthetics.html#font-family](https://lets-plot.org/kotlin/aesthetics.html#font-family).
  * @param fontface default = "plain".

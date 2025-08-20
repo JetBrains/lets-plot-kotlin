@@ -74,9 +74,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  - If 0 then violins looking as usual.
  * @param x X-axis coordinates.
  * @param y Y-axis coordinates.
- * @param violinWidth Density scaled for the violin plot, according to area, counts or to a constant maximum width.
+ * @param violinWidth Violin width, according to area, counts or to a constant maximum width.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Violin border color.
+ * @param color Border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fill Violin fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
@@ -85,7 +85,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
- * @param size Violin border width.
+ * @param size Border width.
  * @param width Width of violin bounding box.
  * @param weight Used by `Stat.yDensity()` stat to compute weighted density.
  * @param scale default = "area".

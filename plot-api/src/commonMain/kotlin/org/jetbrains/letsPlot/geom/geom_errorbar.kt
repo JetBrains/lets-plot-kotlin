@@ -60,7 +60,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param xmin Lower bound for the horizontal error bar.
  * @param xmax Upper bound for the horizontal error bar.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Error bar line color.
+ * @param color Color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param linetype Type of the line.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),

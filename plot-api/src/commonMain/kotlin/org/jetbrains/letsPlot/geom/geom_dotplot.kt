@@ -76,9 +76,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param stackGroups Stack dots across groups when method = "histodot".
  * @param stroke Width of the dot border.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Dot plot dot border color.
+ * @param color Color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Dot plot dot fill color.
+ * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.

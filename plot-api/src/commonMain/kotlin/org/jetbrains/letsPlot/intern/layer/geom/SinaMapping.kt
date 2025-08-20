@@ -22,7 +22,7 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param size Point size.
  * @param stroke Point stroke width.
- * @param width Sina plot width.
+ * @param width Width.
  * @param group Grouping key. Observations with the same value form one group.
  *  If not set, grouping may be inferred from other aesthetics (e.g., color, shape).
  * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed.

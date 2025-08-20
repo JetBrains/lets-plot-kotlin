@@ -28,7 +28,7 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  * @param lineheight Line height multiplier for multi-line text.
  * @param labelPadding Padding around label text.
  * @param labelR Radius for rounded label corners.
- * @param labelSize Label outline width.
+ * @param labelSize Stroke width.
  */
 interface LabelAesthetics : OptionsCapsule {
     val x: Any?

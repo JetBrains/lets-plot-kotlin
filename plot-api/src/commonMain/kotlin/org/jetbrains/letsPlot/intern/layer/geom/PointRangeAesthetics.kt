@@ -18,7 +18,7 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  * @param xmin Lower bound for horizontal interval.
  * @param xmax Upper bound for horizontal interval.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Point and line color.
+ * @param color Color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fill Point fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
@@ -29,8 +29,8 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param shape Shape of the mid-point.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
- * @param size Point size and line width.
- * @param stroke Width of the shape border. Applied only to the shapes having border.
+ * @param size Size.
+ * @param stroke Stroke width. Applied only to the shapes having border.
  * @param linewidth Line width (if different from point size).
  */
 interface PointRangeAesthetics : OptionsCapsule {

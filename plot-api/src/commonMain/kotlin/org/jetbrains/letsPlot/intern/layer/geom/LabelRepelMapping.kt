@@ -14,11 +14,11 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
  * @param y Y-axis value.
  * @param label Text to add to plot.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Repelled label text color.
+ * @param color Color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Repelled label background color.
+ * @param fill Background color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Repelled label font size.
+ * @param size Font size.
  * @param family Repelled label font family.
  *  For more info see: [aesthetics.html#font-family](https://lets-plot.org/kotlin/aesthetics.html#font-family).
  * @param fontface Repelled label font face.

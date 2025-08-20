@@ -56,17 +56,17 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  If the automatic detection doesn't work, it can be set explicitly by specifying the "x" or "y" orientation.
  * @param x X-axis value.
  * @param y Y-axis value.
- * @param size Lollipop point size.
- * @param stroke Width of the shape border. Applied only to the shapes having border.
- * @param linewidth Lollipop stick width.
- * @param color Lollipop color.
+ * @param size Size.
+ * @param stroke Stroke width. Applied only to the shapes having border.
+ * @param linewidth Stick width.
+ * @param color Color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Lollipop point fill color. Applied only to the points of shapes having inner area.
+ * @param fill Fill color. Applied only to the points of shapes having inner area.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param shape Lollipop point shape.
+ * @param shape Shape.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
- * @param linetype Lollipop stick line type.
+ * @param linetype Stick line type.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.

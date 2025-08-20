@@ -55,7 +55,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Two-sample Q-Q reference line color.
+ * @param color Line color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param linetype Two-sample Q-Q reference line type.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),

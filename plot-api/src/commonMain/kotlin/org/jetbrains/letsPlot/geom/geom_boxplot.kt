@@ -103,11 +103,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param xmax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR for horizontal boxplot.
  * @param width Width of boxplot. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the boxes.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Boxplot border color.
+ * @param color Border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fill Boxplot fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Boxplot border width.
+ * @param size Border width.
  * @param linetype Type of the line of border.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),

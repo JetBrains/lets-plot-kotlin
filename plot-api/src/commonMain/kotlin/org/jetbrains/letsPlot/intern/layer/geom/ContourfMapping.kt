@@ -14,7 +14,7 @@ import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
  * @param x X-axis coordinates of the center of rectangles, forming a tessellation.
  * @param y Y-axis coordinates of the center of rectangles, forming a tessellation.
  * @param z Value at point (x, y).
- * @param size Contour border width.
+ * @param size Border width.
  * @param linetype Contour border line type.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),

@@ -63,14 +63,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param y Y-axis coordinates.
  * @param violinWidth Density scaled for the sina plot, according to area, counts or to a constant maximum width.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Sina plot point color.
+ * @param color Color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Sina plot point fill color.
+ * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param shape Sina plot point shape.
+ * @param shape Shape.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
- * @param size Sina plot point size.
- * @param stroke Width of the shape border. Applied only to the shapes having border.
+ * @param size Size.
+ * @param stroke Stroke width. Applied only to the shapes having border.
  * @param width Width of sina bounding box.
  * @param weight Used by `Stat.sina()` stat to compute weighted density.
  * @param seed A random seed to make the jitter reproducible.

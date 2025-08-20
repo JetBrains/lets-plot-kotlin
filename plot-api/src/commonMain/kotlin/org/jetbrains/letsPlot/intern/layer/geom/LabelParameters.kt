@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.intern.Options
  *
  * @param labelPadding Padding around label text.
  * @param labelR Radius for rounded label corners.
- * @param labelSize Label outline width.
+ * @param labelSize Stroke width.
  * @param alphaStroke Whether to apply alpha to stroke (outline) as well as fill.
  */
 interface LabelParameters : TextParameters {

@@ -59,9 +59,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param xmin X-axis coordinates of the lower bound for vertical ribbon.
  * @param xmax X-axis coordinates of the upper bound for vertical ribbon.
  * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
- * @param color Ribbon border color.
+ * @param color Border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Ribbon border width.
+ * @param size Border width.
  * @param linetype Type of the line of border.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),

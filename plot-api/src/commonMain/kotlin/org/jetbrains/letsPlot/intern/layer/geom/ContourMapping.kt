@@ -20,10 +20,10 @@ import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
- * @param size Contour line width.
+ * @param size Line width.
  * @param group Grouping key. Observations with the same value form one group.
  *  If not set, grouping may be inferred from other aesthetics (e.g., color, shape).
- * @param color Contour line color.
+ * @param color Line color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed.
  *  Map a variable here for composite/multi-channel color with a matching scale.
