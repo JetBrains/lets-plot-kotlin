@@ -81,10 +81,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  In effect is replacemets for option `position = positionStack()`.
  *  Note: unlike other geoms, `dotplot` doesn't have `position` option.
  * @param stroke Width of the dot border.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Y-direction dot plot dot border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @param fill Y-direction dot plot dot fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.

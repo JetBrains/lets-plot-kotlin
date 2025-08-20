@@ -62,15 +62,14 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param x X-axis coordinates.
  * @param y Y-axis coordinates.
  * @param violinWidth Density scaled for the sina plot, according to area, counts or to a constant maximum width.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Sina plot point color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @param fill Sina plot point fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param shape Shape of the sina points.
+ * @param shape Sina plot point shape.
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
- * @param size Lines width.
- *  Defines line width.
+ * @param size Sina plot point size.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param width Width of sina bounding box.
  * @param weight Used by `Stat.sina()` stat to compute weighted density.
