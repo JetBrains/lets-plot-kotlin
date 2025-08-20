@@ -7,6 +7,42 @@ package org.jetbrains.letsPlot.intern.layer.geom
 
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 
+/**
+ * Aesthetic mappings supported by [geomLabelRepel()][org.jetbrains.letsPlot.geom.geomLabelRepel].
+ *
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ * @param label Text to add to plot.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Repelled label text color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param fill Repelled label background color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param size Repelled label font size.
+ * @param family Repelled label font family.
+ *  For more info see: [aesthetics.html#font-family](https://lets-plot.org/kotlin/aesthetics.html#font-family).
+ * @param fontface Repelled label font face.
+ *  For more info see: [aesthetics.html#font-face](https://lets-plot.org/kotlin/aesthetics.html#font-face).
+ * @param hjust Horizontal text alignment relative to the x-coordinate.
+ * @param vjust Vertical text alignment relative to the y-coordinate.
+ * @param angle Label rotation angle in degrees.
+ * @param lineheight Line height multiplier applied to the font size in the case of multi-line text.
+ * @param shape Shape of the point.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
+ * @param pointSize A value representing the visual size of the point associated with the label.
+ * @param pointStroke Width of the point border.
+ * @param segmentColor Color of the line segment connecting the label to the point.
+ * @param segmentSize Width of the line segment connecting the label to the point.
+ * @param segmentAlpha Transparency level of the line segment.
+ * @param linetype Line segment type.
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
+ * @param group Grouping key. Observations with the same value form one group.
+ *  If not set, grouping may be inferred from other aesthetics (e.g., color, shape).
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed.
+ *  Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
+ */
 class LabelRepelMapping(
     override var x: Any? = null,
     override var y: Any? = null,

@@ -55,11 +55,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param label Text to add to plot.
- * @param alpha Transparency level of a layer.
- *  Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Repelled text color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Font size.
+ * @param size Repelled text font size.
  * @param family default = "sans".
  *  For more info see: [aesthetics.html#font-family](https://lets-plot.org/kotlin/aesthetics.html#font-family).
  * @param fontface default = "plain".
