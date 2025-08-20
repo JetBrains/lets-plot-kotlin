@@ -63,13 +63,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param xmin Lower bound for horizontal bar.
  * @param xmax Upper bound for horizontal bar.
  * @param width Width of a bar. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the bars.
- * @param alpha Transparency level of a layer.
- *  Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Crossbar border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @param fill Crossbar fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Lines width.
+ * @param size Crossbar border width.
  * @param linetype Type of the lines.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),

@@ -63,13 +63,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param x X-axis value (this value will produce cases or bins for bars).
  * @param y Y-axis value (this value will be used to multiply the bar heights), setting y to "..density.." produces
  *  normalized (density) histogram.
- * @param alpha Transparency level of a layer.
- *  Understands numbers between 0 and 1.
- * @param color Color of geometry lines.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Histogram bar border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @param fill Histogram bar fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Defines bar line width.
+ * @param size Histogram bar border width.
  * @param weight Used by `Stat.bin()` to compute weighted sum instead of simple count.
  * @param bins Number of bins. Overridden by `binWidth`.
  * @param binWidth The width of the bins. The default is to use bin widths that cover 

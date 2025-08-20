@@ -64,12 +64,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param y Predicted (smoothed) value.
  * @param ymin Lower pointwise confidence interval around the mean.
  * @param ymax Upper pointwise confidence interval around the mean.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Smooth line color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fill Filling color for the confidence interval around the line.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Lines width.
+ * @param size Line width.
  *  Defines line width for conditional mean and confidence bounds lines.
  * @param linetype Type of the line for conditional mean.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),

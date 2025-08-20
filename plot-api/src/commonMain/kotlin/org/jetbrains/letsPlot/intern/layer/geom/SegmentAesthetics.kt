@@ -8,6 +8,31 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic parameters supported by [geomSegment()][org.jetbrains.letsPlot.geom.geomSegment].
+ *
+ * @param x X-axis value for the segment start.
+ * @param y Y-axis value for the segment start.
+ * @param xend X-axis value for the segment end.
+ * @param yend Y-axis value for the segment end.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Segment color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param linetype Type of the line.
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
+ * @param size Segment width.
+ * @param sizeStart Offset from the segment start coordinate.
+ *  Usually equal to the size of the point object from which the segment starts to avoid overlapping with it.
+ * @param sizeEnd Offset from the segment end coordinate.
+ *  Usually equal to the size of the point object from which the segment ends to avoid overlapping with it.
+ * @param strokeStart Offset from the segment start coordinate.
+ *  Usually equal to the stroke of the point object from which the segment starts to avoid overlapping with it.
+ * @param strokeEnd Offset from the segment end coordinate.
+ *  Usually equal to the stroke of the point object from which the segment ends to avoid overlapping with it.
+ */
 interface SegmentAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?

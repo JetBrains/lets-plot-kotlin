@@ -49,12 +49,12 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param y Y-axis coordinates of the center of rectangles.
  * @param width Width of a tile. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the tiles.
  * @param height Height of a tile. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the tiles.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Tile border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @param fill Tile fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Line width, default = 0 (i.e., tiles outline initially is not visible).
+ * @param size Tile border width, default = 0 (i.e., tiles outline initially is not visible).
  * @param linetype Type of the line.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
