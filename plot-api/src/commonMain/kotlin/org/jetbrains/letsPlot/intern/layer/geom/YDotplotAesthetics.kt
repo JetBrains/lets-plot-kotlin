@@ -3,11 +3,31 @@
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
+/*
+ * Copyright (c) 2023. JetBrains s.r.o.
+ * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+ */
+
 package org.jetbrains.letsPlot.intern.layer.geom
 
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic parameters supported by [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
+ *
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ * @param binWidth Width of bins for histogram-like binning.
+ * @param stackSize Stacking height size for dots.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Dot outline color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param fill Dot fill color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param size Dot size.
+ * @param stroke Dot outline width.
+ */
 interface YDotplotAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?

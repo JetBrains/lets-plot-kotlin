@@ -9,6 +9,16 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters for [geomPie()][org.jetbrains.letsPlot.geom.geomPie].
+ *
+ * @param hole Size of the pie hole as a fraction of the pie radius (0 = no hole, 1 = maximum hole).
+ * @param strokeSide Which side of pie slice border to draw ("outer", "inner", "both").
+ * @param spacerWidth Width of spacers between pie slices.
+ * @param spacerColor Color of spacers between pie slices.
+ * @param start Starting angle for the first pie slice in radians (0 = 3 o'clock position).
+ * @param direction Direction for pie slice ordering (1 = clockwise, -1 = counterclockwise).
+ */
 interface PieParameters : OptionsCapsule {
     val hole: Number?
     val strokeSide: String?

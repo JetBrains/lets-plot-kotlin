@@ -9,6 +9,14 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters for [geomLollipop()][org.jetbrains.letsPlot.geom.geomLollipop].
+ *
+ * @param fatten Multiplier for expanding the lollipop head size relative to normal point size.
+ * @param slope Slope for orienting lollipop sticks at an angle.
+ * @param intercept Y-intercept for angled lollipop sticks.
+ * @param dir Direction of lollipop sticks ("v" for vertical, "h" for horizontal).
+ */
 interface LollipopParameters : OptionsCapsule {
     val fatten: Number?
     val slope: Number?

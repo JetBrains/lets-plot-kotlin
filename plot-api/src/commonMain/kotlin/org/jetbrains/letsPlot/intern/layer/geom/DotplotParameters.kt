@@ -8,6 +8,14 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters for [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
+ *
+ * @param stackDir Stacking direction for dots ("up", "down", "center", "centerwhole").
+ * @param stackRatio Ratio between dot height and the spacing between dot centers.
+ * @param dotSize Relative size of dots compared to bin width.
+ * @param stackGroups Whether to stack dots across groups or keep them separate.
+ */
 interface DotplotParameters : OptionsCapsule {
     val stackDir: String?
     val stackRatio: Number?

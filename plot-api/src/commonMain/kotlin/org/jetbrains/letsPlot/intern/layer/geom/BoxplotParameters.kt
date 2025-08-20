@@ -9,6 +9,12 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters for [geomBoxplot()][org.jetbrains.letsPlot.geom.geomBoxplot].
+ *
+ * @param fatten Multiplier for expanding the median line width relative to normal line width.
+ * @param whiskerWidth Relative width of whiskers as a fraction of the box width.
+ */
 interface BoxplotParameters : OptionsCapsule {
     val fatten: Number?
     val whiskerWidth: Number?

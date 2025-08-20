@@ -9,6 +9,16 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters for [geomText()][org.jetbrains.letsPlot.geom.geomText].
+ *
+ * @param labelFormat Format string for labels. Use LaTeX-style formatting for mathematical expressions.
+ * @param naText Text to display for missing (NA) values.
+ * @param nudgeX Horizontal adjustment to position text.
+ * @param nudgeY Vertical adjustment to position text.
+ * @param nudgeUnit Unit for nudge adjustments ("npc", "inch", "mm", etc.).
+ * @param checkOverlap Whether to check for and hide overlapping text labels.
+ */
 interface TextParameters : OptionsCapsule {
     val labelFormat: String?
     val naText: String?

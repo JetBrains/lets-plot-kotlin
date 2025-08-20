@@ -8,6 +8,19 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic parameters supported by [geomQQ()][org.jetbrains.letsPlot.geom.geomQQ].
+ *
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Q-Q point color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param fill Q-Q point fill color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param shape Q-Q point shape.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
+ * @param size Q-Q point size.
+ * @param stroke Q-Q point stroke width.
+ */
 interface QQAesthetics : OptionsCapsule {
     val alpha: Any?
     val color: Any?

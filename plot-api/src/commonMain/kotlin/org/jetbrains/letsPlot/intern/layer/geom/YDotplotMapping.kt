@@ -7,6 +7,26 @@ package org.jetbrains.letsPlot.intern.layer.geom
 
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 
+/**
+ * Aesthetic mappings supported by [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
+ *
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ * @param binWidth Width of bins for histogram-like binning.
+ * @param stackSize Stacking height size for dots.
+ * @param stroke Dot outline width.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Dot outline color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param fill Dot fill color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param group Grouping key. Observations with the same value form one group.
+ *  If not set, grouping may be inferred from other aesthetics (e.g., color, shape).
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed.
+ *  Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
+ */
 class YDotplotMapping(
     override var x: Any? = null,
     override var y: Any? = null,
