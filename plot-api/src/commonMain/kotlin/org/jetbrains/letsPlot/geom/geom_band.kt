@@ -41,14 +41,13 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param xmax Upper bound for the vertical band.
  * @param ymin Lower bound for the horizontal band.
  * @param ymax Upper bound for the horizontal band.
- * @param alpha Transparency level of a layer.
- *  Understands numbers between 0 and 1.
- * @param color Color of the band border.
+ * @param alpha Opacity; a number in [0, 1]. Lower values are more transparent (0 - transparent, 1 - opaque).
+ * @param color Band border color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @param fill Band fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Defines band border width.
- * @param linetype Type of the line.
+ * @param size Band border width.
+ * @param linetype Band border line type.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
