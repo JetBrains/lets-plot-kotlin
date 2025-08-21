@@ -9,10 +9,12 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * @param fatten A multiplicative factor applied to size of the middle bar.
+ * @param whiskerWidth A multiplicative factor applied to the box width to draw horizontal segments on whiskers.
+ */
 interface BoxplotParameters : OptionsCapsule {
-    /** A multiplicative factor applied to size of the middle bar. */
     val fatten: Number?
-    /** A multiplicative factor applied to the box width to draw horizontal segments on whiskers. */
     val whiskerWidth: Number?
 
     override fun seal() = Options.of(

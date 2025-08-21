@@ -8,29 +8,32 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 
 /**
- * Set of aesthetic mappings for abline.
+ * Set of aesthetic mappings for ABLine.
  * Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
+ *
+ * @param slope The line slope.
+ * @param intercept The value of y at the point where the line crosses the y-axis.
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param linetype Type of the line.
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
+ * @param size Line width.
  */
 class ABLineMapping(
-    /** The line slope. */
     override var slope: Any? = null,
-    /** The value of y at the point where the line crosses the y-axis. */
     override var intercept: Any? = null,
-    /** Transparency level of a layer. Understands numbers between 0 and 1. */
     override var alpha: Any? = null,
-    /** Color of the geometry. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill). */
     override var color: Any? = null,
-    /** Type of the line. Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"), a hex string (up to 8 digits for dash-gap lengths), or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`. For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types). */
     override var linetype: Any? = null,
-    /** Line width. */
     override var size: Any? = null,
-    /** Aesthetic group. */
     override var group: Any? = null,
-    /** Additional "color" aesthetic. Provide support for additional "color" or "fill" scales as needed. */
     override var paint_a: Any? = null,
-    /** Additional "color" aesthetic. Provide support for additional "color" or "fill" scales as needed. */
     override var paint_b: Any? = null,
-    /** Additional "color" aesthetic. Provide support for additional "color" or "fill" scales as needed. */
     override var paint_c: Any? = null
 ) : ABLineAesthetics, WithGroupOption, PaintAesthetics {
     override fun seal() = super<ABLineAesthetics>.seal() +
