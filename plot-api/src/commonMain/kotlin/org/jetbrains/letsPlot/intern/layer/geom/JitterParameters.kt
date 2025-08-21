@@ -9,6 +9,14 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters supported by [geomJitter()][org.jetbrains.letsPlot.geom.geomJitter].
+ *
+ * @param width Width for jitter, default = 0.4. Typically ranges between 0 and 0.5. 
+ *  Values that are greater than 0.5 lead to overlapping of the points.
+ * @param height Height for jitter, default = 0.4. Typically ranges between 0 and 0.5. 
+ *  Values that are greater than 0.5 lead to overlapping of the points.
+ */
 interface JitterParameters : OptionsCapsule {
     val width: Number?
     val height: Number?

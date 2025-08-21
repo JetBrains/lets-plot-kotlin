@@ -8,6 +8,18 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters supported by [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
+ *
+ * @param stackDir Which direction to stack the dots.
+ *  Values: "up", "down", "center", "centerwhole" (default = "up").
+ * @param stackRatio default = 1.0.
+ *  How close to stack the dots.
+ *  Use smaller values for closer, overlapping dots.
+ * @param dotSize default = 1.0.
+ *  The diameter of the dots relative to binWidth.
+ * @param stackGroups Stack dots across groups when method = "histodot".
+ */
 interface DotplotParameters : OptionsCapsule {
     val stackDir: String?
     val stackRatio: Number?

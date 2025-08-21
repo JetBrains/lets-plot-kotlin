@@ -8,6 +8,20 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic parameters supported by [geomHistogram()][org.jetbrains.letsPlot.geom.geomHistogram].
+ *
+ * @param x X-axis value (this value will produce cases or bins for bars).
+ * @param y Y-axis value (this value will be used to multiply the bar heights), setting y to "..density.." produces
+ *  normalized (density) histogram.
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of geometry lines.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param fill Fill color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param size Defines bar line width.
+ */
 interface HistogramAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
