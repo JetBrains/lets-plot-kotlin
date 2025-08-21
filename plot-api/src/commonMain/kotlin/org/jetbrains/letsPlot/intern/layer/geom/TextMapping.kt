@@ -31,6 +31,10 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
  *  There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
  * @param angle Text rotation angle in degrees.
  * @param lineheight Line height multiplier applied to the font size in the case of multi-line text.
+ * @param group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
  */
 class TextMapping(
     override var x: Any? = null,

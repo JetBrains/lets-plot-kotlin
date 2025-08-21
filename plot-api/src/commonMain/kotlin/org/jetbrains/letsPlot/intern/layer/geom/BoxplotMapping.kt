@@ -38,6 +38,10 @@ import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
  * @param shape Shape of the point. For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param angle Rotation angle of the shape, in degrees.
  * @param width Width of boxplot. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the boxes.
+ * @param group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
  */
 class BoxplotMapping(
     override var x: Any? = null,

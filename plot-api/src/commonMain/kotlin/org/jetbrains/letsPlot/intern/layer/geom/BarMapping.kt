@@ -22,6 +22,10 @@ import org.jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
  * @param width Width of a bar.
  * @param size Defines bar line width.
  * @param weight Used by `Stat.count()` stat to compute weighted sum instead of simple count.
+ * @param group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
  */
 class BarMapping(
     override var x: Any? = null,

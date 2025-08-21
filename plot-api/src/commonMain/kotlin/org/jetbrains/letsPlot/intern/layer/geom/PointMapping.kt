@@ -23,6 +23,10 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
  * @param size Size of the point.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param angle Rotation angle of the shape, in degrees.
+ * @param group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
  */
 class PointMapping(
     override var x: Any? = null,
