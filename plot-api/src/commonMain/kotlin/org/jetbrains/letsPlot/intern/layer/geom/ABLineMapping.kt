@@ -8,8 +8,7 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 
 /**
- * Set of aesthetic mappings for ABLine.
- * Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
+ * Aesthetic mappings supported by [geomABLine()][org.jetbrains.letsPlot.geom.geomABLine].
  *
  * @param slope The line slope.
  * @param intercept The value of y at the point where the line crosses the y-axis.

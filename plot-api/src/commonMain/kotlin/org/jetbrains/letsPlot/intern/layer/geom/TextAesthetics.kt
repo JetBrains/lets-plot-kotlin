@@ -9,6 +9,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
+ * Aesthetic parameters supported by [geomText()][org.jetbrains.letsPlot.geom.geomText].
+ *
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param label Text to add to plot.

@@ -9,6 +9,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
+ * Aesthetic parameters supported by [geomArea()][org.jetbrains.letsPlot.geom.geomArea].
+ *
  * @param x X-axis coordinates.
  * @param y Y-axis coordinates.
  * @param alpha Transparency level of a layer. 

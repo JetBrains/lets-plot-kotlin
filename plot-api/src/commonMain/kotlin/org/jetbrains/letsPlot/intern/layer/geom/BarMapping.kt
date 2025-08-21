@@ -9,8 +9,7 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 import org.jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
 
 /**
- * Set of aesthetic mappings for bar.
- * Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
+ * Aesthetic mappings supported by [geomBar()][org.jetbrains.letsPlot.geom.geomBar].
  *
  * @param x X-axis value (this value will produce cases or bins for bars).
  * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).

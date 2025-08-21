@@ -9,6 +9,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
+ * Aesthetic parameters supported by [geomLine()][org.jetbrains.letsPlot.geom.geomLine].
+ *
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param alpha Transparency level of a layer.

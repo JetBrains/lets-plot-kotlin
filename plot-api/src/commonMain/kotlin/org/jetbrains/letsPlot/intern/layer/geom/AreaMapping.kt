@@ -8,8 +8,7 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 
 /**
- * Set of aesthetic mappings for area.
- * Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
+ * Aesthetic mappings supported by [geomArea()][org.jetbrains.letsPlot.geom.geomArea].
  *
  * @param x X-axis coordinates.
  * @param y Y-axis coordinates.

@@ -10,6 +10,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
+ * Parameters supported by [geomText()][org.jetbrains.letsPlot.geom.geomText].
+ *
  * @param checkOverlap Skips plotting text that overlaps previous text in the same layer.
  * @param naText Text to show for missing values.
  * @param nudgeX Horizontal adjustment to nudge labels by.

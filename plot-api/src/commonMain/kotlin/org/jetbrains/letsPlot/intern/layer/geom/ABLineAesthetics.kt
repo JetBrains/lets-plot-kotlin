@@ -9,6 +9,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
+ * Aesthetic parameters supported by [geomABLine()][org.jetbrains.letsPlot.geom.geomABLine].
+ *
  * @param slope The line slope.
  * @param intercept The value of y at the point where the line crosses the y-axis.
  * @param alpha Transparency level of a layer.

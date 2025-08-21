@@ -9,6 +9,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
+ * Aesthetic parameters supported by [geomPath()][org.jetbrains.letsPlot.geom.geomPath].
+ *
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.

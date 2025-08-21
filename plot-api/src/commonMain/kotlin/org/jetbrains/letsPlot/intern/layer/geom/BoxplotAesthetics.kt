@@ -9,6 +9,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
+ * Aesthetic parameters supported by [geomBoxplot()][org.jetbrains.letsPlot.geom.geomBoxplot].
+ *
  * @param x x-axis coordinate for vertical boxplot.
  * @param y y-axis coordinate for horizontal boxplot.
  * @param lower Lower hinge, 25% quantile for vertical boxplot.

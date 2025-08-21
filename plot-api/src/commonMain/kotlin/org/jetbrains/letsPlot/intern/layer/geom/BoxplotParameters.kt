@@ -10,6 +10,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
+ * Parameters supported by [geomBoxplot()][org.jetbrains.letsPlot.geom.geomBoxplot].
+ *
  * @param fatten A multiplicative factor applied to size of the middle bar.
  * @param whiskerWidth A multiplicative factor applied to the box width to draw horizontal segments on whiskers.
  */

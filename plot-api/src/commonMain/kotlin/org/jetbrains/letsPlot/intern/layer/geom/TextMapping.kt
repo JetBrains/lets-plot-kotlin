@@ -8,8 +8,7 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 
 /**
- * Set of aesthetic mappings for text.
- * Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
+ * Aesthetic mappings supported by [geomText()][org.jetbrains.letsPlot.geom.geomText].
  *
  * @param x X-axis value.
  * @param y Y-axis value.

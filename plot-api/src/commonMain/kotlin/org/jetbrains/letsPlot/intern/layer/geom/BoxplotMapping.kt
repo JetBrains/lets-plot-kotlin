@@ -9,8 +9,7 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 import org.jetbrains.letsPlot.intern.layer.stat.BoxplotStatAesthetics
 
 /**
- * Set of aesthetic mappings for boxplot.
- * Aesthetic mappings describe the way that variables in the data are mapped to plot "aesthetics".
+ * Aesthetic mappings supported by [geomBoxplot()][org.jetbrains.letsPlot.geom.geomBoxplot].
  *
  * @param x x-axis coordinate for vertical boxplot.
  * @param y y-axis coordinate for horizontal boxplot.

@@ -9,6 +9,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
+ * Aesthetic parameters supported by [geomPolygon()][org.jetbrains.letsPlot.geom.geomPolygon].
+ *
  * @param x X-axis coordinates of the vertices of the polygon.
  * @param y Y-axis coordinates of the vertices of the polygon.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
