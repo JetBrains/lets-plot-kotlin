@@ -5,7 +5,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Parameters supported by repel functions.
+ * Parameters supported by [geomTextRepel()][org.jetbrains.letsPlot.geom.geomTextRepel] and [geomLabelRepel()][org.jetbrains.letsPlot.geom.geomLabelRepel].
  *
  * @param seed Random seed for reproducibility.
  * @param maxIter Maximum number of iterations used to resolve collisions.

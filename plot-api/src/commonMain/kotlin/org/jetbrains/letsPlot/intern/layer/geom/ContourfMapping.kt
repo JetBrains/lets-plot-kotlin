@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
 
 /**
- * Aesthetic mappings supported by [geomContourf()][org.jetbrains.letsPlot.geom.geomContourf].
+ * Aesthetic mappings supported by [geomContourFilled()][org.jetbrains.letsPlot.geom.geomContourFilled].
  *
  * @param x X-axis coordinates of the center of rectangles, forming a tessellation.
  * @param y Y-axis coordinates of the center of rectangles, forming a tessellation.
