@@ -9,6 +9,16 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters supported by [geomAreaRidges()][org.jetbrains.letsPlot.geom.geomAreaRidges].
+ *
+ * @param scale A multiplicative factor applied to height aesthetic.
+ *  If `scale = 1.0`, the heights of a ridges are automatically scaled
+ *  such that the ridge with `height = 1.0` just touches the one above.
+ * @param minHeight A height cutoff on the drawn ridges.
+ *  All values that fall below this cutoff will be removed.
+ * @param quantileLines Shows the quantile lines.
+ */
 interface AreaRidgesParameters : OptionsCapsule {
     val scale: Number?
     val minHeight: Number?
