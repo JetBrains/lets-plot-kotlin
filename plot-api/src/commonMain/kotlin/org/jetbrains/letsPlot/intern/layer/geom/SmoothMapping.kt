@@ -7,6 +7,23 @@ package org.jetbrains.letsPlot.intern.layer.geom
 
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 
+/**
+ * Aesthetic mappings supported by [geomSmooth()][org.jetbrains.letsPlot.geom.geomSmooth].
+ *
+ * @param x X-axis value.
+ * @param y Predicted (smoothed) value.
+ * @param ymin Lower pointwise confidence interval around the mean.
+ * @param ymax Upper pointwise confidence interval around the mean.
+ * @param size Lines width.
+ * @param linetype Type of the line for conditional mean.
+ * @param color Color of the geometry.
+ * @param fill Filling color for the confidence interval around the line.
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @param group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
+ */
 class SmoothMapping(
     override var x: Any? = null,
     override var y: Any? = null,
