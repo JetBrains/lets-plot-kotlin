@@ -7,8 +7,8 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Parameters supported by [geomSina()][org.jetbrains.letsPlot.geom.geomSina].
  *
- * @param showHalf If -1, only half of each group is drawn. If 1, another half is drawn. If 0, sina look as usual.
- * @param seed A random seed to make the jitter reproducible.
+ * @property showHalf If -1, only half of each group is drawn. If 1, another half is drawn. If 0, sina look as usual.
+ * @property seed A random seed to make the jitter reproducible.
  */
 interface SinaParameters : OptionsCapsule {
     val showHalf: Number?

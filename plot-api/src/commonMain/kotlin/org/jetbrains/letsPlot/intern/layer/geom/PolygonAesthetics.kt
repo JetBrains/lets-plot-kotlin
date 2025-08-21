@@ -11,19 +11,19 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomPolygon()][org.jetbrains.letsPlot.geom.geomPolygon].
  *
- * @param x X-axis coordinates of the vertices of the polygon.
- * @param y Y-axis coordinates of the vertices of the polygon.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @property x X-axis coordinates of the vertices of the polygon.
+ * @property y Y-axis coordinates of the vertices of the polygon.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Lines width.
+ * @property size Lines width.
  *  Defines line width.
- * @param linetype Type of the line of border.
+ * @property linetype Type of the line of border.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
- * @param fill Fill color.
+ * @property fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  */
 interface PolygonAesthetics : OptionsCapsule {

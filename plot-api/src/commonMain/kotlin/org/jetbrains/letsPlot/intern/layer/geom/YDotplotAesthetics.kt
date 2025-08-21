@@ -11,16 +11,16 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
  *
- * @param x X-axis coordinates.
- * @param y Y-axis coordinates.
- * @param binWidth When method is "dotdensity", this specifies maximum bin width.
+ * @property x X-axis coordinates.
+ * @property y Y-axis coordinates.
+ * @property binWidth When method is "dotdensity", this specifies maximum bin width.
  *  When method is "histodot", this specifies bin width.
- * @param stackSize The diameter of the dots relative to binWidth.
- * @param stroke Width of the dot border.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @property stackSize The diameter of the dots relative to binWidth.
+ * @property stroke Width of the dot border.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @property fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  */
 interface YDotplotAesthetics : OptionsCapsule {

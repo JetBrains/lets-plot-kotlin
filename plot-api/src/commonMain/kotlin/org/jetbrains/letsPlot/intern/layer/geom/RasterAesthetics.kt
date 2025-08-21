@@ -11,10 +11,10 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomRaster()][org.jetbrains.letsPlot.geom.geomRaster].
  *
- * @param x X-axis coordinates of the center of rectangles.
- * @param y Coordinates of the center of rectangles.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param fill Fill color. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @property x X-axis coordinates of the center of rectangles.
+ * @property y Coordinates of the center of rectangles.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property fill Fill color. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  */
 interface RasterAesthetics : OptionsCapsule {
     val x: Any?

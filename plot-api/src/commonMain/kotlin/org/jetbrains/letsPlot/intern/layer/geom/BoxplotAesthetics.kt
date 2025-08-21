@@ -11,33 +11,33 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomBoxplot()][org.jetbrains.letsPlot.geom.geomBoxplot].
  *
- * @param x x-axis coordinate for vertical boxplot.
- * @param y y-axis coordinate for horizontal boxplot.
- * @param lower Lower hinge, 25% quantile for vertical boxplot.
- * @param middle Median, 50% quantile for vertical boxplot.
- * @param upper Upper hinge, 75% quantile for vertical boxplot.
- * @param ymin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR for vertical boxplot.
- * @param ymax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR for vertical boxplot.
- * @param xlower Lower hinge, 25% quantile for horizontal boxplot.
- * @param xmiddle Median, 50% quantile for horizontal boxplot.
- * @param xupper Upper hinge, 75% quantile for horizontal boxplot.
- * @param xmin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR for horizontal boxplot.
- * @param xmax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR for horizontal boxplot.
- * @param alpha Transparency level of a layer.
+ * @property x x-axis coordinate for vertical boxplot.
+ * @property y y-axis coordinate for horizontal boxplot.
+ * @property lower Lower hinge, 25% quantile for vertical boxplot.
+ * @property middle Median, 50% quantile for vertical boxplot.
+ * @property upper Upper hinge, 75% quantile for vertical boxplot.
+ * @property ymin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR for vertical boxplot.
+ * @property ymax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR for vertical boxplot.
+ * @property xlower Lower hinge, 25% quantile for horizontal boxplot.
+ * @property xmiddle Median, 50% quantile for horizontal boxplot.
+ * @property xupper Upper hinge, 75% quantile for horizontal boxplot.
+ * @property xmin Lower whisker - the smallest observation greater than or equal to the lower hinge - 1.5 * IQR for horizontal boxplot.
+ * @property xmax Upper whisker - the largest observation less than or equal to the upper hinge + 1.5 * IQR for horizontal boxplot.
+ * @property alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @property color Color of the geometry.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @property fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Lines width.
- * @param linetype Type of the line of border.
+ * @property size Lines width.
+ * @property linetype Type of the line of border.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
- * @param shape Shape of the point. For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
- * @param angle Rotation angle of the shape, in degrees.
- * @param width Width of boxplot. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the boxes.
+ * @property shape Shape of the point. For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
+ * @property angle Rotation angle of the shape, in degrees.
+ * @property width Width of boxplot. Typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the boxes.
  */
 interface BoxplotAesthetics : OptionsCapsule {
     val x: Any?

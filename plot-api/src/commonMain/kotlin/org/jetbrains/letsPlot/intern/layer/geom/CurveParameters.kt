@@ -7,14 +7,14 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Parameters supported by [geomCurve()][org.jetbrains.letsPlot.geom.geomCurve].
  *
- * @param curvature The amount of curvature.
+ * @property curvature The amount of curvature.
  *  Negative values produce left-hand curves, positive values produce right-hand curves.
- * @param angle Angle in degrees, giving an amount to skew the control points of the curve.
+ * @property angle Angle in degrees, giving an amount to skew the control points of the curve.
  *  Values less than 90 skew the curve towards the start point
  *  and values greater than 90 skew the curve towards the end point.
- * @param ncp The number of control points used to draw the curve. More control points creates a smoother curve.
- * @param spacer Space to shorten a curve by moving the start/end.
- * @param arrow Specification for arrow head, as created by `arrow()` function.
+ * @property ncp The number of control points used to draw the curve. More control points creates a smoother curve.
+ * @property spacer Space to shorten a curve by moving the start/end.
+ * @property arrow Specification for arrow head, as created by `arrow()` function.
  */
 interface CurveParameters : OptionsCapsule {
     val curvature: Number?

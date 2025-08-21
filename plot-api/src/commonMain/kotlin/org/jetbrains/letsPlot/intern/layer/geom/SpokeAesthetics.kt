@@ -6,14 +6,14 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomSpoke()][org.jetbrains.letsPlot.geom.geomSpoke].
  *
- * @param x X-axis value.
- * @param y Y-axis value.
- * @param angle Slope's angle in radians.
- * @param radius Segment length.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the line.
- * @param linetype Type of the line.
- * @param size Line width.
+ * @property x X-axis value.
+ * @property y Y-axis value.
+ * @property angle Slope's angle in radians.
+ * @property radius Segment length.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the line.
+ * @property linetype Type of the line.
+ * @property size Line width.
  */
 interface SpokeAesthetics: OptionsCapsule {
 

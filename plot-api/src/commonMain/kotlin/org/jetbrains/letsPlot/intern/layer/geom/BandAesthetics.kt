@@ -6,18 +6,18 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomBand()][org.jetbrains.letsPlot.geom.geomBand].
  *
- * @param xmin Lower bound for the vertical band.
- * @param xmax Upper bound for the vertical band.
- * @param ymin Lower bound for the horizontal band.
- * @param ymax Upper bound for the horizontal band.
- * @param alpha Transparency level of a layer.
+ * @property xmin Lower bound for the vertical band.
+ * @property xmax Upper bound for the vertical band.
+ * @property ymin Lower bound for the horizontal band.
+ * @property ymax Upper bound for the horizontal band.
+ * @property alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
- * @param color Color of the band border.
+ * @property color Color of the band border.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @property fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Defines band border width.
- * @param linetype Type of the line.
+ * @property size Defines band border width.
+ * @property linetype Type of the line.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.

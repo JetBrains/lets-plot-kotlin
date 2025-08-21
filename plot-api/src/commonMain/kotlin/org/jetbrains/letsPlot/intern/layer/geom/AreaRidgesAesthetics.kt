@@ -11,21 +11,21 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomAreaRidges()][org.jetbrains.letsPlot.geom.geomAreaRidges].
  *
- * @param x X-axis coordinates.
- * @param y Y-axis coordinates.
- * @param height Height of the ridge. Assumed to be between 0 and 1, though this is not required.
- * @param quantile Quantile values to draw quantile lines and fill quantiles of the geometry by color.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @property x X-axis coordinates.
+ * @property y Y-axis coordinates.
+ * @property height Height of the ridge. Assumed to be between 0 and 1, though this is not required.
+ * @property quantile Quantile values to draw quantile lines and fill quantiles of the geometry by color.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @property fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param linetype Type of the line of border.
+ * @property linetype Type of the line of border.
  *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
- * @param size Defines line width.
+ * @property size Defines line width.
  */
 @Suppress("SpellCheckingInspection")
 interface AreaRidgesAesthetics : OptionsCapsule {

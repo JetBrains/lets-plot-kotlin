@@ -11,15 +11,15 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomViolin()][org.jetbrains.letsPlot.geom.geomViolin].
  *
- * @param x X-axis coordinates.
- * @param y Y-axis coordinates.
- * @param violinWidth Density scaled for the violin plot, according to area, counts or to a constant maximum width.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
- * @param fill Fill color.
- * @param linetype Type of the line of border.
- * @param size Lines width.
- * @param width Width of violin bounding box.
+ * @property x X-axis coordinates.
+ * @property y Y-axis coordinates.
+ * @property violinWidth Density scaled for the violin plot, according to area, counts or to a constant maximum width.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry.
+ * @property fill Fill color.
+ * @property linetype Type of the line of border.
+ * @property size Lines width.
+ * @property width Width of violin bounding box.
  */
 @Suppress("SpellCheckingInspection")
 interface ViolinAesthetics : OptionsCapsule {

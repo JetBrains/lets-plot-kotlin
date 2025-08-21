@@ -11,16 +11,16 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
  *
- * @param x X-axis coordinates.
- * @param binWidth When method is "dotdensity", this specifies maximum bin width.
+ * @property x X-axis coordinates.
+ * @property binWidth When method is "dotdensity", this specifies maximum bin width.
  *  When method is "histodot", this specifies bin width.
- * @param stackSize The diameter of the dots relative to binWidth.
- * @param stroke Width of the dot border.
- * @param alpha Transparency level of a layer.
+ * @property stackSize The diameter of the dots relative to binWidth.
+ * @property stroke Width of the dot border.
+ * @property alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
- * @param color Color of geometry lines.
+ * @property color Color of geometry lines.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @property fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  */
 interface DotplotAesthetics : OptionsCapsule {

@@ -12,26 +12,26 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomLabelRepel()][org.jetbrains.letsPlot.geom.geomLabelRepel].
  *
- * @param x X-axis value.
- * @param y Y-axis value.
- * @param label Text to add to plot.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Background color of the label. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param size Font size.
- * @param family For more info see: [aesthetics.html#font-family](https://lets-plot.org/kotlin/aesthetics.html#font-family).
- * @param fontface For more info see: [aesthetics.html#font-face](https://lets-plot.org/kotlin/aesthetics.html#font-face).
- * @param hjust horizontal text alignment relative to the x-coordinate. Possible values: 0 or "left" - left-aligned (text starts at x), 0.5 or "middle" (default) - text is centered on x, 1 or "right" - right-aligned (text ends at x). There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
- * @param vjust vertical text alignment relative to the y-coordinate. Possible values: 0 or "bottom" - bottom-aligned (bottom of text at y), 0.5 or "center" (default) - middle of text at y, 1 or "top" - top-aligned (top of text at y). There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
- * @param angle Label rotation angle in degrees.
- * @param lineheight Line height multiplier applied to the font size in the case of multi-line text.
- * @param shape Shape of the point. For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
- * @param pointSize A value representing the visual size of the point associated with the label. Set to 0 to prevent label repulsion from data points.
- * @param pointStroke Width of the point border.
- * @param segmentColor Color of the line segment connecting the label to the point.
- * @param segmentSize Width of the line segment connecting the label to the point.
- * @param segmentAlpha Transparency level of the line segment. Understands numbers between 0 and 1.
- * @param linetype Type of the line. Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"), a hex string (up to 8 digits for dash-gap lengths), or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`. For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
+ * @property x X-axis value.
+ * @property y Y-axis value.
+ * @property label Text to add to plot.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @property fill Background color of the label. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @property size Font size.
+ * @property family For more info see: [aesthetics.html#font-family](https://lets-plot.org/kotlin/aesthetics.html#font-family).
+ * @property fontface For more info see: [aesthetics.html#font-face](https://lets-plot.org/kotlin/aesthetics.html#font-face).
+ * @property hjust horizontal text alignment relative to the x-coordinate. Possible values: 0 or "left" - left-aligned (text starts at x), 0.5 or "middle" (default) - text is centered on x, 1 or "right" - right-aligned (text ends at x). There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
+ * @property vjust vertical text alignment relative to the y-coordinate. Possible values: 0 or "bottom" - bottom-aligned (bottom of text at y), 0.5 or "center" (default) - middle of text at y, 1 or "top" - top-aligned (top of text at y). There are two special alignments: "inward" (aligns text towards the plot center) and "outward" (away from the plot center).
+ * @property angle Label rotation angle in degrees.
+ * @property lineheight Line height multiplier applied to the font size in the case of multi-line text.
+ * @property shape Shape of the point. For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
+ * @property pointSize A value representing the visual size of the point associated with the label. Set to 0 to prevent label repulsion from data points.
+ * @property pointStroke Width of the point border.
+ * @property segmentColor Color of the line segment connecting the label to the point.
+ * @property segmentSize Width of the line segment connecting the label to the point.
+ * @property segmentAlpha Transparency level of the line segment. Understands numbers between 0 and 1.
+ * @property linetype Type of the line. Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"), a hex string (up to 8 digits for dash-gap lengths), or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`. For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  */
 interface LabelRepelAesthetics : OptionsCapsule {
     val x: Any?

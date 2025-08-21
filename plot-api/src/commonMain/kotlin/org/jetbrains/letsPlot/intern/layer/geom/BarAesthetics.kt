@@ -11,16 +11,16 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomBar()][org.jetbrains.letsPlot.geom.geomBar].
  *
- * @param x X-axis value (this value will produce cases or bins for bars).
- * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).
- * @param alpha Transparency level of a layer.
+ * @property x X-axis value (this value will produce cases or bins for bars).
+ * @property y Y-axis value (this value will be used to multiply the case's or bin's counts).
+ * @property alpha Transparency level of a layer.
  *  Understands numbers between 0 and 1.
- * @param color Color of the geometry.
+ * @property color Color of the geometry.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param fill Fill color.
+ * @property fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
- * @param width Width of a bar.
- * @param size Defines bar line width.
+ * @property width Width of a bar.
+ * @property size Defines bar line width.
  */
 interface BarAesthetics : OptionsCapsule {
     val x: Any?

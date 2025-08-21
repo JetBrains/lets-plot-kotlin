@@ -11,11 +11,11 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 /**
  * Aesthetic parameters supported by [geomVLine()][org.jetbrains.letsPlot.geom.geomVLine].
  *
- * @param xintercept Line x-intercept.
- * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
- * @param color Color of the geometry.
- * @param linetype Type of the line.
- * @param size Lines width.
+ * @property xintercept Line x-intercept.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry.
+ * @property linetype Type of the line.
+ * @property size Lines width.
  */
 interface VLineAesthetics : OptionsCapsule {
     @Suppress("SpellCheckingInspection")
