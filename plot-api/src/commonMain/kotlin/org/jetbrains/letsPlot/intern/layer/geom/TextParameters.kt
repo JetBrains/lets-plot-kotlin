@@ -10,11 +10,17 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 interface TextParameters : OptionsCapsule {
+    /** Specifies the format pattern for displaying mapped values. */
     val labelFormat: String?
+    /** Text to show for missing values. */
     val naText: String?
+    /** Horizontal adjustment to nudge labels by. */
     val nudgeX: Number?
+    /** Vertical adjustment to nudge labels by. */
     val nudgeY: Number?
+    /** Units for x and y nudging. Possible values: "identity", "size", "px". */
     val nudgeUnit: String?
+    /** Skips plotting text that overlaps previous text in the same layer. */
     val checkOverlap: Boolean?
 
     override fun seal() = Options.of(
