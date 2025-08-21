@@ -9,8 +9,11 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Additional "color" aesthetics.
- * Provide support for additional "color" or "fill" scales as needed.
+ * Aesthetic parameters for auxiliary paint channels.
+ *
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
  */
 @Suppress("PropertyName")
 interface PaintAesthetics : OptionsCapsule {
