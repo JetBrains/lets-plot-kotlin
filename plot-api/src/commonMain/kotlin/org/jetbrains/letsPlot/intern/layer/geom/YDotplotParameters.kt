@@ -7,14 +7,5 @@ package org.jetbrains.letsPlot.intern.layer.geom
 
 /**
  * Properties for parameters of [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
- *
- * @property stackDir Which direction to stack the dots.
- *  Values: "up", "down", "center", "centerwhole" (default = "up").
- * @property stackRatio default = 1.0.
- *  How close to stack the dots.
- *  Use smaller values for closer, overlapping dots.
- * @property dotSize default = 1.0.
- *  The diameter of the dots relative to binWidth.
- * @property stackGroups Stack dots across groups when method = "histodot".
  */
 interface YDotplotParameters : DotplotParameters
