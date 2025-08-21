@@ -8,6 +8,19 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic parameters supported by [geomPie()][org.jetbrains.letsPlot.geom.geomPie].
+ *
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ * @param slice Values associated to pie sectors.
+ * @param explode Values to explode slices away from their center point, detaching it from the main pie.
+ * @param size Pie diameter.
+ * @param fill Fill color. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @param color Color of inner and outer arcs of pie sector. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param stroke Width of inner and outer arcs of pie sector.
+ */
 interface PieAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?

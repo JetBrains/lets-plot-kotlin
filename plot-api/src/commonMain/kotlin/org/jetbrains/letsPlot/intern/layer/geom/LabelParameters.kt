@@ -8,6 +8,14 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 
+/**
+ * Parameters supported by [geomLabel()][org.jetbrains.letsPlot.geom.geomLabel].
+ *
+ * @param labelPadding Amount of padding around label. Defaults to 0.25 of font size.
+ * @param labelR Radius of rounded corners. Defaults to 0.15 of label height.
+ * @param labelSize Size of label border.
+ * @param alphaStroke Enables the applying of 'alpha' to 'color' (label text and border).
+ */
 interface LabelParameters : TextParameters {
     val labelPadding: Number?
     val labelR: Number?

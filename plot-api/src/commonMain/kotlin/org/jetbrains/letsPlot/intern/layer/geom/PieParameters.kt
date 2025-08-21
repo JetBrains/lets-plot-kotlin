@@ -9,6 +9,16 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters supported by [geomPie()][org.jetbrains.letsPlot.geom.geomPie].
+ *
+ * @param hole A multiplicative factor applied to the pie diameter to draw donut-like chart. Understands numbers between 0 and 1.
+ * @param strokeSide Defines which arcs of pie sector should have a stroke.
+ * @param spacerWidth Line width between sectors. Spacers are not applied to exploded sectors and to sides of adjacent sectors.
+ * @param spacerColor Color for spacers between sectors. By default, the "paper" color is used. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param start Specify the angle at which the first sector starts. Accept values between 0 and 360. Default is a negative angle of the first sector.
+ * @param direction Specify angle direction, 1=clockwise, -1=counter-clockwise.
+ */
 interface PieParameters : OptionsCapsule {
     val hole: Number?
     val strokeSide: String?
