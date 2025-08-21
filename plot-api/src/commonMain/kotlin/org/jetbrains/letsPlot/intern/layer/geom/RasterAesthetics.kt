@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomRaster()][org.jetbrains.letsPlot.geom.geomRaster].
+ * Aesthetic properties supported by [geomRaster()][org.jetbrains.letsPlot.geom.geomRaster].
  *
  * @property x X-axis coordinates of the center of rectangles.
  * @property y Coordinates of the center of rectangles.

@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomPolygon()][org.jetbrains.letsPlot.geom.geomPolygon].
+ * Aesthetic properties supported by [geomPolygon()][org.jetbrains.letsPlot.geom.geomPolygon].
  *
  * @property x X-axis coordinates of the vertices of the polygon.
  * @property y Y-axis coordinates of the vertices of the polygon.

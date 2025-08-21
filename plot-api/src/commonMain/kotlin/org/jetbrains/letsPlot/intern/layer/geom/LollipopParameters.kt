@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Parameters supported by [geomLollipop()][org.jetbrains.letsPlot.geom.geomLollipop].
+ * Properties for parameters of [geomLollipop()][org.jetbrains.letsPlot.geom.geomLollipop].
  *
  * @property fatten A multiplicative factor applied to size of the point.
  * @property slope The baseline slope.

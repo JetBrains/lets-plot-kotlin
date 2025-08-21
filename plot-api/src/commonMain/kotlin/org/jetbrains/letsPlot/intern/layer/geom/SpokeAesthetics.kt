@@ -4,7 +4,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomSpoke()][org.jetbrains.letsPlot.geom.geomSpoke].
+ * Aesthetic properties supported by [geomSpoke()][org.jetbrains.letsPlot.geom.geomSpoke].
  *
  * @property x X-axis value.
  * @property y Y-axis value.

@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Parameters supported by [geomPie()][org.jetbrains.letsPlot.geom.geomPie].
+ * Properties for parameters of [geomPie()][org.jetbrains.letsPlot.geom.geomPie].
  *
  * @property hole A multiplicative factor applied to the pie diameter to draw donut-like chart. Understands numbers between 0 and 1.
  * @property strokeSide Defines which arcs of pie sector should have a stroke.

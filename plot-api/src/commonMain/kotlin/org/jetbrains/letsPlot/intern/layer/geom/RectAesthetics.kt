@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomRect()][org.jetbrains.letsPlot.geom.geomRect].
+ * Aesthetic properties supported by [geomRect()][org.jetbrains.letsPlot.geom.geomRect].
  *
  * @property xmin X-axis value.
  * @property xmax X-axis value.

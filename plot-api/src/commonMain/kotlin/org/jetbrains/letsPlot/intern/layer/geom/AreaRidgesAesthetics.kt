@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomAreaRidges()][org.jetbrains.letsPlot.geom.geomAreaRidges].
+ * Aesthetic properties supported by [geomAreaRidges()][org.jetbrains.letsPlot.geom.geomAreaRidges].
  *
  * @property x X-axis coordinates.
  * @property y Y-axis coordinates.

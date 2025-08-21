@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomRibbon()][org.jetbrains.letsPlot.geom.geomRibbon].
+ * Aesthetic properties supported by [geomRibbon()][org.jetbrains.letsPlot.geom.geomRibbon].
  *
  * @property x X-axis coordinates for horizontal ribbon.
  * @property ymin Y-axis coordinates of the lower bound for horizontal ribbon.

@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomSegment()][org.jetbrains.letsPlot.geom.geomSegment].
+ * Aesthetic properties supported by [geomSegment()][org.jetbrains.letsPlot.geom.geomSegment].
  *
  * @property x X-axis value.
  * @property y Y-axis value.

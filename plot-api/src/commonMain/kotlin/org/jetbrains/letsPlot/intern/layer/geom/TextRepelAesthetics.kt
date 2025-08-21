@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomTextRepel()][org.jetbrains.letsPlot.geom.geomTextRepel].
+ * Aesthetic properties supported by [geomTextRepel()][org.jetbrains.letsPlot.geom.geomTextRepel].
  *
  * @property x X-axis value.
  * @property y Y-axis value.

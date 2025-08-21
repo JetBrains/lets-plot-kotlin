@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomHLine()][org.jetbrains.letsPlot.geom.geomHLine].
+ * Aesthetic properties supported by [geomHLine()][org.jetbrains.letsPlot.geom.geomHLine].
  *
  * @property yintercept The value of y at the point where the line crosses the y-axis.
  * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.

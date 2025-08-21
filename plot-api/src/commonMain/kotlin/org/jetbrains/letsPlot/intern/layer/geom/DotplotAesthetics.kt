@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
+ * Aesthetic properties supported by [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
  *
  * @property x X-axis coordinates.
  * @property binWidth When method is "dotdensity", this specifies maximum bin width.

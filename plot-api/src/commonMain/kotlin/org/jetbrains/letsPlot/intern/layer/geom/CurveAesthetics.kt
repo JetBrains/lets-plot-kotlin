@@ -4,7 +4,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomCurve()][org.jetbrains.letsPlot.geom.geomCurve].
+ * Aesthetic properties supported by [geomCurve()][org.jetbrains.letsPlot.geom.geomCurve].
  *
  * @property x X-axis value.
  * @property y Y-axis value.

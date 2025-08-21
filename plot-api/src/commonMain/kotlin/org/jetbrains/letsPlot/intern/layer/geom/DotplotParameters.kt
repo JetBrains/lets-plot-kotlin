@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Parameters supported by [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
+ * Properties for parameters of [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
  *
  * @property stackDir Which direction to stack the dots.
  *  Values: "up", "down", "center", "centerwhole" (default = "up").

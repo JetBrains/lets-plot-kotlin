@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomPointRange()][org.jetbrains.letsPlot.geom.geomPointRange].
+ * Aesthetic properties supported by [geomPointRange()][org.jetbrains.letsPlot.geom.geomPointRange].
  *
  * @property x X-axis coordinates for vertical interval / position of mid-point for horizontal interval.
  * @property y Y-axis coordinates for horizontal interval / position of mid-point for vertical interval.

@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 
 /**
- * Parameters supported by [geomLabel()][org.jetbrains.letsPlot.geom.geomLabel].
+ * Properties for parameters of [geomLabel()][org.jetbrains.letsPlot.geom.geomLabel].
  *
  * @property labelPadding Amount of padding around label. Defaults to 0.25 of font size.
  * @property labelR Radius of rounded corners. Defaults to 0.15 of label height.

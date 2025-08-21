@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomCrossbar()][org.jetbrains.letsPlot.geom.geomCrossbar].
+ * Aesthetic properties supported by [geomCrossbar()][org.jetbrains.letsPlot.geom.geomCrossbar].
  *
  * @property x X-axis coordinates for vertical bar / position of median for horizontal bar.
  * @property ymin Lower bound for vertical bar.

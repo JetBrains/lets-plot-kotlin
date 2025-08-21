@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomErrorBar()][org.jetbrains.letsPlot.geom.geomErrorBar].
+ * Aesthetic properties supported by [geomErrorBar()][org.jetbrains.letsPlot.geom.geomErrorBar].
  *
  * @property x X-axis coordinates for the vertical error bar.
  * @property ymin Lower bound for the vertical error bar.

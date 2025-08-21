@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomLineRange()][org.jetbrains.letsPlot.geom.geomLineRange].
+ * Aesthetic properties supported by [geomLineRange()][org.jetbrains.letsPlot.geom.geomLineRange].
  *
  * @property x X-axis coordinates for vertical line range.
  * @property ymin Lower bound for vertical line range.

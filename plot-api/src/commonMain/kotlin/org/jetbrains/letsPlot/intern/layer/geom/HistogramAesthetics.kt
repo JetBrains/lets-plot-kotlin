@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomHistogram()][org.jetbrains.letsPlot.geom.geomHistogram].
+ * Aesthetic properties supported by [geomHistogram()][org.jetbrains.letsPlot.geom.geomHistogram].
  *
  * @property x X-axis value (this value will produce cases or bins for bars).
  * @property y Y-axis value (this value will be used to multiply the bar heights), setting y to "..density.." produces

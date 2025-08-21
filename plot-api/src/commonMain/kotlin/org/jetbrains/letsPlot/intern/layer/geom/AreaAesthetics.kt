@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomArea()][org.jetbrains.letsPlot.geom.geomArea].
+ * Aesthetic properties supported by [geomArea()][org.jetbrains.letsPlot.geom.geomArea].
  *
  * @property x X-axis coordinates.
  * @property y Y-axis coordinates.

@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomVLine()][org.jetbrains.letsPlot.geom.geomVLine].
+ * Aesthetic properties supported by [geomVLine()][org.jetbrains.letsPlot.geom.geomVLine].
  *
  * @property xintercept Line x-intercept.
  * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.

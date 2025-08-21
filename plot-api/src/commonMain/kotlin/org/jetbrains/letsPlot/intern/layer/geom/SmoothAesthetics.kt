@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomSmooth()][org.jetbrains.letsPlot.geom.geomSmooth].
+ * Aesthetic properties supported by [geomSmooth()][org.jetbrains.letsPlot.geom.geomSmooth].
  *
  * @property x X-axis value.
  * @property y Predicted (smoothed) value.

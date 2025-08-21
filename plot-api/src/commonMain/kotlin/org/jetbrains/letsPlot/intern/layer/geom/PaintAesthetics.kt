@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters for auxiliary paint channels.
+ * Aesthetic properties for auxiliary paint channels.
  *
  * @property paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
  * @property paint_b Auxiliary paint channel B. See `paint_a`.

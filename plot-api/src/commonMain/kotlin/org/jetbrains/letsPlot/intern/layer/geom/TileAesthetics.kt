@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomTile()][org.jetbrains.letsPlot.geom.geomTile].
+ * Aesthetic properties supported by [geomTile()][org.jetbrains.letsPlot.geom.geomTile].
  *
  * @property x X-axis coordinates of the center of rectangles.
  * @property y Y-axis coordinates of the center of rectangles.

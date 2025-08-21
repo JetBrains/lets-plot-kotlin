@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomLollipop()][org.jetbrains.letsPlot.geom.geomLollipop].
+ * Aesthetic properties supported by [geomLollipop()][org.jetbrains.letsPlot.geom.geomLollipop].
  *
  * @property x X-axis value.
  * @property y Y-axis value.

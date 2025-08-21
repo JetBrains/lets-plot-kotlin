@@ -4,7 +4,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomHex()][org.jetbrains.letsPlot.geom.geomHex].
+ * Aesthetic properties supported by [geomHex()][org.jetbrains.letsPlot.geom.geomHex].
  *
  * @property x X-axis value.
  * @property y Y-axis value.

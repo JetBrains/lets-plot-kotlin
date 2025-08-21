@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomQQLine()][org.jetbrains.letsPlot.geom.geomQQLine].
+ * Aesthetic properties supported by [geomQQLine()][org.jetbrains.letsPlot.geom.geomQQLine].
  *
  * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @property color Color of the geometry. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).

@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomBoxplot()][org.jetbrains.letsPlot.geom.geomBoxplot].
+ * Aesthetic properties supported by [geomBoxplot()][org.jetbrains.letsPlot.geom.geomBoxplot].
  *
  * @property x x-axis coordinate for vertical boxplot.
  * @property y y-axis coordinate for horizontal boxplot.

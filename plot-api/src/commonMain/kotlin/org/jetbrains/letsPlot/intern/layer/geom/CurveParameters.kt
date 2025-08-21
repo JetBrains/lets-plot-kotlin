@@ -5,7 +5,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Parameters supported by [geomCurve()][org.jetbrains.letsPlot.geom.geomCurve].
+ * Properties for parameters of [geomCurve()][org.jetbrains.letsPlot.geom.geomCurve].
  *
  * @property curvature The amount of curvature.
  *  Negative values produce left-hand curves, positive values produce right-hand curves.

@@ -4,7 +4,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomSina()][org.jetbrains.letsPlot.geom.geomSina].
+ * Aesthetic properties supported by [geomSina()][org.jetbrains.letsPlot.geom.geomSina].
  *
  * @property x X-axis coordinates.
  * @property y Y-axis coordinates.

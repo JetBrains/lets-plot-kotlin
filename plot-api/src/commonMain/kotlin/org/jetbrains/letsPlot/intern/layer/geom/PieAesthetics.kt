@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomPie()][org.jetbrains.letsPlot.geom.geomPie].
+ * Aesthetic properties supported by [geomPie()][org.jetbrains.letsPlot.geom.geomPie].
  *
  * @property x X-axis value.
  * @property y Y-axis value.

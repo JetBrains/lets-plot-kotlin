@@ -6,7 +6,7 @@
 package org.jetbrains.letsPlot.intern.layer.geom
 
 /**
- * Parameters supported by [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
+ * Properties for parameters of [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
  *
  * @property stackDir Which direction to stack the dots.
  *  Values: "up", "down", "center", "centerwhole" (default = "up").

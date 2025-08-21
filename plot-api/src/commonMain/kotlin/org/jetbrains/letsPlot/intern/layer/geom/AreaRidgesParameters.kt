@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Parameters supported by [geomAreaRidges()][org.jetbrains.letsPlot.geom.geomAreaRidges].
+ * Properties for parameters of [geomAreaRidges()][org.jetbrains.letsPlot.geom.geomAreaRidges].
  *
  * @property scale A multiplicative factor applied to height aesthetic.
  *  If `scale = 1.0`, the heights of a ridges are automatically scaled

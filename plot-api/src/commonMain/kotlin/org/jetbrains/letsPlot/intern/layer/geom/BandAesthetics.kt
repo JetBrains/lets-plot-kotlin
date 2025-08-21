@@ -4,7 +4,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomBand()][org.jetbrains.letsPlot.geom.geomBand].
+ * Aesthetic properties supported by [geomBand()][org.jetbrains.letsPlot.geom.geomBand].
  *
  * @property xmin Lower bound for the vertical band.
  * @property xmax Upper bound for the vertical band.

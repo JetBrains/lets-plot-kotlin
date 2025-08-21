@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomViolin()][org.jetbrains.letsPlot.geom.geomViolin].
+ * Aesthetic properties supported by [geomViolin()][org.jetbrains.letsPlot.geom.geomViolin].
  *
  * @property x X-axis coordinates.
  * @property y Y-axis coordinates.

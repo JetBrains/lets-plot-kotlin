@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Parameters supported by [geomText()][org.jetbrains.letsPlot.geom.geomText].
+ * Properties for parameters of [geomText()][org.jetbrains.letsPlot.geom.geomText].
  *
  * @property labelFormat Specifies the format pattern for displaying mapped values.
  * @property naText Text to show for missing values.

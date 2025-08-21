@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomLabelRepel()][org.jetbrains.letsPlot.geom.geomLabelRepel].
+ * Aesthetic properties supported by [geomLabelRepel()][org.jetbrains.letsPlot.geom.geomLabelRepel].
  *
  * @property x X-axis value.
  * @property y Y-axis value.

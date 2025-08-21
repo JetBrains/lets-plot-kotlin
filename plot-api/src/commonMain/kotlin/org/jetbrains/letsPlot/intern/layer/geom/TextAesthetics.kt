@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomText()][org.jetbrains.letsPlot.geom.geomText].
+ * Aesthetic properties supported by [geomText()][org.jetbrains.letsPlot.geom.geomText].
  *
  * @property x X-axis value.
  * @property y Y-axis value.

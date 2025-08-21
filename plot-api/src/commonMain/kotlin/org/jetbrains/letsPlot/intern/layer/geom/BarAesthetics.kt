@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic parameters supported by [geomBar()][org.jetbrains.letsPlot.geom.geomBar].
+ * Aesthetic properties supported by [geomBar()][org.jetbrains.letsPlot.geom.geomBar].
  *
  * @property x X-axis value (this value will produce cases or bins for bars).
  * @property y Y-axis value (this value will be used to multiply the case's or bin's counts).
