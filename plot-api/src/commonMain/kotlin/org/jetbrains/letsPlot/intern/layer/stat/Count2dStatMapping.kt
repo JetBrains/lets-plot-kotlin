@@ -5,6 +5,13 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+/**
+ * Aesthetic mappings supported by [statCount2D()][org.jetbrains.letsPlot.stat.statCount2D].
+ *
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ * @param weight Used by the stat to compute weighted sum instead of simple count.
+ */
 class Count2dStatMapping(
     override var x: Any? = null,
     override var y: Any? = null,

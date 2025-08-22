@@ -5,6 +5,12 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+/**
+ * Aesthetic mappings supported by [statCount()][org.jetbrains.letsPlot.stat.statCount].
+ *
+ * @param x X-axis value (this value will produce cases or bins for bars).
+ * @param weight Used by the stat to compute weighted sum instead of simple count.
+ */
 class CountStatMapping(
     override var x: Any? = null,
     override var weight: Any? = null
