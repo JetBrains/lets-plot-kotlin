@@ -9,6 +9,9 @@ import org.jetbrains.letsPlot.core.spec.Option.Geom.Point
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * @property sizeUnit Unit for size values.
+ */
 interface WithSizeUnitOption : OptionsCapsule {
     val sizeUnit: String?
 

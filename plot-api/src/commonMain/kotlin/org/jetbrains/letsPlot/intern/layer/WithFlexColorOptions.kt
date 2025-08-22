@@ -9,6 +9,9 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * @property colorBy Variable name to use for color mapping.
+ */
 interface WithColorOption : OptionsCapsule {
     val colorBy: String?
 
@@ -17,6 +20,9 @@ interface WithColorOption : OptionsCapsule {
     )
 }
 
+/**
+ * @property fillBy Variable name to use for fill mapping.
+ */
 interface WithFillOption : OptionsCapsule {
     val fillBy: String?
 

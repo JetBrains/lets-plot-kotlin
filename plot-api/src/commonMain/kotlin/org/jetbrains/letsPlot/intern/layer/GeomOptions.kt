@@ -8,7 +8,10 @@ package org.jetbrains.letsPlot.intern.layer
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Options
 
-
+/**
+ * @param kind The geometry kind.
+ * @param mapping Set of aesthetic mappings.
+ */
 open class GeomOptions(
     val kind: GeomKind,
     val mapping: Options = Options.empty()

@@ -9,10 +9,20 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.SamplingKind
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 
+/**
+ * @param kind The sampling method kind.
+ * @param options Map of sampling options.
+ */
 class SamplingOptions internal constructor(
     val kind: SamplingKind,
     private val options: Map<String, Any>
 ) {
+    /**
+     * @param kind The sampling method kind.
+     * @param n Number of points to sample.
+     * @param seed Random seed for sampling.
+     * @param minSubsample Minimum subsample size.
+     */
     internal constructor(kind: SamplingKind, n: Int, seed: Int? = null, minSubsample: Int? = null) : this(
         kind,
         mapOf(
