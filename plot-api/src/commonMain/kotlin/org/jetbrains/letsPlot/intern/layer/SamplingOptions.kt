@@ -10,7 +10,9 @@ import org.jetbrains.letsPlot.intern.SamplingKind
 import org.jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
- * @param kind The sampling method kind.
+ * @property kind The sampling method kind.
+ * @property isNone Whether the sampling is none (no sampling applied).
+ * @property mapping The sampling options mapping.
  */
 class SamplingOptions internal constructor(
     val kind: SamplingKind,
