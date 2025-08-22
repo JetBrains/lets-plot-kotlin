@@ -8,6 +8,13 @@ package org.jetbrains.letsPlot.intern.layer.stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic properties supported by [statDensityRidges()][org.jetbrains.letsPlot.stat.statDensityRidges].
+ *
+ * @property x X-axis coordinates.
+ * @property y Y-axis coordinates.
+ * @property weight Used by the stat to compute weighted density.
+ */
 interface DensityRidgesStatAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?

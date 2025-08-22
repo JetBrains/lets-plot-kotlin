@@ -8,6 +8,11 @@ package org.jetbrains.letsPlot.intern.layer.stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic properties supported by [statQQ()][org.jetbrains.letsPlot.stat.statQQ].
+ *
+ * @property sample Y-axis value.
+ */
 interface QQStatAesthetics : OptionsCapsule {
     val sample: Any?
 

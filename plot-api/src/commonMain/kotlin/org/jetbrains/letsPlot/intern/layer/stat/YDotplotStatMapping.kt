@@ -5,6 +5,11 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+/**
+ * Aesthetic mappings supported by the default stat of [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
+ *
+ * @param x X-axis coordinates.
+ */
 class YDotplotStatMapping(
     override var x: Any? = null,
 ) : YDotplotStatAesthetics

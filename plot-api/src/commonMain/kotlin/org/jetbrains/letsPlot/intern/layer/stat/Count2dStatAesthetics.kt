@@ -8,6 +8,13 @@ package org.jetbrains.letsPlot.intern.layer.stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic properties supported by [statCount2D()][org.jetbrains.letsPlot.stat.statCount2D].
+ *
+ * @property x X-axis value.
+ * @property y Y-axis value.
+ * @property weight Used by the stat to compute weighted sum instead of simple count.
+ */
 interface Count2dStatAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?

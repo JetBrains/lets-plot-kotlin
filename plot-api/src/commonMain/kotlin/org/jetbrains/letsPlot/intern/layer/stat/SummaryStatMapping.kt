@@ -8,6 +8,12 @@ package org.jetbrains.letsPlot.intern.layer.stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic mappings supported by [statSummary()][org.jetbrains.letsPlot.stat.statSummary].
+ *
+ * @param x X-axis coordinates for vertical interval / position of mid-point for horizontal interval.
+ * @param y Y-axis coordinates for horizontal interval / position of mid-point for vertical interval.
+ */
 class SummaryStatMapping(
     val x: Any? = null,
     val y: Any? = null

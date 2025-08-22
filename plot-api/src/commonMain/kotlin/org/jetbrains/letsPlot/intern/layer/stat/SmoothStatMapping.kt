@@ -5,6 +5,12 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+/**
+ * Aesthetic mappings supported by [statSmooth()][org.jetbrains.letsPlot.stat.statSmooth].
+ *
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ */
 class SmoothStatMapping(
     override var x: Any? = null,
     override var y: Any? = null
