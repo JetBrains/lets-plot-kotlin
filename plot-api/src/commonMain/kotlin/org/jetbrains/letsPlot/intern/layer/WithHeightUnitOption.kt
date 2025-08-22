@@ -4,6 +4,9 @@ import org.jetbrains.letsPlot.core.spec.Option.Geom.Tile
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * @property heightUnit Unit for height values.
+ */
 interface WithHeightUnitOption : OptionsCapsule {
     val heightUnit: String?
 

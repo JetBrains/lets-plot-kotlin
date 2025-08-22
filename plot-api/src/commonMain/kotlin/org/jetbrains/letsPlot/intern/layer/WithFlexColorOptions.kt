@@ -9,6 +9,10 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * @property colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the color aesthetic for the layer.
+ */
 interface WithColorOption : OptionsCapsule {
     val colorBy: String?
 
@@ -17,6 +21,10 @@ interface WithColorOption : OptionsCapsule {
     )
 }
 
+/**
+ * @property fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
+ *  Defines the fill aesthetic for the layer.
+ */
 interface WithFillOption : OptionsCapsule {
     val fillBy: String?
 

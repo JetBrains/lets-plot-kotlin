@@ -8,6 +8,10 @@ package org.jetbrains.letsPlot.intern.layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.StatKind
 
+/**
+ * @param kind The statistic transformation kind.
+ * @param mapping Set of aesthetic mappings.
+ */
 open class StatOptions(
     val kind: StatKind,
     val mapping: Options = Options.empty()
