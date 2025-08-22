@@ -8,8 +8,8 @@ package org.jetbrains.letsPlot.intern.layer
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 
 /**
- * @property map Data-structure containing series of planar shapes and, optionally, associates data series.
- *  Supported shapes: Point and MultiPoint.
+ * @property map Data-structure containing series of planar shapes and, optionally, associates data series (for example:
+ *  names of States and their boundaries).
  *  All coordinates should be encoded as decimal degrees in WGS84 coordinate reference system.
  *  Can be used with parameter `mapJoin` for joining data and map coordinates.
  * @property mapJoin Pair of Names or Pair of Lists of Names.

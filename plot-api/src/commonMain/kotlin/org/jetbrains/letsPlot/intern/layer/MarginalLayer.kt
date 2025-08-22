@@ -9,9 +9,8 @@ import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 
 /**
- * @param geomLayer The geometric layer used by the marginal layer.
+ * @param geomLayer The geometry layer used in the marginal layer.
  * @param marginalMapping Additional aesthetic mappings for marginal plots.
- * @property marginalParameters Additional parameters for marginal plots.
  */
 internal class MarginalLayer(
     geomLayer: Layer,
