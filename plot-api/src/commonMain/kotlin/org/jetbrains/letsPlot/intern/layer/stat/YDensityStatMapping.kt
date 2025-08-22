@@ -5,6 +5,13 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+/**
+ * Aesthetic mappings supported by [statYDensity()][org.jetbrains.letsPlot.stat.statYDensity].
+ *
+ * @param x X-axis coordinates.
+ * @param y Y-axis coordinates.
+ * @param weight Used by the stat to compute weighted density.
+ */
 class YDensityStatMapping(
     override var x: Any? = null,
     override var y: Any? = null,

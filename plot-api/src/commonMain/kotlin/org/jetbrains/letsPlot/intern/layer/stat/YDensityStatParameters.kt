@@ -8,6 +8,12 @@ package org.jetbrains.letsPlot.intern.layer.stat
 import org.jetbrains.letsPlot.core.spec.Option.Stat
 import org.jetbrains.letsPlot.intern.Options
 
+/**
+ * Properties for parameters of [statYDensity()][org.jetbrains.letsPlot.stat.statYDensity].
+ *
+ * @property scale How to scale the groups.
+ * @property tailsCutoff Extends domain of each violin on `tailsCutoff * bw` if `trim = false`.
+ */
 interface YDensityStatParameters : DensityStatParameters {
     val scale: String?
     val tailsCutoff: Number?

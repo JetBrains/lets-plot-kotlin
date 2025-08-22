@@ -5,4 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+/**
+ * Properties for parameters of [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
+ */
 interface YDotplotStatParameters : DotplotStatParameters

@@ -9,6 +9,14 @@ import org.jetbrains.letsPlot.core.spec.Option.Stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Properties for parameters of [statSummary()][org.jetbrains.letsPlot.stat.statSummary].
+ *
+ * @property fn Name of function computing stat variable `..y..`.
+ * @property fnMin Name of function computing stat variable `..ymin..`.
+ * @property fnMax Name of function computing stat variable `..ymax..`.
+ * @property quantiles A list of probabilities defining the quantile functions "lq", "mq" and "uq". Must contain exactly 3 values between 0 and 1.
+ */
 interface SummaryStatParameters : OptionsCapsule {
     val fn: String?
     val fnMin: String?

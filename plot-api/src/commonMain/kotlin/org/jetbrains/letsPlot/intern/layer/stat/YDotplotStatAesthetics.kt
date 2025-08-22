@@ -5,4 +5,7 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+/**
+ * Aesthetic properties supported by [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
+ */
 interface YDotplotStatAesthetics : DotplotStatAesthetics
