@@ -5,7 +5,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Properties for parameters of [statBinHex()][org.jetbrains.letsPlot.stat.statBinHex].
+ * Properties for parameters of [geomHex()][org.jetbrains.letsPlot.geom.geomHex].
  *
  * @property bins Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
  * @property binWidth The width of the bins in both directions, vertical and horizontal. Overrides `bins`.

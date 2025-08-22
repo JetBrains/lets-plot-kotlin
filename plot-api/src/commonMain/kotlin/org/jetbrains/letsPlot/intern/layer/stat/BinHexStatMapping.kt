@@ -1,7 +1,7 @@
 package org.jetbrains.letsPlot.intern.layer.stat
 
 /**
- * Aesthetic mappings supported by [statBinHex()][org.jetbrains.letsPlot.stat.statBinHex].
+ * Aesthetic mappings supported by [geomHex()][org.jetbrains.letsPlot.geom.geomHex].
  *
  * @param x X-axis value.
  * @param y Y-axis value.
