@@ -8,6 +8,16 @@ package org.jetbrains.letsPlot.intern.layer.stat
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Properties for parameters of [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
+ *
+ * @property bins Maximum number of bins, used when method is "histodot".
+ * @property binWidth When method is "dotdensity", this specifies maximum bin width.
+ *  When method is "histodot", this specifies bin width.
+ * @property center The center of one of the bins, used when method is "histodot".
+ * @property boundary A boundary between two bins, used when method is "histodot".
+ * @property method Use "dotdensity" for dot-density binning, or "histodot" for fixed bin widths (like in geomHistogram).
+ */
 interface DotplotStatParameters : OptionsCapsule {
     val bins: Int?
     val binWidth: Number?

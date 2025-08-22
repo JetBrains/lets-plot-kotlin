@@ -5,6 +5,12 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+/**
+ * Aesthetic mappings supported by [statQQ2()][org.jetbrains.letsPlot.stat.statQQ2].
+ *
+ * @param x X-axis value.
+ * @param y Y-axis value.
+ */
 class QQ2StatMapping(
     override var x: Any? = null,
     override var y: Any? = null

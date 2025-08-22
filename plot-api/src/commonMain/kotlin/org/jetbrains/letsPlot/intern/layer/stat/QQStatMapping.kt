@@ -5,6 +5,11 @@
 
 package org.jetbrains.letsPlot.intern.layer.stat
 
+/**
+ * Aesthetic mappings supported by [statQQ()][org.jetbrains.letsPlot.stat.statQQ].
+ *
+ * @param sample Y-axis value.
+ */
 class QQStatMapping(
     override var sample: Any? = null
 ) : QQStatAesthetics
