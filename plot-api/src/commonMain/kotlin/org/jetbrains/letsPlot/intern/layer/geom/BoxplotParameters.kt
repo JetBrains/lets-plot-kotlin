@@ -9,6 +9,12 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Properties for parameters of [geomBoxplot()][org.jetbrains.letsPlot.geom.geomBoxplot].
+ *
+ * @property fatten A multiplicative factor applied to size of the middle bar.
+ * @property whiskerWidth A multiplicative factor applied to the box width to draw horizontal segments on whiskers.
+ */
 interface BoxplotParameters : OptionsCapsule {
     val fatten: Number?
     val whiskerWidth: Number?

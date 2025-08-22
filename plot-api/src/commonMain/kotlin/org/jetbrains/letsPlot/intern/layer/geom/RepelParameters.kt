@@ -4,6 +4,19 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Parameters supported by [geomTextRepel()][org.jetbrains.letsPlot.geom.geomTextRepel] and [geomLabelRepel()][org.jetbrains.letsPlot.geom.geomLabelRepel].
+ *
+ * @property seed Random seed for reproducibility.
+ * @property maxIter Maximum number of iterations used to resolve collisions.
+ * @property maxTime Maximum allowed time in seconds for resolving label collisions.
+ * @property direction Direction in which text labels can be moved.
+ * @property pointPadding Padding around data points to prevent overlap with text labels.
+ * @property boxPadding Padding around text labels to prevent overlap between labels.
+ * @property maxOverlaps The maximum number of overlapping text labels allowed. Additional text labels will be hidden.
+ * @property minSegmentLength Minimum length of the line connecting the label to the point. Shorter segments will be omitted.
+ * @property arrow Specification for arrow head, as created by `arrow()` function.
+ */
 interface RepelParameters : OptionsCapsule {
     val seed: Int?
     val maxIter: Int?

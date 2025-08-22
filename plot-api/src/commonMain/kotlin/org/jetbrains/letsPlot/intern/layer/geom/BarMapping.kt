@@ -8,6 +8,25 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 import org.jetbrains.letsPlot.intern.layer.stat.CountStatAesthetics
 
+/**
+ * Aesthetic mappings supported by [geomBar()][org.jetbrains.letsPlot.geom.geomBar].
+ *
+ * @param x X-axis value (this value will produce cases or bins for bars).
+ * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param color Color of the geometry.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param fill Fill color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param width Width of a bar.
+ * @param size Defines bar line width.
+ * @param weight Used by `Stat.count()` stat to compute weighted sum instead of simple count.
+ * @param group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
+ */
 class BarMapping(
     override var x: Any? = null,
     override var y: Any? = null,

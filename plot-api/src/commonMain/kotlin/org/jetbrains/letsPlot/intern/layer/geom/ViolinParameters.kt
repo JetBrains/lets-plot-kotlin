@@ -4,6 +4,12 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Properties for parameters of [geomViolin()][org.jetbrains.letsPlot.geom.geomViolin].
+ *
+ * @property showHalf If -1 then it's drawing only half of each violin. If 1 then it's drawing other half. If 0 then violins looking as usual.
+ * @property quantileLines Show the quantile lines.
+ */
 interface ViolinParameters : OptionsCapsule {
     val showHalf: Number?
     val quantileLines: Boolean?

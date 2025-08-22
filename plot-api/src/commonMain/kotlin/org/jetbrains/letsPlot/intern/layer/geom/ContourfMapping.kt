@@ -8,6 +8,29 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 import org.jetbrains.letsPlot.intern.layer.stat.ContourStatAesthetics
 
+/**
+ * Aesthetic mappings supported by [geomContourFilled()][org.jetbrains.letsPlot.geom.geomContourFilled].
+ *
+ * @param x X-axis coordinates of the center of rectangles, forming a tessellation.
+ * @param y Y-axis coordinates of the center of rectangles, forming a tessellation.
+ * @param z Value at point (x, y).
+ * @param size Line width.
+ * @param linetype Type of the line.
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
+ * @param color Color of geometry lines.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param fill Color of a geometry areas.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @param alpha Transparency level of a layer.
+ *  Understands numbers between 0 and 1.
+ * @param group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
+ * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
+ * @param paint_b Auxiliary paint channel B. See `paint_a`.
+ * @param paint_c Auxiliary paint channel C. See `paint_a`.
+ */
 class ContourfMapping(
     override var x: Any? = null,
     override var y: Any? = null,

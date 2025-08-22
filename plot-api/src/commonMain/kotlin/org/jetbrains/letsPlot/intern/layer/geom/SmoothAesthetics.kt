@@ -8,6 +8,19 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic properties supported by [geomSmooth()][org.jetbrains.letsPlot.geom.geomSmooth].
+ *
+ * @property x X-axis value.
+ * @property y Predicted (smoothed) value.
+ * @property ymin Lower pointwise confidence interval around the mean.
+ * @property ymax Upper pointwise confidence interval around the mean.
+ * @property size Lines width.
+ * @property linetype Type of the line for conditional mean.
+ * @property color Color of the geometry.
+ * @property fill Filling color for the confidence interval around the line.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ */
 interface SmoothAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?

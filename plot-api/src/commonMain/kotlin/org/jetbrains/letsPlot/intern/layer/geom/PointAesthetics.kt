@@ -8,6 +8,23 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic properties supported by [geomPoint()][org.jetbrains.letsPlot.geom.geomPoint].
+ *
+ * @property x X-axis value.
+ * @property y Y-axis value.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @property fill Color to paint shape's inner points.
+ *  Is applied only to the points of shapes having inner points.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @property shape Shape of the point.
+ *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
+ * @property size Size of the point.
+ * @property stroke Width of the shape border. Applied only to the shapes having border.
+ * @property angle Rotation angle of the shape, in degrees.
+ */
 interface PointAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?

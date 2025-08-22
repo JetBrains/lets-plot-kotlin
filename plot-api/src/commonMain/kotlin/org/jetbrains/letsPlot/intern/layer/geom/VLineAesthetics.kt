@@ -8,6 +8,15 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic properties supported by [geomVLine()][org.jetbrains.letsPlot.geom.geomVLine].
+ *
+ * @property xintercept Line x-intercept.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry.
+ * @property linetype Type of the line.
+ * @property size Lines width.
+ */
 interface VLineAesthetics : OptionsCapsule {
     @Suppress("SpellCheckingInspection")
     val xintercept: Any?

@@ -9,6 +9,14 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Properties for parameters of [geomLollipop()][org.jetbrains.letsPlot.geom.geomLollipop].
+ *
+ * @property fatten A multiplicative factor applied to size of the point.
+ * @property slope The baseline slope.
+ * @property intercept The value of y at the point where the baseline crosses the y-axis.
+ * @property dir Direction of the lollipop stick. Possible values: "v" for vertical, "h" for horizontal, "s" for orthogonal to the baseline.
+ */
 interface LollipopParameters : OptionsCapsule {
     val fatten: Number?
     val slope: Number?

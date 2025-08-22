@@ -8,6 +8,25 @@ package org.jetbrains.letsPlot.intern.layer.geom
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic properties supported by [geomRect()][org.jetbrains.letsPlot.geom.geomRect].
+ *
+ * @property xmin X-axis value.
+ * @property xmax X-axis value.
+ * @property ymin Y-axis value.
+ * @property ymax Y-axis value.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ * @property size Lines width.
+ * @property linetype Type of the line of border.
+ *  Accept codes or names (0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash"),
+ *  a hex string (up to 8 digits for dash-gap lengths),
+ *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
+ *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
+ * @property fill Fill color.
+ *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
+ */
 interface RectAesthetics : OptionsCapsule {
     val xmin: Any?
     val xmax: Any?

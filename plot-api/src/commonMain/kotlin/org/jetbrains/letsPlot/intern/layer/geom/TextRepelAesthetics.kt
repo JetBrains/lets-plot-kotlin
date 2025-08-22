@@ -9,6 +9,29 @@ import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Aesthetic properties supported by [geomTextRepel()][org.jetbrains.letsPlot.geom.geomTextRepel].
+ *
+ * @property x X-axis value.
+ * @property y Y-axis value.
+ * @property label Text label to display.
+ * @property alpha Transparency level of a layer. Understands numbers between 0 and 1.
+ * @property color Color of the geometry.
+ * @property size Font size.
+ * @property family Font family.
+ * @property fontface Font face.
+ * @property hjust horizontal text alignment relative to the x-coordinate.
+ * @property vjust vertical text alignment relative to the y-coordinate.
+ * @property angle Text rotation angle in degrees.
+ * @property lineheight Line height multiplier applied to the font size in the case of multi-line text.
+ * @property shape Shape of the point.
+ * @property pointSize A value representing the visual size of the point associated with the label.
+ * @property pointStroke Width of the point border.
+ * @property segmentColor Color of the line segment connecting the label to the point.
+ * @property segmentSize Width of the line segment connecting the label to the point.
+ * @property segmentAlpha Transparency level of the line segment. Understands numbers between 0 and 1.
+ * @property linetype Type of the line.
+ */
 interface TextRepelAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
