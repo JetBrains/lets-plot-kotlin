@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic properties supported by [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
+ * Aesthetic properties supported by the default stat of [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
  *
  * @property x X-axis coordinates.
  */

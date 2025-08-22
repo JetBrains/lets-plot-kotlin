@@ -4,7 +4,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Aesthetic properties supported by [geomHex()][org.jetbrains.letsPlot.geom.geomHex].
+ * Aesthetic properties supported by the default stat of [geomHex()][org.jetbrains.letsPlot.geom.geomHex].
  *
  * ## Notes
  * The binhex stat requires x,y (weight is optional)

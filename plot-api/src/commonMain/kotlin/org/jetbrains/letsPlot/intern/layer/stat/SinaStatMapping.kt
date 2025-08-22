@@ -6,7 +6,7 @@
 package org.jetbrains.letsPlot.intern.layer.stat
 
 /**
- * Aesthetic mappings supported by [geomSina()][org.jetbrains.letsPlot.geom.geomSina].
+ * Aesthetic mappings supported by the default stat of [geomSina()][org.jetbrains.letsPlot.geom.geomSina].
  *
  * @param x X-axis coordinates.
  * @param y Y-axis coordinates.

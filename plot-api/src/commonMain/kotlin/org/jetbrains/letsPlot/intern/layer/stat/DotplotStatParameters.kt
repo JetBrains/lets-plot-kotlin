@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * Properties for parameters of [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
+ * Properties for parameters of the default stat of [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
  *
  * @property bins Maximum number of bins, used when method is "histodot".
  * @property binWidth When method is "dotdensity", this specifies maximum bin width.

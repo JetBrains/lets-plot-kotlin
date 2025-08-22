@@ -6,7 +6,7 @@
 package org.jetbrains.letsPlot.intern.layer.stat
 
 /**
- * Aesthetic mappings supported by [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
+ * Aesthetic mappings supported by the default stat of [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
  *
  * @param x X-axis coordinates.
  */

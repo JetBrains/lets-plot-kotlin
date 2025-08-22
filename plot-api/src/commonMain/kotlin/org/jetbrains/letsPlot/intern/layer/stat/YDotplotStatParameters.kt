@@ -6,6 +6,6 @@
 package org.jetbrains.letsPlot.intern.layer.stat
 
 /**
- * Properties for parameters of [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
+ * Properties for parameters of the default stat of [geomYDotplot()][org.jetbrains.letsPlot.geom.geomYDotplot].
  */
 interface YDotplotStatParameters : DotplotStatParameters

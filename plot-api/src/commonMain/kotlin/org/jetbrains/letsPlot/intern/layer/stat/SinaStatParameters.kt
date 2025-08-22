@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.core.spec.Option.Stat
 import org.jetbrains.letsPlot.intern.Options
 
 /**
- * Properties for parameters of [geomSina()][org.jetbrains.letsPlot.geom.geomSina].
+ * Properties for parameters of the default stat of [geomSina()][org.jetbrains.letsPlot.geom.geomSina].
  *
  * @property scale How to scale the groups.
  * @property tailsCutoff Extend domain of each violin on `tailsCutoff * bw` if `trim = false`.
