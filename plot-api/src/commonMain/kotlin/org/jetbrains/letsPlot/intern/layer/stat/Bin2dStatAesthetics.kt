@@ -9,7 +9,14 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * 'bin2d' stat requires x,y (weight is optional)
+ * Aesthetic properties supported by [statBin2D()][org.jetbrains.letsPlot.stat.statBin2D].
+ *
+ * ## Notes
+ * The bin2d stat requires x,y (weight is optional)
+ *
+ * @property x X-axis value.
+ * @property y Y-axis value.
+ * @property weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
  */
 interface Bin2dStatAesthetics : OptionsCapsule {
     val x: Any?

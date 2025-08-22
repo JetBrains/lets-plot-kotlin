@@ -9,6 +9,11 @@ import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
+/**
+ * Properties for parameters of [statBoxplot()][org.jetbrains.letsPlot.stat.statBoxplot].
+ *
+ * @property coef Length of the whiskers as multiple of IQR.
+ */
 interface BoxplotOutlierStatParameters : OptionsCapsule {
     @Suppress("SpellCheckingInspection")
     val coef: Number?  // Whisker IQR ratio
