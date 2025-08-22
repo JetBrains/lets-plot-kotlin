@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * @property colorBy Variable name to use for color mapping.
+ * @property colorBy Defines the color aesthetic for the layer.
  */
 interface WithColorOption : OptionsCapsule {
     val colorBy: String?
@@ -21,7 +21,7 @@ interface WithColorOption : OptionsCapsule {
 }
 
 /**
- * @property fillBy Variable name to use for fill mapping.
+ * @property fillBy Defines the fill aesthetic for the layer.
  */
 interface WithFillOption : OptionsCapsule {
     val fillBy: String?

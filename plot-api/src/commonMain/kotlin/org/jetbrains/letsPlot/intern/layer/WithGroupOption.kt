@@ -8,7 +8,7 @@ package org.jetbrains.letsPlot.intern.layer
 import org.jetbrains.letsPlot.intern.Options
 
 /**
- * @property group Variable or value for grouping data points.
+ * @property group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
  */
 interface WithGroupOption {
     val group: Any?

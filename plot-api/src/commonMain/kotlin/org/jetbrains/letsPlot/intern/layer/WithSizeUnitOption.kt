@@ -10,7 +10,11 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.OptionsCapsule
 
 /**
- * @property sizeUnit Unit for size values.
+ * @property sizeUnit Relate the size to the length of the unit step along one of the axes.
+ *  "x" uses the unit step along the x-axis, "y" uses the unit step along the y-axis.
+ *  "min" uses the smaller of the unit steps along the x- and y-axes.
+ *  "max" uses the larger of the unit steps along the x- and y-axes.
+ *  If not specified, no fitting is performed.
  */
 interface WithSizeUnitOption : OptionsCapsule {
     val sizeUnit: String?
