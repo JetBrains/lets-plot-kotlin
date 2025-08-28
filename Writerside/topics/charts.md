@@ -72,6 +72,7 @@ Examples:
 - [Jittered points](%nb-jittered_points%)
 - [Lines in Lets-Plot](%nb-lines%)
 - [Ribbon geometry](%nb-ribbon%)
+- [Alternating ribbon fill with disjoint groups](%nb-alternating_ribbon_fill%)
 - [How to draw curve fast](%nb-algebraic_curve%)
 - [`stroke` aesthetic](%nb-aes_stroke%)
 - [Configuring nudge units in position adjustments](%nb-position_nudge_unit%)

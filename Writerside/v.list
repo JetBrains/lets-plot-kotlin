@@ -53,6 +53,7 @@
     <var name="nb-aes_size_color_variadic_lines" value="%nbviewer_cookbook%/aes_size_color_variadic_lines.ipynb"/>
     <var name="nb-aes_stroke" value="%nbviewer_cookbook%/aes_stroke.ipynb"/>
     <var name="nb-algebraic_curve" value="%nbviewer_cookbook%/algebraic_curve.ipynb"/>
+    <var name="nb-alternating_ribbon_fill" value="%nbviewer_cookbook%/alternating_ribbon_fill.ipynb"/>
     <var name="nb-annotations_for_pie" value="%nbviewer_cookbook%/annotations_for_pie.ipynb"/>
     <var name="nb-axis_position" value="%nbviewer_cookbook%/axis_position.ipynb"/>
     <var name="nb-axis_text_angle" value="%nbviewer_cookbook%/axis_text_angle.ipynb"/>
