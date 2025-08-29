@@ -180,6 +180,12 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param stripText Style settings for facet labels.
  * @param stripTextX Style settings for horizontal facet labels.
  * @param stripTextY Style settings for vertical facet labels.
+ * @param stripSpacing Spacing between facet labels and the plotting area.
+ * @param stripSpacingX Spacing between facet labels and the plotting area in horizontal direction, inherited from ``stripSpacing``.
+ * @param stripSpacingY Spacing between facet labels and the plotting area in vertical direction, inherited from ``stripSpacing``.
+ * @param panelSpacing Spacing between panels in facets.
+ * @param panelSpacingX Spacing between panels in facets in horizontal direction, inherited from ``panelSpacing``.
+ * @param panelSpacingY Spacing between panels in facets in vertical direction, inherited from ``panelSpacing``.
  *
  * @param axisTooltip Style settings for axes tooltips.
  * @param axisTooltipX Style settings for axes tooltips.
@@ -294,6 +300,12 @@ class theme(
     stripText: Any? = null,
     stripTextX: Any? = null,
     stripTextY: Any? = null,
+    stripSpacing: Number? = null,
+    stripSpacingX: Number? = null,
+    stripSpacingY: Number? = null,
+    panelSpacing: Number? = null,
+    panelSpacingX: Number? = null,
+    panelSpacingY: Number? = null,
 
     axisTooltip: Any? = null,
     axisTooltipX: Any? = null,
@@ -405,6 +417,12 @@ class theme(
         Option.Theme.FACET_STRIP_TEXT to stripText,
         Option.Theme.FACET_STRIP_TEXT_X to stripTextX,
         Option.Theme.FACET_STRIP_TEXT_Y to stripTextY,
+        Option.Theme.FACET_STRIP_SPACING to stripSpacing,
+        Option.Theme.FACET_STRIP_SPACING_X to stripSpacingX,
+        Option.Theme.FACET_STRIP_SPACING_Y to stripSpacingY,
+        Option.Theme.FACET_PANEL_SPACING to panelSpacing,
+        Option.Theme.FACET_PANEL_SPACING_X to panelSpacingX,
+        Option.Theme.FACET_PANEL_SPACING_Y to panelSpacingY,
 
         Option.Theme.AXIS_TOOLTIP to axisTooltip,
         Option.Theme.AXIS_TOOLTIP_X to axisTooltipX,
