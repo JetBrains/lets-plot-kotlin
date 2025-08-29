@@ -15,6 +15,8 @@ dependencies {
     implementation(projects.json)
 
     implementation("org.jetbrains.lets-plot:platf-awt:$letsPlotVersion")
+    implementation("org.jetbrains.lets-plot:canvas:$letsPlotVersion")
+    implementation("org.jetbrains.lets-plot:plot-raster:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
 
     testImplementation(kotlin("test"))
