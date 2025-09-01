@@ -1,15 +1,15 @@
-## [4.11.1] - 2025-08-dd
+## [4.11.1] - 2025-09-dd
 
-This release is 100% compatible with Lets-Plot [v 4.7.1](https://github.com/JetBrains/lets-plot/releases/tag/v4.7.1),
+This release is 100% compatible with Lets-Plot [v 4.7.2](https://github.com/JetBrains/lets-plot/releases/tag/v4.7.2),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
 
 - ggsave():
-  - support font synthesis for *italic* and **bold** styles.
   - `w`, `h` and `unit` parameters support [[#281]https://github.com/JetBrains/lets-plot-kotlin/issues/281],
-    [[#1368](https://github.com/JetBrains/lets-plot/issues/1368)]. 
-
+    [[#1368](https://github.com/JetBrains/lets-plot/issues/1368)].
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.1/ggsave_image_size.ipynb).
+  
 ### Changed
 
 - `facetWrap()` now drops factor levels that do not appear in the data (i.e., empty panels) by default [[#1322](https://github.com/JetBrains/lets-plot/issues/1322)]. <br>
@@ -19,6 +19,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 - Removed extra spacing between facet strips and plot panels in `facetWrap()` and `facetGrid()`.
 
 ### Fixed
+
 - Tooltip for a line have higher priority than points, even if the point is specified first in the layer list [[#1060](https://github.com/JetBrains/lets-plot/issues/1060)].
 - `geomRibbon()`: tooltip appears in the wrong place on flipped ribbon [[#1334](https://github.com/JetBrains/lets-plot/issues/1334)].
 - Coordinate limits do not work on reversed scales [[#1365](https://github.com/JetBrains/lets-plot/issues/1365)]
