@@ -5,7 +5,8 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
 
-- ggsave():
+- `ggsave()`:
+  - now `ggsave()` uses lets-plot’s built-in `plot-raster` engine instead of Batik for image rendering.
   - `w`, `h` and `unit` parameters support [[#281]https://github.com/JetBrains/lets-plot-kotlin/issues/281],
     [[#1368](https://github.com/JetBrains/lets-plot/issues/1368)].
   See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.1/ggsave_image_size.ipynb).
