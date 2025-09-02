@@ -5,7 +5,7 @@
 ##### 1. Update CHANGELOG.md file
 Also update "What's New" section in the README.md file.
 
-##### 2. Set release version
+##### 2. Set the Release Version
 
 - remove _"-SNAPSHOT"_ qualifier (the 'version' property in the root [build.gradle.kts](../build.gradle.kts)).
 
