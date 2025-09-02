@@ -15,7 +15,14 @@ import org.jetbrains.letsPlot.intern.settings.GlobalSettings
 import org.jetbrains.letsPlot.intern.settings.createDefaultFrontendContext
 
 object LetsPlot {
-    var frontendContext: FrontendContext = createDefaultFrontendContext()
+    private var customFrontendContext: FrontendContext? = null
+    private val defaultFrontendContext by lazy { createDefaultFrontendContext() }
+
+    var frontendContext: FrontendContext
+        get() = customFrontendContext ?: defaultFrontendContext
+        set(value) {
+            customFrontendContext = value
+        }
 
     var theme: Feature? = null  // either null or OptionsMap
         set(value) {
