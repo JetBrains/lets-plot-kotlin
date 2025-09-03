@@ -17,11 +17,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * ## Examples
  *
- * - [facets.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/facets.ipynb)
- *
- * - [facets_free_scales.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/facets_free_scales.ipynb)
- *
- * - [facet_multiline_titles.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/facet_multiline_titles.ipynb)
+ * - [facets.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/7aiHt7Jks2xMXEt7X50klr)
  *
  * @param x Variable name which defines columns of the facet grid.
  * @param y Variable name which defines rows of the facet grid.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
 <vars>
-    <var name="version" value="4.11.0"/>
+    <var name="version" value="4.11.1"/>
     <var name="current_year" value="2025"/>
     <var name="web_root" value="https://lets-plot.org"/>
 
@@ -71,8 +71,7 @@
     <var name="nb-distributions" value="%nbviewer_cookbook%/distributions.ipynb"/>
     <var name="nb-error_bars" value="%nbviewer_cookbook%/error_bars.ipynb"/>
     <var name="nb-export_to_file" value="%nbviewer_cookbook%/export_to_file.ipynb"/>
-    <var name="nb-facets" value="%nbviewer_cookbook%/facets.ipynb"/>
-    <var name="nb-facets_free_scales" value="%nbviewer_cookbook%/facets_free_scales.ipynb"/>
+    <var name="nb-facets" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/7aiHt7Jks2xMXEt7X50klr"/>
     <var name="nb-factor_levels" value="%nbviewer_cookbook%/factor_levels.ipynb"/>
     <var name="nb-font_size_and_family" value="%nbviewer_cookbook%/font_size_and_family.ipynb"/>
     <var name="nb-formatting" value="%nbviewer_cookbook%/formatting.ipynb"/>
