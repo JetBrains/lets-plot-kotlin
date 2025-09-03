@@ -7,8 +7,7 @@
 
 Examples:
 
-- [Creating multi-panel plots using facets](%nb-facets%)
-- [Free scales on faceted plot](%nb-facets_free_scales%)
+- [Multipanel plots with facets](%nb-facets%)
 
 ## `ggbunch`
 

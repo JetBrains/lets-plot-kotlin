@@ -72,9 +72,7 @@ letsPlot(data) +
 
 ## Examples
 
-- [facets.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/facets.ipynb)
-
-- [facets_free_scales.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/facets_free_scales.ipynb)
+- [facets.ipynb](https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/7aiHt7Jks2xMXEt7X50klr)
 
 # Package org.jetbrains.letsPlot.geom
 
