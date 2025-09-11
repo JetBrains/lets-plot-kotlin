@@ -131,7 +131,7 @@ fun ggsave(
             val svg = PlotSvgExport.buildSvgImageFromRawSpecs(
                 spec,
                 plotSize = plotSize,
-                sizeUnit = sizeUnit?: PlotExportCommon.SizeUnit.PX,
+                sizeUnit = sizeUnit ?: PlotExportCommon.SizeUnit.PX,
             )
             if (file.notExists()) {
                 file.createFile()
@@ -192,6 +192,22 @@ private fun exportRasterImage(
     unit: PlotExportCommon.SizeUnit? = null,
     targetDPI: Number? = null
 ) {
+    // As of lets-plot version 4.7.2
+    // PlotImageExport calls SwingUtilities.invokeAndWait().
+    // Check if Swing is present.
+    try {
+        Class.forName("javax.swing.SwingUtilities")
+    } catch (e: ClassNotFoundException) {
+        throw IllegalStateException(
+            """
+            
+            Can't export plot to raster formats: Swing is not available in this environment.
+            Raster image export requires SwingUtilities which is not present in Android JRE or headless environments.
+        """.trimIndent()
+        )
+    }
+
+
     // lets-plot-image-export.jar might not be present in the classpath.
     val imageBytes: ByteArray = try {
 
@@ -220,7 +236,12 @@ private fun exportRasterImage(
                     """
                     
                     Can't export plot to raster formats: ${e::class.simpleName} "${e.message}".
-                    Please add "lets-plot-image-export-<version>.jar" to your classpath. 
+                    Please add "lets-plot-image-export-<version>.jar" to your classpath.
+                    A Gradle dependency example:
+                    
+                        implementation("org.jetbrains.lets-plot:lets-plot-image-export:<version>")
+                    
+                    where <version> is the version of the Lets-Plot Multiplatform artifact you are using.
                 """.trimIndent()
                 )
 
