@@ -31,7 +31,7 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  * Large plot dimensions without units require explicit unit specification.
  * When `w` or `h` value exceeds 20 without specifying units (e.g., `ggsave(p, 300, 400)`),
  * we ask to specify units explicitly:
- * `ggsave(p, 300, 400, unit='px')` or `ggsave(p, 3, 4, unit='in')`.
+ * `ggsave(p, 300, 400, unit="px")` or `ggsave(p, 3, 4, unit="in")`.
  *
  * The output format is inferred from the file extension.
  *

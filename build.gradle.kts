@@ -36,7 +36,7 @@ if (project.file("local.properties").exists()) {
 
 allprojects {
     group = "org.jetbrains.lets-plot"
-    version = "4.11.2-SNAPSHOT"
+    version = "4.11.3-SNAPSHOT"
 //    version = "0.0.0-SNAPSHOT"  // for local publishing only
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
@@ -62,7 +62,7 @@ val mavenReleasePublishUrl by extra { layout.buildDirectory.dir("maven/artifacts
 // define Maven Snapshot repository URL.
 val mavenSnapshotPublishUrl by extra { "https://central.sonatype.com/repository/maven-snapshots/" }
 
-// Configure a workaround tasks for publishing to the Sonatype Central Repository,
+// Configure workaround tasks for publishing to the Sonatype Central Repository,
 // as there is currently no official Gradle plugin support.
 // Refer to documentation: https://central.sonatype.org/publish/publish-portal-gradle/
 val packageMavenArtifacts by tasks.registering(Zip::class) {
@@ -150,7 +150,7 @@ subprojects {
     }
 
     afterEvaluate {
-        // Add LICENSE file to the META-INF folder inside published JAR files
+        // Add the LICENSE file to the META-INF folder inside published JAR files
         tasks.filterIsInstance<org.gradle.jvm.tasks.Jar>()
             .forEach {
                 it.metaInf {

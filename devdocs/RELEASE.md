@@ -3,7 +3,7 @@
 ### Make Version
 
 ##### 1. Update CHANGELOG.md file
-Also update "What's New" section in the README.md file.
+Also update the "What's New" section in the README.md file.
 
 ##### 2. Set the Release Version
 

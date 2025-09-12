@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
 
+## [4.11.2] - 2025-09-12
+
+This release is 100% compatible with Lets-Plot [v 4.7.3](https://github.com/JetBrains/lets-plot/releases/tag/v4.7.3),
+GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
+
+### Changed
+
+- `ggsave()`: large plot dimensions without units now require explicit `unit` specification. <br>
+  When plot size exceeds 20 without specifying units (e.g., `ggsave(p, w=300, h=400)`), <br>
+  we ask to specify units explicitly: <br>
+  `ggsave(p, w=300, h=400, unit="px")` or `ggsave(p, w=3, h=4, unit="in")`.
+
+### Fixed
+
+- `ggtb()` support in Swing/Batik frontend [[LPK-265](https://github.com/JetBrains/lets-plot-kotlin/issues/265)].
+- Multiline support for axis labels in polar coordinates.
+- When the plot size in `ggsave()` is specified in pixels, `dpi` now affects <br>
+  only the physical size, not the pixel dimensions as before.
+- Blocking `SwingUtilities.invokeAndWait()`  call on plot image export (JVM app)
+
 
 ## [4.11.1] - 2025-09-02
 
