@@ -25,6 +25,10 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   only the physical size, not the pixel dimensions as before.
 - Blocking `SwingUtilities.invokeAndWait()`  call on plot image export (JVM app)
 
+### Internal Memo
+
+Lets-Plot VL spec transformer removed.
+
 
 ## [4.11.1] - 2025-09-02
 
