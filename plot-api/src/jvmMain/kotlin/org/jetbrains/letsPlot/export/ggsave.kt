@@ -20,7 +20,7 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
 
 /**
  * Exports plot to a file.
- * Supported formats: SVG, HTML, PNG, JPEG and TIFF.
+ * Supported formats: SVG, HTML, PNG, JPEG, and TIFF.
  * Note: in some configurations raster formats might not be supported.
  *
  * If `path` is not specified, the output file will be saved in
@@ -28,9 +28,14 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *
  * ## Notes
  *
+ * Large plot dimensions without units require explicit unit specification.
+ * When `w` or `h` value exceeds 20 without specifying units (e.g., `ggsave(p, 300, 400)`),
+ * we ask to specify units explicitly:
+ * `ggsave(p, 300, 400, unit='px')` or `ggsave(p, 3, 4, unit='in')`.
+ *
  * The output format is inferred from the file extension.
  *
- * **For PNG and PDF:**
+ * **For PNG and PDF: **
  *
  * - If `w`, `h`, `unit`, and `dpi` are all specified:
  *
@@ -54,14 +59,14 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *         - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
  *         - Useful for generating high-resolution images suitable for publication.
  *
- * **For SVG:**
+ * **For SVG: **
  *
  * - If `w`, `h`, and `unit` are specified:
  *
  *     - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
  *     - The output size is set from the given values.
  *
- * **For HTML:**
+ * **For HTML: **
  *
  * - If `w` and `h` are specified:
  *
@@ -192,21 +197,20 @@ private fun exportRasterImage(
     unit: PlotExportCommon.SizeUnit? = null,
     targetDPI: Number? = null
 ) {
-    // As of lets-plot version 4.7.2
-    // PlotImageExport calls SwingUtilities.invokeAndWait().
-    // Check if Swing is present.
+    // As of lets-plot version 4.7.3
+    // PlotImageExport uses java.awt.image.BufferedImage
+    // Check if java.awt is present.
     try {
-        Class.forName("javax.swing.SwingUtilities")
+        Class.forName("java.awt.image.BufferedImage")
     } catch (e: ClassNotFoundException) {
         throw IllegalStateException(
             """
             
-            Can't export plot to raster formats: Swing is not available in this environment.
-            Raster image export requires SwingUtilities which is not present in Android JRE or headless environments.
+            Can't export plot to raster formats: 'java.awt.image.BufferedImage' is not available in this environment.
+            Raster image export requires 'java.awt.image.BufferedImage' which is not present in Android JRE or headless environments.
         """.trimIndent()
         )
     }
-
 
     // lets-plot-image-export.jar might not be present in the classpath.
     val imageBytes: ByteArray = try {
