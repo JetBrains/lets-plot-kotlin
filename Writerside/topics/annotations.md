@@ -1,6 +1,6 @@
 # Annotating Charts
 
-You can customize the content of annotations for pie and bar charts by using the parameter `labels` of the corresponding functions.
+You can customize the content of annotations for pie, bar and crossbar charts by using the `labels` parameter of the corresponding functions.
 The parameter takes as value the result of the [`layerLabels()`](%api_annotations%/layer-labels/index.html) function call.
 
 [Learn more (datalore link)](%nbp-annotations%).
