@@ -35,7 +35,7 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *
  * The output format is inferred from the file extension.
  *
- * **For PNG and PDF: **
+ * **For PNG and PDF:**
  *
  * - If `w`, `h`, `unit`, and `dpi` are all specified:
  *
@@ -59,14 +59,14 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *         - The plot maintains its aspect ratio, preserving layout, tick labels, and other visual elements.
  *         - Useful for generating high-resolution images suitable for publication.
  *
- * **For SVG: **
+ * **For SVG:**
  *
  * - If `w`, `h`, and `unit` are specified:
  *
  *     - The plot's pixel size (default or set via [ggsize()][org.jetbrains.letsPlot.ggsize]) is ignored.
  *     - The output size is set from the given values.
  *
- * **For HTML: **
+ * **For HTML:**
  *
  * - If `w` and `h` are specified:
  *
