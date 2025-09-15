@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
 <vars>
-    <var name="version" value="4.11.1"/>
+    <var name="version" value="4.11.2"/>
     <var name="current_year" value="2025"/>
     <var name="web_root" value="https://lets-plot.org"/>
 
