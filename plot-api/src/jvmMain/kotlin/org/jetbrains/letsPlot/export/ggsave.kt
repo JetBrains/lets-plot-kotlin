@@ -35,7 +35,7 @@ private const val DEF_EXPORT_DIR = "lets-plot-images"
  *
  * The output format is inferred from the file extension.
  *
- * **For PNG and PDF:**
+ * **For PNG, JPEG, and TIFF:**
  *
  * - If `w`, `h`, `unit`, and `dpi` are all specified:
  *
