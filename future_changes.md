@@ -8,7 +8,9 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 ### Changed
 
 - Plot Theme:
-   
+ 
+  - `themeGray()` as an alias for `themeGrey()`.
+
   - New `theme` functions for setting legend justification: `legendJustificationTop()`, `legendJustificationRight()`, <br>
   `legendJustificationBottom()`, and `legendJustificationLeft()`.
 

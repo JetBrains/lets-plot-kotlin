@@ -12,7 +12,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
 
 
 /**
- * Grey background and white gridlines.
+ * Grey background and white gridlines. The same as themeGray().
  *
  * ## Examples
  *
@@ -21,6 +21,20 @@ import org.jetbrains.letsPlot.intern.OptionsMap
 fun themeGrey() = OptionsMap(
     kind = Option.Plot.THEME,
     name = Option.Theme.Name.R_GREY,
+    emptyMap()
+)
+
+
+/**
+ * Gray background and white gridlines. The same as themeGrey().
+ *
+ * ## Examples
+ *
+ * - [themes.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/complete_themes.ipynb)
+ */
+fun themeGray() = OptionsMap(
+    kind = Option.Plot.THEME,
+    name = Option.Theme.Name.R_GRAY,
     emptyMap()
 )
 
