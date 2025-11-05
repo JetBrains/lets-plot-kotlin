@@ -476,6 +476,18 @@ class theme(
     fun legendJustificationCenter() =
         withOption(Option.Theme.LEGEND_JUSTIFICATION, Option.Theme.Legend.JUSTIFICATION_CENTER)
 
+    fun legendJustificationLeft() =
+        withOption(Option.Theme.LEGEND_JUSTIFICATION, Option.Theme.Legend.JUSTIFICATION_LEFT)
+
+    fun legendJustificationRight() =
+        withOption(Option.Theme.LEGEND_JUSTIFICATION, Option.Theme.Legend.JUSTIFICATION_RIGHT)
+
+    fun legendJustificationTop() =
+        withOption(Option.Theme.LEGEND_JUSTIFICATION, Option.Theme.Legend.JUSTIFICATION_TOP)
+
+    fun legendJustificationBottom() =
+        withOption(Option.Theme.LEGEND_JUSTIFICATION, Option.Theme.Legend.JUSTIFICATION_BOTTOM)
+
     /**
      * Specifies the anchor point for positioning legend inside plot.
      * Justification (0, 0) corresponds to the left, lower corner of the legend.
