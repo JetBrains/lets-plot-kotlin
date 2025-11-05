@@ -70,3 +70,13 @@ fun flavorHighContrastDark() = OptionsMap(
     kind = Option.Plot.THEME,
     options = mapOf(Option.Theme.FLAVOR to Option.Theme.Flavor.HIGH_CONTRAST_DARK)
 )
+
+/**
+ * Set the theme’s default color scheme.
+ * Use to override other flavors or to make defaults explicit.
+ *
+ */
+fun flavorStandard() = OptionsMap(
+    kind = Option.Plot.THEME,
+    options = mapOf(Option.Theme.FLAVOR to Option.Theme.Flavor.STANDARD)
+)
