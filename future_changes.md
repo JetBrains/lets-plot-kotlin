@@ -14,5 +14,10 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_justification.ipynb).
 
+- Support for inward axis ticks.
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/axis_tick_direction.ipynb).
+
+
 
 ### Fixed
