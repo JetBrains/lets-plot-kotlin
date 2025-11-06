@@ -527,7 +527,7 @@ class theme(
 }
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws nothing, and assigns no space.
  *
  * ## Examples
@@ -538,7 +538,7 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
 
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws borders and backgrounds.
  *
  * ## Examples
@@ -570,7 +570,7 @@ fun elementRect(
 
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws lines.
  *
  * ## Examples
@@ -599,7 +599,7 @@ fun elementLine(
 
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws text.
  *
  * ## Examples
@@ -657,7 +657,7 @@ fun elementText(
 
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws text with Markdown support.
  *
  * ## Examples
