@@ -41,7 +41,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [superscript_exponent.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/superscript_exponent.ipynb)
  *
- * @param exponentFormat default="e" ("e", "pow", "pow_full").
+ * @param exponentFormat default="pow" ("e", "pow", "pow_full").
  *  Controls the appearance of numbers formatted with "e" or "g" types.
  *
  *  Value is either a string - style, or a list: `listOf(style, lower_exp_bound, upper_exp_bound)`
