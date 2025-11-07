@@ -5,6 +5,12 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
 
+- Geometries:
+  - `geomPointDensity()` [[#1370](https://github.com/JetBrains/lets-plot/issues/1370)].
+
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/geom_pointdensity.ipynb).
+
+
 ### Changed
 
 - Plot Theme:
