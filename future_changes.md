@@ -10,6 +10,11 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/geom_pointdensity.ipynb).
 
+- Plot Layout:
+  - The legend automatically wraps to prevent overlap - up to 15 rows for vertical legends and 5 columns for horizontal ones [[#1235](https://github.com/JetBrains/lets-plot/issues/1235)].
+
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_wrap.ipynb).
+
 
 ### Changed
 
