@@ -194,7 +194,8 @@ Examples:
 [`2d bins`](%api_geom%/geom-bin2-d/index.html),
 [`2d hexagonal bins`](%api_geom%/geom-hex/index.html),
 [`2d density`](%api_geom%/geom-density2-d/index.html),
-[`filled 2d density`](%api_geom%/geom-density2-d-filled/index.html)
+[`filled 2d density`](%api_geom%/geom-density2-d-filled/index.html),
+[`pointdensity`](%api_geom%/geom-point-density/index.html)
 
 Examples:
 

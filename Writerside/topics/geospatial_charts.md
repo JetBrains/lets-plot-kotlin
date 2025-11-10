@@ -32,7 +32,7 @@ The *Lets-Plot* library recognizes the following three 2D-geometry types:
 
 These shapes can be plotted using various geometry layers that depend on the type of the shape:
 
-- Points : [`geomPoint`](%api_geom%/geom-point/index.html), [`geomText`](%api_geom%/geom-text/index.html), [`geomLabel`](%api_geom%/geom-label/index.html), [`geomPie`](%api_geom%/geom-pie/index.html)
+- Points : [`geomPoint`](%api_geom%/geom-point/index.html), [`geomText`](%api_geom%/geom-text/index.html), [`geomLabel`](%api_geom%/geom-label/index.html), [`geomPointDensity`](%api_geom%/geom-point-density/index.html), [`geomPie`](%api_geom%/geom-pie/index.html)
 - Lines : [`geomPath`](%api_geom%/geom-path/index.html)
 - Polygons : [`geomPolygon`](%api_geom%/geom-polygon/index.html), [`geomMap`](%api_geom%/geom-map/index.html). [`geomRect`](%api_geom%/geom-rect/index.html) when used with Polygon shapes displays corresponding bounding boxes.
 
