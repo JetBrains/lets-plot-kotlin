@@ -48,6 +48,14 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *   - 'none'/False - do not share limits between subplots.
  *   - 'row' - share limits between subplots in the same row.
  *   - 'col' - share limits between subplots in the same column.
+ *  @param guides String default = "auto"
+ *   Specifies how guides (legends and colorbars) should be treated in the layout.
+ *   - "collect" - collect guides from all subplots, removing duplicates.
+ *   - "keep" - keep guides in their original subplots; do not collect at this level.
+ *   - "auto" - allow guides to be collected if an upper-level layout uses ``guides="collect"``; otherwise, keep them in subplots.
+ * Duplicates are identified by comparing visual properties:
+ *   - For legends: title, labels, and all aesthetic values (colors, shapes, sizes, etc.).
+ *   - For colorbars: title, domain limits, breaks, and color gradient.
  *
  *  @return SubPlotsFigure object.
  */
@@ -63,11 +71,12 @@ fun gggrid(
     align: Boolean = false,
     sharex: Any? = null,
     sharey: Any? = null,
+    guides: String? = null,
 
     ): SubPlotsFigure {
 
     val (nc, nrow) = plots.toList().let {
-        require(it.isNotEmpty()) { "Supplots list is empty." }
+        require(it.isNotEmpty()) { "Subplots list is empty." }
 
         if (ncol == null) {
             it.size to 1
@@ -101,6 +110,7 @@ fun gggrid(
             SubPlots.Grid.VSPACE to vspace,
             SubPlots.Grid.FIT_CELL_ASPECT_RATIO to fit,
             SubPlots.Grid.INNER_ALIGNMENT to align,
+            SubPlots.Layout.GUIDES to guides
         ).filterNonNullValues()
     )
 

@@ -19,8 +19,9 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_wrap.ipynb).
 
+  - `gggrid()`: support for shared legends (parameter `guides`).
 
-### Changed
+    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/gggrid_legend_collect.ipynb).
 
 - Plot Theme:
   - `flavorStandard()` sets the theme's default color scheme [[#1277](https://github.com/JetBrains/lets-plot/issues/1277)]. <br>
@@ -31,13 +32,17 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   - `themeGray()` as an alias for `themeGrey()`.
 
   - New `theme` functions for setting legend justification: `legendJustificationTop()`, `legendJustificationRight()`, <br>
-  `legendJustificationBottom()`, and `legendJustificationLeft()`.
+    `legendJustificationBottom()`, and `legendJustificationLeft()`.
 
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_justification.ipynb).
 
   - Support for inward axis ticks.
 
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/axis_tick_direction.ipynb).
+
+
+### Changed
+
 
 
 ### Fixed
