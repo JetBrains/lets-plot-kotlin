@@ -51,6 +51,17 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Changed
 
+- [**BREAKING**] Explicit `group` aesthetic now overrides default grouping behavior instead of combining with it [[#1401](https://github.com/JetBrains/lets-plot/issues/1401)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/group_override_defaults.ipynb).
+
+> [!IMPORTANT]
+> Previously, setting `group="variable"` would group by both the explicit variable AND any discrete
+> aesthetics (color, shape, etc.). \
+> Now it groups ONLY by the explicit variable, matching `ggplot2` behavior. \
+> Use `group=listOf(var1, var2, ...)` to group by multiple variables explicitly, \
+> and `group=emptyList<Any>()` to disable any grouping.
+
 - `theme`: the `exponent_format` default value changed to `'pow'` - superscript powers of 10 (was e-notation).
 
 - The multi-layer line plot now shows tooltips for each series simultaneously, in the same way that a single-layer plot with color mapped to series does.
