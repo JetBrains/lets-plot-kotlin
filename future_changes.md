@@ -44,9 +44,28 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   - Support for `target` attribute for links.
   - Links now open in a new tab by default [[#1397](https://github.com/JetBrains/lets-plot/issues/1397)].
 
+- `ggtb()`: `sizeZoomin` and `sizeBasis` parameters for geometry scaling [[#1369](https://github.com/JetBrains/lets-plot/issues/1369)].
+
+  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/ggtb_size_zoomin.ipynb).
+
 
 ### Changed
 
+- `theme`: the `exponent_format` default value changed to `'pow'` - superscript powers of 10 (was e-notation).
+
+- The multi-layer line plot now shows tooltips for each series simultaneously, in the same way that a single-layer plot with color mapped to series does.
 
 
 ### Fixed
+
+- `geomPie` on geospatial plot with `mapJoin` failes to render without explicit `group` aesthetic.
+- `geomDensity2D`: NullPointerException when weight aesthetic contains None values [[#1399](https://github.com/JetBrains/lets-plot/issues/1399)].
+- Tooltip shows duplicate lines when as_discrete is applied twice to the same var [[#1400](https://github.com/JetBrains/lets-plot/issues/1400)].
+- `geomSina`: incorrect shape in legend [[#1403](https://github.com/JetBrains/lets-plot/issues/1403)].
+- `geomDensity2D`: Incorrect processing of weighted statistics when None value occurs in the x or y column.
+- `facetWrap`: indescriptive error when the specified facet variable is not present in the dataset [[#1409](https://github.com/JetBrains/lets-plot/issues/1409)].
+- Integer numbers in facet strip titles are displayed as float [[#1386](https://github.com/JetBrains/lets-plot/issues/1386)].
+- Error when using `scaleIdentity(aesthetic="shape")` [[#1212](https://github.com/JetBrains/lets-plot/issues/1212)].
+- `ggsave`: theme option `face="italic"` doesn't work [[#1391](https://github.com/JetBrains/lets-plot/issues/1391)].
+- Fail early if string format is incorrect [[#1410](https://github.com/JetBrains/lets-plot/issues/1410)].
+
