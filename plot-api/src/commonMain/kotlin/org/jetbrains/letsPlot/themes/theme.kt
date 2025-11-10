@@ -41,7 +41,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [superscript_exponent.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/superscript_exponent.ipynb)
  *
- * @param exponentFormat default="e" ("e", "pow", "pow_full").
+ * @param exponentFormat default="pow" ("e", "pow", "pow_full").
  *  Controls the appearance of numbers formatted with "e" or "g" types.
  *
  *  Value is either a string - style, or a list: `listOf(style, lower_exp_bound, upper_exp_bound)`
@@ -527,7 +527,7 @@ class theme(
 }
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws nothing, and assigns no space.
  *
  * ## Examples
@@ -538,7 +538,7 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
 
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws borders and backgrounds.
  *
  * ## Examples
@@ -570,7 +570,7 @@ fun elementRect(
 
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws lines.
  *
  * ## Examples
@@ -599,7 +599,7 @@ fun elementLine(
 
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws text.
  *
  * ## Examples
@@ -657,8 +657,15 @@ fun elementText(
 
 
 /**
- * Specifies how non-data components of the plot are drawn.
+ * Specify how non-data components of the plot are drawn.
  * This theme element draws text with Markdown support.
+ *
+ * Supported features:
+ *
+ * - Emphasis (*, **, ***, _, __, ___)
+ * - Coloring with inline style (`<span style='color:red'>text</span>`)
+ * - Links with anchor tags (`<a href="https://lets-plot.org">Lets-Plot</a>`). Supports target attribute (default is `"_blank"`)
+ * - Multiple lines using double space and a newline delimiter (  `\n`)
  *
  * ## Examples
  *

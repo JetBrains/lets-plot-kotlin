@@ -12,7 +12,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
 
 
 /**
- * Grey background and white gridlines. The same as themeGray().
+ * Set the grey background and white gridlines. The same as `themeGray()`.
  *
  * ## Examples
  *
@@ -26,7 +26,7 @@ fun themeGrey() = OptionsMap(
 
 
 /**
- * Gray background and white gridlines. The same as themeGrey().
+ * Set the gray background and white gridlines. The same as `themeGrey()`.
  *
  * ## Examples
  *
@@ -40,7 +40,7 @@ fun themeGray() = OptionsMap(
 
 
 /**
- * Grey lines on white background with dark grey plot border.
+ * Set a dark grey plot border and grey gridlines on the white background.
  *
  * ## Examples
  *
@@ -54,7 +54,7 @@ fun themeBW() = OptionsMap(
 
 
 /**
- * Light grey lines of various widths on white background.
+ * Set the light grey lines of various widths on the white background.
  *
  * ## Examples
  *
@@ -68,7 +68,7 @@ fun themeLight() = OptionsMap(
 
 
 /**
- * Dark grey axes and no gridlines.
+ * Set the dark grey axes and no gridlines on the white background.
  *
  * ## Examples
  *
@@ -82,7 +82,7 @@ fun themeClassic() = OptionsMap(
 
 
 /**
- * A minimalistic theme without axes lines.
+ * Set a minimalistic theme without axes lines.
  *
  * ## Examples
  *
@@ -96,7 +96,7 @@ fun themeMinimal() = OptionsMap(
 
 
 /**
- * Default theme similar to `themeMinimal()` but with x-axis line and only major grid lines.
+ * Set the default theme similar to `themeMinimal()` adding an x-axis line and only major gridlines.
  *
  * ## Examples
  *
@@ -110,7 +110,7 @@ fun themeMinimal2() = OptionsMap(
 
 
 /**
- * Basic settings are applied.
+ * Set a basic blue-accented scheme with the light blue background.
  *
  * ## Examples
  *
@@ -124,7 +124,7 @@ fun themeNone() = OptionsMap(
 
 
 /**
- * A completely blank (or "void") background theme: no borders, axes, or gridlines.
+ * Set a completely blank (or "void") background theme by removing all non-data elements: no borders, axes, or gridlines.
  *
  * ## Examples
  *

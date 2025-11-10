@@ -12,7 +12,7 @@ import org.jetbrains.letsPlot.intern.OptionsMap
 
 
 /**
- * Darcula color scheme.
+ * Set the Darcula color scheme.
  *
  * ## Examples
  *
@@ -24,7 +24,7 @@ fun flavorDarcula() = OptionsMap(
 )
 
 /**
- * Solarized light color scheme.
+ * Set the Solarized Light color scheme.
  *
  * ## Examples
  *
@@ -36,7 +36,7 @@ fun flavorSolarizedLight() = OptionsMap(
 )
 
 /**
- * Solarized dark color scheme.
+ * Set the Solarized Dark color scheme.
  *
  * ## Examples
  *
@@ -48,7 +48,7 @@ fun flavorSolarizedDark() = OptionsMap(
 )
 
 /**
- * High contrast light color scheme.
+ * Set a high-contrast light color scheme.
  *
  * ## Examples
  *
@@ -60,7 +60,7 @@ fun flavorHighContrastLight() = OptionsMap(
 )
 
 /**
- * High contrast dark color scheme.
+ * Set a high-contrast dark color scheme.
  *
  * ## Examples
  *
@@ -72,7 +72,7 @@ fun flavorHighContrastDark() = OptionsMap(
 )
 
 /**
- * Set the theme’s default color scheme.
+ * Set the theme's default color scheme.
  * Use to override other flavors or to make defaults explicit.
  *
  */
