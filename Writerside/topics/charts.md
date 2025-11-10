@@ -22,6 +22,13 @@ You can pass tidy data to *Lets-Plot* in form of a Kotlin `Map`.
 
 - <a href="aesthetics.md#text">Text</a>
 
+Examples:
+
+- [Point shapes](%nb-aesthetics-point_shapes%)
+- [Line types](%nb-aesthetics-line_types%)
+- [System colors](%nb-aesthetics-system_colors%)
+- [Text](%nb-aesthetics-text_style%)
+
 ## Basic Building Blocks
 
 Points:

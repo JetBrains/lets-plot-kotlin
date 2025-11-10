@@ -27,6 +27,7 @@
     <var name="nbviewer_examples" value="https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples"/>
     <var name="nbviewer_demo" value="%nbviewer_examples%/demo"/>
     <var name="nbviewer_cookbook" value="%nbviewer_examples%/cookbook"/>
+    <var name="html_cookbook" value="https://lets-plot.org/kotlin/examples/cookbook"/>
     <!-- Pages -->
     <var name="nbp-tooltips" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/2u1Afm6IqmUugSWKG6ULsq"/>
     <var name="nbp-annotations" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/mynA4kNRFpu3XYl2b7tlBd"/>
@@ -52,6 +53,14 @@
     <!-- Cookbooks -->
     <var name="nb-aes_size_color_variadic_lines" value="%nbviewer_cookbook%/aes_size_color_variadic_lines.ipynb"/>
     <var name="nb-aes_stroke" value="%nbviewer_cookbook%/aes_stroke.ipynb"/>
+    <var name="nb-aesthetics-line_types" value="%html_cookbook%/aesthetics/line_types.html"/>
+    <var name="nb-aesthetics-line_types-predefined_patterns" value="%html_cookbook%/aesthetics/line_types.html#Predefined-Patterns"/>
+    <var name="nb-aesthetics-line_types-custom_patterns" value="%html_cookbook%/aesthetics/line_types.html#Custom-Patterns"/>
+    <var name="nb-aesthetics-point_shapes" value="%html_cookbook%/aesthetics/point_shapes.html"/>
+    <var name="nb-aesthetics-system_colors" value="%html_cookbook%/aesthetics/system_colors.html"/>
+    <var name="nb-aesthetics-text_style" value="%html_cookbook%/aesthetics/text_style.html"/>
+    <var name="nb-aesthetics-text_style-font_family" value="%html_cookbook%/aesthetics/text_style.html#Font-Family"/>
+    <var name="nb-aesthetics-text_style-font_face" value="%html_cookbook%/aesthetics/text_style.html#Font-Face"/>
     <var name="nb-algebraic_curve" value="%nbviewer_cookbook%/algebraic_curve.ipynb"/>
     <var name="nb-alternating_ribbon_fill" value="%nbviewer_cookbook%/alternating_ribbon_fill.ipynb"/>
     <var name="nb-annotations_for_pie" value="%nbviewer_cookbook%/annotations_for_pie.ipynb"/>
