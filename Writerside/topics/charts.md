@@ -10,6 +10,10 @@ Data in this format is sometimes referred to as tidy data, flat data, primary da
 
 You can pass tidy data to *Lets-Plot* in form of a Kotlin `Map`.
 
+Examples:
+
+- [Preserving data–statistic bijection](%nb-stat_data_bijection%)
+
 ## Aesthetics
 
 - <a href="aesthetics.md#point-shapes">Point shapes</a>
@@ -28,6 +32,7 @@ Examples:
 - [Line types](%nb-aesthetics-line_types%)
 - [System colors](%nb-aesthetics-system_colors%)
 - [Text](%nb-aesthetics-text_style%)
+- [Overriding default grouping with the group aesthetic](%nb-group_override_defaults%)
 
 ## Basic Building Blocks
 
@@ -68,6 +73,7 @@ Text:
 
 Examples:
 
+- [Missing values: line, path, area, and ribbon](%nb-missing_values_line_path_area_ribbon%)
 - [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
 - [Drawing graph edges](%nb-graph_edges%)
 - [Formatting labels on plots](%nb-formatting_axes_etc%)
@@ -201,6 +207,7 @@ Examples:
 
 - [2d density](%nb-density_2d%)
 - [Hexagonal heatmap](%nb-geom_hex%)
+- [Pointdensity geometry](%nb-geom_pointdensity%)
 - [Absolute unit specification for width and height aesthetics](%nb-param_width_unit%)
 
 

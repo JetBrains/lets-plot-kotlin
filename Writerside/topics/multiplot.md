@@ -26,3 +26,4 @@ Examples:
 
 - [The `gggrid()` function](%nb-plot_grid%)
 - [Sharing X,Y-axis scale limits](%nb-gggrid_scale_share%)
+- [Collecting guides in gggrid()](%nb-gggrid_legend_collect%)
