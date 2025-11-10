@@ -257,6 +257,22 @@ object Stat {
     }
 
     @Suppress("ClassName")
+    class pointDensity(
+        override val bw: Any? = null,
+        override val kernel: String? = null,
+        override val method: String? = null,
+        override val n: Int? = null,
+        override val adjust: Number? = null,
+        mapping: PointDensityStatMapping.() -> Unit = {}
+    ) : PointDensityStatParameters,
+        StatOptions(
+            StatKind.POINTDENSITY,
+            mapping = PointDensityStatMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+    }
+
+    @Suppress("ClassName")
     class sina(
         override val scale: String? = null,
         override val tailsCutoff: Number? = null,

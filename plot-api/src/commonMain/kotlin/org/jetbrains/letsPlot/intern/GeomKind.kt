@@ -62,6 +62,9 @@ enum class GeomKind {
     CONTOURF,
     DENSITY2D,
     DENSITY2DF,
+    POINT_DENSITY {
+        override fun optionName() = "pointdensity"
+    },
     JITTER,
     Q_Q {
         override fun optionName() = "qq"

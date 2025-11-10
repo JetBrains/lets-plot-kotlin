@@ -64,6 +64,11 @@ object Density {
                 val pl = p + statDensity2DFilled { fill = "..level.." }
                 pl.show()
             }
+
+            run {
+                val pl = p + geomPointDensity()
+                pl.show()
+            }
         }
     }
 }
