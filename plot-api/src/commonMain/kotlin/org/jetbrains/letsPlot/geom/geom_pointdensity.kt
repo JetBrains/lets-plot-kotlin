@@ -26,18 +26,15 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * Computed variables:
  *
  * - ..density.. : density estimate (mapped by default).
- * - ..count.. : density * number of points (corresponds to number of nearby points for ``'neighbours'`` method).
+ * - ..count.. : density * number of points (corresponds to number of nearby points for `"neighbours"` method).
  * - ..scaled.. : density estimate, scaled to maximum of 1.
 
  * To hide axis tooltips, set "blank" or the result of `elementBlank()`
  * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
  *
- * ## Examples
- *
- *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.pointdensity()`. The statistical transformation to use on the data for this layer.
+ * @param stat default = `Stat.pointDensity()`. The statistical transformation to use on the data for this layer.
  *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
  * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc.
  *  see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
@@ -62,7 +59,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param weight Used by "density" stat to compute weighted density.
- * @param method One of `"auto"`, `"neighbours"`, `"kde2d"` (default = `"auto"`). Method to compute the density estimate:
+ * @param method default = "auto" ("auto", "neighbours", "kde2d").
+ *  Method to compute the density estimate:
  *  - `"neighbours"` - estimates density from the number of nearby points.
  *  - `"kde2d"` - estimates density using a smoothed 2D kernel density.
  *  - `"auto"` - automatically selects an estimation method based on data size.

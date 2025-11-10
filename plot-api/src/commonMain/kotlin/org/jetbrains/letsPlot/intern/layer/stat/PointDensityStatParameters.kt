@@ -15,7 +15,8 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  *  or a Double array of length 2. Only used when `method = "kde2d"`.
  * @property kernel The kernel used for KDE. One of `"gaussian"`, `"cosine"`, `"optcosine"`, `"rectangular"`/`"uniform"`,
  *  `"triangular"`, `"biweight"`/`"quartic"`, `"epanechikov"`/`"parabolic"`. Only used when `method = "kde2d"`.
- * @property method One of `"auto"`, `"neighbours"`, `"kde2d"` (default = `"auto"`). Method to compute the density estimate:
+ * @property method default = "auto" ("auto", "neighbours", "kde2d").
+ *  Method to compute the density estimate:
  *  - `"neighbours"` - estimates density from the number of nearby points.
  *  - `"kde2d"` - estimates density using a smoothed 2D kernel density.
  *  - `"auto"` - automatically selects an estimation method based on data size.
