@@ -40,6 +40,10 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
     See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.12.0/axis_tick_direction.ipynb).
 
+- Markdown:
+  - Support for `target` attribute for links.
+  - Links now open in a new tab by default [[#1397](https://github.com/JetBrains/lets-plot/issues/1397)].
+
 
 ### Changed
 
