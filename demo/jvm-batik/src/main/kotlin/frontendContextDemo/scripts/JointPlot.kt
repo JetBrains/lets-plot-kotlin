@@ -69,7 +69,7 @@ object JointPlot {
 
             run {
                 val p =
-                    jointPlot(irisData, "petal length (cm)", "petal width (cm)", colorBy = "target", geom = "pointdensity")
+                    jointPlot(irisData, "petal length (cm)", "petal width (cm)", geom = "pointdensity")
                 p.show()
             }
         }

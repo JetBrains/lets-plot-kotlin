@@ -143,7 +143,7 @@ object Plot2dUtil {
                     alpha = alpha,
                     showLegend = showLegend
                 ) {
-                    fill = colorBy.takeIf { it != null } ?: "..density.."
+                    this.color = colorBy.takeIf { it != null } ?: "..density.."
                 }
             }
 
