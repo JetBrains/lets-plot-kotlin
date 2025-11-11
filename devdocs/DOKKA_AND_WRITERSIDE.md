@@ -24,7 +24,7 @@ Now the documentation site can be explored locally with the [http-server](https:
 ##### Update the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) GitHub Repository.            
 
 - Go to the docs/kotlin/ directory of the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) repository.
-  Remove everything except -lets--plot--kotlin/.
+  Remove everything **except** -lets--plot--kotlin/ and examples/.
   Then move the contents of the docs/build/ directory there.
 
 - Go to the root of the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) repository
