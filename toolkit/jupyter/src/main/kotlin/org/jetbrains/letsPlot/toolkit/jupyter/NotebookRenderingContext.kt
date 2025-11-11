@@ -15,7 +15,8 @@ import java.util.*
 
 internal class NotebookRenderingContext(
     private val config: JupyterConfig,
-    private val frontendContext: NotebookFrontendContext
+    private val frontendContext: NotebookFrontendContext,
+    private val webOnly: Boolean
 ) {
     /**
      * Creates Mime JSON with two output options - HTML and application/plot.
@@ -27,12 +28,14 @@ internal class NotebookRenderingContext(
         val html = frontendContext.getDisplayHtml(figure.toSpec())
         return buildJsonObject {
             put(MimeTypes.HTML, JsonPrimitive(html))
-            put("application/plot+json", buildJsonObject {
-                put("output_type", JsonPrimitive("lets_plot_spec"))
-                put("output", serializeJsonMap(spec))
-                put("apply_color_scheme", JsonPrimitive(config.themeApplied))
-                put("swing_enabled", JsonPrimitive(config.swingEnabled))
-            })
+            if (!webOnly) {
+                put("application/plot+json", buildJsonObject {
+                    put("output_type", JsonPrimitive("lets_plot_spec"))
+                    put("output", serializeJsonMap(spec))
+                    put("apply_color_scheme", JsonPrimitive(config.themeApplied))
+                    put("swing_enabled", JsonPrimitive(config.swingEnabled))
+                })
+            }
         }
     }
 

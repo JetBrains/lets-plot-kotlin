@@ -27,6 +27,7 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
     private val lpJsVersion = VersionChecker.letsPlotJsVersion
     private val isolatedFrame = options["isolatedFrame"] ?: ""
 
+    private val webOnly: Boolean = options["webOnly"].toBoolean()
 
     override fun Builder.onLoaded() {
         import("org.jetbrains.letsPlot.*")
@@ -80,7 +81,7 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
                 firstFigureRendered = true
                 host.execute { display(HTML(frontendContext.getConfigureHtml()), null) }
             }
-            NotebookRenderingContext(config, frontendContext).figureToMimeResult(value)
+            NotebookRenderingContext(config, frontendContext, webOnly).figureToMimeResult(value)
         }
     }
 
