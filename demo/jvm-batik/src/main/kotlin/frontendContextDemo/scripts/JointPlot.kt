@@ -66,6 +66,12 @@ object JointPlot {
                         scaleFillGradient(low = "#d95f0e", high = "#fff7bc")
                 p.show()
             }
+
+            run {
+                val p =
+                    jointPlot(irisData, "petal length (cm)", "petal width (cm)", colorBy = "target", geom = "pointdensity")
+                p.show()
+            }
         }
     }
 }

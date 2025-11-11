@@ -136,6 +136,17 @@ object Plot2dUtil {
                 }
             }
 
+            "pointdensity" -> {
+                geomPointDensity(
+                    color = color,
+                    size = size,
+                    alpha = alpha,
+                    showLegend = showLegend
+                ) {
+                    fill = colorBy.takeIf { it != null } ?: "..density.."
+                }
+            }
+
             "none" -> DummyFeature
 
             else -> throw IllegalArgumentException("Unknown geom: $geomKind")
