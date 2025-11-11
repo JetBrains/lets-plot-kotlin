@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.interact
 
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.OptionsMap
+import org.jetbrains.letsPlot.intern.filterNonNullValues
 
 /**
  * Add a toolbar to a chart.
@@ -35,12 +36,36 @@ import org.jetbrains.letsPlot.intern.OptionsMap
  *
  * - [interact_pan_zoom.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/interact_pan_zoom.ipynb)
  *
+ * @param sizeZoomin Controls how zooming in affects the size of geometry objects on the plot.
+ * Currently, works only with the `geomPoint` layer and layers based on it (`geomJitter`, `geomSina`, etc.).
+ *
+ * - `0` – size never increases.
+ * - `-1` – size will be increasing without limits.
+ * - `n` – the number of times the size of objects will increase (relative to the initial state of the plot).
+ *   Farther zooming will no longer affect the size.
+ *
+ * @param sizeBasis default = "max" ("x", "y", "min", "max").
+ * Defines the axis along which the scaling factor for geometry objects will be calculated.
+ *
+ * - `"x"` – size changes only when zooming in/out along the x-axis.
+ * - `"y"` – size changes only when zooming in/out along the y-axis.
+ * - `"min"` – size changes when zooming in/out along any axis, but the change is determined by the axis
+ *   with the minimum zoom factor.
+ * - `"max"` – size changes when zooming in/out along any axis, but the change is determined by the axis
+ *   with the maximum zoom factor.
+ *
  * @return OptionsMap - toolbar feature specification.
  */
 @Suppress("SpellCheckingInspection")
-fun ggtb(): OptionsMap {
+fun ggtb(
+    sizeZoomin: Int? = null,
+    sizeBasis: String? = null
+): OptionsMap {
     return OptionsMap(
         kind = Option.Meta.Kind.GG_TOOLBAR,
-        options = emptyMap()
+        mapOf(
+            Option.GGToolbar.SIZE_ZOOMIN to sizeZoomin,
+            Option.GGToolbar.SIZE_BASIS to sizeBasis
+        ).filterNonNullValues()
     )
 }

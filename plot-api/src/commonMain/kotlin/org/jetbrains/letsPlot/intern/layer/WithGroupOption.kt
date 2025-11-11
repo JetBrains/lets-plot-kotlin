@@ -23,7 +23,7 @@ import org.jetbrains.letsPlot.intern.Options
  *
  * - Use `group = listOf("var1", "var2", ...)` to group by the interaction of multiple variables
  *
- * - Use `group = emptyList()` to disable all the grouping completely
+ * - Use `group = emptyList<Any>()` to disable all the grouping completely
  *
  * @property group Data grouping control (not a true aesthetic).
  *  Use a variable name to group by that variable,

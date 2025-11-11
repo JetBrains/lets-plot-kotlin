@@ -40,7 +40,7 @@ fun ggbunch(
     regions: List<List<Number>>
 ): SubPlotsFigure {
 
-    require(plots.isNotEmpty()) { "Supplots list is empty." }
+    require(plots.isNotEmpty()) { "Subplots list is empty." }
 
     // Validate provided regions
     for ((i, region) in regions.withIndex()) {
