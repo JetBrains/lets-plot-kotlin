@@ -20,7 +20,7 @@ package org.jetbrains.letsPlot.bistro.joint
  * @param data The data to be displayed.
  * @param x Name of the variable.
  * @param y Name of the variable.
- * @param geom default = "point" ("point", "tile", "density2d", "density2df", "none").
+ * @param geom default = "point" ("point", "tile", "density2d", "density2df", "pointdensity", "none").
  *  The geometric object to use to display the data. No object will be used if `geom="none"`.
  * @param bins Number or a Pair of Numbers.
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
