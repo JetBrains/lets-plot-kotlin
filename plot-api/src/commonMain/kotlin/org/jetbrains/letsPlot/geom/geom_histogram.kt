@@ -12,6 +12,7 @@ import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.HistogramMapping
+import org.jetbrains.letsPlot.intern.layer.geom.HistogramParameters
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatAesthetics
 import org.jetbrains.letsPlot.intern.layer.stat.BinStatParameters
 import org.jetbrains.letsPlot.pos.positionStack
@@ -84,6 +85,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
+ * @param breaks A list of data values that specify exact positions of the bin boundaries.
+ *  Overrides `bins`, `binwidth`, `center` and `boundary`.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -113,11 +116,13 @@ class geomHistogram(
     override val threshold: Number? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
+    override val breaks: List<Number>? = null,
     mapping: HistogramMapping.() -> Unit = {}
 
 ) : HistogramAesthetics,
     BinStatAesthetics,
     BinStatParameters,
+    HistogramParameters,
     WithColorOption,
     WithFillOption,
     Layer(
@@ -132,13 +137,12 @@ class geomHistogram(
         sampling = sampling,
         tooltips = tooltips,
         labels = labels,
-        orientation = orientation
+        orientation = orientation,
     ) {
     override fun seal() = super<HistogramAesthetics>.seal() +
             super<BinStatAesthetics>.seal() +
             super<BinStatParameters>.seal() +
+            super<HistogramParameters>.seal() +
             super<WithColorOption>.seal() +
             super<WithFillOption>.seal()
 }
-
-
