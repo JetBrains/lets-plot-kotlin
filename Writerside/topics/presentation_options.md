@@ -12,7 +12,7 @@
 [`guideColorbar()`](%api_scale%/guide-colorbar.html),
 [`guides()`](%api_scale%/guides.html)
 
-### Examples
+### Cookbooks
 
 - [Themes overview](%nb-themes%)
 - [Default theme](%nb-default_theme%)
@@ -45,7 +45,7 @@
     <img alt="All predefined themes" src="complete_themes.png" style="block"/>
 </a>
 
-### Predefined Themes Examples
+### Predefined Themes Cookbooks
 
 - [Default theme](%nb-default_theme%)
 - [Themes overview](%nb-themes%)
@@ -69,7 +69,7 @@
     <img alt="Theme colors for geometries" src="flavors.png" style="block"/>
 </a>
 
-### Flavors Examples
+### Flavors Cookbooks
 
 - [Theme flavors](%nb-theme_flavors%)
 - [Themes overview](%nb-themes%)
