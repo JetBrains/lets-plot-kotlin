@@ -28,6 +28,7 @@
     <var name="nbviewer_demo" value="%nbviewer_examples%/demo"/>
     <var name="nbviewer_cookbook" value="%nbviewer_examples%/cookbook"/>
     <var name="html_cookbook" value="https://lets-plot.org/kotlin/examples/cookbook"/>
+    <var name="html_releases" value="https://lets-plot.org/kotlin/releases"/>
     <!-- Pages -->
     <var name="nbp-tooltips" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/2u1Afm6IqmUugSWKG6ULsq"/>
     <var name="nbp-annotations" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/mynA4kNRFpu3XYl2b7tlBd"/>
@@ -93,7 +94,7 @@
     <var name="nb-geom_histogram_threshold" value="%nbviewer_cookbook%/geom_histogram_threshold.ipynb"/>
     <var name="nb-geom_lollipop" value="%nbviewer_cookbook%/geom_lollipop.ipynb"/>
     <var name="nb-geom_pie" value="%nbviewer_cookbook%/geom_pie.ipynb"/>
-    <var name="nb-geom_pointdensity" value="%html_cookbook%/geom_pointdensity.html"/>
+    <var name="nb-geom_pointdensity" value="%html_releases%/f-4.12.0/geom_pointdensity.html"/>
     <var name="nb-geom_sina" value="%nbviewer_cookbook%/geom_sina.ipynb"/>
     <var name="nb-geom_smooth" value="%nbviewer_cookbook%/geom_smooth.ipynb"/>
     <var name="nb-geom_spoke" value="%nbviewer_cookbook%/geom_spoke.ipynb"/>
@@ -102,10 +103,10 @@
     <var name="nb-geom_ydotplot" value="%nbviewer_cookbook%/geom_ydotplot.ipynb"/>
     <var name="nb-ggbunch" value="%nbviewer_cookbook%/ggbunch.ipynb"/>
     <var name="nb-ggrepel" value="%nbviewer_cookbook%/ggrepel.ipynb"/>
-    <var name="nb-gggrid_legend_collect" value="%html_cookbook%/gggrid_legend_collect.html"/>
+    <var name="nb-gggrid_legend_collect" value="%html_releases%/f-4.12.0/gggrid_legend_collect.html"/>
     <var name="nb-gggrid_scale_share" value="%nbviewer_cookbook%/gggrid_scale_share.ipynb"/>
     <var name="nb-graph_edges" value="%nbviewer_cookbook%/graph_edges.ipynb"/>
-    <var name="nb-group_override_defaults" value="%html_cookbook%/group_override_defaults.html"/>
+    <var name="nb-group_override_defaults" value="%html_releases%/f-4.12.0/group_override_defaults.html"/>
     <var name="nb-hjust_vjust" value="%nbviewer_cookbook%/hjust_vjust.ipynb"/>
     <var name="nb-horizontal_geoms" value="%nbviewer_cookbook%/horizontal_geoms.ipynb"/>
     <var name="nb-image_101" value="%nbviewer_cookbook%/image_101.ipynb"/>
@@ -122,7 +123,7 @@
     <var name="nb-marginal_layers" value="%nbviewer_cookbook%/marginal_layers.ipynb"/>
     <var name="nb-margins" value="%nbviewer_cookbook%/margins.ipynb"/>
     <var name="nb-markdown" value="%nbviewer_cookbook%/markdown.ipynb"/>
-    <var name="nb-missing_values_line_path_area_ribbon" value="%html_cookbook%/missing_values_line_path_area_ribbon.html"/>
+    <var name="nb-missing_values_line_path_area_ribbon" value="%html_releases%/f-4.12.0/missing_values_line_path_area_ribbon.html"/>
     <var name="nb-multiple_color_scales" value="%nbviewer_cookbook%/multiple_color_scales.ipynb"/>
     <var name="nb-numeric_data_on_discrete_scale" value="%nbviewer_cookbook%/numeric_data_on_discrete_scale.ipynb"/>
     <var name="nb-ordering_examples" value="%nbviewer_cookbook%/ordering_examples.ipynb"/>
@@ -147,7 +148,7 @@
     <var name="nb-set_font_faces" value="%nbviewer_cookbook%/set_font_faces.ipynb"/>
     <var name="nb-stat_boxplot_outlier" value="%nbviewer_cookbook%/stat_boxplot_outlier.ipynb"/>
     <var name="nb-stat_count_2d" value="%nbviewer_cookbook%/stat_count_2d.ipynb"/>
-    <var name="nb-stat_data_bijection" value="%html_cookbook%/stat_data_bijection.html"/>
+    <var name="nb-stat_data_bijection" value="%html_releases%/f-4.12.0/stat_data_bijection.html"/>
     <var name="nb-stat_ecdf" value="%nbviewer_cookbook%/stat_ecdf.ipynb"/>
     <var name="nb-stat_summary" value="%nbviewer_cookbook%/stat_summary.ipynb"/>
     <var name="nb-stat_summary_bin" value="%nbviewer_cookbook%/stat_summary_bin.ipynb"/>
