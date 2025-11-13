@@ -27,7 +27,11 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
     private val lpJsVersion = VersionChecker.letsPlotJsVersion
     private val isolatedFrame = options["isolatedFrame"] ?: ""
 
-    private val webOnly: Boolean = options["webOnly"].toBoolean()
+    // Output options
+    private val addWebOutput = (options["addWebOutput"] ?: "true").toBoolean()
+    private val addKTNBOutput = (options["addKTNBOutput"] ?: "true").toBoolean()
+    private val addStaticSvg = (options["addStaticSvg"] ?: "true").toBoolean()
+    private val addStaticPng = (options["addStaticPng"] ?: "false").toBoolean()
 
     override fun Builder.onLoaded() {
         import("org.jetbrains.letsPlot.*")
@@ -59,29 +63,43 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
             frontendContext = LetsPlot.setupNotebook(lpJsVersion, isolatedFrameParam) { display(HTML(it), null) }
             LetsPlot.apiVersion = lpkVersion
             // Load library JS
-            display(HTML(frontendContext.getConfigureHtml()), null)
+            if (addWebOutput) {
+                display(HTML(frontendContext.getConfigureHtml()), null)
+            }
             // add figure renders AFTER frontendContext initialization
-            addRenders(lpJsVersion)
+            addRenders()
             declare("letsPlotNotebookConfig" to config)
         }
     }
 
 
-    private fun Builder.addRenders(jsVersion: String) {
+    private fun Builder.addRenders() {
         var firstFigureRendered = false
-        resources {
-            js("letsPlotJs") {
-                url(scriptUrl(jsVersion))
+
+        if (addWebOutput) {
+            resources {
+                js("letsPlotJs") {
+                    url(scriptUrl(lpJsVersion))
+                }
             }
         }
+
         renderWithHost<Figure> { host, value ->
             // For cases when Integration is added via Kotlin Notebook project dependency;
             // display configure HTML with the first `Figure` rendering
-            if (!firstFigureRendered) {
+            if (addWebOutput && !firstFigureRendered) {
                 firstFigureRendered = true
                 host.execute { display(HTML(frontendContext.getConfigureHtml()), null) }
             }
-            NotebookRenderingContext(config, frontendContext, webOnly).figureToMimeResult(value)
+            NotebookRenderingContext(
+                config, frontendContext,
+                NotebookRenderingContext.OutputOptions(
+                    addWebOutput = addWebOutput,
+                    addKTNBOutput = addKTNBOutput,
+                    addStaticSvg = addStaticSvg,
+                    addStaticPng = addStaticPng
+                )
+            ).figureToMimeResult(value)
         }
     }
 
