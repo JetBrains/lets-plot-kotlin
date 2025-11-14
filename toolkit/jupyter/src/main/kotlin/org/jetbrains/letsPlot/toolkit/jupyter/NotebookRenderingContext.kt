@@ -7,17 +7,26 @@ import org.jetbrains.kotlinx.jupyter.api.MimeTypedResultEx
 import org.jetbrains.kotlinx.jupyter.api.MimeTypes
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.awt.plot.PlotSvgExport
+import org.jetbrains.letsPlot.core.plot.export.PlotImageExport
 import org.jetbrains.letsPlot.frontend.NotebookFrontendContext
 import org.jetbrains.letsPlot.intern.toSpec
-import org.jetbrains.letsPlot.toolkit.jupyter.json.extendedByJson
 import org.jetbrains.letsPlot.toolkit.json.serializeJsonMap
+import org.jetbrains.letsPlot.toolkit.jupyter.json.extendedByJson
 import java.util.*
 
 internal class NotebookRenderingContext(
     private val config: JupyterConfig,
     private val frontendContext: NotebookFrontendContext,
-    private val webOnly: Boolean
+    private val outputOptions: OutputOptions
 ) {
+
+    data class OutputOptions(
+        val addWebOutput: Boolean,
+        val addKTNBOutput: Boolean,
+        val addStaticSvg: Boolean,
+        val addStaticPng: Boolean,
+    )
+
     /**
      * Creates Mime JSON with two output options - HTML and application/plot.
      * The HTML output is used in Jupyter Notebooks and Datalore (the other one is ignored).
@@ -25,10 +34,12 @@ internal class NotebookRenderingContext(
      */
     private fun figureToMimeJson(figure: Figure): JsonObject {
         val spec = figure.toSpec()
-        val html = frontendContext.getDisplayHtml(figure.toSpec())
         return buildJsonObject {
-            put(MimeTypes.HTML, JsonPrimitive(html))
-            if (!webOnly) {
+            if (outputOptions.addWebOutput) {
+                val plotHtml = frontendContext.getDisplayHtml(spec)
+                put(MimeTypes.HTML, JsonPrimitive(plotHtml))
+            }
+            if (outputOptions.addKTNBOutput) {
                 put("application/plot+json", buildJsonObject {
                     put("output_type", JsonPrimitive("lets_plot_spec"))
                     put("output", serializeJsonMap(spec))
@@ -66,19 +77,38 @@ internal class NotebookRenderingContext(
             val svgSplit = split('\n')
             (listOf(updateSvg(svgSplit.first(), id)) + svgSplit.drop(1)).joinToString("\n")
         }
-        val extraHTML = """
+        val htmlWithSvg = """
                 $svgWithID
                 <script>document.getElementById("$id").style.display = "none";</script>
                 """.trimIndent()
 
-        return mapOf(MimeTypes.HTML to JsonPrimitive(extraHTML))
+        return mapOf(MimeTypes.HTML to JsonPrimitive(htmlWithSvg))
+    }
+
+    private fun figureToHiddenPng(figure: Figure): Map<String, JsonPrimitive> {
+        val base64 = Base64.getEncoder().encodeToString(
+            PlotImageExport.buildImageFromRawSpecs(
+                figure.toSpec(), PlotImageExport.Format.PNG
+            ).bytes
+        )
+        val id = UUID.randomUUID().toString()
+        val htmlWithPng = """
+            <img id="$id" src="data:image/png;base64,$base64" alt="image">
+            <script>document.getElementById("$id").style.display = "none";</script>
+        """.trimIndent()
+
+        return mapOf(MimeTypes.HTML to JsonPrimitive(htmlWithPng))
     }
 
     fun figureToMimeResult(figure: Figure): MimeTypedResultEx {
-        val basicResult = figureToMimeJson(figure)
-        val extraSvg = figureToHiddenSvg(figure)
+        val mimeJson = figureToMimeJson(figure)
+            .let {
+                if (outputOptions.addStaticSvg) it.extendedByJson(figureToHiddenSvg(figure)) else it
+            }.let {
+                if (outputOptions.addStaticPng) it.extendedByJson(figureToHiddenPng(figure)) else it
+            }
         return MimeTypedResultEx(
-            basicResult extendedByJson extraSvg,
+            mimeJson,
             id = null,
             metadataModifiers = emptyList()
         )
