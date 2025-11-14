@@ -28,7 +28,7 @@
     <var name="nbviewer_demo" value="%nbviewer_examples%/demo"/>
     <var name="nbviewer_cookbook" value="%nbviewer_examples%/cookbook"/>
     <var name="html_cookbook" value="https://lets-plot.org/kotlin/examples/cookbook"/>
-    <var name="html_releases" value="https://lets-plot.org/kotlin/releases"/>
+    <var name="html_releases" value="https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks"/>
     <!-- Pages -->
     <var name="nbp-tooltips" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/2u1Afm6IqmUugSWKG6ULsq"/>
     <var name="nbp-annotations" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/mynA4kNRFpu3XYl2b7tlBd"/>
