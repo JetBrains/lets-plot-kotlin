@@ -8,41 +8,41 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 - Geometries:
   - `geomPointDensity()` [[#1370](https://github.com/JetBrains/lets-plot/issues/1370)].
 
-    See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/geom_pointdensity.html).
+    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/geom_pointdensity.html).
 
   - Geoms with 1-to-1 statistics (such as `geomQQ()`, `geomSina()`) preserve the mapping to original data after statistical transformation.
 
-    See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/stat_data_bijection.html).
+    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/stat_data_bijection.html).
 
   - `geomHistogram()`: custom bin bounds (parameter `breaks`) [[#1382](https://github.com/JetBrains/lets-plot/issues/1382)].
 
-    See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/geom_histogram_param_breaks.html).
+    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/geom_histogram_param_breaks.html).
 
 - Plot Layout:
   - The legend automatically wraps to prevent overlap - up to 15 rows for vertical legends and 5 columns for horizontal ones [[#1235](https://github.com/JetBrains/lets-plot/issues/1235)].
 
-    See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/legend_wrap.html).
+    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_wrap.html).
 
   - `gggrid()`: support for shared legends (parameter `guides`).
 
-    See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/gggrid_legend_collect.html).
+    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/gggrid_legend_collect.html).
 
 - Plot Theme:
   - `flavorStandard()` sets the theme's default color scheme [[#1277](https://github.com/JetBrains/lets-plot/issues/1277)]. <br>
     Use to override other flavors or to make defaults explicit.
 
-    See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/flavor_standard.html).
+    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/flavor_standard.html).
 
   - `themeGray()` as an alias for `themeGrey()`.
 
   - New `theme` functions for setting legend justification: `legendJustificationTop()`, `legendJustificationRight()`, <br>
     `legendJustificationBottom()`, and `legendJustificationLeft()`.
 
-    See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/legend_justification.html).
+    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_justification.html).
 
   - Support for inward axis ticks.
 
-    See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/axis_tick_direction.html).
+    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/axis_tick_direction.html).
 
 - Markdown:
   - Support for `target` attribute for links.
@@ -50,14 +50,14 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 - `ggtb()`: `sizeZoomin` and `sizeBasis` parameters for geometry scaling [[#1369](https://github.com/JetBrains/lets-plot/issues/1369)].
 
-  See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/ggtb_size_zoomin.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/ggtb_size_zoomin.html).
 
 
 ### Changed
 
 - [**BREAKING**] Explicit `group` aesthetic now overrides default grouping behavior instead of combining with it [[#1401](https://github.com/JetBrains/lets-plot/issues/1401)].
 
-  See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/group_override_defaults.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/group_override_defaults.html).
 
 > [!IMPORTANT]
 > Previously, setting `group="variable"` would group by both the explicit variable AND any discrete
@@ -68,7 +68,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 - Missing values in `geomLine(), geomPath(), geomRibbon()`, and `geomArea()` create gaps in geometries instead of being interpolated over [[#818](https://github.com/JetBrains/lets-plot/issues/818)], [[#1406](https://github.com/JetBrains/lets-plot/issues/1406)].
 
-  See: [example notebook](https://lets-plot.org/kotlin/releases/f-4.12.0/missing_values_line_path_area_ribbon.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/missing_values_line_path_area_ribbon.html).
 
 - `theme`: the `exponentFormat` default value changed to `"pow"` - superscript powers of 10 (was e-notation).
 
