@@ -148,7 +148,6 @@
     <var name="nb-set_font_faces" value="%nbviewer_cookbook%/set_font_faces.ipynb"/>
     <var name="nb-stat_boxplot_outlier" value="%nbviewer_cookbook%/stat_boxplot_outlier.ipynb"/>
     <var name="nb-stat_count_2d" value="%nbviewer_cookbook%/stat_count_2d.ipynb"/>
-    <var name="nb-stat_data_bijection" value="%html_releases%/f-4.12.0/stat_data_bijection.html"/>
     <var name="nb-stat_ecdf" value="%nbviewer_cookbook%/stat_ecdf.ipynb"/>
     <var name="nb-stat_summary" value="%nbviewer_cookbook%/stat_summary.ipynb"/>
     <var name="nb-stat_summary_bin" value="%nbviewer_cookbook%/stat_summary_bin.ipynb"/>

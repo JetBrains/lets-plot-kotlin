@@ -10,10 +10,6 @@ Data in this format is sometimes referred to as tidy data, flat data, primary da
 
 You can pass tidy data to *Lets-Plot* in form of a Kotlin `Map`.
 
-Cookbooks:
-
-- [Preserving data–statistic bijection](%nb-stat_data_bijection%)
-
 ## Aesthetics
 
 - <a href="aesthetics.md#point-shapes">Point shapes</a>
