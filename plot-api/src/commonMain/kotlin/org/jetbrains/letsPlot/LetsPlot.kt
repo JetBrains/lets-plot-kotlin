@@ -42,10 +42,18 @@ object LetsPlot {
     @Suppress("MemberVisibilityCanBePrivate")
     var apiVersion: String = "Unknown"
 
-    @Suppress("unused")
-    fun getInfo() = "Lets-Plot Kotlin API v.$apiVersion. Frontend: ${frontendContext.getInfo()}"
+    var outputsDescription: String? = null
 
     @Suppress("unused")
+    fun getInfo(): String {
+        val info = "Lets-Plot Kotlin API v.$apiVersion. Frontend: ${frontendContext.getInfo()}"
+        return if (outputsDescription != null) {
+            "$info\nOutputs: $outputsDescription"
+        } else {
+            info
+        }
+    }
+
     fun setupNotebook(
         jsVersion: String,
         isolatedFrame: Boolean?,
