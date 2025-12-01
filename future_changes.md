@@ -1,4 +1,4 @@
-## [4.12.0] - 2025-11-dd
+## [4.12.0] - 2025-12-dd
 
 This release is 100% compatible with Lets-Plot [v 4.8.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.7.3),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
@@ -52,6 +52,25 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/ggtb_size_zoomin.html).
 
+- New `output` parameter for the library descriptor to control output types stored in notebook cells [[LPK-277](https://github.com/JetBrains/lets-plot-kotlin/issues/277)].
+  ```
+    %use lets-plot(output="js, png")
+  ```
+  
+  Available output types:
+  - `js` - Classic Web output: HTML+JS
+  - `ktnb` - Kotlin Notebook Swing-based rendering
+  - `svg` - Static SVG output
+  - `png` - Static PNG output
+  
+  Default: `"js, ktnb, svg"`
+  
+  **Note:** Static images (SVG/PNG) are hidden when `js` or `ktnb` outputs are present, and only displayed in environments where JavaScript is not executed (e.g., GitHub).
+  
+  This option can be helpful when a Kotlin Notebook file size becomes a problem. \
+  For example, when working with large datasets where plot interactivity is not a priority, storing only static output (SVG or PNG) can significantly reduce file size.
+                   
+- [`CenteredPlotPanel`](https://github.com/JetBrains/lets-plot/blob/master/platf-awt/src/main/kotlin/org/jetbrains/letsPlot/awt/plot/component/CenteredPlotPanel.kt) helper class for displaying plots centered in Swing applications.
 
 ### Changed
 
@@ -66,7 +85,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 > Use `group=listOf(var1, var2, ...)` to group by multiple variables explicitly, \
 > and `group=emptyList<Any>()` to disable any grouping.
 
-- Missing values in `geomLine(), geomPath(), geomRibbon()`, and `geomArea()` create gaps in geometries instead of being interpolated over [[#818](https://github.com/JetBrains/lets-plot/issues/818)], [[#1406](https://github.com/JetBrains/lets-plot/issues/1406)].
+- Missing values in `geomLine(), geomPath(), geomRibbon()`, and `geomArea()` create gaps in geometries instead of being interpolated over [[LPK-269](https://github.com/JetBrains/lets-plot-kotlin/issues/269)],[[#818](https://github.com/JetBrains/lets-plot/issues/818)], [[#1406](https://github.com/JetBrains/lets-plot/issues/1406)].
 
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/missing_values_line_path_area_ribbon.html).
 
@@ -76,7 +95,8 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 
 ### Fixed
-
+          
+- Group by multiple columns [[LPK-136](https://github.com/JetBrains/lets-plot-kotlin/issues/136)].
 - `geomPie` on geospatial plot with `mapJoin` failes to render without explicit `group` aesthetic.
 - `geomDensity2D`: NullPointerException when weight aesthetic contains None values [[#1399](https://github.com/JetBrains/lets-plot/issues/1399)].
 - Tooltip shows duplicate lines when as_discrete is applied twice to the same var [[#1400](https://github.com/JetBrains/lets-plot/issues/1400)].
@@ -87,4 +107,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 - Error when using `scaleIdentity(aesthetic="shape")` [[#1212](https://github.com/JetBrains/lets-plot/issues/1212)].
 - `ggsave`: theme option `face="italic"` doesn't work [[#1391](https://github.com/JetBrains/lets-plot/issues/1391)].
 - Fail early if string format is incorrect [[#1410](https://github.com/JetBrains/lets-plot/issues/1410)].
+- `statECDF()` takes a very long time for even moderately sized datasets [[#1424](https://github.com/JetBrains/lets-plot/issues/1424)].
+- inconsistencies in theme/flavor inheritance in `gggrid()` subplots.
+
 
