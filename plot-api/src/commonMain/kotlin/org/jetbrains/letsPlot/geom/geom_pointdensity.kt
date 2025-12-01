@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Plots data points and colors each point by the local density of nearby points.
+ * Plot data points and color each point by the local density of nearby points.
  *
  * ## Notes
  *
