@@ -25,7 +25,25 @@ internal class NotebookRenderingContext(
         val addKTNBOutput: Boolean,
         val addStaticSvg: Boolean,
         val addStaticPng: Boolean,
-    )
+    ) {
+        fun hasInteractiveOutput(): Boolean {
+            return addWebOutput || addKTNBOutput
+        }
+
+        fun describe() : String {
+            val outputs = mutableListOf<String>()
+            val hasInteractive = hasInteractiveOutput()
+            if (addWebOutput) outputs.add("Web (HTML+JS)")
+            if (addKTNBOutput) outputs.add("Kotlin Notebook (Swing)")
+            if (addStaticSvg) outputs.add("Static SVG${if (hasInteractive) " (hidden)" else ""}")
+            if (addStaticPng) outputs.add("Static PNG${if (hasInteractive) " (hidden)" else ""}")
+            return if (outputs.isEmpty()) {
+                "No outputs"
+            } else {
+                outputs.joinToString(", ")
+            }
+        }
+    }
 
     /**
      * Creates Mime JSON with two output options - HTML and application/plot.
@@ -70,42 +88,66 @@ internal class NotebookRenderingContext(
      * The SVG is made hidden using an inline <script> tag. This script does not execute on platforms
      * like GitHub or Gist, allowing the output to be displayed statically on those platforms.
      */
-    private fun figureToHiddenSvg(figure: Figure): Map<String, JsonPrimitive> {
+    private fun figureToSvgOutput(figure: Figure, hidden: Boolean): Map<String, JsonPrimitive> {
         val plotSVG = PlotSvgExport.buildSvgImageFromRawSpecs(figure.toSpec())
         val id = UUID.randomUUID().toString()
         val svgWithID = with(plotSVG) {
             val svgSplit = split('\n')
             (listOf(updateSvg(svgSplit.first(), id)) + svgSplit.drop(1)).joinToString("\n")
         }
+
+        val styleDisplayNone = if (hidden) {
+            """<script>document.getElementById("$id").style.display = "none";</script>"""
+        } else {
+            ""
+        }
         val htmlWithSvg = """
                 $svgWithID
-                <script>document.getElementById("$id").style.display = "none";</script>
+                $styleDisplayNone
                 """.trimIndent()
 
         return mapOf(MimeTypes.HTML to JsonPrimitive(htmlWithSvg))
     }
 
-    private fun figureToHiddenPng(figure: Figure): Map<String, JsonPrimitive> {
-        val base64 = Base64.getEncoder().encodeToString(
-            PlotImageExport.buildImageFromRawSpecs(
-                figure.toSpec(), PlotImageExport.Format.PNG
-            ).bytes
+    /**
+     * Converts a `Figure` object into a hidden PNG embedded in an HTML <img> element.
+     * The PNG is made hidden using an inline <script> tag. This allows the output to be displayed
+     * statically on platforms like GitHub or Gist.
+     */
+    private fun figureToPngOutput(figure: Figure, hidden: Boolean): Map<String, JsonPrimitive> {
+        val imageData = PlotImageExport.buildImageFromRawSpecs(
+            plotSpec = figure.toSpec(),
+            format = PlotImageExport.Format.PNG,
+            scalingFactor = 2.0
         )
+        val base64 = Base64.getEncoder().encodeToString(
+            imageData.bytes
+        )
+        val width = imageData.plotSize.x.toInt()
+        val height = imageData.plotSize.y.toInt()
         val id = UUID.randomUUID().toString()
+
+        val styleDisplayNone = if (hidden) {
+            """<script>document.getElementById("$id").style.display = "none";</script>"""
+        } else {
+            ""
+        }
         val htmlWithPng = """
-            <img id="$id" src="data:image/png;base64,$base64" alt="image">
-            <script>document.getElementById("$id").style.display = "none";</script>
+            <img id="$id" src="data:image/png;base64,$base64" alt="image" width="$width" height="$height">
+            $styleDisplayNone
         """.trimIndent()
 
         return mapOf(MimeTypes.HTML to JsonPrimitive(htmlWithPng))
     }
 
     fun figureToMimeResult(figure: Figure): MimeTypedResultEx {
+        // Hide static images if interactive outputs are present
+        val hidden = outputOptions.hasInteractiveOutput()
         val mimeJson = figureToMimeJson(figure)
             .let {
-                if (outputOptions.addStaticSvg) it.extendedByJson(figureToHiddenSvg(figure)) else it
+                if (outputOptions.addStaticSvg) it.extendedByJson(figureToSvgOutput(figure, hidden)) else it
             }.let {
-                if (outputOptions.addStaticPng) it.extendedByJson(figureToHiddenPng(figure)) else it
+                if (outputOptions.addStaticPng) it.extendedByJson(figureToPngOutput(figure, hidden)) else it
             }
         return MimeTypedResultEx(
             mimeJson,

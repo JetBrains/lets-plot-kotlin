@@ -19,6 +19,15 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
     internal val config = JupyterConfig()
     private lateinit var frontendContext: NotebookFrontendContext
 
+    companion object {
+        private const val JS = "js"      // Classic Web output: HTML+JS
+        private const val KTNB = "ktnb"  // Kotlin Notebook Swing-based rendering
+        private const val SVG = "svg"    // Static SVG output
+        private const val PNG = "png"    // Static PNG output
+
+        private const val DEFAULT_OUTPUT = "$JS, $KTNB, $SVG"
+    }
+
     // Take integration options from descriptor by default;
     // If used via Kotlin Notebook plugin as a dependency,
     // provide defaults (versions from `VersionChecker`
@@ -28,10 +37,40 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
     private val isolatedFrame = options["isolatedFrame"] ?: ""
 
     // Output options
-    private val addWebOutput = (options["addWebOutput"] ?: "true").toBoolean()
-    private val addKTNBOutput = (options["addKTNBOutput"] ?: "true").toBoolean()
-    private val addStaticSvg = (options["addStaticSvg"] ?: "true").toBoolean()
-    private val addStaticPng = (options["addStaticPng"] ?: "false").toBoolean()
+    private val addWebOutput: Boolean
+    private val addKTNBOutput: Boolean
+    private val addStaticSvg: Boolean
+    private val addStaticPng: Boolean
+
+    init {
+        val outputOption = options["output"] ?: DEFAULT_OUTPUT
+        if (outputOption.isEmpty()) {
+            throw IllegalArgumentException(
+                "Output option cannot be an empty string. " +
+                        "Valid types are: $JS, $KTNB, $SVG, $PNG"
+            )
+        }
+
+        val outputTypes = outputOption
+            .split(",")
+            .map { it.trim().lowercase() }
+            .toSet()
+            .also { types ->
+                val validTypes = setOf(JS, KTNB, SVG, PNG)
+                val invalidTypes = types - validTypes
+                if (invalidTypes.isNotEmpty()) {
+                    throw IllegalArgumentException(
+                        "Invalid output type(s): ${invalidTypes.joinToString(", ")}. " +
+                                "Valid types are: ${validTypes.joinToString(", ")}"
+                    )
+                }
+            }
+
+        addWebOutput = JS in outputTypes
+        addKTNBOutput = KTNB in outputTypes
+        addStaticSvg = SVG in outputTypes
+        addStaticPng = PNG in outputTypes
+    }
 
     override fun Builder.onLoaded() {
         import("org.jetbrains.letsPlot.*")
@@ -69,6 +108,13 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
             // add figure renders AFTER frontendContext initialization
             addRenders()
             declare("letsPlotNotebookConfig" to config)
+
+            LetsPlot.outputsDescription = NotebookRenderingContext.OutputOptions(
+                addWebOutput = addWebOutput,
+                addKTNBOutput = addKTNBOutput,
+                addStaticSvg = addStaticSvg,
+                addStaticPng = addStaticPng
+            ).describe()
         }
     }
 
@@ -86,7 +132,7 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
 
         renderWithHost<Figure> { host, value ->
             // For cases when Integration is added via Kotlin Notebook project dependency;
-            // display configure HTML with the first `Figure` rendering
+            // display the "configure HTML" with the first `Figure` rendering
             if (addWebOutput && !firstFigureRendered) {
                 firstFigureRendered = true
                 host.execute { display(HTML(frontendContext.getConfigureHtml()), null) }
