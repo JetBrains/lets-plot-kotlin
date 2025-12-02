@@ -34,7 +34,7 @@ package org.jetbrains.letsPlot.bistro.residual
  * @param maxN Maximum number of data-points for "loess" method. 
  *  If this quantity exceeded random sampling is applied to data.
  * @param geom default = "point" ("point", "pointdensity", "tile", "none").
- *  The geometric object to use to display the data. No object will be used if `geom="none"`.
+ *  The geometric object to use to display the data. No object will be used if `geom = "none"`.
  * @param bins Number or a Pair of Numbers.
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
  *  If only one value given - interpret it as list of two equal values.
@@ -66,7 +66,7 @@ package org.jetbrains.letsPlot.bistro.residual
  *  Possible values: 't' (top), 'b' (bottom), 'l' (left), 'r' (right).
  *
  *  Third parameter (optional) is size of marginal.
- *  To suppress marginals use `marginal="none"`.
+ *  To suppress marginals use `marginal = "none"`.
  *
  *  Examples:
  *  - "hist:tr:0.3",
