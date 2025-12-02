@@ -48,7 +48,7 @@ import org.jetbrains.letsPlot.pos.positionStack
  * @param inheritAes default = true.
  *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  To prevent any sampling for this layer pass value [samplingNone][org.jetbrains.letsPlot.sampling.samplingNone].
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param x X-axis value (this value will produce cases or bins for bars).
  * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).
