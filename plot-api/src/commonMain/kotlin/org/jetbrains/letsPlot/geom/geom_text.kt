@@ -32,7 +32,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
  * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
