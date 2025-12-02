@@ -53,7 +53,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
- * @param tooltips Result of the call to the `layerTooltips()` function.
+ * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param fatten default = 5.0.

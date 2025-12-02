@@ -66,10 +66,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param sampling Result of the call to the `samplingXxx()` function.
  *  To prevent any sampling for this layer pass value `samplingNone`.
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
- * @param tooltips Result of the call to the `layerTooltips()` function.
+ * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
- * @param labels Result of the call to the `layerLabels()` function.
+ * @param labels Result of the call to the [layerLabels()][org.jetbrains.letsPlot.annotations.layerLabels] function.
  *  Specifies style and content of the annotations.
  * @param map Data-structure containing series of planar shapes and, optionally, associates data series (for example:
  *  names of States and their boundaries).
