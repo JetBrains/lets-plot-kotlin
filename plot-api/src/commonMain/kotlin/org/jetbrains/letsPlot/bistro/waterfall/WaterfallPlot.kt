@@ -37,12 +37,12 @@ package org.jetbrains.letsPlot.bistro.waterfall
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  *  Use "flow_type" to color lines by the direction of the flow.
  *  Flow type names: "Absolute", "Increase", "Decrease" and "Total".
- *  You could use these names to change the default colors with the `scaleColorManual()` function.
+ *  You could use these names to change the default colors with the [scaleColorManual()][org.jetbrains.letsPlot.scale.scaleColorManual] function.
  * @param fill Fill color of the boxes.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  *  Use "flow_type" to color boxes by the direction of the flow.
  *  Flow type names: "Absolute", "Increase", "Decrease" and "Total".
- *  You could use these names to change the default colors with the `scaleFillManual()` function.
+ *  You could use these names to change the default colors with the [scaleFillManual()][org.jetbrains.letsPlot.scale.scaleFillManual] function.
  * @param size default = 0.0.
  *  Line width of the box boundary lines.
  * @param alpha Transparency level of the boxes. Understands numbers between 0 and 1.
@@ -57,12 +57,12 @@ package org.jetbrains.letsPlot.bistro.waterfall
  *  Values that are greater than 1 lead to overlapping of the boxes.
  * @param showLegend default = false.
  *  true - show the legend.
- * @param relativeTooltips Result of the call to the `layerTooltips()` function.
+ * @param relativeTooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Tooltips for boxes with relative values.
  *  Specifies appearance, style and content.
  *  When "none", tooltips are not shown.
  *  When "detailed", a more detailed (compared to the default) version of the tooltips is shown.
- * @param absoluteTooltips Result of the call to the `layerTooltips()` function.
+ * @param absoluteTooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Tooltips for boxes with absolute values.
  *  Specifies appearance, style and content.
  *  When "none", tooltips are not shown.
@@ -79,28 +79,25 @@ package org.jetbrains.letsPlot.bistro.waterfall
  * @param totalTitle The header of the last box with the final cumulative sum, if "measure" column isn't provided.
  *  Also used as a title in the legend for columns of type "total".
  * @param hline Horizontal line passing through 0.
- *  Set "blank" or result of `elementBlank()` to draw nothing.
- *  Set `elementLine()` to specify parameters.
+ *  Set "blank" or result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank] to draw nothing.
+ *  Set [elementLine()][org.jetbrains.letsPlot.themes.elementLine] to specify parameters.
  * @param hlineOntop default = true.
  *  Option to place horizontal line over the other layers.
  * @param connector Line between neighbouring boxes connecting the end of the previous box and the beginning of the next box.
- *  Set "blank" or result of `elementBlank()` to draw nothing.
- *  Set `elementLine()` to specify parameters.
- * @param relativeLabels Result of the call to the `layerLabels()` function.
+ *  Set "blank" or result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank] to draw nothing.
+ *  Set [elementLine()][org.jetbrains.letsPlot.themes.elementLine] to specify parameters.
+ * @param relativeLabels Result of the call to the [layerLabels()][org.jetbrains.letsPlot.annotations.layerLabels] function.
  *  Specify content and formatting of annotation labels on relative change bars.
  *  If specified, overrides `labelFormat` for relative bars.
- *  See `layer_labels() <https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.annotations/layer-labels/index.html>`__.
- * @param absoluteLabels Result of the call to the `layerLabels()` function.
+ * @param absoluteLabels Result of the call to the [layerLabels()][org.jetbrains.letsPlot.annotations.layerLabels] function.
  *  Specify content and formatting of annotation labels on absolute value bars.
  *  If specified, overrides `labelFormat` for absolute bars.
- *  See `layer_labels() <https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.annotations/layer-labels/index.html>`__.
  * @param label Label on the bar.
  *  Style configuration for labels on bars. Applied to default labels or to
  *  relative/absolute labels when `relativeLabels` or `absoluteLabels` are specified.
- *  Set "blank" or result of `elementBlank()` to draw nothing.
- *  Set `elementText()` to specify style parameters.
+ *  Set "blank" or result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank] to draw nothing.
+ *  Set [elementText()][org.jetbrains.letsPlot.themes.elementText] to specify style parameters.
  *  Use `elementText(color="inherit")` to make labels inherit the color of bar borders.
- *  See `elementText() <https://lets-plot.org/kotlin/api-reference/-lets--plot--kotlin/org.jetbrains.letsPlot.themes/element-text.html>`__.
  * @param labelFormat Format used to transform label mapping values to a string.
  *  For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *  Note: the "$" must be escaped as "\$".
