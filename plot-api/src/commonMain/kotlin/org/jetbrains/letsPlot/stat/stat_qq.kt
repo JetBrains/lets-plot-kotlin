@@ -38,7 +38,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param geom The geometry to display the Q-Q stat for this layer, default is `Geom.qq()`,
  *  see [Geom][org.jetbrains.letsPlot.Geom].
- * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
+ * @param position Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
