@@ -36,12 +36,12 @@ import kotlin.math.min
 /**
  * Correlation plot builder.
  *
- * The terminal `build()` method will create a fully configured 'Plot' (i.e., Figure) object.
+ * The terminal [build()][org.jetbrains.letsPlot.bistro.corr.CorrPlot.build] method will create a fully configured 'Plot' (i.e., Figure) object.
  *
  * ## Notes
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *
