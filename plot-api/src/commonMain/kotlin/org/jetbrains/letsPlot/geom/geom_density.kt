@@ -31,8 +31,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..scaled.. : density estimate, scaled to maximum of 1.
  * - ..quantile.. : quantile estimate.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip` or `axisTooltipX` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *

@@ -33,8 +33,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..sumpct.. : normalised number of points so that sum of y-values is 100.
  * - ..binwidth.. : width of each bin.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip` or `axisTooltipX` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *

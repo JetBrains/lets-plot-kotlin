@@ -31,8 +31,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..ymax.. : upper pointwise confidence interval around the mean.
  * - ..se.. : standard error.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip` or `axisTooltipX` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *

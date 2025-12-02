@@ -35,8 +35,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..count.. : number of points with the x-axis coordinate in the same bin.
  * - ..binwidth.. : max width of each bin if method is "dotdensity"; width of each bin if method is "histodot".
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip` or `axisTooltipX` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *

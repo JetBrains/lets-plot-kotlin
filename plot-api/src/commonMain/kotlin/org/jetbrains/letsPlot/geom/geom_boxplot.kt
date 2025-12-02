@@ -32,8 +32,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..ymin.. : lower whisker = smallest observation greater than or equal to lower hinge - 1.5 * IQR.
  * - ..ymax.. : upper whisker = largest observation less than or equal to upper hinge + 1.5 * IQR.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip` or `axisTooltipX` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *

@@ -34,8 +34,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..sumprop.. : proportion of points with the same (x,y) coordinate among all points in the dataset.
  * - ..sumpct.. : proportion of points with the same (x,y) coordinate among all points in the dataset in percent.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *
