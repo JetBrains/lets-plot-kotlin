@@ -53,7 +53,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/ggtb_size_zoomin.html).
 
 - New `output` parameter for the library descriptor to control output types stored in notebook cells [[LPK-277](https://github.com/JetBrains/lets-plot-kotlin/issues/277)].\
-  Thanks to @AndreiKingsley for the contribution!
+  Thanks to [AndreiKingsley](https://github.com/AndreiKingsley) for the contribution!
   ```
     %use lets-plot(output="js, png")
   ```
