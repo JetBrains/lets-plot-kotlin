@@ -10,8 +10,8 @@ package org.jetbrains.letsPlot.bistro.joint
  *
  * ## Notes
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *
@@ -21,7 +21,7 @@ package org.jetbrains.letsPlot.bistro.joint
  * @param x Name of the variable.
  * @param y Name of the variable.
  * @param geom default = "point" ("point", "tile", "density2d", "density2df", "pointdensity", "none").
- *  The geometric object to use to display the data. No object will be used if `geom="none"`.
+ *  The geometric object to use to display the data. No object will be used if `geom = "none"`.
  * @param bins Number or a Pair of Numbers.
  *  Number of bins in both directions, vertical and horizontal. Overridden by `binWidth`.
  *  If only one value given - interpret it as list of two equal values.
@@ -53,7 +53,7 @@ package org.jetbrains.letsPlot.bistro.joint
  *  Possible values: 't' (top), 'b' (bottom), 'l' (left), 'r' (right).
  *
  *  Third parameter (optional) is size of marginal.
- *  To suppress marginals use `marginal="none"`.
+ *  To suppress marginals use `marginal = "none"`.
  *
  *  Examples:
  *  - "hist:tr:0.3",
