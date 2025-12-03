@@ -11,9 +11,8 @@ import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
 /**
- * Use this scale when your data has already been scaled.
- * I.e. it already represents aesthetic values that can handle directly.
- * This will not produce a legend unless you also supply the breaks and labels.
+ * Identity scale that maps already-scaled data directly to aesthetic values, without transformation.
+ * This scale does not produce a legend unless breaks and labels are supplied.
  *
  * Input data expected: List of Strings containing
  * - names of colors (i.e., "green")
@@ -75,9 +74,8 @@ fun scaleIdentity(
 )
 
 /**
- * Use this scale when your data has already been scaled.
- * I.e. it already represents aesthetic values that can handle directly.
- * This will not produce a legend unless you also supply the breaks and labels.
+ * Identity color scale that maps already-scaled data directly to the color aesthetic without transformation.
+ * This scale does not produce a legend unless breaks and labels are supplied.
  *
  * Input data expected: List of Strings containing
  * - names of colors (i.e., "green")
@@ -132,9 +130,8 @@ fun scaleColorIdentity(
 )
 
 /**
- * Use this scale when your data has already been scaled.
- * I.e. it already represents aesthetic values that can handle directly.
- * This will not produce a legend unless you also supply the breaks and labels.
+ * Identity fill scale that maps already-scaled data directly to the fill aesthetic without transformation.
+ * This scale does not produce a legend unless breaks and labels are supplied.
  *
  * Input data expected: List of Strings containing
  * - names of colors (i.e., "green")
@@ -189,9 +186,8 @@ fun scaleFillIdentity(
 )
 
 /**
- * Use this scale when your data has already been scaled.
- * I.e. it already represents aesthetic values that can handle directly.
- * This will not produce a legend unless you also supply the breaks and labels.
+ * Identity shape scale that maps already-scaled data directly to the shape aesthetic without transformation.
+ * This scale does not produce a legend unless breaks and labels are supplied.
  *
  * Input data expected: Numeric codes of shapes.
  *
@@ -246,9 +242,8 @@ fun scaleShapeIdentity(
 )
 
 /**
- * Use this scale when your data has already been scaled.
- * I.e. it already represents aesthetic values that can handle directly.
- * This will not produce a legend unless you also supply the breaks and labels.
+ * Identity linetype scale that maps already-scaled data directly to the linetype aesthetic without transformation.
+ * This scale does not produce a legend unless breaks and labels are supplied.
  *
  * Input data expected: Numeric codes or names of line types (i.e "dotdash").
  * The codes are: 0 = "blank", 1 = "solid", 2 = "dashed", 3 = "dotted", 4 = "dotdash", 5 = "longdash", 6 = "twodash".
@@ -305,9 +300,8 @@ fun scaleLinetypeIdentity(
 )
 
 /**
- * Use this scale when your data has already been scaled.
- * I.e. it already represents aesthetic values that can handle directly.
- * This will not produce a legend unless you also supply the breaks and labels.
+ * Identity alpha scale that maps already-scaled data directly to the alpha aesthetic without transformation.
+ * This scale does not produce a legend unless breaks and labels are supplied.
  *
  * Input data expected: Numeric values in range `[0..1]`.
  *
@@ -356,9 +350,8 @@ fun scaleAlphaIdentity(
 )
 
 /**
- * Use this scale when your data has already been scaled.
- * I.e. it already represents aesthetic values that can handle directly.
- * This will not produce a legend unless you also supply the breaks and labels.
+ * Identity size scale that maps already-scaled data directly to the size aesthetic without transformation.
+ * This scale does not produce a legend unless breaks and labels are supplied.
  *
  * Input data expected: positive Numeric values.
  *
@@ -407,9 +400,8 @@ fun scaleSizeIdentity(
 )
 
 /**
- * Use this scale when your data has already been scaled.
- * I.e. it already represents aesthetic values that can be handled directly.
- * This will not produce a legend unless you also supply the breaks and labels.
+ * Identity linewidth scale that maps already-scaled data directly to the linewidth aesthetic without transformation.
+ * This scale does not produce a legend unless breaks and labels are supplied.
  *
  * Input data expected: positive Numeric values.
  *
@@ -459,9 +451,8 @@ fun scaleLinewidthIdentity(
 )
 
 /**
- * Use this scale when your data has already been scaled.
- * I.e. it already represents aesthetic values that can be handled directly.
- * This will not produce a legend unless you also supply the breaks and labels.
+ * Identity stroke scale that maps already-scaled data directly to the stroke aesthetic without transformation.
+ * This scale does not produce a legend unless breaks and labels are supplied.
  *
  * Input data expected: positive Numeric values.
  *

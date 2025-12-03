@@ -22,6 +22,8 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *
  * - [gggrid_scale_share.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/gggrid_scale_share.ipynb)
  *
+ * - [gggrid_legend_collect.html](https://lets-plot.org/kotlin/examples/cookbook/gggrid_legend_collect.html)
+ *
  *  @param plots Collection of plots.
  *   Use Null-value to fill-in empty cells in grid.
  *  @param ncol Number of columns in grid.

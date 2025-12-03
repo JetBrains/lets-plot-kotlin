@@ -4,11 +4,15 @@
 
 ![Point shapes](aesthetics_shape.png)
 
+See [example notebook](%nb-aesthetics-point_shapes%).
+
 ## Line Types
 
 ### Predefined Patterns
 
 ![Predefined line types](aesthetics_linetype.png)
+
+See [example notebook](%nb-aesthetics-line_types-predefined_patterns%).
 
 ### Custom Patterns
 
@@ -19,6 +23,8 @@ Ways to specify the `linetype`:
 - string of an even number (up to eight) of hexadecimal digits which give the lengths in consecutive positions in the string.
 
 ![Custom line types](aesthetics_custom_linetype.png)
+
+See [example notebook](%nb-aesthetics-line_types-custom_patterns%).
 
 ## Text
 
@@ -32,11 +38,15 @@ The default font family is `'sans'`.
 
 You can also use the name of any other font installed on your system (e.g. `"Times New Roman"`).
 
+See [example notebook](%nb-aesthetics-text_style-font_family%).
+
 ### Font Face
 
 ![Font faces](aesthetics_font_face.png)
 
 The default font face is `'plain'`.
+
+See [example notebook](%nb-aesthetics-text_style-font_face%).
 
 ## Color and Fill
 
@@ -65,3 +75,5 @@ Colors and fills of geometries can be specified in the following ways:
   </list>
 
 - An instance of the `java.awt.Color` class.
+
+See [example notebook](%nb-aesthetics-system_colors%).
