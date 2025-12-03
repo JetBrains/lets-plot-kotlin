@@ -1,73 +1,59 @@
-# What Is New in 4.11.0
+# What Is New in 4.12.0
 
-- **Time Series Plotting**
+- **`geomPointDensity()` Geometry**
 
-  - Support temporal data types from `kotlinx.datetime`, `java.time`, and `java.util`.
+  <img src="geom_pointdensity.png" alt="changelog/4.12.0/geom_pointdensity.png" width="400" height="246"/>
 
-  - Support for timezone-aware `java.time.ZonedDateTime` and `java.time.OffsetDateTime` objects.
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/geom_pointdensity.html).
 
-  <img src="time_date_datetime.png" alt="changelog/4.11.0/time_date_datetime.png" width="400" height="237"/>
+- **Explicit `group` aesthetic now overrides default grouping behavior instead of combining with it**
 
-  See [Date-time](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/time_date_datetime.ipynb) cookbook.
-  <br/><br/>
+  > [!IMPORTANT]
+  > **BREAKING CHANGE:**
+  >
+  > Previously, setting `group='variable'` would group by both the explicit variable AND any discrete
+  > aesthetics (color, shape, etc.). \
+  > Now it groups ONLY by the explicit variable, matching `ggplot2` behavior. \
+  > Use `group=[var1, var2, ...]` to group by multiple variables explicitly, \
+  > and `group=[]` to disable any grouping.
 
-  <img src="bitcoin_trading.png" alt="changelog/4.11.0/bitcoin_trading.png" width="400" height="237"/>
+  <img src="group_override_defaults.png" alt="changelog/4.12.0/group_override_defaults.png" width="400" height="263">
 
-  See [Bitcoin trading](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/trading_chart.ipynb) demo.
-  <br/><br/>
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/group_override_defaults.html).
 
-- **`geomSina()` Geometry**
+- **`gggrid()`: support for shared legends (parameter `guides`)**
 
-  <img src="geom_sina.png" alt="changelog/4.11.0/geom_sina.png" width="400" height="276"/>
+  <img src="gggrid_legend_collect.png" alt="changelog/4.12.0/group_override_defaults.png" width="500" height="172">
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/geom_sina.ipynb).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/gggrid_legend_collect.html).
 
-- **`geomTextRepel()` and `geomLabelRepel()` Geometries**
+- **Better handling of missing values in `geomLine()`, `geomPath()`, `geomRibbon()`, and `geomArea()`**
 
-  <img src="geom_repel.png" alt="changelog/4.11.0/geom_repel.png" width="400" height="232"/>
+  <img src="missing_values_ribbon.png" alt="changelog/4.12.0/missing_values_ribbon.png" width="500" height="192">
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/ggrepel.ipynb).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/missing_values_line_path_area_ribbon.html).
 
-- **`waterfallPlot()` Chart**
+- **`geomHistogram()`: custom bin bounds (parameter `breaks`)**
 
-  - Annotations support via `relativeLabels` and `absoluteLabels` parameters.
-    <br/><br/>
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/geom_histogram_param_breaks.html).
 
-    <img src="waterfall_plot_annotations.png" alt="changelog/4.11.0/waterfall_plot_annotations.png" width="400" height="253"/>
+- **Legend automatically wraps to prevent overlap — up to 15 rows for vertical legends and 5 columns for horizontal ones**
 
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/waterfall_plot_annotations.ipynb).
-    <br/><br/>
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_wrap.html).
 
-  - Support for combining waterfall bars with other geometry layers.
-    <br/><br/>
+- **`flavorStandard()` resets the theme's default color scheme**
 
-    <img src="waterfall_plot_layers.png" alt="changelog/4.11.0/waterfall_plot_layers.png" width="400" height="227"/>
+  Use to override other flavors or make defaults explicit.
 
-    See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/waterfall_plot_layers.ipynb).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/flavor_standard.html).
 
-- **Continuous Data on Discrete Scales**
+- **`theme` methods controlling legend justification: `legendJustificationTop()`, `legendJustificationRight()`, `legendJustificationBottom()`, and `legendJustificationLeft()`**
 
-  Continuous data when used with discrete positional scales is no longer transformed to discrete data. <br/>
-  Instead, it remains continuous, allowing for precise positioning of continuous elements relative to discrete ones.
-  <br/><br/>
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_justification.html).
 
-  <img src="combo_discrete_continuous.png" alt="changelog/4.11.0/combo_discrete_continuous.png" width="400" height="151"/>
+- **`ggtb()`: Added `sizeZoomin` and `sizeBasis` parameters to control point size scaling behavior when zooming (works with `geomPoint` and related layers).**
 
-  See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.11.0/numeric_data_on_discrete_scale.ipynb).
-
-  > [!TIP]
-  > New way of handling continuous data on discrete scales could potentially break existing plots.
-  > If you want to restore a broken plot to its original form, you can use the [`asDiscrete()`](https://lets-plot.org/kotlin/as-discrete.html) function to annotate continuous data as discrete.
-
-- **Plot Layout**
-
-  The default plot layout has been improved to better accommodate axis labels and titles. <br/>
-  Also, new `theme()` options `axisTextSpacing`, `axisTextSpacingX`, and `axisTextSpacingY` control spacing between axis ticks and labels.
-  <br/><br/>
-
-  <img src="plot_layout_diagram.png" alt="changelog/4.11.0/plot_layout_diagram.png" width="400" height="175"/>
-
-  See new [Plot Layout Diagrams](https://lets-plot.org/kotlin/presentation-options.html#plot-layout-diagrams) showing various layout options and their effects on plot appearance.
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/ggtb_size_zoomin.html).
 
 - **And More**
 
