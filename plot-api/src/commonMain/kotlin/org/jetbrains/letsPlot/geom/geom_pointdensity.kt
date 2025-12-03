@@ -32,6 +32,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * To hide axis tooltips, set "blank" or the result of `elementBlank()`
  * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
  *
+ * ## Examples
+ *
+ * - [geom_pointdensity.html](https://lets-plot.org/kotlin/examples/cookbook/geom_pointdensity.html)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat default = `Stat.pointDensity()`. The statistical transformation to use on the data for this layer.

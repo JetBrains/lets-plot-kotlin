@@ -25,6 +25,10 @@ import org.jetbrains.letsPlot.intern.Options
  *
  * - Use `group = emptyList<Any>()` to disable all the grouping completely
  *
+ * ## Examples
+ *
+ * - [group_override_defaults.html](https://lets-plot.org/kotlin/examples/cookbook/group_override_defaults.html)
+ *
  * @property group Data grouping control (not a true aesthetic).
  *  Use a variable name to group by that variable,
  *  a list of variables to group by their interaction,
