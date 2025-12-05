@@ -42,7 +42,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.densityRidges()`. The statistical transformation to use on the data for this layer.
+ * @param stat default = [Stat.densityRidges()][org.jetbrains.letsPlot.Stat.densityRidges]. The statistical transformation to use on the data for this layer.
  *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
  * @param position Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
@@ -73,7 +73,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Defines line width.
- * @param weight Used by `Stat.densityRidges()` stat to compute weighted density.
+ * @param weight Used by [Stat.densityRidges()][org.jetbrains.letsPlot.Stat.densityRidges] stat to compute weighted density.
  * @param scale default = 1.0
  *  A multiplicative factor applied to height aesthetic.
  *  If `scale = 1.0`, the heights of a ridges are automatically scaled
