@@ -48,7 +48,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  The number of control points used to draw the curve. More control points creates a smoother curve.
  * @param spacer default = 0.0.
  *  Space to shorten a curve by moving the start/end.
- * @param arrow Specification for arrow head, as created by `arrow()` function.
+ * @param arrow Specification for arrow head, as created by [arrow()][org.jetbrains.letsPlot.geom.extras.arrow] function.
  * @param x X-axis value.
  * @param y Y-axis value.
  * @param xend X-axis value.
