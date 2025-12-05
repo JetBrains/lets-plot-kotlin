@@ -34,6 +34,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [horizontal_geoms.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/horizontal_geoms.ipynb)
  *
+ * - [missing_values_line_path_area_ribbon.html](https://lets-plot.org/kotlin/examples/cookbook/missing_values_line_path_area_ribbon.html)
+ *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.

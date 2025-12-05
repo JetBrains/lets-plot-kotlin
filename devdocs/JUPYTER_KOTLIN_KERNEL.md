@@ -55,10 +55,11 @@ It will publish all artifacts to `<project root>/.maven-publish-dev-repo/` folde
 
 #### Edit the library descriptor (lets-plot.json or lets-plot-gt.json):
 
-> **Tip:** To make sure you have the latest version of the descriptor in "~/.jupyter_kotlin/cache", 
-> execute the `%use lets-plot` statement in the notebook.
-> The kernel will download a newer descriptor if available.
-            
+- Create a copy of the `lets-plot.json` and/or `lets-plot-gt.json` file in the `~/.jupyter_kotlin/libraries` directory. \
+  The `%use lets-plot` command will pick up the descriptor from this location. \
+  Alternatively, you can copy the descriptor to any location and use it via `%use @<path to the descriptor>` command.
+                                                                                
+
 - add _Maven Local_ or _Sonatype SNAPSHOT_ repository or both:
   ```
   "repositories": [
@@ -77,7 +78,7 @@ It will publish all artifacts to `<project root>/.maven-publish-dev-repo/` folde
  
 - if experimenting with Lets-Plot JS which is not published:
   - Set "js" version to "dev";
-> **TBD:** Currently there is no clean way to configure "dev" version for JS.
+> **TBD:** Currently, there is no clean way to configure "dev" version for JS.
 > The "dirty" way is to add "dev" to the "js" version right in the `VersionChecker.kt`.
 > 
 > See the `letsPlotJsVersion` property in the `VersionChecker.kt` file.

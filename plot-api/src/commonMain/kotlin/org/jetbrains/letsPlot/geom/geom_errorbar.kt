@@ -29,8 +29,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * - [error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/error_bars.ipynb)
  *
- * - [horizontal_error_bars.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/horizontal_error_bars.ipynb)
- *
  * - [horizontal_geoms.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/horizontal_geoms.ipynb)
  *
  * @param data The data to be displayed in this layer. If null, the default, the data

@@ -12,7 +12,7 @@
 [`guideColorbar()`](%api_scale%/guide-colorbar.html),
 [`guides()`](%api_scale%/guides.html)
 
-### Examples
+### Cookbooks
 
 - [Themes overview](%nb-themes%)
 - [Default theme](%nb-default_theme%)
@@ -34,7 +34,7 @@
 
 [`minimal2`](%api_theme%/theme-minimal2.html),
 [`bw`](%api_theme%/theme-b-w.html),
-[`grey`](%api_theme%/theme-grey.html),
+[`grey`](%api_theme%/theme-grey.html) (or [`gray`](%api_theme%/theme-gray.html)),
 [`classic`](%api_theme%/theme-classic.html),
 [`light`](%api_theme%/theme-light.html),
 [`minimal`](%api_theme%/theme-minimal.html),
@@ -45,7 +45,7 @@
     <img alt="All predefined themes" src="complete_themes.png" style="block"/>
 </a>
 
-### Predefined Themes Examples
+### Predefined Themes Cookbooks
 
 - [Default theme](%nb-default_theme%)
 - [Themes overview](%nb-themes%)
@@ -62,13 +62,14 @@
 [`solarized light`](%api_theme%/flavor-solarized-light.html),
 [`solarized dark`](%api_theme%/flavor-solarized-dark.html),
 [`high contrast light`](%api_theme%/flavor-high-contrast-light.html),
-[`high contrast dark`](%api_theme%/flavor-high-contrast-dark.html)
+[`high contrast dark`](%api_theme%/flavor-high-contrast-dark.html),
+[`standard`](%api_theme%/flavor-standard.html)
 
 <a href="%nb-geom_theme_colors%">
     <img alt="Theme colors for geometries" src="flavors.png" style="block"/>
 </a>
 
-### Flavors Examples
+### Flavors Cookbooks
 
 - [Theme flavors](%nb-theme_flavors%)
 - [Themes overview](%nb-themes%)

@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7646,6 +7647,7 @@ table.dataframe th {
 
 table.dataframe td {
     vertical-align: top;
+    white-space: nowrap;
 }
 
 table.dataframe th.bottomBorder {
@@ -7745,7 +7747,7 @@ table.dataframe tr:hover .formatted .structural, .null {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<div id="mvLDkY"></div>
+<div id="AAC5SM"></div>
 <script data-lets-plot-script="library" type="text/javascript">
        if(!window.letsPlotCallQueue) {
            window.letsPlotCallQueue = [];
@@ -7756,7 +7758,7 @@ table.dataframe tr:hover .formatted .structural, .null {
        (function() {
            var script = document.createElement("script");
            script.type = "text/javascript";
-           script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.8.0/js-package/distr/lets-plot.min.js";
+           script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.8.1/js-package/distr/lets-plot.min.js";
            script.onload = function() {
                window.letsPlotCall = function(f) {f();};
                window.letsPlotCallQueue.forEach(function(f) {f();});
@@ -7770,9 +7772,9 @@ table.dataframe tr:hover .formatted .structural, .null {
                var div = document.createElement("div");
                div.style.color = 'darkred';
                div.textContent = 'Error loading Lets-Plot JS';
-               document.getElementById("mvLDkY").appendChild(div);
+               document.getElementById("AAC5SM").appendChild(div);
            };
-           var e = document.getElementById("mvLDkY");
+           var e = document.getElementById("AAC5SM");
            e.appendChild(script);
        })();
    </script>
@@ -7795,7 +7797,7 @@ table.dataframe tr:hover .formatted .structural, .null {
             }
             (function (){
                 var modifiers = [(function(script) {
-    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.8.0/js-package/distr/lets-plot.min.js"
+    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.8.1/js-package/distr/lets-plot.min.js"
     script.type = "text/javascript";
 })];
                 var e = document.getElementById("kotlin_out_1");
@@ -7845,7 +7847,8 @@ table.dataframe tr:hover .formatted .structural, .null {
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>Lets-Plot Kotlin API v.0.0.0-SNAPSHOT. Frontend: Notebook with dynamically loaded JS. Lets-Plot JS v.4.8.0.</pre>
+<pre>Lets-Plot Kotlin API v.4.12.0. Frontend: Notebook with dynamically loaded JS. Lets-Plot JS v.4.8.1.
+Outputs: Web (HTML+JS), Kotlin Notebook (Swing), Static SVG (hidden)</pre>
 </div>
 </div>
 </div>
@@ -7917,7 +7920,7 @@ table.dataframe tr:hover .formatted .structural, .null {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<div id="H0wCcN"></div>
+<div id="mXL5nc"></div>
 <script data-lets-plot-script="library" type="text/javascript">
        if(!window.letsPlotCallQueue) {
            window.letsPlotCallQueue = [];
@@ -7928,7 +7931,7 @@ table.dataframe tr:hover .formatted .structural, .null {
        (function() {
            var script = document.createElement("script");
            script.type = "text/javascript";
-           script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.8.0/js-package/distr/lets-plot.min.js";
+           script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.8.1/js-package/distr/lets-plot.min.js";
            script.onload = function() {
                window.letsPlotCall = function(f) {f();};
                window.letsPlotCallQueue.forEach(function(f) {f();});
@@ -7942,9 +7945,9 @@ table.dataframe tr:hover .formatted .structural, .null {
                var div = document.createElement("div");
                div.style.color = 'darkred';
                div.textContent = 'Error loading Lets-Plot JS';
-               document.getElementById("H0wCcN").appendChild(div);
+               document.getElementById("mXL5nc").appendChild(div);
            };
-           var e = document.getElementById("H0wCcN");
+           var e = document.getElementById("mXL5nc");
            e.appendChild(script);
        })();
    </script>
@@ -7953,7 +7956,7 @@ table.dataframe tr:hover .formatted .structural, .null {
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div id="PGLDAA"></div>
+<div id="yETv1J"></div>
 <script data-lets-plot-script="plot" type="text/javascript">
    
    (function() {
@@ -7978,7 +7981,7 @@ table.dataframe tr:hover .formatted .structural, .null {
        };
    }
    
-   const containerDiv = document.getElementById("PGLDAA");
+   const containerDiv = document.getElementById("yETv1J");
    let fig = null;
    
    function renderPlot() {
@@ -8057,17 +8060,11 @@ table.dataframe tr:hover .formatted .structural, .null {
 "type":"str",
 "column":"trans"
 },{
-"type":"str",
-"column":"drv"
-},{
 "type":"int",
 "column":"cty"
 },{
 "type":"int",
 "column":"hwy"
-},{
-"type":"str",
-"column":"fl"
 },{
 "type":"str",
 "column":"class"
@@ -8115,7 +8112,7 @@ table.dataframe tr:hover .formatted .structural, .null {
    // ----------
    })();
    
-   </script> <svg class="plt-container" display="block" height="100%" id="5f533430-8f70-4cb3-947d-cecfee8b0e5e" preserveaspectratio="xMinYMin meet" style="max-width: 600.0px; max-height: 400.0px;" viewbox="0 0 600.0 400.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   </script> <svg class="plt-container" display="block" height="100%" id="5d698a52-7583-4f26-9465-00080c4b175e" preserveaspectratio="xMinYMin meet" style="max-width: 600.0px; max-height: 400.0px;" viewbox="0 0 600.0 400.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <style type="text/css">
   .plt-container {
    font-family: sans-serif;
@@ -8127,7 +8124,7 @@ table.dataframe tr:hover .formatted .structural, .null {
 text {
    text-rendering: optimizeLegibility;
 }
-#pxGVVwP .plot-title {
+#p5rlFn5 .plot-title {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8135,7 +8132,7 @@ font-family: sans-serif;
 font-size: 16.0px;
 
 }
-#pxGVVwP .plot-subtitle {
+#p5rlFn5 .plot-subtitle {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8143,7 +8140,7 @@ font-family: sans-serif;
 font-size: 15.0px;
 
 }
-#pxGVVwP .plot-caption {
+#p5rlFn5 .plot-caption {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8151,13 +8148,13 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pxGVVwP .hyperlink-element {
+#p5rlFn5 .hyperlink-element {
 fill: #118ed8;
 font-weight: normal;
 font-style: normal;
 
 }
-#pxGVVwP .legend-title {
+#p5rlFn5 .legend-title {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8165,7 +8162,7 @@ font-family: sans-serif;
 font-size: 15.0px;
 
 }
-#pxGVVwP .legend-item {
+#p5rlFn5 .legend-item {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8173,7 +8170,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pxGVVwP .axis-title-x {
+#p5rlFn5 .axis-title-x {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8181,7 +8178,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pxGVVwP .axis-text-x {
+#p5rlFn5 .axis-text-x {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8189,7 +8186,7 @@ font-family: sans-serif;
 font-size: 15.0px;
 
 }
-#dWDj32n .axis-tooltip-text-x {
+#d7p3db2 .axis-tooltip-text-x {
 fill: #303030;
 font-weight: normal;
 font-style: normal;
@@ -8197,7 +8194,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pxGVVwP .axis-title-y {
+#p5rlFn5 .axis-title-y {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8205,7 +8202,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pxGVVwP .axis-text-y {
+#p5rlFn5 .axis-text-y {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8213,7 +8210,7 @@ font-family: sans-serif;
 font-size: 15.0px;
 
 }
-#dWDj32n .axis-tooltip-text-y {
+#d7p3db2 .axis-tooltip-text-y {
 fill: #303030;
 font-weight: normal;
 font-style: normal;
@@ -8221,7 +8218,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pxGVVwP .facet-strip-text-x {
+#p5rlFn5 .facet-strip-text-x {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8229,7 +8226,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pxGVVwP .facet-strip-text-y {
+#p5rlFn5 .facet-strip-text-y {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8237,7 +8234,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#dWDj32n .tooltip-text {
+#d7p3db2 .tooltip-text {
 fill: #bbbbbb;
 font-weight: normal;
 font-style: normal;
@@ -8245,7 +8242,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#dWDj32n .tooltip-title {
+#d7p3db2 .tooltip-title {
 fill: #bbbbbb;
 font-weight: bold;
 font-style: normal;
@@ -8253,7 +8250,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#dWDj32n .tooltip-label {
+#d7p3db2 .tooltip-label {
 fill: #bbbbbb;
 font-weight: bold;
 font-style: normal;
@@ -8263,7 +8260,7 @@ font-size: 13.0px;
 }
 
   </style>
-<g id="pxGVVwP">
+<g id="p5rlFn5">
 <path d="M0.0 0.0 L0.0 400.0 L600.0 400.0 L600.0 0.0 Z" fill="rgb(48,48,48)" fill-opacity="1.0" fill-rule="evenodd">
 </path>
 <g transform="translate(63.970908183202305 22.0 ) ">
@@ -8303,7 +8300,7 @@ font-size: 13.0px;
 </g>
 </g>
 </g>
-<g clip-bounds-jfx="[rect (27.416781820311236, 0.0), (502.6123099964865, 335.0)]" clip-path="url(#cT2URuh)">
+<g clip-bounds-jfx="[rect (27.416781820311236, 0.0), (502.6123099964865, 335.0)]" clip-path="url(#cVP3Zxi)">
 <g transform="translate(27.416781820311236 0.0 ) ">
 <g>
 <g>
@@ -8549,7 +8546,7 @@ font-size: 13.0px;
 </g>
 </g>
 <defs>
-<clippath id="cT2URuh">
+<clippath id="cVP3Zxi">
 <rect height="335.0" width="502.6123099964865" x="27.416781820311236" y="0.0">
 </rect>
 </clippath>
@@ -8762,10 +8759,10 @@ font-size: 13.0px;
 <path d="M0.0 0.0 L0.0 400.0 L600.0 400.0 L600.0 0.0 Z" fill="rgb(0,0,0)" fill-opacity="0.0" pointer-events="none" stroke="rgb(187,187,187)" stroke-opacity="1.0" stroke-width="0.0">
 </path>
 </g>
-<g id="dWDj32n">
+<g id="d7p3db2">
 </g>
 </svg>
-<script>document.getElementById("5f533430-8f70-4cb3-947d-cecfee8b0e5e").style.display = "none";</script>
+<script>document.getElementById("5d698a52-7583-4f26-9465-00080c4b175e").style.display = "none";</script>
 </div>
 </div>
 </div>
@@ -8796,7 +8793,7 @@ font-size: 13.0px;
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div id="3APLaf"></div>
+<div id="pYsmJM"></div>
 <script data-lets-plot-script="plot" type="text/javascript">
    
    (function() {
@@ -8821,7 +8818,7 @@ font-size: 13.0px;
        };
    }
    
-   const containerDiv = document.getElementById("3APLaf");
+   const containerDiv = document.getElementById("pYsmJM");
    let fig = null;
    
    function renderPlot() {
@@ -8900,17 +8897,11 @@ font-size: 13.0px;
 "type":"str",
 "column":"trans"
 },{
-"type":"str",
-"column":"drv"
-},{
 "type":"int",
 "column":"cty"
 },{
 "type":"int",
 "column":"hwy"
-},{
-"type":"str",
-"column":"fl"
 },{
 "type":"str",
 "column":"class"
@@ -8958,7 +8949,7 @@ font-size: 13.0px;
    // ----------
    })();
    
-   </script> <svg class="plt-container" display="block" height="100%" id="91db2a61-6080-4a5f-84bc-3bd2db29a8ba" preserveaspectratio="xMinYMin meet" style="max-width: 600.0px; max-height: 400.0px;" viewbox="0 0 600.0 400.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   </script> <svg class="plt-container" display="block" height="100%" id="d80ba2ba-4958-42e1-99ac-6053134f7feb" preserveaspectratio="xMinYMin meet" style="max-width: 600.0px; max-height: 400.0px;" viewbox="0 0 600.0 400.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <style type="text/css">
   .plt-container {
    font-family: sans-serif;
@@ -8970,7 +8961,7 @@ font-size: 13.0px;
 text {
    text-rendering: optimizeLegibility;
 }
-#pg6jDzS .plot-title {
+#pYOL91t .plot-title {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -8978,7 +8969,7 @@ font-family: sans-serif;
 font-size: 16.0px;
 
 }
-#pg6jDzS .plot-subtitle {
+#pYOL91t .plot-subtitle {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -8986,7 +8977,7 @@ font-family: sans-serif;
 font-size: 15.0px;
 
 }
-#pg6jDzS .plot-caption {
+#pYOL91t .plot-caption {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -8994,13 +8985,13 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pg6jDzS .hyperlink-element {
+#pYOL91t .hyperlink-element {
 fill: #118ed8;
 font-weight: normal;
 font-style: normal;
 
 }
-#pg6jDzS .legend-title {
+#pYOL91t .legend-title {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -9008,7 +8999,7 @@ font-family: sans-serif;
 font-size: 15.0px;
 
 }
-#pg6jDzS .legend-item {
+#pYOL91t .legend-item {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -9016,7 +9007,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pg6jDzS .axis-title-x {
+#pYOL91t .axis-title-x {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -9024,7 +9015,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pg6jDzS .axis-text-x {
+#pYOL91t .axis-text-x {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -9032,7 +9023,7 @@ font-family: sans-serif;
 font-size: 15.0px;
 
 }
-#dMJD22K .axis-tooltip-text-x {
+#dOCmsUZ .axis-tooltip-text-x {
 fill: #ffffff;
 font-weight: normal;
 font-style: normal;
@@ -9040,7 +9031,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pg6jDzS .axis-title-y {
+#pYOL91t .axis-title-y {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -9048,7 +9039,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pg6jDzS .axis-text-y {
+#pYOL91t .axis-text-y {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -9056,7 +9047,7 @@ font-family: sans-serif;
 font-size: 15.0px;
 
 }
-#dMJD22K .axis-tooltip-text-y {
+#dOCmsUZ .axis-tooltip-text-y {
 fill: #ffffff;
 font-weight: normal;
 font-style: normal;
@@ -9064,7 +9055,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pg6jDzS .facet-strip-text-x {
+#pYOL91t .facet-strip-text-x {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -9072,7 +9063,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#pg6jDzS .facet-strip-text-y {
+#pYOL91t .facet-strip-text-y {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -9080,7 +9071,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#dMJD22K .tooltip-text {
+#dOCmsUZ .tooltip-text {
 fill: #474747;
 font-weight: normal;
 font-style: normal;
@@ -9088,7 +9079,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#dMJD22K .tooltip-title {
+#dOCmsUZ .tooltip-title {
 fill: #474747;
 font-weight: bold;
 font-style: normal;
@@ -9096,7 +9087,7 @@ font-family: sans-serif;
 font-size: 13.0px;
 
 }
-#dMJD22K .tooltip-label {
+#dOCmsUZ .tooltip-label {
 fill: #474747;
 font-weight: bold;
 font-style: normal;
@@ -9106,7 +9097,7 @@ font-size: 13.0px;
 }
 
   </style>
-<g id="pg6jDzS">
+<g id="pYOL91t">
 <path d="M0.0 0.0 L0.0 400.0 L600.0 400.0 L600.0 0.0 Z" fill="rgb(255,255,255)" fill-opacity="1.0" fill-rule="evenodd">
 </path>
 <g transform="translate(63.970908183202305 22.0 ) ">
@@ -9146,7 +9137,7 @@ font-size: 13.0px;
 </g>
 </g>
 </g>
-<g clip-bounds-jfx="[rect (27.416781820311236, 0.0), (502.6123099964865, 335.0)]" clip-path="url(#cSoSpaq)">
+<g clip-bounds-jfx="[rect (27.416781820311236, 0.0), (502.6123099964865, 335.0)]" clip-path="url(#cwWgmie)">
 <g transform="translate(27.416781820311236 0.0 ) ">
 <g>
 <g>
@@ -9392,7 +9383,7 @@ font-size: 13.0px;
 </g>
 </g>
 <defs>
-<clippath id="cSoSpaq">
+<clippath id="cwWgmie">
 <rect height="335.0" width="502.6123099964865" x="27.416781820311236" y="0.0">
 </rect>
 </clippath>
@@ -9605,10 +9596,10 @@ font-size: 13.0px;
 <path d="M0.0 0.0 L0.0 400.0 L600.0 400.0 L600.0 0.0 Z" fill="rgb(0,0,0)" fill-opacity="0.0" pointer-events="none" stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="0.0">
 </path>
 </g>
-<g id="dMJD22K">
+<g id="dOCmsUZ">
 </g>
 </svg>
-<script>document.getElementById("91db2a61-6080-4a5f-84bc-3bd2db29a8ba").style.display = "none";</script>
+<script>document.getElementById("d80ba2ba-4958-42e1-99ac-6053134f7feb").style.display = "none";</script>
 </div>
 </div>
 </div>

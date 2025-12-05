@@ -126,6 +126,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Maximum number of iterations used to resolve collisions.
  * @param maxTime default = 5.
  *  Maximum allowed time in seconds for resolving label collisions.
+ *  Set to -1 to disable the time limit.
  * @param direction default = "both" ("both", "x", "y").
  *  Direction in which text labels can be moved.
  * @param pointPadding Padding around data points to prevent overlap with text labels.
@@ -133,6 +134,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param maxOverlaps default = 10.
  *  The maximum number of overlapping text labels allowed.
  *  Additional text labels will be hidden.
+ *  Set to -1 to disable overlap filtering.
  * @param minSegmentLength Minimum length of the line connecting the label to the point.
  *  Shorter segments will be omitted.
  * @param arrow Specification for arrow head, as created by `arrow()` function.

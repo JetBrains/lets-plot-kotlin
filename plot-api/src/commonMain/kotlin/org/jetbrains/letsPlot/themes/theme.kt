@@ -527,8 +527,7 @@ class theme(
 }
 
 /**
- * Specify how non-data components of the plot are drawn.
- * This theme element draws nothing, and assigns no space.
+ * Theme element that draws nothing and allocates no space for non-data components of the plot.
  *
  * ## Examples
  *
@@ -538,8 +537,7 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
 
 
 /**
- * Specify how non-data components of the plot are drawn.
- * This theme element draws borders and backgrounds.
+ * Theme element that draws rectangular non-data components of the plot: borders and backgrounds.
  *
  * ## Examples
  *
@@ -570,8 +568,7 @@ fun elementRect(
 
 
 /**
- * Specify how non-data components of the plot are drawn.
- * This theme element draws lines.
+ * Theme element that draws line-based non-data components of the plot.
  *
  * ## Examples
  *
@@ -599,8 +596,7 @@ fun elementLine(
 
 
 /**
- * Specify how non-data components of the plot are drawn.
- * This theme element draws text.
+ * Theme element that draws text for non-data components of the plot.
  *
  * ## Examples
  *
@@ -657,8 +653,7 @@ fun elementText(
 
 
 /**
- * Specify how non-data components of the plot are drawn.
- * This theme element draws text with Markdown support.
+ * Theme element that draws text with Markdown support for non-data components of the plot.
  *
  * Supported features:
  *
@@ -731,7 +726,7 @@ fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) = lis
 
 
 /**
- * Specify custom values for named geom colors used in plot elements.
+ * Theme element that specifies custom values for named geom colors used in plot elements.
  *
  * ## Examples
  *

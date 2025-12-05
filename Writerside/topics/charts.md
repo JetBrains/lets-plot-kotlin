@@ -22,6 +22,14 @@ You can pass tidy data to *Lets-Plot* in form of a Kotlin `Map`.
 
 - <a href="aesthetics.md#text">Text</a>
 
+Cookbooks:
+
+- [Point shapes](%nb-aesthetics-point_shapes%)
+- [Line types](%nb-aesthetics-line_types%)
+- [System colors](%nb-aesthetics-system_colors%)
+- [Text](%nb-aesthetics-text_style%)
+- [Overriding default grouping with the group aesthetic](%nb-group_override_defaults%)
+
 ## Basic Building Blocks
 
 Points:
@@ -59,9 +67,9 @@ Text:
 [`label`](%api_geom%/geom-label/index.html),
 [`label repel`](%api_geom%/geom-label-repel/index.html)
 
-Examples:
+Cookbooks:
 
-- [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
+- [Missing values: line, path, area, and ribbon](%nb-missing_values_line_path_area_ribbon%)
 - [Drawing graph edges](%nb-graph_edges%)
 - [Formatting labels on plots](%nb-formatting_axes_etc%)
 - [Text geoms](%nb-text_geoms%)
@@ -77,6 +85,10 @@ Examples:
 - [`stroke` aesthetic](%nb-aes_stroke%)
 - [Configuring nudge units in position adjustments](%nb-position_nudge_unit%)
 
+Demos:
+
+- [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
+
 
 ## Discrete
 
@@ -89,7 +101,7 @@ Examples:
 Learn more:
 <a href="as_discrete.md">Working with Categorical Variables and the <format style="bold">asDiscrete()</format> Function</a>
 
-Examples:
+Cookbooks:
 
 - [Barchart](%nb-bar%)
 - [Pie-chart](%nb-geom_pie%)
@@ -109,7 +121,7 @@ Examples:
 [`contours`](%api_geom%/geom-contour/index.html),
 [`filled contours`](%api_geom%/geom-contour-filled/index.html)
 
-Examples:
+Cookbooks:
 
 - [Contours](%nb-contours%)
 
@@ -125,7 +137,7 @@ Examples:
 [`ridgeline`](%api_geom%/geom-area-ridges/index.html),
 [`frequency polygon`](%api_geom%/geom-freqpoly/index.html)
 
-Examples:
+Cookbooks:
 
 - [Distributions](%nb-distributions%)
 - [Dotplot geometry](%nb-geom_dotplot%)
@@ -143,7 +155,7 @@ Examples:
 [`statSummary()`](%api_stat%/stat-summary/index.html),
 [`statSummaryBin()`](%api_stat%/stat-summary-bin/index.html)
 
-Examples:
+Cookbooks:
 
 - [ECDF stat](%nb-stat_ecdf%)
 - [Summary stat](%nb-stat_summary%)
@@ -154,7 +166,7 @@ Examples:
 
 [`function`](%api_geom%/geom-function/index.html)
 
-Examples:
+Cookbooks:
 
 - [Function geometry](%nb-geom_function%)
 
@@ -166,7 +178,7 @@ Examples:
 [`linerange`](%api_geom%/geom-line-range/index.html),
 [`pointrange`](%api_geom%/geom-point-range/index.html)
 
-Examples:
+Cookbooks:
 
 - [Plotting means and error ranges](%nb-error_bars%)
 - [Geometries with dual orientation](%nb-horizontal_geoms%)
@@ -176,7 +188,7 @@ Examples:
 
 [`smoothing line`](%api_geom%/geom-smooth/index.html)
 
-Examples:
+Cookbooks:
 
 - [Smoothing](%nb-geom_smooth%)
 - [Draw a scatter plot](%nb-scatter_plot%)
@@ -187,12 +199,14 @@ Examples:
 [`2d bins`](%api_geom%/geom-bin2-d/index.html),
 [`2d hexagonal bins`](%api_geom%/geom-hex/index.html),
 [`2d density`](%api_geom%/geom-density2-d/index.html),
-[`filled 2d density`](%api_geom%/geom-density2-d-filled/index.html)
+[`filled 2d density`](%api_geom%/geom-density2-d-filled/index.html),
+[`pointdensity`](%api_geom%/geom-point-density/index.html)
 
-Examples:
+Cookbooks:
 
 - [2d density](%nb-density_2d%)
 - [Hexagonal heatmap](%nb-geom_hex%)
+- [Pointdensity geometry](%nb-geom_pointdensity%)
 - [Absolute unit specification for width and height aesthetics](%nb-param_width_unit%)
 
 
@@ -202,7 +216,7 @@ Examples:
 
 See also: [Joint Plot](bistro.md#joint-plot), [Residual Plot](bistro.md#residual-plot).
 
-Examples:
+Cookbooks:
 
 - [Marginal plots](%nb-marginal_layers%)
 
@@ -239,10 +253,13 @@ This is in contrast to R's ggplot2, which provides separate "date", "time", and 
 
   - `Date`
 
-Examples:
+Cookbooks:
 
 - [Scale time](%nb-scale_time%)
 - [Plotting time series](%nb-time_date_datetime%)
+
+Demos:
+
 - [Bitcoin daily trend visualization](%nb-trading_chart%)
 
 
@@ -250,7 +267,7 @@ Examples:
 
 [`geomImshow()`](%api_geom%/geom-imshow.html)
 
-Examples:
+Cookbooks:
 
 - [`geomImshow()`](%nb-image_101%)
 - [The `extent` parameter](%nb-image_extent%)
@@ -266,7 +283,7 @@ Examples:
 [`coordFlip()`](%api_coord%/coord-flip.html),
 [`coordMap()`](%api_coord%/coord-map.html)
 
-Examples:
+Cookbooks:
 
 - [Flipped coordinates](%nb-coord_flip%)
 - [Polar coordinate system](%nb-coord_polar%)
@@ -279,7 +296,7 @@ Examples:
 [`guides()`](%api_scale%/guides.html),
 [`layerKey()`](%api_scale%/layer-key.html)
 
-Examples:
+Cookbooks:
 
 - [Legend customization](%nb-legend%)
 - [Manual legend](%nb-manual_legend%)
