@@ -53,7 +53,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param orientation Specifies the axis that the layer's stat and geom should run along.
- *  The default value (`null`) automatically determines the orientation based on the aesthetic mapping.
+ *  The default value (null) automatically determines the orientation based on the aesthetic mapping.
  *  If the automatic detection doesn't work, it can be set explicitly by specifying the "x" or "y" orientation.
  * @param fn default = "mean" ("count", "sum", "mean", "median", "min", "max", "lq", "mq", "uq").
  *  Name of function computing stat variable `..y..`.

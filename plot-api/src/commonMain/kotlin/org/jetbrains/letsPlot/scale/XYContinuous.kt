@@ -26,7 +26,7 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -96,7 +96,7 @@ fun scaleXContinuous(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -158,7 +158,7 @@ fun scaleYContinuous(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -214,7 +214,7 @@ fun scaleXLog10(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -269,7 +269,7 @@ fun scaleYLog10(
  * @param labels A vector of labels (on ticks).
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -324,7 +324,7 @@ fun scaleXLog2(
  * @param labels A vector of labels (on ticks).
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -380,7 +380,7 @@ fun scaleYLog2(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -436,7 +436,7 @@ fun scaleXReverse(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -492,7 +492,7 @@ fun scaleYReverse(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
@@ -548,7 +548,7 @@ fun scaleXSqrt(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  *  Setting limits will remove data outside of the limits.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.

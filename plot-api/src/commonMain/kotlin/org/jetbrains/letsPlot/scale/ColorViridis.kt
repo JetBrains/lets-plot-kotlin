@@ -45,7 +45,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
- *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use null to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
@@ -141,7 +141,7 @@ fun scaleViridis(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
- *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use null to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.
@@ -231,7 +231,7 @@ fun scaleFillViridis(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
- *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use null to refer to default min/max.
  *  Discrete scale: list of data values to display, and their order.
  * @param naValue An aesthetic value which is used when data in not available.
  * @param format Specifies the format pattern for labels on the scale.

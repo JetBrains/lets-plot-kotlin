@@ -32,7 +32,7 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
- *  A pair of values providing limits of the scale. Use `null` to refer to default min/max.
+ *  A pair of values providing limits of the scale. Use null to refer to default min/max.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  *  The vector size == 1 => only multiplicative expand (and additive expand by default).
  *  Defaults: multiplicative = 0.05, additive = 0.
@@ -102,7 +102,7 @@ fun scaleXDateTime(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits Data range for this scale.
- *  A pair of values providing limits of the scale. Use `null` to refer to default min/max.
+ *  A pair of values providing limits of the scale. Use null to refer to default min/max.
  * @param expand A numeric vector of length two giving multiplicative and additive expansion constants.
  *  The vector size == 1 => only multiplicative expand (and additive expand by default).
  *  Defaults: multiplicative = 0.05, additive = 0.
