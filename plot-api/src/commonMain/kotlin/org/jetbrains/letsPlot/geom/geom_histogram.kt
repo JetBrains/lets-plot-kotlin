@@ -41,9 +41,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.bin()`. The statistical transformation to use on the data for this layer.
+ * @param stat default = [Stat.bin()][org.jetbrains.letsPlot.Stat.bin]. The statistical transformation to use on the data for this layer.
  *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position default = `positionStack()`. Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc.  
+ * @param position default = [positionStack()][org.jetbrains.letsPlot.pos.positionStack]. Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc.
  *  see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
@@ -71,7 +71,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param fill Fill color.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param size Defines bar line width.
- * @param weight Used by `Stat.bin()` to compute weighted sum instead of simple count.
+ * @param weight Used by [Stat.bin()][org.jetbrains.letsPlot.Stat.bin] to compute weighted sum instead of simple count.
  * @param bins Number of bins. Overridden by `binWidth`.
  * @param binWidth The width of the bins. The default is to use bin widths that cover 
  *  the entire range of the data. You should always override this value, exploring multiple widths 
