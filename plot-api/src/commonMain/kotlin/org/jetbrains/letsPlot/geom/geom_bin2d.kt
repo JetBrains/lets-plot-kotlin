@@ -37,7 +37,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data is inherited from the plot
  *  data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.bin2D()`. The statistical transformation to use on the data for this layer.
+ * @param stat default = [Stat.bin2D()][org.jetbrains.letsPlot.Stat.bin2D]. The statistical transformation to use on the data for this layer.
  *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
  * @param position Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
@@ -75,7 +75,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Line width, default = 0 (i.e., tiles outline initially is not visible).
- * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
+ * @param weight Used by [Stat.bin2D()][org.jetbrains.letsPlot.Stat.bin2D] stat to compute weighted sum instead of simple count.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
