@@ -18,7 +18,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
 @Suppress("ClassName")
 /**
- * Draws nothing, but can be a useful way of ensuring common scales between different plots (see `expandLimits()`).
+ * Draws nothing, but can be a useful way of ensuring common scales between different plots (see [expandLimits()][org.jetbrains.letsPlot.scale.expandLimits]).
  * Also, can help to avoid the "No layers in plot" error when building plots using automated tools.
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
