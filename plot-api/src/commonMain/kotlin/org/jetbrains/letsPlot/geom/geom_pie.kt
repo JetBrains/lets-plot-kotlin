@@ -53,7 +53,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.count2d()`. The statistical transformation to use on the data for this layer.
+ * @param stat default = [Stat.count2d()][org.jetbrains.letsPlot.Stat.count2d]. The statistical transformation to use on the data for this layer.
  *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
  * @param position Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
@@ -96,7 +96,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param color Color of inner and outer arcs of pie sector.
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param stroke Width of inner and outer arcs of pie sector.
- * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.
+ * @param weight Used by [Stat.count2d()][org.jetbrains.letsPlot.Stat.count2d] stat to compute weighted sum instead of simple count.
  * @param hole default = 0.0.
  *  A multiplicative factor applied to the pie diameter to draw donut-like chart.
  *  Understands numbers between 0 and 1.
