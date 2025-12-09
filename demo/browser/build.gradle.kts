@@ -30,7 +30,7 @@ dependencies {
     implementation(projects.plotApi)
 
     implementation("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
-    implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
+    implementation("org.jetbrains.lets-plot:platf-awt:$letsPlotVersion")
 
     implementation("org.slf4j:slf4j-simple:$slf4jVersion")  // Enable logging to console
 }

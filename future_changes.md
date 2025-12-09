@@ -7,7 +7,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 
 ### Changed
-
+- replaced dependency plot-image-export with platf-awt: ??? 
 
 ### Fixed
 
