@@ -30,8 +30,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
  *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position Position adjustment: `positionIdentity`, `positionStack()`,
- *  `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param position Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack],
+ *  [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param inheritAes default = true.
@@ -102,7 +102,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param nudgeUnit ("identity", "size", "px") Units for x and y nudging.
  * Possible values:
  *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
- *  - "size": a unit of 1 corresponds to the diameter of a point with `size=1`;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with `size = 1`;
  *  - "px": the unit is measured in screen pixels.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
