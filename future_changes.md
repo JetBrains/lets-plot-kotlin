@@ -11,4 +11,4 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Fixed
 
-
+- Horizontal geom_boxplot() with alpha specified is displayed incorrectly [[LPK-295](https://github.com/JetBrains/lets-plot-kotlin/issues/295)].
