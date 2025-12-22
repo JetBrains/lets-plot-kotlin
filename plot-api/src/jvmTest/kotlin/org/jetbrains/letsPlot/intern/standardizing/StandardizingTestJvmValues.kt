@@ -17,6 +17,7 @@ actual object StandardizingTestJvmValues {
         val localDateTime = zonedDateTime.toLocalDateTime()
         val date = Date.from(instant)
         val offsetDateTime: OffsetDateTime = zonedDateTime.toOffsetDateTime()
+        val duration = Duration.ofHours(2).plusMinutes(30).plusSeconds(45)
 
         return listOf(
             zonedDateTime,
@@ -26,6 +27,7 @@ actual object StandardizingTestJvmValues {
             localDateTime,
             date,
             offsetDateTime,
+            duration,
         )
     }
 
@@ -39,11 +41,14 @@ actual object StandardizingTestJvmValues {
         val expectedLocalTimeTimestamp = ZonedDateTime.of(1970, 1, 1, 12, 30, 45, 0, ZoneId.of("UTC"))
             .toInstant().toEpochMilli()
 
+        val expectedDurationMillis = Duration.ofHours(2).plusMinutes(30).plusSeconds(45).toMillis()
+
         return getTestValues().map {
             when (it) {
                 is LocalDate -> expectedLocalDateTimestamp
                 is LocalTime -> expectedLocalTimeTimestamp
                 is LocalDateTime -> expectedTimestamp // Same as ZonedDateTime because here we use UTC
+                is Duration -> expectedDurationMillis
                 else -> expectedTimestamp
             }.toDouble()
         }

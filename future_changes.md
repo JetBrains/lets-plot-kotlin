@@ -4,7 +4,8 @@ This release is 100% compatible with Lets-Plot [v 4.8.1](https://github.com/JetB
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
-
+      
+- Support for `kotlin.time.Duration` and `java.time.Duration` [[LPK-294](https://github.com/JetBrains/lets-plot-kotlin/issues/294)].
 
 ### Changed
 

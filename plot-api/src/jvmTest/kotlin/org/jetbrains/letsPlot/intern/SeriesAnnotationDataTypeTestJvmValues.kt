@@ -14,6 +14,7 @@ actual object SeriesAnnotationDataTypeTestJvmValues {
             "java.time.OffsetDateTime" to OffsetDateTime.of(2023, 1, 1, 12, 30, 45, 0, ZoneOffset.of("-05:00")),
             "java.time.OffsetDateTime-Z" to OffsetDateTime.of(2023, 1, 1, 12, 30, 45, 0, ZoneOffset.UTC),
             "java.util.Date" to Date.from(Instant.parse("2023-01-01T12:30:45Z")),
+            "java.time.Duration" to Duration.ofHours(2).plusMinutes(30).plusSeconds(45),
         )
     }
 
@@ -27,6 +28,7 @@ actual object SeriesAnnotationDataTypeTestJvmValues {
             mapOf("column" to "java.time.OffsetDateTime", "type" to "datetime", "time_zone" to "UTC-05:00"),
             mapOf("column" to "java.time.OffsetDateTime-Z", "type" to "datetime", "time_zone" to "UTC"),
             mapOf("column" to "java.util.Date", "type" to "datetime"),
+            mapOf("column" to "java.time.Duration", "type" to "int"),
         )
     }
 }
