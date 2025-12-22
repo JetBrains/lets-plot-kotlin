@@ -52,9 +52,9 @@ plugins {
 
 dependencies {
     // Lets-Plot Kotlin API 
-    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.12.0")
+    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.12.1")
     // Lets-Plot Multiplatform (Batik rendering)
-    implementation("org.jetbrains.lets-plot:lets-plot-batik:4.8.1")
+    implementation("org.jetbrains.lets-plot:lets-plot-batik:4.8.2")
 }
 ```
 
@@ -75,9 +75,9 @@ plugins {
 
 dependencies {
     // Lets-Plot Kotlin API 
-    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.12.0")
+    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.12.1")
     // Lets-Plot Multiplatform (JFX Scene rendering)
-    implementation("org.jetbrains.lets-plot:lets-plot-jfx:4.8.1")
+    implementation("org.jetbrains.lets-plot:lets-plot-jfx:4.8.2")
 }
 ```
 
@@ -95,7 +95,7 @@ kotlin {
         named("jsMain") {
             dependencies {
                 // Lets-Plot Kotlin API 
-                implementation("org.jetbrains.lets-plot:lets-plot-kotlin-js:4.12.0")
+                implementation("org.jetbrains.lets-plot:lets-plot-kotlin-js:4.12.1")
             }
         }
     }
@@ -193,7 +193,7 @@ val rawSpec = figure.toSpec()
     ```kotlin
     val html: String = PlotHtmlExport.buildHtmlFromRawSpecs(
                                         plotSpec = rawSpec,
-                                        scriptUrl = PlotHtmlHelper.scriptUrl(version="4.8.1"),
+                                        scriptUrl = PlotHtmlHelper.scriptUrl(version="4.8.2"),
                                         iFrame = true    
                                     )
     ```
