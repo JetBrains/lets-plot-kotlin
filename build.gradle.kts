@@ -7,9 +7,11 @@ import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.asRequestBody
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinCommonCompilerOptions
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 import java.util.*
 
 plugins {
@@ -39,10 +41,8 @@ allprojects {
     version = "4.12.2-SNAPSHOT"
 //    version = "0.0.0-SNAPSHOT"  // for local publishing only
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
-        kotlinOptions {
-            jvmTarget = "1.8"
-        }
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        compilerOptions.jvmTarget.set(JvmTarget.JVM_1_8)
     }
 
     tasks.withType<JavaCompile>().all {

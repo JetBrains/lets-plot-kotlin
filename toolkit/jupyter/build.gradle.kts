@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 plugins {
     kotlin("jvm")
     `maven-publish`
@@ -27,11 +30,10 @@ tasks.test {
 kotlin {
     jvmToolchain(11)
 }
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-    }
+tasks.withType<KotlinJvmCompile>().configureEach {
+    compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
 }
+
 
 tasks.withType<JavaCompile>().all {
     sourceCompatibility = JavaVersion.VERSION_11.toString()
