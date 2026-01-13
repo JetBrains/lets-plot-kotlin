@@ -2,7 +2,7 @@
 <!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
 <vars>
     <var name="version" value="4.12.1"/>
-    <var name="current_year" value="2025"/>
+    <var name="current_year" value="2026"/>
     <var name="web_root" value="https://lets-plot.org"/>
 
     <!-- API -->
