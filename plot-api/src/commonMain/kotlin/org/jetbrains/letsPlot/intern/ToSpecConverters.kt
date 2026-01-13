@@ -448,13 +448,15 @@ private fun inferSeriesDType(data: Any?): String {
             value is kotlinx.datetime.LocalTime -> SeriesAnnotation.Types.TIME
             value is kotlinx.datetime.LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
 
+            value is kotlin.time.Duration -> SeriesAnnotation.Types.INTEGER
+
             else -> SeriesAnnotation.Types.UNKNOWN
         }
     }
 }
 
 /**
- * Not private to allow access from tests
+ * Not private to allow the access to in tests.
  */
 internal fun detectTimeZones(data: Any?): Map<String, String> {
     return if (data is Map<*, *>) {
@@ -469,6 +471,7 @@ internal fun detectTimeZones(data: Any?): Map<String, String> {
 }
 
 private fun detectSeriesTimeZoneID(data: Any?): String? {
+    @Suppress("NAME_SHADOWING")
     val data = if (isListy(data)) {
         asList(data!!).filterNotNull()
     } else {

@@ -28,6 +28,7 @@ actual object JvmStandardizing {
             is LocalDate -> true
             is LocalTime -> true
             is LocalDateTime -> true
+            is Duration -> true
             else -> false
         }
     }
@@ -41,6 +42,7 @@ actual object JvmStandardizing {
             is LocalDate -> SeriesAnnotation.Types.DATE
             is LocalTime -> SeriesAnnotation.Types.TIME
             is LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
+            is Duration -> SeriesAnnotation.Types.INTEGER
             else -> SeriesAnnotation.Types.UNKNOWN
         }
     }
@@ -66,6 +68,7 @@ actual object JvmStandardizing {
             is LocalDate -> o.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli()
             is LocalTime -> LocalDateTime.of(LocalDate.EPOCH, o).toInstant(ZoneOffset.UTC).toEpochMilli()
             is LocalDateTime -> o.toInstant(ZoneOffset.UTC).toEpochMilli()
+            is Duration -> o.toMillis()
             else -> {
                 throw IllegalArgumentException(
                     "Can't standardize value \"$o\" of type ${o::class.qualifiedName} as string or number."

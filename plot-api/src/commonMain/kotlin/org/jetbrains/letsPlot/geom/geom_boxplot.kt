@@ -170,21 +170,23 @@ fun geomBoxplot(
     val layers = mutableListOf<Layer>()
 
     layers += geomBoxplotInternal(
-        data,
-        stat,
-        position,
-        showLegend,
-        inheritAes,
-        manualKey,
-        tooltips,
-        orientation,
-        x, y, lower, middle, upper, ymin, ymax, alpha,
-        xlower, xmiddle, xupper, xmin, xmax,
-        color, fill, size, linetype, shape, angle, width, weight, fatten,
-        whiskerWidth, varWidth, coef,
-        widthUnit,
-        colorBy, fillBy,
-        mapping
+        data = data,
+        stat = stat,
+        position = position,
+        showLegend = showLegend,
+        inheritAes = inheritAes,
+        manualKey = manualKey,
+        tooltips = tooltips,
+        orientation = orientation,
+        x = x, y = y,
+        lower = lower, middle = middle, upper = upper, ymin = ymin, ymax = ymax,
+        xlower = xlower, xmiddle = xmiddle, xupper = xupper, xmin = xmin, xmax = xmax,
+        alpha = alpha, color = color, fill = fill,
+        size = size, linetype = linetype, shape = shape, angle = angle, width = width, weight = weight, fatten = fatten,
+        whiskerWidth = whiskerWidth, varWidth = varWidth, coef = coef,
+        widthUnit = widthUnit,
+        colorBy = colorBy, fillBy = fillBy,
+        mapping = mapping
     )
 
     if (stat.kind == StatKind.BOXPLOT) {

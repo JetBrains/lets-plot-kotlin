@@ -42,6 +42,8 @@ class SeriesAnnotation_TypeAndTZTest {
                     "kotlinx.LocalDate" to KLocalDate(2023, 1, 1), // 2023-01-01
                     "kotlinx.LocalTime" to KLocalTime(12, 30, 45), // 12:30:45
                     "kotlinx.LocalDateTime" to KLocalDateTime(2023, 1, 1, 12, 30, 45), // 2023-01-01T12:30:45
+
+                    "kotlin.time.Duration" to kotlin.time.Duration.parse("2h30m45s")
                 ) + SeriesAnnotationDataTypeTestJvmValues.getTestValues()
 
                 ).mapValues { (_, value) -> listOf(value) }
@@ -67,6 +69,8 @@ class SeriesAnnotation_TypeAndTZTest {
             mapOf("column" to "kotlinx.LocalDate", "type" to "date"),
             mapOf("column" to "kotlinx.LocalTime", "type" to "time"),
             mapOf("column" to "kotlinx.LocalDateTime", "type" to "datetime"),
+
+            mapOf("column" to "kotlin.time.Duration", "type" to "int"),
 
             ) + SeriesAnnotationDataTypeTestJvmValues.getExpectedValues()
 

@@ -57,11 +57,15 @@ class StandardizingTest {
         val kLocalTime = KLocalTime(12, 30, 45)
         val kLocalDateTime = KLocalDateTime(2023, 1, 1, 12, 30, 45)
 
+        val kDuration = kotlin.time.Duration.parse("2h30m45s")
+        val expectedDurationMillis = kDuration.inWholeMilliseconds
+
         val values = listOf<Any>(
             kInstant,
             kLocalDate,
             kLocalTime,
             kLocalDateTime,
+            kDuration,
         )
 
         val expectedValues = values.map {
@@ -69,6 +73,7 @@ class StandardizingTest {
                 is KLocalDate -> expectedLocalDateTimestamp
                 is KLocalTime -> expectedLocalTimeTimestamp
                 is KLocalDateTime -> expectedTimestamp      // Same as ZonedDateTime because here we use UTC
+                is kotlin.time.Duration -> expectedDurationMillis
                 else -> expectedTimestamp
             }.toDouble()
         } + StandardizingTestJvmValues.getExpectedValues()
