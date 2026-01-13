@@ -40,9 +40,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.sina()`. The statistical transformation to use on the data for this layer.
+ * @param stat default = [Stat.sina()][org.jetbrains.letsPlot.Stat.sina]. The statistical transformation to use on the data for this layer.
  *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position default = `positionDodge()`. Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see
+ * @param position default = [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge]. Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
@@ -73,7 +73,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines line width.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param width Width of sina bounding box.
- * @param weight Used by `Stat.sina()` stat to compute weighted density.
+ * @param weight Used by [Stat.sina()][org.jetbrains.letsPlot.Stat.sina] stat to compute weighted density.
  * @param seed A random seed to make the jitter reproducible.
  *  If null (the default value), the seed is initialised with a random value.
  * @param showHalf default = 0.
