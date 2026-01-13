@@ -125,7 +125,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Set to -1 to disable overlap filtering.
  * @param minSegmentLength Minimum length of the line connecting the label to the point.
  *  Shorter segments will be omitted.
- * @param arrow Specification for arrow head, as created by `arrow()` function.
+ * @param arrow Specification for arrow head, as created by [arrow()][org.jetbrains.letsPlot.geom.extras.arrow] function.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".

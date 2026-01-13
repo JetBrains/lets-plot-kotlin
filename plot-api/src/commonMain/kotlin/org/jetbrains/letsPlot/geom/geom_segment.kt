@@ -47,7 +47,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
- * @param arrow Specification for arrow head, as created by `arrow()` function.
+ * @param arrow Specification for arrow head, as created by [arrow()][org.jetbrains.letsPlot.geom.extras.arrow] function.
  * @param spacer default = 0.0.
  *  Space to shorten a segment by moving the start/end.
  * @param flat default = false.

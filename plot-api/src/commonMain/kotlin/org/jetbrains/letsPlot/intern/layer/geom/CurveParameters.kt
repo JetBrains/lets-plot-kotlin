@@ -14,7 +14,7 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  *  and values greater than 90 skew the curve towards the end point.
  * @property ncp The number of control points used to draw the curve. More control points creates a smoother curve.
  * @property spacer Space to shorten a curve by moving the start/end.
- * @property arrow Specification for arrow head, as created by `arrow()` function.
+ * @property arrow Specification for arrow head, as created by [arrow()][org.jetbrains.letsPlot.geom.extras.arrow] function.
  */
 interface CurveParameters : OptionsCapsule {
     val curvature: Number?

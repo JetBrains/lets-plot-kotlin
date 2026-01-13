@@ -39,7 +39,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
- * @param arrow Specification for arrow head, as created by `arrow()` function.
+ * @param arrow Specification for arrow head, as created by [arrow()][org.jetbrains.letsPlot.geom.extras.arrow] function.
  * @param pivot default = "tail" ("tail", "middle", "mid", "tip").
  *  The part of the segment that is anchored to the plane. The segment rotates about this point.
  * @param x X-axis value.
