@@ -20,7 +20,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 /**
  * Displays rectangles defined by the center of the tile (x, y).
  * This is a high performance special function for same-sized tiles.
- * Much faster than `geomTile()` but doesn't support width/height and color.
+ * Much faster than [geomTile()][org.jetbrains.letsPlot.geom.geomTile] but doesn't support width/height and color.
  *
  * ## Examples
  *
