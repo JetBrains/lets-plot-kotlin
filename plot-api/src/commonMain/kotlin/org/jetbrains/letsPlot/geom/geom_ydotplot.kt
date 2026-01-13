@@ -23,7 +23,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
 /**
  * Y-dotplot represents individual observations in a batch of data with circular dots.
  * The diameter of a dot corresponds to the maximum width or bin width, depending on the binning algorithm.
- * `geomYDotplot()` is an obvious blend of `geomViolin()` and `geomDotplot()`.
+ * `geomYDotplot()` is an obvious blend of [geomViolin()][org.jetbrains.letsPlot.geom.geomViolin] and
+ * [geomDotplot()][org.jetbrains.letsPlot.geom.geomDotplot].
  *
  * ## Notes
  *
@@ -67,7 +68,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  (i.e., point between bins) to.
  * @param method default = "dotdensity".
  *  Use "dotdensity" for dot-density binning,
- *  or "histodot" for fixed bin widths (like in `geomHistogram()`).
+ *  or "histodot" for fixed bin widths (like in [geomHistogram()][org.jetbrains.letsPlot.geom.geomHistogram]).
  * @param binWidth When method is "dotdensity", this specifies maximum bin width.
  *  When method is "histodot", this specifies bin width.
  * @param stackDir default = "up". Which direction to stack the dots.
@@ -79,7 +80,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  The diameter of the dots relative to binwidth.
  * @param stackGroups Whether dots should be stacked across groups.
  *  In effect is replacemets for option `position = positionStack()`.
- *  Note: unlike other geoms, `dotplot` doesn't have `position` option.
+ *  Note: unlike other geoms, `geomYDotplot()` doesn't have `position` option.
  * @param stroke Width of the dot border.
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param color Color of the geometry.
