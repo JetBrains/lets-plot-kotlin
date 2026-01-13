@@ -46,9 +46,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.yDensity()`. The statistical transformation to use on the data for this layer.
+ * @param stat default = [Stat.yDensity()][org.jetbrains.letsPlot.Stat.yDensity]. The statistical transformation to use on the data for this layer.
  *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position default = `positionDodge()`. Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see
+ * @param position default = [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge]. Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
@@ -88,7 +88,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param size Lines width.
  *  Defines line width.
  * @param width Width of violin bounding box.
- * @param weight Used by `Stat.yDensity()` stat to compute weighted density.
+ * @param weight Used by [Stat.yDensity()][org.jetbrains.letsPlot.Stat.yDensity] stat to compute weighted density.
  * @param scale default = "area".
  *  - If "area", all violins have the same area.
  *  - If "count", areas are scaled proportionally to the number of observations.
