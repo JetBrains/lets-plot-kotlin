@@ -104,7 +104,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Units for x and y nudging.
  * Possible values:
  *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
- *  - "size": a unit of 1 corresponds to the diameter of a point with `size=1`;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with `size = 1`;
  *  - "px": the unit is measured in screen pixels.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
