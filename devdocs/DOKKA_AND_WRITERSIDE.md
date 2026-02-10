@@ -24,11 +24,11 @@ Now the documentation site can be explored locally with the [http-server](https:
 ##### Update the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) GitHub Repository.            
 
 - Go to the docs/kotlin/ directory of the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) repository.
-  Remove everything **except** -lets--plot--kotlin/, examples/ and releases/.
+  Remove everything **except** -lets--plot--kotlin/ and examples/.
   Then move the contents of the docs/build/ directory there.
 
 - Go to the root of the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) repository
-  and run the [sitemap.py](https://github.com/JetBrains/lets-plot-docs/blob/master/utils/sitemap.py) utility
+  and run the [sitemap.py](https://github.com/JetBrains/lets-plot-docs/blob/master/tools/sitemap.py) utility
   to re-generate the sitemap.xml file:
 
   ```Bash
