@@ -28,7 +28,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  @param regions Layout parameters for each plot.
  *   Each region is specified as list of 4 or 6 numbers
  *   [x, y, width, height, dx, dy] where:
- *   - x, y: Position of the plot's top-left corner in relative coordinates ([0,0] is top-left corner, [1,1] is bottom-right corner of the container).
+ *   - x, y: Position of the plot's top-left corner in relative coordinates ([0, 0] is top-left corner, [1, 1] is bottom-right corner of the container).
  *   - width, height: Size of the plot relative to container dimensions (1 equal to the full container width/height).
  *   - dx, dy: Pixel offsets to move the region (defaults to 0).
  *
