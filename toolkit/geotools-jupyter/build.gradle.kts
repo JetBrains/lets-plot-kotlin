@@ -4,7 +4,7 @@ plugins {
     kotlin("jvm")
     `maven-publish`
     signing
-    id("com.google.devtools.ksp")
+//    id("com.google.devtools.ksp")
     kotlin("jupyter.api")
 }
 
@@ -33,8 +33,8 @@ kotlin {
     jvmToolchain(11)
 }
 tasks.withType<KotlinCompile>().all {
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(JavaVersion.VERSION_11.toString()))
     }
 }
 

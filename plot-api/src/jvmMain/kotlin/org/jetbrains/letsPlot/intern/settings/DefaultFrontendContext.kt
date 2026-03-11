@@ -7,11 +7,11 @@ package org.jetbrains.letsPlot.intern.settings
 
 import org.jetbrains.letsPlot.FrontendContext
 import org.jetbrains.letsPlot.frontend.DefaultSwingBatikFrontendContext
-import org.jetbrains.letsPlot.frontend.DefaultSwingJfxFrontendContext
 
 actual fun createDefaultFrontendContext(): FrontendContext {
+    // TODO: pure Swing.
     return DefaultSwingBatikFrontendContext.tryCreate()
-        ?: DefaultSwingJfxFrontendContext.tryCreate()
+//        ?: DefaultSwingJfxFrontendContext.tryCreate()
         ?: object : FrontendContext {
             override fun display(plotSpecRaw: MutableMap<String, Any>) {
                 throw IllegalStateException(

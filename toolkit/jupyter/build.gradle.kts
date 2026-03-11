@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm")
     `maven-publish`
     signing
-    id("com.google.devtools.ksp")
+//    id("com.google.devtools.ksp")
     kotlin("jupyter.api")
 }
 
@@ -17,7 +17,7 @@ dependencies {
     implementation("org.jetbrains.lets-plot:platf-awt:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:canvas:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:plot-raster:$letsPlotVersion")
-    implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
+//    implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
 
     testImplementation(kotlin("test"))
 }
@@ -29,8 +29,8 @@ kotlin {
     jvmToolchain(11)
 }
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(JavaVersion.VERSION_11.toString()))
     }
 }
 

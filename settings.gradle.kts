@@ -16,7 +16,7 @@ pluginManagement {
         val nexusStagingVersion = extra["nexusStaging.version"] as String
         val nexusPublishVersion = extra["nexusPublish.version"] as String
 
-        val kspVersion = extra["ksp.version"] as String
+//        val kspVersion = extra["ksp.version"] as String
         val jupyterApiVersion = extra["jupyterApi.version"] as String
 
         kotlin("multiplatform") version kotlinVersion
@@ -27,7 +27,7 @@ pluginManagement {
         id("io.codearte.nexus-staging") version nexusStagingVersion
         id("io.github.gradle-nexus.publish-plugin") version nexusPublishVersion
 
-        id("com.google.devtools.ksp") version kspVersion
+//        id("com.google.devtools.ksp") version kspVersion
         kotlin("jupyter.api") version jupyterApiVersion
     }
 }
@@ -38,7 +38,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include("plot-api")
 include("demo-common")
-include("jvm-javafx")
+//include("jvm-javafx")
 include("jvm-batik")
 include("browser")
 include("js-frontend-app")
@@ -50,7 +50,7 @@ include("geotools-jupyter")
 include("json")
 
 project(":demo-common").projectDir = File("./demo/demo-common")
-project(":jvm-javafx").projectDir = File("./demo/jvm-javafx")
+//project(":jvm-javafx").projectDir = File("./demo/jvm-javafx")
 project(":jvm-batik").projectDir = File("./demo/jvm-batik")
 project(":browser").projectDir = File("./demo/browser")
 project(":js-frontend-app").projectDir = File("./demo/js-frontend-app")
