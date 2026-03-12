@@ -20,7 +20,7 @@ import org.jetbrains.letsPlot.intern.layer.stat.Count2dStatAesthetics
  * @param color Color of inner and outer arcs of pie sector. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param stroke Width of inner and outer arcs of pie sector.
  * @param group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
- * @param weight Used by `Stat.count2d()` stat to compute weighted sum instead of simple count.
+ * @param weight Used by [Stat.count2d()][org.jetbrains.letsPlot.Stat.count2d] stat to compute weighted sum instead of simple count.
  * @param fill Fill color. For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
  * @param paint_b Auxiliary paint channel B. See `paint_a`.
