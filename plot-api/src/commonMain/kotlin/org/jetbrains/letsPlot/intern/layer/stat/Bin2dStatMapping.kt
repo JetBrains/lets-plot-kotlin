@@ -10,7 +10,7 @@ package org.jetbrains.letsPlot.intern.layer.stat
  *
  * @param x X-axis value.
  * @param y Y-axis value.
- * @param weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
+ * @param weight Used by [Stat.bin2D()][org.jetbrains.letsPlot.Stat.bin2D] stat to compute weighted sum instead of simple count.
  */
 class Bin2dStatMapping(
     override var x: Any? = null,

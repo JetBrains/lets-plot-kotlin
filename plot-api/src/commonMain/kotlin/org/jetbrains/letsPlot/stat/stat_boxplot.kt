@@ -29,8 +29,8 @@ import org.jetbrains.letsPlot.pos.positionDodge
  * - ..ymin.. : lower whisker = smallest observation greater than or equal to lower hinge - 1.5 * IQR.
  * - ..ymax.. : upper whisker = largest observation less than or equal to upper hinge + 1.5 * IQR.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip` or `axisTooltipX` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * @param data The data to be displayed. If null, the default, the data is inherited
  *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
@@ -43,7 +43,7 @@ import org.jetbrains.letsPlot.pos.positionDodge
  * @param inheritAes default = true.
  *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  To prevent any sampling for this layer pass value [samplingNone][org.jetbrains.letsPlot.sampling.samplingNone].
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param x X-axis value for vertical boxplot.
  * @param lower Lower hinge, 25% quantile for vertical boxplot.

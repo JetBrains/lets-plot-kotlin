@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  * @property nudgeUnit Units for x and y nudging.
  *  Possible values:
  *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
- *  - "size": a unit of 1 corresponds to the diameter of a point with `size=1`;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with `size = 1`;
  *  - "px": the unit is measured in screen pixels.
  * @property checkOverlap Skips plotting text that overlaps previous text in the same layer.
  */

@@ -101,7 +101,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
  *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
- *  It is acceptable to use `null` for any side; in this case, the default side value for the legend margin side will be used.
+ *  It is acceptable to use null for any side; in this case, the default side value for the legend margin side will be used.
  * @param legendSpacing Spacing between legends.
  * @param legendSpacingX Spacing between legends in the horizontal direction.
  * @param legendSpacingY Spacing between legends in the vertical direction.
@@ -140,7 +140,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
  *  - a list of four numbers - the insets are applied to the top, right, bottom and left in that order.
- *  It is acceptable to use `null` for any side; in this case, the default value for the panel inset side will be used.
+ *  It is acceptable to use null for any side; in this case, the default value for the panel inset side will be used.
  *
  * @param plotBackground Style settings for overall plot background.
  * @param plotTitle Style settings for plot title.
@@ -156,7 +156,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
  *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
- *  It is acceptable to use `null` for any side; in this case, the default side value for the plot margin side will be used.
+ *  It is acceptable to use null for any side; in this case, the default side value for the plot margin side will be used.
  * @param plotInset Inset for a plotting area, including the axes with their labels, but without titles.
  *  The inset may be specified using a number or a list of numbers:
  *  - a single number or a list of one number - the same inset is applied to all four sides;
@@ -164,7 +164,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  - a list of three numbers - the first inset applies to the top, the second - to the right and left, the third - to the bottom;
  *  - a list of four numbers - the insets are applied to the top, right, bottom and left in that order.
 
- *  It is acceptable to use `null` for any side; in this case, the default value for the plot inset side will be used.
+ *  It is acceptable to use null for any side; in this case, the default value for the plot inset side will be used.
  *
  * @param plotTitlePosition default = "panel" ("panel", "plot").
  *  Alignment of the plot title/subtitle.
@@ -626,7 +626,7 @@ fun elementLine(
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
  *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
- *  It is acceptable to use `null` for any side; in this case, the default side value for this element will be used.
+ *  It is acceptable to use null for any side; in this case, the default side value for this element will be used.
  * @param blank Mark as a 'blank' element.
  */
 fun elementText(
@@ -690,7 +690,7 @@ fun elementText(
  *  - a list of three numbers - the first margin applies to the top, the second - to the right and left,
  *  the third - to the bottom;
  *  - a list of four numbers - the margins are applied to the top, right, bottom and left in that order.
- *  It is acceptable to use `null` for any side; in this case, the default side value for this element will be used.
+ *  It is acceptable to use null for any side; in this case, the default side value for this element will be used.
  * @param blank Mark as a 'blank' element.
  */
 fun elementMarkdown(

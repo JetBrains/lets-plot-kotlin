@@ -37,7 +37,8 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * - [interact_pan_zoom.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/demo/interact_pan_zoom.ipynb)
  *
  * @param sizeZoomin Controls how zooming in affects the size of geometry objects on the plot.
- * Currently, works only with the `geomPoint` layer and layers based on it (`geomJitter`, `geomSina`, etc.).
+ * Currently, works only with the [geomPoint()][org.jetbrains.letsPlot.geom.geomPoint] layer and layers based on it
+ * ([geomJitter()][org.jetbrains.letsPlot.geom.geomJitter], [geomSina()][org.jetbrains.letsPlot.geom.geomSina], etc.).
  *
  * - `0` – size never increases.
  * - `-1` – size will be increasing without limits.

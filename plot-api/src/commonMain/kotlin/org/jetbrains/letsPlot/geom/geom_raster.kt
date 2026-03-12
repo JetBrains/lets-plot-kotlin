@@ -20,7 +20,7 @@ import org.jetbrains.letsPlot.pos.positionIdentity
 /**
  * Displays rectangles defined by the center of the tile (x, y).
  * This is a high performance special function for same-sized tiles.
- * Much faster than `geomTile()` but doesn't support width/height and color.
+ * Much faster than [geomTile()][org.jetbrains.letsPlot.geom.geomTile] but doesn't support width/height and color.
  *
  * ## Examples
  *
@@ -29,17 +29,17 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see 
+ *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see 
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param inheritAes default = true.
  *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
- * @param manualKey String or result of the call to the `layerKey()` function.
- *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
+ * @param manualKey String or result of the call to the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  To prevent any sampling for this layer pass value [samplingNone][org.jetbrains.letsPlot.sampling.samplingNone].
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param x X-axis coordinates of the center of rectangles.
  * @param y Coordinates of the center of rectangles.

@@ -31,8 +31,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..scaled.. : density estimate, scaled to maximum of 1.
  * - ..quantile.. : quantile estimate.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip`, `axisTooltipX` or `axisTooltipY` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *
@@ -40,24 +40,24 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.sina()`. The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position default = `positionDodge()`. Position adjustment: `positionIdentity`, `positionStack()`, `positionDodge()`, etc. see
+ * @param stat default = [Stat.sina()][org.jetbrains.letsPlot.Stat.sina]. The statistical transformation to use on the data for this layer.
+ *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position default = [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge]. Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see
  *  [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param inheritAes default = true.
  *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
- * @param manualKey String or result of the call to the `layerKey()` function.
- *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
+ * @param manualKey String or result of the call to the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  To prevent any sampling for this layer pass value [samplingNone][org.jetbrains.letsPlot.sampling.samplingNone].
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
- * @param tooltips Result of the call to the `layerTooltips()` function.
+ * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param orientation Specifies the axis that the layer's stat and geom should run along.
- *  The default value (`null`) automatically determines the orientation based on the aesthetic mapping.
+ *  The default value (null) automatically determines the orientation based on the aesthetic mapping.
  *  If the automatic detection doesn't work, it can be set explicitly by specifying the "x" or "y" orientation.
  * @param x X-axis coordinates.
  * @param y Y-axis coordinates.
@@ -73,7 +73,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines line width.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
  * @param width Width of sina bounding box.
- * @param weight Used by `Stat.sina()` stat to compute weighted density.
+ * @param weight Used by [Stat.sina()][org.jetbrains.letsPlot.Stat.sina] stat to compute weighted density.
  * @param seed A random seed to make the jitter reproducible.
  *  If null (the default value), the seed is initialised with a random value.
  * @param showHalf default = 0.

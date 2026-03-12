@@ -36,8 +36,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..sumprop.. : proportion of points with the same x-axis coordinate among all points in the dataset.
  * - ..sumpct.. : proportion of points with the same x-axis coordinate among all points in the dataset in percent.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip` or `axisTooltipX` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *
@@ -53,26 +53,27 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.count()`. The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position default = `positionStack()`. Position adjustment: `positionIdentity`, 
- *  `positionStack()`, `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param stat default = [Stat.count()][org.jetbrains.letsPlot.Stat.count]. The statistical transformation to use on the data for this layer.
+ *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position default = [positionStack()][org.jetbrains.letsPlot.pos.positionStack]. Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity],
+ *  [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge],
+ *  etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param inheritAes default = true.
  *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
- * @param manualKey String or result of the call to the `layerKey()` function.
- *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
+ * @param manualKey String or result of the call to the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  To prevent any sampling for this layer pass value [samplingNone][org.jetbrains.letsPlot.sampling.samplingNone].
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
- * @param tooltips Result of the call to the `layerTooltips()` function.
+ * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
- * @param labels Result of the call to the `layerLabels()` function.
+ * @param labels Result of the call to the [layerLabels()][org.jetbrains.letsPlot.annotations.layerLabels] function.
  *  Specifies style and content of the annotations.
  * @param orientation Specifies the axis that the layer's stat and geom should run along.
- *  The default value (`null`) automatically determines the orientation based on the aesthetic mapping.
+ *  The default value (null) automatically determines the orientation based on the aesthetic mapping.
  *  If the automatic detection doesn't work, it can be set explicitly by specifying the "x" or "y" orientation.
  * @param x X-axis value (this value will produce cases or bins for bars).
  * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).
@@ -84,7 +85,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param width Width of a bar.
  * @param size Defines bar line width.
- * @param weight Used by `Stat.count()` stat to compute weighted sum instead of simple count.
+ * @param weight Used by [Stat.count()][org.jetbrains.letsPlot.Stat.count] stat to compute weighted sum instead of simple count.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").

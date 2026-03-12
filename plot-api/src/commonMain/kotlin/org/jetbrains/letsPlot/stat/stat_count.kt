@@ -34,8 +34,8 @@ import org.jetbrains.letsPlot.pos.positionStack
  * - ..sumprop.. : proportion of points with the same x-axis coordinate among all points in the dataset.
  * - ..sumpct.. : proportion of points with the same x-axis coordinate among all points in the dataset in percent.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip` or `axisTooltipX` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
@@ -48,7 +48,7 @@ import org.jetbrains.letsPlot.pos.positionStack
  * @param inheritAes default = true.
  *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  To prevent any sampling for this layer pass value [samplingNone][org.jetbrains.letsPlot.sampling.samplingNone].
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
  * @param x X-axis value (this value will produce cases or bins for bars).
  * @param y Y-axis value (this value will be used to multiply the case's or bin's counts).

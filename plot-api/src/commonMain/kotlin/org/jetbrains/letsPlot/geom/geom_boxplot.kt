@@ -32,8 +32,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * - ..ymin.. : lower whisker = smallest observation greater than or equal to lower hinge - 1.5 * IQR.
  * - ..ymax.. : upper whisker = largest observation less than or equal to upper hinge + 1.5 * IQR.
  *
- * To hide axis tooltips, set "blank" or the result of `elementBlank()`
- * to the `axisTooltip` or `axisTooltipX` parameter of the `theme()`.
+ * To hide axis tooltips, set "blank" or the result of [elementBlank()][org.jetbrains.letsPlot.themes.elementBlank]
+ * to the `axisTooltip` or `axisTooltipX` parameter of the [theme()][org.jetbrains.letsPlot.themes.theme].
  *
  * ## Examples
  *
@@ -43,21 +43,22 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *
  * @param data The data to be displayed. If null, the default, the data is inherited
  *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
- * @param stat default = `Stat.boxplot()`. The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position default = `positionDodge()`. Position adjustment: `positionIdentity`, 
- *  `positionStack()`, `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ * @param stat default = [Stat.boxplot()][org.jetbrains.letsPlot.Stat.boxplot]. The statistical transformation to use on the data for this layer.
+ *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position default = [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge]. Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity],
+ *  [positionStack()][org.jetbrains.letsPlot.pos.positionStack], [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge],
+ *  etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param inheritAes default = true.
  *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
- * @param manualKey String or result of the call to the `layerKey()` function.
- *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
- * @param tooltips Result of the call to the `layerTooltips()` function.
+ * @param manualKey String or result of the call to the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
+ * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param orientation Specifies the axis that the layer's stat and geom should run along.
- *  The default value (`null`) automatically determines the orientation based on the aesthetic mapping.
+ *  The default value (null) automatically determines the orientation based on the aesthetic mapping.
  *  If the automatic detection doesn't work, it can be set explicitly by specifying the "x" or "y" orientation.
  * @param outlierAlpha Default transparency aesthetic for outliers.
  * @param outlierColor Color aesthetic for outliers.

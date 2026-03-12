@@ -20,7 +20,7 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
 /**
  * Displays image specified by RasterData.
  *
- * This geom is not as flexible as `geomRaster()` or `geomTile()`
+ * This geom is not as flexible as [geomRaster()][org.jetbrains.letsPlot.geom.geomRaster] or [geomTile()][org.jetbrains.letsPlot.geom.geomTile]
  * but vastly superior in the terms of rendering efficiency.
  *
  * ## Notes
@@ -50,8 +50,8 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
  * @param extent default = listOf(-0.5, ncol-0.5, -0.5, nrow-0.5).
  *  List of 4 numbers: (left, right, bottom, top).
  *  Defines image's bounding box in terms of the "data coordinates".
- *  - `left, right`: coordinates of pixels outer edge along the x-axis for pixels in the 1-st and the last column.
- *  - `bottom, top`: coordinates of pixels outer edge along the y-axis for pixels in the 1-st and the last row.
+ *  - `left`, `right`: coordinates of pixels outer edge along the x-axis for pixels in the 1-st and the last column.
+ *  - `bottom`, `top`: coordinates of pixels outer edge along the y-axis for pixels in the 1-st and the last row.
  * @param showLegend default = true.
  *  Greyscale images only.
  *  false - do not show legend for this layer.

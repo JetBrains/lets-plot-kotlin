@@ -22,7 +22,7 @@ import org.jetbrains.letsPlot.intern.layer.stat.BinHexStatAesthetics
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Line width, default = 0 (i.e., hexagons outline initially is not visible).
- * @param weight Used by `Stat.binhex()`stat to compute weighted sum instead of simple count.
+ * @param weight Used by [Stat.binhex()][org.jetbrains.letsPlot.Stat.binhex] stat to compute weighted sum instead of simple count.
  * @param group Grouping key. If not set, grouping may be inferred from other aesthetics (e.g., color, size).
  * @param paint_a Auxiliary paint channel A that can be used as either `color` or `fill` as needed. Map a variable here for composite/multi-channel color with a matching scale.
  * @param paint_b Auxiliary paint channel B. See `paint_a`.

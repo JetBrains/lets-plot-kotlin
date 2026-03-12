@@ -16,10 +16,10 @@ import org.jetbrains.letsPlot.intern.standardizing.SeriesStandardizing
  * Setting limits will remove data outside of the limits.
  *
  * @param x The data range for x-axis.
- *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use null to refer to default min/max.
  *  Discrete scale: list of data values to display on axis, and their order.
  * @param y The data range for y-axis.
- *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use null to refer to default min/max.
  *  Discrete scale: list of data values to display on axis, and their order.
  *
  */
@@ -34,7 +34,7 @@ fun lims(x: Any, y: Any): Feature {
  * Setting limits will remove data outside of the limits.
  *
  * @param limits The data range for x-axis.
- *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use null to refer to default min/max.
  *  Discrete scale: list of data values to display on axis, and their order.
  *
  */
@@ -49,7 +49,7 @@ fun xlim(limits: Any): Feature {
  * Setting limits will remove data outside of the limits.
  *
  * @param limits The data range for y-axis.
- *  Continuous scale: a pair of numbers providing limits of the scale. Use `null` to refer to default min/max.
+ *  Continuous scale: a pair of numbers providing limits of the scale. Use null to refer to default min/max.
  *  Discrete scale: list of data values to display on axis, and their order.
  *
  */

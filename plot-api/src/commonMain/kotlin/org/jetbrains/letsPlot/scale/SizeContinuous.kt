@@ -21,7 +21,7 @@ import org.jetbrains.letsPlot.intern.Scale
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
@@ -79,7 +79,7 @@ fun scaleSize(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  *  Set limits if you want values to be consistent across multiple plots.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
