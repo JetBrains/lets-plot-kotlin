@@ -181,11 +181,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param stripTextX Style settings for horizontal facet labels.
  * @param stripTextY Style settings for vertical facet labels.
  * @param stripSpacing Spacing between facet labels and the plotting area.
- * @param stripSpacingX Spacing between facet labels and the plotting area in horizontal direction, inherited from ``stripSpacing``.
- * @param stripSpacingY Spacing between facet labels and the plotting area in vertical direction, inherited from ``stripSpacing``.
+ * @param stripSpacingX Spacing between facet labels and the plotting area in horizontal direction, inherited from `stripSpacing`.
+ * @param stripSpacingY Spacing between facet labels and the plotting area in vertical direction, inherited from `stripSpacing`.
  * @param panelSpacing Spacing between panels in facets.
- * @param panelSpacingX Spacing between panels in facets in horizontal direction, inherited from ``panelSpacing``.
- * @param panelSpacingY Spacing between panels in facets in vertical direction, inherited from ``panelSpacing``.
+ * @param panelSpacingX Spacing between panels in facets in horizontal direction, inherited from `panelSpacing`.
+ * @param panelSpacingY Spacing between panels in facets in vertical direction, inherited from `panelSpacing`.
  *
  * @param axisTooltip Style settings for axes tooltips.
  * @param axisTooltipX Style settings for axes tooltips.
