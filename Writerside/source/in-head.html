@@ -22,6 +22,8 @@
 
     function fixAPIReferenceTocLink(linkElem) {
         linkElem.removeAttribute("target");
+        linkElem.classList.remove("toc-item--external");
+        linkElem.dataset.test = linkElem.dataset.test.replace("external-link", "internal-link");
     }
 
     function whenLoaded(selector) {
