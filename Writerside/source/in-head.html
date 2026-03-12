@@ -2,22 +2,26 @@
     document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
 
     function onDOMContentLoaded() {
-        addGitHubLinkToHeader();
+        whenLoaded("header .wh-header").then(addGitHubLinkToHeader);
+        whenLoaded("ul li[data-toc-scroll='toc-api-reference'] a").then(fixAPIReferenceTocLink);
     }
 
-    function addGitHubLinkToHeader() {
+    function addGitHubLinkToHeader(headerElem) {
         function createGitHubLink() {
             const gitHubLinkElem = document.createElement("a");
             gitHubLinkElem.setAttribute("href", "https://github.com/JetBrains/lets-plot-kotlin");
             gitHubLinkElem.setAttribute("id", "github-repo-link");
+            gitHubLinkElem.setAttribute("target", "_blank");
             return gitHubLinkElem;
         }
 
-        whenLoaded("header .wh-header").then((headerElem) => {
-            const switchersElem = headerElem.querySelector(".wh-header__switchers");
-            const gitHubLinkElem = createGitHubLink();
-            headerElem.insertBefore(gitHubLinkElem, switchersElem);
-        });
+        const switchersElem = headerElem.querySelector(".wh-header__switchers");
+        const gitHubLinkElem = createGitHubLink();
+        headerElem.insertBefore(gitHubLinkElem, switchersElem);
+    }
+
+    function fixAPIReferenceTocLink(linkElem) {
+        linkElem.removeAttribute("target");
     }
 
     function whenLoaded(selector) {
