@@ -2,8 +2,13 @@
     document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
 
     function onDOMContentLoaded() {
+        whenLoaded("header .wh-header a.wh-header__link").then(fixLogoLink);
         whenLoaded("header .wh-header").then(addGitHubLinkToHeader);
         whenLoaded("ul li[data-toc-scroll='toc-api-reference'] a").then(fixAPIReferenceTocLink);
+    }
+
+    function fixLogoLink(linkElem) {
+        makeLinkInternal(linkElem);
     }
 
     function addGitHubLinkToHeader(headerElem) {
@@ -21,9 +26,8 @@
     }
 
     function fixAPIReferenceTocLink(linkElem) {
-        linkElem.removeAttribute("target");
-        linkElem.classList.remove("toc-item--external");
-        linkElem.dataset.test = linkElem.dataset.test.replace("external-link", "internal-link");
+        const isInternal = makeLinkInternal(linkElem);
+        if (isInternal) linkElem.classList.remove("toc-item--external");
     }
 
     function whenLoaded(selector) {
@@ -42,6 +46,14 @@
                 observer.observe(document.body, { childList: true, subtree: true });
             }
         });
+    }
+
+    function makeLinkInternal(linkElem) {
+        const href = linkElem.getAttribute("href");
+        if (!href.startsWith("https://lets-plot.org")) return false;
+        linkElem.removeAttribute("target");
+        linkElem.dataset.test = linkElem.dataset.test.replace("external-link", "internal-link");
+        return true;
     }
 </script>
 
