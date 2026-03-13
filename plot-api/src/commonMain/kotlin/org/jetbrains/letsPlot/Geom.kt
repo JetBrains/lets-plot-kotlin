@@ -1039,4 +1039,57 @@ object Geom {
                 super<WithSizeUnitOption>.seal() +
                 super<WithColorOption>.seal()
     }
+
+    @Suppress("ClassName")
+    class bracketDodge(
+        override val x: Any? = null,
+        override val y: Any? = null,
+        override val istart: Any? = null,
+        override val iend: Any? = null,
+        override val lenStart: Any? = null,
+        override val lenEnd: Any? = null,
+        override val label: Any? = null,
+        override val size: Any? = null,
+        override val linetype: Any? = null,
+        override val color: Any? = null,
+        override val alpha: Any? = null,
+        override val family: Any? = null,
+        override val fontface: Any? = null,
+        override val hjust: Any? = null,
+        override val vjust: Any? = null,
+        override val angle: Any? = null,
+        override val lineheight: Any? = null,
+        override val segmentColor: Any? = null,
+        override val segmentSize: Any? = null,
+        override val segmentAlpha: Any? = null,
+        override val labelFormat: String? = null,
+        override val naText: String? = null,
+        override val nudgeX: Number? = null,
+        override val nudgeY: Number? = null,
+        override val nudgeUnit: String? = null,
+        override val checkOverlap: Boolean? = null,
+        override val bracketShorten: Number? = null,
+        override val tipLengthUnit: String? = null,
+        override val dodgeWidth: Number? = null,
+        override val nGroup: Int? = null,
+        override val sizeUnit: String? = null,
+        override val colorBy: String? = null,
+        mapping: BracketDodgeMapping.() -> Unit = {}
+    ) : BracketDodgeAesthetics,
+        BracketDodgeParameters,
+        TextParameters,
+        WithSizeUnitOption,
+        WithColorOption,
+        GeomOptions(
+            GeomKind.BRACKET_DODGE,
+            BracketDodgeMapping().apply(mapping).seal()
+        ) {
+        override val parameters = this.seal()
+
+        override fun seal() = super<BracketDodgeAesthetics>.seal() +
+                super<BracketDodgeParameters>.seal() +
+                super<TextParameters>.seal() +
+                super<WithSizeUnitOption>.seal() +
+                super<WithColorOption>.seal()
+    }
 }
