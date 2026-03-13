@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  * @property boxPadding Padding around text labels to prevent overlap between labels.
  * @property maxOverlaps The maximum number of overlapping text labels allowed. Additional text labels will be hidden.
  * @property minSegmentLength Minimum length of the line connecting the label to the point. Shorter segments will be omitted.
- * @property arrow Specification for arrow head, as created by `arrow()` function.
+ * @property arrow Specification for arrow head, as created by [arrow()][org.jetbrains.letsPlot.geom.extras.arrow] function.
  */
 interface RepelParameters : OptionsCapsule {
     val seed: Int?

@@ -29,19 +29,19 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param data The data to be displayed in this layer. If null, the default, the data
  *  is inherited from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
  * @param stat The statistical transformation to use on the data for this layer.
- *  Supported transformations: `Stat.identity`, `Stat.bin()`, `Stat.count()`, etc. see [Stat][org.jetbrains.letsPlot.Stat].
- * @param position Position adjustment: `positionIdentity`, `positionStack()`,
- *  `positionDodge()`, etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
+ *  Supported transformations: [Stat.identity][org.jetbrains.letsPlot.Stat.identity], [Stat.bin()][org.jetbrains.letsPlot.Stat.bin], [Stat.count()][org.jetbrains.letsPlot.Stat.count], etc. see [Stat][org.jetbrains.letsPlot.Stat].
+ * @param position Position adjustment: [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity], [positionStack()][org.jetbrains.letsPlot.pos.positionStack],
+ *  [positionDodge()][org.jetbrains.letsPlot.pos.positionDodge], etc. see [Position](https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.pos/).
  * @param showLegend default = true.
  *  false - do not show legend for this layer.
  * @param inheritAes default = true.
  *  false - do not combine the layer aesthetic mappings with the plot shared mappings.
- * @param manualKey String or result of the call to the `layerKey()` function.
- *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the `layerKey()` function.
+ * @param manualKey String or result of the call to the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
+ *  The key to show in the manual legend. Specifies the text for the legend label or advanced settings using the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
  * @param sampling Result of the call to the `samplingXxx()` function.
- *  To prevent any sampling for this layer pass value `samplingNone`.
+ *  To prevent any sampling for this layer pass value [samplingNone][org.jetbrains.letsPlot.sampling.samplingNone].
  *  For more info see [sampling.html](https://lets-plot.org/kotlin/sampling.html).
- * @param tooltips Result of the call to the `layerTooltips()` function.
+ * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param map Data-structure containing series of planar shapes and, optionally,
@@ -102,7 +102,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param nudgeUnit ("identity", "size", "px") Units for x and y nudging.
  * Possible values:
  *  - "identity": a unit of 1 corresponds to a difference of 1 in data space;
- *  - "size": a unit of 1 corresponds to the diameter of a point with `size=1`;
+ *  - "size": a unit of 1 corresponds to the diameter of a point with `size = 1`;
  *  - "px": the unit is measured in screen pixels.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.

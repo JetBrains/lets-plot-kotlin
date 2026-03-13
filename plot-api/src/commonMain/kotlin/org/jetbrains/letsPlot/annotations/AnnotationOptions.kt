@@ -24,11 +24,11 @@ typealias AnnotationOptions = layerLabels
  * appears on lighter filled geometries.
  *
  * The text color can be manually specified using:
- * ``theme(labelText=elementText(color=...))``
+ * `theme(labelText=elementText(color=...))`
  *
- * Alternatively, the ``inheritColor()`` method can be used to override both
+ * Alternatively, the [inheritColor()][org.jetbrains.letsPlot.annotations.layerLabels.inheritColor] method can be used to override both
  * automatic and manual color settings, making the annotation text use the
- * geometry's ``color`` aesthetic instead.
+ * geometry's `color` aesthetic instead.
  *
  * ## Examples
  *
@@ -45,7 +45,7 @@ typealias AnnotationOptions = layerLabels
  *
  * @param variables Variable names to place in the annotation with default formatting.
  *  Useful for specifying the annotation content quickly, instead of
- *  configuring it via the `line()` method.
+ *  configuring it via the [line()][org.jetbrains.letsPlot.annotations.layerLabels.line] method.
  *
  */
 @Suppress("ClassName")

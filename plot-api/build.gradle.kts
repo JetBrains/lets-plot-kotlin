@@ -55,7 +55,8 @@ kotlin {
 //                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime-jvm:$kotlinxDatetimeVersion")
 
                 compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$letsPlotVersion")
-                compileOnly("org.jetbrains.lets-plot:lets-plot-jfx:$letsPlotVersion")
+//                compileOnly("org.jetbrains.lets-plot:lets-plot-jfx:$letsPlotVersion")
+//                compileOnly("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
             }
         }
 

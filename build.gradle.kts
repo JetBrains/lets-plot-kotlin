@@ -26,7 +26,7 @@ plugins {
 
     // Add the KSP plugin before the Jupyter API to avoid ksp versions incompatibility.
     // May be removed when using further versions of the jupyter api
-    id("com.google.devtools.ksp") apply false
+//    id("com.google.devtools.ksp") apply false
     kotlin("jupyter.api") apply false
 }
 
@@ -41,8 +41,10 @@ allprojects {
     version = "4.12.2-SNAPSHOT"
 //    version = "0.0.0-SNAPSHOT"  // for local publishing only
 
-    tasks.withType<KotlinJvmCompile>().configureEach {
-        compilerOptions.jvmTarget.set(JvmTarget.JVM_1_8)
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
+        }
     }
 
     tasks.withType<JavaCompile>().all {
@@ -114,7 +116,12 @@ subprojects {
         // GeoTools repository must be before Maven Central
         // See: https://stackoverflow.com/questions/26993105/i-get-an-error-downloading-javax-media-jai-core1-1-3-from-maven-central
         // See also Jupyter Kotlin issue: https://github.com/Kotlin/kotlin-jupyter/issues/107
-        maven(url = "https://repo.osgeo.org/repository/release")
+        maven(url = "https://repo.osgeo.org/repository/release") {
+            content {
+                includeGroupByRegex("org\\.geotools.*")
+                includeGroup("javax.media")
+            }
+        }
 
         mavenCentral()
         google()

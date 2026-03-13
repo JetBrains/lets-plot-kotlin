@@ -1,11 +1,10 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm")
     `maven-publish`
     signing
-    id("com.google.devtools.ksp")
+//    id("com.google.devtools.ksp")
     kotlin("jupyter.api")
 }
 
@@ -33,8 +32,10 @@ dependencies {
 kotlin {
     jvmToolchain(11)
 }
-tasks.withType<KotlinJvmCompile>().configureEach {
-    compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
+tasks.withType<KotlinCompile>().all {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(JavaVersion.VERSION_11.toString()))
+    }
 }
 
 tasks.withType<JavaCompile>().all {

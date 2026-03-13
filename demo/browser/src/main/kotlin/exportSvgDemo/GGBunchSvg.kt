@@ -6,7 +6,7 @@
 package exportSvgDemo
 
 import BrowserDemoUtil
-import org.jetbrains.letsPlot.awt.plot.PlotSvgExport
+import org.jetbrains.letsPlot.core.util.PlotSvgExport
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomDensity
 import org.jetbrains.letsPlot.ggbunch

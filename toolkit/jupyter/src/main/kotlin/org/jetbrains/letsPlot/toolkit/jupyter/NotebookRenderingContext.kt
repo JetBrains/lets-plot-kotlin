@@ -7,7 +7,7 @@ import org.jetbrains.kotlinx.jupyter.api.MimeTypedResultEx
 import org.jetbrains.kotlinx.jupyter.api.MimeTypes
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.awt.plot.PlotImageExport
-import org.jetbrains.letsPlot.awt.plot.PlotSvgExport
+import org.jetbrains.letsPlot.core.util.PlotSvgExport
 import org.jetbrains.letsPlot.frontend.NotebookFrontendContext
 import org.jetbrains.letsPlot.intern.toSpec
 import org.jetbrains.letsPlot.toolkit.json.serializeJsonMap

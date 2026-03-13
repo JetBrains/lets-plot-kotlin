@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  *
  * @property x X-axis value.
  * @property y Y-axis value.
- * @property weight Used by `Stat.bin2D()`stat to compute weighted sum instead of simple count.
+ * @property weight Used by [Stat.bin2D()][org.jetbrains.letsPlot.Stat.bin2D] stat to compute weighted sum instead of simple count.
  */
 interface Bin2dStatAesthetics : OptionsCapsule {
     val x: Any?

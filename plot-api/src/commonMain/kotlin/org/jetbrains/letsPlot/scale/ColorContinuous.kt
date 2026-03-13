@@ -39,7 +39,7 @@ import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -104,7 +104,7 @@ fun scaleFillContinuous(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -168,7 +168,7 @@ fun scaleColorContinuous(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -236,7 +236,7 @@ fun scaleGradient(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -301,7 +301,7 @@ fun scaleFillGradient(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -361,7 +361,7 @@ fun scaleColorGradient(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -430,7 +430,7 @@ fun scaleGradient2(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -489,7 +489,7 @@ fun scaleFillGradient2(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -555,7 +555,7 @@ fun scaleGradientN(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -614,7 +614,7 @@ fun scaleFillGradientN(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -676,7 +676,7 @@ fun scaleColorGradient2(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -734,7 +734,7 @@ fun scaleColorGradientN(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -808,7 +808,7 @@ fun scaleGrey(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -870,7 +870,7 @@ fun scaleFillGrey(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -937,7 +937,7 @@ fun scaleColorGrey(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -1023,7 +1023,7 @@ fun scaleHue(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A pair of numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
@@ -1099,7 +1099,7 @@ fun scaleFillHue(
  * @param labels A list of labels on ticks, or a dictionary which maps the breaks values to the tick labels.
  * @param lablim The maximum label length (in characters) before trimming is applied.
  * @param limits A Pair of Numbers specifying the data range for the scale.
- *  Use `null` to refer to default min/max.
+ *  Use null to refer to default min/max.
  * @param naValue Missing values will be replaced with this value.
  * @param format Specifies the format pattern for labels on the scale.
  * @param guide Guide to use for this scale.
