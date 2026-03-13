@@ -7,7 +7,6 @@ package org.jetbrains.letsPlot.export
 
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.awt.plot.PlotImageExport
-import org.jetbrains.letsPlot.awt.plot.PlotImageExport
 import org.jetbrains.letsPlot.commons.geometry.DoubleVector
 import org.jetbrains.letsPlot.core.util.PlotExportCommon
 import org.jetbrains.letsPlot.core.util.PlotHtmlExport
