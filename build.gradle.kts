@@ -118,6 +118,7 @@ subprojects {
             content {
                 includeGroupByRegex("org\\.geotools.*")
                 includeGroup("javax.media")
+                includeGroup("it.geosolutions.jgridshift")
             }
         }
 
