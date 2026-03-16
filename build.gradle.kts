@@ -11,7 +11,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinCommonCompilerOptions
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.util.*
 
 plugins {
@@ -38,12 +38,12 @@ if (project.file("local.properties").exists()) {
 
 allprojects {
     group = "org.jetbrains.lets-plot"
-    version = "4.12.2-SNAPSHOT"
-//    version = "0.0.0-SNAPSHOT"  // for local publishing only
+//    version = "4.12.2-SNAPSHOT"
+    version = "0.0.0-SNAPSHOT"  // for local publishing only
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
+    tasks.withType<KotlinCompile>().all {
         compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
+            jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
 

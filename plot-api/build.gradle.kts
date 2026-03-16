@@ -1,3 +1,7 @@
+@file:OptIn(ExperimentalWasmDsl::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 /*
  * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
@@ -14,11 +18,13 @@ val letsPlotVersion = extra["letsPlot.version"] as String
 val kotlinxDatetimeVersion = extra["kotlinx.datetime.version"] as String
 val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
 val kotlinxCoroutinesVersion = extra["kotlinx.coroutines.version"] as String
+val kotlinxBrowserVersion = extra["kotlinx.browser.version"] as String
 val assertjVersion = extra["assertj.version"] as String
 
 kotlin {
     jvm()
     js().browser()
+    wasmJs().browser()
 
     sourceSets {
         commonMain {
@@ -46,7 +52,7 @@ kotlin {
             dependencies {
 //                implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
                 api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
-                api("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
+                api("io.github.oshai:kotlin-logging:$kotlinLoggingVersion")
 
                 // Use "-jvm" variant to work around the issue where LPK JS (IR) artifact becomes dependent on
                 // the "kotlinx-datetime".
@@ -62,7 +68,14 @@ kotlin {
 
         named("jsMain") {
             dependencies {
-                implementation("io.github.microutils:kotlin-logging-js:$kotlinLoggingVersion")
+                implementation("io.github.oshai:kotlin-logging:${kotlinLoggingVersion}")
+            }
+        }
+
+        wasmJsMain {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-browser:${kotlinxBrowserVersion}")
+                implementation("io.github.oshai:kotlin-logging:${kotlinLoggingVersion}")
             }
         }
 

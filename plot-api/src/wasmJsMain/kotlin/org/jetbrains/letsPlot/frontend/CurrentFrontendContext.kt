@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.frontend
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 
+
 actual object CurrentFrontendContext {
     actual fun display(plotSpecRaw: MutableMap<String, Any>) {
         val kl = KotlinLogging.logger("CurrentFrontendContext")
