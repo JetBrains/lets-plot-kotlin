@@ -32,8 +32,6 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  *  [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity].
  * @param showLegend default = false.
  *  `true` to show the legend for this layer.
- * @param inheritAes default = true.
- *  `false` to not combine the layer aesthetic mappings with the plot shared mappings.
  * @param manualKey String or result of the call to the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
  *  The key to show in the manual legend.
  *  Specifies text for the legend label or advanced settings using the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
@@ -119,7 +117,6 @@ class geomBracket(
     stat: StatOptions = Stat.identity,
     position: PosOptions = positionIdentity,
     showLegend: Boolean = false,
-    inheritAes: Boolean? = null,
     manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     orientation: String? = null,
@@ -168,7 +165,7 @@ class geomBracket(
         stat = stat,
         position = position,
         showLegend = showLegend,
-        inheritAes = inheritAes,
+        inheritAes = null,
         manualKey = manualKey,
         sampling = sampling,
         tooltips = tooltipsNone,
