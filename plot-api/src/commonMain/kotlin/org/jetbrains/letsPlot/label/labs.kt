@@ -70,7 +70,20 @@ fun labs(
     manual: String? = null
 ): FeatureList {
     val list = ArrayList<Feature>()
-    title?.let { list.add(ggtitle(it, subtitle)) }
+
+    val titleOptions = listOfNotNull(
+        title?.let { Option.Plot.TITLE_TEXT to it },
+        subtitle?.let { Option.Plot.SUBTITLE_TEXT to it }
+    ).toMap()
+
+    if (titleOptions.isNotEmpty()) {
+        list.add(
+            OptionsMap(
+                Option.Plot.TITLE,
+                titleOptions
+            )
+        )
+    }
 
     caption?.let {
         list.add(
