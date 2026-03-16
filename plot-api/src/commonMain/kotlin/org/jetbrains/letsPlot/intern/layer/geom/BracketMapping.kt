@@ -11,8 +11,8 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
  * @param ymin Lower end of the bracket for vertical brackets.
  * @param ymax Upper end of the bracket for vertical brackets.
  * @param x X-axis coordinate for vertical brackets.
- * @param lenStart Length of the tip at the bracket start (at `xmin` for horizontal brackets, or `ymin` for vertical brackets).
- * @param lenEnd Length of the tip at the bracket end (at `xmax` for horizontal brackets, or `ymax` for vertical brackets).
+ * @param lenstart Length of the tip at the bracket start (at `xmin` for horizontal brackets, or `ymin` for vertical brackets).
+ * @param lenend Length of the tip at the bracket end (at `xmax` for horizontal brackets, or `ymax` for vertical brackets).
  * @param label Text to add.
  * @param size Font size.
  * @param linetype Type of the bracket line.
@@ -55,8 +55,8 @@ class BracketMapping(
     override var ymin: Any? = null,
     override var ymax: Any? = null,
     override var x: Any? = null,
-    override var lenStart: Any? = null,
-    override var lenEnd: Any? = null,
+    override var lenstart: Any? = null,
+    override var lenend: Any? = null,
     override var label: Any? = null,
     override var size: Any? = null,
     override var linetype: Any? = null,

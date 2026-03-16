@@ -9,10 +9,10 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  *
  * @param x Primary axis category for horizontal brackets.
  * @param y Bracket level - the position along the y-axis at which the bracket is drawn for horizontal brackets.
- * @param iStart Index of the dodged group at the bracket start. Accept integer values between 0 and `nGroup - 1`.
- * @param iEnd Index of the dodged group at the bracket end. Accept integer values between 0 and `nGroup - 1`.
- * @param lenStart Length of the tip at the bracket start (at `iStart`).
- * @param lenEnd Length of the tip at the bracket end (at `iEnd`).
+ * @param istart Index of the dodged group at the bracket start. Accept integer values between 0 and `nGroup - 1`.
+ * @param iend Index of the dodged group at the bracket end. Accept integer values between 0 and `nGroup - 1`.
+ * @param lenstart Length of the tip at the bracket start (at `istart`).
+ * @param lenend Length of the tip at the bracket end (at `iend`).
  * @param label Text to add.
  * @param size Font size.
  * @param linetype Type of the bracket line.
@@ -47,10 +47,10 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 interface BracketDodgeAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
-    val iStart: Any?
-    val iEnd: Any?
-    val lenStart: Any?
-    val lenEnd: Any?
+    val istart: Any?
+    val iend: Any?
+    val lenstart: Any?
+    val lenend: Any?
     val label: Any?
     val size: Any?
     val linetype: Any?
@@ -69,10 +69,10 @@ interface BracketDodgeAesthetics : OptionsCapsule {
     override fun seal() = Options.of(
         Aes.X.name to x,
         Aes.Y.name to y,
-        Aes.ISTART.name to iStart,
-        Aes.IEND.name to iEnd,
-        Aes.LENSTART.name to lenStart,
-        Aes.LENEND.name to lenEnd,
+        Aes.ISTART.name to istart,
+        Aes.IEND.name to iend,
+        Aes.LENSTART.name to lenstart,
+        Aes.LENEND.name to lenend,
         Aes.LABEL.name to label,
         Aes.SIZE.name to size,
         Aes.LINETYPE.name to linetype,

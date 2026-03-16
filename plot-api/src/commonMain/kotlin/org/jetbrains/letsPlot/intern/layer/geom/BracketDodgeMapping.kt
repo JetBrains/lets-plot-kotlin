@@ -7,10 +7,10 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
  *
  * @param x Primary axis category for horizontal brackets.
  * @param y Bracket level - the position along the y-axis at which the bracket is drawn for horizontal brackets.
- * @param iStart Index of the dodged group at the bracket start. Accept integer values between 0 and `nGroup - 1`.
- * @param iEnd Index of the dodged group at the bracket end. Accept integer values between 0 and `nGroup - 1`.
- * @param lenStart Length of the tip at the bracket start (at `iStart`).
- * @param lenEnd Length of the tip at the bracket end (at `iEnd`).
+ * @param istart Index of the dodged group at the bracket start. Accept integer values between 0 and `nGroup - 1`.
+ * @param iend Index of the dodged group at the bracket end. Accept integer values between 0 and `nGroup - 1`.
+ * @param lenstart Length of the tip at the bracket start (at `istart`).
+ * @param lenend Length of the tip at the bracket end (at `iend`).
  * @param label Text to add.
  * @param size Font size.
  * @param linetype Type of the bracket line.
@@ -49,10 +49,10 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 class BracketDodgeMapping(
     override var x: Any? = null,
     override var y: Any? = null,
-    override var iStart: Any? = null,
-    override var iEnd: Any? = null,
-    override var lenStart: Any? = null,
-    override var lenEnd: Any? = null,
+    override var istart: Any? = null,
+    override var iend: Any? = null,
+    override var lenstart: Any? = null,
+    override var lenend: Any? = null,
     override var label: Any? = null,
     override var size: Any? = null,
     override var linetype: Any? = null,

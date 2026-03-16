@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.Options
  *  Symmetrically shorten the bracket by shifting both ends toward the center.
  *  Expects values between 0 and 1, where 0 corresponds to no shortening and 1 to a fully collapsed bracket.
  * @param tipLengthUnit default = "size" ("res", "identity", "size", "px").
- *  Unit for the `lenStart` and `lenEnd` aesthetics.
+ *  Unit for the `lenstart` and `lenend` aesthetics.
  *  Possible values:
  *
  *  - "res": the unit equals the smallest distance between data points along the corresponding axis;
@@ -21,7 +21,7 @@ import org.jetbrains.letsPlot.intern.Options
  * @param dodgeWidth default = 0.95.
  *  Width used to compute bracket positions.
  *  Expected to match the dodge width used by other layers for proper alignment.
- * @param nGroup Total number of dodged groups per category; used to interpret `iStart`/`iEnd` indices.
+ * @param nGroup Total number of dodged groups per category; used to interpret `istart`/`iend` indices.
  *  By default, this value is inferred from the data when possible, but can be set explicitly if needed.
  */
 interface BracketDodgeParameters : BracketParameters {

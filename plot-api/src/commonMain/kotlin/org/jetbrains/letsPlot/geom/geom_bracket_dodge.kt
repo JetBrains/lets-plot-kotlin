@@ -57,7 +57,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  *  Symmetrically shorten the bracket by shifting both ends toward the center.
  *  Expects values between 0 and 1, where 0 corresponds to no shortening and 1 to a fully collapsed bracket.
  * @param tipLengthUnit default = "size" ("res", "identity", "size", "px").
- *  Unit for the `lenStart` and `lenEnd` aesthetics.
+ *  Unit for the `lenstart` and `lenend` aesthetics.
  *  Possible values:
  *
  *  - "res": the unit equals the smallest distance between data points along the corresponding axis;
@@ -68,7 +68,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  * @param dodgeWidth default = 0.95.
  *  Width used to compute bracket positions.
  *  Expected to match the dodge width used by other layers for proper alignment.
- * @param nGroup Total number of dodged groups per category; used to interpret `iStart`/`iEnd` indices.
+ * @param nGroup Total number of dodged groups per category; used to interpret `istart`/`iend` indices.
  *  By default, this value is inferred from the data when possible, but can be set explicitly if needed.
  * @param sizeUnit ("x", "y", "min", "max").
  *  Relate the size of the text to the length of the unit step along one of the axes.
@@ -80,10 +80,10 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  *  Defines the color aesthetic for the geometry.
  * @param x Primary axis category for horizontal brackets.
  * @param y Bracket level - the position along the y-axis at which the bracket is drawn for horizontal brackets.
- * @param iStart Index of the dodged group at the bracket start. Accept integer values between 0 and `nGroup - 1`.
- * @param iEnd Index of the dodged group at the bracket end. Accept integer values between 0 and `nGroup - 1`.
- * @param lenStart Length of the tip at the bracket start (at `iStart`).
- * @param lenEnd Length of the tip at the bracket end (at `iEnd`).
+ * @param istart Index of the dodged group at the bracket start. Accept integer values between 0 and `nGroup - 1`.
+ * @param iend Index of the dodged group at the bracket end. Accept integer values between 0 and `nGroup - 1`.
+ * @param lenstart Length of the tip at the bracket start (at `istart`).
+ * @param lenend Length of the tip at the bracket end (at `iend`).
  * @param label Text to add.
  * @param size Font size.
  * @param linetype Type of the bracket line.
@@ -128,10 +128,10 @@ class geomBracketDodge(
     orientation: String? = null,
     override val x: Any? = null,
     override val y: Any? = null,
-    override val iStart: Any? = null,
-    override val iEnd: Any? = null,
-    override val lenStart: Any? = null,
-    override val lenEnd: Any? = null,
+    override val istart: Any? = null,
+    override val iend: Any? = null,
+    override val lenstart: Any? = null,
+    override val lenend: Any? = null,
     override val label: Any? = null,
     override val size: Any? = null,
     override val linetype: Any? = null,

@@ -13,8 +13,8 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
  * @param ymin Lower end of the bracket for vertical brackets.
  * @param ymax Upper end of the bracket for vertical brackets.
  * @param x X-axis coordinate for vertical brackets.
- * @param lenStart Length of the tip at the bracket start (at `xmin` for horizontal brackets, or `ymin` for vertical brackets).
- * @param lenEnd Length of the tip at the bracket end (at `xmax` for horizontal brackets, or `ymax` for vertical brackets).
+ * @param lenstart Length of the tip at the bracket start (at `xmin` for horizontal brackets, or `ymin` for vertical brackets).
+ * @param lenend Length of the tip at the bracket end (at `xmax` for horizontal brackets, or `ymax` for vertical brackets).
  * @param label Text to add.
  * @param size Font size.
  * @param linetype Type of the bracket line.
@@ -53,8 +53,8 @@ interface BracketAesthetics : OptionsCapsule {
     val ymin: Any?
     val ymax: Any?
     val x: Any?
-    val lenStart: Any?
-    val lenEnd: Any?
+    val lenstart: Any?
+    val lenend: Any?
     val label: Any?
     val size: Any?
     val linetype: Any?
@@ -77,8 +77,8 @@ interface BracketAesthetics : OptionsCapsule {
         Aes.YMIN.name to ymin,
         Aes.YMAX.name to ymax,
         Aes.X.name to x,
-        Aes.LENSTART.name to lenStart,
-        Aes.LENEND.name to lenEnd,
+        Aes.LENSTART.name to lenstart,
+        Aes.LENEND.name to lenend,
         Aes.LABEL.name to label,
         Aes.SIZE.name to size,
         Aes.LINETYPE.name to linetype,

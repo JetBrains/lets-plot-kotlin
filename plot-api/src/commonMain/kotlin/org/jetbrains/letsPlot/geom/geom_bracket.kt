@@ -57,7 +57,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  *  Symmetrically shorten the bracket by shifting both ends toward the center.
  *  Expects values between 0 and 1, where 0 corresponds to no shortening and 1 to a fully collapsed bracket.
  * @param tipLengthUnit default = "size" ("res", "identity", "size", "px").
- *  Unit for the `lenStart` and `lenEnd` aesthetics.
+ *  Unit for the `lenstart` and `lenend` aesthetics.
  *  Possible values:
  *
  *  - "res": the unit equals the smallest distance between data points along the corresponding axis;
@@ -79,8 +79,8 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  * @param ymin Lower end of the bracket for vertical brackets.
  * @param ymax Upper end of the bracket for vertical brackets.
  * @param x X-axis coordinate for vertical brackets.
- * @param lenStart Length of the tip at the bracket start (at `xmin` for horizontal brackets, or `ymin` for vertical brackets).
- * @param lenEnd Length of the tip at the bracket end (at `xmax` for horizontal brackets, or `ymax` for vertical brackets).
+ * @param lenstart Length of the tip at the bracket start (at `xmin` for horizontal brackets, or `ymin` for vertical brackets).
+ * @param lenend Length of the tip at the bracket end (at `xmax` for horizontal brackets, or `ymax` for vertical brackets).
  * @param label Text to add.
  * @param size Font size.
  * @param linetype Type of the bracket line.
@@ -129,8 +129,8 @@ class geomBracket(
     override val ymin: Any? = null,
     override val ymax: Any? = null,
     override val x: Any? = null,
-    override val lenStart: Any? = null,
-    override val lenEnd: Any? = null,
+    override val lenstart: Any? = null,
+    override val lenend: Any? = null,
     override val label: Any? = null,
     override val size: Any? = null,
     override val linetype: Any? = null,
