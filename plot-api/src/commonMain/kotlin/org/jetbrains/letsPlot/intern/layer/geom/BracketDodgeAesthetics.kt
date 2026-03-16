@@ -10,8 +10,8 @@ import org.jetbrains.letsPlot.intern.OptionsCapsule
 interface BracketDodgeAesthetics : OptionsCapsule {
     val x: Any?
     val y: Any?
-    val istart: Any?
-    val iend: Any?
+    val iStart: Any?
+    val iEnd: Any?
     val lenStart: Any?
     val lenEnd: Any?
     val label: Any?
@@ -32,8 +32,8 @@ interface BracketDodgeAesthetics : OptionsCapsule {
     override fun seal() = Options.of(
         Aes.X.name to x,
         Aes.Y.name to y,
-        Aes.ISTART.name to istart,
-        Aes.IEND.name to iend,
+        Aes.ISTART.name to iStart,
+        Aes.IEND.name to iEnd,
         Aes.LENSTART.name to lenStart,
         Aes.LENEND.name to lenEnd,
         Aes.LABEL.name to label,

@@ -50,7 +50,7 @@ object Bracket {
                 (letsPlot(mpgData) { x = asDiscrete("number of cylinders"); y = "miles per gallon"; fill = "origin of car" }
                   + geomBoxplot()
                   + geomBracketDodge(data = bracketDodgeData)
-                      { x = "number of cylinders"; y = "y"; istart = "start"; iend = "end"; label = "p" }).show()
+                      { x = "number of cylinders"; y = "y"; iStart = "start"; iEnd = "end"; label = "p" }).show()
             }
         }
     }

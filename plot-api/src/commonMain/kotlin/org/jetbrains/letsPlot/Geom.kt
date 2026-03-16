@@ -1044,8 +1044,8 @@ object Geom {
     class bracketDodge(
         override val x: Any? = null,
         override val y: Any? = null,
-        override val istart: Any? = null,
-        override val iend: Any? = null,
+        override val iStart: Any? = null,
+        override val iEnd: Any? = null,
         override val lenStart: Any? = null,
         override val lenEnd: Any? = null,
         override val label: Any? = null,

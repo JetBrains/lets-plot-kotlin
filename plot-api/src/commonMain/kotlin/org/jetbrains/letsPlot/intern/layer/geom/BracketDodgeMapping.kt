@@ -8,8 +8,8 @@ import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 class BracketDodgeMapping(
     override var x: Any? = null,
     override var y: Any? = null,
-    override var istart: Any? = null,
-    override var iend: Any? = null,
+    override var iStart: Any? = null,
+    override var iEnd: Any? = null,
     override var lenStart: Any? = null,
     override var lenEnd: Any? = null,
     override var label: Any? = null,
