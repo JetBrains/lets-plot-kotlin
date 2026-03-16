@@ -31,7 +31,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  *  [positionFill()][org.jetbrains.letsPlot.pos.positionFill], [positionStack()][org.jetbrains.letsPlot.pos.positionStack], or
  *  [positionIdentity][org.jetbrains.letsPlot.pos.positionIdentity].
  * @param showLegend default = false.
- *  `true` to show the legend for this layer.
+ *  true to show the legend for this layer.
  * @param manualKey String or result of the call to the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
  *  The key to show in the manual legend.
  *  Specifies text for the legend label or advanced settings using the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
