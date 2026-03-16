@@ -24,6 +24,7 @@ class geomBracketDodge(
     manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    orientation: String? = null,
     override val x: Any? = null,
     override val y: Any? = null,
     override val iStart: Any? = null,
@@ -72,7 +73,8 @@ class geomBracketDodge(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
-        tooltips = tooltips
+        tooltips = tooltips,
+        orientation = orientation
     ) {
     override fun seal(): Options {
         return super<BracketDodgeAesthetics>.seal() +

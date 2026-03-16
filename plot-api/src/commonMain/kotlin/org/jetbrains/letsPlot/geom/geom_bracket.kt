@@ -24,6 +24,7 @@ class geomBracket(
     manualKey: Any? = null,
     sampling: SamplingOptions? = null,
     tooltips: TooltipOptions? = null,
+    orientation: String? = null,
     override val xmin: Any? = null,
     override val xmax: Any? = null,
     override val y: Any? = null,
@@ -72,7 +73,8 @@ class geomBracket(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
-        tooltips = tooltips
+        tooltips = tooltips,
+        orientation = orientation
     ) {
     override fun seal(): Options {
         return super<BracketAesthetics>.seal() +
