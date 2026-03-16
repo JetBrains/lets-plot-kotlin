@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.BracketMapping
 import org.jetbrains.letsPlot.intern.layer.geom.BracketParameters
 import org.jetbrains.letsPlot.intern.layer.geom.TextParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
-import org.jetbrains.letsPlot.tooltips.TooltipOptions
+import org.jetbrains.letsPlot.tooltips.tooltipsNone
 
 /**
  * Annotates a plot with labeled brackets to highlight relationships or groupings between categories or ranges.
@@ -37,9 +37,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param manualKey String or result of the call to the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
  *  The key to show in the manual legend.
  *  Specifies text for the legend label or advanced settings using the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
- * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
- *  Specifies appearance, style, and content.
- *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param orientation default = "x" ("x", "y").
  *  Specifies the axis that the geom should run along.
  * @param labelFormat Specifies the format pattern for displaying mapped values.
@@ -125,7 +122,6 @@ class geomBracket(
     inheritAes: Boolean? = null,
     manualKey: Any? = null,
     sampling: SamplingOptions? = null,
-    tooltips: TooltipOptions? = null,
     orientation: String? = null,
     override val xmin: Any? = null,
     override val xmax: Any? = null,
@@ -175,7 +171,7 @@ class geomBracket(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
-        tooltips = tooltips,
+        tooltips = tooltipsNone,
         orientation = orientation
     ) {
     override fun seal(): Options {

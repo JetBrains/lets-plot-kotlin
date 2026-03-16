@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.intern.layer.geom.BracketDodgeMapping
 import org.jetbrains.letsPlot.intern.layer.geom.BracketDodgeParameters
 import org.jetbrains.letsPlot.intern.layer.geom.TextParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
-import org.jetbrains.letsPlot.tooltips.TooltipOptions
+import org.jetbrains.letsPlot.tooltips.tooltipsNone
 
 /**
  * Annotates a plot with labeled brackets connecting dodged groups inside each category.
@@ -37,9 +37,6 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param manualKey String or result of the call to the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
  *  The key to show in the manual legend. 
  *  Specifies the text for the legend label or advanced settings using the [layerKey()][org.jetbrains.letsPlot.scale.layerKey] function.
- * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
- *  Specifies appearance, style and content.
- *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
  * @param orientation default = "x" ("x", "y").
  *  Specifies the axis that the geom should run along.
  * @param labelFormat Specifies the format pattern for displaying mapped values.
@@ -128,7 +125,6 @@ class geomBracketDodge(
     inheritAes: Boolean? = null,
     manualKey: Any? = null,
     sampling: SamplingOptions? = null,
-    tooltips: TooltipOptions? = null,
     orientation: String? = null,
     override val x: Any? = null,
     override val y: Any? = null,
@@ -178,7 +174,7 @@ class geomBracketDodge(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
-        tooltips = tooltips,
+        tooltips = tooltipsNone,
         orientation = orientation
     ) {
     override fun seal(): Options {
