@@ -6,6 +6,8 @@
 package org.jetbrains.letsPlot.scale
 
 import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 import org.jetbrains.letsPlot.intern.checkScaleExpand
 
@@ -38,6 +40,7 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
+ * @param breakWidth A fixed distance between axis breaks.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -60,7 +63,8 @@ fun scaleXContinuous(
     naValue: Number? = null,
     format: String? = null,
     trans: String? = null,
-    position: String? = null
+    position: String? = null,
+    breakWidth: Any? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -74,7 +78,8 @@ fun scaleXContinuous(
         naValue = naValue,
         format = format,
         trans = trans,
-        position = position
+        position = position,
+        otherOptions = Options.of(Option.Scale.BREAK_WIDTH to breakWidth)
     )
 }
 
@@ -108,6 +113,7 @@ fun scaleXContinuous(
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
+ * @param breakWidth A fixed distance between axis breaks.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -130,7 +136,8 @@ fun scaleYContinuous(
     naValue: Number? = null,
     format: String? = null,
     trans: String? = null,
-    position: String? = null
+    position: String? = null,
+    breakWidth: Any? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -144,7 +151,8 @@ fun scaleYContinuous(
         naValue = naValue,
         format = format,
         trans = trans,
-        position = position
+        position = position,
+        otherOptions = Options.of(Option.Scale.BREAK_WIDTH to breakWidth)
     )
 }
 
@@ -169,6 +177,7 @@ fun scaleYContinuous(
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
+ * @param breakWidth A fixed distance between axis breaks.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -190,7 +199,8 @@ fun scaleXLog10(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-    position: String? = null
+    position: String? = null,
+    breakWidth: Any? = null
 ) = scaleXContinuous(
     name = name,
     breaks = breaks,
@@ -201,7 +211,8 @@ fun scaleXLog10(
     naValue = naValue,
     format = format,
     trans = "log10",
-    position = position
+    position = position,
+    breakWidth = breakWidth
 )
 
 /**
@@ -225,6 +236,7 @@ fun scaleXLog10(
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
+ * @param breakWidth A fixed distance between axis breaks.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -246,7 +258,8 @@ fun scaleYLog10(
     expand: List<Number>? = null,
     naValue: Number? = null,
     format: String? = null,
-    position: String? = null
+    position: String? = null,
+    breakWidth: Any? = null
 ) = scaleYContinuous(
     name = name,
     breaks = breaks,
@@ -257,7 +270,8 @@ fun scaleYLog10(
     naValue = naValue,
     format = format,
     trans = "log10",
-    position = position
+    position = position,
+    breakWidth = breakWidth
 )
 
 /**

@@ -36,6 +36,14 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 * Positional Scales:
 
+    * New `breakWidth` parameter that specifies a fixed distance between axis breaks.
+
+      See examples:
+
+        * [datetime scale](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_datetime.html)
+        * [time (duration) scale](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_duration.html)
+        * [log10 scale](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_log10.html)
+
     * Support for axis minor ticks via `axisMinorTicks` and `axisMinorTicksLength` parameters in `theme()` [[#1379](https://github.com/JetBrains/lets-plot/issues/1379)].
 
       See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/axis_minor_ticks.html).
