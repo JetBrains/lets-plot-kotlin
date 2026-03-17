@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInSwingContext
-import org.jetbrains.letsPlot.commons.intern.datetime.*
+import kotlinx.datetime.*
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
@@ -21,10 +21,11 @@ object DateTimeAnnotation {
         ScriptInSwingContext.eval("Series Annotations", maxCol = 2) {
 
             run {
-                val instant = DateTime(Date(1, Month.FEBRUARY, 2003)).toInstant(TimeZone.UTC)
+                val startDate = LocalDate(2003, Month.FEBRUARY, 1)
                 val nDays = 30
                 val rnd = Random(0)
-                val days = (0..nDays).map { instant.toEpochMilliseconds() + it * Duration.DAY.totalMillis }.map(::Instant)
+
+                val days = (0..nDays).map { startDate.plus(DatePeriod(days = it)).atTime(0, 0) }
                 val daysData = mapOf<String, Any>(
                     "days" to days,
                     "val" to (0..nDays).map { rnd.nextDouble(0.0, 20.0) }
