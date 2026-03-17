@@ -42,7 +42,7 @@ include("jvm-batik")
 include("browser")
 include("js-frontend-app")
 include("geotools")
-include("geotools-batik")
+include("geotools-swing")
 include("dokka")
 include("jupyter")
 include("geotools-jupyter")
@@ -54,7 +54,7 @@ project(":browser").projectDir = File("./demo/browser")
 project(":js-frontend-app").projectDir = File("./demo/js-frontend-app")
 
 project(":geotools").projectDir = File("./toolkit/geotools")
-project(":geotools-batik").projectDir = File("./demo/geotools-batik")
+project(":geotools-swing").projectDir = File("./demo/geotools-swing")
 
 project(":dokka").projectDir = File("./docs/dokka")
 
