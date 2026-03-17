@@ -1,6 +1,6 @@
-## [4.12.2] - 2026-mm-dd
+## [4.13.0] - 2026-03-dd
 
-This release is 100% compatible with Lets-Plot [v 4.8.2](https://github.com/JetBrains/lets-plot/releases/tag/v4.8.2),
+This release is 100% compatible with Lets-Plot [v 4.9.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.9.0),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
@@ -12,6 +12,20 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
       This parameter accepts a `smoothLabels()` object, which provides access to model-specific variables like $R^2$, the regression equation and others.
 
       See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/smooth_summary.html).
+
+    * **Plot tags**. A tag can be specified via `labs(tag = ...)` and styled using theme parameters [[#1407](https://github.com/JetBrains/lets-plot/issues/1407)].
+
+      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html) and updated [plot layout scheme](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_layout_scheme.html).
+
+    * Plot tags customization parameters in `theme()`:
+
+        * `plotTag` - sets the tag style via `elementText()`.
+        * `plotTagLocation` - specifies the area used for positioning the tag.
+        * `plotTagPosition` - specifies the position of the tag within the selected area.
+        * `plotTagPrefix` - text added before the tag value.
+        * `plotTagSuffix` - text added after the tag value.
+
+      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html).
 
 * Geometries:
 

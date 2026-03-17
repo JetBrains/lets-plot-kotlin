@@ -40,6 +40,7 @@ fun ylab(label: String): Feature {
  * @param title The plot title text.
  * @param subtitle The plot subtitle text.
  * @param caption The plot caption text.
+ * @param tag The plot tag text.
  * @param x The x-axis text.
  * @param y The y-axis text.
  * @param alpha The legend title text.
@@ -56,6 +57,7 @@ fun labs(
     title: String? = null,
     subtitle: String? = null,
     caption: String? = null,
+    tag: String? = null,
     // aesthetics
     x: String? = null,
     y: String? = null,
@@ -90,6 +92,15 @@ fun labs(
             OptionsMap(
                 Option.Plot.CAPTION,
                 mapOf(Option.Plot.CAPTION_TEXT to it)
+            )
+        )
+    }
+
+    tag?.let {
+        list.add(
+            OptionsMap(
+                Option.Plot.TAG,
+                mapOf(Option.Plot.TAG_TEXT to it)
             )
         )
     }

@@ -146,6 +146,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param plotTitle Style settings for plot title.
  * @param plotSubtitle Style settings for plot subtitle.
  * @param plotCaption Style settings for plot caption.
+ * @param plotTag Style settings for plot tag.
  * @param plotMessage Style settings for plot message (e.g. sampling messages).
  *  Set an `elementBlank()` to show nothing.
  *  Set an `elementText()` to show sampling messages (`elementText()` options do not affect the message text).
@@ -174,6 +175,22 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  Alignment of the plot caption.
  *  A value of "panel" means that caption is aligned to the plot panels.
  *  A value of "plot" means that caption is aligned to the entire plot (excluding margins).
+ *
+ * @param plotTagPosition default = "top-left" ("left", "top-left", "top", "top-right", "right", "bottom-right", "bottom", "bottom-left") or a numeric pair [x, y].
+ *  Position of the tag within the area defined by `plotTagLocation`.
+ *  It can be one of the predefined anchor names, or a numeric pair [x, y],
+ *  where each value is between 0 and 1. [0, 0] is bottom-left and [1, 1] is top-right.
+ *  When `plotTagLocation = "margin"`, only predefined position names are supported.
+ *  Use `hjust`/`vjust` in `elementText()` to fine-tune the tag position within the margin.
+ * @param plotTagLocation default = "plot" ("plot", "panel", "margin").
+ *  Area used for positioning the tag.
+ *  - `"plot"` - the tag is positioned relative to the entire plot area without affecting layout.
+ *  - `"panel"` - the tag is positioned relative to the panel (data) area without affecting layout.
+ *  - `"margin"` - the tag is placed in the plot margin area. Space for the tag is reserved by the layout,
+ *  so other plot elements are shifted to avoid overlap.
+ * @param plotTagPrefix Text added before the plot tag.
+ * @param plotTagSuffix Text added after the plot tag.
+ *
  * @param stripBackground Style settings for facet strip background.
  * @param stripBackgroundX Style settings for horizontal facet strip background.
  * @param stripBackgroundY Style settings for vertical facet strip background.
@@ -287,12 +304,17 @@ class theme(
     plotTitle: Any? = null,
     plotSubtitle: Any? = null,
     plotCaption: Any? = null,
+    plotTag: Any? = null,
     plotMessage: Any? = null,
     plotMargin: Any? = null,
     plotInset: Any? = null,
 
     plotTitlePosition: Any? = null,
     plotCaptionPosition: Any? = null,
+    plotTagPosition: Any? = null,
+    plotTagLocation: Any? = null,
+    plotTagPrefix: Any? = null,
+    plotTagSuffix: Any? = null,
 
     stripBackground: Any? = null,
     stripBackgroundX: Any? = null,
@@ -404,12 +426,17 @@ class theme(
         Option.Theme.PLOT_TITLE to plotTitle,
         Option.Theme.PLOT_SUBTITLE to plotSubtitle,
         Option.Theme.PLOT_CAPTION to plotCaption,
+        Option.Theme.PLOT_TAG to plotTag,
         Option.Theme.PLOT_MESSAGE to plotMessage,
         Option.Theme.PLOT_MARGIN to plotMargin,
         Option.Theme.PLOT_INSET to plotInset,
 
         Option.Theme.PLOT_TITLE_POSITION to plotTitlePosition,
         Option.Theme.PLOT_CAPTION_POSITION to plotCaptionPosition,
+        Option.Theme.PLOT_TAG_POSITION to plotTagPosition,
+        Option.Theme.PLOT_TAG_LOCATION to plotTagLocation,
+        Option.Theme.PLOT_TAG_PREFIX to plotTagPrefix,
+        Option.Theme.PLOT_TAG_SUFFIX to plotTagSuffix,
 
         Option.Theme.FACET_STRIP_BGR_RECT to stripBackground,
         Option.Theme.FACET_STRIP_BGR_RECT_X to stripBackgroundX,
