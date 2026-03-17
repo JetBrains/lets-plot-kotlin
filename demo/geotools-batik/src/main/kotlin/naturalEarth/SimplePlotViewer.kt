@@ -5,13 +5,13 @@
 
 package naturalEarth
 
-import org.jetbrains.letsPlot.batik.plot.component.PlotViewerWindowBatik
+import org.jetbrains.letsPlot.awt.plot.util.SimplePlotViewerWindow
 import org.jetbrains.letsPlot.commons.geometry.DoubleVector
 import java.awt.Dimension
 
-object SimpleBatikView {
+object SimplePlotViewer {
     fun show(plotSpec: MutableMap<String, Any>, plotSize: DoubleVector) {
-        PlotViewerWindowBatik(
+        SimplePlotViewerWindow(
             "Spatial plot demo",
             rawSpec = plotSpec,
             windowSize = Dimension(plotSize.x.toInt(), plotSize.y.toInt()),

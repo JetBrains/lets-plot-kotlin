@@ -26,7 +26,7 @@ fun main() {
             geomPoint(map = citiesSD, color = "red") +
             ggtitle("geom_polygon, geom_point: 'map'")
 
-    SimpleBatikView.show(
+    SimplePlotViewer.show(
         p.toSpec(),
         DoubleVector(800.0, 500.0)
     )

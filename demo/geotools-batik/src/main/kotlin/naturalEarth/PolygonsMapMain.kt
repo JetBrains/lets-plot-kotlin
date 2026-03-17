@@ -21,7 +21,7 @@ fun main() {
     val p = letsPlot() + geomPolygon(map = spatialDataset, alpha = 0.2, color = "black") +
             ggtitle("geom_polygon: 'map'")
 
-    SimpleBatikView.show(
+    SimplePlotViewer.show(
         p.toSpec(),
         DoubleVector(800.0, 500.0)
     )

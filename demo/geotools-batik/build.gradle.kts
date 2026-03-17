@@ -11,7 +11,7 @@ val letsPlotVersion = extra["letsPlot.version"] as String
 val geoToolsVersion = extra["geotools.version"] as String
 
 dependencies {
-    implementation("org.jetbrains.lets-plot:lets-plot-batik:$letsPlotVersion")
+    implementation("org.jetbrains.lets-plot:lets-plot-swing:$letsPlotVersion")
 
     implementation(projects.plotApi)
     implementation(projects.geotools)

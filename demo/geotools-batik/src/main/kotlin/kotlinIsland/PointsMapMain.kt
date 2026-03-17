@@ -5,7 +5,7 @@
 
 package kotlinIsland
 
-import org.jetbrains.letsPlot.batik.plot.component.PlotViewerWindowBatik
+import org.jetbrains.letsPlot.awt.plot.util.SimplePlotViewerWindow
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.intern.toSpec
 import org.jetbrains.letsPlot.label.ggtitle
@@ -23,7 +23,7 @@ fun main() {
             geomPoint(map = placesSD, color = "red") +
             ggtitle("Kotlin Island Tourists Attractions")
 
-    PlotViewerWindowBatik(
+    SimplePlotViewerWindow(
         "Spatial plot demo",
         rawSpec = p.toSpec(),
         windowSize = Dimension(800, 500),

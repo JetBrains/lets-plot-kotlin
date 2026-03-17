@@ -22,7 +22,7 @@ fun main() {
         fill = "continent"
     } + ggtitle("geom_polygon: 'data'")
 
-    SimpleBatikView.show(
+    SimplePlotViewer.show(
         p.toSpec(),
         DoubleVector(800.0, 500.0)
     )

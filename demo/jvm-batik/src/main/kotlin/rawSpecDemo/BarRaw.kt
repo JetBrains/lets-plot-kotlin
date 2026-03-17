@@ -7,6 +7,7 @@ package rawSpecDemo
 
 import org.jetbrains.letsPlot.awt.canvas.CanvasComponent
 import org.jetbrains.letsPlot.awt.plot.MonolithicAwt
+import org.jetbrains.letsPlot.awt.plot.swing.SwingAppContext
 import org.jetbrains.letsPlot.commons.intern.json.JsonSupport
 import org.jetbrains.letsPlot.core.util.sizing.SizingPolicy
 import org.jetbrains.letsPlot.datamodel.svg.dom.SvgSvgElement
@@ -16,9 +17,7 @@ import javax.swing.SwingUtilities
 import javax.swing.WindowConstants
 
 object BarRaw {
-    // Setup
-//    private val SVG_COMPONENT_FACTORY_BATIK =
-//        { svg: SvgSvgElement -> BatikMapperComponent(svg, BATIK_MESSAGE_CALLBACK) }
+    // The setup
 
     // Unfortunately, org.jetbrains.letsPlot.awt.plot.swing.SwingPlotComponentProvider.SVG_COMPONENT_FACTORY
     // is currently 'private'.
@@ -29,24 +28,6 @@ object BarRaw {
 //            }
             content = SvgCanvasDrawable(svg)
         }
-    }
-
-//    private val BATIK_MESSAGE_CALLBACK = object : BatikMessageCallback {
-//        override fun handleMessage(message: String) {
-//            println(message)
-//        }
-//
-//        override fun handleException(e: Exception) {
-//            if (e is RuntimeException) {
-//                throw e
-//            }
-//            throw RuntimeException(e)
-//        }
-//    }
-
-    private val AWT_EDT_EXECUTOR = { runnable: () -> Unit ->
-        // Just invoke in the current thread.
-        runnable.invoke()
     }
 
     @JvmStatic
@@ -77,8 +58,7 @@ object BarRaw {
             plotSpec = spec as MutableMap<String, Any>,
             sizingPolicy = SizingPolicy.fixed(600.0, 300.0),
             svgComponentFactory = SVG_COMPONENT_FACTORY,
-//            executor = AWT_EDT_EXECUTOR,
-            executor = org.jetbrains.letsPlot.awt.plot.swing.SwingAppContext.AWT_EDT_EXECUTOR,
+            executor = SwingAppContext.AWT_EDT_EXECUTOR,
             containerSize = null
         ) {
             for (message in it) {

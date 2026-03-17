@@ -33,7 +33,7 @@ fun main() {
         fill = "avg_temp"
     } + ggtitle("geom_polygon: 'data', 'map', 'mapJoin': 'avg_temp' -> 'continent'.")
 
-    SimpleBatikView.show(
+    SimplePlotViewer.show(
         p.toSpec(),
         DoubleVector(800.0, 500.0)
     )

@@ -39,7 +39,7 @@ fun main() {
             geomRect(map = anotherEnvelope.toSpatialDataset(), size = 4, color = "light-blue", alpha = 0) +
             ggtitle("geom_polygon: 'map'")
 
-    SimpleBatikView.show(
+    SimplePlotViewer.show(
         p.toSpec(),
         DoubleVector(800.0, 500.0)
     )
