@@ -47,6 +47,8 @@ import org.jetbrains.letsPlot.intern.Scale
  *  specifying additional arguments.
  *  "none" will hide the guide.
  * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
+ * @param overflow Controls how colors are generated when more colors are needed than the palette provides.
+ *  Accepted values: `"interpolate"`, `"cycle"`, `"generate"`.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -72,7 +74,8 @@ fun scaleBrewer(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null,
-    trans: String? = null
+    trans: String? = null,
+    overflow: String? = null
 ) = Scale(
     aesthetic = aesthetic,
     name = name,
@@ -89,7 +92,8 @@ fun scaleBrewer(
             Option.Scale.PALETTE_TYPE to type,
             Option.Scale.PALETTE to palette,
             Option.Scale.DIRECTION to direction,
-            Option.Scale.SCALE_MAPPER_KIND to Option.Scale.MapperKind.COLOR_BREWER
+            Option.Scale.SCALE_MAPPER_KIND to Option.Scale.MapperKind.COLOR_BREWER,
+            Option.Scale.OVERFLOW to overflow
         )
     )
 )
@@ -124,6 +128,8 @@ fun scaleBrewer(
  *  specifying additional arguments.
  *  "none" will hide the guide.
  * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
+ * @param overflow Controls how colors are generated when more colors are needed than the palette provides.
+ *  Accepted values: `"interpolate"`, `"cycle"`, `"generate"`.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -148,7 +154,8 @@ fun scaleFillBrewer(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null,
-    trans: String? = null
+    trans: String? = null,
+    overflow: String? = null
 ) = scaleBrewer(
     aesthetic = Aes.FILL,
     type = type,
@@ -162,7 +169,8 @@ fun scaleFillBrewer(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans
+    trans = trans,
+    overflow = overflow
 )
 
 /**
@@ -195,6 +203,8 @@ fun scaleFillBrewer(
  *  specifying additional arguments.
  *  "none" will hide the guide.
  * @param trans Name of built-in transformation ("identity", "log10", "log2", "symlog", "reverse", "sqrt").
+ * @param overflow Controls how colors are generated when more colors are needed than the palette provides.
+ *  Accepted values: `"interpolate"`, `"cycle"`, `"generate"`.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -219,7 +229,8 @@ fun scaleColorBrewer(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null,
-    trans: String? = null
+    trans: String? = null,
+    overflow: String? = null
 ) = scaleBrewer(
     aesthetic = Aes.COLOR,
     type = type,
@@ -233,5 +244,6 @@ fun scaleColorBrewer(
     naValue = naValue,
     format = format,
     guide = guide,
-    trans = trans
+    trans = trans,
+    overflow = overflow
 )

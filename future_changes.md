@@ -5,7 +5,6 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
 
-      
 * Plot Annotations:
 
     * New `labels` parameter in `geomSmooth()` designed to display statistical summaries of the fitted model directly on the plot.
@@ -33,6 +32,12 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
       See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/geom_bracket.html).
 
+* Color Scales:
+
+    * New `overflow` parameter in `scaleColorBrewer()` / `scaleFillBrewer()`: controls how colors are generated when more colors are needed than the palette provides.
+      Options: `"interpolate"` (`"i"`), `"cycle"` (`"c"`), `"generate"` (`"g"`).
+
+      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_brewer_overflow.html).
 
 * Positional Scales:
 
@@ -50,6 +55,15 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Changed
 
+* [**BREAKING**]: ColorBrewer palettes: changed default behavior when the requested number of colors exceeds the palette's maximum size.
+  Now defaults to `"interpolate"` for sequential/diverging palettes and `"generate"` for qualitative palettes.
+  Previously, depending on the palette type, this either resulted in duplicate colors or random additional colors.
+  Use the new `overflow` parameter to explicitly control this behavior.
+
+* Missing values in `geomAreaRidges()` create gaps in geometries instead of being interpolated over.
+
+* Discrete color scales (Brewer, Manual) now produce a `colorbar` guide when used with continuous data.
+  Previously they produced a `legend` guide regardless of the data type.
 
 * Changes affecting users on the JVM platform:
 
