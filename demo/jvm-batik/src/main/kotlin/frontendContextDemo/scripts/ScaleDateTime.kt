@@ -6,31 +6,29 @@
 package frontendContextDemo.scripts
 
 import frontendContextDemo.ScriptInSwingContext
-import org.jetbrains.letsPlot.commons.intern.datetime.Date
-import org.jetbrains.letsPlot.commons.intern.datetime.DateTime
-import org.jetbrains.letsPlot.commons.intern.datetime.Month
-import org.jetbrains.letsPlot.commons.intern.datetime.TimeZone
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toInstant
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.scale.scaleXDateTime
 import org.jetbrains.letsPlot.tooltips.layerTooltips
 import kotlin.random.Random
+import kotlin.time.Duration.Companion.days
+import kotlin.time.Duration.Companion.seconds
 
 object ScaleDateTime {
     @JvmStatic
     fun main(args: Array<String>) {
         ScriptInSwingContext.eval("DateTime Scale") {
-            val second = 1000.0
-            val minute = 60.0 * second
-            val hour = 60.0 * minute
-            val day = 24.0 * hour
-
-            val instant = DateTime(Date(1, Month.FEBRUARY, 2003)).toInstant(TimeZone.UTC)
+            val startMillis = LocalDateTime(2003, 2, 1, 0, 0)
+                .toInstant(TimeZone.UTC)
+                .toEpochMilliseconds()
 
             val nDays = 30
             val rnd = Random(0)
 
-            val days = (0..nDays).map { instant.toEpochMilliseconds() + it * day }
+            val days = (0..nDays).map { startMillis + it * 1.days.inWholeMilliseconds }
             val daysData = mapOf<String, Any>(
                 "days" to days,
                 "val" to (0..nDays).map { rnd.nextDouble(0.0, 20.0) }
@@ -61,7 +59,7 @@ object ScaleDateTime {
 
             val nSeconds = 1000
             val secondsData = mapOf<String, Any>(
-                "seconds" to (0..nSeconds).map { instant.toEpochMilliseconds() + it * second },
+                "seconds" to (0..nSeconds).map { startMillis + it * 1.seconds.inWholeMilliseconds },
                 "val" to (0..nSeconds).map { rnd.nextDouble(0.0, 10.0) }
             )
 
