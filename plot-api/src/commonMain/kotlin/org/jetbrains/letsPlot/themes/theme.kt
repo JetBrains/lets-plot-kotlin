@@ -769,7 +769,7 @@ fun elementMarkdown(
 @Deprecated(
     message = "Please, replace with one number or a list of numbers.\n" +
             "See doc for the `plotMargin` parameter in `theme()`: https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.themes/theme",
-    level = DeprecationLevel.WARNING
+    level = DeprecationLevel.ERROR
 )
 fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) = listOf(t, r, b, l)
 
