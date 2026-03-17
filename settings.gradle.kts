@@ -38,7 +38,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include("plot-api")
 include("demo-common")
-include("jvm-batik")
+include("plot-swing")
 include("browser")
 include("js-frontend-app")
 include("geotools")
@@ -49,7 +49,7 @@ include("geotools-jupyter")
 include("json")
 
 project(":demo-common").projectDir = File("./demo/demo-common")
-project(":jvm-batik").projectDir = File("./demo/jvm-batik")
+project(":plot-swing").projectDir = File("./demo/plot-swing")
 project(":browser").projectDir = File("./demo/browser")
 project(":js-frontend-app").projectDir = File("./demo/js-frontend-app")
 
