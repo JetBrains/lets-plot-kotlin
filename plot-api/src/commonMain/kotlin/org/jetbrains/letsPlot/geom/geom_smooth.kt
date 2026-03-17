@@ -150,7 +150,7 @@ fun geomSmooth(
         mapping = mapping
     )
 
-    if (labels != null) {
+    if (labels != null && stat is Stat.smooth) {
         val annotationLayer = SmoothAnnotationLayer(
             smoothLabelsOptions = labels,
             data = data,
