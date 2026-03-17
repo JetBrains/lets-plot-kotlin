@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.extras.arrow
 import org.jetbrains.letsPlot.geom.geomCurve
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.scale.*
 object Segment {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("geom_segment/curve") {
+        ScriptInSwingContext.eval("geom_segment/curve") {
             run {
                 val rand = java.util.Random()
                 val n = 10

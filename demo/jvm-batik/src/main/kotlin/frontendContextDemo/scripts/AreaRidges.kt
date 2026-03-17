@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.Iris
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.coord.coordFlip
 import org.jetbrains.letsPlot.geom.geomAreaRidges
@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.label.ggtitle
 object AreaRidges {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Area ridges") {
+        ScriptInSwingContext.eval("Area ridges") {
 
             run {
                 val data = mapOf(

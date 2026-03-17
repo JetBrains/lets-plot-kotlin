@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.scale.scaleAlpha
 object ScaleAlpha {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Alpha scale") {
+        ScriptInSwingContext.eval("Alpha scale") {
             run {
                 val rand = java.util.Random()
                 val n = 500

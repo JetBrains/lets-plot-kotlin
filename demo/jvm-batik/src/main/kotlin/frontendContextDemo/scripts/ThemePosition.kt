@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.ggsize
@@ -14,7 +14,7 @@ import org.jetbrains.letsPlot.themes.theme
 object ThemePosition {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Theme position") {
+        ScriptInSwingContext.eval("Theme position") {
             val xs = (0..5).toList()
             val ys = (0..5).toList()
             val cs = ('a'..'f').toList()

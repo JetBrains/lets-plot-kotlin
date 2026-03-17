@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.commons.intern.datetime.Duration
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.ggplot
@@ -16,7 +16,7 @@ import kotlin.random.Random
 object ScaleTime {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Time scale") {
+        ScriptInSwingContext.eval("Time scale") {
             timePlot("5 seconds", 0..5000 step 25, Duration.MS)
             timePlot("24 hours", 0..24, Duration.HOUR)
             timePlot("24 hours", 0..24, Duration.HOUR, timeAxis = "y")

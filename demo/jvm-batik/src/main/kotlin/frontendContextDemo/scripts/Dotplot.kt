@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.Iris
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.coord.coordFlip
 import org.jetbrains.letsPlot.facet.facetGrid
@@ -18,7 +18,7 @@ import org.jetbrains.letsPlot.themes.themeGrey
 object Dotplot {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Dotplot") {
+        ScriptInSwingContext.eval("Dotplot") {
             val irisData = Iris.map()
 
             val p = ggplot(irisData) { x = "sepal length (cm)" }

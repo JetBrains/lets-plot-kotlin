@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomSegment
 import org.jetbrains.letsPlot.geom.geomTile
@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.scale.*
 object ScaleManual {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Manual color scale", maxCol = 2) {
+        ScriptInSwingContext.eval("Manual color scale", maxCol = 2) {
             val xs = ('a'..'h').toList()
             val data = mapOf("x" to xs)
 

@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.asDiscrete
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.letsPlot
@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.letsPlot
 object Issue_225 {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Issue #225 (Bug with Tooltips)") {
+        ScriptInSwingContext.eval("Issue #225 (Bug with Tooltips)") {
             val dfMap = mapOf(
                 "id" to listOf(0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,12,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,14,14,14,14,14,14,14,14,15,15,15,15,15,15,15,15,16,16,16,16,16,16,16,16,17,17,17,17,17,17,17,17,18,18,18,18,18,18,18,18,19,19,19,19,19,19,19,19),
                 "stage" to listOf("seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location","seed","soil","fertilizer","water","light","temperature","humidity","location"),

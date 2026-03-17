@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.geom.geomStep
 import org.jetbrains.letsPlot.ggplot
@@ -18,7 +18,7 @@ import kotlin.time.Duration.Companion.minutes
 object DurationDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Duration support") {
+        ScriptInSwingContext.eval("Duration support") {
             kotlinDurationPlot()
             javaDurationPlot()
         }

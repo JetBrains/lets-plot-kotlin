@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomTile
@@ -19,7 +19,7 @@ import java.awt.Dimension
 object Theme {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Theme", maxCol = 2, plotSize = Dimension(600, 240)) {
+        ScriptInSwingContext.eval("Theme", maxCol = 2, plotSize = Dimension(600, 240)) {
             run {
                 val xs = (-64..64).toList()
                 val data = mapOf("x" to xs)

@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.RasterData
 import org.jetbrains.letsPlot.geom.geomImshow
 import org.jetbrains.letsPlot.letsPlot
@@ -13,7 +13,7 @@ import org.jetbrains.letsPlot.letsPlot
 object Imshow {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Imshow") {
+        ScriptInSwingContext.eval("Imshow") {
 
             // Cases taken from org.jetbrains.letsPlot.ImshowTest
             val imdataList = listOf(

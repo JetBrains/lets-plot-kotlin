@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomTile
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.ggsize
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.scale.scaleFillDiscrete
 object ScaleColorDiscrete {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Color scale (discrete)") {
+        ScriptInSwingContext.eval("Color scale (discrete)") {
             discretePaletteWith(mapOf("x" to ('a'..'g')))
             discretePaletteWith(mapOf("x" to ('a'..'z')))
         }

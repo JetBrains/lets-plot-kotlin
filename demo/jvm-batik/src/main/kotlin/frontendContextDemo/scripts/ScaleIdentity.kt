@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomSegment
 import org.jetbrains.letsPlot.geom.geomTile
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.scale.*
 object ScaleIdentity {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Identity color scale") {
+        ScriptInSwingContext.eval("Identity color scale") {
 
             val xs = ('a'..'f').toList()
             val data = mapOf("x" to xs)

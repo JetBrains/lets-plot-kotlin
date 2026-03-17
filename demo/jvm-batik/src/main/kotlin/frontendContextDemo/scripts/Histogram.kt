@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomHistogram
 import org.jetbrains.letsPlot.ggplot
@@ -14,7 +14,7 @@ import org.jetbrains.letsPlot.stat.statBin
 object Histogram {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Histogram") {
+        ScriptInSwingContext.eval("Histogram") {
             val rand = java.util.Random()
             val data = mapOf<String, Any>(
                 "x" to List(500) { rand.nextGaussian() } + List(500) { rand.nextGaussian() + 1.0 },

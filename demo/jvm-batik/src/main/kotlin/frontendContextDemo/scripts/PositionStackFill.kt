@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.*
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.geom.geomLabel
@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.pos.positionStack
 object PositionStackFill {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("positionStack and positionFill") {
+        ScriptInSwingContext.eval("positionStack and positionFill") {
 
             val data = mapOf(
                 "x" to listOf(1, 1, 2, 2, 2),

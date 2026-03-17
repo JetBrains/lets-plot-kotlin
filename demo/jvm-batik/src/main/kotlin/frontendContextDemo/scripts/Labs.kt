@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.label.labs
 import org.jetbrains.letsPlot.label.xlab
@@ -18,7 +18,7 @@ import kotlin.math.sin
 object Labs {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("labs(title=\"Sine function\", x=\"Sine argument (ms)\", y=\"Sine value (mm)\")") {
+        ScriptInSwingContext.eval("labs(title=\"Sine function\", x=\"Sine argument (ms)\", y=\"Sine value (mm)\")") {
             val dat = mapOf<String, Any>(
                 "x" to (0..100).map { it * 2 * PI / 100 },
                 "y" to (0..100).map { sin(it * 2 * PI / 100) }

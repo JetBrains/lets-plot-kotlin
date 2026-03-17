@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.sampling.samplingRandom
@@ -15,7 +15,7 @@ import kotlin.math.sin
 object Sampling {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Sampling") {
+        ScriptInSwingContext.eval("Sampling") {
             val dat = mapOf<String, Any>(
                 "x" to (0..100).map { it * 2 * PI / 100 },
                 "y" to (0..100).map { sin(it * 2 * PI / 100) }

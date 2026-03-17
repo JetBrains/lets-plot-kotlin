@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -16,7 +16,7 @@ object PointsOverBars {
     @JvmStatic
     @Suppress("DuplicatedCode")
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Points on Bars") {
+        ScriptInSwingContext.eval("Points on Bars") {
             val data = mapOf<String, Any>(
                 "cat1" to listOf("a", "a", "b", "a", "a", "a", "a", "b", "b", "b", "b"),
                 "cat2" to listOf("c", "c", "d", "d", "d", "c", "c", "d", "c", "c", "d")

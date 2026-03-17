@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomText
 import org.jetbrains.letsPlot.letsPlot
 
@@ -13,7 +13,7 @@ import org.jetbrains.letsPlot.letsPlot
 object Text_LabelFormat {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Label Format") {
+        ScriptInSwingContext.eval("Label Format") {
 
             val df = mapOf<String, Any?>(
                 "y" to (0 until 5),

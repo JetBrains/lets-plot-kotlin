@@ -5,9 +5,11 @@
 
 package minimalDemo
 
-import org.jetbrains.letsPlot.batik.plot.component.DefaultPlotPanelBatik
+import org.jetbrains.letsPlot.awt.plot.component.CenteredPlotPanel
+import org.jetbrains.letsPlot.awt.plot.swing.SwingPlotPanel
 import org.jetbrains.letsPlot.commons.registration.Disposable
 import org.jetbrains.letsPlot.core.util.MonolithicCommon
+import org.jetbrains.letsPlot.core.util.PlotSizeHelper
 import org.jetbrains.letsPlot.geom.geomDensity
 import org.jetbrains.letsPlot.geom.geomHistogram
 import org.jetbrains.letsPlot.intern.Plot
@@ -146,10 +148,10 @@ private class Controller(
     }
 
     fun createPlotPanel(): JPanel {
-        val rawSpec = plots[plotKey]!!.toSpec()
+        val rawSpec = plots.getValue(plotKey).toSpec()
         val processedSpec = MonolithicCommon.processRawSpecs(rawSpec, frontendOnly = false)
 
-        return DefaultPlotPanelBatik(
+        val plotPanel = SwingPlotPanel(
             processedSpec = processedSpec,
             preserveAspectRatio = preserveAspectRadio,
             preferredSizeFromPlot = false,
@@ -159,5 +161,9 @@ private class Controller(
                 println("[Example App] $message")
             }
         }
+        return CenteredPlotPanel(
+            plotPanel,
+            figurePanelDefaultSize = PlotSizeHelper.figurePanelSizeDefault(processedSpec)
+        )
     }
 }

@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomDensity2D
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomTile
@@ -18,7 +18,7 @@ import org.jetbrains.letsPlot.themes.theme
 object ScaleGuide {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Guide of scale", maxCol = 2) {
+        ScriptInSwingContext.eval("Guide of scale", maxCol = 2) {
 
             run {
                 val xs = ('a'..'f').toList()

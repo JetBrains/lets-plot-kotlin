@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomArea
 import org.jetbrains.letsPlot.geom.geomDensity
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.stat.statDensity
 object Density {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Density plot") {
+        ScriptInSwingContext.eval("Density plot") {
             val rand = java.util.Random()
             val n = 200
             val xs = List(n) { rand.nextGaussian() }

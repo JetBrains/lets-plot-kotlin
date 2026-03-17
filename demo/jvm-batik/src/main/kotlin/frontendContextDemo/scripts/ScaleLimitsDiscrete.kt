@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggsize
@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.themes.elementBlank
 object ScaleLimitsDiscrete {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Scale limits (discrete)", maxCol = 1) {
+        ScriptInSwingContext.eval("Scale limits (discrete)", maxCol = 1) {
 
             val dat = mapOf(
                 "x" to ('a'..'h')

@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.coord.coordFixed
 import org.jetbrains.letsPlot.geom.extras.arrow
 import org.jetbrains.letsPlot.geom.geomSpoke
@@ -15,7 +15,7 @@ import kotlin.math.sqrt
 object Spoke {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("geomSpoke") {
+        ScriptInSwingContext.eval("geomSpoke") {
             run {
                 val data = mapOf(
                     "x" to listOf(0, 1, 1, 0),

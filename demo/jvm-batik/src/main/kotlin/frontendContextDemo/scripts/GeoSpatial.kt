@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPath
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomPolygon
@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.spatial.SpatialDataset
 object GeoSpatial {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Geo-spatial: parameters 'map' and 'mapJoin'") {
+        ScriptInSwingContext.eval("Geo-spatial: parameters 'map' and 'mapJoin'") {
             val points = listOf(
                 """{"type": "Point", "coordinates": [1, 1]}""",
                 """{"type": "Point", "coordinates": [2, 1]}"""

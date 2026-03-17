@@ -1,7 +1,7 @@
 package frontendContextDemo.scripts
 
 import demoData.AutoMpg
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.asDiscrete
 import org.jetbrains.letsPlot.geom.geomSina
 import org.jetbrains.letsPlot.geom.geomViolin
@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.letsPlot
 object Sina {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Sina plot") {
+        ScriptInSwingContext.eval("Sina plot") {
             val mpgData = AutoMpg.map()
 
             run {

@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomLabel
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -11,7 +11,7 @@ import org.jetbrains.letsPlot.scale.layerKey
 object CustomLegend {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Custom legend") {
+        ScriptInSwingContext.eval("Custom legend") {
             (letsPlot() +
                     geomLine(
                         data = mapOf("x" to listOf(0, 10), "y" to listOf(1, 1)),

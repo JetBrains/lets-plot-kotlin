@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.AutoMpg
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.scale.expandLimits
 object ExpandLimits {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("expandLimits()") {
+        ScriptInSwingContext.eval("expandLimits()") {
 
             val mpgData = AutoMpg.map()
 

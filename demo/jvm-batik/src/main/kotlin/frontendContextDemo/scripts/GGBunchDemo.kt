@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomDensity
 import org.jetbrains.letsPlot.ggbunch
@@ -18,7 +18,7 @@ import kotlin.math.abs
 object GGBunchDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval(
+        ScriptInSwingContext.eval(
             "ggbunch(): Density + Boxplot",
             maxCol = 2
         ) {

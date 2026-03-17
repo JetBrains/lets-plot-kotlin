@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.*
 import org.jetbrains.letsPlot.coord.coordFixed
 import org.jetbrains.letsPlot.geom.geomFunction
@@ -20,7 +20,7 @@ import kotlin.math.sqrt
 object GeomFunction {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("geomFunction()") {
+        ScriptInSwingContext.eval("geomFunction()") {
 
             val ran = Random(37)
             val norm: (Any) -> Double = { ran.nextGaussian() }

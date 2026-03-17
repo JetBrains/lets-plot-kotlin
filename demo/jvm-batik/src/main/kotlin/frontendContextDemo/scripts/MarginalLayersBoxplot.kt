@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -34,7 +34,7 @@ object MarginalLayersBoxplot {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Marginal box-plot") {
+        ScriptInSwingContext.eval("Marginal box-plot") {
             createMarginal("l").show()
             createMarginal("r", 0.2).show()
             createMarginal("lr", 0.1 to 0.2).show()

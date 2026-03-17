@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomFreqpoly
 import org.jetbrains.letsPlot.geom.geomHistogram
@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.pos.positionDodge
 object Freqpoly {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Freqpoly") {
+        ScriptInSwingContext.eval("Freqpoly") {
             val rand = java.util.Random()
             val data = mapOf<String, Any>(
                 "x" to List(500) { rand.nextGaussian() } + List(500) { rand.nextGaussian() + 1.0 },

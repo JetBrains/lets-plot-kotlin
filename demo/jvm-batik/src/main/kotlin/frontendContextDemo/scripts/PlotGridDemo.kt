@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.Iris
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.geom.geomDensity
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -20,7 +20,7 @@ import org.jetbrains.letsPlot.themes.themeBW
 object PlotGridDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval(
+        ScriptInSwingContext.eval(
             "gggrid()",
             maxCol = 2
         ) {

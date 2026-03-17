@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.letsPlot
 import kotlin.random.Random
@@ -9,7 +9,7 @@ import java.time.LocalDate as JavaLocalDate
 object Issue_reordered_geomBoxplot_LP1342 {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Issue: reordered geomBoxplot LP-1342") {
+        ScriptInSwingContext.eval("Issue: reordered geomBoxplot LP-1342") {
             val rand = Random(0L)
 
             val data = mapOf(

@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.Iris
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.coord.coordFlip
 import org.jetbrains.letsPlot.geom.geomViolin
 import org.jetbrains.letsPlot.geom.geomYDotplot
@@ -17,7 +17,7 @@ import org.jetbrains.letsPlot.letsPlot
 object YDotplot {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Y-Dotplot") {
+        ScriptInSwingContext.eval("Y-Dotplot") {
             val irisData = Iris.map()
 
             val p = ggplot(irisData) { x = "target"; y = "sepal length (cm)" }

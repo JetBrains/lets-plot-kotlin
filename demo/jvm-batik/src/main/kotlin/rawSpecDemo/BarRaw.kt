@@ -5,33 +5,44 @@
 
 package rawSpecDemo
 
+import org.jetbrains.letsPlot.awt.canvas.CanvasComponent
 import org.jetbrains.letsPlot.awt.plot.MonolithicAwt
-import org.jetbrains.letsPlot.batik.plot.util.BatikMapperComponent
-import org.jetbrains.letsPlot.batik.plot.util.BatikMessageCallback
 import org.jetbrains.letsPlot.commons.intern.json.JsonSupport
 import org.jetbrains.letsPlot.core.util.sizing.SizingPolicy
 import org.jetbrains.letsPlot.datamodel.svg.dom.SvgSvgElement
+import org.jetbrains.letsPlot.raster.view.SvgCanvasDrawable
 import javax.swing.JFrame
 import javax.swing.SwingUtilities
 import javax.swing.WindowConstants
 
 object BarRaw {
     // Setup
-    private val SVG_COMPONENT_FACTORY_BATIK =
-        { svg: SvgSvgElement -> BatikMapperComponent(svg, BATIK_MESSAGE_CALLBACK) }
+//    private val SVG_COMPONENT_FACTORY_BATIK =
+//        { svg: SvgSvgElement -> BatikMapperComponent(svg, BATIK_MESSAGE_CALLBACK) }
 
-    private val BATIK_MESSAGE_CALLBACK = object : BatikMessageCallback {
-        override fun handleMessage(message: String) {
-            println(message)
-        }
-
-        override fun handleException(e: Exception) {
-            if (e is RuntimeException) {
-                throw e
-            }
-            throw RuntimeException(e)
+    // Unfortunately, org.jetbrains.letsPlot.awt.plot.swing.SwingPlotComponentProvider.SVG_COMPONENT_FACTORY
+    // is currently 'private'.
+    private val SVG_COMPONENT_FACTORY = { svg: SvgSvgElement ->
+        CanvasComponent().apply {
+//            content = SvgCanvasDrawable(svg).apply {
+//                onHrefClick(::browseLink) <---- currently 'private' in SwingPlotComponentProvider.
+//            }
+            content = SvgCanvasDrawable(svg)
         }
     }
+
+//    private val BATIK_MESSAGE_CALLBACK = object : BatikMessageCallback {
+//        override fun handleMessage(message: String) {
+//            println(message)
+//        }
+//
+//        override fun handleException(e: Exception) {
+//            if (e is RuntimeException) {
+//                throw e
+//            }
+//            throw RuntimeException(e)
+//        }
+//    }
 
     private val AWT_EDT_EXECUTOR = { runnable: () -> Unit ->
         // Just invoke in the current thread.
@@ -65,8 +76,9 @@ object BarRaw {
         val component = MonolithicAwt.buildPlotFromRawSpecs(
             plotSpec = spec as MutableMap<String, Any>,
             sizingPolicy = SizingPolicy.fixed(600.0, 300.0),
-            svgComponentFactory = SVG_COMPONENT_FACTORY_BATIK,
-            executor = AWT_EDT_EXECUTOR,
+            svgComponentFactory = SVG_COMPONENT_FACTORY,
+//            executor = AWT_EDT_EXECUTOR,
+            executor = org.jetbrains.letsPlot.awt.plot.swing.SwingAppContext.AWT_EDT_EXECUTOR,
             containerSize = null
         ) {
             for (message in it) {

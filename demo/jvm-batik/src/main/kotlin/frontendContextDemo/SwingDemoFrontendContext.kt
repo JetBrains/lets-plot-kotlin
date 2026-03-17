@@ -8,7 +8,7 @@ package frontendContextDemo
 import org.jetbrains.letsPlot.FrontendContext
 import java.awt.Dimension
 
-class SwingBatikDemoFrontendContext(
+class SwingDemoFrontendContext(
     private val title: String,
     private val maxCol: Int = 3,
     private val plotSize: Dimension? = null,
@@ -21,7 +21,7 @@ class SwingBatikDemoFrontendContext(
     }
 
     fun showAll() {
-        PlotSpecsDemoWindowBatik(
+        PlotSpecsDemoWindowSwing(
             title,
             specList = plotSpecs,
             maxCol = maxCol,

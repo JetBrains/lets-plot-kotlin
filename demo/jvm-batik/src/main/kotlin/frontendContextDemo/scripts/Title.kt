@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
@@ -16,7 +16,7 @@ import kotlin.math.sin
 object Title {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("ggtitle(\"Sine function\", subtitle=\"Using the ggtitle() function\")") {
+        ScriptInSwingContext.eval("ggtitle(\"Sine function\", subtitle=\"Using the ggtitle() function\")") {
             val dat = mapOf<String, Any>(
                 "x" to (0..100).map { it * 2 * PI / 100 },
                 "y" to (0..100).map { sin(it * 2 * PI / 100) }

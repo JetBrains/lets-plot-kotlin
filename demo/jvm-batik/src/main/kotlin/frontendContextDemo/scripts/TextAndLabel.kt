@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.commons.values.Color
 import org.jetbrains.letsPlot.geom.geomLabel
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.ggplot
 object TextAndLabel {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Texts and labels") {
+        ScriptInSwingContext.eval("Texts and labels") {
             val xList = listOf(
                 0.0, 0.0, 0.0,
                 0.5, 0.5, 0.5,

@@ -6,14 +6,14 @@
 package frontendContextDemo
 
 import demoUtils.swing.PlotSpecsDemoWindowBase
-import org.jetbrains.letsPlot.batik.plot.component.DefaultPlotPanelBatik
+import org.jetbrains.letsPlot.awt.plot.swing.SwingPlotPanel
 import org.jetbrains.letsPlot.core.util.MonolithicCommon
 import java.awt.Color
 import java.awt.Component
 import java.awt.Dimension
 import javax.swing.JComponent
 
-class PlotSpecsDemoWindowBatik(
+class PlotSpecsDemoWindowSwing(
     title: String,
     specList: List<MutableMap<String, Any>>,
     maxCol: Int = 3,
@@ -30,7 +30,7 @@ class PlotSpecsDemoWindowBatik(
     override fun createPlotComponent(rawSpec: MutableMap<String, Any>, plotSize: Dimension?): JComponent {
         // Pre-process figure specifications
         val processedSpec = MonolithicCommon.processRawSpecs(rawSpec, frontendOnly = false)
-        val plotPanel = DefaultPlotPanelBatik(
+        val plotPanel = SwingPlotPanel(
             processedSpec = processedSpec,
             preferredSizeFromPlot = plotSize == null,
             repaintDelay = 300,

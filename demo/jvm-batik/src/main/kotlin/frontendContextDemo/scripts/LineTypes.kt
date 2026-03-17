@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomSegment
 import org.jetbrains.letsPlot.intern.Plot
 import org.jetbrains.letsPlot.letsPlot
@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
 object LineTypes {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Line types") {
+        ScriptInSwingContext.eval("Line types") {
 
             fun plot(linetypes: List<Any>): Plot {
                 val n = linetypes.size

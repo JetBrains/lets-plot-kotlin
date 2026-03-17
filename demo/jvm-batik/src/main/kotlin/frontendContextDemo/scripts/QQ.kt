@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.Iris
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.bistro.qq.qqPlot
 import org.jetbrains.letsPlot.geom.geomQQ
 import org.jetbrains.letsPlot.geom.geomQQ2
@@ -21,7 +21,7 @@ import org.jetbrains.letsPlot.scale.scaleFillBrewer
 object QQ {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Q-Q plot") {
+        ScriptInSwingContext.eval("Q-Q plot") {
             val irisData = Iris.map()
             val gData = mapOf(
                 "y" to listOf(-3, -1, 0, 1, 3, null, -4, -2, 0, 1, 2, 4),

@@ -1,8 +1,7 @@
 package frontendContextDemo.scripts
 
 import demoData.Iris
-import frontendContextDemo.ScriptInBatikContext
-import org.jetbrains.letsPlot.Geom
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomStep
 import org.jetbrains.letsPlot.label.ggtitle
@@ -12,7 +11,7 @@ import org.jetbrains.letsPlot.stat.statECDF
 object ECDF {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("ECDF") {
+        ScriptInSwingContext.eval("ECDF") {
             val irisData = Iris.map()
 
             run {

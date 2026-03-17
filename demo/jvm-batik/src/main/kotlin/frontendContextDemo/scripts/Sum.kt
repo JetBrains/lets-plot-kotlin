@@ -1,7 +1,7 @@
 package frontendContextDemo.scripts
 
 import demoData.AutoMpg
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.stat.statSum
@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.stat.statSum
 object Sum {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Summary") {
+        ScriptInSwingContext.eval("Summary") {
             val data = AutoMpg.map()
 
             run {

@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Figure
 import org.jetbrains.letsPlot.geom.geomDensity
 import org.jetbrains.letsPlot.geom.geomHistogram
@@ -35,7 +35,7 @@ object MarginalLayersHist {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Marginal histogram") {
+        ScriptInSwingContext.eval("Marginal histogram") {
             createMarginal("l").show()
             createMarginal("r", 0.2).show()
             createMarginal("lr", 0.1 to 0.2).show()

@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomTile
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.ggsize
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.scale.scaleFillBrewer
 object ScaleColorBrewer {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval(
+        ScriptInSwingContext.eval(
             "Color Brewer Scale", maxCol = 2
         ) {
             val data = mapOf("x" to (-64..64))

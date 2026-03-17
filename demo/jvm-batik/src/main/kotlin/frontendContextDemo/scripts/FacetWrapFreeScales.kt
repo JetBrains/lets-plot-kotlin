@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.AutoMpg
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.facet.facetWrap
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.label.ggtitle
@@ -17,7 +17,7 @@ import java.awt.Dimension
 object FacetWrapFreeScales {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval(
+        ScriptInSwingContext.eval(
             "Facet wrap, free scales",
             2,
             Dimension(600, 400)

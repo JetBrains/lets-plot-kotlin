@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.AutoMpg
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.coord.coordFixed
 import org.jetbrains.letsPlot.facet.facetGrid
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -18,7 +18,7 @@ import java.awt.Dimension
 object FacetGrid {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval(
+        ScriptInSwingContext.eval(
             "Facet grid",
             2,
             Dimension(600, 400)

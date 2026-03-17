@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.bistro.waterfall.waterfallPlot
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.themes.elementLine
@@ -10,7 +10,7 @@ import org.jetbrains.letsPlot.tooltips.layerTooltips
 object Waterfall {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Waterfall plot") {
+        ScriptInSwingContext.eval("Waterfall plot") {
             run {
                 val data = mapOf(
                     "cat" to listOf("A", "B", "C", "D"),

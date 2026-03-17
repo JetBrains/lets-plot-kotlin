@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomTile
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.scale.scaleYDiscreteReversed
 object ScaleReverseDiscrete {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Scale reverse (discrete)") {
+        ScriptInSwingContext.eval("Scale reverse (discrete)") {
 
             val dat = mapOf(
                 "x" to ('a'..'h'),

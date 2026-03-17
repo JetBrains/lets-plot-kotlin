@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.gggrid
 import org.jetbrains.letsPlot.ggsize
@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.themes.theme
 object ScaleLimitsContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Scale limits (continuous)", maxCol = 1) {
+        ScriptInSwingContext.eval("Scale limits (continuous)", maxCol = 1) {
             val dat0 = mapOf<String, Any>(
                 "x" to (0..4).map { it }
             )

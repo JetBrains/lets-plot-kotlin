@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.asDiscrete
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.scale.scaleColorDiscrete
 object AsDiscrete {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("as_discrete") {
+        ScriptInSwingContext.eval("as_discrete") {
             val dat = mapOf<String, Any>(
                 "x" to listOf(0, 5, 10, 15),
                 "y" to listOf(0, 5, 10, 15),

@@ -8,14 +8,14 @@ package frontendContextDemo
 import org.jetbrains.letsPlot.LetsPlot
 import java.awt.Dimension
 
-object ScriptInBatikContext {
+object ScriptInSwingContext {
     fun eval(
         title: String,
         maxCol: Int = 3,
         plotSize: Dimension? = null,
         script: () -> Unit
     ) {
-        val ctx = SwingBatikDemoFrontendContext(title, maxCol, plotSize)
+        val ctx = SwingDemoFrontendContext(title, maxCol, plotSize)
         LetsPlot.frontendContext = ctx
 
         script()

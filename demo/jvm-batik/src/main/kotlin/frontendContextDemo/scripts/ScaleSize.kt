@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.scale.scaleSizeArea
 object ScaleSize {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Size Scale") {
+        ScriptInSwingContext.eval("Size Scale") {
             val dat = mapOf<String, Any>(
                 "x" to (0..5).map { it },
                 "y" to (0..5).map { 0 },

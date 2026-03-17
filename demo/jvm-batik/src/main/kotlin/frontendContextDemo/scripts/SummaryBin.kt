@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.stat.statSummaryBin
@@ -8,7 +8,7 @@ import org.jetbrains.letsPlot.stat.statSummaryBin
 object SummaryBin {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Summary") {
+        ScriptInSwingContext.eval("Summary") {
             val data = getData()
 
             run {

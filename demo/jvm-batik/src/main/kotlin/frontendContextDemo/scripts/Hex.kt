@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.geom.geomHex
 import org.jetbrains.letsPlot.geom.geomPoint
@@ -11,7 +11,7 @@ import kotlin.math.sqrt
 object Hex {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Hex") {
+        ScriptInSwingContext.eval("Hex") {
             run {
                 val data = mapOf<String, Any>(
                     "x" to listOf(-0.5, 0.5, 0),

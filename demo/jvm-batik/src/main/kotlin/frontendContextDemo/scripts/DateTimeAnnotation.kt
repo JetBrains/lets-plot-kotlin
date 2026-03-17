@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.commons.intern.datetime.*
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.ggplot
@@ -18,7 +18,7 @@ import kotlin.random.Random
 object DateTimeAnnotation {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Series Annotations", maxCol = 2) {
+        ScriptInSwingContext.eval("Series Annotations", maxCol = 2) {
 
             run {
                 val instant = DateTime(Date(1, Month.FEBRUARY, 2003)).toInstant(TimeZone.UTC)

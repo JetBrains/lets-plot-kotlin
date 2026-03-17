@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.letsPlot
 import org.jetbrains.letsPlot.scale.xlim
@@ -14,7 +14,7 @@ import kotlin.math.sin
 object Issue_xlim_breaks_datetime_LP1348 {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Issue: xlim breaks datetime LP-1348") {
+        ScriptInSwingContext.eval("Issue: xlim breaks datetime LP-1348") {
 
             fun squiggle(x: Double): Double {
                 return sin(3 * x) / (x * (cos(x) + 2))

@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.commons.intern.datetime.Date
 import org.jetbrains.letsPlot.commons.intern.datetime.DateTime
 import org.jetbrains.letsPlot.commons.intern.datetime.Month
@@ -19,7 +19,7 @@ import kotlin.random.Random
 object ScaleDateTime {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("DateTime Scale") {
+        ScriptInSwingContext.eval("DateTime Scale") {
             val second = 1000.0
             val minute = 60.0 * second
             val hour = 60.0 * minute

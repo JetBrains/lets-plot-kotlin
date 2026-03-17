@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
@@ -15,7 +15,7 @@ import kotlin.math.pow
 object ScaleXYContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Continuous position scales") {
+        ScriptInSwingContext.eval("Continuous position scales") {
             val n = 20
             val xs = (0..n).toList()
 

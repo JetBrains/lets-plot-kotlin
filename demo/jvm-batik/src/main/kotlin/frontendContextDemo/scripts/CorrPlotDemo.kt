@@ -6,14 +6,14 @@
 package frontendContextDemo.scripts
 
 import demoData.AutoMpg
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.bistro.corr.CorrPlot
 import java.awt.Dimension
 
 object CorrPlotDemo {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval(
+        ScriptInSwingContext.eval(
             "Corr plot",
             maxCol = 2,
             plotSize = Dimension(700, 500)

@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomHLine
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomVLine
@@ -17,7 +17,7 @@ import java.util.*
 object LimitsContinuous {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("labs(title=\" Sine function\", x=\"Sine argument (ms)\", y=\"Sine value (mm)\")") {
+        ScriptInSwingContext.eval("labs(title=\" Sine function\", x=\"Sine argument (ms)\", y=\"Sine value (mm)\")") {
             // Generate random data-points
 
             val n = 500

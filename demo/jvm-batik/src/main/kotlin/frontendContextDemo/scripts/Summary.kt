@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Geom
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.stat.statSummary
@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.tooltips.layerTooltips
 object Summary {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Summary") {
+        ScriptInSwingContext.eval("Summary") {
             val data = getData()
 
             run {

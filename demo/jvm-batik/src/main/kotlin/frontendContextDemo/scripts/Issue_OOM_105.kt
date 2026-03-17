@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.geom.geomSmooth
 import org.jetbrains.letsPlot.ggplot
@@ -14,7 +14,7 @@ import org.jetbrains.letsPlot.ggplot
 object Issue_OOM_105 {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Issue #105 (OOM)") {
+        ScriptInSwingContext.eval("Issue #105 (OOM)") {
 
             val data = mapOf(
                 "Task interval coefficient of variation" to listOf(

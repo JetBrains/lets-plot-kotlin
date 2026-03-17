@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomLine
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.scale.scaleXLog10
 object ScaleTransform {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Scale transformations") {
+        ScriptInSwingContext.eval("Scale transformations") {
             val data = mapOf<String, Any>(
                 "x" to (0..10).toList(),
                 "y" to (0..10).toList()

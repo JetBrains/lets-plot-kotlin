@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.coord.coordFixed
 import org.jetbrains.letsPlot.geom.geomABLine
 import org.jetbrains.letsPlot.geom.geomLollipop
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.letsPlot
 object Lollipop {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Lollipop plot") {
+        ScriptInSwingContext.eval("Lollipop plot") {
             run {
                 val data = mapOf(
                     "x" to listOf(0, 1, 2, 3),

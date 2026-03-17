@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.coord.coordCartesian
 import org.jetbrains.letsPlot.coord.coordFixed
 import org.jetbrains.letsPlot.coord.coordMap
@@ -21,7 +21,7 @@ import org.jetbrains.letsPlot.themes.theme
 object Coord {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("coord x/y limits") {
+        ScriptInSwingContext.eval("coord x/y limits") {
             run {
                 val data = mapOf<String, Any>(
                     "x" to listOf(0, 5, 10, 15, 20, 25),

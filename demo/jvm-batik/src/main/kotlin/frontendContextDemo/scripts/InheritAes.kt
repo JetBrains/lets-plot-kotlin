@@ -5,14 +5,14 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
 
 object InheritAes {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Squares do not inherit AES") {
+        ScriptInSwingContext.eval("Squares do not inherit AES") {
             val data = mapOf<String, Any>(
                 "weight" to listOf(68, 84, 73),
                 "height" to listOf(175, 169, 180),

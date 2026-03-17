@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.Iris
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.bistro.residual.residualPlot
 import org.jetbrains.letsPlot.geom.geomArea
@@ -19,7 +19,7 @@ import org.jetbrains.letsPlot.themes.themeMinimal
 object Residual {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Residual plot") {
+        ScriptInSwingContext.eval("Residual plot") {
             val irisData = Iris.map()
 
             run {

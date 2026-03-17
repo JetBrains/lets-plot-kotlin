@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggplot
@@ -31,7 +31,7 @@ object YOrientationBoxplot {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Boxplot Y-orientation") {
+        ScriptInSwingContext.eval("Boxplot Y-orientation") {
             val p = ggplot(DATA) { x = "x"; y = "y" }
 
             (p + geomPoint(color = "black", alpha = 0.6, size = 5) +

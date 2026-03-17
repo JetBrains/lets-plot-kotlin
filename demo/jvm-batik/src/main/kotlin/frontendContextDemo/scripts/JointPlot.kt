@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.Iris
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.bistro.joint.jointPlot
 import org.jetbrains.letsPlot.geom.geomArea
@@ -17,7 +17,7 @@ import org.jetbrains.letsPlot.scale.scaleFillGradient
 object JointPlot {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Joint plot") {
+        ScriptInSwingContext.eval("Joint plot") {
             val irisData = Iris.map()
 
             run {

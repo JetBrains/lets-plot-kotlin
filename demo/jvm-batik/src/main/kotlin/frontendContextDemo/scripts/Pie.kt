@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.annotations.layerLabels
 import org.jetbrains.letsPlot.asDiscrete
@@ -25,7 +25,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
 object Pie {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Pie chart", maxCol = 2) {
+        ScriptInSwingContext.eval("Pie chart", maxCol = 2) {
 
             val data = mapOf(
                 "name" to ('A'..'H').toList() + 'B',

@@ -6,7 +6,7 @@
 package frontendContextDemo.scripts
 
 import demoData.AutoMpg
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.asDiscrete
 import org.jetbrains.letsPlot.geom.geomViolin
 import org.jetbrains.letsPlot.ggplot
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.label.ggtitle
 object Violin {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Violin plot") {
+        ScriptInSwingContext.eval("Violin plot") {
 
             run {
                 val mpgData = AutoMpg.map()

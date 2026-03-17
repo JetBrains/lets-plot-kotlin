@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomPoint
 import org.jetbrains.letsPlot.ggsize
 import org.jetbrains.letsPlot.letsPlot
@@ -15,7 +15,7 @@ import org.jetbrains.letsPlot.themes.theme
 object ScaleShape {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Scale for shapes") {
+        ScriptInSwingContext.eval("Scale for shapes") {
             val xs = (0..5).toList()
             val data = mapOf("x" to xs, "s" to xs)
             val p = letsPlot(data) +

@@ -1,6 +1,6 @@
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.coord.coordPolar
 import org.jetbrains.letsPlot.geom.geomBand
 import org.jetbrains.letsPlot.label.ggtitle
@@ -9,7 +9,7 @@ import org.jetbrains.letsPlot.letsPlot
 object Band {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Band") {
+        ScriptInSwingContext.eval("Band") {
             val data = mapOf(
                 "hmin" to listOf(-1.5, 0.5),
                 "hmax" to listOf(-0.5, 1.5),

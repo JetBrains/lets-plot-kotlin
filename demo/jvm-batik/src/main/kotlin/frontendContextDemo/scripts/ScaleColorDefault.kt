@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomTile
 import org.jetbrains.letsPlot.gggrid
 import org.jetbrains.letsPlot.ggplot
@@ -16,7 +16,7 @@ import org.jetbrains.letsPlot.scale.*
 object ScaleColorDefault {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval(
+        ScriptInSwingContext.eval(
             "Color scale (default)", maxCol = 2
         ) {
             continuousDefault()

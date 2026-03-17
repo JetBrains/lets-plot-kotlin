@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomBoxplot
 import org.jetbrains.letsPlot.geom.geomJitter
 import org.jetbrains.letsPlot.label.ggtitle
@@ -16,7 +16,7 @@ import kotlin.math.abs
 object Boxplot {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Boxplot") {
+        ScriptInSwingContext.eval("Boxplot") {
 
             val categories = listOf("A", "B", "C", "D", "E")
 

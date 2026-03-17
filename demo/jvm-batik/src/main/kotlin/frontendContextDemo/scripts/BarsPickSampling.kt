@@ -5,7 +5,7 @@
 
 package frontendContextDemo.scripts
 
-import frontendContextDemo.ScriptInBatikContext
+import frontendContextDemo.ScriptInSwingContext
 import org.jetbrains.letsPlot.geom.geomBar
 import org.jetbrains.letsPlot.ggplot
 import org.jetbrains.letsPlot.sampling.samplingNone
@@ -13,7 +13,7 @@ import org.jetbrains.letsPlot.sampling.samplingNone
 object BarsPickSampling {
     @JvmStatic
     fun main(args: Array<String>) {
-        ScriptInBatikContext.eval("Boxplot") {
+        ScriptInSwingContext.eval("Boxplot") {
 
             // Number of unique words exceeds threshold (50) of default 'pick' sampling on bar chart.
             val words = genWordSet(500)
