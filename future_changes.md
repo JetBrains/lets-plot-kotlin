@@ -6,6 +6,13 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 ### Added
 
       
+* Plot Annotations:
+
+    * New `labels` parameter in `geomSmooth()` designed to display statistical summaries of the fitted model directly on the plot.
+      This parameter accepts a `smoothLabels()` object, which provides access to model-specific variables like $R^2$, the regression equation and others.
+
+      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/smooth_summary.html).
+
 * Geometries:
 
     * New `geomBracket()`, `geomBracketDodge()` [[#1114](https://github.com/JetBrains/lets-plot/issues/1114)].

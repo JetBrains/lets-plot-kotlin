@@ -27,6 +27,7 @@ enum class StatKind {
     CONTOUR,
     CONTOURF,
     SMOOTH,
+    SMOOTH_SUMMARY,
     QQ,
     QQ2,
     QQ_LINE,

@@ -6,6 +6,9 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.annotations.smoothLabels
+import org.jetbrains.letsPlot.core.spec.Option
+import org.jetbrains.letsPlot.intern.Feature
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
@@ -16,7 +19,6 @@ import org.jetbrains.letsPlot.intern.layer.stat.SmoothStatParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
-@Suppress("ClassName")
 /**
  * Adds a smoothed conditional mean.
  *
@@ -58,6 +60,9 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param tooltips Result of the call to the [layerTooltips()][org.jetbrains.letsPlot.tooltips.layerTooltips] function.
  *  Specifies appearance, style and content.
  *  Set `tooltips = tooltipsNone` to hide tooltips from the layer.
+ * @param labels Result of the call to the [smoothLabels()][org.jetbrains.letsPlot.annotations.smoothLabels] function.
+ *  Displays statistical summaries of the fitted model directly on the plot.
+ *  Provides access to model-specific variables such as R², the regression equation, and others.
  * @param orientation Specifies the axis that the layer's stat and geom should run along, default = "x".
  *  Possible values: "x", "y".
  * @param x X-axis value.
@@ -96,7 +101,85 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
  */
-class geomSmooth(
+fun geomSmooth(
+    data: Map<*, *>? = null,
+    stat: StatOptions = Stat.smooth(),
+    position: PosOptions = positionIdentity,
+    showLegend: Boolean = true,
+    inheritAes: Boolean? = null,
+    manualKey: Any? = null,
+    sampling: SamplingOptions? = null,
+    tooltips: TooltipOptions? = null,
+    labels: smoothLabels? = null,
+    orientation: String? = null,
+    x: Number? = null,
+    y: Number? = null,
+    ymin: Number? = null,
+    ymax: Number? = null,
+    size: Number? = null,
+    linetype: Any? = null,
+    color: Any? = null,
+    fill: Any? = null,
+    alpha: Number? = null,
+    method: String? = null,
+    n: Int? = null,
+    level: Number? = null,
+    se: Boolean? = null,
+    span: Number? = null,
+    deg: Int? = null,
+    seed: Long? = null,
+    maxN: Int? = null,
+    colorBy: String? = null,
+    fillBy: String? = null,
+    mapping: SmoothMapping.() -> Unit = {}
+): Feature {
+    val smoothLayer = GeomSmoothLayer(
+        data = data,
+        stat = stat,
+        position = position,
+        showLegend = showLegend,
+        inheritAes = inheritAes,
+        manualKey = manualKey,
+        sampling = sampling,
+        tooltips = tooltips,
+        orientation = orientation,
+        x = x, y = y, ymin = ymin, ymax = ymax,
+        size = size, linetype = linetype, color = color, fill = fill, alpha = alpha,
+        method = method, n = n, level = level, se = se, span = span, deg = deg, seed = seed, maxN = maxN,
+        colorBy = colorBy, fillBy = fillBy,
+        mapping = mapping
+    )
+
+    if (labels != null) {
+        val annotationLayer = SmoothAnnotationLayer(
+            smoothLabelsOptions = labels,
+            data = data,
+            stat = Stat.smoothSummary(
+                method = method,
+                level = level,
+                se = se,
+                span = span,
+                deg = deg,
+                seed = seed,
+                maxN = maxN
+            ),
+            position = position,
+            showLegend = showLegend,
+            inheritAes = inheritAes,
+            manualKey = manualKey,
+            sampling = sampling,
+            orientation = orientation,
+            colorBy = colorBy,
+            fillBy = fillBy,
+            mapping = mapping
+        )
+        return smoothLayer + annotationLayer
+    }
+
+    return smoothLayer
+}
+
+private class GeomSmoothLayer(
     data: Map<*, *>? = null,
     stat: StatOptions = Stat.smooth(),
     position: PosOptions = positionIdentity,
@@ -148,5 +231,41 @@ class geomSmooth(
                 super<SmoothStatParameters>.seal() +
                 super<WithColorOption>.seal() +
                 super<WithFillOption>.seal()
+    }
+}
+
+private class SmoothAnnotationLayer(
+    val smoothLabelsOptions: smoothLabels,
+    data: Map<*, *>? = null,
+    stat: StatOptions,
+    position: PosOptions = positionIdentity,
+    showLegend: Boolean = true,
+    inheritAes: Boolean? = null,
+    manualKey: Any? = null,
+    sampling: SamplingOptions? = null,
+    orientation: String? = null,
+    override val colorBy: String? = null,
+    override val fillBy: String? = null,
+    mapping: SmoothMapping.() -> Unit = {}
+) : WithColorOption,
+    WithFillOption,
+    Layer(
+        mapping = SmoothMapping().apply(mapping).seal(),
+        data = data,
+        geom = GeomOptions(GeomKind.BLANK),
+        stat = stat,
+        position = position,
+        showLegend = showLegend,
+        inheritAes = inheritAes,
+        manualKey = manualKey,
+        sampling = sampling,
+        orientation = orientation
+    ) {
+    override fun seal(): Options {
+        return super<WithColorOption>.seal() +
+                super<WithFillOption>.seal() +
+                Options.of(
+                    Option.Layer.ANNOTATIONS to smoothLabelsOptions.options
+                )
     }
 }
