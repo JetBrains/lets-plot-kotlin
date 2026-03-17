@@ -775,15 +775,24 @@ fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) = lis
 
 
 /**
- * Theme element that specifies custom values for named geom colors used in plot elements.
+ * Theme element that specifies custom values for named geom colors used by plot elements.
+ *
+ * It allows you to specify custom color values for special named geom colors ("pen", "brush", "paper")
+ * that can be referenced in geom parameters such as `color`, `fill`, etc.
+ *
+ * These names act as indirections: instead of hardcoding a concrete color in a geom (e.g., `color="red"`),
+ * you can use a semantic name (e.g., `color="pen"`) and control its actual value centrally via the theme.
  *
  * ## Examples
  *
  * - [geom_theme_colors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_theme_colors.ipynb)
  *
- * @param pen Color to use by name "pen".
- * @param brush Color to use by name "brush".
- * @param paper Color to use by name "paper".
+ * @param pen Color assigned to the named color "pen".
+ *  Typically used for stroke/outline rendering (e.g., `color="pen"`).
+ * @param brush Color assigned to the named color "brush".
+ *  Typically used for interior fills or secondary stroke styling (e.g., `fill="brush"`), depending on the geom.
+ * @param paper Color assigned to the named color "paper".
+ *  Commonly used for background-like fills or lighter interior areas (e.g., `fill="paper"`).
  */
 fun elementGeom(
     pen: Any? = null,
