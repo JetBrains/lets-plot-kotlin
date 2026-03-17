@@ -35,6 +35,7 @@ class DefaultSwingBatikFrontendContext private constructor() : FrontendContext {
                 // Requires "lets-plot-batik-<version>.jar" in the classpath.
                 Class.forName("org.jetbrains.letsPlot.batik.plot.component.PlotViewerWindowBatik")
                 // If Ok - create the frontend context.
+                @Suppress("DEPRECATION")
                 DefaultSwingBatikFrontendContext()
             } catch (e: Throwable) {
                 when (e) {
