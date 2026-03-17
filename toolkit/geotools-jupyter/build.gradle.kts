@@ -13,6 +13,7 @@ repositories {
 }
 
 val geoToolsVersion = extra["geotools.version"] as String
+val slf4jVersion = extra["slf4j.version"] as String
 
 dependencies {
     compileOnly(projects.plotApi)
@@ -27,6 +28,8 @@ dependencies {
     testImplementation(projects.plotApi)
     testImplementation(projects.jupyter)
     testImplementation(kotlin("test"))
+
+    testImplementation("org.slf4j:slf4j-simple:${slf4jVersion}") // Enable logging to console
 }
 
 kotlin {
@@ -65,7 +68,7 @@ afterEvaluate {
 
     publishing {
         publications {
-            // Build artifact with all dependencies.
+            // Build an artifact with all dependencies.
             create<MavenPublication>("letsPlotKotlinGeotoolsJupyter") {
 
                 groupId = artifactGroupId

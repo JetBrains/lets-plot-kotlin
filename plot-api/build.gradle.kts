@@ -15,6 +15,7 @@ val kotlinxDatetimeVersion = extra["kotlinx.datetime.version"] as String
 val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
 val kotlinxCoroutinesVersion = extra["kotlinx.coroutines.version"] as String
 val assertjVersion = extra["assertj.version"] as String
+val slf4jVersion = extra["slf4j.version"] as String
 
 kotlin {
     jvm()
@@ -69,6 +70,7 @@ kotlin {
         jvmTest {
             dependencies {
                 implementation("org.assertj:assertj-core:$assertjVersion")
+                implementation("org.slf4j:slf4j-simple:${slf4jVersion}")  // Enable logging to console
             }
         }
     }

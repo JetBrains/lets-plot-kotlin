@@ -7,8 +7,7 @@ plugins {
 }
 
 val letsPlotVersion = extra["letsPlot.version"] as String
-//val letsPlotKotlinVersion = project.version as String
-//val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
+val slf4jVersion = extra["slf4j.version"] as String
 
 dependencies {
     implementation(projects.plotApi)
@@ -17,9 +16,10 @@ dependencies {
     implementation("org.jetbrains.lets-plot:platf-awt:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:canvas:$letsPlotVersion")
     implementation("org.jetbrains.lets-plot:plot-raster:$letsPlotVersion")
-//    implementation("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
 
     testImplementation(kotlin("test"))
+
+    testImplementation("org.slf4j:slf4j-simple:${slf4jVersion}") // Enable logging to console
 }
 
 tasks.test {
