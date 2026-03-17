@@ -79,9 +79,17 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param axisTicksX Style settings for tick marks along axes.
  * @param axisTicksY Style settings for tick marks along axes.
  *
+ * @param axisMinorTicks Style settings for minor tick marks along axes.
+ * @param axisMinorTicksX Style settings for minor tick marks along axes.
+ * @param axisMinorTicksY Style settings for minor tick marks along axes.
+ *
  * @param axisTicksLength Length of tick marks.
  * @param axisTicksLengthX Length of tick marks.
  * @param axisTicksLengthY Length of tick marks.
+ *
+ * @param axisMinorTicksLength Length of minor tick marks.
+ * @param axisMinorTicksLengthX Length of minor tick marks.
+ * @param axisMinorTicksLengthY Length of minor tick marks.
  *
  * @param axisTextSpacing Spacing between the axis label text and its tick mark.
  * @param axisTextSpacingX Spacing between the axis label text and its tick mark.
@@ -249,9 +257,17 @@ class theme(
     axisTicksX: Any? = null,
     axisTicksY: Any? = null,
 
+    axisMinorTicks: Any? = null,
+    axisMinorTicksX: Any? = null,
+    axisMinorTicksY: Any? = null,
+
     axisTicksLength: Number? = null,
     axisTicksLengthX: Number? = null,
     axisTicksLengthY: Number? = null,
+
+    axisMinorTicksLength: Number? = null,
+    axisMinorTicksLengthX: Number? = null,
+    axisMinorTicksLengthY: Number? = null,
 
     axisTextSpacing: Number? = null,
     axisTextSpacingX: Number? = null,
@@ -371,10 +387,16 @@ class theme(
         Option.Theme.AXIS_TICKS_X to axisTicksX,
         Option.Theme.AXIS_TICKS_Y to axisTicksY,
 
+        AXIS_MINOR_TICKS to axisMinorTicks,
+        AXIS_MINOR_TICKS_X to axisMinorTicksX,
+        AXIS_MINOR_TICKS_Y to axisMinorTicksY,
         Option.Theme.AXIS_TICKS_LENGTH to axisTicksLength,
         Option.Theme.AXIS_TICKS_LENGTH_X to axisTicksLengthX,
         Option.Theme.AXIS_TICKS_LENGTH_Y to axisTicksLengthY,
 
+        AXIS_MINOR_TICKS_LENGTH to axisMinorTicksLength,
+        AXIS_MINOR_TICKS_LENGTH_X to axisMinorTicksLengthX,
+        AXIS_MINOR_TICKS_LENGTH_Y to axisMinorTicksLengthY,
         Option.Theme.AXIS_TEXT_SPACING to axisTextSpacing,
         Option.Theme.AXIS_TEXT_SPACING_X to axisTextSpacingX,
         Option.Theme.AXIS_TEXT_SPACING_Y to axisTextSpacingY,
@@ -772,3 +794,11 @@ fun elementGeom(
     Option.Theme.Geom.BRUSH to brush,
     Option.Theme.Geom.PAPER to paper
 )
+
+// TODO: replace with Option.Theme constants once available in the released lets-plot API.
+private const val AXIS_MINOR_TICKS = "axis_minor_ticks"
+private const val AXIS_MINOR_TICKS_X = "axis_minor_ticks_x"
+private const val AXIS_MINOR_TICKS_Y = "axis_minor_ticks_y"
+private const val AXIS_MINOR_TICKS_LENGTH = "axis_minor_ticks_length"
+private const val AXIS_MINOR_TICKS_LENGTH_X = "axis_minor_ticks_length_x"
+private const val AXIS_MINOR_TICKS_LENGTH_Y = "axis_minor_ticks_length_y"

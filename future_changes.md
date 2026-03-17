@@ -15,7 +15,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
     * **Plot tags**. A tag can be specified via `labs(tag = ...)` and styled using theme parameters [[#1407](https://github.com/JetBrains/lets-plot/issues/1407)].
 
-      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html) and updated [plot layout scheme](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_layout_scheme.html).
+      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html) and updated [Plot Layout Diagrams](https://lets-plot.org/kotlin/presentation-options.html#plot-layout-diagrams). 
 
     * Plot tags customization parameters in `theme()`:
 
@@ -32,6 +32,13 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
     * New `geomBracket()`, `geomBracketDodge()` [[#1114](https://github.com/JetBrains/lets-plot/issues/1114)].
 
       See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/geom_bracket.html).
+
+
+* Positional Scales:
+
+    * Support for axis minor ticks via `axisMinorTicks` and `axisMinorTicksLength` parameters in `theme()` [[#1379](https://github.com/JetBrains/lets-plot/issues/1379)].
+
+      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/axis_minor_ticks.html).
 
 ### Changed
 
