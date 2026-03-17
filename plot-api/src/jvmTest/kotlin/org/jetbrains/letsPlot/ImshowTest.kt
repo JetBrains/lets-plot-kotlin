@@ -5,6 +5,8 @@
 
 package org.jetbrains.letsPlot
 
+import org.assertj.core.api.Assertions.assertThat
+import org.jetbrains.letsPlot.commons.encoding.Png
 import org.jetbrains.letsPlot.core.spec.Option.Geom.Image.HREF
 import org.jetbrains.letsPlot.geom.RasterData
 import org.jetbrains.letsPlot.geom.geomImshow
@@ -48,9 +50,14 @@ class ImshowTest {
                 )
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFElEQVR42mOYxsDAAMIM06ZNYwAAEjgC7yZ6kfMAAAAASUVORK5CYII=",
-            getImageData(imshow)
+
+        // "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFElEQVR42mOYxsDAAMIM06ZNYwAAEjgC7yZ6kfMAAAAASUVORK5CYII="
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF960000.toInt(), 0xFF009600.toInt(),
+            0xFF000096.toInt(), 0xFF969600.toInt()
         )
     }
 
@@ -59,14 +66,19 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 listOf(
-                    listOf(0.toByte(), 0.toByte(), 0.toByte()),
-                    listOf(255.toByte(), 255.toByte(), 255.toByte())
+                    listOf(0.toByte(), 15.toByte(), 240.toByte()),
+                    listOf(255.toByte(), 170.toByte(), 1.toByte())
                 )
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIUlEQVR42g3BAQEAAAjCMEhA/wqko8F1kySSsA3x2mKbA6QzDfbcagSFAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),0xFF0F0F0F.toInt(),0xFFF0F0F0.toInt(),
+            0xFFFFFFFF.toInt(), 0xFFAAAAAA.toInt(), 0xFF010101.toInt(),
         )
     }
 
@@ -75,14 +87,19 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 listOf(
-                    listOf(0, 0, 0),
-                    listOf(255, 255, 255)
+                    listOf(0, 15, 240),
+                    listOf(255, 170, 1)
                 )
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIUlEQVR42g3BAQEAAAjCMEhA/wqko8F1kySSsA3x2mKbA6QzDfbcagSFAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),0xFF0F0F0F.toInt(),0xFFF0F0F0.toInt(),
+            0xFFFFFFFF.toInt(), 0xFFAAAAAA.toInt(), 0xFF010101.toInt(),
         )
     }
 
@@ -91,14 +108,19 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 listOf(
-                    listOf(0.0, 0.0, 0.0),
-                    listOf(1.0, 1.0, 1.0)
+                    listOf(0 / 255f, 15 / 255f, 240 / 255f),
+                    listOf(255 / 255f, 170 / 255f , 1 / 255f)
                 )
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIUlEQVR42g3BAQEAAAjCMEhA/wqko8F1kySSsA3x2mKbA6QzDfbcagSFAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),0xFF0F0F0F.toInt(),0xFFF0F0F0.toInt(),
+            0xFFFFFFFF.toInt(), 0xFFAAAAAA.toInt(), 0xFF010101.toInt(),
         )
     }
 
@@ -107,17 +129,22 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 arrayOf(
-                    0.0, 0.0, 0.0,
-                    1.0, 1.0, 1.0
+                    0 / 255f, 15 / 255f, 240 / 255f,
+                    255 / 255f, 170 / 255f , 1 / 255f
                 ),
                 width = 3,
                 height = 2,
                 nChannels = 1
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIUlEQVR42g3BAQEAAAjCMEhA/wqko8F1kySSsA3x2mKbA6QzDfbcagSFAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),0xFF0F0F0F.toInt(),0xFFF0F0F0.toInt(),
+            0xFFFFFFFF.toInt(), 0xFFAAAAAA.toInt(), 0xFF010101.toInt(),
         )
     }
 
@@ -126,17 +153,22 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 arrayOf(
-                    0, 0, 0,
-                    255.toByte(), 255.toByte(), 255.toByte()
+                    0.toByte(), 15.toByte(), 240.toByte(),
+                    255.toByte(), 170.toByte() , 1.toByte()
                 ),
                 width = 3,
                 height = 2,
                 nChannels = 1
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIUlEQVR42g3BAQEAAAjCMEhA/wqko8F1kySSsA3x2mKbA6QzDfbcagSFAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),0xFF0F0F0F.toInt(),0xFFF0F0F0.toInt(),
+            0xFFFFFFFF.toInt(), 0xFFAAAAAA.toInt(), 0xFF010101.toInt(),
         )
     }
 
@@ -145,17 +177,22 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 arrayOf(
-                    0, 0, 0,
-                    255, 255, 255
+                    0, 15, 240,
+                    255, 170 , 1
                 ),
                 width = 3,
                 height = 2,
                 nChannels = 1
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIUlEQVR42g3BAQEAAAjCMEhA/wqko8F1kySSsA3x2mKbA6QzDfbcagSFAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),0xFF0F0F0F.toInt(),0xFFF0F0F0.toInt(),
+            0xFFFFFFFF.toInt(), 0xFFAAAAAA.toInt(), 0xFF010101.toInt(),
         )
     }
 
@@ -165,17 +202,22 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 arrayOf(
-                    0, 0, 0,
-                    255 * 4, 255 * 4, 255 * 4
+                    0, 15, 240,
+                    255 * 4, 170 * 4, 1 * 4,
                 ),
                 width = 3,
                 height = 2,
                 nChannels = 1
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIElEQVR42g3BAQ0AAAzCMEiQhWJM7m8liSS0Rbxt2OYAf98LuRHNQbEAAAAASUVORK5CYII=
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),0xFF040404.toInt(),0xFF3C3C3C.toInt(),  // 15 scaled to 5, 240 scaled to 60
+            0xFFFFFFFF.toInt(), 0xFFAAAAAA.toInt(), 0xFF010101.toInt(),
         )
     }
 
@@ -184,16 +226,22 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 intArrayOf(
-                    0x00, 0x00, 0x00, 0xFF, 0xFF, 0xFF
+                    0, 15, 240,
+                    255, 170 , 1
                 ),
                 width = 3,
                 height = 2,
                 nChannels = 1
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAD0lEQVR42mNgAIL///8DAAYCAv7NldrbAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIUlEQVR42g3BAQEAAAjCMEhA/wqko8F1kySSsA3x2mKbA6QzDfbcagSFAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),0xFF0F0F0F.toInt(),0xFFF0F0F0.toInt(),
+            0xFFFFFFFF.toInt(), 0xFFAAAAAA.toInt(), 0xFF010101.toInt(),
         )
     }
 
@@ -204,14 +252,19 @@ class ImshowTest {
                 listOf(
                     listOf(
                         listOf(0, 0, 0),
-                        listOf(255, 255, 255)
+                        listOf(255, 255 , 255)
                     )
                 )
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),
+            0xFFFFFFFF.toInt(),
         )
     }
 
@@ -227,9 +280,14 @@ class ImshowTest {
                 )
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),
+            0xFFFFFFFF.toInt(),
         )
     }
 
@@ -246,9 +304,14 @@ class ImshowTest {
                 nChannels = 3
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),
+            0xFFFFFFFF.toInt(),
         )
     }
 
@@ -265,9 +328,14 @@ class ImshowTest {
                 nChannels = 3
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),
+            0xFFFFFFFF.toInt(),
         )
     }
 
@@ -284,9 +352,14 @@ class ImshowTest {
                 nChannels = 3
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAIAAAB7QOjdAAAAD0lEQVR42mNgYGD4//8/AAYBAv67yYXpAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(),
+            0xFFFFFFFF.toInt(),
         )
     }
 
@@ -296,15 +369,19 @@ class ImshowTest {
             RasterData.create(
                 listOf(
                     listOf(
-                        listOf(0, 0, 0, 128),
-                        listOf(255, 255, 255, 128)
+                        listOf(0, 60, 190, 128),
+                        listOf(255, 80, 1, 128)
                     )
                 )
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgsNnX8D+AsQEADg8DS9L6MGgAAAAASUVORK5CYII=
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0x80003CBE.toInt(),
+            0x80FF5001.toInt(),
         )
     }
 
@@ -314,15 +391,19 @@ class ImshowTest {
             RasterData.create(
                 listOf(
                     listOf(
-                        listOf(0.0, 0.0, 0.0, 0.5),
-                        listOf(1.0, 1.0, 1.0, 0.5)
+                        listOf(0 / 255f, 60 / 255f, 190 / 255f, 128 / 255f),
+                        listOf(255 / 255f, 80 / 255f, 1 / 255f, 128 / 255f)
                     )
                 )
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgsNnX8D+AsQEADg8DS9L6MGgAAAAASUVORK5CYII=
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0x80003CBE.toInt(),
+            0x80FF5001.toInt(),
         )
     }
 
@@ -331,17 +412,21 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 arr = arrayOf(
-                    0, 0, 0, 128,
-                    255, 255, 255, 128
+                    0, 60, 190, 128,
+                    255, 80, 1, 128
                 ),
                 width = 2,
                 height = 1,
                 nChannels = 4
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgsNnX8D+AsQEADg8DS9L6MGgAAAAASUVORK5CYII=
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0x80003CBE.toInt(),
+            0x80FF5001.toInt(),
         )
     }
 
@@ -350,8 +435,8 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 arr = arrayOf(
-                    0.0, 0.0, 0.0, 0.5,
-                    1.0, 1.0, 1.0, 0.5
+                    0 / 255f, 60 / 255f, 190 / 255f, 128 / 255f,
+                    255 / 255f, 80 / 255f, 1 / 255f, 128 / 255f
                 ),
                 width = 2,
                 height = 1,
@@ -359,9 +444,12 @@ class ImshowTest {
             )
         )
 
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            getImageData(imshow)
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgsNnX8D+AsQEADg8DS9L6MGgAAAAASUVORK5CYII=
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0x80003CBE.toInt(),
+            0x80FF5001.toInt(),
         )
     }
 
@@ -370,17 +458,21 @@ class ImshowTest {
         val imshow = geomImshow(
             RasterData.create(
                 arr = intArrayOf(
-                    0x00, 0x00, 0x00, 0x80,
-                    0xFF, 0xFF, 0xFF, 0x80
+                    0x00, 0x3C, 0xBE, 0x80,
+                    0xFF, 0x50, 0x01, 128
                 ),
                 width = 2,
                 height = 1,
                 nChannels = 4
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgYGBo+P//fwMADAAD/kv6htYAAAAASUVORK5CYII=",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAEUlEQVR42mNgsNnX8D+AsQEADg8DS9L6MGgAAAAASUVORK5CYII=
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0x80003CBE.toInt(),
+            0x80FF5001.toInt(),
         )
     }
 
@@ -394,9 +486,14 @@ class ImshowTest {
                 )
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAFUlEQVR42mNg+M/A8B+IGUL/M/wHACJBBVGLKjzHAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAFUlEQVR42mNg+M/A8B+IGUL/M/wHACJBBVGLKjzHAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(), 0x000000000, 0xFFFFFFFF.toInt(),
+            0x00000000, 0xFF555555.toInt(), 0xFF000000.toInt(),
         )
     }
 
@@ -413,9 +510,14 @@ class ImshowTest {
                 nChannels = 1
             )
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAFUlEQVR42mNg+M/A8B+IGUL/M/wHACJBBVGLKjzHAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAAFUlEQVR42mNg+M/A8B+IGUL/M/wHACJBBVGLKjzHAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF000000.toInt(), 0x000000000, 0xFFFFFFFF.toInt(),
+            0x00000000, 0xFF555555.toInt(), 0xFF000000.toInt(),
         )
     }
 
@@ -578,9 +680,14 @@ class ImshowTest {
             ),
             extent = flippingExtent
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAEElEQVR42mP4f2YmQ5oxAwAQXgL+kl/cwQAAAABJRU5ErkJggg==",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIUlEQVR42g3BAQEAAAjCMDrRiU50otN1E28bbVESbCOJA+piDvIKexMQAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFFFFFFFF.toInt(), 0xFFCCCCCC.toInt(), 0xFF999999.toInt(),
+            0xFF666666.toInt(), 0xFF333333.toInt(), 0xFF000000.toInt(),
         )
     }
 
@@ -595,9 +702,14 @@ class ImshowTest {
             ),
             extent = flippingExtent
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAAAAAC4HznGAAAAEElEQVR42mP4f2YmQ5oxAwAQXgL+kl/cwQAAAABJRU5ErkJggg==",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAYAAACddGYaAAAAIUlEQVR42g3BAQEAAAjCMDrRiU50otN1E28bbVESbCOJA+piDvIKexMQAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFFFFFFFF.toInt(), 0xFFCCCCCC.toInt(), 0xFF999999.toInt(),
+            0xFF666666.toInt(), 0xFF333333.toInt(), 0xFF000000.toInt(),
         )
     }
 
@@ -612,9 +724,14 @@ class ImshowTest {
             ),
             extent = flippingExtent
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEklEQVR42mOYNo2BgWEaCAEJABgUAu8kyhwjAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEklEQVR42mOYNo2BgWEaCAEJABgUAu8kyhwjAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF969600.toInt(), 0xFF000096.toInt(),
+            0xFF009600.toInt(), 0xFF960000.toInt()
         )
     }
 
@@ -629,9 +746,14 @@ class ImshowTest {
             ),
             extent = flippingExtent
         )
-        assertEquals(
-            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEklEQVR42mOYNo2BgWEaCAEJABgUAu8kyhwjAAAAAElFTkSuQmCC",
-            getImageData(imshow)
+
+        // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAEklEQVR42mOYNo2BgWEaCAEJABgUAu8kyhwjAAAAAElFTkSuQmCC
+        val actualDataImage = getImageData(imshow)
+        val actualBitmap = Png.decodeDataImage(actualDataImage)
+
+        assertThat(actualBitmap.argbInts).containsOnly(
+            0xFF969600.toInt(), 0xFF000096.toInt(),
+            0xFF009600.toInt(), 0xFF960000.toInt()
         )
     }
 
