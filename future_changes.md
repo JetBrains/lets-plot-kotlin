@@ -96,6 +96,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 * geom_imshow: unclear error message when mixing transparencies [[#1088](https://github.com/JetBrains/lets-plot/issues/1088)].
 * geom_imshow and scale_y_reverse [[#1210](https://github.com/JetBrains/lets-plot/issues/1210)].
 * Nice to be able to get a list of colors from a color scale object [[#1444](https://github.com/JetBrains/lets-plot/issues/1444)].
+* Allow tooltips param to accept list [[#1455](https://github.com/JetBrains/lets-plot/issues/1455)].
 * Allow grouped tooltips for plots with multiple univariate geoms [[#1460](https://github.com/JetBrains/lets-plot/issues/1460)].
 * Fixed a regression in `geomTextRepel()` / `geomLabelRepel()`: points with empty labels were incorrectly skipped
   before building the repel obstacle set, so they were not included in collision avoidance and labels could overlap
