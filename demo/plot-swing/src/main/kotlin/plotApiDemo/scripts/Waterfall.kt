@@ -53,7 +53,7 @@ object Waterfall {
                     hline = elementLine(color = "magenta", size = 5),
                     hlineOntop = false,
                     connector = elementLine(color = "cyan", size = 1.5),
-                    label = elementText(color = "inherit", family = "Times", face = "bold", size = 14, angle = 45),
+                    label = elementText(color = "inherit", family = "Times", face = "bold", size = 12, angle = 45),
                     labelFormat = "d"
                 ) + ggtitle("With parameters")
                 p.show()
