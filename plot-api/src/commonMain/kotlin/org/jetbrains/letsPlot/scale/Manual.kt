@@ -7,6 +7,7 @@ package org.jetbrains.letsPlot.scale
 
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.intern.ColorScale
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 
@@ -84,7 +85,7 @@ fun scaleManual(
         list.map { v -> v as Any }
     }
 
-    return Scale(
+    return createScaleFeature(
         aesthetic = aesthetic,
         name = name,
         breaks = newBreaks,
@@ -148,7 +149,7 @@ fun scaleColorManual(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null
-) = scaleManual(
+): ColorScale = scaleManual(
     aesthetic = Aes.COLOR,
     values = values,
     name = name,
@@ -159,7 +160,7 @@ fun scaleColorManual(
     naValue = naValue,
     format = format,
     guide = guide
-)
+) as ColorScale
 
 /**
  * Creates your own discrete scale for `fill` aesthetic.
@@ -207,7 +208,7 @@ fun scaleFillManual(
     naValue: Any? = null,
     format: String? = null,
     guide: Any? = null
-) = scaleManual(
+): ColorScale = scaleManual(
     aesthetic = Aes.FILL,
     values = values,
     name = name,
@@ -218,7 +219,7 @@ fun scaleFillManual(
     naValue = naValue,
     format = format,
     guide = guide
-)
+) as ColorScale
 
 /**
  * Creates your own discrete scale for `size` aesthetic.

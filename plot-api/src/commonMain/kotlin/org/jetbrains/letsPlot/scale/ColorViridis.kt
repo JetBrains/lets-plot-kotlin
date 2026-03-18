@@ -9,8 +9,8 @@ package org.jetbrains.letsPlot.scale
 
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.intern.ColorScale
 import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.Scale
 
 /**
  *
@@ -82,7 +82,7 @@ fun scaleViridis(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+): ColorScale = createScaleFeature(
     aesthetic = aesthetic,
     name = name,
     breaks = breaks,
@@ -103,7 +103,7 @@ fun scaleViridis(
             Option.Scale.SCALE_MAPPER_KIND to Option.Scale.MapperKind.COLOR_CMAP
         )
     )
-)
+) as ColorScale
 
 /**
  *

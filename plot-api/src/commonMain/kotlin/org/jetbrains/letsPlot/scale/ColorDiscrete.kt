@@ -6,6 +6,7 @@
 package org.jetbrains.letsPlot.scale
 
 import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.intern.ColorScale
 
 
 /**
@@ -57,7 +58,7 @@ fun scaleFillDiscrete(
     guide: Any? = null,
     scaleMapperKind: String? = null,
     otherOptions: Map<String, Any?>? = null
-) = scaleDiscrete(
+): ColorScale = scaleDiscrete(
     aesthetic = Aes.FILL,
     direction = direction,
     name = name,
@@ -70,7 +71,7 @@ fun scaleFillDiscrete(
     guide = guide,
     scaleMapperKind = scaleMapperKind,
     otherOptions = otherOptions
-)
+) as ColorScale
 
 /**
  * Qualitative color scale for `color` aesthetic.
@@ -125,7 +126,7 @@ fun scaleColorDiscrete(
     guide: Any? = null,
     scaleMapperKind: String? = null,
     otherOptions: Map<String, Any?>? = null
-) = scaleDiscrete(
+): ColorScale = scaleDiscrete(
     aesthetic = Aes.COLOR,
     direction = direction,
     name = name,
@@ -138,4 +139,4 @@ fun scaleColorDiscrete(
     guide = guide,
     scaleMapperKind = scaleMapperKind,
     otherOptions = otherOptions
-)
+) as ColorScale

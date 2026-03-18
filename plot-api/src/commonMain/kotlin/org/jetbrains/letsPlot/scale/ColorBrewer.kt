@@ -7,8 +7,8 @@ package org.jetbrains.letsPlot.scale
 
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.intern.ColorScale
 import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.Scale
 
 /**
  * Sequential, diverging and qualitative color scales from colorbrewer.org for the specified aesthetics.
@@ -76,7 +76,7 @@ fun scaleBrewer(
     guide: Any? = null,
     trans: String? = null,
     overflow: String? = null
-) = Scale(
+): ColorScale = createScaleFeature(
     aesthetic = aesthetic,
     name = name,
     breaks = breaks,
@@ -96,7 +96,7 @@ fun scaleBrewer(
             Option.Scale.OVERFLOW to overflow
         )
     )
-)
+) as ColorScale
 
 /**
  * Sequential, diverging and qualitative color scales from colorbrewer.org for `fill` aesthetic.
