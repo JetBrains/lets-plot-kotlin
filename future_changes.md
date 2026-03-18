@@ -10,11 +10,11 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
     * New `labels` parameter in `geomSmooth()` designed to display statistical summaries of the fitted model directly on the plot.
       This parameter accepts a `smoothLabels()` object, which provides access to model-specific variables like $R^2$, the regression equation and others.
 
-      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/smooth_summary.html).
+      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/smooth_summary.html).
 
     * **Plot tags**. A tag can be specified via `labs(tag = ...)` and styled using theme parameters [[#1407](https://github.com/JetBrains/lets-plot/issues/1407)].
 
-      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html) and updated [Plot Layout Diagrams](https://lets-plot.org/kotlin/presentation-options.html#plot-layout-diagrams). 
+      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html) and updated [Plot Layout Diagrams](https://lets-plot.org/kotlin/presentation-options.html#plot-layout-diagrams). 
 
     * Plot tags customization parameters in `theme()`:
 
@@ -24,20 +24,21 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
         * `plotTagPrefix` - text added before the tag value.
         * `plotTagSuffix` - text added after the tag value.
 
-      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html).
+      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html).
 
 * Geometries:
 
     * New `geomBracket()`, `geomBracketDodge()` [[#1114](https://github.com/JetBrains/lets-plot/issues/1114)].
 
-      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/geom_bracket.html).
+      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/geom_bracket.html).
+
 
 * Color Scales:
 
     * New `overflow` parameter in `scaleColorBrewer()` / `scaleFillBrewer()`: controls how colors are generated when more colors are needed than the palette provides.
       Options: `"interpolate"` (`"i"`), `"cycle"` (`"c"`), `"generate"` (`"g"`).
 
-      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_brewer_overflow.html).
+      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_brewer_overflow.html).
 
 * Positional Scales:
 
@@ -45,13 +46,13 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
       See examples:
 
-        * [datetime scale](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_datetime.html)
-        * [time (duration) scale](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_duration.html)
-        * [log10 scale](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_log10.html)
+        * [datetime scale](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_datetime.html)
+        * [time (duration) scale](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_duration.html)
+        * [log10 scale](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_log10.html)
 
     * Support for axis minor ticks via `axisMinorTicks` and `axisMinorTicksLength` parameters in `theme()` [[#1379](https://github.com/JetBrains/lets-plot/issues/1379)].
 
-      See: [example notebook](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/axis_minor_ticks.html).
+      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/axis_minor_ticks.html).
 
 ### Changed
 
