@@ -104,6 +104,7 @@
     <var name="nb-ggbunch" value="%nbviewer_cookbook%/ggbunch.ipynb"/>
     <var name="nb-gggrid_legend_collect" value="%html_cookbook%/gggrid_legend_collect.html"/>
     <var name="nb-gggrid_scale_share" value="%nbviewer_cookbook%/gggrid_scale_share.ipynb"/>
+    <var name="nb-gggrid_scale_share_zoom" value="%html_cookbook%/gggrid_scale_share_zoom.html"/>
     <var name="nb-ggrepel" value="%nbviewer_cookbook%/ggrepel.ipynb"/>
     <var name="nb-graph_edges" value="%nbviewer_cookbook%/graph_edges.ipynb"/>
     <var name="nb-group_override_defaults" value="%html_cookbook%/group_override_defaults.html"/>
@@ -147,6 +148,7 @@
     <var name="nb-scale_break_width_duration" value="%html_cookbook%/scale_break_width_duration.html"/>
     <var name="nb-scale_break_width_log10" value="%html_cookbook%/scale_break_width_log10.html"/>
     <var name="nb-scale_brewer_overflow" value="%html_cookbook%/scale_brewer_overflow.html"/>
+    <var name="nb-scale_color_palette" value="%html_cookbook%/scale_color_palette.html"/>
     <var name="nb-scale_functions" value="%nbviewer_cookbook%/scale_functions.ipynb"/>
     <var name="nb-scale_time" value="%nbviewer_cookbook%/scale_time.ipynb"/>
     <var name="nb-scatter_plot" value="%nbviewer_cookbook%/scatter_plot.ipynb"/>

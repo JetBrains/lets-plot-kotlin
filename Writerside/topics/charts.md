@@ -113,6 +113,7 @@ Cookbooks:
 - [Lollipop plot](%nb-geom_lollipop%)
 - [Count stat](%nb-stat_count_2d%)
 - [Handling an overplotting on a scatter plot: `geomCount()`/`statSum()`](%nb-geom_count%)
+- [Generating color palettes with scale.palette()](%nb-scale_color_palette%)
 - [Handling color overflow in brewer palettes](%nb-scale_brewer_overflow%)
 - [Viridis colors](%nb-colors_viridis%)
 
