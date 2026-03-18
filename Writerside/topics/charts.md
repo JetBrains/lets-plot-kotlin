@@ -113,6 +113,7 @@ Cookbooks:
 - [Lollipop plot](%nb-geom_lollipop%)
 - [Count stat](%nb-stat_count_2d%)
 - [Handling an overplotting on a scatter plot: `geomCount()`/`statSum()`](%nb-geom_count%)
+- [Handling color overflow in brewer palettes](%nb-scale_brewer_overflow%)
 - [Viridis colors](%nb-colors_viridis%)
 
 
@@ -257,6 +258,8 @@ Cookbooks:
 
 - [Scale time](%nb-scale_time%)
 - [Plotting time series](%nb-time_date_datetime%)
+- [`breakWidth` parameter in datetime scales](%nb-scale_break_width_datetime%)
+- [`breakWidth` parameter in time (duration) scales](%nb-scale_break_width_duration%)
 
 Demos:
 
