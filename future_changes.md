@@ -35,6 +35,10 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 * Color Scales:
 
+    * New `palette()` method for color scales: generates a list of hex color codes that can be used with `scaleColorManual()` or `scaleFillManual()` to maintain consistent colors across multiple plots [[#1444](https://github.com/JetBrains/lets-plot/issues/1444)].
+
+      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_color_palette.html).
+
     * New `overflow` parameter in `scaleColorBrewer()` / `scaleFillBrewer()`: controls how colors are generated when more colors are needed than the palette provides.
       Options: `"interpolate"` (`"i"`), `"cycle"` (`"c"`), `"generate"` (`"g"`).
 
