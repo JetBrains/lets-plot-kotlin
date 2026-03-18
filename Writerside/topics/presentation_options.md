@@ -16,7 +16,6 @@
 
 - [Themes overview](%nb-themes%)
 - [Default theme](%nb-default_theme%)
-- [Plot tags](%nb-plot_tags%)
 - [Justification for text elements](%nb-hjust_vjust%)
 - [Margins](%nb-margins%)
 - [`margin` parameter of `elementText()`](%nb-text_margins%)
