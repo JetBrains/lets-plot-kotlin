@@ -17,7 +17,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  *
  * ## Examples
  *
- * - [geom_bracket.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_bracket.ipynb)
+ * - [geom_bracket.html](https://lets-plot.org/kotlin/examples/cookbook/geom_bracket.html)
  *
  * @param data The data to be displayed. If null, the default, the data is inherited
  *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].

@@ -46,7 +46,7 @@ import org.jetbrains.letsPlot.core.spec.Option
  *
  * ## Examples
  *
- * - [smooth_summary.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/smooth_summary.html)
+ * - [smooth_summary.html](https://lets-plot.org/kotlin/examples/cookbook/smooth_summary.html)
  *
  * ```kotlin
  * val data = mapOf("x" to listOf(0, 1.5, 1.7, 2), "y" to listOf(0, 1, 1.8, 4))
