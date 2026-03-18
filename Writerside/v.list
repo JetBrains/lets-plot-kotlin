@@ -85,6 +85,7 @@
     <var name="nb-font_size_and_family" value="%nbviewer_cookbook%/font_size_and_family.ipynb"/>
     <var name="nb-formatting" value="%nbviewer_cookbook%/formatting.ipynb"/>
     <var name="nb-formatting_axes_etc" value="%nbviewer_cookbook%/formatting_axes_etc.ipynb"/>
+    <var name="nb-geom_bracket" value="%html_cookbook%/geom_bracket.html"/>
     <var name="nb-geom_count" value="%nbviewer_cookbook%/geom_count.ipynb"/>
     <var name="nb-geom_curve" value="%nbviewer_cookbook%/geom_curve.ipynb"/>
     <var name="nb-geom_dotplot" value="%nbviewer_cookbook%/geom_dotplot.ipynb"/>
@@ -145,6 +146,7 @@
     <var name="nb-scale_time" value="%nbviewer_cookbook%/scale_time.ipynb"/>
     <var name="nb-scatter_plot" value="%nbviewer_cookbook%/scatter_plot.ipynb"/>
     <var name="nb-set_font_faces" value="%nbviewer_cookbook%/set_font_faces.ipynb"/>
+    <var name="nb-smooth_summary" value="%html_cookbook%/smooth_summary.html"/>
     <var name="nb-stat_boxplot_outlier" value="%nbviewer_cookbook%/stat_boxplot_outlier.ipynb"/>
     <var name="nb-stat_count_2d" value="%nbviewer_cookbook%/stat_count_2d.ipynb"/>
     <var name="nb-stat_ecdf" value="%nbviewer_cookbook%/stat_ecdf.ipynb"/>
