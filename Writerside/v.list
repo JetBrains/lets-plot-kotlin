@@ -102,9 +102,9 @@
     <var name="nb-geom_violin" value="%nbviewer_cookbook%/geom_violin.ipynb"/>
     <var name="nb-geom_ydotplot" value="%nbviewer_cookbook%/geom_ydotplot.ipynb"/>
     <var name="nb-ggbunch" value="%nbviewer_cookbook%/ggbunch.ipynb"/>
-    <var name="nb-ggrepel" value="%nbviewer_cookbook%/ggrepel.ipynb"/>
     <var name="nb-gggrid_legend_collect" value="%html_cookbook%/gggrid_legend_collect.html"/>
     <var name="nb-gggrid_scale_share" value="%nbviewer_cookbook%/gggrid_scale_share.ipynb"/>
+    <var name="nb-ggrepel" value="%nbviewer_cookbook%/ggrepel.ipynb"/>
     <var name="nb-graph_edges" value="%nbviewer_cookbook%/graph_edges.ipynb"/>
     <var name="nb-group_override_defaults" value="%html_cookbook%/group_override_defaults.html"/>
     <var name="nb-hjust_vjust" value="%nbviewer_cookbook%/hjust_vjust.ipynb"/>
@@ -130,6 +130,7 @@
     <var name="nb-panel_border" value="%nbviewer_cookbook%/panel_border.ipynb"/>
     <var name="nb-param_width_unit" value="%nbviewer_cookbook%/param_width_unit.ipynb"/>
     <var name="nb-plot_grid" value="%nbviewer_cookbook%/plot_grid.ipynb"/>
+    <var name="nb-plot_tags" value="%html_cookbook%/plot_tags.html"/>
     <var name="nb-position_nudge_unit" value="%nbviewer_cookbook%/position_nudge_unit.ipynb"/>
     <var name="nb-position_stack" value="%nbviewer_cookbook%/position_stack.ipynb"/>
     <var name="nb-projection_provided" value="%nbviewer_cookbook%/projection_provided.ipynb"/>
@@ -142,6 +143,10 @@
     <var name="nb-ridgeline_plot" value="%nbviewer_cookbook%/ridgeline_plot.ipynb"/>
     <var name="nb-sampling_pick" value="%nbviewer_cookbook%/sampling_pick.ipynb"/>
     <var name="nb-sampling_stratified" value="%nbviewer_cookbook%/sampling_stratified.ipynb"/>
+    <var name="nb-scale_break_width_datetime" value="%html_cookbook%/scale_break_width_datetime.html"/>
+    <var name="nb-scale_break_width_duration" value="%html_cookbook%/scale_break_width_duration.html"/>
+    <var name="nb-scale_break_width_log10" value="%html_cookbook%/scale_break_width_log10.html"/>
+    <var name="nb-scale_brewer_overflow" value="%html_cookbook%/scale_brewer_overflow.html"/>
     <var name="nb-scale_functions" value="%nbviewer_cookbook%/scale_functions.ipynb"/>
     <var name="nb-scale_time" value="%nbviewer_cookbook%/scale_time.ipynb"/>
     <var name="nb-scatter_plot" value="%nbviewer_cookbook%/scatter_plot.ipynb"/>
