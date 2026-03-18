@@ -23,12 +23,12 @@ typealias AnnotationOptions = layerLabels
  * contrast: white text appears on darker filled geometries, and black text
  * appears on lighter filled geometries.
  *
- * The text color can be manually specified using:
- * `theme(labelText=elementText(color=...))`
+ * Use `theme(labelText = elementText(color = ...))` to customize the appearance of annotation text.
+ * See also [elementText()][org.jetbrains.letsPlot.themes.elementText].
  *
- * Alternatively, the [inheritColor()][org.jetbrains.letsPlot.annotations.layerLabels.inheritColor] method can be used to override both
- * automatic and manual color settings, making the annotation text use the
- * geometry's `color` aesthetic instead.
+ * Alternatively, the [inheritColor] method can be used to make annotation text use the geometry's `color` aesthetic,
+ * overriding both the automatically selected text color and any color specified via
+ * `theme(labelText = elementText(color = ...))`.
  *
  * ## Examples
  *
