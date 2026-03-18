@@ -7,11 +7,10 @@ package org.jetbrains.letsPlot.scale
 
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.Scale
 
 /**
  * General purpose scale for discrete data.
- * Use it to adjust most common properties of a default scale for given aesthetic.
+ * Use it to adjust the most common properties of a default scale for a given aesthetic.
  *
  * @param aesthetic Aesthetic or a list of aesthetics that this scale works with.
  * @param direction default = 1.
@@ -36,7 +35,7 @@ import org.jetbrains.letsPlot.intern.Scale
  *  "none" will hide the guide.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
- * a string template where number format is surrounded by curly braces: "{d} cylinders".
+ * a string template where a number format is surrounded by curly braces: "{d} cylinders".
  * Note: the "$" must be escaped as "\$".
  * For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
  *
@@ -65,7 +64,7 @@ fun scaleDiscrete(
     guide: Any? = null,
     scaleMapperKind: String? = null,
     otherOptions: Map<String, Any?>? = null
-) = Scale(
+) = createScaleFeature(
     aesthetic = aesthetic,
     name = name,
     breaks = breaks,

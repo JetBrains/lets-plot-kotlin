@@ -24,6 +24,7 @@ import org.jetbrains.letsPlot.core.spec.Option.Scale.SCALE_MAPPER_KIND
 import org.jetbrains.letsPlot.core.spec.Option.Scale.START
 import org.jetbrains.letsPlot.core.spec.Option.Scale.START_HUE
 import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.intern.ColorScale
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 import org.jetbrains.letsPlot.intern.checkGreyScaleStartEnd
@@ -75,7 +76,7 @@ fun scaleFillContinuous(
     trans: String? = null,
     scaleMapperKind: String? = null,
     otherOptions: Map<String, Any?>? = null
-) = scaleContinuous(
+): ColorScale = scaleContinuous(
     aesthetic = Aes.FILL,
     name = name,
     breaks = breaks,
@@ -88,7 +89,7 @@ fun scaleFillContinuous(
     trans = trans,
     scaleMapperKind = scaleMapperKind,
     otherOptions = otherOptions
-)
+) as ColorScale
 
 /**
  * Default color scale for `color` aesthetic and continuous data.
@@ -140,7 +141,7 @@ fun scaleColorContinuous(
     trans: String? = null,
     scaleMapperKind: String? = null,
     otherOptions: Map<String, Any?>? = null
-) = scaleContinuous(
+): ColorScale = scaleContinuous(
     aesthetic = Aes.COLOR,
     name = name,
     breaks = breaks,
@@ -153,7 +154,7 @@ fun scaleColorContinuous(
     trans = trans,
     scaleMapperKind = scaleMapperKind,
     otherOptions = otherOptions
-)
+) as ColorScale
 
 /**
  * Defines smooth color gradient between two colors for the specified aesthetics.
@@ -200,7 +201,7 @@ fun scaleGradient(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+): ColorScale = createScaleFeature(
     aesthetic = aesthetic,
     name = name,
     breaks = breaks,
@@ -218,7 +219,7 @@ fun scaleGradient(
             SCALE_MAPPER_KIND to COLOR_GRADIENT
         )
     )
-)
+) as ColorScale
 
 /**
  * Defines smooth color gradient between two colors (low-high) for `fill` aesthetic.
@@ -394,7 +395,7 @@ fun scaleGradient2(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+): ColorScale = createScaleFeature(
     aesthetic = aesthetic,
     name = name,
     breaks = breaks,
@@ -414,7 +415,7 @@ fun scaleGradient2(
             SCALE_MAPPER_KIND to COLOR_GRADIENT2
         )
     )
-)
+) as ColorScale
 
 /**
  * Defines diverging color gradient (low-mid-high) for `fill` aesthetic.
@@ -521,7 +522,7 @@ fun scaleGradientN(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+): ColorScale = createScaleFeature(
     aesthetic = aesthetic,
     name = name,
     breaks = breaks,
@@ -538,7 +539,7 @@ fun scaleGradientN(
             SCALE_MAPPER_KIND to COLOR_GRADIENTN
         )
     )
-)
+) as ColorScale
 
 /**
  * Defines smooth color gradient between multiple colors for `fill` aesthetic.
@@ -767,9 +768,9 @@ fun scaleGrey(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-): Scale {
+): ColorScale {
     checkGreyScaleStartEnd(start, end)
-    return Scale(
+    return createScaleFeature(
         aesthetic = aesthetic,
         name = name,
         breaks = breaks,
@@ -787,7 +788,7 @@ fun scaleGrey(
                 SCALE_MAPPER_KIND to COLOR_GREY
             )
         )
-    )
+    ) as ColorScale
 }
 
 /**
@@ -974,7 +975,7 @@ fun scaleHue(
     format: String? = null,
     guide: Any? = null,
     trans: String? = null
-) = Scale(
+): ColorScale = createScaleFeature(
     aesthetic = aesthetic,
     name = name,
     breaks = breaks,
@@ -995,7 +996,7 @@ fun scaleHue(
             SCALE_MAPPER_KIND to COLOR_HUE
         )
     )
-)
+) as ColorScale
 
 /**
  * Qualitative color scale with evenly spaced hues for `fill` aesthetic.

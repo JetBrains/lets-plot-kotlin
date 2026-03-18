@@ -135,7 +135,7 @@ abstract class Layer(
     }
 }
 
-class Scale(
+open class Scale(
     aesthetic: Any,
     val name: String? = null,
     breaks: Any? = null,                // List of breaks or Map of labels to breaks

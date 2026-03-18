@@ -6,15 +6,12 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.commons.encoding.Png
+import org.jetbrains.letsPlot.commons.values.Bitmap
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.*
-import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.scale.scaleGrey
-import org.jetbrains.letsPlot.util.Base64
-import org.jetbrains.letsPlot.util.pngj.ImageInfo
-import org.jetbrains.letsPlot.util.pngj.ImageLineByte
-import org.jetbrains.letsPlot.util.pngj.OutputPngStream
-import org.jetbrains.letsPlot.util.pngj.PngWriter
 
 
 /**
@@ -130,31 +127,45 @@ fun geomImshow(
         extY0 = extY1.also { extY1 = extY0 }
     }
 
-    val outputStream = OutputPngStream()
-    val png = PngWriter(
-        outputStream, ImageInfo(
-            raster.width,
-            raster.height,
-            bitdepth = 8,
-            alpha = (raster.nChannels == 4 || raster.nChannels == 2),
-            greyscale = raster.nChannels < 3
-        )
-    )
-
-    val iLine = ImageLineByte(png.imgInfo)
+    val rgba = ByteArray(raster.width * raster.height * 4)
     val px = raster.pixel()
     val rows = (0 until raster.height).let { it.takeIf { !flipRows } ?: it.reversed() }
     val columns = (0 until raster.width).let { it.takeIf { !flipColumns } ?: it.reversed() }
+    var p = 0
     for (row in rows) {
-        var p = 0
         for (col in columns) {
-            px.atXY(col, row).channels().forEach {
-                iLine.scanline[p++] = it.toInt().toByte()
+            val channels = px.atXY(col, row).channels()
+            when (channels.size) {
+                4 -> channels.let { (r, g, b, a) ->
+                    rgba[p++] = r.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = b.toInt().toByte()
+                    rgba[p++] = a.toInt().toByte()
+                }
+                3 -> channels.let { (r, g, b) ->
+                    rgba[p++] = r.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = b.toInt().toByte()
+                    rgba[p++] = 255.toByte() // fully opaque
+                }
+                2 -> channels.let { (g, a) ->
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = a.toInt().toByte()
+                }
+                1 -> channels.let { (g) ->
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = 255.toByte() // fully opaque
+                }
+                else -> error("Unexpected channel size: ${channels.size}")
             }
         }
-        png.writeRow(iLine)
     }
-    png.end()
+
+    val bitmap = Bitmap.fromRGBABytes(raster.width, raster.height, rgba)
 
 
     // Show Legend (color-bar) if applicable.
@@ -197,7 +208,7 @@ fun geomImshow(
     ) {
         override fun seal(): Options {
             return Options.of(
-                Option.Geom.Image.HREF to "data:image/png;base64," + Base64.encode(outputStream.byteArray),
+                Option.Geom.Image.HREF to Png.encodeDataImage(bitmap),
                 Option.Geom.Image.XMIN to extX0,
                 Option.Geom.Image.YMIN to extY0,
                 Option.Geom.Image.XMAX to extX1,

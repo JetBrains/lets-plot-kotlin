@@ -79,9 +79,17 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param axisTicksX Style settings for tick marks along axes.
  * @param axisTicksY Style settings for tick marks along axes.
  *
+ * @param axisMinorTicks Style settings for minor tick marks along axes.
+ * @param axisMinorTicksX Style settings for minor tick marks along axes.
+ * @param axisMinorTicksY Style settings for minor tick marks along axes.
+ *
  * @param axisTicksLength Length of tick marks.
  * @param axisTicksLengthX Length of tick marks.
  * @param axisTicksLengthY Length of tick marks.
+ *
+ * @param axisMinorTicksLength Length of minor tick marks.
+ * @param axisMinorTicksLengthX Length of minor tick marks.
+ * @param axisMinorTicksLengthY Length of minor tick marks.
  *
  * @param axisTextSpacing Spacing between the axis label text and its tick mark.
  * @param axisTextSpacingX Spacing between the axis label text and its tick mark.
@@ -146,6 +154,7 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param plotTitle Style settings for plot title.
  * @param plotSubtitle Style settings for plot subtitle.
  * @param plotCaption Style settings for plot caption.
+ * @param plotTag Style settings for plot tag.
  * @param plotMessage Style settings for plot message (e.g. sampling messages).
  *  Set an `elementBlank()` to show nothing.
  *  Set an `elementText()` to show sampling messages (`elementText()` options do not affect the message text).
@@ -174,6 +183,22 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  Alignment of the plot caption.
  *  A value of "panel" means that caption is aligned to the plot panels.
  *  A value of "plot" means that caption is aligned to the entire plot (excluding margins).
+ *
+ * @param plotTagPosition default = "top-left" ("left", "top-left", "top", "top-right", "right", "bottom-right", "bottom", "bottom-left") or a numeric pair [x, y].
+ *  Position of the tag within the area defined by `plotTagLocation`.
+ *  It can be one of the predefined anchor names, or a numeric pair [x, y],
+ *  where each value is between 0 and 1. [0, 0] is bottom-left and [1, 1] is top-right.
+ *  When `plotTagLocation = "margin"`, only predefined position names are supported.
+ *  Use `hjust`/`vjust` in `elementText()` to fine-tune the tag position within the margin.
+ * @param plotTagLocation default = "plot" ("plot", "panel", "margin").
+ *  Area used for positioning the tag.
+ *  - `"plot"` - the tag is positioned relative to the entire plot area without affecting layout.
+ *  - `"panel"` - the tag is positioned relative to the panel (data) area without affecting layout.
+ *  - `"margin"` - the tag is placed in the plot margin area. Space for the tag is reserved by the layout,
+ *  so other plot elements are shifted to avoid overlap.
+ * @param plotTagPrefix Text added before the plot tag.
+ * @param plotTagSuffix Text added after the plot tag.
+ *
  * @param stripBackground Style settings for facet strip background.
  * @param stripBackgroundX Style settings for horizontal facet strip background.
  * @param stripBackgroundY Style settings for vertical facet strip background.
@@ -232,9 +257,17 @@ class theme(
     axisTicksX: Any? = null,
     axisTicksY: Any? = null,
 
+    axisMinorTicks: Any? = null,
+    axisMinorTicksX: Any? = null,
+    axisMinorTicksY: Any? = null,
+
     axisTicksLength: Number? = null,
     axisTicksLengthX: Number? = null,
     axisTicksLengthY: Number? = null,
+
+    axisMinorTicksLength: Number? = null,
+    axisMinorTicksLengthX: Number? = null,
+    axisMinorTicksLengthY: Number? = null,
 
     axisTextSpacing: Number? = null,
     axisTextSpacingX: Number? = null,
@@ -287,12 +320,17 @@ class theme(
     plotTitle: Any? = null,
     plotSubtitle: Any? = null,
     plotCaption: Any? = null,
+    plotTag: Any? = null,
     plotMessage: Any? = null,
     plotMargin: Any? = null,
     plotInset: Any? = null,
 
     plotTitlePosition: Any? = null,
     plotCaptionPosition: Any? = null,
+    plotTagPosition: Any? = null,
+    plotTagLocation: Any? = null,
+    plotTagPrefix: Any? = null,
+    plotTagSuffix: Any? = null,
 
     stripBackground: Any? = null,
     stripBackgroundX: Any? = null,
@@ -349,10 +387,16 @@ class theme(
         Option.Theme.AXIS_TICKS_X to axisTicksX,
         Option.Theme.AXIS_TICKS_Y to axisTicksY,
 
+        AXIS_MINOR_TICKS to axisMinorTicks,
+        AXIS_MINOR_TICKS_X to axisMinorTicksX,
+        AXIS_MINOR_TICKS_Y to axisMinorTicksY,
         Option.Theme.AXIS_TICKS_LENGTH to axisTicksLength,
         Option.Theme.AXIS_TICKS_LENGTH_X to axisTicksLengthX,
         Option.Theme.AXIS_TICKS_LENGTH_Y to axisTicksLengthY,
 
+        AXIS_MINOR_TICKS_LENGTH to axisMinorTicksLength,
+        AXIS_MINOR_TICKS_LENGTH_X to axisMinorTicksLengthX,
+        AXIS_MINOR_TICKS_LENGTH_Y to axisMinorTicksLengthY,
         Option.Theme.AXIS_TEXT_SPACING to axisTextSpacing,
         Option.Theme.AXIS_TEXT_SPACING_X to axisTextSpacingX,
         Option.Theme.AXIS_TEXT_SPACING_Y to axisTextSpacingY,
@@ -404,12 +448,17 @@ class theme(
         Option.Theme.PLOT_TITLE to plotTitle,
         Option.Theme.PLOT_SUBTITLE to plotSubtitle,
         Option.Theme.PLOT_CAPTION to plotCaption,
+        Option.Theme.PLOT_TAG to plotTag,
         Option.Theme.PLOT_MESSAGE to plotMessage,
         Option.Theme.PLOT_MARGIN to plotMargin,
         Option.Theme.PLOT_INSET to plotInset,
 
         Option.Theme.PLOT_TITLE_POSITION to plotTitlePosition,
         Option.Theme.PLOT_CAPTION_POSITION to plotCaptionPosition,
+        Option.Theme.PLOT_TAG_POSITION to plotTagPosition,
+        Option.Theme.PLOT_TAG_LOCATION to plotTagLocation,
+        Option.Theme.PLOT_TAG_PREFIX to plotTagPrefix,
+        Option.Theme.PLOT_TAG_SUFFIX to plotTagSuffix,
 
         Option.Theme.FACET_STRIP_BGR_RECT to stripBackground,
         Option.Theme.FACET_STRIP_BGR_RECT_X to stripBackgroundX,
@@ -720,21 +769,30 @@ fun elementMarkdown(
 @Deprecated(
     message = "Please, replace with one number or a list of numbers.\n" +
             "See doc for the `plotMargin` parameter in `theme()`: https://lets-plot.org/kotlin/-lets--plot--kotlin/org.jetbrains.letsPlot.themes/theme",
-    level = DeprecationLevel.WARNING
+    level = DeprecationLevel.ERROR
 )
 fun margin(t: Any? = null, r: Any? = null, b: Any? = null, l: Any? = null) = listOf(t, r, b, l)
 
 
 /**
- * Theme element that specifies custom values for named geom colors used in plot elements.
+ * Theme element that specifies custom values for named geom colors used by plot elements.
+ *
+ * It allows you to specify custom color values for special named geom colors ("pen", "brush", "paper")
+ * that can be referenced in geom parameters such as `color`, `fill`, etc.
+ *
+ * These names act as indirections: instead of hardcoding a concrete color in a geom (e.g., `color="red"`),
+ * you can use a semantic name (e.g., `color="pen"`) and control its actual value centrally via the theme.
  *
  * ## Examples
  *
  * - [geom_theme_colors.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_theme_colors.ipynb)
  *
- * @param pen Color to use by name "pen".
- * @param brush Color to use by name "brush".
- * @param paper Color to use by name "paper".
+ * @param pen Color assigned to the named color "pen".
+ *  Typically used for stroke/outline rendering (e.g., `color="pen"`).
+ * @param brush Color assigned to the named color "brush".
+ *  Typically used for interior fills or secondary stroke styling (e.g., `fill="brush"`), depending on the geom.
+ * @param paper Color assigned to the named color "paper".
+ *  Commonly used for background-like fills or lighter interior areas (e.g., `fill="paper"`).
  */
 fun elementGeom(
     pen: Any? = null,
@@ -745,3 +803,11 @@ fun elementGeom(
     Option.Theme.Geom.BRUSH to brush,
     Option.Theme.Geom.PAPER to paper
 )
+
+// TODO: replace with Option.Theme constants once available in the released lets-plot API.
+private const val AXIS_MINOR_TICKS = "axis_minor_ticks"
+private const val AXIS_MINOR_TICKS_X = "axis_minor_ticks_x"
+private const val AXIS_MINOR_TICKS_Y = "axis_minor_ticks_y"
+private const val AXIS_MINOR_TICKS_LENGTH = "axis_minor_ticks_length"
+private const val AXIS_MINOR_TICKS_LENGTH_X = "axis_minor_ticks_length_x"
+private const val AXIS_MINOR_TICKS_LENGTH_Y = "axis_minor_ticks_length_y"
