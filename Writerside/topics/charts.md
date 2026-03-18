@@ -294,6 +294,28 @@ Cookbooks:
 - [Polar coordinate system](%nb-coord_polar%)
 
 
+## Positional Scales
+
+[`scaleXDiscrete()`](%api_scale%/scale-x-discrete.html),
+[`scaleYDiscrete()`](%api_scale%/scale-y-discrete.html),
+[`scaleXDiscreteReversed()`](%api_scale%/scale-x-discrete-reversed.html),
+[`scaleYDiscreteReversed()`](%api_scale%/scale-y-discrete-reversed.html),
+[`scaleXContinuous()`](%api_scale%/scale-x-continuous.html),
+[`scaleYContinuous()`](%api_scale%/scale-y-continuous.html),
+[`scaleXLog10()`](%api_scale%/scale-x-log10.html),
+[`scaleYLog10()`](%api_scale%/scale-y-log10.html),
+[`scaleXLog2()`](%api_scale%/scale-x-log2.html),
+[`scaleYLog2()`](%api_scale%/scale-y-log2.html),
+[`scaleXReverse()`](%api_scale%/scale-x-reverse.html),
+[`scaleYReverse()`](%api_scale%/scale-y-reverse.html)
+
+Cookbooks:
+
+- [Axis position](%nb-axis_position%)
+- [`breakWidth` parameter in position scales](%nb-scale_break_width_log10%)
+- [Formatting labels on plots](%nb-formatting_axes_etc%)
+
+
 ## Legends and Guides
 
 [`guideLegend()`](%api_scale%/guide-legend.html),
