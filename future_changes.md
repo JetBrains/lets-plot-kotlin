@@ -54,6 +54,10 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
       See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/axis_minor_ticks.html).
 
+* `gggrid()`: interactive pan/zoom now propagates across subplots with shared axes (`sharex` / `sharey`) [[#1413](https://github.com/JetBrains/lets-plot/issues/1413)].
+
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/gggrid_scale_share_zoom.html).
+
 ### Changed
 
 * [**BREAKING**]: ColorBrewer palettes: changed default behavior when the requested number of colors exceeds the palette's maximum size.
