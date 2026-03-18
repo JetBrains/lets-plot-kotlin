@@ -1,12 +1,31 @@
 # Annotating Charts
 
-You can customize the content of annotations for pie, bar and crossbar charts by using the `labels` parameter of the corresponding functions.
-The parameter takes as value the result of the [`layerLabels()`](%api_annotations%/layer-labels/index.html) function call.
+Lets-Plot provides several ways to annotate charts:
 
-[Learn more (datalore link)](%nbp-annotations%).
+- **Label annotations for geometry layers.**
+  Some geoms (such as pie, bar, and crossbar) support built-in text labels via the
+  `labels` parameter. Pass the result of the [`layerLabels()`](%api_annotations%/layer-labels/index.html)
+  call to configure the label content and layout.
+
+  [Learn more (reference notebook)](%nbp-annotations%).
+
+- **Annotations for** [`geomSmooth()`](%api_geom%/geom-smooth/index.html).
+  Use the `labels` parameter together with [`smoothLabels()`](%api_annotations%/smooth-labels/index.html)
+  to display statistics computed by the `smooth` stat (for example, R², adjusted R²,
+  and a fitted model equation). `smoothLabels` extends `layerLabels`, so formatting and text
+  template helpers work the same way.
+
+  [Learn more (reference notebook)](%nb-smooth_summary%).
+
+- **Bracket annotations.**
+  Use [`geomBracket()`](%api_geom%/geom-bracket/index.html) to add labeled brackets highlighting
+  relationships between categories or marking an interval.
+  Use [`geomBracketDodge()`](%api_geom%/geom-bracket-dodge/index.html) to draw brackets that connect
+  *dodged* groups within each category (e.g., comparisons inside grouped boxplots/bars).
+
+  [Learn more (reference notebook)](%nb-geom_bracket%).
 
 See also the [formatting reference](formats.md) to learn how to format numeric and date-time values in annotations.
-
 
 ## Examples
 
