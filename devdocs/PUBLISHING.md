@@ -13,7 +13,7 @@
 
 ### Publishing to Sonatype Central repository
                    
-> **Note**: when publishing a "Release" version to Sonatype, PGP signature is required.
+> **Note**: when publishing a "Release" version to Sonatype, a PGP signature is required.
 >
 > See: https://central.sonatype.org/pages/working-with-pgp-signatures.html
         
