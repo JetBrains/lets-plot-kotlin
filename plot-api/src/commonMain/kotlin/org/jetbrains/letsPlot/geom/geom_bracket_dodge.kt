@@ -41,6 +41,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  * @param orientation default = "x" ("x", "y").
  *  Specifies the axis that the geom should run along.
  * @param labelFormat Specifies the format pattern for displaying mapped values.
+ *  For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html).
  * @param naText default = "n/a".
  *  Text to show for missing values.
  * @param nudgeX Horizontal adjustment to nudge the geometry by.

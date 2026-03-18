@@ -99,7 +99,8 @@ package org.jetbrains.letsPlot.bistro.waterfall
  *  Set [elementText()][org.jetbrains.letsPlot.themes.elementText] to specify style parameters.
  *  Use `elementText(color="inherit")` to make labels inherit the color of bar borders.
  * @param labelFormat Format used to transform label mapping values to a string.
- *  For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html)
+ *  For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html).
+ *
  *  Note: the "$" must be escaped as "\$".
  *
  *  Examples:
