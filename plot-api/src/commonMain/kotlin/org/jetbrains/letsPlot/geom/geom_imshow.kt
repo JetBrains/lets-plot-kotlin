@@ -64,6 +64,9 @@ import org.jetbrains.letsPlot.scale.scaleManual
  *  false - do not show legend for this layer.
  * @param colorBy default="paint_c" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Define the color-aesthetic used by the legend shown for a greyscale image.
+ * @param cguide default = null.
+ *  A result of `guideColorbar()` call.
+ *  Use to customize the colorbar for greyscale images.
  *
  * @return Layer object.
  */
@@ -76,6 +79,7 @@ fun geomImshow(
     extent: List<Number>? = null,
     showLegend: Boolean = true,
     colorBy: String = "paint_c",
+    cguide: Any? = null,
 ): Feature {
     require(extent == null || extent.size == 4) { "Invalid `extent`: list of 4 numbers expected: ${extent!!.size}" }
     val colorAesthetics = listOf("fill", "color", "paint_a", "paint_b", "paint_c")
@@ -204,11 +208,11 @@ fun geomImshow(
     val legendTitle = ""
     val colorScale: Scale? = if (greyscale && showLegend) {
         if (cmap != null) {
-            scaleManual(aesthetic = colorBy, values = cmap, name = legendTitle)
+            scaleManual(aesthetic = colorBy, values = cmap, name = legendTitle, guide = cguide)
         } else {
             val start = if (norm) 0.0 else greyScaleDataMin / 255
             val end = if (norm) 1.0 else greyScaleDataMax / 255
-            scaleGrey(aesthetic = colorBy, start = start, end = end, name = legendTitle)
+            scaleGrey(aesthetic = colorBy, start = start, end = end, name = legendTitle, guide = cguide)
         }
     } else {
         null

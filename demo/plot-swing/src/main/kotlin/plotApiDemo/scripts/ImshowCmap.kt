@@ -10,6 +10,7 @@ import org.jetbrains.letsPlot.geom.RasterData
 import org.jetbrains.letsPlot.geom.geomImshow
 import org.jetbrains.letsPlot.label.ggtitle
 import org.jetbrains.letsPlot.letsPlot
+import org.jetbrains.letsPlot.scale.guideColorbar
 import org.jetbrains.letsPlot.scale.scaleColorViridis
 
 object ImshowCmap {
@@ -39,6 +40,13 @@ object ImshowCmap {
                 greyscaleData,
                 cmap = scaleColorViridis().palette(256)
             ) + ggtitle("Viridis palette")).show()
+
+            // With viridis palette and customized colorbar
+            (letsPlot() + geomImshow(
+                greyscaleData,
+                cmap = scaleColorViridis().palette(256),
+                cguide = guideColorbar(barWidth = 8, barHeight = 300)
+            ) + ggtitle("Viridis + custom colorbar")).show()
         }
     }
 }
