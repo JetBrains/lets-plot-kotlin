@@ -8,15 +8,20 @@ package org.jetbrains.letsPlot.annotations
 import org.jetbrains.letsPlot.core.spec.Option
 
 /**
- * Configure annotations for `geomSmooth()` layers.
+ * Configure annotations for [geomSmooth()][org.jetbrains.letsPlot.geom.geomSmooth] layers.
  *
- * `smoothLabels()` is a specialized annotation helper designed for smooth layers.
- * It shares the same API as [layerLabels] - supporting [line], [format], [size], and [inheritColor] -
- * and additionally provides regression-specific methods: [eq], [labelX], and [labelY].
+ * This class extends [layerLabels()][org.jetbrains.letsPlot.annotations.layerLabels]
+ * and provides additional options for displaying statistics produced by the `smooth` stat, such as
+ * R², adjusted R², and the fitted model equation.
+ *
+ * It allows placing a multi-line annotation near the smooth curve and
+ * mixing custom text, computed variables (e.g. `..r2..`), and a generated
+ * equation block.
+ * If created without any additional configuration the annotation displays a single line with R².
  *
  * ## Supported variables and markers
  *
- * Use these in [line] templates via `@..name..` syntax:
+ * Use these in [line()][org.jetbrains.letsPlot.annotations.smoothLabels.line] templates via `@..name..` syntax:
  *
  * - `..r2..` - R² (coefficient of determination).
  * - `..adjr2..` - adjusted R².
@@ -31,7 +36,7 @@ import org.jetbrains.letsPlot.core.spec.Option
  * - `..cilevel..` - confidence level used for the R² confidence interval.
  * - `..cilow..` - lower bound of the R² confidence interval.
  * - `..cihigh..` - upper bound of the R² confidence interval.
- * - `~eq` - fitted equation (use in a [line] template to insert the model equation).
+ * - `~eq` - fitted equation (use in a [line()][org.jetbrains.letsPlot.annotations.smoothLabels.line] template to insert the model equation).
  *
  * ## Notes
  *
@@ -40,9 +45,10 @@ import org.jetbrains.letsPlot.core.spec.Option
  * Use `theme(labelText = elementText(...))` to customize the appearance of annotation text.
  * See also [elementText()][org.jetbrains.letsPlot.themes.elementText].
  *
- * Alternatively, the [inheritColor] method can be used to make annotation text
- * use the geometry's `color` aesthetic, overriding both the automatically selected text color
- * and any color specified via `theme(labelText = elementText(...))`.
+ * Alternatively, the [inheritColor()][org.jetbrains.letsPlot.annotations.smoothLabels.inheritColor]
+ * method can be used to make annotation text use the geometry's `color` aesthetic,
+ * overriding both the automatically selected text color and any color specified via
+ * `theme(labelText = elementText(...))`.
  *
  * ## Examples
  *

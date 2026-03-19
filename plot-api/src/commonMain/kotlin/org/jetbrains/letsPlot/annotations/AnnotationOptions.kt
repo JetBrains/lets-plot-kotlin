@@ -26,7 +26,8 @@ typealias AnnotationOptions = layerLabels
  * Use `theme(labelText = elementText(color = ...))` to customize the appearance of annotation text.
  * See also [elementText()][org.jetbrains.letsPlot.themes.elementText].
  *
- * Alternatively, the [inheritColor] method can be used to make annotation text use the geometry's `color` aesthetic,
+ * Alternatively, the [inheritColor()][org.jetbrains.letsPlot.annotations.layerLabels.inheritColor]
+ * method can be used to make annotation text use the geometry's `color` aesthetic,
  * overriding both the automatically selected text color and any color specified via
  * `theme(labelText = elementText(color = ...))`.
  *
