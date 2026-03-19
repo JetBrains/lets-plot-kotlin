@@ -11,6 +11,9 @@ import org.jetbrains.letsPlot.commons.intern.json.JsonSupport
 /**
  * Used in IDEA Plugin
  */
+/**
+ * @suppress
+ */
 @Suppress("unused")
 object PlotSpecUtil {
     @JvmStatic

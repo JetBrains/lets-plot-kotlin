@@ -10,6 +10,9 @@ package org.jetbrains.letsPlot.intern
  * Kotlin 1.4
  * ToDo: check Kotlin 1.5
  */
+/**
+ * @suppress
+ */
 expect object ReflectionPatch {
     fun simpleName(o: Any): String?
     fun qualifiedName(o: Any): String?

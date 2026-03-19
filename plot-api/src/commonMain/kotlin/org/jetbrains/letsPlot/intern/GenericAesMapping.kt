@@ -7,6 +7,9 @@ package org.jetbrains.letsPlot.intern
 
 import org.jetbrains.letsPlot.intern.layer.WithGroupOption
 
+/**
+ * @suppress
+ */
 class GenericAesMapping(
     var x: Any? = null,
     var y: Any? = null,

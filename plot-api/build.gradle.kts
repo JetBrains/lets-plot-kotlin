@@ -79,11 +79,11 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
             suppress.set(true)
         }
         perPackageOption {
-            matchingRegex.set(""".*\.intern.*""")
+            matchingRegex.set(""".*\.intern\..*""")
             suppress.set(true)
         }
         perPackageOption {
-            matchingRegex.set(""".*\.intern\.layer.*""")
+            matchingRegex.set(""".*\.intern\.layer(\..*)?""")
             suppress.set(false)
         }
     }
