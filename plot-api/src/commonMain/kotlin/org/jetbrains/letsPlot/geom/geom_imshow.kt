@@ -65,7 +65,7 @@ import org.jetbrains.letsPlot.scale.scaleManual
  * @param colorBy default="paint_c" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Define the color-aesthetic used by the legend shown for a greyscale image.
  * @param cguide default = null.
- *  A result of `guideColorbar()` call.
+ *  A result of [guideColorbar()][org.jetbrains.letsPlot.scale.guideColorbar] call.
  *  Use to customize the colorbar for greyscale images.
  *
  * @return Layer object.
