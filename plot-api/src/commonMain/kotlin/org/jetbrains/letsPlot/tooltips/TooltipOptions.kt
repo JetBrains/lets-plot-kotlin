@@ -37,16 +37,17 @@ val tooltipsNone = layerTooltips().none()
  * @param variables Variable names to create a general multiline tooltip with.
  *  Useful for specifying the tooltip content quickly, instead of
  *  configuring it via the `line()` method.
+ *  Can be passed as individual strings or as a `List<String>`.
  *
  */
 @Suppress("ClassName")
 class layerTooltips(vararg variables: String) {
 
+    constructor(variables: List<String>) : this(*variables.toTypedArray())
+
     private val parameters = HashMap<String, Any>().apply {
-        variables.toList().let {
-            if (it.isNotEmpty()) {
-                this[TOOLTIP_VARIABLES] = it
-            }
+        if (variables.isNotEmpty()) {
+            this[TOOLTIP_VARIABLES] = variables.toList()
         }
     }
 

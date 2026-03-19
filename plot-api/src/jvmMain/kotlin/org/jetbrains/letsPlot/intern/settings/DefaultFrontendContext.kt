@@ -6,6 +6,7 @@
 package org.jetbrains.letsPlot.intern.settings
 
 import org.jetbrains.letsPlot.FrontendContext
+import org.jetbrains.letsPlot.export.VersionChecker
 import org.jetbrains.letsPlot.frontend.DefaultSwingFrontendContext
 
 actual fun createDefaultFrontendContext(): FrontendContext {
@@ -17,7 +18,7 @@ actual fun createDefaultFrontendContext(): FrontendContext {
                                     
                                     The frontend context is not defined.
                                     To define the frontend context please select one of the following options:
-                                    a. Add "org.jetbrains.lets-plot:platf-awt:<version>" to your dependencies.   
+                                    a. Add "org.jetbrains.lets-plot:platf-awt:${VersionChecker.letsPlotVersion}" to your dependencies.   
                                     b. Specify the frontend context explicitly: "LetsPlot.frontendContext = ..."
                                        
                                     """.trimIndent()

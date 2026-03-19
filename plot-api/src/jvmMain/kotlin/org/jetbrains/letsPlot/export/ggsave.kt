@@ -241,12 +241,7 @@ private fun exportRasterImage(
                     """
                     
                     Can't export plot to raster formats: ${e::class.simpleName} "${e.message}".
-                    Please add "lets-plot-image-export-<version>.jar" to your classpath.
-                    A Gradle dependency example:
-                    
-                        implementation("org.jetbrains.lets-plot:lets-plot-image-export:<version>")
-                    
-                    where <version> is the version of the Lets-Plot Multiplatform artifact you are using.
+                    Please add "org.jetbrains.lets-plot:platf-awt:${VersionChecker.letsPlotVersion}" to your dependencies to enable raster image export.
                 """.trimIndent()
                 )
 
