@@ -8,10 +8,13 @@ package org.jetbrains.letsPlot.geom
 import org.jetbrains.letsPlot.Stat
 import org.jetbrains.letsPlot.commons.encoding.Png
 import org.jetbrains.letsPlot.commons.values.Bitmap
+import org.jetbrains.letsPlot.commons.values.Color
+import org.jetbrains.letsPlot.commons.values.Colors
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.*
 import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.scale.scaleGrey
+import org.jetbrains.letsPlot.scale.scaleManual
 
 
 /**
@@ -34,6 +37,13 @@ import org.jetbrains.letsPlot.scale.scaleGrey
  *
  * @param rasterData Specifies image type, size and pixel values. See [RasterData.create].
  *
+ * @param cmap A list of colors to use as a colormap for greyscale images.
+ *  Colors can be specified as hex strings (`"#RRGGBB"`, `"#RGB"`), `"rgb(r, g, b)"`, `"rgba(r, g, b, a)"`,
+ *  or named colors (e.g. `"red"`).
+ *  The greyscale values will be quantized to map to the provided colors.
+ *  This parameter is ignored for RGB(A) images.
+ *  Use [ColorScale.palette] to generate a color list from any color scale,
+ *  for example: `cmap = scaleColorViridis().palette(256)`.
  * @param norm default = true.
  *  - true - luminance values in grey-scale image will be scaled to `[0-255]` range using a linear scaler.
  *  - false - disables scaling of luminance values in grey-scale image.
@@ -59,6 +69,7 @@ import org.jetbrains.letsPlot.scale.scaleGrey
  */
 fun geomImshow(
     rasterData: RasterData,
+    cmap: List<String>? = null,
     norm: Boolean = true,
     vmin: Number? = null,
     vmax: Number? = null,
@@ -76,8 +87,6 @@ fun geomImshow(
         "Invalid rasterData: num of channels expected to be 1 (G) or 2 (GA) for greyscale image, 3 (RGB) or 4 (RGBA) for color image, but was ${raster.nChannels}"
     }
 
-    val cmap: String? = null // TODO: add palettes support
-
     val greyscale = raster.nChannels == 1
     var greyScaleDataMin: Double = Double.NaN
     var greyScaleDataMax: Double = Double.NaN
@@ -91,19 +100,33 @@ fun geomImshow(
         }
         hasNan = raster.hasNan()
 
-        if (hasNan && cmap.isNullOrEmpty()) {
-            // add alpha
-            raster = raster.addChannel()
+        if (cmap != null) {
+            // Apply colormap: replace greyscale values with palette RGBA colors.
+            require(cmap.isNotEmpty()) { "cmap list must contain at least one color" }
+            val cmapColors = cmap.map(Colors::parseColor)
+            val palette = buildCmapPalette(cmapColors, hasNan)
 
-            require(raster.nChannels == 2)
-            raster.updatePixels { pix ->
-                pix[1] = when (pix[0].isNaN()) {
-                    true -> vmin?.toFloat() ?: Float.NaN
-                    false -> 255f
+            if (hasNan) {
+                // Replace NaN with 0 (index 0 = transparent color in palette)
+                raster.updateChannels { if (it.isNaN()) 0f else it }
+            }
+
+            // Expand raster from 1 channel (greyscale) to 4 channels (RGBA) using the palette.
+            raster = raster.applyPalette(palette)
+        } else {
+            // No colormap — default greyscale handling.
+            if (hasNan) {
+                // add alpha
+                raster = raster.addChannel()
+
+                require(raster.nChannels == 2)
+                raster.updatePixels { pix ->
+                    pix[1] = when (pix[0].isNaN()) {
+                        true -> vmin?.toFloat() ?: Float.NaN
+                        false -> 255f
+                    }
                 }
             }
-        } else if (hasNan && !cmap.isNullOrEmpty()) {
-            raster.updateChannels { it.takeUnless { it.isNaN() } ?: 255f }
         }
     } else {
         if (raster.isDTypeF) {
@@ -180,9 +203,8 @@ fun geomImshow(
 
     val legendTitle = ""
     val colorScale: Scale? = if (greyscale && showLegend) {
-        if (cmap != null) when (norm) {
-            true -> null  // ToDo
-            else -> null  // ToDo
+        if (cmap != null) {
+            scaleManual(aesthetic = colorBy, values = cmap, name = legendTitle)
         } else {
             val start = if (norm) 0.0 else greyScaleDataMin / 255
             val end = if (norm) 1.0 else greyScaleDataMax / 255
@@ -497,4 +519,49 @@ internal class Raster(
 
     fun pixel() = Pixel()
     fun hasNan() = pixels.any(Float::isNaN)
+
+    /**
+     * Replace each single-channel greyscale pixel with RGBA from the palette lookup table.
+     * The pixel value (rounded to int) is used as index into the palette.
+     */
+    fun applyPalette(palette: Array<Color>): Raster {
+        require(nChannels == 1) { "applyPalette requires a single-channel raster, but was $nChannels" }
+        val newPixels = FloatArray(width * height * 4)
+        var dst = 0
+        for (src in 0 until width * height) {
+            val index = pixels[src].toInt().coerceIn(0, palette.size - 1)
+            val c = palette[index]
+            newPixels[dst++] = c.red.toFloat()
+            newPixels[dst++] = c.green.toFloat()
+            newPixels[dst++] = c.blue.toFloat()
+            newPixels[dst++] = c.alpha.toFloat()
+        }
+        return Raster(width, height, 4, false, newPixels)
+    }
+}
+
+/**
+ * Build a 256-entry RGBA palette from a list of colors.
+ *
+ * When [hasNan] is true, index 0 is reserved for transparent (NaN pixels),
+ * and the remaining 255 entries are mapped from the color list.
+ * Otherwise, all 256 entries are mapped from the color list.
+ */
+private fun buildCmapPalette(cmapColors: List<Color>, hasNan: Boolean): Array<Color> {
+    val nColors = cmapColors.size
+    return if (!hasNan) {
+        // 256 entries: values 0-255 map to colors
+        Array(256) { i ->
+            cmapColors[(i * nColors / 256).coerceAtMost(nColors - 1)]
+        }
+    } else {
+        // Index 0 = transparent, indices 1-255 = mapped colors
+        Array(256) { i ->
+            if (i == 0) {
+                Color(0, 0, 0, 0)
+            } else {
+                cmapColors[((i - 1) * nColors / 255).coerceAtMost(nColors - 1)]
+            }
+        }
+    }
 }
