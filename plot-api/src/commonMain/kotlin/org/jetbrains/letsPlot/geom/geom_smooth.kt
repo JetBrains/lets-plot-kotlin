@@ -82,9 +82,10 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param method default = "lm".
- *  Smoothing method: lm (Linear Model) or loess (Locally Estimated Scatterplot Smoothing).
+ *  Smoothing method: "lm" (Linear Model) or "loess" (Locally Estimated Scatterplot Smoothing).
+ *  If the value of the `deg` parameter is greater than 1, the linear model becomes a polynomial of the given degree.
  * @param n default = 80. Number of points to evaluate smoother at.
- * @param se default = true. To display confidence interval around smooth.
+ * @param se default = true. Display confidence interval around smooth.
  * @param level default = 0.95. Level of confidence interval to use.
  * @param span default = 0.5.
  *  Only for LOESS method. The fraction of source points closest to the current point
