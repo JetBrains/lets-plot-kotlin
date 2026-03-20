@@ -279,6 +279,7 @@ Cookbooks:
 - [The `extent` parameter](%nb-image_extent%)
 - [Parameters `norm`, `vmain` and `vmax`](%nb-image_grayscale%)
 - ["Fisher boat": `geomImshow()` and raster data](%nb-image_fisher_boat%)
+- [Custom color palettes in `geomImshow()`](%nb-image_custom_cmap%)
 
 
 ## Coordinate Systems

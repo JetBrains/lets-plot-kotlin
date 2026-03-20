@@ -111,6 +111,7 @@
     <var name="nb-hjust_vjust" value="%nbviewer_cookbook%/hjust_vjust.ipynb"/>
     <var name="nb-horizontal_geoms" value="%nbviewer_cookbook%/horizontal_geoms.ipynb"/>
     <var name="nb-image_101" value="%nbviewer_cookbook%/image_101.ipynb"/>
+    <var name="nb-image_custom_cmap" value="%html_cookbook%/image_custom_cmap.html"/>
     <var name="nb-image_extent" value="%nbviewer_cookbook%/image_extent.ipynb"/>
     <var name="nb-image_fisher_boat" value="%nbviewer_cookbook%/image_fisher_boat.ipynb"/>
     <var name="nb-image_grayscale" value="%nbviewer_cookbook%/image_grayscale.ipynb"/>
