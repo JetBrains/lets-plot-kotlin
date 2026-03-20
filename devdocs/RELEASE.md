@@ -31,7 +31,7 @@ Also update the "What's New" section in the README.md file.
 ```
 Go to the Sonatype Central Repository deployments page:
 
-https://central.sonatype.com/publishing/deployments
+https://central.sonatype.com/publishing
 
 Check all artifacts were uploaded and validated, then push the "Publish" button.
 
