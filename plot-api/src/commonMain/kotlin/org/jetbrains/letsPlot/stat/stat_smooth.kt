@@ -66,10 +66,10 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param alpha Transparency level of a layer. Understands numbers between 0 and 1.
  * @param method default = "lm".
- *  Smoothing method: lm (Linear Model) or loess (Locally Estimated Scatterplot Smoothing).
+ *  Smoothing method: "lm" (Linear Model) or "loess" (Locally Estimated Scatterplot Smoothing).
  * @param n default = 80. Number of points to evaluate smoother at.
  * @param level default = 0.95. Level of confidence interval to use.
- * @param se default = true. To display confidence interval around smooth.
+ * @param se default = true. Display confidence interval around smooth.
  * @param span default = 0.5.
  *  Only for LOESS method. The fraction of source points closest to the current point
  *  is taken into account for computing a least-squares regression. A sensible value is usually 0.25 to 0.5.
