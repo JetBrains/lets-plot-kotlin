@@ -8,7 +8,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 * Plot Annotations:
 
     * New `labels` parameter in `geomSmooth()` designed to display statistical summaries of the fitted model directly on the plot.
-      This parameter accepts a `smoothLabels()` object, which provides access to model-specific variables like $R^2$, the regression equation and others.
+      This parameter accepts a `smoothLabels()` object, which provides access to model-specific variables like $R^2$, the regression equation and others [[#1388](https://github.com/JetBrains/lets-plot/discussions/1388)].
 
       See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/smooth_summary.html).
 
@@ -32,6 +32,12 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
       See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/geom_bracket.html).
 
+    * `geomImshow()`:
+
+        * Support for custom colormaps [[#780](https://github.com/JetBrains/lets-plot/issues/780)].
+        * New `cguide` parameter: use to customize the colorbar for grayscale images.
+
+          See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/image_custom_cmap.html).
 
 * Color Scales:
 

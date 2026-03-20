@@ -11,7 +11,7 @@ Also update the "What's New" section in the README.md file.
 
 > Update the artifact version in (also GeoTools version if needed): 
 >  - [README.md](../README.md)
->  - [USAGE_BATIK_JFX_JS.md](../USAGE_BATIK_JFX_JS.md)
+>  - [USAGE_JVM_JS.md](../USAGE_JVM_JS.md)
 >  - [geospatial-charts.md](../Writerside/topics/geospatial_charts.md).
 
 ##### 3. Build and publish artifacts to Sonatype Central repository

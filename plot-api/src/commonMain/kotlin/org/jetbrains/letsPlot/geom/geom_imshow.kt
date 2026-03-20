@@ -35,7 +35,7 @@ import org.jetbrains.letsPlot.scale.scaleManual
  * - [image_fisher_boat.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/image_fisher_boat.ipynb)
  * - [image_grayscale.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/image_grayscale.ipynb)
  *
- * @param rasterData Specifies image type, size and pixel values. See [RasterData.create].
+ * @param rasterData Specifies image type, size, and pixel values. See [RasterData.create].
  *
  * @param cmap A list of colors to use as a colormap for greyscale images.
  *  Colors can be specified as hex strings (`"#RRGGBB"`, `"#RGB"`), `"rgb(r, g, b)"`, `"rgba(r, g, b, a)"`,
@@ -45,14 +45,14 @@ import org.jetbrains.letsPlot.scale.scaleManual
  *  Use [ColorScale.palette] to generate a color list from any color scale,
  *  for example: `cmap = scaleColorViridis().palette(256)`.
  * @param norm default = true.
- *  - true - luminance values in grey-scale image will be scaled to `[0-255]` range using a linear scaler.
- *  - false - disables scaling of luminance values in grey-scale image.
+ *  - true - luminance values in gray-scale image will be scaled to `[0-255]` range using a linear scaler.
+ *  - false - disables scaling of luminance values in gray-scale image.
  *  This parameter is ignored for RGB(A) images.
  * @param vmin default = null.
- *  Defines the data range used for luminance normalization in grey-scale images.
+ *  Defines the data range used for luminance normalization in gray-scale images.
  *  This parameter is ignored for RGB(A) images or if parameter `norm = false`.
  * @param vmax default = null.
- *  Defines the data range used for luminance normalization in grey-scale images.
+ *  Defines the data range used for luminance normalization in gray-scale images.
  *  This parameter is ignored for RGB(A) images or if parameter `norm = false`.
  * @param extent default = listOf(-0.5, ncol-0.5, -0.5, nrow-0.5).
  *  List of 4 numbers: (left, right, bottom, top).
@@ -61,7 +61,7 @@ import org.jetbrains.letsPlot.scale.scaleManual
  *  - `bottom`, `top`: coordinates of pixels outer edge along the y-axis for pixels in the 1-st and the last row.
  * @param showLegend default = true.
  *  Greyscale images only.
- *  false - do not show legend for this layer.
+ *  - false - do not show legend for this layer.
  * @param colorBy default="paint_c" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Define the color-aesthetic used by the legend shown for a greyscale image.
  * @param cguide default = null.
@@ -291,7 +291,7 @@ class RasterData private constructor(
         /**
          * Creates [RasterData] from 2D or 3D collection.
          * @param iterable 2D or 3D collection.
-         *  - (M, N): an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - (M, N): an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).
          *  - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -314,7 +314,7 @@ class RasterData private constructor(
         /**
          * Creates [RasterData] from 2D or 3D array.
          * @param arr 2D or 3D array.
-         *  - (M, N): an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - (M, N): an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).
          *  - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -340,7 +340,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -353,7 +353,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -366,7 +366,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -379,7 +379,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -393,7 +393,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -526,7 +526,7 @@ internal class Raster(
 
     /**
      * Replace each single-channel greyscale pixel with RGBA from the palette lookup table.
-     * The pixel value (rounded to int) is used as index into the palette.
+     * The pixel value (rounded to int) is used as an index into the palette.
      */
     fun applyPalette(palette: Array<Color>): Raster {
         require(nChannels == 1) { "applyPalette requires a single-channel raster, but was $nChannels" }
