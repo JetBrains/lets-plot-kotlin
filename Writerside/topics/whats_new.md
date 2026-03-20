@@ -104,6 +104,6 @@
     </li>
 </list>
 
-## Change Log
+## Changelog
 
 See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md) for other changes and fixes.

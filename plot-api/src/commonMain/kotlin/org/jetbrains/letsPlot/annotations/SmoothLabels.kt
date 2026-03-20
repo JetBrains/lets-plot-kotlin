@@ -8,40 +8,51 @@ package org.jetbrains.letsPlot.annotations
 import org.jetbrains.letsPlot.core.spec.Option
 
 /**
- * Configure annotations for `geomSmooth()` layers.
+ * Configure annotations for [geomSmooth()][org.jetbrains.letsPlot.geom.geomSmooth] layers.
  *
- * `smoothLabels()` is a specialized annotation helper designed for smooth layers.
- * It shares the same API as [layerLabels] — supporting [line], [format], [size], and [inheritColor] —
- * and additionally provides regression-specific methods: [eq], [labelX], and [labelY].
+ * This class extends [layerLabels()][org.jetbrains.letsPlot.annotations.layerLabels]
+ * and provides additional options for displaying statistics produced by the `smooth` stat, such as
+ * R², adjusted R², and the fitted model equation.
+ *
+ * It allows placing a multi-line annotation near the smooth curve and
+ * mixing custom text, computed variables (e.g. `..r2..`), and a generated
+ * equation block.
+ * If created without any additional configuration the annotation displays a single line with R².
  *
  * ## Supported variables and markers
  *
- * Use these in [line] templates via `@..name..` syntax:
+ * Use these in [line()][org.jetbrains.letsPlot.annotations.smoothLabels.line] templates via `@..name..` syntax:
  *
- * - `..r2..` — R² (coefficient of determination).
- * - `..adjr2..` — adjusted R².
- * - `..aic..` — Akaike Information Criterion.
- * - `..bic..` — Bayesian Information Criterion.
- * - `..f..` — F-statistic.
- * - `..df1..` — numerator degrees of freedom for the F-test.
- * - `..df2..` — denominator degrees of freedom for the F-test.
- * - `..p..` — p-value for the overall model F-test.
- * - `..method..` — smoothing method label (`lm` or `loess`).
- * - `..n..` — number of observations used in model fitting.
- * - `..cilevel..` — confidence level used for the R² confidence interval.
- * - `..cilow..` — lower bound of the R² confidence interval.
- * - `..cihigh..` — upper bound of the R² confidence interval.
- * - `~eq` — fitted equation (use in a [line] template to insert the model equation).
+ * - `..r2..` - R² (coefficient of determination).
+ * - `..adjr2..` - adjusted R².
+ * - `..aic..` - Akaike Information Criterion.
+ * - `..bic..` - Bayesian Information Criterion.
+ * - `..f..` - F-statistic.
+ * - `..df1..` - numerator degrees of freedom for the F-test.
+ * - `..df2..` - denominator degrees of freedom for the F-test.
+ * - `..p..` - p-value for the overall model F-test.
+ * - `..method..` - smoothing method label (`lm` or `loess`).
+ * - `..n..` - number of observations used in model fitting.
+ * - `..cilevel..` - confidence level used for the R² confidence interval.
+ * - `..cilow..` - lower bound of the R² confidence interval.
+ * - `..cihigh..` - upper bound of the R² confidence interval.
+ * - `~eq` - fitted equation (use in a [line()][org.jetbrains.letsPlot.annotations.smoothLabels.line] template to insert the model equation).
  *
  * ## Notes
  *
- * The text color can be set using: `theme(labelText=elementText(color=...))`.
+ * By default, annotation text color is automatically selected for good readability.
  *
- * Alternatively, [inheritColor] makes the annotation text use the geometry's `color` aesthetic.
+ * Use `theme(labelText = elementText(...))` to customize the appearance of annotation text.
+ * See also [elementText()][org.jetbrains.letsPlot.themes.elementText].
+ *
+ * Alternatively, the [inheritColor()][org.jetbrains.letsPlot.annotations.smoothLabels.inheritColor]
+ * method can be used to make annotation text use the geometry's `color` aesthetic,
+ * overriding both the automatically selected text color and any color specified via
+ * `theme(labelText = elementText(...))`.
  *
  * ## Examples
  *
- * - [smooth_summary.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/examples/jupyter-notebooks/f-4.13.0/smooth_summary.html)
+ * - [smooth_summary.html](https://lets-plot.org/kotlin/examples/cookbook/smooth_summary.html)
  *
  * ```kotlin
  * val data = mapOf("x" to listOf(0, 1.5, 1.7, 2), "y" to listOf(0, 1, 1.8, 4))
@@ -119,8 +130,8 @@ class smoothLabels {
      * Specifies a line template to show in the annotation.
      *
      * Variables can be accessed via `@..name..` syntax:
-     * - `@..r2..` — R² value
-     * - `@..adjr2..` — adjusted R² value
+     * - `@..r2..` - R² value
+     * - `@..adjr2..` - adjusted R² value
      *
      * Use `~eq` as a placeholder for the auto-generated equation.
      *

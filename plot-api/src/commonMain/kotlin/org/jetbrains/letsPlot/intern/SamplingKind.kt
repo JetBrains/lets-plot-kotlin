@@ -5,6 +5,9 @@
 
 package org.jetbrains.letsPlot.intern
 
+/**
+ * @suppress
+ */
 enum class SamplingKind {
     NONE,
     RANDOM,

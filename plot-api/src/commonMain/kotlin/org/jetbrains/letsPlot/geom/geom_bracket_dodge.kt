@@ -17,7 +17,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  *
  * ## Examples
  *
- * - [geom_bracket.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/geom_bracket.ipynb)
+ * - [geom_bracket.html](https://lets-plot.org/kotlin/examples/cookbook/geom_bracket.html)
  *
  * @param data The data to be displayed. If null, the default, the data is inherited
  *  from the plot data as specified in the call to [letsPlot][org.jetbrains.letsPlot.letsPlot].
@@ -41,6 +41,7 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  * @param orientation default = "x" ("x", "y").
  *  Specifies the axis that the geom should run along.
  * @param labelFormat Specifies the format pattern for displaying mapped values.
+ *  For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html).
  * @param naText default = "n/a".
  *  Text to show for missing values.
  * @param nudgeX Horizontal adjustment to nudge the geometry by.

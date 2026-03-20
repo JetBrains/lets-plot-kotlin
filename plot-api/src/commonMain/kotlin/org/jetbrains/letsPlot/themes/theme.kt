@@ -206,11 +206,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param stripTextX Style settings for horizontal facet labels.
  * @param stripTextY Style settings for vertical facet labels.
  * @param stripSpacing Spacing between facet labels and the plotting area.
- * @param stripSpacingX Spacing between facet labels and the plotting area in horizontal direction, inherited from ``stripSpacing``.
- * @param stripSpacingY Spacing between facet labels and the plotting area in vertical direction, inherited from ``stripSpacing``.
+ * @param stripSpacingX Spacing between facet labels and the plotting area in horizontal direction, inherited from `stripSpacing`.
+ * @param stripSpacingY Spacing between facet labels and the plotting area in vertical direction, inherited from `stripSpacing`.
  * @param panelSpacing Spacing between panels in facets.
- * @param panelSpacingX Spacing between panels in facets in horizontal direction, inherited from ``panelSpacing``.
- * @param panelSpacingY Spacing between panels in facets in vertical direction, inherited from ``panelSpacing``.
+ * @param panelSpacingX Spacing between panels in facets in horizontal direction, inherited from `panelSpacing`.
+ * @param panelSpacingY Spacing between panels in facets in vertical direction, inherited from `panelSpacing`.
  *
  * @param axisTooltip Style settings for axes tooltips.
  * @param axisTooltipX Style settings for axes tooltips.
@@ -225,10 +225,11 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param tooltipTitleText Style settings for tooltip title text.
  *
  * @param labelText Style settings for annotation text.
- *  Annotations are currently supported for pie and bar charts.
- *  Set `elementText()` to specify annotation text parameters: font family and face, text size,
- *  text color (relevant for a pie chart - for those annotations that are outside the pie).
- *
+ *  Applies to text labels used in annotations, including labels configured with
+ *  [layerLabels()][org.jetbrains.letsPlot.annotations.layerLabels] and
+ *  [smoothLabels()][org.jetbrains.letsPlot.annotations.smoothLabels].
+ *  For more info see [annotations.html](https://lets-plot.org/kotlin/annotations.html).
+ *  Set [elementText()][org.jetbrains.letsPlot.themes.elementText] to specify label text appearance.
  * @param geom Color settings for geometries.
  */
 @Suppress("ClassName")
@@ -576,7 +577,7 @@ class theme(
 }
 
 /**
- * Theme element that draws nothing and allocates no space for non-data components of the plot.
+ * Theme element that specifies that the corresponding non-data components of the plot are not drawn and do not allocate space.
  *
  * ## Examples
  *
@@ -586,7 +587,7 @@ fun elementBlank() = mapOf(Option.Theme.Elem.BLANK to true)
 
 
 /**
- * Theme element that draws rectangular non-data components of the plot: borders and backgrounds.
+ * Theme element that specifies how rectangular non-data components of the plot, such as borders and backgrounds, are drawn.
  *
  * ## Examples
  *
@@ -617,7 +618,7 @@ fun elementRect(
 
 
 /**
- * Theme element that draws line-based non-data components of the plot.
+ * Theme element that specifies how line-based non-data components of the plot are drawn.
  *
  * ## Examples
  *
@@ -645,7 +646,7 @@ fun elementLine(
 
 
 /**
- * Theme element that draws text for non-data components of the plot.
+ * Theme element that specifies how text in non-data components of the plot is drawn.
  *
  * ## Examples
  *
@@ -702,7 +703,7 @@ fun elementText(
 
 
 /**
- * Theme element that draws text with Markdown support for non-data components of the plot.
+ * Theme element that specifies how text with Markdown support in non-data components of the plot is drawn.
  *
  * Supported features:
  *

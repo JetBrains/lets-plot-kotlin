@@ -41,6 +41,10 @@ Now the documentation site can be explored locally with the [http-server](https:
                                      
 See: [Writerside: Configure search](https://www.jetbrains.com/help/writerside/configure-search.html#create-the-build-configuration-on-ci-cd)
 
+> [!IMPORTANT]
+> Always update the Algolia index after rebuilding and publishing the documentation,
+> regardless of the type or scope of the changes.
+
 - For the first run: add the Algolia admin secret API key (`aligola.key=`) to the [local.properties](../local.properties) file.
 
 - Run Bash script:

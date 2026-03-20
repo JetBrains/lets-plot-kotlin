@@ -29,4 +29,14 @@ Cookbooks:
 
 - [The `gggrid()` function](%nb-plot_grid%)
 - [Sharing X,Y-axis scale limits](%nb-gggrid_scale_share%)
+- [Interactive pan/zoom with shared axes in gggrid](%nb-gggrid_scale_share_zoom%)
 - [Collecting guides in gggrid()](%nb-gggrid_legend_collect%)
+
+## Plot Tags
+
+Plot tags are short labels attached to subplots and composite figures (panel labels, figure numbering).
+Specify them via `labs(tag = ...)` and tune placement/style with `plotTag*` in [`theme()`](%api_theme%/theme/index.html).
+
+Cookbooks:
+
+- [Plot tags](%nb-plot_tags%)
