@@ -10,7 +10,7 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
-val libVersion = "4.12.1"
+val libVersion = "4.13.0"
 
 val rootDirectory = rootProject.projectDir.toString().replace("\\", "/")
 val docsDirectory = "$rootDirectory/docs"
