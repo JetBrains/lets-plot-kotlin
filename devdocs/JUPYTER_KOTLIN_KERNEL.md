@@ -48,6 +48,7 @@ Update versions in the `lets-plot.json` and `lets-plot-gt.json` files (find copi
 Copy descriptors to the `~/.jupyter_kotlin/libraries` directory (create if it does not exist):
 
 ```bash
+rm -rf ~/.jupyter_kotlin/libraries && mkdir -p ~/.jupyter_kotlin/libraries
 cp devdocs/lets-plot.json ~/.jupyter_kotlin/libraries
 cp devdocs/lets-plot-gt.json ~/.jupyter_kotlin/libraries
 ```
