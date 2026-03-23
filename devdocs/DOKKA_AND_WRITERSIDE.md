@@ -32,7 +32,7 @@ Now the documentation site can be explored locally with the [http-server](https:
   to re-generate the sitemap.xml file:
 
   ```Bash
-  python utils/sitemap.py -i docs/ -f docs/sitemap.xml
+  python tools/sitemap.py -i docs/ -f docs/sitemap.xml
   ```
 
 - Publish the documentation by committing changes to the “master” branch of the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) repository.
