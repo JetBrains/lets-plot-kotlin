@@ -9,7 +9,7 @@ Lets-Plot provides several ways to annotate charts:
 
   [Learn more (reference notebook)](%nbp-annotations%).
 
-- **Annotations for** [`geomSmooth()`](%api_geom%/geom-smooth/index.html).
+- **Annotations for** [`geomSmooth()`](%api_geom%/geom-smooth.html).
   Use the `labels` parameter together with [`smoothLabels()`](%api_annotations%/smooth-labels/index.html)
   to display statistics computed by the `smooth` stat (for example, R², adjusted R²,
   and a fitted model equation). `smoothLabels` extends `layerLabels`, so formatting and text

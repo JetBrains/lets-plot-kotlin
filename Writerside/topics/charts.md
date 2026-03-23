@@ -188,7 +188,7 @@ Cookbooks:
 
 ## Smoothing
 
-[`smoothing line`](%api_geom%/geom-smooth/index.html)
+[`smoothing line`](%api_geom%/geom-smooth.html)
 
 Cookbooks:
 
