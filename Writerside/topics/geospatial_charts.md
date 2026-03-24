@@ -1,6 +1,6 @@
 # Geospatial Charts
 
-[GeoTools](https://www.geotools.org/) is an open source Java GIS Toolkit.
+[GeoTools](https://www.geotools.org/) is an open-source Java GIS Toolkit.
 
 *Lets-Plot* supports visualization of `SimpleFeature` objects organized in `SimpleFeatureCollection`, as well as
 individual `Geometry`  (`org.locationtech.jts.geom`) and `ReferencedEnvelope` (`org.geotools.geometry.jts`) objects.
@@ -40,20 +40,20 @@ All coordinates must be in decimal degree units, in "WGS 84" coordinates.
 
 ## Creating Maps in JVM-Based Applications
 
-For general information on using the *Lets-Plot* library in JVM-based application, see: [USAGE_BATIK_JFX_JS.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_BATIK_JFX_JS.md)
+For general information on using the *Lets-Plot* library in a JVM-based application, see: [USAGE_JVM_JS.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_JVM_JS.md)
 
 ### Maven Artifacts
 
-In addition to the Maven artifacts that are [required](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_BATIK_JFX_JS.md#dependencies)
+In addition to the Maven artifacts that are [required](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_JVM_JS.md#dependencies)
 for regular plots, the artifact `lets-plot-kotlin-geotools` must be included to make the `toSpatialDataset()` method available.
 
-You can include it into a Gradle project.
+You can include it in a Gradle project.
 
 ```groovy
 implementation 'org.jetbrains.lets-plot-kotlin:lets-plot-kotlin-geotools:%version%'
 ```
 
-The `gt-geojson` artifact from GeoTools must be also included (see compatible version in [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)).
+The `gt-geojson` artifact from GeoTools must be also included (see a compatible version in [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md)).
 
 ```groovy
 dependencies {   
@@ -66,15 +66,13 @@ dependencies {
 
 ### JVM-Based Examples
 
-The ['geotools-batik'](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/geotools-batik) subproject
-contains a set runnable examples that use [Apache Batik SVG Toolkit](https://xmlgraphics.apache.org/batik/)
-for rendering.
+You can find a set of runnable examples in the ['geotools-swing'](https://github.com/JetBrains/lets-plot-kotlin/tree/master/demo/geotools-swing) subproject on GitHub.
 
 ## Creating Maps in Notebooks
 
 *Lets-Plot* can visualize maps in [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](https://datalore.jetbrains.com) or [Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme).
 
-You can include all necessary dependencies into your notebook using the following "line magics":
+You can include all necessary dependencies in your notebook using the following "line magics":
 
 ```
 %use lets-plot

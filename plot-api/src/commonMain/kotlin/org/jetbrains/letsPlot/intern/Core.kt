@@ -16,6 +16,9 @@ import org.jetbrains.letsPlot.intern.layer.SamplingOptions
 import org.jetbrains.letsPlot.intern.layer.StatOptions
 import org.jetbrains.letsPlot.tooltips.TooltipOptions
 
+/**
+ * @suppress
+ */
 class Plot internal constructor(
     val data: Map<*, *>? = null,
     val mapping: Options = GenericAesMapping().seal(),
@@ -71,6 +74,9 @@ class Plot internal constructor(
 }
 
 
+/**
+ * @suppress
+ */
 sealed class Feature {
     /**
      * @suppress
@@ -85,6 +91,9 @@ sealed class Feature {
 }
 
 
+/**
+ * @suppress
+ */
 class FeatureList(elements: List<Feature>) : Feature() {
     val elements: List<Feature> = elements.flatMap { element ->
         when (element) {
@@ -108,6 +117,9 @@ internal object DummyFeature : Feature() {
     }
 }
 
+/**
+ * @suppress
+ */
 abstract class Layer(
     mapping: Options,
     val data: Map<*, *>? = null,
@@ -135,7 +147,10 @@ abstract class Layer(
     }
 }
 
-class Scale(
+/**
+ * @suppress
+ */
+open class Scale(
     aesthetic: Any,
     val name: String? = null,
     breaks: Any? = null,                // List of breaks or Map of labels to breaks
@@ -212,6 +227,9 @@ class Scale(
     }
 }
 
+/**
+ * @suppress
+ */
 open class OptionsMap internal constructor(
     val kind: String,
     val options: Map<String, Any>
@@ -227,5 +245,8 @@ open class OptionsMap internal constructor(
     )
 }
 
+/**
+ * @suppress
+ */
 abstract class NotLayer : Feature()
 

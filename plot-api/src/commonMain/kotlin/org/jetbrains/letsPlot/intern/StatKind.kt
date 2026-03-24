@@ -5,6 +5,9 @@
 
 package org.jetbrains.letsPlot.intern
 
+/**
+ * @suppress
+ */
 enum class StatKind {
     IDENTITY,
     COUNT,
@@ -27,6 +30,7 @@ enum class StatKind {
     CONTOUR,
     CONTOURF,
     SMOOTH,
+    SMOOTH_SUMMARY,
     QQ,
     QQ2,
     QQ_LINE,

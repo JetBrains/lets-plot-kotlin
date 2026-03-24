@@ -2,22 +2,6 @@
 
 `$ pip install kotlin-jupyter-kernel`
 
-## Library Descriptors Location
-
-Lets-Plot library descriptors are files:
-- lets-plot.json
-- lets-plot-gt.json
-
-After installing the kotlin kernel, the "bundled" library descriptors are located in
-
-> /opt/anaconda3/envs/<env name>/lib/python3.7/site-packages/run_kotlin_kernel/libraries/
-
-> **Note:** If the `%useLatestDescriptors` **_line magic_** is included in Jupyter notebook,
-> 
-> Kotlin kernel will pull the latest repository version of descriptors and store them in this location:
-> ~/.jupyter_kotlin/cache/
-> 
-         
 ## Notebook Tips and Tricks
 
 - show all resolved jars:
@@ -25,58 +9,66 @@ After installing the kotlin kernel, the "bundled" library descriptors are locate
   :classpath
   ```
 
-- force the Kotlin Kernel to pull from the repository and apply the latest versions of all library descriptors::
+- force the Kotlin Kernel to pull from the repository and apply the latest versions of all library descriptors:
   ```
   %useLatestDescriptors
   ```
 
-- substitute the Kernel's version of the `lets-plot` library descriptor with your own descriptor:
-  ```
-  //%use lets-plot
-  %use @/Users/me/Projects/lets-plot-kotlin/lets-plot-dev.json
-  ```
- 
 ## Conducting Experiments with Kotlin Kernel Locally
 
-Clear Maven cache:
-`$ rm -rf ~/.m2/repository/org/jetbrains/lets-plot`                          
+#### Clear Maven cache:
 
-#### Publish artifacts to the local dev-repo:
-                                                     
 ```bash
-./gradlew publishJvmPublicationToMavenLocalRepository && \
-./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository && \
-./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository && \
-./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository && \
-./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository
+rm -rf ~/.m2/repository/org/jetbrains/lets-plot
+```                          
+
+#### Publish artifacts:
+
+**Option 1:** Publish to Maven local repository (`~/.m2/repository`):
+                              
+```bash
+./gradlew publishJvmPublicationToMavenLocal && \
+./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocal && \
+./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocal && \
+./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocal && \
+./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocal
+```
+             
+**Option 2:** Publish to Sonatype Central repository:
+
+Typically, a SNAPSHOT or pre-release version – check the version in `build.gradle.kts` file.
+
+See [PUBLISHING.md](PUBLISHING.md) for details on how to publish to Sonatype Central repository.
+         
+
+#### Setup the library descriptors:
+                                  
+Update versions in the `lets-plot.json` and `lets-plot-gt.json` files (find copies next to this document).
+
+Copy descriptors to the `~/.jupyter_kotlin/libraries` directory (create if it does not exist):
+
+```bash
+rm -rf ~/.jupyter_kotlin/libraries && mkdir -p ~/.jupyter_kotlin/libraries
+cp devdocs/lets-plot.json ~/.jupyter_kotlin/libraries
+cp devdocs/lets-plot-gt.json ~/.jupyter_kotlin/libraries
+```
+          
+#### In the Jupyter notebook:
+
+`%use lets-plot` should work normally. However, if it is used together with Kotlin dataframe, put lets-plot before the `%use dataframe` statement:
+
+```
+%useLatestDescriptors
+%use lets-plot
+%use dataframe
 ```
 
-It will publish all artifacts to `<project root>/.maven-publish-dev-repo/` folder.
+Include `LetsPlot.getInfo()` to verify the correct version of the library is used.
 
-#### Edit the library descriptor (lets-plot.json or lets-plot-gt.json):
 
-- Create a copy of the `lets-plot.json` and/or `lets-plot-gt.json` file in the `~/.jupyter_kotlin/libraries` directory. \
-  The `%use lets-plot` command will pick up the descriptor from this location. \
-  Alternatively, you can copy the descriptor to any location and use it via `%use @<path to the descriptor>` command.
-                                                                                
-
-- add _Maven Local_ or _Sonatype SNAPSHOT_ repository or both:
-  ```
-  "repositories": [
-    "file://<path to the project root>/.maven-publish-dev-repo",
-    "https://oss.sonatype.org/content/repositories/snapshots"
-  ],
-  ```
-
-- configure the Lets-Plot Kotlin version (the one that is set in `build.gradle.kts`):
-  ```
-  "properties": {
-    "v": "3.1.2-alpha2",
-    "isolatedFrame": ""
-  },
-  ```
+#### When the core Lets-Plot JS is not yet published (released):
  
-- if experimenting with Lets-Plot JS which is not published:
+- if experimenting with Lets-Plot JS, which is not published:
   - Set "js" version to "dev";
 > **TBD:** Currently, there is no clean way to configure "dev" version for JS.
 > The "dirty" way is to add "dev" to the "js" version right in the `VersionChecker.kt`.

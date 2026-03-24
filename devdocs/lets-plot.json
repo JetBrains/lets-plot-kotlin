@@ -1,0 +1,17 @@
+{
+  "description": "Kotlin API for Lets-Plot: multiplatform plotting library based on Grammar of Graphics",
+  "properties": [
+    { "name": "v", "value": "4.12.2-SNAPSHOT" },
+    { "name": "v-renovate-hint", "value": "update: package=org.jetbrains.lets-plot:lets-plot-kotlin-jupyter" },
+    { "name": "isolatedFrame", "value": "" },
+    { "name": "output", "value": "js, svg" }
+  ],
+  "link": "https://github.com/JetBrains/lets-plot-kotlin",
+  "dependencies": [
+    "org.jetbrains.lets-plot:lets-plot-kotlin-jupyter:$v"
+  ],
+  "repositories": [
+    "*mavenLocal",
+    "https://central.sonatype.com/repository/maven-snapshots/"
+  ]
+}

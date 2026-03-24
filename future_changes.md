@@ -1,13 +1,8 @@
-## [4.12.2] - 2026-mm-dd
+## [4.13.1] - 2026-mm-dd
 
-This release is 100% compatible with Lets-Plot [v 4.8.2](https://github.com/JetBrains/lets-plot/releases/tag/v4.8.2),
+This release is 100% compatible with Lets-Plot [v 4.9.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.9.0),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
-
-      
 ### Changed
-- replaced dependency plot-image-export with platf-awt: ??? 
-
 ### Fixed
-

@@ -7,6 +7,9 @@ package org.jetbrains.letsPlot.intern
 
 import org.jetbrains.letsPlot.intern.standardizing.MapStandardizing
 
+/**
+ * @suppress
+ */
 class Options(map: Map<String, Any?>) {
     companion object {
         fun of(pair: Pair<String, Any?>) = Options(mapOf(pair))

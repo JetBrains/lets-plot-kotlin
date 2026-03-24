@@ -31,11 +31,9 @@ fun positionDodge(width: Number? = null) =
     )
 
 /**
- * Adjusts position by dodging overlaps to the side.
- *
- * @param height Dodging height, when different to the height of the individual elements. This is useful when you want to align narrow geoms with taller geoms.
- *  The value of height is relative and typically ranges between 0 and 1. Values that are greater than 1 lead to overlapping of the objects.
+ * The function positionDodgeV() is deprecated and will be removed in future releases.
  */
+@Deprecated("The function positionDodgeV() is deprecated and will be removed in future releases.")
 fun positionDodgeV(height: Number? = null) =
     PosOptions(
         PosKind.DODGE_V,

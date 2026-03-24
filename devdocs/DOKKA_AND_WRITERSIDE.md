@@ -32,7 +32,7 @@ Now the documentation site can be explored locally with the [http-server](https:
   to re-generate the sitemap.xml file:
 
   ```Bash
-  python utils/sitemap.py -i docs/ -f docs/sitemap.xml
+  python tools/sitemap.py -i docs/ -f docs/sitemap.xml
   ```
 
 - Publish the documentation by committing changes to the “master” branch of the [lets-plot-docs](https://github.com/JetBrains/lets-plot-docs) repository.
@@ -40,6 +40,10 @@ Now the documentation site can be explored locally with the [http-server](https:
 ##### Update Algolia Search Index
                                      
 See: [Writerside: Configure search](https://www.jetbrains.com/help/writerside/configure-search.html#create-the-build-configuration-on-ci-cd)
+
+> [!IMPORTANT]
+> Always update the Algolia index after rebuilding and publishing the documentation,
+> regardless of the type or scope of the changes.
 
 - For the first run: add the Algolia admin secret API key (`aligola.key=`) to the [local.properties](../local.properties) file.
 

@@ -1,3 +1,11 @@
+/* Common */
+
+ul li[data-toc-scroll='toc-api-reference'] a::after {
+  content: none;
+}
+
+/* Named colors tables */
+
 div[data-tab-id="by-shade"] div.table>div {
   width: 100%;
   border: none;

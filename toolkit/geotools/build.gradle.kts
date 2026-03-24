@@ -10,6 +10,7 @@ plugins {
 }
 
 val geoToolsVersion = extra["geotools.version"] as String
+val slf4jVersion = extra["slf4j.version"] as String
 
 dependencies {
     compileOnly(projects.plotApi)
@@ -21,6 +22,8 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.geotools:gt-main:$geoToolsVersion")
     testImplementation("org.geotools:gt-geojson:$geoToolsVersion")
+
+    testImplementation("org.slf4j:slf4j-simple:${slf4jVersion}") // Enable logging to console
 }
 
 val artifactBaseName = "lets-plot-kotlin-geotools"

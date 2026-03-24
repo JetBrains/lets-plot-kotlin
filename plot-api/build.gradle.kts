@@ -20,6 +20,7 @@ val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
 val kotlinxCoroutinesVersion = extra["kotlinx.coroutines.version"] as String
 val kotlinxBrowserVersion = extra["kotlinx.browser.version"] as String
 val assertjVersion = extra["assertj.version"] as String
+val slf4jVersion = extra["slf4j.version"] as String
 
 kotlin {
     jvm()
@@ -50,19 +51,12 @@ kotlin {
 
         named("jvmMain") {
             dependencies {
-//                implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
                 api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
                 api("io.github.oshai:kotlin-logging:$kotlinLoggingVersion")
 
-                // Use "-jvm" variant to work around the issue where LPK JS (IR) artifact becomes dependent on
-                // the "kotlinx-datetime".
-                // See also:
-                // https://youtrack.jetbrains.com/issue/KT-52812/JSIR-compiler-error-Could-not-find-orgjetbrainskotlinxkotlinx-datetime-in-USERLibraryApplication-Supportkotlindaemon
-//                compileOnly("org.jetbrains.kotlinx:kotlinx-datetime-jvm:$kotlinxDatetimeVersion")
-
-                compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$letsPlotVersion")
-//                compileOnly("org.jetbrains.lets-plot:lets-plot-jfx:$letsPlotVersion")
-//                compileOnly("org.jetbrains.lets-plot:lets-plot-image-export:$letsPlotVersion")
+                compileOnly("org.jetbrains.lets-plot:lets-plot-swing:$letsPlotVersion")
+//                compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$letsPlotVersion")
+                compileOnly("org.jetbrains.lets-plot:platf-batik:$letsPlotVersion")
             }
         }
 
@@ -82,6 +76,7 @@ kotlin {
         jvmTest {
             dependencies {
                 implementation("org.assertj:assertj-core:$assertjVersion")
+                implementation("org.slf4j:slf4j-simple:${slf4jVersion}")  // Enable logging to console
             }
         }
     }
@@ -97,11 +92,11 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
             suppress.set(true)
         }
         perPackageOption {
-            matchingRegex.set(""".*\.intern.*""")
+            matchingRegex.set(""".*\.intern\..*""")
             suppress.set(true)
         }
         perPackageOption {
-            matchingRegex.set(""".*\.intern\.layer.*""")
+            matchingRegex.set(""".*\.intern\.layer(\..*)?""")
             suppress.set(false)
         }
     }

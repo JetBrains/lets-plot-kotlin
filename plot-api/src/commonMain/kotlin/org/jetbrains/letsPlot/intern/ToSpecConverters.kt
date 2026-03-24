@@ -38,6 +38,9 @@ import org.jetbrains.letsPlot.spatial.GeometryFormat
 import org.jetbrains.letsPlot.spatial.SpatialDataset
 import kotlin.reflect.KClass
 
+/**
+ * @suppress
+ */
 fun Figure.toSpec(): MutableMap<String, Any> {
     return when (this) {
         is Plot -> this.toSpec()
@@ -46,6 +49,9 @@ fun Figure.toSpec(): MutableMap<String, Any> {
     }
 }
 
+/**
+ * @suppress
+ */
 fun Plot.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
     val plot = this
@@ -102,6 +108,9 @@ fun Plot.toSpec(): MutableMap<String, Any> {
     return spec
 }
 
+/**
+ * @suppress
+ */
 fun Layer.toSpec(): MutableMap<String, Any> {
     val spec = HashMap<String, Any>()
 
@@ -225,12 +234,18 @@ private fun Layer.beforeAsPlotData(rawData: Map<*, *>): Map<*, *> {
 }
 
 
+/**
+ * @suppress
+ */
 @Suppress("UNCHECKED_CAST")
 fun Map<String, Any?>.filterNonNullValues(): Map<String, Any> {
     return filter { it.value != null } as Map<String, Any>
 }
 
 
+/**
+ * @suppress
+ */
 fun Scale.toSpec(): List<Map<String, Any>> {
     val spec = HashMap<String, Any>()
 
@@ -253,6 +268,9 @@ fun Scale.toSpec(): List<Map<String, Any>> {
     }
 }
 
+/**
+ * @suppress
+ */
 fun OptionsMap.toSpec(): MutableMap<String, Any> {
     return HashMap(
         MapStandardizing.standardize(options)

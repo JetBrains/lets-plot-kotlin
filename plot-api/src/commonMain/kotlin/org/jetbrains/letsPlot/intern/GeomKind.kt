@@ -5,6 +5,9 @@
 
 package org.jetbrains.letsPlot.intern
 
+/**
+ * @suppress
+ */
 enum class GeomKind {
     BLANK,
     PATH,
@@ -91,7 +94,9 @@ enum class GeomKind {
     RASTER,
     IMAGE,
     PIE,
-    LOLLIPOP;
+    LOLLIPOP,
+    BRACKET,
+    BRACKET_DODGE;
 
     open fun optionName() = name.lowercase()
 }

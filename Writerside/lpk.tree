@@ -7,7 +7,7 @@
                  start-page="get-started.md">
 
     <toc-element topic="get-started.md"/>
-    <toc-element href="%api_reference%" toc-title="API Reference"/>
+    <toc-element href="%api_reference%" toc-title="API Reference" id="toc-api-reference"/>
     <toc-element topic="gallery.md"/>
     <toc-element topic="charts.md"/>
     <toc-element topic="whats_new.md"/>

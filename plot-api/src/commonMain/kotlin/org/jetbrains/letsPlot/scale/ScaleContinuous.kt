@@ -5,10 +5,8 @@
 
 package org.jetbrains.letsPlot.scale
 
-import org.jetbrains.letsPlot.core.plot.base.Aes
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
-import org.jetbrains.letsPlot.intern.Scale
 
 /**
  * General purpose scale for continuous data.
@@ -63,7 +61,7 @@ fun scaleContinuous(
     trans: String? = null,
     scaleMapperKind: String? = null,
     otherOptions: Map<String, Any?>? = null
-) = Scale(
+) = createScaleFeature(
         aesthetic = aesthetic,
         name = name,
         breaks = breaks,
@@ -87,11 +85,3 @@ fun scaleContinuous(
             ) + (otherOptions ?: emptyMap())
         )
     )
-
-private fun isColorScale(aesthetic: Any): Boolean {
-    val aesList = when (aesthetic) {
-        is List<*> -> aesthetic.map(Scale::toAes)
-        else -> listOf(Scale.toAes(aesthetic))
-    }
-    return aesList.all(Aes.Companion::isColor)
-}

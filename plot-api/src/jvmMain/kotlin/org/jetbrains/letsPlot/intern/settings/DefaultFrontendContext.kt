@@ -6,12 +6,11 @@
 package org.jetbrains.letsPlot.intern.settings
 
 import org.jetbrains.letsPlot.FrontendContext
-import org.jetbrains.letsPlot.frontend.DefaultSwingBatikFrontendContext
+import org.jetbrains.letsPlot.export.VersionChecker
+import org.jetbrains.letsPlot.frontend.DefaultSwingFrontendContext
 
 actual fun createDefaultFrontendContext(): FrontendContext {
-    // TODO: pure Swing.
-    return DefaultSwingBatikFrontendContext.tryCreate()
-//        ?: DefaultSwingJfxFrontendContext.tryCreate()
+    return DefaultSwingFrontendContext.tryCreate()
         ?: object : FrontendContext {
             override fun display(plotSpecRaw: MutableMap<String, Any>) {
                 throw IllegalStateException(
@@ -19,9 +18,8 @@ actual fun createDefaultFrontendContext(): FrontendContext {
                                     
                                     The frontend context is not defined.
                                     To define the frontend context please select one of the following options:
-                                    a. Add "lets-plot-batik-<version>.jar" to your classpath.   
-                                    b. Add "lets-plot-jfx-<version>.jar" to your classpath.   
-                                    c. Specify the frontend context explicitly: "LetsPlot.frontendContext = ..."
+                                    a. Add "org.jetbrains.lets-plot:platf-awt:${VersionChecker.letsPlotVersion}" to your dependencies.   
+                                    b. Specify the frontend context explicitly: "LetsPlot.frontendContext = ..."
                                        
                                     """.trimIndent()
                 )

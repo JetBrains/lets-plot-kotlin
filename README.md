@@ -67,7 +67,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
   - [Compose Multiplatform](#in-compose-multiplatform)
   - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-- [What is new in 4.12.0](#new)
+- [What is new in 4.13.0](#new)
 - [Recent Updates in the Gallery](#recent_gallery_updates)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
@@ -103,7 +103,7 @@ In this case the latest `library descriptor` will be pulled from the [Kotlin Jup
 #### Library Descriptor Parameters
 
 ```
-%use lets-plot(v=4.12.0, isolatedFrame=false, output="js, ktnb, svg")
+%use lets-plot(v=4.13.0, isolatedFrame=false, output="js, ktnb, svg")
 ```                                                                 
 - `v` - version of the Lets-Plot Kotlin API.
 - `isolatedFrame` - If `false`: load JS just once per notebook (default in Jupyter).  
@@ -127,7 +127,7 @@ To learn how to embed Lets-Plot charts in [Compose Multiplatform](https://github
 <a id="in-jvm-js"></a>
 ### JVM and Kotlin/JS
 
-To learn more about creating plots in JVM or Kotlin/JS environment, please read [USAGE_SWING_JFX_JS.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_BATIK_JFX_JS.md). 
+To learn more about creating plots in JVM or Kotlin/JS environment, please read [USAGE_JVM_JS.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/USAGE_JVM_JS.md). 
         
 #### Examples
 Examples of using the Lets-Plot Kotlin API in JVM and Kotlin/JS applications are available in the [Lets-Plot Kotlin Mini Apps (Demos)](https://github.com/alshan/lets-plot-mini-apps) GitHub repository.
@@ -141,61 +141,85 @@ Examples of using the Lets-Plot Kotlin API in JVM and Kotlin/JS applications are
 
 
 <a id="new"></a>
-## What is new in 4.12.0
+## What is new in 4.13.0
 
-- #### `geomPointDensity()` Geometry
-
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-25e/images/geom_pointdensity.png" alt="f-25e/images/geom_pointdensity.png" width="400" height="246">
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/geom_pointdensity.html).
-
-- #### Explicit `group` aesthetic now overrides default grouping behavior instead of combining with it
+**Kotlin**: v2.2.20 (was v1.9.25).
 
 > [!IMPORTANT]
-> **BREAKING CHANGE:**
->
-> Previously, setting `group='variable'` would group by both the explicit variable AND any discrete
-> aesthetics (color, shape, etc.). \
-> Now it groups ONLY by the explicit variable, matching `ggplot2` behavior. \
-> Use `group=[var1, var2, ...]` to group by multiple variables explicitly, \
-> and `group=[]` to disable any grouping.
+> 
+> **Artifact changes in the core Lets-Plot library** (v4.9.0):
+> * **New** artifact for JVM Swing applications: `org.jetbrains.lets-plot:lets-plot-swing`.
+>   This artifact provides the `SwingPlotPanel` class, which can be used to display plots in Swing applications instead of the now-obsolete `DefaultPlotPanelBatik`.
+>   For details, see the [jvm-swing-app](https://github.com/alshan/lets-plot-mini-apps/tree/main/jvm-swing-app) example in the "lets-plot-mini-apps" repository.
+> * [**BREAKING**]: Removed JavaFX artifacts.
+>   The `org.jetbrains.lets-plot:lets-plot-jfx` artifact is no longer available.
+>   Replace it with new `org.jetbrains.lets-plot:lets-plot-swing` dependency and use `SwingPlotPanel` instead of `DefaultPlotPanelJfx`.
+>   For details, see the [jvm-javafx-app](https://github.com/alshan/lets-plot-mini-apps/tree/main/jvm-javafx-app) example in the "lets-plot-mini-apps" repository.
+> * [**BREAKING**]: Removed `plot-image-export` module.
+>   The `org.jetbrains.lets-plot:lets-plot-image-export` artifact is no longer available.
+>   The `PlotImageExport` utility has been moved to the `platf-awt` module: `org.jetbrains.letsPlot.awt.plot.PlotImageExport`.
+>   The required `org.jetbrains.lets-plot:platf-awt` dependency is likely already present in your project.
 
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-25e/images/group_override_defaults.png" alt="f-25e/images/group_override_defaults.png" width="400" height="263">
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/group_override_defaults.html).
+- #### Statistical Summaries Directly on `geomSmooth()` Plot Layer
 
-- #### `gggrid()`: support for shared legends (parameter `guides`)
+  The `geomSmooth()` layer now includes a `labels` parameter designed to display statistical summaries of the fitted model directly on the plot. \
+  This parameter accepts a `smoothLabels()` object, which provides access to model-specific variables like $R^2$ and the regression equation.
 
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-25e/images/gggrid_legend_collect.png" alt="f-25e/images/group_override_defaults.png" width="500" height="172">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26a/images/smooth_summary.png" alt="f-26a/images/smooth_summary.png" width="400" height="265">
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/gggrid_legend_collect.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/smooth_summary.html).
 
-- #### Better handling of missing values in `geomLine(), geomPath(), geomRibbon()`, and `geomArea()`
+- #### Plot Tags
+  Plot tags are short labels attached to a plot.
 
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-25e/images/missing_values_ribbon.png" alt="f-25e/images/missing_values_ribbon.png" width="500" height="192">
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26a/images/plot_tags.png" alt="f-26a/images/plot_tags.png" width="600" height="185">
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/missing_values_line_path_area_ribbon.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html) and updated [Plot Layout Diagrams](https://lets-plot.org/kotlin/presentation-options.html#plot-layout-diagrams). 
 
-- #### `geomHistogram()`: custom bin bounds (parameter `breaks`)
+- #### New `geomBracket()` and `geomBracketDodge()` Geometries
+  New geometries designed primarily for significance bars (*p-values*) annotations in categorical plots.
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/geom_histogram_param_breaks.html).
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26a/images/geom_bracket.png" alt="f-26a/images/geom_bracket.png" width="400" height="261">
 
-- #### Legend automatically wraps to prevent overlap — up to 15 rows for vertical legends and 5 columns for horizontal ones
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/geom_bracket.html).
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_wrap.html).
+- #### Custom Color Palettes in `geomImshow()`
+  The `cmap` parameter now allows you to specify a list of hex color codes for visualizing grayscale images. \
+  Also, the new `cguide` parameter lets you customize the colorbar for grayscale images.
 
-- #### `flavorStandard()` resets the theme's default color scheme
-  Use to override other flavors or make defaults explicit.
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26a/images/image_custom_cmap.png" alt="f-26a/images/image_custom_cmap.png" width="400" height="248">
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/flavor_standard.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/image_custom_cmap.html).
 
-- #### `theme` methods controlling legend justification: `legendJustificationTop()`, `legendJustificationRight()`, `legendJustificationBottom()`, and `legendJustificationLeft()`
+- #### New `palette()` Method in Color Scales
+  Generates a list of hex color codes that can be used with `scaleColorManual()` to maintain consistent colors across multiple plots.
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/legend_justification.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_color_palette.html).
 
-- #### `ggtb()`: Added `sizeZoomin` and `sizeBasis` parameters to control point size scaling behavior when zooming (works with `geomPoint` and related layers).
+- #### New `overflow` parameter in `scaleColorBrewer()`, `scaleFillBrewer()`
+  Controls how colors are generated when more colors are needed than the palette provides. \
+  Options: `'interpolate'` (`'i'`), `'cycle'` (`'c'`), `'generate'` (`'g'`).
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.12.0/ggtb_size_zoomin.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_brewer_overflow.html).
+
+- #### New `breakWidth` Parameter in Positional Scales
+  Specifies a fixed distance between axis breaks.
+
+  See examples:
+  - [datetime scale](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_datetime.html)
+  - [time (duration) scale](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_duration.html)
+  - [log10 scale](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_log10.html)
+
+- #### Axis Minor Ticks Customization
+  The `axisMinorTicks` and `axisMinorTicksLength` parameters in `theme()`.
+
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/axis_minor_ticks.html).
+
+- #### Pan/Zoom in `gggrid()` with Shared Axes
+  Pan/Zoom now propagates across subplots with shared axes (`sharex`/`sharey`).
+
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/gggrid_scale_share_zoom.html).
 
 
 - #### And More

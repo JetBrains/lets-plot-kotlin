@@ -113,6 +113,8 @@ Cookbooks:
 - [Lollipop plot](%nb-geom_lollipop%)
 - [Count stat](%nb-stat_count_2d%)
 - [Handling an overplotting on a scatter plot: `geomCount()`/`statSum()`](%nb-geom_count%)
+- [Generating color palettes with scale.palette()](%nb-scale_color_palette%)
+- [Handling color overflow in brewer palettes](%nb-scale_brewer_overflow%)
 - [Viridis colors](%nb-colors_viridis%)
 
 
@@ -186,7 +188,7 @@ Cookbooks:
 
 ## Smoothing
 
-[`smoothing line`](%api_geom%/geom-smooth/index.html)
+[`smoothing line`](%api_geom%/geom-smooth.html)
 
 Cookbooks:
 
@@ -231,6 +233,8 @@ Cookbooks:
 *Lets-Plot* handles all temporal data types through a unified "datetime" scale (excluding duration, which is handled by the "time" scale).
 This is in contrast to R's ggplot2, which provides separate "date", "time", and "datetime" scales.
 
+Use `breakWidth` in datetime and duration scales to control the axis break interval using human-readable strings like `"3 months"` or `"2 hours"`.
+
 **Supported temporal data types**:
 
 - `kotlinx.datetime` library:
@@ -257,6 +261,8 @@ Cookbooks:
 
 - [Scale time](%nb-scale_time%)
 - [Plotting time series](%nb-time_date_datetime%)
+- [`breakWidth` parameter in datetime scales](%nb-scale_break_width_datetime%)
+- [`breakWidth` parameter in time (duration) scales](%nb-scale_break_width_duration%)
 
 Demos:
 
@@ -273,6 +279,7 @@ Cookbooks:
 - [The `extent` parameter](%nb-image_extent%)
 - [Parameters `norm`, `vmain` and `vmax`](%nb-image_grayscale%)
 - ["Fisher boat": `geomImshow()` and raster data](%nb-image_fisher_boat%)
+- [Custom color palettes in `geomImshow()`](%nb-image_custom_cmap%)
 
 
 ## Coordinate Systems
@@ -287,6 +294,28 @@ Cookbooks:
 
 - [Flipped coordinates](%nb-coord_flip%)
 - [Polar coordinate system](%nb-coord_polar%)
+
+
+## Positional Scales
+
+[`scaleXDiscrete()`](%api_scale%/scale-x-discrete.html),
+[`scaleYDiscrete()`](%api_scale%/scale-y-discrete.html),
+[`scaleXDiscreteReversed()`](%api_scale%/scale-x-discrete-reversed.html),
+[`scaleYDiscreteReversed()`](%api_scale%/scale-y-discrete-reversed.html),
+[`scaleXContinuous()`](%api_scale%/scale-x-continuous.html),
+[`scaleYContinuous()`](%api_scale%/scale-y-continuous.html),
+[`scaleXLog10()`](%api_scale%/scale-x-log10.html),
+[`scaleYLog10()`](%api_scale%/scale-y-log10.html),
+[`scaleXLog2()`](%api_scale%/scale-x-log2.html),
+[`scaleYLog2()`](%api_scale%/scale-y-log2.html),
+[`scaleXReverse()`](%api_scale%/scale-x-reverse.html),
+[`scaleYReverse()`](%api_scale%/scale-y-reverse.html)
+
+Cookbooks:
+
+- [Axis position](%nb-axis_position%)
+- [`breakWidth` parameter in position scales](%nb-scale_break_width_log10%)
+- [Formatting labels on plots](%nb-formatting_axes_etc%)
 
 
 ## Legends and Guides

@@ -12,6 +12,11 @@ import org.jetbrains.letsPlot.batik.plot.component.PlotViewerWindowBatik
  * Shows plot in Java Swing Window.
  * Uses Batik mapping for SVG rendering.
  */
+@Deprecated(
+    "No longer needed, consider using 'DefaultSwingFrontendContext' instead.",
+    ReplaceWith("DefaultSwingFrontendContext", "org.jetbrains.letsPlot.frontend.DefaultSwingFrontendContext"),
+    level = DeprecationLevel.WARNING
+)
 class DefaultSwingBatikFrontendContext private constructor() : FrontendContext {
     override fun display(plotSpecRaw: MutableMap<String, Any>) {
         PlotViewerWindowBatik(
@@ -26,10 +31,11 @@ class DefaultSwingBatikFrontendContext private constructor() : FrontendContext {
     companion object {
         fun tryCreate(): FrontendContext? {
             return try {
-                // Try load Batik window class.
-                // Requires "lets-plot-batik-<version>.jar" in classpath.
-                PlotViewerWindowBatik("", rawSpec = HashMap())
+                // Try loading the Batik window class.
+                // Requires "lets-plot-batik-<version>.jar" in the classpath.
+                Class.forName("org.jetbrains.letsPlot.batik.plot.component.PlotViewerWindowBatik")
                 // If Ok - create the frontend context.
+                @Suppress("DEPRECATION")
                 DefaultSwingBatikFrontendContext()
             } catch (e: Throwable) {
                 when (e) {

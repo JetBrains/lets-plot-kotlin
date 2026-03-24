@@ -5,9 +5,8 @@
 
 package org.jetbrains.letsPlot.scale
 
-import org.jetbrains.letsPlot.core.spec.Option.Scale.DATE_TIME
-import org.jetbrains.letsPlot.core.spec.Option.Scale.TIME
 import org.jetbrains.letsPlot.core.plot.base.Aes
+import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.Scale
 import org.jetbrains.letsPlot.intern.checkScaleExpand
@@ -41,6 +40,8 @@ import org.jetbrains.letsPlot.intern.checkScaleExpand
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
+ * @param breakWidth A fixed distance between axis breaks.
+ *  Use a string like `"1 week"`, `"3 months"`, `"1 year"` to specify date/time intervals.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -62,7 +63,8 @@ fun scaleXDateTime(
     expand: List<Number>? = null,
     naValue: Any? = null,
     format: String? = null,
-    position: String? = null
+    position: String? = null,
+    breakWidth: Any? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -78,7 +80,8 @@ fun scaleXDateTime(
         position = position,
         otherOptions = Options(
             mapOf(
-                DATE_TIME to true
+                Option.Scale.DATE_TIME to true,
+                Option.Scale.BREAK_WIDTH to breakWidth
             )
         )
     )
@@ -111,6 +114,8 @@ fun scaleXDateTime(
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
+ * @param breakWidth A fixed distance between axis breaks.
+ *  Use a string like `"1 week"`, `"3 months"`, `"1 year"` to specify date/time intervals.
  *
  * Format patterns in the `format` parameter can be just a number format (like "d") or
  * a string template where number format is surrounded by curly braces: "{d} cylinders".
@@ -132,7 +137,8 @@ fun scaleYDateTime(
     expand: List<Number>? = null,
     naValue: Any? = null,
     format: String? = null,
-    position: String? = null
+    position: String? = null,
+    breakWidth: Any? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -148,7 +154,8 @@ fun scaleYDateTime(
         position = position,
         otherOptions = Options(
             mapOf(
-                DATE_TIME to true
+                Option.Scale.DATE_TIME to true,
+                Option.Scale.BREAK_WIDTH to breakWidth
             )
         )
     )
@@ -175,6 +182,8 @@ fun scaleYDateTime(
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
+ * @param breakWidth A fixed distance between axis breaks.
+ *  Use a string like `"1 hour"`, `"30 min"`, `"1 day"` to specify time intervals.
  *
  */
 fun scaleXTime(
@@ -185,7 +194,8 @@ fun scaleXTime(
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
-    position: String? = null
+    position: String? = null,
+    breakWidth: Any? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -200,7 +210,8 @@ fun scaleXTime(
         position = position,
         otherOptions = Options(
             mapOf(
-                TIME to true
+                Option.Scale.TIME to true,
+                Option.Scale.BREAK_WIDTH to breakWidth
             )
         )
     )
@@ -227,6 +238,8 @@ fun scaleXTime(
  * @param position The position of the axis:
  *  - "left", "right" or "both" for y-axis;
  *  - "top", "bottom" or "both" for x-axis.
+ * @param breakWidth A fixed distance between axis breaks.
+ *  Use a string like `"1 hour"`, `"30 min"`, `"1 day"` to specify time intervals.
  *
  */
 fun scaleYTime(
@@ -237,7 +250,8 @@ fun scaleYTime(
     limits: Pair<Any?, Any?>? = null,
     expand: List<Number>? = null,
     naValue: Any? = null,
-    position: String? = null
+    position: String? = null,
+    breakWidth: Any? = null
 ): Scale {
     checkScaleExpand(expand)
     return Scale(
@@ -252,7 +266,8 @@ fun scaleYTime(
         position = position,
         otherOptions = Options(
             mapOf(
-                TIME to true
+                Option.Scale.TIME to true,
+                Option.Scale.BREAK_WIDTH to breakWidth
             )
         )
     )

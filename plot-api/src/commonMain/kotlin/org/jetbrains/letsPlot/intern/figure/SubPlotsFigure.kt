@@ -100,6 +100,7 @@ class SubPlotsFigure(
                     Plot.THEME,
                     Plot.TITLE,
                     Plot.CAPTION,
+                    Plot.TAG,
                     Meta.Kind.GG_TOOLBAR
                 )
             ) { "composite figure: unsupported feature ${feature.kind}" }

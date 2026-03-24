@@ -9,6 +9,7 @@ package org.jetbrains.letsPlot.intern
  * Patching JS compilation error: Unsupported [This reflection API is not supported yet in JavaScript]
  * Kotlin 1.4
  * ToDo: check Kotlin 1.5
+ * @suppress
  */
 expect object ReflectionPatch {
     fun simpleName(o: Any): String?

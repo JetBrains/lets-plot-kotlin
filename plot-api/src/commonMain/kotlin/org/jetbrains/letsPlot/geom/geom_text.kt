@@ -85,6 +85,7 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param angle Text rotation angle in degrees.
  * @param lineheight Line height multiplier applied to the font size in the case of multi-line text.
  * @param labelFormat Specifies the format pattern for displaying mapped values.
+ *  For more info see: [formats.html](https://lets-plot.org/kotlin/formats.html).
  * @param naText default = "n/a".
  *  Text to show for missing values.
  * @param nudgeX Horizontal adjustment to nudge labels by.

@@ -6,15 +6,15 @@
 package org.jetbrains.letsPlot.geom
 
 import org.jetbrains.letsPlot.Stat
+import org.jetbrains.letsPlot.commons.encoding.Png
+import org.jetbrains.letsPlot.commons.values.Bitmap
+import org.jetbrains.letsPlot.commons.values.Color
+import org.jetbrains.letsPlot.commons.values.Colors
 import org.jetbrains.letsPlot.core.spec.Option
 import org.jetbrains.letsPlot.intern.*
-import org.jetbrains.letsPlot.intern.layer.*
+import org.jetbrains.letsPlot.intern.layer.GeomOptions
 import org.jetbrains.letsPlot.scale.scaleGrey
-import org.jetbrains.letsPlot.util.Base64
-import org.jetbrains.letsPlot.util.pngj.ImageInfo
-import org.jetbrains.letsPlot.util.pngj.ImageLineByte
-import org.jetbrains.letsPlot.util.pngj.OutputPngStream
-import org.jetbrains.letsPlot.util.pngj.PngWriter
+import org.jetbrains.letsPlot.scale.scaleManual
 
 
 /**
@@ -35,17 +35,24 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
  * - [image_fisher_boat.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/image_fisher_boat.ipynb)
  * - [image_grayscale.ipynb](https://nbviewer.org/github/JetBrains/lets-plot-docs/blob/master/source/kotlin_examples/cookbook/image_grayscale.ipynb)
  *
- * @param rasterData Specifies image type, size and pixel values. See [RasterData.create].
+ * @param rasterData Specifies image type, size, and pixel values. See [RasterData.create].
  *
+ * @param cmap A list of colors to use as a colormap for greyscale images.
+ *  Colors can be specified as hex strings (`"#RRGGBB"`, `"#RGB"`), `"rgb(r, g, b)"`, `"rgba(r, g, b, a)"`,
+ *  or named colors (e.g. `"red"`).
+ *  The greyscale values will be quantized to map to the provided colors.
+ *  This parameter is ignored for RGB(A) images.
+ *  Use [ColorScale.palette] to generate a color list from any color scale,
+ *  for example: `cmap = scaleColorViridis().palette(256)`.
  * @param norm default = true.
- *  - true - luminance values in grey-scale image will be scaled to `[0-255]` range using a linear scaler.
- *  - false - disables scaling of luminance values in grey-scale image.
+ *  - true - luminance values in gray-scale image will be scaled to `[0-255]` range using a linear scaler.
+ *  - false - disables scaling of luminance values in gray-scale image.
  *  This parameter is ignored for RGB(A) images.
  * @param vmin default = null.
- *  Defines the data range used for luminance normalization in grey-scale images.
+ *  Defines the data range used for luminance normalization in gray-scale images.
  *  This parameter is ignored for RGB(A) images or if parameter `norm = false`.
  * @param vmax default = null.
- *  Defines the data range used for luminance normalization in grey-scale images.
+ *  Defines the data range used for luminance normalization in gray-scale images.
  *  This parameter is ignored for RGB(A) images or if parameter `norm = false`.
  * @param extent default = listOf(-0.5, ncol-0.5, -0.5, nrow-0.5).
  *  List of 4 numbers: (left, right, bottom, top).
@@ -54,20 +61,25 @@ import org.jetbrains.letsPlot.util.pngj.PngWriter
  *  - `bottom`, `top`: coordinates of pixels outer edge along the y-axis for pixels in the 1-st and the last row.
  * @param showLegend default = true.
  *  Greyscale images only.
- *  false - do not show legend for this layer.
+ *  - false - do not show legend for this layer.
  * @param colorBy default="paint_c" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Define the color-aesthetic used by the legend shown for a greyscale image.
+ * @param cguide default = null.
+ *  A result of [guideColorbar()][org.jetbrains.letsPlot.scale.guideColorbar] call.
+ *  Use to customize the colorbar for greyscale images.
  *
  * @return Layer object.
  */
 fun geomImshow(
     rasterData: RasterData,
+    cmap: List<String>? = null,
     norm: Boolean = true,
     vmin: Number? = null,
     vmax: Number? = null,
     extent: List<Number>? = null,
     showLegend: Boolean = true,
     colorBy: String = "paint_c",
+    cguide: Any? = null,
 ): Feature {
     require(extent == null || extent.size == 4) { "Invalid `extent`: list of 4 numbers expected: ${extent!!.size}" }
     val colorAesthetics = listOf("fill", "color", "paint_a", "paint_b", "paint_c")
@@ -78,8 +90,6 @@ fun geomImshow(
     require(raster.nChannels in 1..4) {
         "Invalid rasterData: num of channels expected to be 1 (G) or 2 (GA) for greyscale image, 3 (RGB) or 4 (RGBA) for color image, but was ${raster.nChannels}"
     }
-
-    val cmap: String? = null // TODO: add palettes support
 
     val greyscale = raster.nChannels == 1
     var greyScaleDataMin: Double = Double.NaN
@@ -94,19 +104,33 @@ fun geomImshow(
         }
         hasNan = raster.hasNan()
 
-        if (hasNan && cmap.isNullOrEmpty()) {
-            // add alpha
-            raster = raster.addChannel()
+        if (cmap != null) {
+            // Apply colormap: replace greyscale values with palette RGBA colors.
+            require(cmap.isNotEmpty()) { "cmap list must contain at least one color" }
+            val cmapColors = cmap.map(Colors::parseColor)
+            val palette = buildCmapPalette(cmapColors, hasNan)
 
-            require(raster.nChannels == 2)
-            raster.updatePixels { pix ->
-                pix[1] = when (pix[0].isNaN()) {
-                    true -> vmin?.toFloat() ?: Float.NaN
-                    false -> 255f
+            if (hasNan) {
+                // Replace NaN with 0 (index 0 = transparent color in palette)
+                raster.updateChannels { if (it.isNaN()) 0f else it }
+            }
+
+            // Expand raster from 1 channel (greyscale) to 4 channels (RGBA) using the palette.
+            raster = raster.applyPalette(palette)
+        } else {
+            // No colormap — default greyscale handling.
+            if (hasNan) {
+                // add alpha
+                raster = raster.addChannel()
+
+                require(raster.nChannels == 2)
+                raster.updatePixels { pix ->
+                    pix[1] = when (pix[0].isNaN()) {
+                        true -> vmin?.toFloat() ?: Float.NaN
+                        false -> 255f
+                    }
                 }
             }
-        } else if (hasNan && !cmap.isNullOrEmpty()) {
-            raster.updateChannels { it.takeUnless { it.isNaN() } ?: 255f }
         }
     } else {
         if (raster.isDTypeF) {
@@ -130,31 +154,45 @@ fun geomImshow(
         extY0 = extY1.also { extY1 = extY0 }
     }
 
-    val outputStream = OutputPngStream()
-    val png = PngWriter(
-        outputStream, ImageInfo(
-            raster.width,
-            raster.height,
-            bitdepth = 8,
-            alpha = (raster.nChannels == 4 || raster.nChannels == 2),
-            greyscale = raster.nChannels < 3
-        )
-    )
-
-    val iLine = ImageLineByte(png.imgInfo)
+    val rgba = ByteArray(raster.width * raster.height * 4)
     val px = raster.pixel()
     val rows = (0 until raster.height).let { it.takeIf { !flipRows } ?: it.reversed() }
     val columns = (0 until raster.width).let { it.takeIf { !flipColumns } ?: it.reversed() }
+    var p = 0
     for (row in rows) {
-        var p = 0
         for (col in columns) {
-            px.atXY(col, row).channels().forEach {
-                iLine.scanline[p++] = it.toInt().toByte()
+            val channels = px.atXY(col, row).channels()
+            when (channels.size) {
+                4 -> channels.let { (r, g, b, a) ->
+                    rgba[p++] = r.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = b.toInt().toByte()
+                    rgba[p++] = a.toInt().toByte()
+                }
+                3 -> channels.let { (r, g, b) ->
+                    rgba[p++] = r.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = b.toInt().toByte()
+                    rgba[p++] = 255.toByte() // fully opaque
+                }
+                2 -> channels.let { (g, a) ->
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = a.toInt().toByte()
+                }
+                1 -> channels.let { (g) ->
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = g.toInt().toByte()
+                    rgba[p++] = 255.toByte() // fully opaque
+                }
+                else -> error("Unexpected channel size: ${channels.size}")
             }
         }
-        png.writeRow(iLine)
     }
-    png.end()
+
+    val bitmap = Bitmap.fromRGBABytes(raster.width, raster.height, rgba)
 
 
     // Show Legend (color-bar) if applicable.
@@ -169,13 +207,12 @@ fun geomImshow(
 
     val legendTitle = ""
     val colorScale: Scale? = if (greyscale && showLegend) {
-        if (cmap != null) when (norm) {
-            true -> null  // ToDo
-            else -> null  // ToDo
+        if (cmap != null) {
+            scaleManual(aesthetic = colorBy, values = cmap, name = legendTitle, guide = cguide)
         } else {
             val start = if (norm) 0.0 else greyScaleDataMin / 255
             val end = if (norm) 1.0 else greyScaleDataMax / 255
-            scaleGrey(aesthetic = colorBy, start = start, end = end, name = legendTitle)
+            scaleGrey(aesthetic = colorBy, start = start, end = end, name = legendTitle, guide = cguide)
         }
     } else {
         null
@@ -197,7 +234,7 @@ fun geomImshow(
     ) {
         override fun seal(): Options {
             return Options.of(
-                Option.Geom.Image.HREF to "data:image/png;base64," + Base64.encode(outputStream.byteArray),
+                Option.Geom.Image.HREF to Png.encodeDataImage(bitmap),
                 Option.Geom.Image.XMIN to extX0,
                 Option.Geom.Image.YMIN to extY0,
                 Option.Geom.Image.XMAX to extX1,
@@ -254,7 +291,7 @@ class RasterData private constructor(
         /**
          * Creates [RasterData] from 2D or 3D collection.
          * @param iterable 2D or 3D collection.
-         *  - (M, N): an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - (M, N): an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).
          *  - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -277,7 +314,7 @@ class RasterData private constructor(
         /**
          * Creates [RasterData] from 2D or 3D array.
          * @param arr 2D or 3D array.
-         *  - (M, N): an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - (M, N): an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - (M, N, 3): an image with RGB values (0-1 float or 0-255 int).
          *  - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -303,7 +340,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -316,7 +353,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -329,7 +366,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -342,7 +379,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -356,7 +393,7 @@ class RasterData private constructor(
          * @param width Width of the image in pixels.
          * @param height Height of the image in pixels.
          * @param nChannels Number of channels per pixel.
-         *  - 1: an image with scalar data. The values are mapped to colors (greys by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
+         *  - 1: an image with scalar data. The values are mapped to colors (grays by default) using normalization. See parameters `norm`, `vmin`, `vmax`.
          *  - 3: an image with RGB values (0-1 float or 0-255 int).
          *  - 4: an image with RGBA values (0-1 float or 0-255 int).
          */
@@ -486,4 +523,49 @@ internal class Raster(
 
     fun pixel() = Pixel()
     fun hasNan() = pixels.any(Float::isNaN)
+
+    /**
+     * Replace each single-channel greyscale pixel with RGBA from the palette lookup table.
+     * The pixel value (rounded to int) is used as an index into the palette.
+     */
+    fun applyPalette(palette: Array<Color>): Raster {
+        require(nChannels == 1) { "applyPalette requires a single-channel raster, but was $nChannels" }
+        val newPixels = FloatArray(width * height * 4)
+        var dst = 0
+        for (src in 0 until width * height) {
+            val index = pixels[src].toInt().coerceIn(0, palette.size - 1)
+            val c = palette[index]
+            newPixels[dst++] = c.red.toFloat()
+            newPixels[dst++] = c.green.toFloat()
+            newPixels[dst++] = c.blue.toFloat()
+            newPixels[dst++] = c.alpha.toFloat()
+        }
+        return Raster(width, height, 4, false, newPixels)
+    }
+}
+
+/**
+ * Build a 256-entry RGBA palette from a list of colors.
+ *
+ * When [hasNan] is true, index 0 is reserved for transparent (NaN pixels),
+ * and the remaining 255 entries are mapped from the color list.
+ * Otherwise, all 256 entries are mapped from the color list.
+ */
+private fun buildCmapPalette(cmapColors: List<Color>, hasNan: Boolean): Array<Color> {
+    val nColors = cmapColors.size
+    return if (!hasNan) {
+        // 256 entries: values 0-255 map to colors
+        Array(256) { i ->
+            cmapColors[(i * nColors / 256).coerceAtMost(nColors - 1)]
+        }
+    } else {
+        // Index 0 = transparent, indices 1-255 = mapped colors
+        Array(256) { i ->
+            if (i == 0) {
+                Color(0, 0, 0, 0)
+            } else {
+                cmapColors[((i - 1) * nColors / 255).coerceAtMost(nColors - 1)]
+            }
+        }
+    }
 }
