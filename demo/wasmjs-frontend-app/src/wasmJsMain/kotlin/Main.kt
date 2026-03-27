@@ -22,7 +22,7 @@ fun main() {
 }
 
 private fun createContent() {
-    val contentDiv = document.getElementById("content")
+    val contentDiv = document.getElementById("content") ?: error("Element with id 'content' not found")
 
     val random = Random(12)
     val data = mapOf<String, Any>(
@@ -45,7 +45,7 @@ private fun createContent() {
     val plotDiv = MonolithicWasmJs.buildPlotFromRawSpecs(
         plotSpec = p.toSpec()
     )
-    contentDiv?.appendChild(plotDiv)
+    contentDiv.appendChild(plotDiv)
 }
 
 private fun normal(random: Random, mean: Double, stdDev: Double): Double {

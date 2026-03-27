@@ -1,4 +1,4 @@
-### Lets-PLot in Kotlin JS frontend
+### Lets-PLot in Kotlin WasmJS frontend
 
 To run this app use the `browserDevelopmentRun` or `browserProductionRun` task:
 
