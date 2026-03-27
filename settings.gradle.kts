@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021. JetBrains s.r.o.
+ * Copyright (c) 2026. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
  */
 
@@ -41,7 +41,7 @@ include("demo-common")
 include("plot-swing")
 include("browser")
 include("js-frontend-app")
-include("wasm-frontend-app")
+include("wasmjs-frontend-app")
 include("geotools")
 include("geotools-swing")
 include("dokka")
@@ -53,7 +53,7 @@ project(":demo-common").projectDir = File("./demo/demo-common")
 project(":plot-swing").projectDir = File("./demo/plot-swing")
 project(":browser").projectDir = File("./demo/browser")
 project(":js-frontend-app").projectDir = File("./demo/js-frontend-app")
-project(":wasm-frontend-app").projectDir = File("./demo/wasm-frontend-app")
+project(":wasmjs-frontend-app").projectDir = File("./demo/wasmjs-frontend-app")
 
 project(":geotools").projectDir = File("./toolkit/geotools")
 project(":geotools-swing").projectDir = File("./demo/geotools-swing")
