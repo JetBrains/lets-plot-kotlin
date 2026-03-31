@@ -3,12 +3,13 @@
 > **Note**: our custom local Maven repository location is `<project root>/.maven-publish-dev-repo`.
 
 > **Note**: make sure that **version** is set to "0.0.0-SNAPSHOT" in `build.gradle.kts`.
-```bash
-./gradlew :plot-api:publishAllPublicationsToMavenLocalRepository
-./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository
-./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocalRepository
-./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository
-./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocalRepository
+```shell
+./gradlew :plot-api:publishAllPublicationsToMavenLocalRepository \
+          publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository \
+          publishletsPlotKotlinJupyterPublicationToMavenLocalRepository \
+          publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository \
+          publishLetsPlotKotlinJsonPublicationToMavenLocalRepository
+
 ```
 
 ### Publishing to Sonatype Central repository
