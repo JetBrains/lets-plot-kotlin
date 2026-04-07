@@ -30,11 +30,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api("org.jetbrains.lets-plot:commons:$letsPlotVersion")
-                api("org.jetbrains.lets-plot:datamodel:$letsPlotVersion")
-                api("org.jetbrains.lets-plot:plot-base:$letsPlotVersion")
-                api("org.jetbrains.lets-plot:plot-builder:$letsPlotVersion")
-                api("org.jetbrains.lets-plot:plot-stem:$letsPlotVersion")
+                api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
 
                 // Required for proper building of Kotlin/JS artifacts.
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}")
@@ -51,7 +47,6 @@ kotlin {
 
         named("jvmMain") {
             dependencies {
-                api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
                 api("io.github.oshai:kotlin-logging:$kotlinLoggingVersion")
 
                 compileOnly("org.jetbrains.lets-plot:lets-plot-swing:$letsPlotVersion")
