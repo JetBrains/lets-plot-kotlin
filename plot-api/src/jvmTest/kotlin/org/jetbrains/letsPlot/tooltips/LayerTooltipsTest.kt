@@ -112,7 +112,7 @@ class LayerTooltipsTest {
     @Test
     fun `anchor sets tooltip anchor`() {
         assertEquals(
-            mapOf(Option.Layer.TOOLTIP_ANCHOR to "top_left"),
+            mapOf(Option.Layer.Tooltips.TOOLTIP_ANCHOR to "top_left"),
             layerTooltips().anchor("top_left").asMap
         )
     }
@@ -122,7 +122,7 @@ class LayerTooltipsTest {
     @Test
     fun `minWidth sets minimum tooltip width`() {
         assertEquals(
-            mapOf(Option.Layer.TOOLTIP_MIN_WIDTH to 200),
+            mapOf(Option.Layer.Tooltips.TOOLTIP_MIN_WIDTH to 200),
             layerTooltips().minWidth(200).asMap
         )
     }
@@ -132,7 +132,7 @@ class LayerTooltipsTest {
     @Test
     fun `disableSplitting sets flag to true`() {
         assertEquals(
-            mapOf(Option.Layer.DISABLE_SPLITTING to true),
+            mapOf(Option.Layer.Tooltips.DISABLE_SPLITTING to true),
             layerTooltips().disableSplitting().asMap
         )
     }
@@ -164,7 +164,7 @@ class LayerTooltipsTest {
 
         assertEquals(listOf("x", "y"), options[Option.LinesSpec.VARIABLES])
         assertEquals("Title", options[Option.LinesSpec.TITLE])
-        assertEquals("top_right", options[Option.Layer.TOOLTIP_ANCHOR])
+        assertEquals("top_right", options[Option.Layer.Tooltips.TOOLTIP_ANCHOR])
         assertEquals(listOf("x = @x"), options[Option.LinesSpec.LINES])
     }
 }

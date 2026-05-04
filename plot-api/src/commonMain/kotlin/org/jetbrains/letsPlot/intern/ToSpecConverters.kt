@@ -467,6 +467,7 @@ private fun inferSeriesDType(data: Any?): String {
             value is kotlinx.datetime.LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
 
             value is kotlin.time.Duration -> SeriesAnnotation.Types.INTEGER
+            value is kotlin.time.Instant -> SeriesAnnotation.Types.DATE_TIME
 
             else -> SeriesAnnotation.Types.UNKNOWN
         }
