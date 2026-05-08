@@ -264,13 +264,15 @@ private fun normalize2d(raster: Raster, norm: Boolean, vMin: Float?, vMax: Float
     require(vMin <= vMax) { "vmin value must be less then vmax value, was: $vMin > $vMax" }
     raster.updateChannels { it.coerceIn(vMin, vMax) }
 
-    if (norm == false) {
+    if (!norm) {
         // no normalization - just round values to the nearest int.
         raster.updateChannels { it + 0.5f }
     } else {
         @Suppress("IntroduceWhenSubject")
         when {
-            vMin == vMax -> raster.updateChannels { 127f }
+            vMin == vMax -> {
+                raster.updateChannels { if (it.isFinite()) 127f else it }
+            }
             else -> {
                 val ratio = maxLum / (vMax - vMin)
                 raster.updateChannels { (it - vMin) * ratio + 0.5f }
@@ -296,7 +298,7 @@ class RasterData private constructor(
          *  - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
          */
         fun create(iterable: Iterable<Iterable<*>>): RasterData {
-            val l0 = if (iterable is Collection) iterable else iterable.toList()
+            val l0 = iterable as? Collection ?: iterable.toList()
             val l1 = l0.flatten()
 
             @Suppress("UNCHECKED_CAST")
@@ -323,7 +325,7 @@ class RasterData private constructor(
 
             @Suppress("UNCHECKED_CAST")
             val l1: List<Number> = when (l0[0] is Array<*>) {
-                true -> (l0 as List<Array<*>>).map(Array<*>::asList).flatten() as List<Number>
+                true -> (l0 as List<Array<*>>).flatMap(Array<*>::asList) as List<Number>
                 false -> l0 as List<Number>
             }
 
