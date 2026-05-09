@@ -67,6 +67,22 @@ import org.jetbrains.letsPlot.scale.scaleManual
  * @param cguide default = null.
  *  A result of [guideColorbar()][org.jetbrains.letsPlot.scale.guideColorbar] call.
  *  Use to customize the colorbar for greyscale images.
+ * @param breaks A list of data values specifying the positions of ticks on the colorbar,
+ *  or a map which maps the tick labels to the breaks values.
+ *  Greyscale images only.
+ * @param labels A list of labels on ticks of the colorbar,
+ *  or a map which maps the breaks values to the tick labels.
+ *  Greyscale images only.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
+ *  Greyscale images only.
+ * @param format Defines the format for labels on the colorbar.
+ *  The syntax resembles Python's:
+ *  - `.2f` -> `12.45`
+ *  - `Num {}` -> `Num 12.456789`
+ *  - `TTL: {.2f}$` -> `TTL: 12.45$`
+ *
+ *  For more info see: [formatting](https://lets-plot.org/kotlin/formats.html).
+ *  Greyscale images only.
  *
  * @return Layer object.
  */
@@ -80,6 +96,10 @@ fun geomImshow(
     showLegend: Boolean = true,
     colorBy: String = "paint_c",
     cguide: Any? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
+    format: String? = null,
 ): Feature {
     require(extent == null || extent.size == 4) { "Invalid `extent`: list of 4 numbers expected: ${extent!!.size}" }
     val colorAesthetics = listOf("fill", "color", "paint_a", "paint_b", "paint_c")
@@ -208,11 +228,17 @@ fun geomImshow(
     val legendTitle = ""
     val colorScale: Scale? = if (greyscale && showLegend) {
         if (cmap != null) {
-            scaleManual(aesthetic = colorBy, values = cmap, name = legendTitle, guide = cguide)
+            scaleManual(
+                aesthetic = colorBy, values = cmap, name = legendTitle, guide = cguide,
+                breaks = breaks, labels = labels, lablim = lablim, format = format,
+            )
         } else {
             val start = if (norm) 0.0 else greyScaleDataMin / 255
             val end = if (norm) 1.0 else greyScaleDataMax / 255
-            scaleGrey(aesthetic = colorBy, start = start, end = end, name = legendTitle, guide = cguide)
+            scaleGrey(
+                aesthetic = colorBy, start = start, end = end, name = legendTitle, guide = cguide,
+                breaks = breaks, labels = labels, lablim = lablim, format = format,
+            )
         }
     } else {
         null
