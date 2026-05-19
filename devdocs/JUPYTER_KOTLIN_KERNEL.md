@@ -27,11 +27,11 @@ rm -rf ~/.m2/repository/org/jetbrains/lets-plot
 **Option 1:** Publish to Maven local repository (`~/.m2/repository`):
                               
 ```bash
-./gradlew publishJvmPublicationToMavenLocal && \
-./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocal && \
-./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocal && \
-./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocal && \
-./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocal
+./gradlew :plot-api:publishToMavenLocal \
+          :geotools:publishToMavenLocal \
+          :jupyter:publishToMavenLocal \
+          :geotools-jupyter:publishToMavenLocal \
+          :json:publishToMavenLocal
 ```
              
 **Option 2:** Publish to Sonatype Central repository:
