@@ -1,8 +1,73 @@
-## [4.13.1] - 2026-mm-dd
+## [4.14.0] - 2026-05-dd
 
 This release is 100% compatible with Lets-Plot [v 4.9.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.9.0),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
+
+- **WasmJS** support [[LPK-296](https://github.com/JetBrains/lets-plot-kotlin/issues/296)], [[LPC-52](https://github.com/JetBrains/lets-plot-compose/issues/52)].
+
+
+- [TODO] `ggdeck()` — a new function for overlaying multiple independent plots in a single unified view.
+
+  In a typical scenario, one axis is shared by all plots in the deck, enabling dual-axis effects and multivariate comparisons.
+
+  See examples:
+    - [dual-axis effect](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/ggdeck_dual_axis.html)
+    - [multivariate comparison](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/ggdeck_plot_overlay.html)
+
+
+- [TODO] Datetime: `%f` formatting pattern — support for milliseconds when formatting datetime values, zero-padded to 3 digits [[#1482](https://github.com/JetBrains/lets-plot/issues/1482)].
+
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/milliseconds_format.html).
+
+
+- [TODO] In legends:
+    - `override_aes` in `guide_legend()` can now customize filled 2D legend keys:
+        - `size` controls the key border width;
+        - `width` and `height` control the relative key size.
+
+      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/legend_key_size.html).
+
+
+- [TODO] Indication of removed records [[LPK-81](https://github.com/JetBrains/lets-plot-kotlin/issues/81)], [[#686](https://github.com/JetBrains/lets-plot/issues/686)].
+
+  When records in data are dropped by active sampling or because they contain missing or out-of-bounds values, the user is now informed of the number of dropped records and the reason they were dropped.
+
+  The new `na_rm` parameter in `geom_xxx()` and `stat_xxx()` functions controls the display of such messages:
+    - `na_rm=false` (default) — records are removed and messages are shown;
+    - `na_rm=true` — records are removed silently.
+
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/removed_records_indication.html).
+
+
+- [TODO] Alpha (transparency) component:
+    - Hex colors accept `#RRGGBBAA` or `#RGBA` notation.
+    - Colors accept an opacity suffix in the form `"named color / opacity"`, for example `"steelblue / 0.35"`.
+
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/color_alpha.html).
+
+
+- [TODO] Facet strip labels now honor `angle` in `element_text()` for `strip_text_*` [[#1383](https://github.com/JetBrains/lets-plot/issues/1383)].
+
+  Thanks to a contribution by [tentrillion](https://github.com/tentrillion).
+
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/strip_text_angle.html).
+
+
+- [TODO] In `geom_imshow()`, new parameters for controlling the colorbar breaks and labels [[#1486](https://github.com/JetBrains/lets-plot/issues/1486)]:
+    - `breaks`, `labels`, `lablim`, `format`
+
+
 ### Changed
+
+- Java Swing: Apache Batik components are deprecated. Use the Swing/AWT components instead.
+
+
 ### Fixed
+
+- Add 'synchronized tooltips' feature [[#1415](https://github.com/JetBrains/lets-plot/issues/1415)].
+- Alpha is not supported in element_text() [[#1462](https://github.com/JetBrains/lets-plot/issues/1462)].
+- scale_alpha: conflict of constant and mapped values of alpha aesthetic [[#706](https://github.com/JetBrains/lets-plot/issues/706)].
+- geom_imshow(): should render transparency for NaNs when all other pixel values are identical [[#1485](https://github.com/JetBrains/lets-plot/issues/1485)].
+- `scale_color_gradient()`: `guide='legend'` is rendered as a colorbar [[#1489](https://github.com/JetBrains/lets-plot/issues/1489)].
