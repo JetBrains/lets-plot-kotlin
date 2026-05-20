@@ -13,7 +13,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   In a typical scenario, one axis is shared by all plots in the deck, enabling dual-axis effects and multivariate comparisons.
 
   See examples:
-    - [dual-axis effect](https://raw.githack.com/JetBrains/lets-plot/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_dual_axis.html)
+    - [dual-axis effect](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_dual_axis.html)
     - [multivariate comparison](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/ggdeck_plot_overlay.html)
 
 
