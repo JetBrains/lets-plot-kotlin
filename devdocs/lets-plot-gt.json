@@ -2,7 +2,7 @@
   "description": "Lets-Plot visualisation for GeoTools toolkit",
   "link": "https://github.com/JetBrains/lets-plot-kotlin",
   "properties": [
-    { "name": "v", "value": "4.12.2-SNAPSHOT" },
+    { "name": "v", "value": "4.14.0-SNAPSHOT" },
     { "name": "v-renovate-hint", "value": "update: package=org.jetbrains.lets-plot:lets-plot-kotlin-geotools-jupyter" }
   ],
   "repositories": [
