@@ -83,6 +83,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  This is useful for free scales in facets - use threshold=0 to make the plot take up the entire panel space.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -109,6 +111,7 @@ class geomFreqpoly(
     override val boundary: Number? = null,
     override val threshold: Number? = null,
     override val colorBy: String? = null,
+    naRm: Boolean = false,
     mapping: LineMapping.() -> Unit = {}
 ) : LineAesthetics,
     BinStatParameters,
@@ -123,6 +126,7 @@ class geomFreqpoly(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips,
         orientation = orientation
     ) {

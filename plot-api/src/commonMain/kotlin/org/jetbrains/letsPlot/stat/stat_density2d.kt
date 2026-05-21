@@ -72,6 +72,8 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  * @param binWidth Distance between levels.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -100,6 +102,7 @@ class statDensity2D(
     override val bins: Int? = null,
     override val binWidth: Number? = null,
     override val colorBy: String? = null,
+    naRm: Boolean = false,
     mapping: Density2dMapping.() -> Unit = {}
 ) : PathAesthetics,
     ContourStatAesthetics,
@@ -115,7 +118,8 @@ class statDensity2D(
         showLegend = showLegend,
         inheritAes = inheritAes,
         manualKey = manualKey,
-        sampling = sampling
+        sampling = sampling,
+        naRm = naRm.takeIf { it }
     ) {
     override fun seal(): Options {
         return super<PathAesthetics>.seal() +

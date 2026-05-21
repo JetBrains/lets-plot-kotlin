@@ -115,6 +115,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  a hex string (up to 8 digits for dash-gap lengths),
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -165,6 +167,7 @@ fun geomBoxplot(
     widthUnit: String? = null,
     colorBy: String? = null,
     fillBy: String? = null,
+    naRm: Boolean = false,
     mapping: BoxplotMapping .() -> Unit = {}
 ): FeatureList {
     val layers = mutableListOf<Layer>()
@@ -177,6 +180,7 @@ fun geomBoxplot(
         inheritAes = inheritAes,
         manualKey = manualKey,
         tooltips = tooltips,
+        naRm = naRm,
         orientation = orientation,
         x = x, y = y,
         lower = lower, middle = middle, upper = upper, ymin = ymin, ymax = ymax,
@@ -215,6 +219,7 @@ fun geomBoxplot(
             inheritAes = inheritAes,
             manualKey = null,
             sampling = null,
+            naRm = naRm,
             orientation = orientation,
             x = x, y = y,
             alpha = outlierAlpha,
@@ -270,6 +275,7 @@ private class geomBoxplotInternal(
     override val widthUnit: String? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
+    naRm: Boolean = false,
     mapping: BoxplotMapping .() -> Unit = {}
 ) : BoxplotAesthetics,
     BoxplotParameters,
@@ -288,6 +294,7 @@ private class geomBoxplotInternal(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = null,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips,
         orientation = orientation
     ) {

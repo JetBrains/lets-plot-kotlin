@@ -91,6 +91,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -120,6 +122,7 @@ class geomPoint(
     override val sizeUnit: String? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
+    naRm: Boolean = false,
     mapping: PointMapping.() -> Unit = {}
 
 ) : PointAesthetics,
@@ -137,6 +140,7 @@ class geomPoint(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips,
         orientation = orientation
     ) {

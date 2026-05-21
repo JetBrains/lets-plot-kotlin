@@ -30,13 +30,13 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
       See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/legend_key_size.html).
 
 
-- [TODO] Indication of removed records [[LPK-81](https://github.com/JetBrains/lets-plot-kotlin/issues/81)], [[#686](https://github.com/JetBrains/lets-plot/issues/686)].
+- Indication of removed records [[LPK-81](https://github.com/JetBrains/lets-plot-kotlin/issues/81)], [[#686](https://github.com/JetBrains/lets-plot/issues/686)].
 
   When records in data are dropped by active sampling or because they contain missing or out-of-bounds values, the user is now informed of the number of dropped records and the reason they were dropped.
 
-  The new `na_rm` parameter in `geom_xxx()` and `stat_xxx()` functions controls the display of such messages:
-    - `na_rm=false` (default) — records are removed and messages are shown;
-    - `na_rm=true` — records are removed silently.
+  The new `naRm` parameter in applicable `geomXxx()` and `statXxx()` functions controls the display of such messages:
+    - `naRm=false` (default) — records are removed and messages are shown;
+    - `naRm=true` — records are removed silently.
 
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/removed_records_indication.html).
 

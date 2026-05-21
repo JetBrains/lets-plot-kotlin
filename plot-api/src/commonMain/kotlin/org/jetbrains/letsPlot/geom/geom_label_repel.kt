@@ -139,6 +139,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param minSegmentLength Minimum length of the line connecting the label to the point.
  *  Shorter segments will be omitted.
  * @param arrow Specification for arrow head, as created by [arrow()][org.jetbrains.letsPlot.geom.extras.arrow] function.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -209,6 +211,7 @@ class geomLabelRepel(
     override val maxOverlaps: Int? = null,
     override val minSegmentLength: Number? = null,
     override val arrow: Map<String, Any>? = null,
+    naRm: Boolean = false,
     mapping: LabelRepelMapping.() -> Unit = {},
 ) : LabelRepelAesthetics,
     LabelParameters,
@@ -227,6 +230,7 @@ class geomLabelRepel(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips
     ) {
     override fun seal(): Options {

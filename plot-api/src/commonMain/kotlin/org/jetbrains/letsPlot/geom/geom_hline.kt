@@ -57,6 +57,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -78,6 +80,7 @@ class geomHLine(
     override val linetype: Any? = null,
     override val size: Number? = null,
     override val colorBy: String? = null,
+    naRm: Boolean = false,
     mapping: HLineMapping.() -> Unit = {}
 
 ) : HLineAesthetics,
@@ -92,6 +95,7 @@ class geomHLine(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips,
         orientation = orientation
     ) {
