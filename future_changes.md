@@ -17,7 +17,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
     - [multivariate comparison](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_plot_overlay.html)
 
 
-- [TODO] Datetime: `%f` formatting pattern — support for milliseconds when formatting datetime values, zero-padded to 3 digits [[#1482](https://github.com/JetBrains/lets-plot/issues/1482)].
+- Datetime: `%f` formatting pattern — support for milliseconds when formatting datetime values, zero-padded to 3 digits [[#1482](https://github.com/JetBrains/lets-plot/issues/1482)].
 
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/milliseconds_format.html).
 

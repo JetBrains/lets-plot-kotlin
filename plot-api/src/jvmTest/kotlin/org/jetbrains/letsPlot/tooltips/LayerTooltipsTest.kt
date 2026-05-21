@@ -70,6 +70,15 @@ class LayerTooltipsTest {
     }
 
     @Test
+    fun `format accepts datetime milliseconds pattern`() {
+        val options = layerTooltips().format("^x", "%H:%M:%S.%f").asMap
+        assertEquals(
+            listOf(mapOf(Option.LinesSpec.Format.FIELD to "^x", Option.LinesSpec.Format.FORMAT to "%H:%M:%S.%f")),
+            options[Option.LinesSpec.FORMATS]
+        )
+    }
+
+    @Test
     fun `multiple format calls accumulate`() {
         val formats = layerTooltips()
             .format("@x", ".2f")
