@@ -52,6 +52,26 @@ class GuidesTest {
     }
 
     @Test
+    fun legendKeySizeOverrides() {
+        val p = ggplot() +
+                guides(fill = guideLegend(size = 1.6, width = 2.5, height = listOf(0.8, 1.2)))
+
+        assertGuidesSpec(
+            p,
+            mapOf(
+                "fill" to mapOf(
+                    "name" to "legend",
+                    "override_aes" to mapOf(
+                        "size" to 1.6,
+                        "width" to 2.5,
+                        "height" to listOf(0.8, 1.2)
+                    )
+                )
+            )
+        )
+    }
+
+    @Test
     fun labsTest() {
         val p = ggplot() + labs(x = "x title")
         assertGuidesSpec(

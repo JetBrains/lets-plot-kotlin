@@ -22,7 +22,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/milliseconds_format.html).
 
 
-- [TODO] In legends:
+- In legends:
     - `override_aes` in `guide_legend()` can now customize filled 2D legend keys:
         - `size` controls the key border width;
         - `width` and `height` control the relative key size.
