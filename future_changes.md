@@ -1,6 +1,6 @@
 ## [4.14.0] - 2026-05-dd
 
-This release is 100% compatible with Lets-Plot [v 4.9.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.9.0),
+This release is 100% compatible with Lets-Plot [v 4.10.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.10.0),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
@@ -14,12 +14,12 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
   See examples:
     - [dual-axis effect](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_dual_axis.html)
-    - [multivariate comparison](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/ggdeck_plot_overlay.html)
+    - [multivariate comparison](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_plot_overlay.html)
 
 
 - [TODO] Datetime: `%f` formatting pattern — support for milliseconds when formatting datetime values, zero-padded to 3 digits [[#1482](https://github.com/JetBrains/lets-plot/issues/1482)].
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/milliseconds_format.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/milliseconds_format.html).
 
 
 - [TODO] In legends:
@@ -27,7 +27,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
         - `size` controls the key border width;
         - `width` and `height` control the relative key size.
 
-      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/legend_key_size.html).
+      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/legend_key_size.html).
 
 
 - [TODO] Indication of removed records [[LPK-81](https://github.com/JetBrains/lets-plot-kotlin/issues/81)], [[#686](https://github.com/JetBrains/lets-plot/issues/686)].
@@ -38,21 +38,21 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
     - `na_rm=false` (default) — records are removed and messages are shown;
     - `na_rm=true` — records are removed silently.
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/removed_records_indication.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/removed_records_indication.html).
 
 
 - [TODO] Alpha (transparency) component:
     - Hex colors accept `#RRGGBBAA` or `#RGBA` notation.
     - Colors accept an opacity suffix in the form `"named color / opacity"`, for example `"steelblue / 0.35"`.
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/color_alpha.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/color_alpha.html).
 
 
 - [TODO] Facet strip labels now honor `angle` in `element_text()` for `strip_text_*` [[#1383](https://github.com/JetBrains/lets-plot/issues/1383)].
 
   Thanks to a contribution by [tentrillion](https://github.com/tentrillion).
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot/master/docs/f-26b/strip_text_angle.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/strip_text_angle.html).
 
 
 - [TODO] In `geom_imshow()`, new parameters for controlling the colorbar breaks and labels [[#1486](https://github.com/JetBrains/lets-plot/issues/1486)]:
