@@ -132,6 +132,22 @@ class ThemeTest {
     }
 
     @Test
+    fun `alpha color strings pass through text elements`() {
+        val p = ggplot() + theme(
+            plotTag = elementText(color = "#4682B424"),
+            plotTitle = elementText(color = "steelblue / 0.35")
+        )
+
+        assertEquals(
+            mapOf(
+                "plot_tag" to mapOf("color" to "#4682B424", "blank" to false),
+                "plot_title" to mapOf("color" to "steelblue / 0.35", "blank" to false)
+            ),
+            p.toSpec()[Option.Plot.THEME]
+        )
+    }
+
+    @Test
     fun `global theme`() {
         LetsPlot.theme = themeGrey()
         assertEquals(
