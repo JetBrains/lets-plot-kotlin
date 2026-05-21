@@ -148,6 +148,24 @@ class ThemeTest {
     }
 
     @Test
+    fun `facet strip text angle serialized`() {
+        val p = ggplot() + theme(
+            stripText = elementText(angle = 15),
+            stripTextX = elementText(angle = 35, color = "steelblue / 0.4"),
+            stripTextY = elementText(angle = 0)
+        )
+
+        assertEquals(
+            mapOf(
+                "strip_text" to mapOf("angle" to 15.0, "blank" to false),
+                "strip_text_x" to mapOf("color" to "steelblue / 0.4", "angle" to 35.0, "blank" to false),
+                "strip_text_y" to mapOf("angle" to 0.0, "blank" to false)
+            ),
+            p.toSpec()[Option.Plot.THEME]
+        )
+    }
+
+    @Test
     fun `global theme`() {
         LetsPlot.theme = themeGrey()
         assertEquals(
