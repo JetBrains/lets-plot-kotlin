@@ -20,7 +20,22 @@
 
 ```bash
 rm -rf ~/.m2/repository/org/jetbrains/lets-plot
-```                          
+```
+
+> **Note:** When changing the SNAPSHOT version in the descriptor, clearing `~/.m2`
+> is not enough. The Kotlin kernel keeps a persistent resolution cache at
+> `~/.jupyter_kotlin/maven_repository/.incrementalCache/` that traps failed
+> lookups (e.g. a `%use lets-plot` attempted before the new version was
+> published locally). Subsequent attempts then return the cached failure even
+> after `publishToMavenLocal` succeeds. Also wipe the kernel caches:
+>
+> ```bash
+> rm -rf ~/.jupyter_kotlin/maven_repository/.incrementalCache/org.jetbrains.lets-plot_*
+> rm -rf ~/.jupyter_kotlin/cache/lets-plot_*
+> ```
+>
+> Restart the kernel afterwards.
+
 
 #### Publish artifacts:
 
