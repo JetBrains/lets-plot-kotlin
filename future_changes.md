@@ -60,7 +60,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/strip_text_angle.html).
 
 
-- [TODO] In `geomImshow()`, new parameters for controlling the colorbar breaks and labels [[#1486](https://github.com/JetBrains/lets-plot/issues/1486)]:
+- In `geomImshow()`, new parameters for controlling the colorbar breaks and labels [[#1486](https://github.com/JetBrains/lets-plot/issues/1486)]:
     - `breaks`, `labels`, `lablim`, `format`
 
 
