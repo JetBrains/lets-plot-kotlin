@@ -41,6 +41,11 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/removed_records_indication.html).
 
 
+- Sampling methods can now be chained with the `+` operator.
+
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/removed_records_indication.html).
+
+
 - Alpha (transparency) component:
     - Hex colors accept `#RRGGBBAA` or `#RGBA` notation.
     - Colors accept an opacity suffix in the form `"named color / opacity"`, for example `"steelblue / 0.35"`.
