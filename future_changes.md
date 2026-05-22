@@ -8,7 +8,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 - **WasmJS** support [[LPK-296](https://github.com/JetBrains/lets-plot-kotlin/issues/296)], [[LPC-52](https://github.com/JetBrains/lets-plot-compose/issues/52)].
 
 
-- [TODO] `ggdeck()` — a new function for overlaying multiple independent plots in a single unified view.
+- `ggdeck()` — a new function for overlaying multiple independent plots in a single unified view.
 
   In a typical scenario, one axis is shared by all plots in the deck, enabling dual-axis effects and multivariate comparisons.
 
