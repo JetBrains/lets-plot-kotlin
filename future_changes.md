@@ -23,7 +23,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 
 - In legends:
-    - `override_aes` in `guide_legend()` can now customize filled 2D legend keys:
+    - Aesthetic overrides in `guideLegend()` can now customize filled 2D legend keys:
         - `size` controls the key border width;
         - `width` and `height` control the relative key size.
 
@@ -53,14 +53,14 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/color_alpha.html).
 
 
-- Facet strip labels now honor `angle` in `element_text()` for `strip_text_*` [[#1383](https://github.com/JetBrains/lets-plot/issues/1383)].
+- Facet strip labels now honor `angle` in `elementText()` for `stripTextX` and `stripTextY` [[#1383](https://github.com/JetBrains/lets-plot/issues/1383)].
 
   Thanks to a contribution by [tentrillion](https://github.com/tentrillion).
 
   See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/strip_text_angle.html).
 
 
-- [TODO] In `geom_imshow()`, new parameters for controlling the colorbar breaks and labels [[#1486](https://github.com/JetBrains/lets-plot/issues/1486)]:
+- [TODO] In `geomImshow()`, new parameters for controlling the colorbar breaks and labels [[#1486](https://github.com/JetBrains/lets-plot/issues/1486)]:
     - `breaks`, `labels`, `lablim`, `format`
 
 
@@ -72,7 +72,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 ### Fixed
 
 - Add 'synchronized tooltips' feature [[#1415](https://github.com/JetBrains/lets-plot/issues/1415)].
-- Alpha is not supported in element_text() [[#1462](https://github.com/JetBrains/lets-plot/issues/1462)].
-- scale_alpha: conflict of constant and mapped values of alpha aesthetic [[#706](https://github.com/JetBrains/lets-plot/issues/706)].
-- geom_imshow(): should render transparency for NaNs when all other pixel values are identical [[#1485](https://github.com/JetBrains/lets-plot/issues/1485)].
-- `scale_color_gradient()`: `guide='legend'` is rendered as a colorbar [[#1489](https://github.com/JetBrains/lets-plot/issues/1489)].
+- Alpha is not supported in `elementText()` [[#1462](https://github.com/JetBrains/lets-plot/issues/1462)].
+- `scaleAlpha()`: conflict of constant and mapped values of alpha aesthetic [[#706](https://github.com/JetBrains/lets-plot/issues/706)].
+- `geomImshow()`: should render transparency for NaNs when all other pixel values are identical [[#1485](https://github.com/JetBrains/lets-plot/issues/1485)].
+- `scaleColorGradient()`: `guide = "legend"` is rendered as a colorbar [[#1489](https://github.com/JetBrains/lets-plot/issues/1489)].
