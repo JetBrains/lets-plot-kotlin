@@ -76,3 +76,4 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 - `scaleAlpha()`: conflict of constant and mapped values of alpha aesthetic [[#706](https://github.com/JetBrains/lets-plot/issues/706)].
 - `geomImshow()`: should render transparency for NaNs when all other pixel values are identical [[#1485](https://github.com/JetBrains/lets-plot/issues/1485)].
 - `scaleColorGradient()`: `guide = "legend"` is rendered as a colorbar [[#1489](https://github.com/JetBrains/lets-plot/issues/1489)].
+- Working with new types of data [[#184](https://github.com/JetBrains/lets-plot-kotlin/issues/184)].
