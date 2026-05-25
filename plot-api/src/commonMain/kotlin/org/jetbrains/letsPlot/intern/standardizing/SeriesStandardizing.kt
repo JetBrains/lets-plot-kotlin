@@ -62,11 +62,28 @@ internal object SeriesStandardizing {
 
     private fun standardizeIterable(series: Iterable<*>): Iterable<*> {
         return if (needToStandardizeValues(series)) {
-            series.map {
-                Standardizing.standardizeValue(it)
-            }
+            series.map { standardizeSeriesValue(it) }
         } else {
             series
+        }
+    }
+
+    /**
+     * Series-aware value standardizer. Like [Standardizing.standardizeValue], but for unknown
+     * scalar objects (anything that the strict standardizer leaves unchanged and that isn't a
+     * primitive / list / map) it falls back to [Any.toString]. Nested lists and maps that
+     * appear inside a series are recursively re-standardized in this same series mode so
+     * the resulting spec contains only serializable primitives, lists and maps.
+     */
+    internal fun standardizeSeriesValue(value: Any?): Any? {
+        return when (val standardized = Standardizing.standardizeValue(value)) {
+            null -> null
+            is String -> standardized
+            is Number -> standardized
+            is Boolean -> standardized
+            is List<*> -> standardized.map { standardizeSeriesValue(it) }
+            is Map<*, *> -> standardized.mapValues { (_, v) -> standardizeSeriesValue(v) }
+            else -> standardized.toString()
         }
     }
 }
