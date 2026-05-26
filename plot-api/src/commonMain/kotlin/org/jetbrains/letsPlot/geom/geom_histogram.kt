@@ -87,6 +87,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Defines the fill aesthetic for the geometry.
  * @param breaks A list of data values that specify exact positions of the bin boundaries.
  *  Overrides `bins`, `binwidth`, `center` and `boundary`.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -117,6 +119,7 @@ class geomHistogram(
     override val colorBy: String? = null,
     override val fillBy: String? = null,
     override val breaks: List<Number>? = null,
+    naRm: Boolean = false,
     mapping: HistogramMapping.() -> Unit = {}
 
 ) : HistogramAesthetics,
@@ -135,6 +138,7 @@ class geomHistogram(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips,
         labels = labels,
         orientation = orientation,

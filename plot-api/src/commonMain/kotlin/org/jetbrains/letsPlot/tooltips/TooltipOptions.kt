@@ -200,14 +200,14 @@ class layerTooltips(vararg variables: String) {
     private companion object {
         private const val TOOLTIP_VARIABLES = Option.LinesSpec.VARIABLES
         private const val TOOLTIP_FORMATS = Option.LinesSpec.FORMATS
-        private const val TOOLTIP_ANCHOR = Option.Layer.TOOLTIP_ANCHOR
+        private const val TOOLTIP_ANCHOR = Option.Layer.Tooltips.TOOLTIP_ANCHOR
         private const val FIELD = Option.LinesSpec.Format.FIELD
         private const val FORMAT = Option.LinesSpec.Format.FORMAT
 
         private const val TOOLTIP_LINES = Option.LinesSpec.LINES
         private const val TOOLTIP_TITLE = Option.LinesSpec.TITLE
-        private const val TOOLTIP_MIN_WIDTH = Option.Layer.TOOLTIP_MIN_WIDTH
-        private const val DISABLE_SPLITTING = Option.Layer.DISABLE_SPLITTING
+        private const val TOOLTIP_MIN_WIDTH = Option.Layer.Tooltips.TOOLTIP_MIN_WIDTH
+        private const val DISABLE_SPLITTING = Option.Layer.Tooltips.DISABLE_SPLITTING
 
         private const val NO_TOOLTIPS = Option.Layer.NONE
     }

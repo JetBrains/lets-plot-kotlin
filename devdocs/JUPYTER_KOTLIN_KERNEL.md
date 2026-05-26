@@ -20,18 +20,33 @@
 
 ```bash
 rm -rf ~/.m2/repository/org/jetbrains/lets-plot
-```                          
+```
+
+> **Note:** When changing the SNAPSHOT version in the descriptor, clearing `~/.m2`
+> is not enough. The Kotlin kernel keeps a persistent resolution cache at
+> `~/.jupyter_kotlin/maven_repository/.incrementalCache/` that traps failed
+> lookups (e.g. a `%use lets-plot` attempted before the new version was
+> published locally). Subsequent attempts then return the cached failure even
+> after `publishToMavenLocal` succeeds. Also wipe the kernel caches:
+>
+> ```bash
+> rm -rf ~/.jupyter_kotlin/maven_repository/.incrementalCache/org.jetbrains.lets-plot_*
+> rm -rf ~/.jupyter_kotlin/cache/lets-plot_*
+> ```
+>
+> Restart the kernel afterwards.
+
 
 #### Publish artifacts:
 
 **Option 1:** Publish to Maven local repository (`~/.m2/repository`):
                               
 ```bash
-./gradlew publishJvmPublicationToMavenLocal && \
-./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenLocal && \
-./gradlew publishletsPlotKotlinJupyterPublicationToMavenLocal && \
-./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocal && \
-./gradlew publishLetsPlotKotlinJsonPublicationToMavenLocal
+./gradlew :plot-api:publishToMavenLocal \
+          :geotools:publishToMavenLocal \
+          :jupyter:publishToMavenLocal \
+          :geotools-jupyter:publishToMavenLocal \
+          :json:publishToMavenLocal
 ```
              
 **Option 2:** Publish to Sonatype Central repository:
@@ -48,6 +63,7 @@ Update versions in the `lets-plot.json` and `lets-plot-gt.json` files (find copi
 Copy descriptors to the `~/.jupyter_kotlin/libraries` directory (create if it does not exist):
 
 ```bash
+rm -rf ~/.jupyter_kotlin/libraries && mkdir -p ~/.jupyter_kotlin/libraries
 cp devdocs/lets-plot.json ~/.jupyter_kotlin/libraries
 cp devdocs/lets-plot-gt.json ~/.jupyter_kotlin/libraries
 ```

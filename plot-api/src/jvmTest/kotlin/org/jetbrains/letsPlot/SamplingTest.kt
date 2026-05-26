@@ -103,7 +103,7 @@ class SamplingTest(
             return
         }
 
-        val sampling = l.sampling as SamplingOptions
+        val sampling = l.sampling
 
         Assert.assertEquals(expectedMap, sampling.mapping.map)
     }

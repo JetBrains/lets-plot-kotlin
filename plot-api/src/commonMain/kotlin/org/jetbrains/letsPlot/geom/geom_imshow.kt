@@ -67,6 +67,22 @@ import org.jetbrains.letsPlot.scale.scaleManual
  * @param cguide default = null.
  *  A result of [guideColorbar()][org.jetbrains.letsPlot.scale.guideColorbar] call.
  *  Use to customize the colorbar for greyscale images.
+ * @param breaks A list of data values specifying the positions of ticks on the colorbar,
+ *  or a map which maps the tick labels to the breaks values.
+ *  Greyscale images only.
+ * @param labels A list of labels on ticks of the colorbar,
+ *  or a map which maps the breaks values to the tick labels.
+ *  Greyscale images only.
+ * @param lablim The maximum label length (in characters) before trimming is applied.
+ *  Greyscale images only.
+ * @param format Defines the format for labels on the colorbar.
+ *  The syntax resembles Python's:
+ *  - `.2f` -> `12.45`
+ *  - `Num {}` -> `Num 12.456789`
+ *  - `TTL: {.2f}$` -> `TTL: 12.45$`
+ *
+ *  For more info see: [formatting](https://lets-plot.org/kotlin/formats.html).
+ *  Greyscale images only.
  *
  * @return Layer object.
  */
@@ -80,6 +96,10 @@ fun geomImshow(
     showLegend: Boolean = true,
     colorBy: String = "paint_c",
     cguide: Any? = null,
+    breaks: Any? = null,
+    labels: Any? = null,
+    lablim: Int? = null,
+    format: String? = null,
 ): Feature {
     require(extent == null || extent.size == 4) { "Invalid `extent`: list of 4 numbers expected: ${extent!!.size}" }
     val colorAesthetics = listOf("fill", "color", "paint_a", "paint_b", "paint_c")
@@ -208,11 +228,17 @@ fun geomImshow(
     val legendTitle = ""
     val colorScale: Scale? = if (greyscale && showLegend) {
         if (cmap != null) {
-            scaleManual(aesthetic = colorBy, values = cmap, name = legendTitle, guide = cguide)
+            scaleManual(
+                aesthetic = colorBy, values = cmap, name = legendTitle, guide = cguide,
+                breaks = breaks, labels = labels, lablim = lablim, format = format,
+            )
         } else {
             val start = if (norm) 0.0 else greyScaleDataMin / 255
             val end = if (norm) 1.0 else greyScaleDataMax / 255
-            scaleGrey(aesthetic = colorBy, start = start, end = end, name = legendTitle, guide = cguide)
+            scaleGrey(
+                aesthetic = colorBy, start = start, end = end, name = legendTitle, guide = cguide,
+                breaks = breaks, labels = labels, lablim = lablim, format = format,
+            )
         }
     } else {
         null
@@ -264,13 +290,15 @@ private fun normalize2d(raster: Raster, norm: Boolean, vMin: Float?, vMax: Float
     require(vMin <= vMax) { "vmin value must be less then vmax value, was: $vMin > $vMax" }
     raster.updateChannels { it.coerceIn(vMin, vMax) }
 
-    if (norm == false) {
+    if (!norm) {
         // no normalization - just round values to the nearest int.
         raster.updateChannels { it + 0.5f }
     } else {
         @Suppress("IntroduceWhenSubject")
         when {
-            vMin == vMax -> raster.updateChannels { 127f }
+            vMin == vMax -> {
+                raster.updateChannels { if (it.isFinite()) 127f else it }
+            }
             else -> {
                 val ratio = maxLum / (vMax - vMin)
                 raster.updateChannels { (it - vMin) * ratio + 0.5f }
@@ -296,7 +324,7 @@ class RasterData private constructor(
          *  - (M, N, 4): an image with RGBA values (0-1 float or 0-255 int).
          */
         fun create(iterable: Iterable<Iterable<*>>): RasterData {
-            val l0 = if (iterable is Collection) iterable else iterable.toList()
+            val l0 = iterable as? Collection ?: iterable.toList()
             val l1 = l0.flatten()
 
             @Suppress("UNCHECKED_CAST")
@@ -323,7 +351,7 @@ class RasterData private constructor(
 
             @Suppress("UNCHECKED_CAST")
             val l1: List<Number> = when (l0[0] is Array<*>) {
-                true -> (l0 as List<Array<*>>).map(Array<*>::asList).flatten() as List<Number>
+                true -> (l0 as List<Array<*>>).flatMap(Array<*>::asList) as List<Number>
                 false -> l0 as List<Number>
             }
 

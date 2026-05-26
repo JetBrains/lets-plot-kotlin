@@ -4,6 +4,7 @@
 
 *.iml
 .gradle
+/.gradle-user/
 .DS_Store
 **/build
 **/out

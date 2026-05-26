@@ -7,9 +7,11 @@ import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.asRequestBody
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinCommonCompilerOptions
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.util.*
 
 plugins {
@@ -36,12 +38,13 @@ if (project.file("local.properties").exists()) {
 
 allprojects {
     group = "org.jetbrains.lets-plot"
-    version = "4.13.1-SNAPSHOT"
+//    version = "4.14.0-dev1"  (!) published
+    version = "4.14.0-SNAPSHOT"
 //    version = "0.0.0-SNAPSHOT"  // for local publishing only
 
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
+    tasks.withType<KotlinCompile>().all {
         compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
+            jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
 

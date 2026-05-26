@@ -37,6 +37,7 @@ internal object Standardizing {
                 .toEpochMilliseconds().toDouble()
 
             is kotlin.time.Duration -> value.inWholeMilliseconds.toDouble()
+            is kotlin.time.Instant -> value.toEpochMilliseconds().toDouble()
 
             // Lets-Plot DateTime API
             is Instant -> throw IllegalArgumentException("Use java.util.Instant or kotlinx.datetime.Instant instead of org.jetbrains.letsPlot.commons.intern.datetime.Instant")

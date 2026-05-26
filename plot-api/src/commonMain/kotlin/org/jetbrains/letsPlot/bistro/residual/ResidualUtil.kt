@@ -92,7 +92,7 @@ internal object ResidualUtil {
     ): List<Double?> {
         return (xs zip ys).map { (x, y) ->
             if (SeriesUtil.allFinite(x, y) && range?.contains(x!!) == true) {
-                y!! - predictor(x!!)
+                y!! - predictor(x)
             } else {
                 null
             }

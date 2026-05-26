@@ -130,6 +130,7 @@ abstract class Layer(
     val inheritAes: Boolean?,
     val manualKey: Any? = null,
     val sampling: SamplingOptions? = null,
+    val naRm: Boolean? = null,
     val tooltips: TooltipOptions? = null,
     val labels: layerLabels? = null,
     val orientation: String? = null,
@@ -143,7 +144,9 @@ abstract class Layer(
     //    abstract val parameters: Options
     // layer parameters has precedence over geom and stat
     val parameters by lazy {
-        geom.parameters + stat.parameters + this.seal()
+        geom.parameters + stat.parameters + Options.of(
+            "na_rm" to naRm
+        ) + this.seal()
     }
 }
 

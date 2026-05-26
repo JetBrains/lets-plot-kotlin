@@ -201,6 +201,20 @@ class ScaleTest {
         assertScalesSpec(p2, expected)
     }
 
+    @Test
+    fun dateTimeFormatWithMilliseconds() {
+        val p = ggplot() + scaleXDateTime(format = "%H:%M:%S.%f")
+
+        assertScalesSpec(
+            p,
+            mapOf(
+                "aesthetic" to "x",
+                "format" to "%H:%M:%S.%f",
+                Option.Scale.DATE_TIME to true
+            )
+        )
+    }
+
 
     private fun assertScalesSpec(
         p: Plot,

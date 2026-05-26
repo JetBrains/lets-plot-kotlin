@@ -94,6 +94,8 @@ import org.jetbrains.letsPlot.pos.positionDodge
  *  Defines the color aesthetic for the geometry.
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -141,24 +143,27 @@ fun statBoxplot(
     coef: Number? = null,
     colorBy: String? = null,
     fillBy: String? = null,
+    naRm: Boolean = false,
     mapping: BoxplotMapping.() -> Unit = {}
 ): FeatureList {
     val layers = mutableListOf<Layer>()
 
     layers += statBoxplotInternal(
-        data,
-        geom,
-        position,
-        showLegend,
-        inheritAes,
-        sampling,
-        x, y,
-        lower, middle, upper, ymin, ymax,
-        xlower, xmiddle, xupper, xmin, xmax,
-        alpha, color, fill, size, linetype, shape, angle, width, weight, fatten,
-        whiskerWidth, varWidth, coef,
-        colorBy, fillBy,
-        mapping
+        data = data,
+        geom = geom,
+        position = position,
+        showLegend = showLegend,
+        inheritAes = inheritAes,
+        sampling = sampling,
+        x = x, y = y,
+        lower = lower, middle = middle, upper = upper, ymin = ymin, ymax = ymax,
+        xlower = xlower, xmiddle = xmiddle, xupper = xupper, xmin = xmin, xmax = xmax,
+        alpha = alpha, color = color, fill = fill, size = size, linetype = linetype, shape = shape, angle = angle,
+        width = width, weight = weight, fatten = fatten,
+        whiskerWidth = whiskerWidth, varWidth = varWidth, coef = coef,
+        colorBy = colorBy, fillBy = fillBy,
+        naRm = naRm,
+        mapping = mapping
     )
 
     if (geom.kind == GeomKind.BOX_PLOT) {
@@ -185,6 +190,7 @@ fun statBoxplot(
             position = position,
             showLegend = false,
             sampling = null,
+            naRm = naRm,
             x = x, y = y,
             alpha = outlierAlpha,
             color = outlierColor ?: color,
@@ -237,6 +243,7 @@ private class statBoxplotInternal(
     override val coef: Number? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
+    naRm: Boolean = false,
     mapping: BoxplotMapping.() -> Unit = {}
 
 ) : BoxplotAesthetics,
@@ -253,7 +260,8 @@ private class statBoxplotInternal(
         position = position,
         showLegend = showLegend,
         inheritAes = inheritAes,
-        sampling = sampling
+        sampling = sampling,
+        naRm = naRm.takeIf { it }
 
     ) {
 
@@ -288,6 +296,7 @@ private class statBoxplotOutlierInternal(
     override val coef: Number? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
+    naRm: Boolean = false,
     mapping: PointMapping.() -> Unit = {},
 
 ) : PointAesthetics,
@@ -302,7 +311,8 @@ private class statBoxplotOutlierInternal(
         position = position,
         showLegend = showLegend,
         inheritAes = inheritAes,
-        sampling = sampling
+        sampling = sampling,
+        naRm = naRm.takeIf { it }
 
     ) {
 

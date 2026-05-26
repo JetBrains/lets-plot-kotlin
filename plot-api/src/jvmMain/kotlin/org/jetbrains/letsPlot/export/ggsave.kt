@@ -224,12 +224,12 @@ private fun exportRasterImage(
         }
 
         val image = PlotImageExport.buildImageFromRawSpecs(
-            plotSpec = spec,
-            format = format,
-            scalingFactor = scalingFactor,
-            plotSize = plotSize,
-            unit = unit,
-            targetDPI = targetDPI
+            spec,
+            format,
+            scalingFactor,
+            targetDPI,
+            plotSize,
+            unit
         )
         image.bytes
 

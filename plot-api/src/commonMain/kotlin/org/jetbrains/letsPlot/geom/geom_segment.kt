@@ -76,6 +76,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Usually equal to the stroke of the point object from which the segment ends to avoid overlapping with it.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -105,6 +107,7 @@ class geomSegment(
     override val strokeStart: Number? = null,
     override val strokeEnd: Number? = null,
     override val colorBy: String? = null,
+    naRm: Boolean = false,
     mapping: SegmentMapping.() -> Unit = {}
 
 ) : SegmentAesthetics,
@@ -119,6 +122,7 @@ class geomSegment(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips
     ) {
     override fun seal(): Options {
