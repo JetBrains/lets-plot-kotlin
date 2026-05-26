@@ -32,6 +32,15 @@ Cookbooks:
 - [Interactive pan/zoom with shared axes in gggrid](%nb-gggrid_scale_share_zoom%)
 - [Collecting guides in gggrid()](%nb-gggrid_legend_collect%)
 
+## `ggdeck`
+
+- [`ggdeck`](%api_lets_plot%/ggdeck.html) - overlays several independent plots in one view while keeping their drawing areas aligned.
+
+Cookbooks:
+
+- [Dual-axis effect with ggdeck()](%nb-ggdeck_dual_axis%)
+- [Plot overlay with ggdeck()](%nb-ggdeck_plot_overlay%)
+
 ## Plot Tags
 
 Plot tags are short labels attached to subplots and composite figures (panel labels, figure numbering).
