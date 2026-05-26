@@ -70,6 +70,7 @@ Text:
 Cookbooks:
 
 - [Missing values: line, path, area, and ribbon](%nb-missing_values_line_path_area_ribbon%)
+- [Indication of removed records](%nb-removed_records_indication%)
 - [Drawing graph edges](%nb-graph_edges%)
 - [Formatting labels on plots](%nb-formatting_axes_etc%)
 - [Text geoms](%nb-text_geoms%)
@@ -329,4 +330,5 @@ Cookbooks:
 
 - [Legend customization](%nb-legend%)
 - [Manual legend](%nb-manual_legend%)
+- [Customizing legend key size and appearance](%nb-legend_key_size%)
 - [Customize legend appearance](%nb-legend_theme%)
