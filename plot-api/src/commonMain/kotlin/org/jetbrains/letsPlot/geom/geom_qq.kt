@@ -87,6 +87,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  For more info see: [aesthetics.html#point-shapes](https://lets-plot.org/kotlin/aesthetics.html#point-shapes).
  * @param size Size of the point.
  * @param stroke Width of the shape border. Applied only to the shapes having border.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -111,6 +113,7 @@ class geomQQ(
     override val dParams: List<Number>? = null,
     override val colorBy: String? = null,
     override val fillBy: String? = null,
+    naRm: Boolean = false,
     mapping: QQMapping.() -> Unit = {}
 ) : QQAesthetics,
     QQStatAesthetics,
@@ -127,6 +130,7 @@ class geomQQ(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips
     ) {
 

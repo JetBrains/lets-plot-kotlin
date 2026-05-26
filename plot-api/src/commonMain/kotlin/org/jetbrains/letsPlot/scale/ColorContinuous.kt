@@ -385,7 +385,7 @@ fun scaleColorGradient(
 fun scaleGradient2(
     aesthetic: Any,
     low: String, mid: String, high: String,
-    midpoint: Double = 0.0,
+    midpoint: Number = 0.0,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
@@ -453,7 +453,7 @@ fun scaleGradient2(
  */
 fun scaleFillGradient2(
     low: String, mid: String, high: String,
-    midpoint: Double = 0.0,
+    midpoint: Number = 0.0,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,
@@ -637,7 +637,7 @@ fun scaleFillGradientN(
  */
 fun scaleColorGradient2(
     low: String, mid: String, high: String,
-    midpoint: Double = 0.0,
+    midpoint: Number = 0.0,
     name: String? = null,
     breaks: Any? = null,
     labels: Any? = null,

@@ -31,7 +31,7 @@ class SamplingNoneTest {
             return
         }
 
-        val sampling = l.sampling as SamplingOptions
+        val sampling = l.sampling
         assertTrue(sampling.isNone)
 
         assertEquals(EXPECTED_MAP, l.toSpec())

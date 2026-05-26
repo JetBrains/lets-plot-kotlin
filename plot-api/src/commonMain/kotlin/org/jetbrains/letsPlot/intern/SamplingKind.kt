@@ -17,7 +17,8 @@ enum class SamplingKind {
     GROUP_SYSTEMATIC,
     VERTEX_VW,
     VERTEX_DP,
-    GROUP_RANDOM;
+    GROUP_RANDOM,
+    COMPOSITE;
 
     fun optionName() = name.lowercase()
 }

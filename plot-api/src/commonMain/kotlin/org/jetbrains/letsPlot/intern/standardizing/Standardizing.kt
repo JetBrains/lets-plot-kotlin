@@ -37,6 +37,7 @@ internal object Standardizing {
                 .toEpochMilliseconds().toDouble()
 
             is kotlin.time.Duration -> value.inWholeMilliseconds.toDouble()
+            is kotlin.time.Instant -> value.toEpochMilliseconds().toDouble()
 
             // Lets-Plot DateTime API
             is Instant -> throw IllegalArgumentException("Use java.util.Instant or kotlinx.datetime.Instant instead of org.jetbrains.letsPlot.commons.intern.datetime.Instant")
@@ -48,6 +49,11 @@ internal object Standardizing {
                 if (JvmStandardizing.isJvm(value)) {
                     JvmStandardizing.standardize(value)
                 } else if (SeriesStandardizing.isListy(value)) {
+                    // Any list-like option value is treated as a data series here: it goes through
+                    // [SeriesStandardizing.toList], which applies the series-mode `toString()` fallback
+                    // to unknown scalar elements. This is intentional - inline collection mappings
+                    // (e.g. `geomPoint { x = listOf(...) }`) must produce serializable specs.
+                    // Non-list unknown scalars in option specs stay strict (see the branch below).
                     val l = SeriesStandardizing.toList(value)
                     l.map { standardizeValue(it) }
                 } else {

@@ -115,6 +115,8 @@ import org.jetbrains.letsPlot.tooltips.tooltipsNone
  * @param segmentSize Width of the bracket line (the segments forming the bracket).
  * @param segmentAlpha Transparency level of the bracket line.
  *  Accept values between 0 and 1.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -159,6 +161,7 @@ class geomBracketDodge(
     override val nGroup: Int? = null,
     override val sizeUnit: String? = null,
     override val colorBy: String? = null,
+    naRm: Boolean = false,
     mapping: BracketDodgeMapping.() -> Unit = {}
 ) : BracketDodgeAesthetics,
     BracketDodgeParameters,
@@ -175,6 +178,7 @@ class geomBracketDodge(
         inheritAes = null,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltipsNone,
         orientation = orientation
     ) {

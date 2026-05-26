@@ -79,6 +79,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  or a pattern `offset to listOf(dash, gap, ...)` / `listOf(dash, gap, ...)`.
  *  For more info see: [aesthetics.html#line-types](https://lets-plot.org/kotlin/aesthetics.html#line-types).
  * @param size Line width.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -101,6 +103,7 @@ class geomQQLine(
     override val dParams: List<Number>? = null,
     override val quantiles: Pair<Number, Number>? = null,
     override val colorBy: String? = null,
+    naRm: Boolean = false,
     mapping: QQLineMapping.() -> Unit = {}
 ) : QQLineAesthetics,
     QQStatAesthetics,
@@ -116,6 +119,7 @@ class geomQQLine(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips
     ) {
 

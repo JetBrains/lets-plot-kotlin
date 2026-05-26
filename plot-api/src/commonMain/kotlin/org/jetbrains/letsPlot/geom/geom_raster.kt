@@ -48,6 +48,8 @@ import org.jetbrains.letsPlot.pos.positionIdentity
  *  For more info see: [aesthetics.html#color-and-fill](https://lets-plot.org/kotlin/aesthetics.html#color-and-fill).
  * @param fillBy default = "fill" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the fill aesthetic for the geometry.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -65,6 +67,7 @@ class geomRaster(
     override val alpha: Number? = null,
     override val fill: Any? = null,
     override val fillBy: String? = null,
+    naRm: Boolean = false,
     mapping: RasterMapping.() -> Unit = {}
 
 ) : RasterAesthetics,
@@ -78,7 +81,8 @@ class geomRaster(
         showLegend = showLegend,
         inheritAes = inheritAes,
         manualKey = manualKey,
-        sampling = sampling
+        sampling = sampling,
+        naRm = naRm.takeIf { it }
     ) {
     override fun seal() = super<RasterAesthetics>.seal() +
             super<WithFillOption>.seal()

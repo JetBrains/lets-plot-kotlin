@@ -1,3 +1,7 @@
+@file:OptIn(ExperimentalWasmDsl::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 /*
  * Copyright (c) 2021. JetBrains s.r.o.
  * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
@@ -14,21 +18,19 @@ val letsPlotVersion = extra["letsPlot.version"] as String
 val kotlinxDatetimeVersion = extra["kotlinx.datetime.version"] as String
 val kotlinLoggingVersion = extra["kotlinLogging.version"] as String
 val kotlinxCoroutinesVersion = extra["kotlinx.coroutines.version"] as String
+val kotlinxBrowserVersion = extra["kotlinx.browser.version"] as String
 val assertjVersion = extra["assertj.version"] as String
 val slf4jVersion = extra["slf4j.version"] as String
 
 kotlin {
     jvm()
     js().browser()
+    wasmJs().browser()
 
     sourceSets {
         commonMain {
             dependencies {
-                api("org.jetbrains.lets-plot:commons:$letsPlotVersion")
-                api("org.jetbrains.lets-plot:datamodel:$letsPlotVersion")
-                api("org.jetbrains.lets-plot:plot-base:$letsPlotVersion")
-                api("org.jetbrains.lets-plot:plot-builder:$letsPlotVersion")
-                api("org.jetbrains.lets-plot:plot-stem:$letsPlotVersion")
+                api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
 
                 // Required for proper building of Kotlin/JS artifacts.
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:${kotlinxDatetimeVersion}")
@@ -45,8 +47,7 @@ kotlin {
 
         named("jvmMain") {
             dependencies {
-                api("org.jetbrains.lets-plot:lets-plot-common:$letsPlotVersion")
-                api("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
+                api("io.github.oshai:kotlin-logging:$kotlinLoggingVersion")
 
                 compileOnly("org.jetbrains.lets-plot:lets-plot-swing:$letsPlotVersion")
 //                compileOnly("org.jetbrains.lets-plot:lets-plot-batik:$letsPlotVersion")
@@ -56,7 +57,14 @@ kotlin {
 
         named("jsMain") {
             dependencies {
-                implementation("io.github.microutils:kotlin-logging-js:$kotlinLoggingVersion")
+                implementation("io.github.oshai:kotlin-logging:${kotlinLoggingVersion}")
+            }
+        }
+
+        wasmJsMain {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-browser:${kotlinxBrowserVersion}")
+                implementation("io.github.oshai:kotlin-logging:${kotlinLoggingVersion}")
             }
         }
 

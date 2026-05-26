@@ -72,6 +72,8 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  *  Usually equal to the stroke of the point object from which the curve ends to avoid overlapping with it.
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
+ * @param naRm If true, silently removes missing values.
+ *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
  *  Aesthetic mappings describe the way that variables in the data are
  *  mapped to plot "aesthetics".
@@ -103,6 +105,7 @@ class geomCurve(
     override val spacer: Number? = null,
     override val arrow: Map<String, Any>? = null,
     override val colorBy: String? = null,
+    naRm: Boolean = false,
     mapping: CurveMapping.() -> Unit = {},
 
 ) : CurveAesthetics,
@@ -118,6 +121,7 @@ class geomCurve(
         inheritAes = inheritAes,
         manualKey = manualKey,
         sampling = sampling,
+        naRm = naRm.takeIf { it },
         tooltips = tooltips
     ) {
     override fun seal(): Options {

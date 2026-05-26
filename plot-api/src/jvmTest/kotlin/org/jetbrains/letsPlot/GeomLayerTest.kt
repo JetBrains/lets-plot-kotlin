@@ -7,10 +7,12 @@ package org.jetbrains.letsPlot
 
 import org.jetbrains.letsPlot.Stat.density
 import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.stat.statBin
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.LayerAssert
 import org.jetbrains.letsPlot.intern.StatKind
 import org.junit.Test
+import kotlin.test.assertFalse
 
 class GeomLayerTest {
 
@@ -68,5 +70,29 @@ class GeomLayerTest {
             .kind(StatKind.DENSITY)
             .aes("x", "F1")
             .parameter("kernel", "gaussian")
+    }
+
+    @Test
+    fun `geom naRm serializes to na_rm`() {
+        val defaultLayer = geomPoint()
+        val falseLayer = geomPoint(naRm = false)
+        val l = geomPoint(naRm = true)
+
+        assertFalse(LayerAssert.assertThat(defaultLayer).parameterOptions.has("na_rm"))
+        assertFalse(LayerAssert.assertThat(falseLayer).parameterOptions.has("na_rm"))
+        LayerAssert.assertThat(l)
+            .parameter("na_rm", true)
+    }
+
+    @Test
+    fun `stat naRm serializes to na_rm`() {
+        val defaultLayer = statBin()
+        val falseLayer = statBin(naRm = false)
+        val l = statBin(naRm = true)
+
+        assertFalse(LayerAssert.assertThat(defaultLayer).parameterOptions.has("na_rm"))
+        assertFalse(LayerAssert.assertThat(falseLayer).parameterOptions.has("na_rm"))
+        LayerAssert.assertThat(l)
+            .parameter("na_rm", true)
     }
 }

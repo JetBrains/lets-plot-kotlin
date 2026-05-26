@@ -144,9 +144,15 @@ fun Layer.toSpec(): MutableMap<String, Any> {
     }
 
     sampling?.let {
-        spec[Option.Layer.SAMPLING] =
-            if (it.isNone) "none"
-            else it.mapping.map
+        spec[Option.Layer.SAMPLING] = when {
+            it.isNone -> "none"
+            it.samplings != null -> mapOf(
+                "feature-list" to it.samplings.map { s ->
+                    mapOf(Option.Layer.SAMPLING to s.mapping.map)
+                }
+            )
+            else -> it.mapping.map
+        }
     }
 
     tooltips?.let {
@@ -467,6 +473,7 @@ private fun inferSeriesDType(data: Any?): String {
             value is kotlinx.datetime.LocalDateTime -> SeriesAnnotation.Types.DATE_TIME
 
             value is kotlin.time.Duration -> SeriesAnnotation.Types.INTEGER
+            value is kotlin.time.Instant -> SeriesAnnotation.Types.DATE_TIME
 
             else -> SeriesAnnotation.Types.UNKNOWN
         }
