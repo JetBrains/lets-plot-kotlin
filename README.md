@@ -67,7 +67,7 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
   - [Compose Multiplatform](#in-compose-multiplatform)
   - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-- [What is new in 4.13.0](#new)
+- [What is new in 4.14.0](#new)
 - [Recent Updates in the Gallery](#recent_gallery_updates)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
@@ -141,85 +141,45 @@ Examples of using the Lets-Plot Kotlin API in JVM and Kotlin/JS applications are
 
 
 <a id="new"></a>
-## What is new in 4.13.0
+## What is new in 4.14.0
 
-**Kotlin**: v2.2.20 (was v1.9.25).
+- #### `ggdeck()`
 
-> [!IMPORTANT]
-> 
-> **Artifact changes in the core Lets-Plot library** (v4.9.0):
-> * **New** artifact for JVM Swing applications: `org.jetbrains.lets-plot:lets-plot-swing`.
->   This artifact provides the `SwingPlotPanel` class, which can be used to display plots in Swing applications instead of the now-obsolete `DefaultPlotPanelBatik`.
->   For details, see the [jvm-swing-app](https://github.com/alshan/lets-plot-mini-apps/tree/main/jvm-swing-app) example in the "lets-plot-mini-apps" repository.
-> * [**BREAKING**]: Removed JavaFX artifacts.
->   The `org.jetbrains.lets-plot:lets-plot-jfx` artifact is no longer available.
->   Replace it with new `org.jetbrains.lets-plot:lets-plot-swing` dependency and use `SwingPlotPanel` instead of `DefaultPlotPanelJfx`.
->   For details, see the [jvm-javafx-app](https://github.com/alshan/lets-plot-mini-apps/tree/main/jvm-javafx-app) example in the "lets-plot-mini-apps" repository.
-> * [**BREAKING**]: Removed `plot-image-export` module.
->   The `org.jetbrains.lets-plot:lets-plot-image-export` artifact is no longer available.
->   The `PlotImageExport` utility has been moved to the `platf-awt` module: `org.jetbrains.letsPlot.awt.plot.PlotImageExport`.
->   The required `org.jetbrains.lets-plot:platf-awt` dependency is likely already present in your project.
+  The new `ggdeck()` function overlays multiple independent plots in a shared plotting area.
+  Typically, all plots share one axis — enabling dual-axis charts and multivariate comparisons.<br><br>
+  - **Dual Axis:**
+
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26b/images/ggdeck_dual_axis.png" alt="f-26b/images/ggdeck_dual_axis.png" width="550" height="295">
+
+    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_dual_axis.html).<br><br>
+
+  - **Multivariate Comparison:**
+
+    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26b/images/ggdeck_plot_overlay.png" alt="f-26b/images/ggdeck_plot_overlay.png" width="600" height="283">
+
+    See [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_plot_overlay.html).
 
 
-- #### Statistical Summaries Directly on `geomSmooth()` Plot Layer
 
-  The `geomSmooth()` layer now includes a `labels` parameter designed to display statistical summaries of the fitted model directly on the plot. \
-  This parameter accepts a `smoothLabels()` object, which provides access to model-specific variables like $R^2$ and the regression equation.
+- #### Alpha Channel in Color Strings
 
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26a/images/smooth_summary.png" alt="f-26a/images/smooth_summary.png" width="400" height="265">
+  - Named colors accept an opacity suffix after a slash: `"steelblue/0.35"`.
+  - Hex colors accept an alpha channel: `#RRGGBBAA` or short form `#RGBA`.
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/smooth_summary.html).
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26b/images/color_alpha_componnet.png" alt="f-26b/images/color_alpha_componnet.png" width="400" height="214">
 
-- #### Plot Tags
-  Plot tags are short labels attached to a plot.
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/color_alpha.html).
 
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26a/images/plot_tags.png" alt="f-26a/images/plot_tags.png" width="600" height="185">
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/plot_tags.html) and updated [Plot Layout Diagrams](https://lets-plot.org/kotlin/presentation-options.html#plot-layout-diagrams). 
+- #### Text Angle in Facet Strip Labels
 
-- #### New `geomBracket()` and `geomBracketDodge()` Geometries
-  New geometries designed primarily for significance bars (*p-values*) annotations in categorical plots.
+  Facet strip labels can now be rotated via the `angle` parameter of `element_text()`, applied to `strip_text`, `strip_text_x`, or `strip_text_y`.
 
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26a/images/geom_bracket.png" alt="f-26a/images/geom_bracket.png" width="400" height="261">
+  Thanks to a contribution by [tentrillion](https://github.com/tentrillion).
 
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/geom_bracket.html).
+  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26b/images/facet_strip_text_angle.png" alt="f-26b/images/facet_strip_text_angle.png" width="400" height="225">
 
-- #### Custom Color Palettes in `geomImshow()`
-  The `cmap` parameter now allows you to specify a list of hex color codes for visualizing grayscale images. \
-  Also, the new `cguide` parameter lets you customize the colorbar for grayscale images.
-
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26a/images/image_custom_cmap.png" alt="f-26a/images/image_custom_cmap.png" width="400" height="248">
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/image_custom_cmap.html).
-
-- #### New `palette()` Method in Color Scales
-  Generates a list of hex color codes that can be used with `scaleColorManual()` to maintain consistent colors across multiple plots.
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_color_palette.html).
-
-- #### New `overflow` parameter in `scaleColorBrewer()`, `scaleFillBrewer()`
-  Controls how colors are generated when more colors are needed than the palette provides. \
-  Options: `'interpolate'` (`'i'`), `'cycle'` (`'c'`), `'generate'` (`'g'`).
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_brewer_overflow.html).
-
-- #### New `breakWidth` Parameter in Positional Scales
-  Specifies a fixed distance between axis breaks.
-
-  See examples:
-  - [datetime scale](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_datetime.html)
-  - [time (duration) scale](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_duration.html)
-  - [log10 scale](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/scale_break_width_log10.html)
-
-- #### Axis Minor Ticks Customization
-  The `axisMinorTicks` and `axisMinorTicksLength` parameters in `theme()`.
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/axis_minor_ticks.html).
-
-- #### Pan/Zoom in `gggrid()` with Shared Axes
-  Pan/Zoom now propagates across subplots with shared axes (`sharex`/`sharey`).
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/refs/heads/master/docs/examples/jupyter-notebooks/f-4.13.0/gggrid_scale_share_zoom.html).
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/strip_text_angle.html).
 
 
 - #### And More

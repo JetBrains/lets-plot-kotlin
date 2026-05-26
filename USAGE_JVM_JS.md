@@ -50,9 +50,9 @@ plugins {
 
 dependencies {
     // Lets-Plot Kotlin API
-    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.13.0")
+    implementation("org.jetbrains.lets-plot:lets-plot-kotlin-jvm:4.14.0")
     // Lets-Plot (JVM)
-    implementation("org.jetbrains.lets-plot:lets-plot-swing:4.9.0")
+    implementation("org.jetbrains.lets-plot:lets-plot-swing:4.10.1")
 }
 ```
 
@@ -69,7 +69,7 @@ kotlin {
         named("jsMain") {
             dependencies {
                 // Lets-Plot Kotlin API
-                implementation("org.jetbrains.lets-plot:lets-plot-kotlin-js:4.13.0")
+                implementation("org.jetbrains.lets-plot:lets-plot-kotlin-js:4.14.0")
             }
         }
     }
@@ -150,7 +150,7 @@ val rawSpec = figure.toSpec()
     ```kotlin
     val html: String = PlotHtmlExport.buildHtmlFromRawSpecs(
                                         plotSpec = rawSpec,
-                                        scriptUrl = PlotHtmlHelper.scriptUrl(version="4.9.0"),
+                                        scriptUrl = PlotHtmlHelper.scriptUrl(version="4.10.1"),
                                         iFrame = true
                                     )
     ```
