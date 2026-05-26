@@ -202,6 +202,20 @@ class ScaleTest {
     }
 
     @Test
+    fun `xlim with unknown scalar values stringifies them`() {
+        // Pin the broadened contract: scale limits (and breaks) go through
+        // SeriesStandardizing.toList directly, so unknown scalars are stringified.
+        val p = ggplot() + xlim(listOf(LimitVal(1), LimitVal(2)))
+        assertScalesSpec(
+            p,
+            mapOf(
+                "aesthetic" to "x",
+                "limits" to listOf("LimitVal(v=1)", "LimitVal(v=2)")
+            )
+        )
+    }
+
+    @Test
     fun dateTimeFormatWithMilliseconds() {
         val p = ggplot() + scaleXDateTime(format = "%H:%M:%S.%f")
 
@@ -227,4 +241,8 @@ class ScaleTest {
             spec[Option.Plot.SCALES]
         )
     }
+}
+
+private data class LimitVal(val v: Int) {
+    override fun toString() = "LimitVal(v=$v)"
 }

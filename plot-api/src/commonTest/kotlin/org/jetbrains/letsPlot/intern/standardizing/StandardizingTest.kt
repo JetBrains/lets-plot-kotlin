@@ -153,7 +153,68 @@ class StandardizingTest {
         val result = SeriesStandardizing.toList(values)
         assertContentEquals(expected, result)
     }
+
+    @Test
+    fun unknown_scalar_values_in_a_series_are_stringified() {
+        // Issue #184: data series should accept arbitrary objects and serialize them
+        // via toString() instead of leaving them as non-JSON-serializable values.
+        val values = listOf(A(1), A(2))
+
+        val result = SeriesStandardizing.toList(values)
+
+        assertContentEquals(listOf("A(a=1)", "A(a=2)"), result)
+    }
+
+    @Test
+    fun unknown_scalar_values_nested_in_a_series_list_are_stringified() {
+        val values = listOf(listOf(A(1), A(2)), listOf(A(3)))
+
+        val result = SeriesStandardizing.toList(values)
+
+        assertContentEquals(
+            listOf(listOf("A(a=1)", "A(a=2)"), listOf("A(a=3)")),
+            result
+        )
+    }
+
+    @Test
+    fun unknown_scalar_values_nested_in_a_series_map_are_stringified() {
+        val values = listOf(mapOf("k" to A(1)))
+
+        val result = SeriesStandardizing.toList(values)
+
+        assertEquals(listOf(mapOf("k" to "A(a=1)")), result)
+    }
+
+    @Test
+    fun strict_standardizer_preserves_unknown_scalar_values() {
+        // Non-list option values stay strict: an unknown scalar must NOT be silently stringified
+        // (this is what keeps "legit" objects like MappingMeta intact in option specs).
+        val obj = A(1)
+        assertSame(obj, Standardizing.standardizeValue(obj))
+    }
+
+    @Test
+    fun strict_standardizer_preserves_unknown_scalar_values_in_map_options() {
+        // Pin the strict boundary: an unknown scalar that appears as a value in a non-listy option
+        // map (e.g. some nested options dict) must remain untouched.
+        val obj = A(1)
+        val result = Standardizing.standardizeValue(mapOf("k" to obj))
+        assertEquals(mapOf("k" to obj), result)
+    }
+
+    @Test
+    fun strict_standardizer_stringifies_unknown_values_in_lists() {
+        // Pin the broadened contract: list-valued options go through SeriesStandardizing.toList
+        // and therefore get the series-mode toString() fallback for unknown scalar elements.
+        // Required so inline collection mappings (e.g. `geomPoint { x = listOf(A(1)) }`) produce
+        // serializable specs.
+        val result = Standardizing.standardizeValue(listOf(A(1), A(2)))
+        assertEquals(listOf("A(a=1)", "A(a=2)"), result)
+    }
 }
 
 @Suppress("unused")
 private enum class State { Idle, Working }
+
+private data class A(val a: Int)

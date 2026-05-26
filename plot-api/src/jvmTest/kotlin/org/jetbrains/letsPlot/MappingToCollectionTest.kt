@@ -56,4 +56,38 @@ class MappingToCollectionTest {
             spec
         )
     }
+
+    @Test
+    fun `unknown values in plot data are stringified`() {
+        // Issue #184
+        val p = ggplot(mapOf("x" to listOf(A(1), A(2)), "y" to listOf(1, 2))) +
+                geomPoint { x = "x"; y = "y" }
+
+        val spec = p.toSpec()
+
+        @Suppress("UNCHECKED_CAST")
+        val data = spec["data"] as Map<String, Any>
+        assertEquals(listOf("A(a=1)", "A(a=2)"), data["x"])
+        assertEquals(listOf(1.0, 2.0), data["y"])
+    }
+
+    @Test
+    fun `unknown values in layer collection mappings are stringified`() {
+        // Issue #184
+        val p = ggplot() + geomPoint {
+            x = listOf(A(1), A(2))
+            y = listOf(1, 2)
+            color = listOf(A(1), A(2))
+        }
+
+        val spec = p.toSpec()
+
+        @Suppress("UNCHECKED_CAST")
+        val layerMapping = ((spec["layers"] as List<*>).first() as Map<String, Any>)["mapping"] as Map<String, Any>
+        assertEquals(listOf("A(a=1)", "A(a=2)"), layerMapping["x"])
+        assertEquals(listOf(1.0, 2.0), layerMapping["y"])
+        assertEquals(listOf("A(a=1)", "A(a=2)"), layerMapping["color"])
+    }
 }
+
+private data class A(val a: Int)
