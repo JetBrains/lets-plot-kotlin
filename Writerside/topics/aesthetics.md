@@ -50,30 +50,94 @@ See [example notebook](%nb-aesthetics-text_style-font_face%).
 
 ## Color and Fill
 
-Colors and fills of geometries can be specified in the following ways:
+Colors can be specified using <a href="named_colors.md">named colors</a>,
+theme-dependent system colors (`"pen"`, `"paper"`, `"brush"`), RGB/RGBA strings, HEX values,
+or `color(...)`. Named colors are case-insensitive;
+hyphens and underscores are ignored, and `grey` is treated the same as `gray`
+(`"dark_orange"`, `"light-blue"`, and `"DARK-GREY"` are valid).
+In addition to the named colors listed in the <a href="named_colors.md">Named colors reference</a>,
+grayscale names from `"gray0"` to `"gray100"` are supported.
+Transparency can be included directly in the color value by using an alpha-enabled format
+or by appending opacity to a named color, for example `"steelblue / 0.35"`.
 
-- **RGB**/**RGBA** - e.g. `"rgb(0, 0, 255)"`, `"rgba(0, 0, 255, 0.5)"`.
+<table>
+    <tr>
+        <td>Type</td>
+        <td>Format</td>
+        <td>Example</td>
+    </tr>
+    <tr>
+        <td>Named color</td>
+        <td>name</td>
+        <td>"steelblue"</td>
+    </tr>
+    <tr>
+        <td>Named color with opacity</td>
+        <td>name / a</td>
+        <td>"steelblue / 0.35"</td>
+    </tr>
+    <tr>
+        <td>System color</td>
+        <td>pen, brush, paper</td>
+        <td>"pen"</td>
+    </tr>
+    <tr>
+        <td>RGB</td>
+        <td>rgb(r, g, b)</td>
+        <td>"rgb(70, 130, 180)"</td>
+    </tr>
+    <tr>
+        <td>RGBA</td>
+        <td>rgba(r, g, b, a)</td>
+        <td>"rgba(70, 130, 180, 0.35)"</td>
+    </tr>
+    <tr>
+        <td>Color function</td>
+        <td>color(r, g, b)</td>
+        <td>"color(70, 130, 180)"</td>
+    </tr>
+    <tr>
+        <td>Color function with opacity</td>
+        <td>color(r, g, b, a)</td>
+        <td>"color(70, 130, 180, 0.35)"</td>
+    </tr>
+    <tr>
+        <td>HEX RGB</td>
+        <td>#RRGGBB, #RGB</td>
+        <td>"#4682B4", "#48B"</td>
+    </tr>
+    <tr>
+        <td>HEX RGBA</td>
+        <td>#RRGGBBAA, #RGBA</td>
+        <td>"#4682B459", "#48B6"</td>
+    </tr>
+    <tr>
+        <td>An instance of the java.awt.Color class</td>
+        <td>Color.NAME, Color(r, g, b), …</td>
+        <td>Color.MAGENTA</td>
+    </tr>
+    <tr>
+        <td>Transparent</td>
+        <td>transparent, blank, empty string</td>
+        <td>"transparent"</td>
+    </tr>
+</table>
 
-- **HEX** - e.g. `"#0077ff"`, `"#07f"`.
+For opacity values, `0` means fully transparent and `1` means fully opaque;
+percentage values such as `"steelblue/35%"` are not supported. See also an [example](%nb-color_alpha%).
 
-- **Transparent** - an empty string (`""`) or the aliases `"blank"` and `"transparent"` for a fully transparent color.
+System colors `"pen"`, `"paper"`, and `"brush"` can be used when you want a color to adapt to the active theme or <a href="presentation_options.md#color-schemes-flavors">flavor</a>.
 
-- **Named colors** from <a href="named_colors.md">a predefined list of color names</a>.
-
-- **System colors** depending on the current theme <a href="presentation_options.md#color-schemes-flavors">flavor</a>, one of:
-
-  <list columns="3">
-      <li>
-          <img alt="Color 'pen'" src="aesthetics_color_pen.png"/>
-      </li>
-      <li>
-          <img alt="Color 'brush'" src="aesthetics_color_brush.png"/>
-      </li>
-      <li>
-          <img alt="Color 'paper'" src="aesthetics_color_paper.png"/>
-      </li>
-  </list>
-
-- An instance of the `java.awt.Color` class.
+<list columns="3">
+    <li>
+        <img alt="Color 'pen'" src="aesthetics_color_pen.png"/>
+    </li>
+    <li>
+        <img alt="Color 'brush'" src="aesthetics_color_brush.png"/>
+    </li>
+    <li>
+        <img alt="Color 'paper'" src="aesthetics_color_paper.png"/>
+    </li>
+</list>
 
 See [example notebook](%nb-aesthetics-system_colors%).

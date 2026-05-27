@@ -11,7 +11,9 @@ typealias TooltipOptions = layerTooltips
 
 
 /**
- * Hide tooltips.
+ * Hide layer tooltips.
+ *
+ * Pass as the `tooltips` parameter value in geom or stat layers.
  */
 val tooltipsNone = layerTooltips().none()
 
@@ -19,6 +21,7 @@ val tooltipsNone = layerTooltips().none()
  * Defines the format for displaying the value.
  * The format will be applied to the mapped value in the default tooltip
  * or to the corresponding value specified in the line template.
+ * To hide layer tooltips, pass [tooltipsNone] to the layer's `tooltips` parameter.
  *
  * ## Examples
  *

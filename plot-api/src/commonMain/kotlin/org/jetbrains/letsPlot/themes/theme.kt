@@ -213,14 +213,18 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  * @param panelSpacingY Spacing between panels in facets in vertical direction, inherited from `panelSpacing`.
  *
  * @param axisTooltip Style settings for axes tooltips.
- * @param axisTooltipX Style settings for axes tooltips.
- * @param axisTooltipY Style settings for axes tooltips.
+ *  Set "blank" or [elementBlank] to hide axes tooltips.
+ * @param axisTooltipX Style settings for X-axis tooltips.
+ *  Set "blank" or [elementBlank] to hide X-axis tooltips.
+ * @param axisTooltipY Style settings for Y-axis tooltips.
+ *  Set "blank" or [elementBlank] to hide Y-axis tooltips.
  *
  * @param axisTooltipText Style settings for text in axes tooltips.
  * @param axisTooltipTextX Style settings for text in axes tooltips.
  * @param axisTooltipTextY Style settings for text in axes tooltips.
  *
  * @param tooltip Style settings for general tooltip.
+ *  Set "blank" or [elementBlank] to hide the general tooltip.
  * @param tooltipText Style settings for text in general tooltip.
  * @param tooltipTitleText Style settings for tooltip title text.
  *

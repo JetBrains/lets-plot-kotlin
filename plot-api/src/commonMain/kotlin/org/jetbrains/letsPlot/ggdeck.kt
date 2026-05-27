@@ -14,6 +14,12 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
 /**
  *  Overlay several plots on one figure, with aligned drawing areas.
  *
+ * ## Examples
+ *
+ * - [ggdeck_dual_axis.html](https://lets-plot.org/kotlin/examples/cookbook/ggdeck_dual_axis.html)
+ *
+ * - [ggdeck_plot_overlay.html](https://lets-plot.org/kotlin/examples/cookbook/ggdeck_plot_overlay.html)
+ *
  *  @param plots Collection of plots.
  *   The first plot is the bottom layer, subsequent plots are drawn on top.
  *  @param scaleShare default = "x".
