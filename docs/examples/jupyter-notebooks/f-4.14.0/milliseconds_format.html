@@ -7486,12 +7486,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4c5917e0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4c5917e0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="o">%</span><span class="n">useLatestDescriptors</span>
@@ -7502,16 +7502,325 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=07c92f20-7268-4a0b-bda2-54fe17b403fe">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div id="kotlin_out_0"></div>
+<script type="text/javascript">
+                            if(!window.kotlinQueues) {
+                window.kotlinQueues = {};
+            }
+            if(!window.kotlinQueues["DataFrame"]) {
+                var resQueue = [];
+                window.kotlinQueues["DataFrame"] = resQueue;
+                window["call_DataFrame"] = function(f) {
+                    resQueue.push(f);
+                }
+            }
+            (function (){
+                var modifiers = [(function(script) {
+    script.src = "https://cdn.jsdelivr.net/gh/Kotlin/dataframe@3db46ccccaa1291c0627307d64133317f545e6ae/core/src/main/resources/init.js"
+    script.type = "text/javascript";
+})];
+                var e = document.getElementById("kotlin_out_0");
+                modifiers.forEach(function (gen) {
+                    var script = document.createElement("script");
+                    gen(script)
+                    script.addEventListener("load", function() {
+                        window["call_DataFrame"] = function(f) {f();};
+                        window.kotlinQueues["DataFrame"].forEach(function(f) {f();});
+                        window.kotlinQueues["DataFrame"] = [];
+                    }, false);
+                    script.addEventListener("error", function() {
+                        window["call_DataFrame"] = function(f) {};
+                        window.kotlinQueues["DataFrame"] = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading resource DataFrame';
+                        document.getElementById("kotlin_out_0").appendChild(div);
+                    }, false);
+                    
+                    e.appendChild(script);
+                });
+            })();
+            </script>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<style>
+                :root {
+    --background: #fff;
+    --background-odd: #f5f5f5;
+    --background-hover: #d9edfd;
+    --header-text-color: #474747;
+    --text-color: #848484;
+    --text-color-dark: #000;
+    --text-color-medium: #737373;
+    --text-color-pale: #b3b3b3;
+    --inner-border-color: #aaa;
+    --bold-border-color: #000;
+    --link-color: #296eaa;
+    --link-color-pale: #296eaa;
+    --link-hover: #1a466c;
+}
+
+:root[theme="dark"], :root [data-jp-theme-light="false"], .dataframe_dark{
+    --background: #303030;
+    --background-odd: #3c3c3c;
+    --background-hover: #464646;
+    --header-text-color: #dddddd;
+    --text-color: #b3b3b3;
+    --text-color-dark: #dddddd;
+    --text-color-medium: #b2b2b2;
+    --text-color-pale: #737373;
+    --inner-border-color: #707070;
+    --bold-border-color: #777777;
+    --link-color: #008dc0;
+    --link-color-pale: #97e1fb;
+    --link-hover: #00688e;
+}
+
+p.dataframe_description {
+    color: var(--text-color-dark);
+}
+
+table.dataframe {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    background-color: var(--background);
+    color: var(--text-color-dark);
+    border: none;
+    border-collapse: collapse;
+}
+
+table.dataframe th, td {
+    padding: 6px;
+    border: 1px solid transparent;
+    text-align: left;
+}
+
+table.dataframe th {
+    background-color: var(--background);
+    color: var(--header-text-color);
+}
+
+table.dataframe td {
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+table.dataframe th.bottomBorder {
+    border-bottom-color: var(--bold-border-color);
+}
+
+table.dataframe tbody > tr:nth-child(odd) {
+    background: var(--background-odd);
+}
+
+table.dataframe tbody > tr:nth-child(even) {
+    background: var(--background);
+}
+
+table.dataframe tbody > tr:hover {
+    background: var(--background-hover);
+}
+
+table.dataframe a {
+    cursor: pointer;
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+table.dataframe tr:hover > td a {
+    color: var(--link-color-pale);
+}
+
+table.dataframe a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+table.dataframe img {
+    max-width: fit-content;
+}
+
+table.dataframe th.complex {
+    background-color: var(--background);
+    border: 1px solid var(--background);
+}
+
+table.dataframe .leftBorder {
+    border-left-color: var(--inner-border-color);
+}
+
+table.dataframe .rightBorder {
+    border-right-color: var(--inner-border-color);
+}
+
+table.dataframe .rightAlign {
+    text-align: right;
+}
+
+table.dataframe .expanderSvg {
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+}
+
+table.dataframe .expander {
+    display: flex;
+    align-items: center;
+}
+
+/* formatting */
+
+table.dataframe .null {
+    color: var(--text-color-pale);
+}
+
+table.dataframe .structural {
+    color: var(--text-color-medium);
+    font-weight: bold;
+}
+
+table.dataframe .dataFrameCaption {
+    font-weight: bold;
+}
+
+table.dataframe .numbers {
+    color: var(--text-color-dark);
+}
+
+table.dataframe td:hover .formatted .structural, .null {
+    color: var(--text-color-dark);
+}
+
+table.dataframe tr:hover .formatted .structural, .null {
+    color: var(--text-color-dark);
+}
+
+
+                </style>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>kotlin-logging: initializing... active logger factory: Slf4jLoggerFactory
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div id="DmeSmJ"></div>
+<script data-lets-plot-script="library" type="text/javascript">
+       if(!window.letsPlotCallQueue) {
+           window.letsPlotCallQueue = [];
+       }; 
+       window.letsPlotCall = function(f) {
+           window.letsPlotCallQueue.push(f);
+       };
+       (function() {
+           var script = document.createElement("script");
+           script.type = "text/javascript";
+           script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.10.1/js-package/distr/lets-plot.min.js";
+           script.onload = function() {
+               window.letsPlotCall = function(f) {f();};
+               window.letsPlotCallQueue.forEach(function(f) {f();});
+               window.letsPlotCallQueue = [];
+               
+               
+           };
+           script.onerror = function(event) {
+               window.letsPlotCall = function(f) {};
+               window.letsPlotCallQueue = [];
+               var div = document.createElement("div");
+               div.style.color = 'darkred';
+               div.textContent = 'Error loading Lets-Plot JS';
+               document.getElementById("DmeSmJ").appendChild(div);
+           };
+           var e = document.getElementById("DmeSmJ");
+           e.appendChild(script);
+       })();
+   </script>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div id="kotlin_out_1"></div>
+<script type="text/javascript">
+                            if(!window.kotlinQueues) {
+                window.kotlinQueues = {};
+            }
+            if(!window.kotlinQueues["letsPlotJs"]) {
+                var resQueue = [];
+                window.kotlinQueues["letsPlotJs"] = resQueue;
+                window["call_letsPlotJs"] = function(f) {
+                    resQueue.push(f);
+                }
+            }
+            (function (){
+                var modifiers = [(function(script) {
+    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.10.1/js-package/distr/lets-plot.min.js"
+    script.type = "text/javascript";
+})];
+                var e = document.getElementById("kotlin_out_1");
+                modifiers.forEach(function (gen) {
+                    var script = document.createElement("script");
+                    gen(script)
+                    script.addEventListener("load", function() {
+                        window["call_letsPlotJs"] = function(f) {f();};
+                        window.kotlinQueues["letsPlotJs"].forEach(function(f) {f();});
+                        window.kotlinQueues["letsPlotJs"] = [];
+                    }, false);
+                    script.addEventListener("error", function() {
+                        window["call_letsPlotJs"] = function(f) {};
+                        window.kotlinQueues["letsPlotJs"] = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading resource letsPlotJs';
+                        document.getElementById("kotlin_out_1").appendChild(div);
+                    }, false);
+                    
+                    e.appendChild(script);
+                });
+            })();
+            </script>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=07c92f20-7268-4a0b-bda2-54fe17b403fe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="n">LetsPlot</span><span class="p">.</span><span class="na">getInfo</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Lets-Plot Kotlin API v.4.14.0. Frontend: Notebook with dynamically loaded JS. Lets-Plot JS v.4.10.1.
+Outputs: Web (HTML+JS), Static SVG (hidden)</pre>
 </div>
 </div>
 </div>
@@ -7521,7 +7830,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nn">java.time.LocalDateTime</span>
@@ -7533,7 +7842,6 @@ a.anchor-link {
 
 <span class="kd">val</span><span class="w"> </span><span class="nv">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataFrameOf</span><span class="p">(</span><span class="s">"t"</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="s">"value"</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
 <span class="kd">val</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">df</span><span class="p">.</span><span class="na">toMap</span><span class="p">()</span>
-<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -7550,12 +7858,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bffb1910">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=bffb1910">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="c1">// Milliseconds only</span>
@@ -7568,12 +7876,525 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=57ddc45e">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div id="JfQ7Je"></div>
+<script data-lets-plot-script="library" type="text/javascript">
+       if(!window.letsPlotCallQueue) {
+           window.letsPlotCallQueue = [];
+       }; 
+       window.letsPlotCall = function(f) {
+           window.letsPlotCallQueue.push(f);
+       };
+       (function() {
+           var script = document.createElement("script");
+           script.type = "text/javascript";
+           script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.10.1/js-package/distr/lets-plot.min.js";
+           script.onload = function() {
+               window.letsPlotCall = function(f) {f();};
+               window.letsPlotCallQueue.forEach(function(f) {f();});
+               window.letsPlotCallQueue = [];
+               
+               
+           };
+           script.onerror = function(event) {
+               window.letsPlotCall = function(f) {};
+               window.letsPlotCallQueue = [];
+               var div = document.createElement("div");
+               div.style.color = 'darkred';
+               div.textContent = 'Error loading Lets-Plot JS';
+               document.getElementById("JfQ7Je").appendChild(div);
+           };
+           var e = document.getElementById("JfQ7Je");
+           e.appendChild(script);
+       })();
+   </script>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div id="Gz0GO8"></div>
+<script data-lets-plot-script="plot" type="text/javascript">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("Gz0GO8");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"mapping":{
+"x":"t",
+"y":"value"
+},
+"data":{
+"t":[1.7487792E12,1.748779200117E12,1.748779200234E12,1.748779200351E12,1.748779200468E12,1.748779200585E12,1.748779200702E12,1.748779200819E12,1.748779200936E12,1.748779201053E12,1.74877920117E12,1.748779201287E12],
+"value":[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0]
+},
+"ggsize":{
+"width":700.0,
+"height":250.0
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"x",
+"datetime":true,
+"format":"%f"
+}],
+"layers":[{
+"mapping":{
+},
+"stat":"identity",
+"position":"identity",
+"geom":"point",
+"data":{
+}
+}],
+"data_meta":{
+"series_annotations":[{
+"type":"datetime",
+"column":"t"
+},{
+"type":"int",
+"column":"value"
+}]
+},
+"spec_id":"1"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script> <svg class="plt-container" display="block" height="100%" id="16a17a1c-dee1-445d-9ec6-87c88f0ed253" preserveaspectratio="xMinYMin meet" style="max-width: 700.0px; max-height: 250.0px;" viewbox="0 0 700.0 250.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style type="text/css">
+  .plt-container {
+   font-family: sans-serif;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+text {
+   text-rendering: optimizeLegibility;
+}
+#pf0A796 .plot-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 16.0px;
+
+}
+#pf0A796 .plot-subtitle {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pf0A796 .plot-caption {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pf0A796 .plot-tag {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 16.0px;
+
+}
+#pf0A796 .hyperlink-element {
+fill:#118ed8;
+font-weight: normal;
+font-style: normal;
+
+}
+#pf0A796 .legend-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pf0A796 .legend-item {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pf0A796 .axis-title-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pf0A796 .axis-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dsx6ZoB .axis-tooltip-text-x {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pf0A796 .axis-title-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pf0A796 .axis-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dsx6ZoB .axis-tooltip-text-y {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pf0A796 .facet-strip-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pf0A796 .facet-strip-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dsx6ZoB .tooltip-text {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dsx6ZoB .tooltip-title {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dsx6ZoB .tooltip-label {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+
+  </style>
+<g id="pf0A796">
+<path d="M0.0 0.0 L0.0 250.0 L700.0 250.0 L700.0 0.0 Z" fill="rgb(255,255,255)" fill-opacity="1.0" fill-rule="evenodd">
+</path>
+<g transform="translate(21.0 6.0 ) ">
+<g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="29.7745361328125" x2="29.7745361328125" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="122.313720703125" x2="122.313720703125" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="214.8529052734375" x2="214.8529052734375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="307.39208984375" x2="307.39208984375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="399.9312744140625" x2="399.9312744140625" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="492.470458984375" x2="492.470458984375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="585.0096435546875" x2="585.0096435546875" y1="0.0" y2="204.0">
+</line>
+</g>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="194.72727272727272" y2="194.72727272727272">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="161.0082644628099" y2="161.0082644628099">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="127.2892561983471" y2="127.2892561983471">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="93.5702479338843" y2="93.5702479338843">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="59.85123966942149" y2="59.85123966942149">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="26.132231404958674" y2="26.132231404958674">
+</line>
+</g>
+</g>
+</g>
+<g clip-bounds-jfx="[rect (17.961210910936405, 0.0), (655.0387890890636, 204.0)]" clip-path="url(#ceDyVv3)">
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<g buffered-rendering="static">
+<g>
+<g>
+<circle cx="29.7745361328125" cy="194.72727272727272" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="83.909912109375" cy="177.86776859504133" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="138.04541015625" cy="161.0082644628099" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="192.1807861328125" cy="144.1487603305785" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="246.316162109375" cy="127.2892561983471" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="300.45166015625" cy="110.4297520661157" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="354.5870361328125" cy="93.5702479338843" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="408.7225341796875" cy="76.7107438016529" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="462.85791015625" cy="59.85123966942149" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="516.993408203125" cy="42.991735537190095" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="571.1287841796875" cy="26.132231404958674" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="625.2642822265625" cy="9.27272727272728" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="ceDyVv3">
+<rect height="204.0" width="655.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+</g>
+<g>
+<g transform="translate(17.961210910936405 204.0 ) ">
+<g transform="translate(29.7745361328125 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>000</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(122.313720703125 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>200</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(214.8529052734375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>400</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(307.39208984375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>600</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(399.9312744140625 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>800</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(492.470458984375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>000</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(585.0096435546875 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>200</tspan>
+</text>
+</g>
+</g>
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="0.0" y2="0.0">
+</line>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g transform="translate(0.0 194.72727272727272 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>0</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 161.0082644628099 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>2</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 127.2892561983471 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>4</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 93.5702479338843 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>6</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 59.85123966942149 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>8</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 26.132231404958674 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>10</tspan>
+</text>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(15.0 108.0 ) rotate(-90.0 ) ">
+<text class="axis-title-y" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>value</tspan>
+</text>
+</g>
+<g transform="translate(366.4806054554682 244.0 ) ">
+<text class="axis-title-x" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>t</tspan>
+</text>
+</g>
+<path d="M0.0 0.0 L0.0 250.0 L700.0 250.0 L700.0 0.0 Z" fill="rgb(0,0,0)" fill-opacity="0.0" pointer-events="none" stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="0.0">
+</path>
+</g>
+<g id="dsx6ZoB">
+</g>
+</svg>
+<script>document.getElementById("16a17a1c-dee1-445d-9ec6-87c88f0ed253").style.display = "none";</script>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=57ddc45e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="c1">// Seconds + milliseconds</span>
@@ -7586,12 +8407,489 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=62cea72b">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div id="HCO8zd"></div>
+<script data-lets-plot-script="plot" type="text/javascript">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("HCO8zd");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"mapping":{
+"x":"t",
+"y":"value"
+},
+"data":{
+"t":[1.7487792E12,1.748779200117E12,1.748779200234E12,1.748779200351E12,1.748779200468E12,1.748779200585E12,1.748779200702E12,1.748779200819E12,1.748779200936E12,1.748779201053E12,1.74877920117E12,1.748779201287E12],
+"value":[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0]
+},
+"ggsize":{
+"width":700.0,
+"height":250.0
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"x",
+"datetime":true,
+"format":"%S.%f"
+}],
+"layers":[{
+"mapping":{
+},
+"stat":"identity",
+"position":"identity",
+"geom":"point",
+"data":{
+}
+}],
+"data_meta":{
+"series_annotations":[{
+"type":"datetime",
+"column":"t"
+},{
+"type":"int",
+"column":"value"
+}]
+},
+"spec_id":"3"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script> <svg class="plt-container" display="block" height="100%" id="984546f6-57cd-44b1-b818-9b1db7100c19" preserveaspectratio="xMinYMin meet" style="max-width: 700.0px; max-height: 250.0px;" viewbox="0 0 700.0 250.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style type="text/css">
+  .plt-container {
+   font-family: sans-serif;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+text {
+   text-rendering: optimizeLegibility;
+}
+#pEcGFmm .plot-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 16.0px;
+
+}
+#pEcGFmm .plot-subtitle {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pEcGFmm .plot-caption {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pEcGFmm .plot-tag {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 16.0px;
+
+}
+#pEcGFmm .hyperlink-element {
+fill:#118ed8;
+font-weight: normal;
+font-style: normal;
+
+}
+#pEcGFmm .legend-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pEcGFmm .legend-item {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pEcGFmm .axis-title-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pEcGFmm .axis-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dBrR5Ia .axis-tooltip-text-x {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pEcGFmm .axis-title-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pEcGFmm .axis-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dBrR5Ia .axis-tooltip-text-y {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pEcGFmm .facet-strip-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pEcGFmm .facet-strip-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dBrR5Ia .tooltip-text {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dBrR5Ia .tooltip-title {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dBrR5Ia .tooltip-label {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+
+  </style>
+<g id="pEcGFmm">
+<path d="M0.0 0.0 L0.0 250.0 L700.0 250.0 L700.0 0.0 Z" fill="rgb(255,255,255)" fill-opacity="1.0" fill-rule="evenodd">
+</path>
+<g transform="translate(21.0 6.0 ) ">
+<g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="29.7745361328125" x2="29.7745361328125" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="122.313720703125" x2="122.313720703125" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="214.8529052734375" x2="214.8529052734375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="307.39208984375" x2="307.39208984375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="399.9312744140625" x2="399.9312744140625" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="492.470458984375" x2="492.470458984375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="585.0096435546875" x2="585.0096435546875" y1="0.0" y2="204.0">
+</line>
+</g>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="194.72727272727272" y2="194.72727272727272">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="161.0082644628099" y2="161.0082644628099">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="127.2892561983471" y2="127.2892561983471">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="93.5702479338843" y2="93.5702479338843">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="59.85123966942149" y2="59.85123966942149">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="26.132231404958674" y2="26.132231404958674">
+</line>
+</g>
+</g>
+</g>
+<g clip-bounds-jfx="[rect (17.961210910936405, 0.0), (655.0387890890636, 204.0)]" clip-path="url(#cvDY9mP)">
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<g buffered-rendering="static">
+<g>
+<g>
+<circle cx="29.7745361328125" cy="194.72727272727272" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="83.909912109375" cy="177.86776859504133" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="138.04541015625" cy="161.0082644628099" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="192.1807861328125" cy="144.1487603305785" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="246.316162109375" cy="127.2892561983471" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="300.45166015625" cy="110.4297520661157" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="354.5870361328125" cy="93.5702479338843" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="408.7225341796875" cy="76.7107438016529" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="462.85791015625" cy="59.85123966942149" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="516.993408203125" cy="42.991735537190095" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="571.1287841796875" cy="26.132231404958674" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="625.2642822265625" cy="9.27272727272728" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="cvDY9mP">
+<rect height="204.0" width="655.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+</g>
+<g>
+<g transform="translate(17.961210910936405 204.0 ) ">
+<g transform="translate(29.7745361328125 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.000</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(122.313720703125 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.200</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(214.8529052734375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.400</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(307.39208984375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.600</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(399.9312744140625 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.800</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(492.470458984375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>01.000</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(585.0096435546875 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>01.200</tspan>
+</text>
+</g>
+</g>
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="0.0" y2="0.0">
+</line>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g transform="translate(0.0 194.72727272727272 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>0</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 161.0082644628099 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>2</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 127.2892561983471 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>4</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 93.5702479338843 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>6</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 59.85123966942149 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>8</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 26.132231404958674 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>10</tspan>
+</text>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(15.0 108.0 ) rotate(-90.0 ) ">
+<text class="axis-title-y" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>value</tspan>
+</text>
+</g>
+<g transform="translate(366.4806054554682 244.0 ) ">
+<text class="axis-title-x" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>t</tspan>
+</text>
+</g>
+<path d="M0.0 0.0 L0.0 250.0 L700.0 250.0 L700.0 0.0 Z" fill="rgb(0,0,0)" fill-opacity="0.0" pointer-events="none" stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="0.0">
+</path>
+</g>
+<g id="dBrR5Ia">
+</g>
+</svg>
+<script>document.getElementById("984546f6-57cd-44b1-b818-9b1db7100c19").style.display = "none";</script>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=62cea72b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="c1">// Full ISO-like timestamp with milliseconds</span>
@@ -7600,6 +8898,439 @@ a.anchor-link {
 <span class="w">    </span><span class="n">ggsize</span><span class="p">(</span><span class="m">700</span><span class="p">,</span><span class="w"> </span><span class="m">250</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
 <span class="w">    </span><span class="n">scaleXDateTime</span><span class="p">(</span><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"%Y-%m-%dT%H:%M:%S.%f"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div id="THVZoS"></div>
+<script data-lets-plot-script="plot" type="text/javascript">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("THVZoS");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"mapping":{
+"x":"t",
+"y":"value"
+},
+"data":{
+"t":[1.7487792E12,1.748779200117E12,1.748779200234E12,1.748779200351E12,1.748779200468E12,1.748779200585E12,1.748779200702E12,1.748779200819E12,1.748779200936E12,1.748779201053E12,1.74877920117E12,1.748779201287E12],
+"value":[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0]
+},
+"ggsize":{
+"width":700.0,
+"height":250.0
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"x",
+"datetime":true,
+"format":"%Y-%m-%dT%H:%M:%S.%f"
+}],
+"layers":[{
+"mapping":{
+},
+"stat":"identity",
+"position":"identity",
+"geom":"point",
+"data":{
+}
+}],
+"data_meta":{
+"series_annotations":[{
+"type":"datetime",
+"column":"t"
+},{
+"type":"int",
+"column":"value"
+}]
+},
+"spec_id":"5"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script> <svg class="plt-container" display="block" height="100%" id="e4076097-ea5b-4fd0-9a8b-4bfe175f129a" preserveaspectratio="xMinYMin meet" style="max-width: 700.0px; max-height: 250.0px;" viewbox="0 0 700.0 250.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style type="text/css">
+  .plt-container {
+   font-family: sans-serif;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+text {
+   text-rendering: optimizeLegibility;
+}
+#pVPCOZZ .plot-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 16.0px;
+
+}
+#pVPCOZZ .plot-subtitle {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pVPCOZZ .plot-caption {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pVPCOZZ .plot-tag {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 16.0px;
+
+}
+#pVPCOZZ .hyperlink-element {
+fill:#118ed8;
+font-weight: normal;
+font-style: normal;
+
+}
+#pVPCOZZ .legend-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pVPCOZZ .legend-item {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pVPCOZZ .axis-title-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pVPCOZZ .axis-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dwWEbLC .axis-tooltip-text-x {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pVPCOZZ .axis-title-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pVPCOZZ .axis-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dwWEbLC .axis-tooltip-text-y {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pVPCOZZ .facet-strip-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pVPCOZZ .facet-strip-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dwWEbLC .tooltip-text {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dwWEbLC .tooltip-title {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dwWEbLC .tooltip-label {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+
+  </style>
+<g id="pVPCOZZ">
+<path d="M0.0 0.0 L0.0 250.0 L700.0 250.0 L700.0 0.0 Z" fill="rgb(255,255,255)" fill-opacity="1.0" fill-rule="evenodd">
+</path>
+<g transform="translate(21.0 6.0 ) ">
+<g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="29.7745361328125" x2="29.7745361328125" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="261.1224365234375" x2="261.1224365234375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="492.470458984375" x2="492.470458984375" y1="0.0" y2="204.0">
+</line>
+</g>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="194.72727272727272" y2="194.72727272727272">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="161.0082644628099" y2="161.0082644628099">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="127.2892561983471" y2="127.2892561983471">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="93.5702479338843" y2="93.5702479338843">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="59.85123966942149" y2="59.85123966942149">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="26.132231404958674" y2="26.132231404958674">
+</line>
+</g>
+</g>
+</g>
+<g clip-bounds-jfx="[rect (17.961210910936405, 0.0), (655.0387890890636, 204.0)]" clip-path="url(#cCuH611)">
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<g buffered-rendering="static">
+<g>
+<g>
+<circle cx="29.7745361328125" cy="194.72727272727272" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="83.909912109375" cy="177.86776859504133" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="138.04541015625" cy="161.0082644628099" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="192.1807861328125" cy="144.1487603305785" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="246.316162109375" cy="127.2892561983471" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="300.45166015625" cy="110.4297520661157" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="354.5870361328125" cy="93.5702479338843" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="408.7225341796875" cy="76.7107438016529" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="462.85791015625" cy="59.85123966942149" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="516.993408203125" cy="42.991735537190095" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="571.1287841796875" cy="26.132231404958674" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="625.2642822265625" cy="9.27272727272728" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="cCuH611">
+<rect height="204.0" width="655.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+</g>
+<g>
+<g transform="translate(17.961210910936405 204.0 ) ">
+<g transform="translate(29.7745361328125 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>2025-06-01T12:00:00.000</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(261.1224365234375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>2025-06-01T12:00:00.500</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(492.470458984375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>2025-06-01T12:00:01.000</tspan>
+</text>
+</g>
+</g>
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="0.0" y2="0.0">
+</line>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g transform="translate(0.0 194.72727272727272 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>0</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 161.0082644628099 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>2</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 127.2892561983471 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>4</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 93.5702479338843 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>6</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 59.85123966942149 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>8</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 26.132231404958674 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>10</tspan>
+</text>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(15.0 108.0 ) rotate(-90.0 ) ">
+<text class="axis-title-y" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>value</tspan>
+</text>
+</g>
+<g transform="translate(366.4806054554682 244.0 ) ">
+<text class="axis-title-x" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>t</tspan>
+</text>
+</g>
+<path d="M0.0 0.0 L0.0 250.0 L700.0 250.0 L700.0 0.0 Z" fill="rgb(0,0,0)" fill-opacity="0.0" pointer-events="none" stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="0.0">
+</path>
+</g>
+<g id="dwWEbLC">
+</g>
+</svg>
+<script>document.getElementById("e4076097-ea5b-4fd0-9a8b-4bfe175f129a").style.display = "none";</script>
 </div>
 </div>
 </div>
@@ -7615,12 +9346,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=58f82ecf">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=58f82ecf">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="n">letsPlot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"t"</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"value"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">+</span>
@@ -7633,6 +9364,490 @@ a.anchor-link {
 <span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
 <span class="w">    </span><span class="n">scaleXDateTime</span><span class="p">(</span><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"%S.%f"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div id="rMtTqe"></div>
+<script data-lets-plot-script="plot" type="text/javascript">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("rMtTqe");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"mapping":{
+"x":"t",
+"y":"value"
+},
+"data":{
+"t":[1.7487792E12,1.748779200117E12,1.748779200234E12,1.748779200351E12,1.748779200468E12,1.748779200585E12,1.748779200702E12,1.748779200819E12,1.748779200936E12,1.748779201053E12,1.74877920117E12,1.748779201287E12],
+"value":[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0]
+},
+"ggsize":{
+"width":700.0,
+"height":250.0
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"x",
+"datetime":true,
+"format":"%S.%f"
+}],
+"layers":[{
+"mapping":{
+},
+"stat":"identity",
+"position":"identity",
+"geom":"point",
+"tooltips":{
+"lines":["t|^x","value|^y"],
+"formats":[{
+"field":"^x",
+"format":"%H:%M:%S.%f"
+}]
+},
+"data":{
+}
+}],
+"data_meta":{
+"series_annotations":[{
+"type":"datetime",
+"column":"t"
+},{
+"type":"int",
+"column":"value"
+}]
+},
+"spec_id":"7"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script> <svg class="plt-container" display="block" height="100%" id="39a4e843-4b0c-401d-8278-13204b63d948" preserveaspectratio="xMinYMin meet" style="max-width: 700.0px; max-height: 250.0px;" viewbox="0 0 700.0 250.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style type="text/css">
+  .plt-container {
+   font-family: sans-serif;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+text {
+   text-rendering: optimizeLegibility;
+}
+#pRWRi8m .plot-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 16.0px;
+
+}
+#pRWRi8m .plot-subtitle {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pRWRi8m .plot-caption {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pRWRi8m .plot-tag {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 16.0px;
+
+}
+#pRWRi8m .hyperlink-element {
+fill:#118ed8;
+font-weight: normal;
+font-style: normal;
+
+}
+#pRWRi8m .legend-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pRWRi8m .legend-item {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pRWRi8m .axis-title-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pRWRi8m .axis-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#d210TGn .axis-tooltip-text-x {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pRWRi8m .axis-title-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pRWRi8m .axis-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#d210TGn .axis-tooltip-text-y {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pRWRi8m .facet-strip-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pRWRi8m .facet-strip-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#d210TGn .tooltip-text {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#d210TGn .tooltip-title {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#d210TGn .tooltip-label {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+
+  </style>
+<g id="pRWRi8m">
+<path d="M0.0 0.0 L0.0 250.0 L700.0 250.0 L700.0 0.0 Z" fill="rgb(255,255,255)" fill-opacity="1.0" fill-rule="evenodd">
+</path>
+<g transform="translate(21.0 6.0 ) ">
+<g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="29.7745361328125" x2="29.7745361328125" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="122.313720703125" x2="122.313720703125" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="214.8529052734375" x2="214.8529052734375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="307.39208984375" x2="307.39208984375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="399.9312744140625" x2="399.9312744140625" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="492.470458984375" x2="492.470458984375" y1="0.0" y2="204.0">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="585.0096435546875" x2="585.0096435546875" y1="0.0" y2="204.0">
+</line>
+</g>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="194.72727272727272" y2="194.72727272727272">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="161.0082644628099" y2="161.0082644628099">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="127.2892561983471" y2="127.2892561983471">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="93.5702479338843" y2="93.5702479338843">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="59.85123966942149" y2="59.85123966942149">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="26.132231404958674" y2="26.132231404958674">
+</line>
+</g>
+</g>
+</g>
+<g clip-bounds-jfx="[rect (17.961210910936405, 0.0), (655.0387890890636, 204.0)]" clip-path="url(#c091mmM)">
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<g buffered-rendering="static">
+<g>
+<g>
+<circle cx="29.7745361328125" cy="194.72727272727272" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="83.909912109375" cy="177.86776859504133" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="138.04541015625" cy="161.0082644628099" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="192.1807861328125" cy="144.1487603305785" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="246.316162109375" cy="127.2892561983471" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="300.45166015625" cy="110.4297520661157" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="354.5870361328125" cy="93.5702479338843" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="408.7225341796875" cy="76.7107438016529" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="462.85791015625" cy="59.85123966942149" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="516.993408203125" cy="42.991735537190095" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="571.1287841796875" cy="26.132231404958674" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+<circle cx="625.2642822265625" cy="9.27272727272728" fill="#474747" r="3.3000000000000003" stroke="#000000" stroke-opacity="0.0" stroke-width="0.0"></circle>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="c091mmM">
+<rect height="204.0" width="655.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+</g>
+<g>
+<g transform="translate(17.961210910936405 204.0 ) ">
+<g transform="translate(29.7745361328125 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.000</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(122.313720703125 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.200</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(214.8529052734375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.400</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(307.39208984375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.600</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(399.9312744140625 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>00.800</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(492.470458984375 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>01.000</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(585.0096435546875 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>01.200</tspan>
+</text>
+</g>
+</g>
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="655.0387890890636" y1="0.0" y2="0.0">
+</line>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g transform="translate(0.0 194.72727272727272 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>0</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 161.0082644628099 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>2</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 127.2892561983471 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>4</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 93.5702479338843 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>6</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 59.85123966942149 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>8</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 26.132231404958674 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>10</tspan>
+</text>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(15.0 108.0 ) rotate(-90.0 ) ">
+<text class="axis-title-y" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>value</tspan>
+</text>
+</g>
+<g transform="translate(366.4806054554682 244.0 ) ">
+<text class="axis-title-x" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>t</tspan>
+</text>
+</g>
+<path d="M0.0 0.0 L0.0 250.0 L700.0 250.0 L700.0 0.0 Z" fill="rgb(0,0,0)" fill-opacity="0.0" pointer-events="none" stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="0.0">
+</path>
+</g>
+<g id="d210TGn">
+</g>
+</svg>
+<script>document.getElementById("39a4e843-4b0c-401d-8278-13204b63d948").style.display = "none";</script>
 </div>
 </div>
 </div>

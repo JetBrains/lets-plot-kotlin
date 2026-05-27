@@ -1,78 +1,10 @@
-## [4.14.0] - 2026-05-dd
+## [4.14.1] - 20yy-mm-dd
 
-This release is 100% compatible with Lets-Plot [v 4.10.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.10.0),
+This release is 100% compatible with Lets-Plot [v 4.10.1](https://github.com/JetBrains/lets-plot/releases/tag/v4.10.0),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
 
-- **WasmJS** support [[LPK-296](https://github.com/JetBrains/lets-plot-kotlin/issues/296)], [[LPC-52](https://github.com/JetBrains/lets-plot-compose/issues/52)].
-
-
-- `ggdeck()` — a new function for overlaying multiple independent plots in a single unified view.
-
-  In a typical scenario, one axis is shared by all plots in the deck, enabling dual-axis effects and multivariate comparisons.
-
-  See examples:
-    - [dual-axis effect](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_dual_axis.html)
-    - [multivariate comparison](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_plot_overlay.html)
-
-
-- Datetime: `%f` formatting pattern — support for milliseconds when formatting datetime values, zero-padded to 3 digits [[#1482](https://github.com/JetBrains/lets-plot/issues/1482)].
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/milliseconds_format.html).
-
-
-- In legends:
-    - Aesthetic overrides in `guideLegend()` can now customize filled 2D legend keys:
-        - `size` controls the key border width;
-        - `width` and `height` control the relative key size.
-
-      See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/legend_key_size.html).
-
-
-- Indication of removed records [[LPK-81](https://github.com/JetBrains/lets-plot-kotlin/issues/81)], [[#686](https://github.com/JetBrains/lets-plot/issues/686)].
-
-  When records in data are dropped by active sampling or because they contain missing or out-of-bounds values, the user is now informed of the number of dropped records and the reason they were dropped.
-
-  The new `naRm` parameter in applicable `geomXxx()` and `statXxx()` functions controls the display of such messages:
-    - `naRm=false` (default) — records are removed and messages are shown;
-    - `naRm=true` — records are removed silently.
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/removed_records_indication.html).
-
-
-- Sampling methods can now be chained with the `+` operator.
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/removed_records_indication.html).
-
-
-- Alpha (transparency) component:
-    - Hex colors accept `#RRGGBBAA` or `#RGBA` notation.
-    - Colors accept an opacity suffix in the form `"named color / opacity"`, for example `"steelblue / 0.35"`.
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/color_alpha.html).
-
-
-- Facet strip labels now honor `angle` in `elementText()` for `stripTextX` and `stripTextY` [[#1383](https://github.com/JetBrains/lets-plot/issues/1383)].
-
-  Thanks to a contribution by [tentrillion](https://github.com/tentrillion).
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/strip_text_angle.html).
-
-
-- In `geomImshow()`, new parameters for controlling the colorbar breaks and labels [[#1486](https://github.com/JetBrains/lets-plot/issues/1486)]:
-    - `breaks`, `labels`, `lablim`, `format`
-
-
 ### Changed
 
-- Java Swing: Apache Batik components are deprecated. Use the Swing/AWT components instead.
-
-
 ### Fixed
-
-- Add 'synchronized tooltips' feature [[#1415](https://github.com/JetBrains/lets-plot/issues/1415)].
-- Alpha is not supported in `elementText()` [[#1462](https://github.com/JetBrains/lets-plot/issues/1462)].
-- `scaleAlpha()`: conflict of constant and mapped values of alpha aesthetic [[#706](https://github.com/JetBrains/lets-plot/issues/706)].
-- `geomImshow()`: should render transparency for NaNs when all other pixel values are identical [[#1485](https://github.com/JetBrains/lets-plot/issues/1485)].
-- `scaleColorGradient()`: `guide = "legend"` is rendered as a colorbar [[#1489](https://github.com/JetBrains/lets-plot/issues/1489)].

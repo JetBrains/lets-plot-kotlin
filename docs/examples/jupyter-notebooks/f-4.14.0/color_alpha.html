@@ -7524,12 +7524,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=31f5c66e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=31f5c66e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="o">%</span><span class="n">useLatestDescriptors</span>
@@ -7539,16 +7539,115 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f0c2b565">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div id="wmh1lk"></div>
+<script data-lets-plot-script="library" type="text/javascript">
+       if(!window.letsPlotCallQueue) {
+           window.letsPlotCallQueue = [];
+       }; 
+       window.letsPlotCall = function(f) {
+           window.letsPlotCallQueue.push(f);
+       };
+       (function() {
+           var script = document.createElement("script");
+           script.type = "text/javascript";
+           script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.10.1/js-package/distr/lets-plot.min.js";
+           script.onload = function() {
+               window.letsPlotCall = function(f) {f();};
+               window.letsPlotCallQueue.forEach(function(f) {f();});
+               window.letsPlotCallQueue = [];
+               
+               
+           };
+           script.onerror = function(event) {
+               window.letsPlotCall = function(f) {};
+               window.letsPlotCallQueue = [];
+               var div = document.createElement("div");
+               div.style.color = 'darkred';
+               div.textContent = 'Error loading Lets-Plot JS';
+               document.getElementById("wmh1lk").appendChild(div);
+           };
+           var e = document.getElementById("wmh1lk");
+           e.appendChild(script);
+       })();
+   </script>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div id="kotlin_out_0"></div>
+<script type="text/javascript">
+                            if(!window.kotlinQueues) {
+                window.kotlinQueues = {};
+            }
+            if(!window.kotlinQueues["letsPlotJs"]) {
+                var resQueue = [];
+                window.kotlinQueues["letsPlotJs"] = resQueue;
+                window["call_letsPlotJs"] = function(f) {
+                    resQueue.push(f);
+                }
+            }
+            (function (){
+                var modifiers = [(function(script) {
+    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.10.1/js-package/distr/lets-plot.min.js"
+    script.type = "text/javascript";
+})];
+                var e = document.getElementById("kotlin_out_0");
+                modifiers.forEach(function (gen) {
+                    var script = document.createElement("script");
+                    gen(script)
+                    script.addEventListener("load", function() {
+                        window["call_letsPlotJs"] = function(f) {f();};
+                        window.kotlinQueues["letsPlotJs"].forEach(function(f) {f();});
+                        window.kotlinQueues["letsPlotJs"] = [];
+                    }, false);
+                    script.addEventListener("error", function() {
+                        window["call_letsPlotJs"] = function(f) {};
+                        window.kotlinQueues["letsPlotJs"] = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading resource letsPlotJs';
+                        document.getElementById("kotlin_out_0").appendChild(div);
+                    }, false);
+                    
+                    e.appendChild(script);
+                });
+            })();
+            </script>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f0c2b565">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="n">LetsPlot</span><span class="p">.</span><span class="na">getInfo</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>Lets-Plot Kotlin API v.4.14.0. Frontend: Notebook with dynamically loaded JS. Lets-Plot JS v.4.10.1.
+Outputs: Web (HTML+JS), Static SVG (hidden)</pre>
 </div>
 </div>
 </div>
@@ -7558,7 +7657,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nn">java.time.LocalDate</span>
@@ -7615,12 +7714,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0f15b795">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0f15b795">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="n">basePlot</span><span class="w"> </span><span class="o">+</span>
@@ -7646,6 +7745,681 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<div id="36prMC"></div>
+<script data-lets-plot-script="library" type="text/javascript">
+       if(!window.letsPlotCallQueue) {
+           window.letsPlotCallQueue = [];
+       }; 
+       window.letsPlotCall = function(f) {
+           window.letsPlotCallQueue.push(f);
+       };
+       (function() {
+           var script = document.createElement("script");
+           script.type = "text/javascript";
+           script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.10.1/js-package/distr/lets-plot.min.js";
+           script.onload = function() {
+               window.letsPlotCall = function(f) {f();};
+               window.letsPlotCallQueue.forEach(function(f) {f();});
+               window.letsPlotCallQueue = [];
+               
+               
+           };
+           script.onerror = function(event) {
+               window.letsPlotCall = function(f) {};
+               window.letsPlotCallQueue = [];
+               var div = document.createElement("div");
+               div.style.color = 'darkred';
+               div.textContent = 'Error loading Lets-Plot JS';
+               document.getElementById("36prMC").appendChild(div);
+           };
+           var e = document.getElementById("36prMC");
+           e.appendChild(script);
+       })();
+   </script>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div id="b6nWTo"></div>
+<script data-lets-plot-script="plot" type="text/javascript">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("b6nWTo");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"ggtitle":{
+"text":"Partner pipeline forecast",
+"subtitle":"The semi-transparent tag color is specified with an alpha channel"
+},
+"mapping":{
+"x":"month",
+"y":"leads"
+},
+"guides":{
+"x":{
+"title":""
+},
+"y":{
+"title":"Qualified leads"
+}
+},
+"data":{
+"month":[1.7040672E12,1.7067456E12,1.7092512E12,1.7119296E12,1.7145216E12,1.7172E12],
+"leads":[18.0,29.0,41.0,57.0,63.0,74.0],
+"lead_label":["18k","29k","41k","57k","63k","74k"]
+},
+"ggsize":{
+"width":760.0,
+"height":420.0
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"x",
+"datetime":true,
+"breaks":[1.7040672E12,1.7067456E12,1.7092512E12,1.7119296E12,1.7145216E12,1.7172E12],
+"format":"%b"
+},{
+"aesthetic":"y",
+"breaks":[0.0,20.0,40.0,60.0,80.0],
+"limits":[0.0,86.0]
+}],
+"layers":[{
+"mapping":{
+},
+"stat":"identity",
+"alpha":0.35,
+"position":"stack",
+"geom":"area",
+"fill":"mediumturquoise",
+"data":{
+}
+},{
+"mapping":{
+},
+"stat":"identity",
+"color":"steelblue",
+"size":2.2,
+"position":"identity",
+"geom":"line",
+"data":{
+}
+},{
+"mapping":{
+},
+"stat":"identity",
+"color":"steelblue",
+"shape":21.0,
+"size":4.5,
+"position":"identity",
+"geom":"point",
+"fill":"white",
+"stroke":1.6,
+"data":{
+}
+},{
+"nudge_y":6.0,
+"mapping":{
+"label":"lead_label"
+},
+"stat":"identity",
+"color":"steelblue",
+"size":10.0,
+"position":"identity",
+"geom":"text",
+"data":{
+}
+}],
+"theme":{
+"axis_title_y":{
+"color":"slategray",
+"blank":false
+},
+"panel_background":{
+"fill":"aliceblue",
+"color":"aliceblue",
+"blank":false
+},
+"panel_grid_major_x":{
+"blank":true
+},
+"panel_grid_minor":{
+"blank":true
+},
+"plot_background":{
+"fill":"aliceblue",
+"color":"aliceblue",
+"blank":false
+},
+"axis_text":{
+"color":"slategray",
+"blank":false
+},
+"plot_title":{
+"color":"midnightblue",
+"face":"bold",
+"size":20.0,
+"blank":false
+},
+"plot_subtitle":{
+"color":"slategray",
+"size":11.0,
+"blank":false
+},
+"plot_tag":{
+"color":"rgba(70, 130, 180, 0.14)",
+"face":"bold",
+"size":180.0,
+"angle":40.0,
+"blank":false
+},
+"plot_tag_position":[0.5,0.5],
+"plot_tag_location":"panel"
+},
+"tag":{
+"text":"DRAFT"
+},
+"data_meta":{
+"series_annotations":[{
+"type":"int",
+"column":"month"
+},{
+"type":"int",
+"column":"leads"
+},{
+"type":"str",
+"column":"lead_label"
+}]
+},
+"spec_id":"1"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script> <svg class="plt-container" display="block" height="100%" id="4a3995d0-7205-4f4f-86dd-9ec395b90a42" preserveaspectratio="xMinYMin meet" style="max-width: 760.0px; max-height: 420.0px;" viewbox="0 0 760.0 420.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style type="text/css">
+  .plt-container {
+   font-family: sans-serif;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+text {
+   text-rendering: optimizeLegibility;
+}
+#pKeSHG0 .plot-title {
+fill:#191970;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 20.0px;
+
+}
+#pKeSHG0 .plot-subtitle {
+fill:#708090;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 11.0px;
+
+}
+#pKeSHG0 .plot-caption {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pKeSHG0 .plot-tag {
+fill:#4682b4;
+fill-opacity:0.1411764705882353;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 180.0px;
+
+}
+#pKeSHG0 .hyperlink-element {
+fill:#118ed8;
+font-weight: normal;
+font-style: normal;
+
+}
+#pKeSHG0 .legend-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pKeSHG0 .legend-item {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pKeSHG0 .axis-title-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pKeSHG0 .axis-text-x {
+fill:#708090;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dJMGrlk .axis-tooltip-text-x {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pKeSHG0 .axis-title-y {
+fill:#708090;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pKeSHG0 .axis-text-y {
+fill:#708090;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dJMGrlk .axis-tooltip-text-y {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pKeSHG0 .facet-strip-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pKeSHG0 .facet-strip-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dJMGrlk .tooltip-text {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dJMGrlk .tooltip-title {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#dJMGrlk .tooltip-label {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+
+  </style>
+<g id="pKeSHG0">
+<path d="M0.0 0.0 L0.0 420.0 L760.0 420.0 L760.0 0.0 Z" fill="rgb(240,248,255)" fill-opacity="1.0" fill-rule="evenodd">
+</path>
+<g transform="translate(21.0 41.0 ) ">
+<g>
+<rect fill="rgb(240,248,255)" fill-opacity="1.0" height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+</g>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="263.9169435215947" y2="263.9169435215947">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="188.83388704318938" y2="188.83388704318938">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="113.75083056478405" y2="113.75083056478405">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="38.667774086378756" y2="38.667774086378756">
+</line>
+</g>
+</g>
+</g>
+<g clip-bounds-jfx="[rect (17.961210910936405, 0.0), (715.0387890890636, 339.0)]" clip-path="url(#cpYJuJn)">
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<g buffered-rendering="static">
+<g>
+<path d="M32.501763140418916 271.42524916943523 L32.501763140418916 271.42524916943523 L165.07474437104247 230.1295681063123 L289.0946300384094 185.0797342192691 L421.66761126903293 125.01328903654485 L549.9640447180282 102.48837209302326 L682.5370259486517 61.192691029900345 L682.5370259486517 339.0 L549.9640447180282 339.0 L421.66761126903293 339.0 L289.0946300384094 339.0 L165.07474437104247 339.0 L32.501763140418916 339.0 Z" fill="rgb(72,209,204)" fill-opacity="0.34901960784313724" stroke-width="1.0">
+</path>
+</g>
+<g>
+<path d="M32.501763140418916 271.42524916943523 L32.501763140418916 271.42524916943523 L165.07474437104247 230.1295681063123 L289.0946300384094 185.0797342192691 L421.66761126903293 125.01328903654485 L549.9640447180282 102.48837209302326 L682.5370259486517 61.192691029900345 " fill="none" stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.6500000000000001">
+</path>
+</g>
+</g>
+<g buffered-rendering="static">
+<g>
+<path d="M32.501763140418916 271.42524916943523 L32.501763140418916 271.42524916943523 L165.07474437104247 230.1295681063123 L289.0946300384094 185.0797342192691 L421.66761126903293 125.01328903654485 L549.9640447180282 102.48837209302326 L682.5370259486517 61.192691029900345 " fill="none" stroke="rgb(70,130,180)" stroke-opacity="1.0" stroke-width="4.840000000000001">
+</path>
+</g>
+</g>
+<g buffered-rendering="static">
+<g>
+<g>
+<circle cx="32.501763140418916" cy="271.42524916943523" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="165.07474437104247" cy="230.1295681063123" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="289.0946300384094" cy="185.0797342192691" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="421.66761126903293" cy="125.01328903654485" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="549.9640447180282" cy="102.48837209302326" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="682.5370259486517" cy="61.192691029900345" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+</g>
+</g>
+</g>
+<g buffered-rendering="static">
+<g transform="rotate(0.0 32.501763140418916 248.90033222591362 ) ">
+<g transform="translate(32.501763140418916 255.90033222591362 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>18k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 165.07474437104247 207.6046511627907 ) ">
+<g transform="translate(165.07474437104247 214.6046511627907 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>29k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 289.0946300384094 162.55481727574752 ) ">
+<g transform="translate(289.0946300384094 169.55481727574752 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>41k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 421.66761126903293 102.48837209302326 ) ">
+<g transform="translate(421.66761126903293 109.48837209302326 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>57k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 549.9640447180282 79.96345514950167 ) ">
+<g transform="translate(549.9640447180282 86.96345514950167 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>63k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 682.5370259486517 38.667774086378756 ) ">
+<g transform="translate(682.5370259486517 45.667774086378756 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>74k</tspan>
+</text>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="cpFH4p9">
+<rect height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+<defs>
+<clippath id="cLVXJ1Q">
+<rect height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+<defs>
+<clippath id="cOEgF8D">
+<rect height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+<defs>
+<clippath id="cpYJuJn">
+<rect height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+</g>
+<g>
+<g transform="translate(17.961210910936405 339.0 ) ">
+<g transform="translate(32.501763140418916 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Jan</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(165.07474437104247 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Feb</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(289.0946300384094 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Mar</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(421.66761126903293 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Apr</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(549.9640447180282 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>May</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(682.5370259486517 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Jun</tspan>
+</text>
+</g>
+</g>
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="0.0" y2="0.0">
+</line>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g transform="translate(0.0 339.0 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>0</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 263.9169435215947 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>20</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 188.83388704318938 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>40</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 113.75083056478405 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>60</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 38.667774086378756 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>80</tspan>
+</text>
+</g>
+</g>
+</g>
+<rect fill-opacity="0.0" height="339.0" stroke="rgb(240,248,255)" stroke-opacity="1.0" stroke-width="1.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</g>
+</g>
+<g transform="translate(396.4806054554682 264.5 ) ">
+<text class="plot-tag" style="font-size:180.0px;" text-anchor="middle" y="0.0">
+<tspan>DRAFT</tspan>
+</text>
+</g>
+<g transform="translate(38.9612109109364 19.0 ) ">
+<text class="plot-title" style="font-size:20.0px;" y="0.0">
+<tspan>Partner pipeline forecast</tspan>
+</text>
+</g>
+<g transform="translate(38.9612109109364 35.8 ) ">
+<text class="plot-subtitle" style="font-size:11.0px;" y="0.0">
+<tspan>The semi-transparent tag color is specified with an alpha channel</tspan>
+</text>
+</g>
+<g transform="translate(15.0 210.5 ) rotate(-90.0 ) ">
+<text class="axis-title-y" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>Qualified leads</tspan>
+</text>
+</g>
+<g transform="translate(396.4806054554682 414.0 ) ">
+</g>
+<path d="M0.0 0.0 L0.0 420.0 L760.0 420.0 L760.0 0.0 Z" fill="rgb(0,0,0)" fill-opacity="0.0" pointer-events="none" stroke="rgb(240,248,255)" stroke-opacity="1.0" stroke-width="0.0">
+</path>
+</g>
+<g id="dJMGrlk">
+</g>
+</svg>
+<script>document.getElementById("4a3995d0-7205-4f4f-86dd-9ec395b90a42").style.display = "none";</script>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=97418048">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7658,12 +8432,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c81bb3f3">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c81bb3f3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-kotlin"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">alphaDf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapOf</span><span class="p">(</span>
@@ -7694,6 +8468,702 @@ a.anchor-link {
 <span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Qualified leads"</span>
 <span class="w">    </span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div id="vDmEib"></div>
+<script data-lets-plot-script="plot" type="text/javascript">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("vDmEib");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"ggtitle":{
+"text":"Partner pipeline forecast",
+"subtitle":"Each geomText row uses a different alpha-enabled color format"
+},
+"mapping":{
+"x":"month",
+"y":"leads"
+},
+"guides":{
+"x":{
+"title":""
+},
+"y":{
+"title":"Qualified leads"
+}
+},
+"data":{
+"month":[1.7040672E12,1.7067456E12,1.7092512E12,1.7119296E12,1.7145216E12,1.7172E12],
+"leads":[18.0,29.0,41.0,57.0,63.0,74.0],
+"lead_label":["18k","29k","41k","57k","63k","74k"]
+},
+"ggsize":{
+"width":760.0,
+"height":420.0
+},
+"kind":"plot",
+"scales":[{
+"aesthetic":"x",
+"datetime":true,
+"breaks":[1.7040672E12,1.7067456E12,1.7092512E12,1.7119296E12,1.7145216E12,1.7172E12],
+"format":"%b"
+},{
+"aesthetic":"y",
+"breaks":[0.0,20.0,40.0,60.0,80.0],
+"limits":[0.0,86.0]
+},{
+"aesthetic":"color",
+"scale_mapper_kind":"identity",
+"guide":"none"
+}],
+"layers":[{
+"mapping":{
+},
+"stat":"identity",
+"alpha":0.35,
+"position":"stack",
+"geom":"area",
+"fill":"mediumturquoise",
+"data":{
+}
+},{
+"mapping":{
+},
+"stat":"identity",
+"color":"steelblue",
+"size":2.2,
+"position":"identity",
+"geom":"line",
+"data":{
+}
+},{
+"mapping":{
+},
+"stat":"identity",
+"color":"steelblue",
+"shape":21.0,
+"size":4.5,
+"position":"identity",
+"geom":"point",
+"fill":"white",
+"stroke":1.6,
+"data":{
+}
+},{
+"nudge_y":6.0,
+"mapping":{
+"label":"lead_label"
+},
+"stat":"identity",
+"color":"steelblue",
+"size":10.0,
+"position":"identity",
+"geom":"text",
+"data":{
+}
+},{
+"mapping":{
+"x":"x",
+"y":"y",
+"label":"label",
+"color":"color"
+},
+"stat":"identity",
+"data":{
+"color":["steelblue / 0.14","rgba(70, 130, 180, 0.14)","#4682B424","#48B2"],
+"x":[1.7148672E12,1.7104608E12,1.71072E12,1.7064864E12],
+"y":[62.5,62.5,28.5,28.5],
+"label":["ALPHA","ALPHA","ALPHA","ALPHA"]
+},
+"size":34.0,
+"angle":-30.0,
+"inherit_aes":false,
+"position":"identity",
+"geom":"text",
+"data_meta":{
+"series_annotations":[{
+"type":"int",
+"column":"x"
+},{
+"type":"float",
+"column":"y"
+},{
+"type":"str",
+"column":"label"
+},{
+"type":"str",
+"column":"color"
+}]
+},
+"fontface":"bold"
+}],
+"theme":{
+"axis_title_y":{
+"color":"slategray",
+"blank":false
+},
+"panel_background":{
+"fill":"aliceblue",
+"color":"aliceblue",
+"blank":false
+},
+"panel_grid_major_x":{
+"blank":true
+},
+"panel_grid_minor":{
+"blank":true
+},
+"plot_background":{
+"fill":"aliceblue",
+"color":"aliceblue",
+"blank":false
+},
+"axis_text":{
+"color":"slategray",
+"blank":false
+},
+"plot_title":{
+"color":"midnightblue",
+"face":"bold",
+"size":20.0,
+"blank":false
+},
+"plot_subtitle":{
+"color":"slategray",
+"size":11.0,
+"blank":false
+}
+},
+"data_meta":{
+"series_annotations":[{
+"type":"int",
+"column":"month"
+},{
+"type":"int",
+"column":"leads"
+},{
+"type":"str",
+"column":"lead_label"
+}]
+},
+"spec_id":"3"
+};
+           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script> <svg class="plt-container" display="block" height="100%" id="7a01b048-0d07-4293-8e9e-bf99f6cd63aa" preserveaspectratio="xMinYMin meet" style="max-width: 760.0px; max-height: 420.0px;" viewbox="0 0 760.0 420.0" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style type="text/css">
+  .plt-container {
+   font-family: sans-serif;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+}
+text {
+   text-rendering: optimizeLegibility;
+}
+#pA2inQ9 .plot-title {
+fill:#191970;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 20.0px;
+
+}
+#pA2inQ9 .plot-subtitle {
+fill:#708090;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 11.0px;
+
+}
+#pA2inQ9 .plot-caption {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pA2inQ9 .plot-tag {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 16.0px;
+
+}
+#pA2inQ9 .hyperlink-element {
+fill:#118ed8;
+font-weight: normal;
+font-style: normal;
+
+}
+#pA2inQ9 .legend-title {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pA2inQ9 .legend-item {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pA2inQ9 .axis-title-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pA2inQ9 .axis-text-x {
+fill:#708090;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#duJGXQV .axis-tooltip-text-x {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pA2inQ9 .axis-title-y {
+fill:#708090;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 15.0px;
+
+}
+#pA2inQ9 .axis-text-y {
+fill:#708090;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#duJGXQV .axis-tooltip-text-y {
+fill:#ffffff;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pA2inQ9 .facet-strip-text-x {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#pA2inQ9 .facet-strip-text-y {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#duJGXQV .tooltip-text {
+fill:#474747;
+font-weight: normal;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#duJGXQV .tooltip-title {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+#duJGXQV .tooltip-label {
+fill:#474747;
+font-weight: bold;
+font-style: normal;
+font-family: sans-serif;
+font-size: 13.0px;
+
+}
+
+  </style>
+<g id="pA2inQ9">
+<path d="M0.0 0.0 L0.0 420.0 L760.0 420.0 L760.0 0.0 Z" fill="rgb(240,248,255)" fill-opacity="1.0" fill-rule="evenodd">
+</path>
+<g transform="translate(21.0 41.0 ) ">
+<g>
+<rect fill="rgb(240,248,255)" fill-opacity="1.0" height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+</g>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="263.9169435215947" y2="263.9169435215947">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="188.83388704318938" y2="188.83388704318938">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="113.75083056478405" y2="113.75083056478405">
+</line>
+<line fill="none" stroke="rgb(233,233,233)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="38.667774086378756" y2="38.667774086378756">
+</line>
+</g>
+</g>
+</g>
+<g clip-bounds-jfx="[rect (17.961210910936405, 0.0), (715.0387890890636, 339.0)]" clip-path="url(#cyXws50)">
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g>
+<g buffered-rendering="static">
+<g>
+<path d="M32.501763140418916 271.42524916943523 L32.501763140418916 271.42524916943523 L165.07474437104247 230.1295681063123 L289.0946300384094 185.0797342192691 L421.66761126903293 125.01328903654485 L549.9640447180282 102.48837209302326 L682.5370259486517 61.192691029900345 L682.5370259486517 339.0 L549.9640447180282 339.0 L421.66761126903293 339.0 L289.0946300384094 339.0 L165.07474437104247 339.0 L32.501763140418916 339.0 Z" fill="rgb(72,209,204)" fill-opacity="0.34901960784313724" stroke-width="1.0">
+</path>
+</g>
+<g>
+<path d="M32.501763140418916 271.42524916943523 L32.501763140418916 271.42524916943523 L165.07474437104247 230.1295681063123 L289.0946300384094 185.0797342192691 L421.66761126903293 125.01328903654485 L549.9640447180282 102.48837209302326 L682.5370259486517 61.192691029900345 " fill="none" stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.6500000000000001">
+</path>
+</g>
+</g>
+<g buffered-rendering="static">
+<g>
+<path d="M32.501763140418916 271.42524916943523 L32.501763140418916 271.42524916943523 L165.07474437104247 230.1295681063123 L289.0946300384094 185.0797342192691 L421.66761126903293 125.01328903654485 L549.9640447180282 102.48837209302326 L682.5370259486517 61.192691029900345 " fill="none" stroke="rgb(70,130,180)" stroke-opacity="1.0" stroke-width="4.840000000000001">
+</path>
+</g>
+</g>
+<g buffered-rendering="static">
+<g>
+<g>
+<circle cx="32.501763140418916" cy="271.42524916943523" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="165.07474437104247" cy="230.1295681063123" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="289.0946300384094" cy="185.0797342192691" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="421.66761126903293" cy="125.01328903654485" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="549.9640447180282" cy="102.48837209302326" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+<circle cx="682.5370259486517" cy="61.192691029900345" fill="#ffffff" r="6.710000000000001" stroke="#4682b4" stroke-width="3.5200000000000005"></circle>
+</g>
+</g>
+</g>
+<g buffered-rendering="static">
+<g transform="rotate(0.0 32.501763140418916 248.90033222591362 ) ">
+<g transform="translate(32.501763140418916 255.90033222591362 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>18k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 165.07474437104247 207.6046511627907 ) ">
+<g transform="translate(165.07474437104247 214.6046511627907 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>29k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 289.0946300384094 162.55481727574752 ) ">
+<g transform="translate(289.0946300384094 169.55481727574752 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>41k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 421.66761126903293 102.48837209302326 ) ">
+<g transform="translate(421.66761126903293 109.48837209302326 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>57k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 549.9640447180282 79.96345514950167 ) ">
+<g transform="translate(549.9640447180282 86.96345514950167 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>63k</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(0.0 682.5370259486517 38.667774086378756 ) ">
+<g transform="translate(682.5370259486517 45.667774086378756 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="1.0" style="fill:#4682b4;font-size:20.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>74k</tspan>
+</text>
+</g>
+</g>
+</g>
+<g buffered-rendering="static">
+<g transform="rotate(390.0 567.070235844556 104.36544850498339 ) ">
+<g transform="translate(567.070235844556 128.16544850498337 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="0.1411764705882353" style="fill:#4682b4;fill-opacity:0.1411764705882353;font-weight:bold;font-size:68.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>ALPHA</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(390.0 348.9662989812641 104.36544850498339 ) ">
+<g transform="translate(348.9662989812641 128.16544850498337 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="0.1411764705882353" style="fill:#4682b4;fill-opacity:0.1411764705882353;font-weight:bold;font-size:68.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>ALPHA</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(390.0 361.79594232616364 232.00664451827242 ) ">
+<g transform="translate(361.79594232616364 255.80664451827244 ) ">
+<text fill="rgb(70,130,180)" fill-opacity="0.1411764705882353" style="fill:#4682b4;fill-opacity:0.1411764705882353;font-weight:bold;font-size:68.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>ALPHA</tspan>
+</text>
+</g>
+</g>
+<g transform="rotate(390.0 152.24510102614295 232.00664451827242 ) ">
+<g transform="translate(152.24510102614295 255.80664451827244 ) ">
+<text fill="rgb(68,136,187)" fill-opacity="0.13333333333333333" style="fill:#4488bb;fill-opacity:0.13333333333333333;font-weight:bold;font-size:68.0px;font-family:sans-serif;" text-anchor="middle" y="0.0">
+<tspan>ALPHA</tspan>
+</text>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clippath id="ckmK1dR">
+<rect height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+<defs>
+<clippath id="cHdo6M5">
+<rect height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+<defs>
+<clippath id="cLDTGDM">
+<rect height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+<defs>
+<clippath id="cvcQkY2">
+<rect height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+<defs>
+<clippath id="cyXws50">
+<rect height="339.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</clippath>
+</defs>
+</g>
+<g>
+<g transform="translate(17.961210910936405 339.0 ) ">
+<g transform="translate(32.501763140418916 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Jan</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(165.07474437104247 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Feb</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(289.0946300384094 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Mar</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(421.66761126903293 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Apr</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(549.9640447180282 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>May</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(682.5370259486517 0.0 ) ">
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x2="0.0" y2="4.0">
+</line>
+<g transform="translate(0.0 6.0 ) ">
+<text class="axis-text-x" dy="0.7em" style="font-size:13.0px;" text-anchor="middle" y="0.0">
+<tspan>Jun</tspan>
+</text>
+</g>
+</g>
+<line stroke="rgb(71,71,71)" stroke-opacity="1.0" stroke-width="1.0" x1="0.0" x2="715.0387890890636" y1="0.0" y2="0.0">
+</line>
+</g>
+<g transform="translate(17.961210910936405 0.0 ) ">
+<g transform="translate(0.0 339.0 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>0</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 263.9169435215947 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>20</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 188.83388704318938 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>40</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 113.75083056478405 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>60</tspan>
+</text>
+</g>
+</g>
+<g transform="translate(0.0 38.667774086378756 ) ">
+<g transform="translate(-2.0 0.0 ) ">
+<text class="axis-text-y" dy="0.35em" style="font-size:13.0px;" text-anchor="end" y="0.0">
+<tspan>80</tspan>
+</text>
+</g>
+</g>
+</g>
+<rect fill-opacity="0.0" height="339.0" stroke="rgb(240,248,255)" stroke-opacity="1.0" stroke-width="1.0" width="715.0387890890636" x="17.961210910936405" y="0.0">
+</rect>
+</g>
+</g>
+<g transform="translate(38.9612109109364 19.0 ) ">
+<text class="plot-title" style="font-size:20.0px;" y="0.0">
+<tspan>Partner pipeline forecast</tspan>
+</text>
+</g>
+<g transform="translate(38.9612109109364 35.8 ) ">
+<text class="plot-subtitle" style="font-size:11.0px;" y="0.0">
+<tspan>Each geomText row uses a different alpha-enabled color format</tspan>
+</text>
+</g>
+<g transform="translate(15.0 210.5 ) rotate(-90.0 ) ">
+<text class="axis-title-y" style="font-size:15.0px;" text-anchor="middle" y="0.0">
+<tspan>Qualified leads</tspan>
+</text>
+</g>
+<g transform="translate(396.4806054554682 414.0 ) ">
+</g>
+<path d="M0.0 0.0 L0.0 420.0 L760.0 420.0 L760.0 0.0 Z" fill="rgb(0,0,0)" fill-opacity="0.0" pointer-events="none" stroke="rgb(240,248,255)" stroke-opacity="1.0" stroke-width="0.0">
+</path>
+</g>
+<g id="duJGXQV">
+</g>
+</svg>
+<script>document.getElementById("7a01b048-0d07-4293-8e9e-bf99f6cd63aa").style.display = "none";</script>
 </div>
 </div>
 </div>
