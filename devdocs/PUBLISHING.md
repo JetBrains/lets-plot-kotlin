@@ -5,10 +5,10 @@
 > **Note**: make sure that **version** is set to "0.0.0-SNAPSHOT" in `build.gradle.kts`.
 ```shell
 ./gradlew :plot-api:publishAllPublicationsToMavenLocalRepository \
-          publishLetsPlotKotlinGeoToolsPublicationToMavenLocalRepository \
-          publishletsPlotKotlinJupyterPublicationToMavenLocalRepository \
-          publishletsPlotKotlinGeotoolsJupyterPublicationToMavenLocalRepository \
-          publishLetsPlotKotlinJsonPublicationToMavenLocalRepository
+          :geotools:publishAllPublicationsToMavenLocalRepository \
+          :jupyter:publishAllPublicationsToMavenLocalRepository \
+          :geotools-jupyter:publishAllPublicationsToMavenLocalRepository \
+          :json:publishAllPublicationsToMavenLocalRepository
 
 ```
 
