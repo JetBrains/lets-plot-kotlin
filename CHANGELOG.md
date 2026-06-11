@@ -4,7 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). All scales should have the 'format' parameter.
-              
+
+
+## [4.14.1] - 2026-06-10
+
+This release is 100% compatible with Lets-Plot [v 4.10.3](https://github.com/JetBrains/lets-plot/releases/tag/v4.10.3),
+GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
+
+### Changed
+
+- Updated dependencies:
+  - kotlinx.datetime 0.7.1
+  - kotlinx.serialization 1.9.0
+  - weisj.jsvg 2.1.0
+  - jupyterApi 0.15.3-893-1
+
 
 ## [4.14.0] - 2026-05-26
 

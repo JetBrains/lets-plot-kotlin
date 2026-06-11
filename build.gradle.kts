@@ -38,7 +38,7 @@ if (project.file("local.properties").exists()) {
 
 allprojects {
     group = "org.jetbrains.lets-plot"
-    version = "4.14.1-SNAPSHOT"
+    version = "4.14.1"
 //    version = "0.0.0-SNAPSHOT"  // for local publishing only
 
     tasks.withType<KotlinCompile>().all {
