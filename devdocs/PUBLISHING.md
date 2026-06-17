@@ -32,11 +32,11 @@ sonatype.profileID=<your Sonatype profile ID>
 
 Specify "x.y.z-SNAPSHOT" version in `build.gradle.kts` file.
 ```bash
-./gradlew :plot-api:publishAllPublicationsToMavenRepository
-./gradlew publishLetsPlotKotlinGeoToolsPublicationToMavenRepository
-./gradlew publishletsPlotKotlinJupyterPublicationToMavenRepository
-./gradlew publishletsPlotKotlinGeotoolsJupyterPublicationToMavenRepository
-./gradlew publishLetsPlotKotlinJsonPublicationToMavenRepository
+./gradlew :plot-api:publishAllPublicationsToMavenRepository \
+          publishLetsPlotKotlinGeoToolsPublicationToMavenRepository \
+          publishletsPlotKotlinJupyterPublicationToMavenRepository \
+          publishletsPlotKotlinGeotoolsJupyterPublicationToMavenRepository \
+          publishLetsPlotKotlinJsonPublicationToMavenRepository
 ```
 
 > **Note**: SNAPSHOT artifacts are available at "https://central.sonatype.com/repository/maven-snapshots/" repository.
@@ -69,3 +69,23 @@ Specify "x.y.z-SNAPSHOT" version in `build.gradle.kts` file.
  https://central.sonatype.com/publishing/deployments
 
   e) Push the button "Publish"
+   
+
+### Using SNAPSHOT artifacts
+
+Add snapshot repository to the `repositories` section of the `build.gradle.kts` file:
+
+```kotlin
+repositories {
+    mavenCentral()
+    // SNAPSHOTS
+    maven(url = "https://central.sonatype.com/repository/maven-snapshots/")
+}
+```
+
+To tell Gradle to bypass the local cache and check remote repositories for newer versions or changed metadata:
+
+```shell
+./gradlew build --refresh-dependencies
+```
+
