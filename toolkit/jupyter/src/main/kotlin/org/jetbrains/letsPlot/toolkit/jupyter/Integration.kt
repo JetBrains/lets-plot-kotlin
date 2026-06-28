@@ -10,6 +10,7 @@ import org.jetbrains.letsPlot.LetsPlot
 import org.jetbrains.letsPlot.core.util.PlotHtmlHelper.scriptUrl
 import org.jetbrains.letsPlot.export.VersionChecker
 import org.jetbrains.letsPlot.frontend.NotebookFrontendContext
+import org.jetbrains.letsPlot.spatial.SpatialDataset
 
 @Suppress("unused")
 internal class Integration(private val notebook: Notebook, options: MutableMap<String, String?>) :
@@ -146,6 +147,10 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
                     addStaticPng = addStaticPng
                 )
             ).figureToMimeResult(value)
+        }
+
+        render<SpatialDataset> { value ->
+            HTML(SpatialDatasetHtmlRenderer.render(value))
         }
     }
 
