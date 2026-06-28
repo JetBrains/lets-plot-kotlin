@@ -227,6 +227,13 @@ import org.jetbrains.letsPlot.intern.filterNonNullValues
  *  Set "blank" or [elementBlank] to hide the general tooltip.
  * @param tooltipText Style settings for text in general tooltip.
  * @param tooltipTitleText Style settings for tooltip title text.
+ * @param tooltipMerge default = false.
+ *  If true, the general tooltips of multiple targets at the same location are combined into a single tooltip.
+ * @param tooltipMaxCount default = 10.
+ *  The maximum number of targets at a location for which general tooltips are shown.
+ *  If the number of targets exceeds this limit, only the closest target is shown.
+ *  Set to 0 to disable the limit.
+ *  Ignored when `tooltipMerge = true` (merging always collects every target).
  *
  * @param labelText Style settings for annotation text.
  *  Applies to text labels used in annotations, including labels configured with
@@ -361,6 +368,8 @@ class theme(
     tooltip: Any? = null,
     tooltipText: Any? = null,
     tooltipTitleText: Any? = null,
+    tooltipMerge: Boolean? = null,
+    tooltipMaxCount: Int? = null,
 
     labelText: Any? = null,
 
@@ -489,6 +498,8 @@ class theme(
         Option.Theme.TOOLTIP_RECT to tooltip,
         Option.Theme.TOOLTIP_TEXT to tooltipText,
         Option.Theme.TOOLTIP_TITLE_TEXT to tooltipTitleText,
+        Option.Theme.TOOLTIP_MERGE to tooltipMerge,
+        Option.Theme.TOOLTIP_MAX_COUNT to tooltipMaxCount,
 
         Option.Theme.ANNOTATION_TEXT to labelText,
 

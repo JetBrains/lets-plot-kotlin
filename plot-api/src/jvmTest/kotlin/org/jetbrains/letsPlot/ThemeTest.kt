@@ -166,6 +166,19 @@ class ThemeTest {
     }
 
     @Test
+    fun `tooltip merge params serialized`() {
+        val p = ggplot() + theme(tooltipMerge = true, tooltipMaxCount = 0)
+
+        assertEquals(
+            mapOf(
+                "tooltip_merge" to true,
+                "tooltip_max_count" to 0.0
+            ),
+            p.toSpec()[Option.Plot.THEME]
+        )
+    }
+
+    @Test
     fun `global theme`() {
         LetsPlot.theme = themeGrey()
         assertEquals(
