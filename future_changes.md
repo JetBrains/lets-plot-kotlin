@@ -1,6 +1,6 @@
-## [4.14.2] - 20yy-mm-dd
+## [4.15.0] - 2026-06-dd
 
-This release is 100% compatible with Lets-Plot [v 4.10.3](https://github.com/JetBrains/lets-plot/releases/tag/v4.10.3),
+This release is 100% compatible with Lets-Plot [v 4.11.0](https://github.com/JetBrains/lets-plot/releases/tag/v4.11.0),
 GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
@@ -16,3 +16,7 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 ### Changed
 
 ### Fixed
+
+- Incorrect `hjust`/`vjust`/`angle` justification of vertical-axis tick labels (`theme(axisTextY=elementText(...))`)
+- Rotated vertical-axis tick labels could be wrongly dropped or kept by overlap-based break filtering
+- Misaligned or mismatched axis tick labels when some breaks are dropped after layout
