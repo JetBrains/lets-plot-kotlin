@@ -161,10 +161,15 @@ class CorrPlot private constructor(
      *  Default - contextual.
      * @param color Set text color.
      *  Default - contextual.
+     * @param haloWidth Width of the halo (outline) around the labels. A halo is rendered only when `haloWidth > 0`.
+     * @param haloColor Color of the halo around the labels.
+     *  Setting `haloColor` alone has no visible effect unless `haloWidth > 0`.
+     *  When omitted, the panel background color is used.
      */
     fun labels(
         type: String? = null, diag: Boolean? = null,
-        mapSize: Boolean? = null, color: String? = null
+        mapSize: Boolean? = null, color: String? = null,
+        haloWidth: Number? = null, haloColor: String? = null
     ): CorrPlot {
         checkTypeArg(type)
         return this.copy().apply {
@@ -172,6 +177,8 @@ class CorrPlot private constructor(
             labels.diag = diag
             labels.mapSize = mapSize
             labels.color = color
+            labels.haloWidth = haloWidth
+            labels.haloColor = haloColor
         }
     }
 
@@ -329,7 +336,9 @@ class CorrPlot private constructor(
                 tooltips = tooltips,
                 sampling = samplingNone,
                 size = if (labels.mapSize == true) null else 1.0,
-                color = labels.color
+                color = labels.color,
+                haloWidth = labels.haloWidth,
+                haloColor = labels.haloColor
             ) {
                 x = CorrVar.X
                 y = CorrVar.Y

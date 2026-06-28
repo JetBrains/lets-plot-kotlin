@@ -5,6 +5,10 @@ GeoTools [v 33.2](https://github.com/geotools/geotools/releases/tag/33.2)
 
 ### Added
 
+- Text halos improve readability on varied backgrounds. New `haloWidth` and `haloColor` parameters are supported in `geomText()`/`geomTextRepel()` and by labels in `corrPlot()`.
+
+  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.15.0/text_halo.html).
+
 ### Changed
 
 ### Fixed
