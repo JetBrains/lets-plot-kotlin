@@ -99,6 +99,22 @@ class SpatialDatasetTest : JupyterTest() {
     }
 
     @Test
+    fun `SpatialDataset escapes the raw geometry fallback in HTML`() {
+        // An unknown geometry type falls back to the raw string; that raw string must be
+        // HTML-escaped when it reaches the table. Pretty-printed WKT never contains HTML
+        // metacharacters, so only the raw-fallback path exercises escape() on a geometry cell.
+        val code = """
+            val data = mapOf("name" to listOf("x"))
+            val geometry = listOf("{\"type\":\"Unknown\",\"note\":\"<a>&b\"}")
+            SpatialDataset.withGEOJSON(data, geometry)
+        """.trimIndent()
+
+        val html = renderHtml(code)
+        assertTrue("&lt;a&gt;&amp;b" in html, "Raw geometry fallback must be HTML-escaped, got: $html")
+        assertTrue("<a>&b" !in html, "Unescaped geometry must not appear, got: $html")
+    }
+
+    @Test
     fun `SpatialDataset with more than 20 rows is truncated with a note`() {
         val code = """
             val n = 25
@@ -153,6 +169,32 @@ class SpatialDatasetTest : JupyterTest() {
         assertEquals(
             "POINT (0 0)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
+        )
+    }
+
+    @Test
+    fun `formatGeometryCell - trailing zeros trimmed while in-range decimals are kept`() {
+        // The "float noise" case only trims digits beyond the 10-decimal cutoff. These values
+        // exercise the trimming itself and would catch a regression that dropped significant,
+        // in-range fractional digits.
+        assertEquals(
+            "POINT (1.5 2.25)",
+            SpatialDatasetHtmlRenderer.formatGeometryCell(
+                """{"type":"Point","coordinates":[1.5,2.25]}""", GeometryFormat.GEOJSON
+            )
+        )
+        assertEquals(
+            "POINT (100 0.000001)",
+            SpatialDatasetHtmlRenderer.formatGeometryCell(
+                """{"type":"Point","coordinates":[100.0,0.000001]}""", GeometryFormat.GEOJSON
+            )
+        )
+        // Nine significant decimals (within the 10-place cutoff) are preserved.
+        assertEquals(
+            "POINT (-73.123456789 40.5)",
+            SpatialDatasetHtmlRenderer.formatGeometryCell(
+                """{"type":"Point","coordinates":[-73.123456789,40.5]}""", GeometryFormat.GEOJSON
+            )
         )
     }
 
@@ -263,6 +305,24 @@ class SpatialDatasetTest : JupyterTest() {
         val raw = """{"type":"Point","coordinates":[1.0,2.0,3.5]}"""
         assertEquals(
             "POINT (1 2 3.5)",
+            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
+        )
+    }
+
+    @Test
+    fun `formatGeometryCell - LineString with 3D coordinates keeps z component`() {
+        val raw = """{"type":"LineString","coordinates":[[0.0,0.0,1.0],[1.0,1.0,2.0]]}"""
+        assertEquals(
+            "LINESTRING (0 0 1, 1 1 2)",
+            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
+        )
+    }
+
+    @Test
+    fun `formatGeometryCell - Polygon with 3D coordinates keeps z component`() {
+        val raw = """{"type":"Polygon","coordinates":[[[0.0,0.0,5.0],[1.0,0.0,5.0],[1.0,1.0,5.0],[0.0,0.0,5.0]]]}"""
+        assertEquals(
+            "POLYGON ((0 0 5, 1 0 5, 1 1 5, 0 0 5))",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
