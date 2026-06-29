@@ -19,7 +19,17 @@ import java.util.Locale
 
 internal object SpatialDatasetHtmlRenderer {
 
-    const val ROW_LIMIT: Int = 20
+    const val ROW_LIMIT: Int = 10
+
+    // Per-sequence cap when pretty-printing geometry: at most this many leading items (coordinate
+    // vertices, polygon rings, sub-geometries) are shown, the rest abbreviated with an ellipsis so
+    // a complex border (e.g. a country MultiPolygon) stays readable in the table preview.
+    const val GEOMETRY_PREVIEW_LIMIT: Int = 3
+
+    // Long text cell values are cut to this many characters (plus an ellipsis) so a single verbose
+    // column does not blow out the table width.
+    const val TEXT_PREVIEW_LIMIT: Int = 50
+    private const val ELLIPSIS: String = "..."
 
     private const val STYLE: String =
         "<style>" +
@@ -28,17 +38,25 @@ internal object SpatialDatasetHtmlRenderer {
             ".lp-spatial-dataset th,.lp-spatial-dataset td{border:1px solid #ccc;padding:4px 8px;text-align:left;}" +
             ".lp-spatial-dataset th{background:#f5f5f5;}" +
             ".lp-spatial-dataset td{vertical-align:top;}" +
+            ".lp-spatial-dataset .lp-num{text-align:right;}" +
             ".lp-spatial-dataset .lp-spatial-note{margin-top:4px;color:#666;}" +
             "</style>"
 
     fun render(dataset: SpatialDataset, rowLimit: Int = ROW_LIMIT): String {
-        // Resolve each column's series once; all series share the same length (enforced by
-        // SpatialDataset.create), so the first one gives the row count.
-        val columns: List<Pair<String, List<Any?>>> = dataset.keys.map { it to dataset.getValue(it) }
-        val totalRows: Int = columns.firstOrNull()?.second?.size ?: 0
-        val visibleRows: Int = minOf(totalRows, rowLimit)
         val geometryKey: String = dataset.geometryKey
         val geometryFormat: GeometryFormat = dataset.geometryFormat
+
+        val totalRows: Int = dataset.keys.firstOrNull()?.let { dataset.getValue(it).size } ?: 0
+        val visibleRows: Int = minOf(totalRows, rowLimit)
+
+        val columns: List<ColumnView> = dataset.keys.map { name ->
+            val series = dataset.getValue(name)
+            val isGeometry = name == geometryKey
+            val numeric = !isGeometry &&
+                (0 until visibleRows).any { series[it] is Number } &&
+                (0 until visibleRows).all { series[it] == null || series[it] is Number }
+            ColumnView(name, series, isGeometry, numeric)
+        }
 
         val sb = StringBuilder()
         sb.append("<div class=\"lp-spatial-dataset\">")
@@ -46,22 +64,23 @@ internal object SpatialDatasetHtmlRenderer {
         sb.append("<table>")
 
         sb.append("<thead><tr>")
-        for ((name, _) in columns) {
-            sb.append("<th>").append(escape(name)).append("</th>")
+        for (col in columns) {
+            sb.append(if (col.numeric) "<th class=\"lp-num\">" else "<th>")
+            sb.append(escape(col.name)).append("</th>")
         }
         sb.append("</tr></thead>")
 
         sb.append("<tbody>")
         for (row in 0 until visibleRows) {
             sb.append("<tr>")
-            for ((name, series) in columns) {
-                sb.append("<td>")
-                val cell = series[row]
+            for (col in columns) {
+                sb.append(if (col.numeric) "<td class=\"lp-num\">" else "<td>")
+                val cell = col.series[row]
                 if (cell != null) {
-                    val display = if (name == geometryKey) {
+                    val display = if (col.isGeometry) {
                         formatGeometryCell(cell.toString(), geometryFormat)
                     } else {
-                        cell.toString()
+                        truncateText(formatCell(cell))
                     }
                     sb.append(escape(display))
                 }
@@ -81,6 +100,22 @@ internal object SpatialDatasetHtmlRenderer {
         sb.append("</div>")
         return sb.toString()
     }
+
+    private class ColumnView(
+        val name: String,
+        val series: List<Any?>,
+        val isGeometry: Boolean,
+        val numeric: Boolean,
+    )
+
+    private fun formatCell(value: Any): String = when (value) {
+        is Double -> formatDouble(value)
+        is Float -> formatDouble(value.toDouble())
+        else -> value.toString()
+    }
+
+    private fun truncateText(s: String): String =
+        if (s.length > TEXT_PREVIEW_LIMIT) s.substring(0, TEXT_PREVIEW_LIMIT) + ELLIPSIS else s
 
     internal fun formatGeometryCell(raw: String, format: GeometryFormat): String {
         if (format != GeometryFormat.GEOJSON) return raw
@@ -105,7 +140,12 @@ internal object SpatialDatasetHtmlRenderer {
             "GeometryCollection" -> {
                 val geoms = obj["geometries"] as? JsonArray ?: return null
                 if (geoms.isEmpty()) return null
-                val parts = geoms.map { formatGeoJson(it) ?: it.toString() }
+                val shown = minOf(geoms.size, GEOMETRY_PREVIEW_LIMIT)
+                val parts = ArrayList<String>(shown + 1)
+                for (i in 0 until shown) {
+                    parts.add(formatGeoJson(geoms[i]) ?: geoms[i].toString())
+                }
+                if (geoms.size > shown) parts.add(ELLIPSIS)
                 "GEOMETRYCOLLECTION (${parts.joinToString(", ")})"
             }
             else -> null
@@ -121,14 +161,18 @@ internal object SpatialDatasetHtmlRenderer {
 
     // Formats each element of [array] - which must itself be a JSON array - via [transform] and
     // joins the results with ", ". Returns null (so the caller falls back to the raw string) if the
-    // array is empty, an element is not an array, or [transform] rejects an element.
+    // array is empty, an element is not an array, or [transform] rejects an element. Only the
+    // leading GEOMETRY_PREVIEW_LIMIT elements are shown; if there are more, an ellipsis is appended
+    // (and the trailing elements are neither formatted nor validated - this is a preview).
     private fun joinArrays(array: JsonArray, transform: (JsonArray) -> String?): String? {
         if (array.isEmpty()) return null
-        val parts = ArrayList<String>(array.size)
-        for (item in array) {
-            val arr = item as? JsonArray ?: return null
+        val shown = minOf(array.size, GEOMETRY_PREVIEW_LIMIT)
+        val parts = ArrayList<String>(shown + 1)
+        for (i in 0 until shown) {
+            val arr = array[i] as? JsonArray ?: return null
             parts.add(transform(arr) ?: return null)
         }
+        if (array.size > shown) parts.add(ELLIPSIS)
         return parts.joinToString(", ")
     }
 

@@ -52,6 +52,49 @@ class SpatialDatasetTest : JupyterTest() {
     }
 
     @Test
+    fun `SpatialDataset renders integer data compactly and right-aligns numeric columns`() {
+        val code = """
+            val data = mapOf(
+                "id" to listOf(1, 2),
+                "pop" to listOf(1379302771, 95000),
+                "label" to listOf("a", "b")
+            )
+            val geometry = listOf(
+                "{\"type\":\"Point\",\"coordinates\":[0.0,0.0]}",
+                "{\"type\":\"Point\",\"coordinates\":[1.0,2.0]}"
+            )
+            SpatialDataset.withGEOJSON(data, geometry)
+        """.trimIndent()
+
+        val html = renderHtml(code)
+        // Integer-valued numbers render compactly, not as "1.0" or in scientific notation.
+        assertTrue("<td class=\"lp-num\">1</td>" in html, "Expected compact, right-aligned id 1, got: $html")
+        assertTrue("<td class=\"lp-num\">1379302771</td>" in html, "Expected plain-decimal pop, got: $html")
+        assertTrue("1.0" !in html, "Integer data must not render as 1.0, got: $html")
+        assertTrue("E9" !in html, "Large integers must not use scientific notation, got: $html")
+        // Numeric headers are right-aligned; text columns keep the default (left) alignment.
+        assertTrue("<th class=\"lp-num\">id</th>" in html, "Expected right-aligned numeric header, got: $html")
+        assertTrue("<td>a</td>" in html, "Expected left-aligned text cell, got: $html")
+    }
+
+    @Test
+    fun `SpatialDataset truncates long text cells with an ellipsis`() {
+        val code = """
+            val data = mapOf(
+                "long" to listOf("x".repeat(60)),
+                "short" to listOf("ok")
+            )
+            val geometry = listOf("{\"type\":\"Point\",\"coordinates\":[0.0,0.0]}")
+            SpatialDataset.withGEOJSON(data, geometry)
+        """.trimIndent()
+
+        val html = renderHtml(code)
+        assertTrue("x".repeat(50) + "..." in html, "Expected long value cut to 50 chars + ellipsis, got: $html")
+        assertTrue("x".repeat(51) !in html, "Long value must not exceed the character limit, got: $html")
+        assertTrue(">ok<" in html, "Short values must be left intact, got: $html")
+    }
+
+    @Test
     fun `SpatialDataset renders columns in declared order with geometry last`() {
         // Column names whose HashMap iteration order differs from insertion order;
         // guards against the column order being lost in data standardization (asPlotData).
@@ -222,9 +265,10 @@ class SpatialDatasetTest : JupyterTest() {
             [[0.0,0.0],[10.0,0.0],[10.0,10.0],[0.0,10.0],[0.0,0.0]],
             [[2.0,2.0],[4.0,2.0],[4.0,4.0],[2.0,4.0],[2.0,2.0]]
         ]}"""
+        // Each ring has 5 vertices, so it is abbreviated to the first 3 plus an ellipsis;
+        // the two-ring (outer + hole) structure is still visible.
         assertEquals(
-            "POLYGON ((0 0, 10 0, 10 10, 0 10, 0 0), " +
-                    "(2 2, 4 2, 4 4, 2 4, 2 2))",
+            "POLYGON ((0 0, 10 0, 10 10, ...), (2 2, 4 2, 4 4, ...))",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -235,9 +279,9 @@ class SpatialDatasetTest : JupyterTest() {
             [[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,0.0]]],
             [[[2.0,2.0],[3.0,2.0],[3.0,3.0],[2.0,2.0]]]
         ]}"""
+        // Each ring has 4 vertices -> abbreviated to the first 3 plus an ellipsis.
         assertEquals(
-            "MULTIPOLYGON (((0 0, 1 0, 1 1, 0 0)), " +
-                    "((2 2, 3 2, 3 3, 2 2)))",
+            "MULTIPOLYGON (((0 0, 1 0, 1 1, ...)), ((2 2, 3 2, 3 3, ...)))",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -321,8 +365,57 @@ class SpatialDatasetTest : JupyterTest() {
     @Test
     fun `formatGeometryCell - Polygon with 3D coordinates keeps z component`() {
         val raw = """{"type":"Polygon","coordinates":[[[0.0,0.0,5.0],[1.0,0.0,5.0],[1.0,1.0,5.0],[0.0,0.0,5.0]]]}"""
+        // 4 vertices -> abbreviated; the z component is kept on the vertices that are shown.
         assertEquals(
-            "POLYGON ((0 0 5, 1 0 5, 1 1 5, 0 0 5))",
+            "POLYGON ((0 0 5, 1 0 5, 1 1 5, ...))",
+            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
+        )
+    }
+
+    // --- Long geometries are abbreviated to GEOMETRY_PREVIEW_LIMIT items per sequence ---
+
+    @Test
+    fun `formatGeometryCell - long vertex sequence is abbreviated with an ellipsis`() {
+        val raw = """{"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0],[2.0,2.0],[3.0,3.0],[4.0,4.0]]}"""
+        assertEquals(
+            "LINESTRING (0 0, 1 1, 2 2, ...)",
+            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
+        )
+    }
+
+    @Test
+    fun `formatGeometryCell - a sequence exactly at the limit is shown in full`() {
+        val raw = """{"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0],[2.0,2.0]]}"""
+        assertEquals(
+            "LINESTRING (0 0, 1 1, 2 2)",
+            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
+        )
+    }
+
+    @Test
+    fun `formatGeometryCell - MultiPolygon with many parts abbreviates the parts as well`() {
+        val raw = """{"type":"MultiPolygon","coordinates":[
+            [[[0.0,0.0],[1.0,0.0],[0.0,0.0]]],
+            [[[2.0,2.0],[3.0,2.0],[2.0,2.0]]],
+            [[[4.0,4.0],[5.0,4.0],[4.0,4.0]]],
+            [[[6.0,6.0],[7.0,6.0],[6.0,6.0]]]
+        ]}"""
+        assertEquals(
+            "MULTIPOLYGON (((0 0, 1 0, 0 0)), ((2 2, 3 2, 2 2)), ((4 4, 5 4, 4 4)), ...)",
+            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
+        )
+    }
+
+    @Test
+    fun `formatGeometryCell - GeometryCollection with many members is abbreviated`() {
+        val raw = """{"type":"GeometryCollection","geometries":[
+            {"type":"Point","coordinates":[1.0,1.0]},
+            {"type":"Point","coordinates":[2.0,2.0]},
+            {"type":"Point","coordinates":[3.0,3.0]},
+            {"type":"Point","coordinates":[4.0,4.0]}
+        ]}"""
+        assertEquals(
+            "GEOMETRYCOLLECTION (POINT (1 1), POINT (2 2), POINT (3 3), ...)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
