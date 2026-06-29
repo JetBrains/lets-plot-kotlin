@@ -52,6 +52,32 @@ class SpatialDatasetTest : JupyterTest() {
     }
 
     @Test
+    fun `SpatialDataset renders columns in declared order with geometry last`() {
+        // Column names whose HashMap iteration order differs from insertion order;
+        // guards against the column order being lost in data standardization (asPlotData).
+        val code = """
+            val data = mapOf(
+                "name" to listOf("Alpha"),
+                "kind" to listOf("culture"),
+                "visitors" to listOf(120)
+            )
+            val geometry = listOf("{\"type\":\"Point\",\"coordinates\":[1.0,2.0]}")
+            SpatialDataset.withGEOJSON(data, geometry)
+        """.trimIndent()
+
+        val html = renderHtml(code)
+        val order = listOf(">name<", ">kind<", ">visitors<", ">geometry<").map {
+            val i = html.indexOf(it)
+            assertTrue(i >= 0, "Expected header $it, got: $html")
+            i
+        }
+        assertEquals(
+            order.sorted(), order,
+            "Columns must render in declared order (name, kind, visitors) with geometry last, got: $html"
+        )
+    }
+
+    @Test
     fun `SpatialDataset HTML escapes special characters and renders null as empty`() {
         val code = """
             val data = mapOf(
