@@ -5,6 +5,7 @@
 
 package org.jetbrains.letsPlot.toolkit.jupyter
 
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
@@ -76,7 +77,7 @@ internal object SpatialDatasetHtmlRenderer {
         return try {
             val element = Json.parseToJsonElement(raw)
             formatGeoJson(element) ?: raw
-        } catch (_: Throwable) {
+        } catch (_: SerializationException) {
             raw
         }
     }
