@@ -198,6 +198,32 @@ class SpatialDatasetTest : JupyterTest() {
     }
 
     @Test
+    fun `formatGeometryCell - GeometryCollection keeps valid members when a sibling is unrenderable`() {
+        // One renderable Point, one unknown-type member, one member with a malformed coordinate.
+        // Valid members must still be pretty-printed; the odd ones are kept as raw JSON, not dropped.
+        val raw = """{"type":"GeometryCollection","geometries":[
+            {"type":"Point","coordinates":[1.0,2.0]},
+            {"type":"Mystery","coordinates":[0.0,0.0]},
+            {"type":"Point","coordinates":[3.0,null]}
+        ]}"""
+        val result = SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
+        assertTrue(
+            result.startsWith("GEOMETRYCOLLECTION (POINT (1 2), "),
+            "Valid sibling must be pretty-printed, got: $result"
+        )
+        assertTrue("Mystery" in result, "Unknown-type member must be preserved (raw), got: $result")
+        assertTrue("null" in result, "Malformed member must be preserved (raw), got: $result")
+        // The whole cell must NOT collapse to the raw input.
+        assertTrue("\"geometries\"" !in result, "Cell must not fall back to whole raw, got: $result")
+    }
+
+    @Test
+    fun `formatGeometryCell - empty GeometryCollection falls back to raw`() {
+        val raw = """{"type":"GeometryCollection","geometries":[]}"""
+        assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
+    }
+
+    @Test
     fun `formatGeometryCell - malformed JSON falls back to raw`() {
         val raw = "not a json"
         assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
@@ -224,5 +250,51 @@ class SpatialDatasetTest : JupyterTest() {
             "POINT (1 2 3.5)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
+    }
+
+    // --- Structurally invalid GeoJSON must fall back to raw, not emit plausible-but-wrong WKT ---
+
+    @Test
+    fun `formatGeometryCell - non-numeric coordinates fall back to raw`() {
+        // null, boolean, and string-typed coordinates are not valid positions.
+        for (raw in listOf(
+            """{"type":"Point","coordinates":[1.0,null]}""",
+            """{"type":"Point","coordinates":[true,1.0]}""",
+            """{"type":"Point","coordinates":["1.0","2.0"]}"""
+        )) {
+            assertEquals(
+                raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON),
+                "Expected raw fallback for non-numeric coordinates: $raw"
+            )
+        }
+    }
+
+    @Test
+    fun `formatGeometryCell - position that is not an array falls back to raw`() {
+        // A scalar where a position array is expected (here in a LineString).
+        val raw = """{"type":"LineString","coordinates":[[0.0,0.0],5,[1.0,1.0]]}"""
+        assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
+    }
+
+    @Test
+    fun `formatGeometryCell - nested array where a number is expected falls back to raw`() {
+        val raw = """{"type":"Point","coordinates":[[1.0,2.0],[3.0,4.0]]}"""
+        assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
+    }
+
+    @Test
+    fun `formatGeometryCell - empty or undersized coordinate arrays fall back to raw`() {
+        for (raw in listOf(
+            """{"type":"Point","coordinates":[]}""",
+            """{"type":"Point","coordinates":[1.0]}""",
+            """{"type":"LineString","coordinates":[]}""",
+            """{"type":"Polygon","coordinates":[]}""",
+            """{"type":"Polygon","coordinates":[[]]}"""
+        )) {
+            assertEquals(
+                raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON),
+                "Expected raw fallback for empty/undersized coordinates: $raw"
+            )
+        }
     }
 }

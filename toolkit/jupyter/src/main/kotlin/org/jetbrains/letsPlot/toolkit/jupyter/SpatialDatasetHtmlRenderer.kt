@@ -85,64 +85,58 @@ internal object SpatialDatasetHtmlRenderer {
         val obj = element as? JsonObject ?: return null
         val type = (obj["type"] as? JsonPrimitive)?.contentOrNull ?: return null
         return when (type) {
-            "Point" -> {
-                val coords = obj["coordinates"] as? JsonArray ?: return null
-                "POINT (${formatPosition(coords)})"
-            }
-            "MultiPoint" -> {
-                val coords = obj["coordinates"] as? JsonArray ?: return null
-                "MULTIPOINT (${formatPositionList(coords, parenthesize = true)})"
-            }
-            "LineString" -> {
-                val coords = obj["coordinates"] as? JsonArray ?: return null
-                "LINESTRING (${formatPositionList(coords)})"
-            }
-            "MultiLineString" -> {
-                val coords = obj["coordinates"] as? JsonArray ?: return null
-                "MULTILINESTRING (${formatRingList(coords)})"
-            }
-            "Polygon" -> {
-                val coords = obj["coordinates"] as? JsonArray ?: return null
-                "POLYGON (${formatRingList(coords)})"
-            }
-            "MultiPolygon" -> {
-                val coords = obj["coordinates"] as? JsonArray ?: return null
-                "MULTIPOLYGON (${formatPolygonList(coords)})"
-            }
+            "Point" -> formatPosition(coordsOf(obj) ?: return null)?.let { "POINT ($it)" }
+            "MultiPoint" -> formatPositionList(coordsOf(obj) ?: return null, parenthesize = true)?.let { "MULTIPOINT ($it)" }
+            "LineString" -> formatPositionList(coordsOf(obj) ?: return null)?.let { "LINESTRING ($it)" }
+            "MultiLineString" -> formatRingList(coordsOf(obj) ?: return null)?.let { "MULTILINESTRING ($it)" }
+            "Polygon" -> formatRingList(coordsOf(obj) ?: return null)?.let { "POLYGON ($it)" }
+            "MultiPolygon" -> formatPolygonList(coordsOf(obj) ?: return null)?.let { "MULTIPOLYGON ($it)" }
             "GeometryCollection" -> {
                 val geoms = obj["geometries"] as? JsonArray ?: return null
-                val parts = geoms.map { formatGeoJson(it) ?: return null }
+                if (geoms.isEmpty()) return null
+                val parts = geoms.map { formatGeoJson(it) ?: it.toString() }
                 "GEOMETRYCOLLECTION (${parts.joinToString(", ")})"
             }
             else -> null
         }
     }
 
-    private fun formatPosition(coords: JsonArray): String =
-        coords.joinToString(" ") { formatNumber(it) }
+    private fun coordsOf(obj: JsonObject): JsonArray? = obj["coordinates"] as? JsonArray
 
-    private fun formatPositionList(coords: JsonArray, parenthesize: Boolean = false): String =
-        coords.joinToString(", ") { item ->
-            val arr = item as? JsonArray ?: return@joinToString item.toString()
-            val position = formatPosition(arr)
+    private fun formatPosition(coords: JsonArray): String? {
+        if (coords.size < 2) return null
+        return coords.map { formatNumber(it) ?: return null }.joinToString(" ")
+    }
+
+    private fun formatPositionList(coords: JsonArray, parenthesize: Boolean = false): String? {
+        if (coords.isEmpty()) return null
+        return coords.map { item ->
+            val arr = item as? JsonArray ?: return null
+            val position = formatPosition(arr) ?: return null
             if (parenthesize) "($position)" else position
-        }
+        }.joinToString(", ")
+    }
 
-    private fun formatRingList(rings: JsonArray): String =
-        rings.joinToString(", ") { item ->
-            val arr = item as? JsonArray ?: return@joinToString item.toString()
-            "(${formatPositionList(arr)})"
-        }
+    private fun formatRingList(rings: JsonArray): String? {
+        if (rings.isEmpty()) return null
+        return rings.map { item ->
+            val arr = item as? JsonArray ?: return null
+            "(${formatPositionList(arr) ?: return null})"
+        }.joinToString(", ")
+    }
 
-    private fun formatPolygonList(polygons: JsonArray): String =
-        polygons.joinToString(", ") { item ->
-            val arr = item as? JsonArray ?: return@joinToString item.toString()
-            "(${formatRingList(arr)})"
-        }
+    private fun formatPolygonList(polygons: JsonArray): String? {
+        if (polygons.isEmpty()) return null
+        return polygons.map { item ->
+            val arr = item as? JsonArray ?: return null
+            "(${formatRingList(arr) ?: return null})"
+        }.joinToString(", ")
+    }
 
-    private fun formatNumber(element: JsonElement): String {
-        val p = element as? JsonPrimitive ?: return element.toString()
-        val d = p.doubleOrNull ?: return p.content
+    private fun formatNumber(element: JsonElement): String? {
+        val p = element as? JsonPrimitive ?: return null
+        if (p.isString) return null
+        val d = p.doubleOrNull ?: return null
         return formatDouble(d)
     }
 
