@@ -150,7 +150,7 @@ internal class Integration(private val notebook: Notebook, options: MutableMap<S
         }
 
         render<SpatialDataset> { value ->
-            HTML(SpatialDatasetHtmlRenderer.render(value))
+            HTML(SpatialDatasetHtmlRenderer.render(value, config.spatialDatasetRowLimit))
         }
     }
 

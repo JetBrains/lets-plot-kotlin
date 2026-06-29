@@ -94,8 +94,7 @@ class SpatialDatasetTest : JupyterTest() {
         val html = renderHtml(code)
         assertTrue("&lt;a&amp;b&gt;" in html, "Expected escaped '<a&b>', got: $html")
         assertTrue("x&quot;y&#39;z" in html, "Expected escaped quote/apos, got: $html")
-        assertTrue("<td style=\"border: 1px solid #ccc; padding: 4px 8px; vertical-align: top; text-align: left;\"></td>" in html,
-            "Expected empty cell for null, got: $html")
+        assertTrue("<td></td>" in html, "Expected empty cell for null, got: $html")
         assertTrue("<a&b>" !in html, "Raw '<a&b>' must not appear in HTML, got: $html")
     }
 
@@ -119,6 +118,22 @@ class SpatialDatasetTest : JupyterTest() {
         // Count rendered <tr> rows (header + 20 body rows = 21)
         val trCount = "<tr".toRegex().findAll(html).count()
         assertEquals(21, trCount, "Expected 1 header + 20 body rows (=21 <tr>), got $trCount")
+    }
+
+    @Test
+    fun `SpatialDataset row limit is configurable via JupyterConfig`() {
+        val code = """
+            letsPlotNotebookConfig.spatialDatasetRowLimit = 3
+            val n = 5
+            val data = mapOf("idx" to (0 until n).map { it.toString() })
+            val geometry = (0 until n).map { "{\"type\":\"Point\",\"coordinates\":[0.0,${'$'}it.0]}" }
+            SpatialDataset.withGEOJSON(data, geometry)
+        """.trimIndent()
+
+        val html = renderHtml(code)
+        assertTrue("Showing 3 of 5 rows" in html, "Expected configurable truncation note, got: $html")
+        val trCount = "<tr".toRegex().findAll(html).count()
+        assertEquals(4, trCount, "Expected 1 header + 3 body rows (=4 <tr>), got $trCount")
     }
 
     // --- Direct unit tests for the geometry pretty-printer ---

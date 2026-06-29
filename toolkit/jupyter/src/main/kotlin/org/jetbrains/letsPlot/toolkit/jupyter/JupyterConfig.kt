@@ -18,4 +18,12 @@ class JupyterConfig {
      * Enabled by default.
      */
     var swingEnabled: Boolean = true
+
+    /**
+     * The maximum number of rows of a `SpatialDataset` shown in notebook table output.
+     * Extra rows are truncated with a "Showing N of M rows" note.
+     *
+     * Defaults to 20.
+     */
+    var spatialDatasetRowLimit: Int = SpatialDatasetHtmlRenderer.ROW_LIMIT
 }

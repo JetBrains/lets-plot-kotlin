@@ -21,32 +21,42 @@ internal object SpatialDatasetHtmlRenderer {
 
     const val ROW_LIMIT: Int = 20
 
-    fun render(dataset: SpatialDataset): String {
-        val columns: List<String> = dataset.keys.toList()
-        val totalRows: Int = dataset.values.maxOfOrNull { it.size } ?: 0
-        val visibleRows: Int = minOf(totalRows, ROW_LIMIT)
+    private const val STYLE: String =
+        "<style>" +
+            ".lp-spatial-dataset{font-family:sans-serif;font-size:12px;}" +
+            ".lp-spatial-dataset table{border-collapse:collapse;border:1px solid #ccc;}" +
+            ".lp-spatial-dataset th,.lp-spatial-dataset td{border:1px solid #ccc;padding:4px 8px;text-align:left;}" +
+            ".lp-spatial-dataset th{background:#f5f5f5;}" +
+            ".lp-spatial-dataset td{vertical-align:top;}" +
+            ".lp-spatial-dataset .lp-spatial-note{margin-top:4px;color:#666;}" +
+            "</style>"
+
+    fun render(dataset: SpatialDataset, rowLimit: Int = ROW_LIMIT): String {
+        // Resolve each column's series once; all series share the same length (enforced by
+        // SpatialDataset.create), so the first one gives the row count.
+        val columns: List<Pair<String, List<Any?>>> = dataset.keys.map { it to dataset.getValue(it) }
+        val totalRows: Int = columns.firstOrNull()?.second?.size ?: 0
+        val visibleRows: Int = minOf(totalRows, rowLimit)
         val geometryKey: String = dataset.geometryKey
         val geometryFormat: GeometryFormat = dataset.geometryFormat
 
         val sb = StringBuilder()
-        sb.append("<div style=\"font-family: sans-serif; font-size: 12px;\">")
-        sb.append("<table style=\"border-collapse: collapse; border: 1px solid #ccc;\">")
+        sb.append("<div class=\"lp-spatial-dataset\">")
+        sb.append(STYLE)
+        sb.append("<table>")
 
         sb.append("<thead><tr>")
-        for (name in columns) {
-            sb.append("<th style=\"border: 1px solid #ccc; padding: 4px 8px; background: #f5f5f5; text-align: left;\">")
-            sb.append(escape(name))
-            sb.append("</th>")
+        for ((name, _) in columns) {
+            sb.append("<th>").append(escape(name)).append("</th>")
         }
         sb.append("</tr></thead>")
 
         sb.append("<tbody>")
         for (row in 0 until visibleRows) {
             sb.append("<tr>")
-            for (name in columns) {
-                val series = dataset[name]
-                val cell = if (series != null && row < series.size) series[row] else null
-                sb.append("<td style=\"border: 1px solid #ccc; padding: 4px 8px; vertical-align: top; text-align: left;\">")
+            for ((name, series) in columns) {
+                sb.append("<td>")
+                val cell = series[row]
                 if (cell != null) {
                     val display = if (name == geometryKey) {
                         formatGeometryCell(cell.toString(), geometryFormat)
@@ -62,9 +72,9 @@ internal object SpatialDatasetHtmlRenderer {
         sb.append("</tbody>")
         sb.append("</table>")
 
-        if (totalRows > ROW_LIMIT) {
-            sb.append("<div style=\"margin-top: 4px; color: #666;\">")
-            sb.append("Showing ").append(ROW_LIMIT).append(" of ").append(totalRows).append(" rows")
+        if (totalRows > visibleRows) {
+            sb.append("<div class=\"lp-spatial-note\">")
+            sb.append("Showing ").append(visibleRows).append(" of ").append(totalRows).append(" rows")
             sb.append("</div>")
         }
 
@@ -109,30 +119,27 @@ internal object SpatialDatasetHtmlRenderer {
         return coords.map { formatNumber(it) ?: return null }.joinToString(" ")
     }
 
-    private fun formatPositionList(coords: JsonArray, parenthesize: Boolean = false): String? {
-        if (coords.isEmpty()) return null
-        return coords.map { item ->
+    // Formats each element of [array] - which must itself be a JSON array - via [transform] and
+    // joins the results with ", ". Returns null (so the caller falls back to the raw string) if the
+    // array is empty, an element is not an array, or [transform] rejects an element.
+    private fun joinArrays(array: JsonArray, transform: (JsonArray) -> String?): String? {
+        if (array.isEmpty()) return null
+        val parts = ArrayList<String>(array.size)
+        for (item in array) {
             val arr = item as? JsonArray ?: return null
-            val position = formatPosition(arr) ?: return null
-            if (parenthesize) "($position)" else position
-        }.joinToString(", ")
+            parts.add(transform(arr) ?: return null)
+        }
+        return parts.joinToString(", ")
     }
 
-    private fun formatRingList(rings: JsonArray): String? {
-        if (rings.isEmpty()) return null
-        return rings.map { item ->
-            val arr = item as? JsonArray ?: return null
-            "(${formatPositionList(arr) ?: return null})"
-        }.joinToString(", ")
-    }
+    private fun formatPositionList(coords: JsonArray, parenthesize: Boolean = false): String? =
+        joinArrays(coords) { position -> formatPosition(position)?.let { if (parenthesize) "($it)" else it } }
 
-    private fun formatPolygonList(polygons: JsonArray): String? {
-        if (polygons.isEmpty()) return null
-        return polygons.map { item ->
-            val arr = item as? JsonArray ?: return null
-            "(${formatRingList(arr) ?: return null})"
-        }.joinToString(", ")
-    }
+    private fun formatRingList(rings: JsonArray): String? =
+        joinArrays(rings) { ring -> formatPositionList(ring)?.let { "($it)" } }
+
+    private fun formatPolygonList(polygons: JsonArray): String? =
+        joinArrays(polygons) { polygon -> formatRingList(polygon)?.let { "($it)" } }
 
     private fun formatNumber(element: JsonElement): String? {
         val p = element as? JsonPrimitive ?: return null
