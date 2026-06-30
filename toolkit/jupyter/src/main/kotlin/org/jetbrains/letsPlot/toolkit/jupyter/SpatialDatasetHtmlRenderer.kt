@@ -21,26 +21,33 @@ internal object SpatialDatasetHtmlRenderer {
 
     const val ROW_LIMIT: Int = 5
 
-    // Per-sequence cap when pretty-printing geometry: at most this many leading items (coordinate
-    // vertices, polygon rings, sub-geometries) are shown, the rest abbreviated with an ellipsis so
-    // a complex border (e.g. a country MultiPolygon) stays readable in the table preview.
-    const val GEOMETRY_PREVIEW_LIMIT: Int = 3
+    // A coordinate sequence (a multipoint's points, a line's vertices, a polygon's rings, a
+    // multipolygon's polygons) is abbreviated to a single representative item plus an ellipsis. The
+    // geometry-type keyword already conveys the structure, so one coordinate pair is enough to
+    // recognise the geometry and its rough location - the point of an at-a-glance preview.
+    const val GEOMETRY_PREVIEW_LIMIT: Int = 1
+
+    // A GeometryCollection lists a few members so its (possibly heterogeneous) makeup stays visible;
+    // each member is itself abbreviated by the rule above.
+    private const val COLLECTION_PREVIEW_LIMIT: Int = 3
+
+    // Floating-point coordinate and data values are shown with at most this many fraction digits
+    // (trailing zeros are then trimmed).
+    private const val FLOAT_DECIMALS: Int = 4
 
     // Long text cell values are cut to this many characters (plus an ellipsis) so a single verbose
     // column does not blow out the table width.
     const val TEXT_PREVIEW_LIMIT: Int = 50
     private const val ELLIPSIS: String = "..."
 
-    private const val STYLE: String =
-        "<style>" +
-            ".lp-spatial-dataset{font-family:sans-serif;font-size:12px;}" +
-            ".lp-spatial-dataset table{border-collapse:collapse;border:1px solid #ccc;}" +
-            ".lp-spatial-dataset th,.lp-spatial-dataset td{border:1px solid #ccc;padding:4px 8px;text-align:left;}" +
-            ".lp-spatial-dataset th{background:#f5f5f5;}" +
-            ".lp-spatial-dataset td{vertical-align:top;}" +
-            ".lp-spatial-dataset .lp-num{text-align:right;}" +
-            ".lp-spatial-dataset .lp-spatial-note{margin-top:4px;color:#666;}" +
-            "</style>"
+    // Styles are emitted inline rather than via a <style> block: inline styles reliably win over a
+    // host notebook's own table CSS (e.g. JupyterLab right-aligns <td> with a selector more specific
+    // than any class rule we could ship), and survive HTML sanitizers that strip <style>/class.
+    private const val CONTAINER_STYLE = "font-family:sans-serif;font-size:12px;"
+    private const val TABLE_STYLE = "border-collapse:collapse;border:1px solid #ccc;"
+    private const val HEAD_CELL_STYLE = "border:1px solid #ccc;padding:4px 8px;background:#f5f5f5;"
+    private const val BODY_CELL_STYLE = "border:1px solid #ccc;padding:4px 8px;vertical-align:top;"
+    private const val NOTE_STYLE = "margin-top:4px;color:#666;"
 
     fun render(dataset: SpatialDataset, rowLimit: Int = ROW_LIMIT): String {
         val geometryKey: String = dataset.geometryKey
@@ -59,13 +66,12 @@ internal object SpatialDatasetHtmlRenderer {
         }
 
         val sb = StringBuilder()
-        sb.append("<div class=\"lp-spatial-dataset\">")
-        sb.append(STYLE)
-        sb.append("<table>")
+        sb.append("<div style=\"").append(CONTAINER_STYLE).append("\">")
+        sb.append("<table style=\"").append(TABLE_STYLE).append("\">")
 
         sb.append("<thead><tr>")
         for (col in columns) {
-            sb.append(if (col.numeric) "<th class=\"lp-num\">" else "<th>")
+            sb.append("<th style=\"").append(HEAD_CELL_STYLE).append("text-align:").append(col.align).append(";\">")
             sb.append(escape(col.name)).append("</th>")
         }
         sb.append("</tr></thead>")
@@ -74,7 +80,7 @@ internal object SpatialDatasetHtmlRenderer {
         for (row in 0 until visibleRows) {
             sb.append("<tr>")
             for (col in columns) {
-                sb.append(if (col.numeric) "<td class=\"lp-num\">" else "<td>")
+                sb.append("<td style=\"").append(BODY_CELL_STYLE).append("text-align:").append(col.align).append(";\">")
                 val cell = col.series[row]
                 if (cell != null) {
                     val display = if (col.isGeometry) {
@@ -92,7 +98,7 @@ internal object SpatialDatasetHtmlRenderer {
         sb.append("</table>")
 
         if (totalRows > visibleRows) {
-            sb.append("<div class=\"lp-spatial-note\">")
+            sb.append("<div style=\"").append(NOTE_STYLE).append("\">")
             sb.append("Showing ").append(visibleRows).append(" of ").append(totalRows).append(" rows")
             sb.append("</div>")
         }
@@ -106,7 +112,10 @@ internal object SpatialDatasetHtmlRenderer {
         val series: List<Any?>,
         val isGeometry: Boolean,
         val numeric: Boolean,
-    )
+    ) {
+        // Numbers are right-justified; text (including the geometry column) is left-justified.
+        val align: String get() = if (numeric) "right" else "left"
+    }
 
     private fun formatCell(value: Any): String = when (value) {
         is Double -> formatDouble(value)
@@ -140,7 +149,7 @@ internal object SpatialDatasetHtmlRenderer {
             "GeometryCollection" -> {
                 val geoms = obj["geometries"] as? JsonArray ?: return null
                 if (geoms.isEmpty()) return null
-                val shown = minOf(geoms.size, GEOMETRY_PREVIEW_LIMIT)
+                val shown = minOf(geoms.size, COLLECTION_PREVIEW_LIMIT)
                 val parts = ArrayList<String>(shown + 1)
                 for (i in 0 until shown) {
                     parts.add(formatGeoJson(geoms[i]) ?: geoms[i].toString())
@@ -194,7 +203,7 @@ internal object SpatialDatasetHtmlRenderer {
 
     private fun formatDouble(d: Double): String {
         if (d.isNaN() || d.isInfinite()) return d.toString()
-        var s = String.format(Locale.ROOT, "%.10f", d)
+        var s = String.format(Locale.ROOT, "%.${FLOAT_DECIMALS}f", d)
         if ('.' in s) {
             s = s.trimEnd('0').trimEnd('.')
         }

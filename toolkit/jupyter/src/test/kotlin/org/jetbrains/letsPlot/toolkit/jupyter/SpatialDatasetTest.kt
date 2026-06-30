@@ -68,13 +68,14 @@ class SpatialDatasetTest : JupyterTest() {
 
         val html = renderHtml(code)
         // Integer-valued numbers render compactly, not as "1.0" or in scientific notation.
-        assertTrue("<td class=\"lp-num\">1</td>" in html, "Expected compact, right-aligned id 1, got: $html")
-        assertTrue("<td class=\"lp-num\">1379302771</td>" in html, "Expected plain-decimal pop, got: $html")
         assertTrue("1.0" !in html, "Integer data must not render as 1.0, got: $html")
         assertTrue("E9" !in html, "Large integers must not use scientific notation, got: $html")
-        // Numeric headers are right-aligned; text columns keep the default (left) alignment.
-        assertTrue("<th class=\"lp-num\">id</th>" in html, "Expected right-aligned numeric header, got: $html")
-        assertTrue("<td>a</td>" in html, "Expected left-aligned text cell, got: $html")
+        // Numeric cells/headers are right-aligned (inline so they win over host notebook CSS);
+        // text columns are left-aligned.
+        assertTrue("text-align:right;\">1</td>" in html, "Expected compact, right-aligned id 1, got: $html")
+        assertTrue("text-align:right;\">1379302771</td>" in html, "Expected plain-decimal pop, got: $html")
+        assertTrue("text-align:right;\">id</th>" in html, "Expected right-aligned numeric header, got: $html")
+        assertTrue("text-align:left;\">a</td>" in html, "Expected left-aligned text cell, got: $html")
     }
 
     @Test
@@ -137,7 +138,7 @@ class SpatialDatasetTest : JupyterTest() {
         val html = renderHtml(code)
         assertTrue("&lt;a&amp;b&gt;" in html, "Expected escaped '<a&b>', got: $html")
         assertTrue("x&quot;y&#39;z" in html, "Expected escaped quote/apos, got: $html")
-        assertTrue("<td></td>" in html, "Expected empty cell for null, got: $html")
+        assertTrue("text-align:left;\"></td>" in html, "Expected empty (left-aligned) cell for null, got: $html")
         assertTrue("<a&b>" !in html, "Raw '<a&b>' must not appear in HTML, got: $html")
     }
 
@@ -216,25 +217,16 @@ class SpatialDatasetTest : JupyterTest() {
     }
 
     @Test
-    fun `formatGeometryCell - trailing zeros trimmed while in-range decimals are kept`() {
-        // The "float noise" case only trims digits beyond the 10-decimal cutoff. These values
-        // exercise the trimming itself and would catch a regression that dropped significant,
-        // in-range fractional digits.
+    fun `formatGeometryCell - decimals kept up to four places, trailing zeros trimmed`() {
         assertEquals(
             "POINT (1.5 2.25)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(
                 """{"type":"Point","coordinates":[1.5,2.25]}""", GeometryFormat.GEOJSON
             )
         )
+        // Up to four fraction digits are kept; extra precision is rounded to four places.
         assertEquals(
-            "POINT (100 0.000001)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(
-                """{"type":"Point","coordinates":[100.0,0.000001]}""", GeometryFormat.GEOJSON
-            )
-        )
-        // Nine significant decimals (within the 10-place cutoff) are preserved.
-        assertEquals(
-            "POINT (-73.123456789 40.5)",
+            "POINT (-73.1235 40.5)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(
                 """{"type":"Point","coordinates":[-73.123456789,40.5]}""", GeometryFormat.GEOJSON
             )
@@ -245,7 +237,7 @@ class SpatialDatasetTest : JupyterTest() {
     fun `formatGeometryCell - LineString`() {
         val raw = """{"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0],[2.5,3.5]]}"""
         assertEquals(
-            "LINESTRING (0 0, 1 1, 2.5 3.5)",
+            "LINESTRING (0 0, ...)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -254,7 +246,7 @@ class SpatialDatasetTest : JupyterTest() {
     fun `formatGeometryCell - MultiPoint`() {
         val raw = """{"type":"MultiPoint","coordinates":[[0.0,0.0],[1.0,2.0]]}"""
         assertEquals(
-            "MULTIPOINT ((0 0), (1 2))",
+            "MULTIPOINT ((0 0), ...)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -265,10 +257,10 @@ class SpatialDatasetTest : JupyterTest() {
             [[0.0,0.0],[10.0,0.0],[10.0,10.0],[0.0,10.0],[0.0,0.0]],
             [[2.0,2.0],[4.0,2.0],[4.0,4.0],[2.0,4.0],[2.0,2.0]]
         ]}"""
-        // Each ring has 5 vertices, so it is abbreviated to the first 3 plus an ellipsis;
-        // the two-ring (outer + hole) structure is still visible.
+        // Polygons are abbreviated aggressively: only the first ring and its first vertex are
+        // shown, with an ellipsis for the remaining vertices and for the omitted hole ring.
         assertEquals(
-            "POLYGON ((0 0, 10 0, 10 10, ...), (2 2, 4 2, 4 4, ...))",
+            "POLYGON ((0 0, ...), ...)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -279,9 +271,10 @@ class SpatialDatasetTest : JupyterTest() {
             [[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,0.0]]],
             [[[2.0,2.0],[3.0,2.0],[3.0,3.0],[2.0,2.0]]]
         ]}"""
-        // Each ring has 4 vertices -> abbreviated to the first 3 plus an ellipsis.
+        // Only the first polygon, its first ring, and that ring's first vertex are shown; the
+        // trailing ellipsis marks the omitted second polygon.
         assertEquals(
-            "MULTIPOLYGON (((0 0, 1 0, 1 1, ...)), ((2 2, 3 2, 3 3, ...)))",
+            "MULTIPOLYGON (((0 0, ...)), ...)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -293,7 +286,7 @@ class SpatialDatasetTest : JupyterTest() {
             {"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0]]}
         ]}"""
         assertEquals(
-            "GEOMETRYCOLLECTION (POINT (1 2), LINESTRING (0 0, 1 1))",
+            "GEOMETRYCOLLECTION (POINT (1 2), LINESTRING (0 0, ...))",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -357,7 +350,7 @@ class SpatialDatasetTest : JupyterTest() {
     fun `formatGeometryCell - LineString with 3D coordinates keeps z component`() {
         val raw = """{"type":"LineString","coordinates":[[0.0,0.0,1.0],[1.0,1.0,2.0]]}"""
         assertEquals(
-            "LINESTRING (0 0 1, 1 1 2)",
+            "LINESTRING (0 0 1, ...)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -365,9 +358,9 @@ class SpatialDatasetTest : JupyterTest() {
     @Test
     fun `formatGeometryCell - Polygon with 3D coordinates keeps z component`() {
         val raw = """{"type":"Polygon","coordinates":[[[0.0,0.0,5.0],[1.0,0.0,5.0],[1.0,1.0,5.0],[0.0,0.0,5.0]]]}"""
-        // 4 vertices -> abbreviated; the z component is kept on the vertices that are shown.
+        // Abbreviated to the first vertex; the z component is kept on the vertex that is shown.
         assertEquals(
-            "POLYGON ((0 0 5, 1 0 5, 1 1 5, ...))",
+            "POLYGON ((0 0 5, ...))",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -375,19 +368,19 @@ class SpatialDatasetTest : JupyterTest() {
     // --- Long geometries are abbreviated to GEOMETRY_PREVIEW_LIMIT items per sequence ---
 
     @Test
-    fun `formatGeometryCell - long vertex sequence is abbreviated with an ellipsis`() {
+    fun `formatGeometryCell - multi-vertex sequence is abbreviated to the first pair`() {
         val raw = """{"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0],[2.0,2.0],[3.0,3.0],[4.0,4.0]]}"""
         assertEquals(
-            "LINESTRING (0 0, 1 1, 2 2, ...)",
+            "LINESTRING (0 0, ...)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
 
     @Test
-    fun `formatGeometryCell - a sequence exactly at the limit is shown in full`() {
-        val raw = """{"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0],[2.0,2.0]]}"""
+    fun `formatGeometryCell - a single-pair sequence has no ellipsis`() {
+        val raw = """{"type":"LineString","coordinates":[[0.0,0.0]]}"""
         assertEquals(
-            "LINESTRING (0 0, 1 1, 2 2)",
+            "LINESTRING (0 0)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -400,8 +393,9 @@ class SpatialDatasetTest : JupyterTest() {
             [[[4.0,4.0],[5.0,4.0],[4.0,4.0]]],
             [[[6.0,6.0],[7.0,6.0],[6.0,6.0]]]
         ]}"""
+        // Four polygons collapse to the first one (first ring, first vertex) plus an ellipsis.
         assertEquals(
-            "MULTIPOLYGON (((0 0, 1 0, 0 0)), ((2 2, 3 2, 2 2)), ((4 4, 5 4, 4 4)), ...)",
+            "MULTIPOLYGON (((0 0, ...)), ...)",
             SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
         )
     }
@@ -439,8 +433,9 @@ class SpatialDatasetTest : JupyterTest() {
 
     @Test
     fun `formatGeometryCell - position that is not an array falls back to raw`() {
-        // A scalar where a position array is expected (here in a LineString).
-        val raw = """{"type":"LineString","coordinates":[[0.0,0.0],5,[1.0,1.0]]}"""
+        // A scalar where a position array is expected. It is the first element so it lands within
+        // the validated preview prefix (only the shown items are checked).
+        val raw = """{"type":"LineString","coordinates":[5,[0.0,0.0],[1.0,1.0]]}"""
         assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
     }
 
