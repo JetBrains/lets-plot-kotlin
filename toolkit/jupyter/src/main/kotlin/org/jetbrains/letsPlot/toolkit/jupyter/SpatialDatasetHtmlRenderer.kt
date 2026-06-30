@@ -1,0 +1,226 @@
+/*
+ * Copyright (c) 2026. JetBrains s.r.o.
+ * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+ */
+
+package org.jetbrains.letsPlot.toolkit.jupyter
+
+import kotlinx.serialization.SerializationException
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.contentOrNull
+import kotlinx.serialization.json.doubleOrNull
+import org.jetbrains.letsPlot.spatial.GeometryFormat
+import org.jetbrains.letsPlot.spatial.SpatialDataset
+import java.util.Locale
+
+internal object SpatialDatasetHtmlRenderer {
+
+    // Keep notebook previews compact and predictable.
+    private const val ROW_LIMIT: Int = 5
+
+    // Coordinate sequences are abbreviated to one representative item plus an ellipsis.
+    private const val GEOMETRY_PREVIEW_LIMIT: Int = 1
+
+    // GeometryCollection previews keep a few members so mixed contents stay visible.
+    private const val COLLECTION_PREVIEW_LIMIT: Int = 3
+
+    // Floating-point values are rounded, then trailing zeros are trimmed.
+    private const val FLOAT_DECIMALS: Int = 4
+
+    // Long text values are trimmed so one verbose column does not dominate the preview.
+    private const val TEXT_PREVIEW_LIMIT: Int = 50
+    private const val ELLIPSIS: String = "..."
+
+    // Styles are emitted inline rather than via a <style> block: inline styles reliably win over a
+    // host notebook's own table CSS (e.g. JupyterLab right-aligns <td> with a selector more specific
+    // than any class rule we could ship), and survive HTML sanitizers that strip <style>/class.
+    private const val CONTAINER_STYLE = "font-family:sans-serif;font-size:12px;"
+    private const val TABLE_STYLE = "border-collapse:collapse;border:1px solid #ccc;"
+    private const val HEAD_CELL_STYLE = "border:1px solid #ccc;padding:4px 8px;background:#f5f5f5;"
+    private const val BODY_CELL_STYLE = "border:1px solid #ccc;padding:4px 8px;vertical-align:top;"
+    private const val NOTE_STYLE = "margin-top:4px;color:#666;"
+
+    fun render(dataset: SpatialDataset): String {
+        val geometryFormat = dataset.geometryFormat
+
+        val totalRows = dataset.keys.firstOrNull()?.let { dataset.getValue(it).size } ?: 0
+        val visibleRows = minOf(totalRows, ROW_LIMIT)
+
+        val columns = dataset.keys.map { name ->
+            val series = dataset.getValue(name)
+            val isGeometry = name == dataset.geometryKey
+            val cells = series.take(visibleRows)
+            val numeric = !isGeometry && cells.any { it is Number } && cells.all { it == null || it is Number }
+            ColumnView(name, series, isGeometry, numeric)
+        }
+
+        return buildString {
+            append("<div style=\"").append(CONTAINER_STYLE).append("\">")
+            append("<table style=\"").append(TABLE_STYLE).append("\">")
+            appendHead(columns)
+            appendBody(columns, visibleRows, geometryFormat)
+            append("</table>")
+            if (totalRows > visibleRows) {
+                append("<div style=\"").append(NOTE_STYLE).append("\">")
+                append("Showing ").append(visibleRows).append(" of ").append(totalRows).append(" rows")
+                append("</div>")
+            }
+            append("</div>")
+        }
+    }
+
+    private fun StringBuilder.appendHead(columns: List<ColumnView>) {
+        append("<thead><tr>")
+        for (col in columns) {
+            appendCell("th", HEAD_CELL_STYLE, col.align, col.name)
+        }
+        append("</tr></thead>")
+    }
+
+    private fun StringBuilder.appendBody(columns: List<ColumnView>, visibleRows: Int, geometryFormat: GeometryFormat) {
+        append("<tbody>")
+        for (row in 0 until visibleRows) {
+            append("<tr>")
+            for (col in columns) {
+                val cell = col.series[row]
+                val display = if (cell != null) {
+                    if (col.isGeometry) {
+                        formatGeometryCell(cell.toString(), geometryFormat)
+                    } else {
+                        truncateText(formatCell(cell))
+                    }
+                } else {
+                    null
+                }
+                appendCell("td", BODY_CELL_STYLE, col.align, display)
+            }
+            append("</tr>")
+        }
+        append("</tbody>")
+    }
+
+    private fun StringBuilder.appendCell(tag: String, baseStyle: String, align: String, value: String?) {
+        append("<").append(tag).append(" style=\"")
+            .append(baseStyle).append("text-align:").append(align).append(";\">")
+        if (value != null) {
+            append(escape(value))
+        }
+        append("</").append(tag).append(">")
+    }
+
+    private class ColumnView(
+        val name: String,
+        val series: List<Any?>,
+        val isGeometry: Boolean,
+        val numeric: Boolean,
+    ) {
+        val align: String get() = if (numeric) "right" else "left"
+    }
+
+    private fun formatCell(value: Any): String = when (value) {
+        is Double -> formatDouble(value)
+        is Float -> formatDouble(value.toDouble())
+        else -> value.toString()
+    }
+
+    private fun truncateText(s: String): String =
+        if (s.length > TEXT_PREVIEW_LIMIT) s.substring(0, TEXT_PREVIEW_LIMIT) + ELLIPSIS else s
+
+    internal fun formatGeometryCell(raw: String, format: GeometryFormat): String {
+        if (format != GeometryFormat.GEOJSON) return raw
+        return try {
+            val element = Json.parseToJsonElement(raw)
+            formatGeoJson(element) ?: raw
+        } catch (_: SerializationException) {
+            raw
+        }
+    }
+
+    private fun formatGeoJson(element: JsonElement): String? {
+        val obj = element as? JsonObject ?: return null
+        val type = (obj["type"] as? JsonPrimitive)?.contentOrNull ?: return null
+        return when (type) {
+            "Point" -> formatPosition(coordsOf(obj) ?: return null)?.let { "POINT ($it)" }
+            "MultiPoint" -> formatPositionList(coordsOf(obj) ?: return null, parenthesize = true)?.let { "MULTIPOINT ($it)" }
+            "LineString" -> formatPositionList(coordsOf(obj) ?: return null)?.let { "LINESTRING ($it)" }
+            "MultiLineString" -> formatRingList(coordsOf(obj) ?: return null)?.let { "MULTILINESTRING ($it)" }
+            "Polygon" -> formatRingList(coordsOf(obj) ?: return null)?.let { "POLYGON ($it)" }
+            "MultiPolygon" -> formatPolygonList(coordsOf(obj) ?: return null)?.let { "MULTIPOLYGON ($it)" }
+            "GeometryCollection" -> {
+                val geoms = obj["geometries"] as? JsonArray ?: return null
+                if (geoms.isEmpty()) return null
+                val shown = minOf(geoms.size, COLLECTION_PREVIEW_LIMIT)
+                val parts = ArrayList<String>(shown + 1)
+                for (i in 0 until shown) {
+                    parts.add(formatGeoJson(geoms[i]) ?: geoms[i].toString())
+                }
+                if (geoms.size > shown) parts.add(ELLIPSIS)
+                "GEOMETRYCOLLECTION (${parts.joinToString(", ")})"
+            }
+            else -> null
+        }
+    }
+
+    private fun coordsOf(obj: JsonObject): JsonArray? = obj["coordinates"] as? JsonArray
+
+    private fun formatPosition(coords: JsonArray): String? {
+        if (coords.size < 2) return null
+        return coords.map { formatNumber(it) ?: return null }.joinToString(" ")
+    }
+
+    // Only the shown prefix is validated; omitted items are previewed as an ellipsis.
+    private fun joinArrays(array: JsonArray, transform: (JsonArray) -> String?): String? {
+        if (array.isEmpty()) return null
+        val shown = minOf(array.size, GEOMETRY_PREVIEW_LIMIT)
+        val parts = ArrayList<String>(shown + 1)
+        for (i in 0 until shown) {
+            val arr = array[i] as? JsonArray ?: return null
+            parts.add(transform(arr) ?: return null)
+        }
+        if (array.size > shown) parts.add(ELLIPSIS)
+        return parts.joinToString(", ")
+    }
+
+    private fun formatPositionList(coords: JsonArray, parenthesize: Boolean = false): String? =
+        joinArrays(coords) { position -> formatPosition(position)?.let { if (parenthesize) "($it)" else it } }
+
+    private fun formatRingList(rings: JsonArray): String? =
+        joinArrays(rings) { ring -> formatPositionList(ring)?.let { "($it)" } }
+
+    private fun formatPolygonList(polygons: JsonArray): String? =
+        joinArrays(polygons) { polygon -> formatRingList(polygon)?.let { "($it)" } }
+
+    private fun formatNumber(element: JsonElement): String? {
+        val p = element as? JsonPrimitive ?: return null
+        if (p.isString) return null
+        val d = p.doubleOrNull ?: return null
+        return formatDouble(d)
+    }
+
+    private fun formatDouble(d: Double): String {
+        if (d.isNaN() || d.isInfinite()) return d.toString()
+        var s = String.format(Locale.ROOT, "%.${FLOAT_DECIMALS}f", d)
+        if ('.' in s) {
+            s = s.trimEnd('0').trimEnd('.')
+        }
+        if (s.isEmpty() || s == "-") s = "0"
+        return s
+    }
+
+    private fun escape(s: String): String = buildString(s.length) {
+        for (ch in s) {
+            when (ch) {
+                '&' -> append("&amp;")
+                '<' -> append("&lt;")
+                '>' -> append("&gt;")
+                '"' -> append("&quot;")
+                '\'' -> append("&#39;")
+                else -> append(ch)
+            }
+        }
+    }
+}

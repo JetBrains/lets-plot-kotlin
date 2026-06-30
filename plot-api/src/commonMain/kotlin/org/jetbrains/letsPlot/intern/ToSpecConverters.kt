@@ -284,7 +284,7 @@ fun OptionsMap.toSpec(): MutableMap<String, Any> {
 }
 
 internal fun asPlotData(rawData: Map<*, *>): Map<String, List<Any?>> {
-    val standardisedData = HashMap<String, List<Any?>>()
+    val standardisedData = LinkedHashMap<String, List<Any?>>()
     for ((rawKey, rawValue) in rawData) {
         val key = rawKey.toString()
         standardisedData[key] = toList(rawValue!!, key)
