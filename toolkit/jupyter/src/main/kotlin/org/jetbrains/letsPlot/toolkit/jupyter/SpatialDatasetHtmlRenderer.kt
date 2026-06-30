@@ -19,7 +19,7 @@ import java.util.Locale
 
 internal object SpatialDatasetHtmlRenderer {
 
-    const val ROW_LIMIT: Int = 10
+    const val ROW_LIMIT: Int = 5
 
     // Per-sequence cap when pretty-printing geometry: at most this many leading items (coordinate
     // vertices, polygon rings, sub-geometries) are shown, the rest abbreviated with an ellipsis so

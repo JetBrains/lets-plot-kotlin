@@ -158,7 +158,7 @@ class SpatialDatasetTest : JupyterTest() {
     }
 
     @Test
-    fun `SpatialDataset with more than 20 rows is truncated with a note`() {
+    fun `SpatialDataset with more than 5 rows is truncated with a note`() {
         val code = """
             val n = 25
             val data = mapOf("idx" to (0 until n).map { it.toString() })
@@ -167,16 +167,16 @@ class SpatialDatasetTest : JupyterTest() {
         """.trimIndent()
 
         val html = renderHtml(code)
-        assertTrue("Showing 20 of 25 rows" in html, "Expected truncation note, got: $html")
-        // First 20 rows present
-        for (i in 0..19) {
+        assertTrue("Showing 5 of 25 rows" in html, "Expected truncation note, got: $html")
+        // First 5 rows present
+        for (i in 0..4) {
             assertTrue(">$i<" in html, "Expected row index $i in HTML")
         }
-        // 21st row (index 20) must not appear
-        assertTrue(">20<" !in html, "Row index 20 must not be rendered")
-        // Count rendered <tr> rows (header + 20 body rows = 21)
+        // 6th row (index 5) must not appear
+        assertTrue(">5<" !in html, "Row index 5 must not be rendered")
+        // Count rendered <tr> rows (header + 5 body rows = 6)
         val trCount = "<tr".toRegex().findAll(html).count()
-        assertEquals(21, trCount, "Expected 1 header + 20 body rows (=21 <tr>), got $trCount")
+        assertEquals(6, trCount, "Expected 1 header + 5 body rows (=6 <tr>), got $trCount")
     }
 
     @Test
