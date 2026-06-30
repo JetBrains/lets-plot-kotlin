@@ -19,13 +19,13 @@ import java.util.Locale
 
 internal object SpatialDatasetHtmlRenderer {
 
-    const val ROW_LIMIT: Int = 5
+    private const val ROW_LIMIT: Int = 5
 
     // A coordinate sequence (a multipoint's points, a line's vertices, a polygon's rings, a
     // multipolygon's polygons) is abbreviated to a single representative item plus an ellipsis. The
     // geometry-type keyword already conveys the structure, so one coordinate pair is enough to
     // recognise the geometry and its rough location - the point of an at-a-glance preview.
-    const val GEOMETRY_PREVIEW_LIMIT: Int = 1
+    private const val GEOMETRY_PREVIEW_LIMIT: Int = 1
 
     // A GeometryCollection lists a few members so its (possibly heterogeneous) makeup stays visible;
     // each member is itself abbreviated by the rule above.
@@ -37,7 +37,7 @@ internal object SpatialDatasetHtmlRenderer {
 
     // Long text cell values are cut to this many characters (plus an ellipsis) so a single verbose
     // column does not blow out the table width.
-    const val TEXT_PREVIEW_LIMIT: Int = 50
+    private const val TEXT_PREVIEW_LIMIT: Int = 50
     private const val ELLIPSIS: String = "..."
 
     // Styles are emitted inline rather than via a <style> block: inline styles reliably win over a
@@ -50,37 +50,49 @@ internal object SpatialDatasetHtmlRenderer {
     private const val NOTE_STYLE = "margin-top:4px;color:#666;"
 
     fun render(dataset: SpatialDataset, rowLimit: Int = ROW_LIMIT): String {
-        val geometryKey: String = dataset.geometryKey
-        val geometryFormat: GeometryFormat = dataset.geometryFormat
+        val geometryFormat = dataset.geometryFormat
 
-        val totalRows: Int = dataset.keys.firstOrNull()?.let { dataset.getValue(it).size } ?: 0
-        val visibleRows: Int = minOf(totalRows, rowLimit)
+        val totalRows = dataset.keys.firstOrNull()?.let { dataset.getValue(it).size } ?: 0
+        val visibleRows = minOf(totalRows, rowLimit)
 
-        val columns: List<ColumnView> = dataset.keys.map { name ->
+        val columns = dataset.keys.map { name ->
             val series = dataset.getValue(name)
-            val isGeometry = name == geometryKey
-            val numeric = !isGeometry &&
-                (0 until visibleRows).any { series[it] is Number } &&
-                (0 until visibleRows).all { series[it] == null || series[it] is Number }
+            val isGeometry = name == dataset.geometryKey
+            val cells = series.take(visibleRows)
+            val numeric = !isGeometry && cells.any { it is Number } && cells.all { it == null || it is Number }
             ColumnView(name, series, isGeometry, numeric)
         }
 
-        val sb = StringBuilder()
-        sb.append("<div style=\"").append(CONTAINER_STYLE).append("\">")
-        sb.append("<table style=\"").append(TABLE_STYLE).append("\">")
-
-        sb.append("<thead><tr>")
-        for (col in columns) {
-            sb.append("<th style=\"").append(HEAD_CELL_STYLE).append("text-align:").append(col.align).append(";\">")
-            sb.append(escape(col.name)).append("</th>")
+        return buildString {
+            append("<div style=\"").append(CONTAINER_STYLE).append("\">")
+            append("<table style=\"").append(TABLE_STYLE).append("\">")
+            appendHead(columns)
+            appendBody(columns, visibleRows, geometryFormat)
+            append("</table>")
+            if (totalRows > visibleRows) {
+                append("<div style=\"").append(NOTE_STYLE).append("\">")
+                append("Showing ").append(visibleRows).append(" of ").append(totalRows).append(" rows")
+                append("</div>")
+            }
+            append("</div>")
         }
-        sb.append("</tr></thead>")
+    }
 
-        sb.append("<tbody>")
+    private fun StringBuilder.appendHead(columns: List<ColumnView>) {
+        append("<thead><tr>")
+        for (col in columns) {
+            append("<th style=\"").append(HEAD_CELL_STYLE).append("text-align:").append(col.align).append(";\">")
+            append(escape(col.name)).append("</th>")
+        }
+        append("</tr></thead>")
+    }
+
+    private fun StringBuilder.appendBody(columns: List<ColumnView>, visibleRows: Int, geometryFormat: GeometryFormat) {
+        append("<tbody>")
         for (row in 0 until visibleRows) {
-            sb.append("<tr>")
+            append("<tr>")
             for (col in columns) {
-                sb.append("<td style=\"").append(BODY_CELL_STYLE).append("text-align:").append(col.align).append(";\">")
+                append("<td style=\"").append(BODY_CELL_STYLE).append("text-align:").append(col.align).append(";\">")
                 val cell = col.series[row]
                 if (cell != null) {
                     val display = if (col.isGeometry) {
@@ -88,23 +100,13 @@ internal object SpatialDatasetHtmlRenderer {
                     } else {
                         truncateText(formatCell(cell))
                     }
-                    sb.append(escape(display))
+                    append(escape(display))
                 }
-                sb.append("</td>")
+                append("</td>")
             }
-            sb.append("</tr>")
+            append("</tr>")
         }
-        sb.append("</tbody>")
-        sb.append("</table>")
-
-        if (totalRows > visibleRows) {
-            sb.append("<div style=\"").append(NOTE_STYLE).append("\">")
-            sb.append("Showing ").append(visibleRows).append(" of ").append(totalRows).append(" rows")
-            sb.append("</div>")
-        }
-
-        sb.append("</div>")
-        return sb.toString()
+        append("</tbody>")
     }
 
     private class ColumnView(
@@ -211,18 +213,16 @@ internal object SpatialDatasetHtmlRenderer {
         return s
     }
 
-    private fun escape(s: String): String {
-        val out = StringBuilder(s.length)
+    private fun escape(s: String): String = buildString(s.length) {
         for (ch in s) {
             when (ch) {
-                '&' -> out.append("&amp;")
-                '<' -> out.append("&lt;")
-                '>' -> out.append("&gt;")
-                '"' -> out.append("&quot;")
-                '\'' -> out.append("&#39;")
-                else -> out.append(ch)
+                '&' -> append("&amp;")
+                '<' -> append("&lt;")
+                '>' -> append("&gt;")
+                '"' -> append("&quot;")
+                '\'' -> append("&#39;")
+                else -> append(ch)
             }
         }
-        return out.toString()
     }
 }

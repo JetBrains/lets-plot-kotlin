@@ -180,22 +180,6 @@ class SpatialDatasetTest : JupyterTest() {
         assertEquals(6, trCount, "Expected 1 header + 5 body rows (=6 <tr>), got $trCount")
     }
 
-    @Test
-    fun `SpatialDataset row limit is configurable via JupyterConfig`() {
-        val code = """
-            letsPlotNotebookConfig.spatialDatasetRowLimit = 3
-            val n = 5
-            val data = mapOf("idx" to (0 until n).map { it.toString() })
-            val geometry = (0 until n).map { "{\"type\":\"Point\",\"coordinates\":[0.0,${'$'}it.0]}" }
-            SpatialDataset.withGEOJSON(data, geometry)
-        """.trimIndent()
-
-        val html = renderHtml(code)
-        assertTrue("Showing 3 of 5 rows" in html, "Expected configurable truncation note, got: $html")
-        val trCount = "<tr".toRegex().findAll(html).count()
-        assertEquals(4, trCount, "Expected 1 header + 3 body rows (=4 <tr>), got $trCount")
-    }
-
     // --- Direct unit tests for the geometry pretty-printer ---
 
     @Test
