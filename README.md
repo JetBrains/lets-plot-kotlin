@@ -67,7 +67,6 @@ See the "Quickstart" notebook in [Datalore](https://datalore.jetbrains.com/view/
   - [Compose Multiplatform](#in-compose-multiplatform)
   - [JVM and Kotlin/JS](#in-jvm-js)
 - [Documentation](#documentation)
-- [What is new in 4.14.0](#new)
 - [Recent Updates in the Gallery](#recent_gallery_updates)
 - [Change Log](#change_log)
 - [Code of Conduct](#CoC)
@@ -103,7 +102,7 @@ In this case the latest `library descriptor` will be pulled from the [Kotlin Jup
 #### Library Descriptor Parameters
 
 ```
-%use lets-plot(v=4.14.0, isolatedFrame=false, output="js, ktnb, svg")
+%use lets-plot(v=4.15.0, isolatedFrame=false, output="js, ktnb, svg")
 ```                                                                 
 - `v` - version of the Lets-Plot Kotlin API.
 - `isolatedFrame` - If `false`: load JS just once per notebook (default in Jupyter).  
@@ -138,53 +137,6 @@ Examples of using the Lets-Plot Kotlin API in JVM and Kotlin/JS applications are
 * _Lets-Plot Kotlin API_ documentation and API reference: [**Lets-Plot for Kotlin**](https://lets-plot.org/kotlin)
 
 * A quick introduction to the _Grammar of Graphics_ and _Lets-Plot Kotlin API_: [Lets-Plot Usage Guide](https://nbviewer.jupyter.org/github/JetBrains/lets-plot-kotlin/blob/master/docs/guide/user_guide.ipynb) 
-
-
-<a id="new"></a>
-## What is new in 4.14.0
-
-- #### `ggdeck()`
-
-  The new `ggdeck()` function overlays multiple independent plots in a shared plotting area.
-  Typically, all plots share one axis — enabling dual-axis charts and multivariate comparisons.<br><br>
-  - **Dual Axis:**
-
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26b/images/ggdeck_dual_axis.png" alt="f-26b/images/ggdeck_dual_axis.png" width="550" height="295">
-
-    See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_dual_axis.html).<br><br>
-
-  - **Multivariate Comparison:**
-
-    <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26b/images/ggdeck_plot_overlay.png" alt="f-26b/images/ggdeck_plot_overlay.png" width="600" height="283">
-
-    See [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/ggdeck_plot_overlay.html).
-
-
-
-- #### Alpha Channel in Color Strings
-
-  - Named colors accept an opacity suffix after a slash: `"steelblue/0.35"`.
-  - Hex colors accept an alpha channel: `#RRGGBBAA` or short form `#RGBA`.
-
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26b/images/color_alpha_componnet.png" alt="f-26b/images/color_alpha_componnet.png" width="400" height="214">
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/color_alpha.html).
-
-
-- #### Text Angle in Facet Strip Labels
-
-  Facet strip labels can now be rotated via the `angle` parameter of `element_text()`, applied to `strip_text`, `strip_text_x`, or `strip_text_y`.
-
-  Thanks to a contribution by [tentrillion](https://github.com/tentrillion).
-
-  <img src="https://raw.githubusercontent.com/JetBrains/lets-plot/master/docs/f-26b/images/facet_strip_text_angle.png" alt="f-26b/images/facet_strip_text_angle.png" width="400" height="225">
-
-  See: [example notebook](https://raw.githack.com/JetBrains/lets-plot-kotlin/master/docs/examples/jupyter-notebooks/f-4.14.0/strip_text_angle.html).
-
-
-- #### And More
-
-  See [CHANGELOG.md](https://github.com/JetBrains/lets-plot-kotlin/blob/master/CHANGELOG.md) for a full list of changes.
 
 
 <a id="recent_gallery_updates"></a>
