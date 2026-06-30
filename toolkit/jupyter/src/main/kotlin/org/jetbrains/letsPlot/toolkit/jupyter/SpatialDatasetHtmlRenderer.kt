@@ -19,24 +19,19 @@ import java.util.Locale
 
 internal object SpatialDatasetHtmlRenderer {
 
+    // Keep notebook previews compact and predictable.
     private const val ROW_LIMIT: Int = 5
 
-    // A coordinate sequence (a multipoint's points, a line's vertices, a polygon's rings, a
-    // multipolygon's polygons) is abbreviated to a single representative item plus an ellipsis. The
-    // geometry-type keyword already conveys the structure, so one coordinate pair is enough to
-    // recognise the geometry and its rough location - the point of an at-a-glance preview.
+    // Coordinate sequences are abbreviated to one representative item plus an ellipsis.
     private const val GEOMETRY_PREVIEW_LIMIT: Int = 1
 
-    // A GeometryCollection lists a few members so its (possibly heterogeneous) makeup stays visible;
-    // each member is itself abbreviated by the rule above.
+    // GeometryCollection previews keep a few members so mixed contents stay visible.
     private const val COLLECTION_PREVIEW_LIMIT: Int = 3
 
-    // Floating-point coordinate and data values are shown with at most this many fraction digits
-    // (trailing zeros are then trimmed).
+    // Floating-point values are rounded, then trailing zeros are trimmed.
     private const val FLOAT_DECIMALS: Int = 4
 
-    // Long text cell values are cut to this many characters (plus an ellipsis) so a single verbose
-    // column does not blow out the table width.
+    // Long text values are trimmed so one verbose column does not dominate the preview.
     private const val TEXT_PREVIEW_LIMIT: Int = 50
     private const val ELLIPSIS: String = "..."
 
@@ -49,11 +44,11 @@ internal object SpatialDatasetHtmlRenderer {
     private const val BODY_CELL_STYLE = "border:1px solid #ccc;padding:4px 8px;vertical-align:top;"
     private const val NOTE_STYLE = "margin-top:4px;color:#666;"
 
-    fun render(dataset: SpatialDataset, rowLimit: Int = ROW_LIMIT): String {
+    fun render(dataset: SpatialDataset): String {
         val geometryFormat = dataset.geometryFormat
 
         val totalRows = dataset.keys.firstOrNull()?.let { dataset.getValue(it).size } ?: 0
-        val visibleRows = minOf(totalRows, rowLimit)
+        val visibleRows = minOf(totalRows, ROW_LIMIT)
 
         val columns = dataset.keys.map { name ->
             val series = dataset.getValue(name)
@@ -81,8 +76,7 @@ internal object SpatialDatasetHtmlRenderer {
     private fun StringBuilder.appendHead(columns: List<ColumnView>) {
         append("<thead><tr>")
         for (col in columns) {
-            append("<th style=\"").append(HEAD_CELL_STYLE).append("text-align:").append(col.align).append(";\">")
-            append(escape(col.name)).append("</th>")
+            appendCell("th", HEAD_CELL_STYLE, col.align, col.name)
         }
         append("</tr></thead>")
     }
@@ -92,21 +86,30 @@ internal object SpatialDatasetHtmlRenderer {
         for (row in 0 until visibleRows) {
             append("<tr>")
             for (col in columns) {
-                append("<td style=\"").append(BODY_CELL_STYLE).append("text-align:").append(col.align).append(";\">")
                 val cell = col.series[row]
-                if (cell != null) {
-                    val display = if (col.isGeometry) {
+                val display = if (cell != null) {
+                    if (col.isGeometry) {
                         formatGeometryCell(cell.toString(), geometryFormat)
                     } else {
                         truncateText(formatCell(cell))
                     }
-                    append(escape(display))
+                } else {
+                    null
                 }
-                append("</td>")
+                appendCell("td", BODY_CELL_STYLE, col.align, display)
             }
             append("</tr>")
         }
         append("</tbody>")
+    }
+
+    private fun StringBuilder.appendCell(tag: String, baseStyle: String, align: String, value: String?) {
+        append("<").append(tag).append(" style=\"")
+            .append(baseStyle).append("text-align:").append(align).append(";\">")
+        if (value != null) {
+            append(escape(value))
+        }
+        append("</").append(tag).append(">")
     }
 
     private class ColumnView(
@@ -115,7 +118,6 @@ internal object SpatialDatasetHtmlRenderer {
         val isGeometry: Boolean,
         val numeric: Boolean,
     ) {
-        // Numbers are right-justified; text (including the geometry column) is left-justified.
         val align: String get() = if (numeric) "right" else "left"
     }
 
@@ -170,11 +172,7 @@ internal object SpatialDatasetHtmlRenderer {
         return coords.map { formatNumber(it) ?: return null }.joinToString(" ")
     }
 
-    // Formats each element of [array] - which must itself be a JSON array - via [transform] and
-    // joins the results with ", ". Returns null (so the caller falls back to the raw string) if the
-    // array is empty, an element is not an array, or [transform] rejects an element. Only the
-    // leading GEOMETRY_PREVIEW_LIMIT elements are shown; if there are more, an ellipsis is appended
-    // (and the trailing elements are neither formatted nor validated - this is a preview).
+    // Only the shown prefix is validated; omitted items are previewed as an ellipsis.
     private fun joinArrays(array: JsonArray, transform: (JsonArray) -> String?): String? {
         if (array.isEmpty()) return null
         val shown = minOf(array.size, GEOMETRY_PREVIEW_LIMIT)

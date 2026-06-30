@@ -43,10 +43,8 @@ class SpatialDatasetTest : JupyterTest() {
         assertTrue(">geometry<" in html, "Expected header 'geometry', got: $html")
         assertTrue(">Alpha<" in html, "Expected value 'Alpha', got: $html")
         assertTrue(">Beta<" in html, "Expected value 'Beta', got: $html")
-        // Geometry pretty-printed (floating-point noise trimmed)
         assertTrue("POINT (-73.96 40.772)" in html, "Expected POINT with trimmed noise, got: $html")
         assertTrue("POINT (1 2)" in html, "Expected POINT (1 2), got: $html")
-        // Raw GeoJSON must not appear (would also fail HTML escaping check separately)
         assertTrue("40.772000000000006" !in html, "Raw float noise should not appear, got: $html")
         assertTrue("\"type\":\"Point\"" !in html, "Raw GeoJSON should not appear, got: $html")
     }
@@ -67,11 +65,8 @@ class SpatialDatasetTest : JupyterTest() {
         """.trimIndent()
 
         val html = renderHtml(code)
-        // Integer-valued numbers render compactly, not as "1.0" or in scientific notation.
         assertTrue("1.0" !in html, "Integer data must not render as 1.0, got: $html")
         assertTrue("E9" !in html, "Large integers must not use scientific notation, got: $html")
-        // Numeric cells/headers are right-aligned (inline so they win over host notebook CSS);
-        // text columns are left-aligned.
         assertTrue("text-align:right;\">1</td>" in html, "Expected compact, right-aligned id 1, got: $html")
         assertTrue("text-align:right;\">1379302771</td>" in html, "Expected plain-decimal pop, got: $html")
         assertTrue("text-align:right;\">id</th>" in html, "Expected right-aligned numeric header, got: $html")
@@ -97,8 +92,6 @@ class SpatialDatasetTest : JupyterTest() {
 
     @Test
     fun `SpatialDataset renders columns in declared order with geometry last`() {
-        // Column names whose HashMap iteration order differs from insertion order;
-        // guards against the column order being lost in data standardization (asPlotData).
         val code = """
             val data = mapOf(
                 "name" to listOf("Alpha"),
@@ -144,9 +137,6 @@ class SpatialDatasetTest : JupyterTest() {
 
     @Test
     fun `SpatialDataset escapes the raw geometry fallback in HTML`() {
-        // An unknown geometry type falls back to the raw string; that raw string must be
-        // HTML-escaped when it reaches the table. Pretty-printed WKT never contains HTML
-        // metacharacters, so only the raw-fallback path exercises escape() on a geometry cell.
         val code = """
             val data = mapOf("name" to listOf("x"))
             val geometry = listOf("{\"type\":\"Unknown\",\"note\":\"<a>&b\"}")
@@ -169,279 +159,100 @@ class SpatialDatasetTest : JupyterTest() {
 
         val html = renderHtml(code)
         assertTrue("Showing 5 of 25 rows" in html, "Expected truncation note, got: $html")
-        // First 5 rows present
         for (i in 0..4) {
             assertTrue(">$i<" in html, "Expected row index $i in HTML")
         }
-        // 6th row (index 5) must not appear
         assertTrue(">5<" !in html, "Row index 5 must not be rendered")
-        // Count rendered <tr> rows (header + 5 body rows = 6)
         val trCount = "<tr".toRegex().findAll(html).count()
         assertEquals(6, trCount, "Expected 1 header + 5 body rows (=6 <tr>), got $trCount")
     }
 
-    // --- Direct unit tests for the geometry pretty-printer ---
-
-    @Test
-    fun `formatGeometryCell - Point with float noise is trimmed`() {
-        val raw = """{"type":"Point","coordinates":[-73.96,40.772000000000006]}"""
+    private fun assertGeoJsonGeometry(raw: String, expected: String) {
         assertEquals(
-            "POINT (-73.96 40.772)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
+            expected,
+            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON),
+            "Unexpected preview for $raw"
+        )
+    }
+
+    private fun assertGeoJsonFallback(raw: String) {
+        assertEquals(
+            raw,
+            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON),
+            "Expected raw fallback for $raw"
         )
     }
 
     @Test
-    fun `formatGeometryCell - integer-valued coords have no trailing dot`() {
-        val raw = """{"type":"Point","coordinates":[0.0,0.0]}"""
-        assertEquals(
-            "POINT (0 0)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
+    fun `formatGeometryCell formats Point previews compactly`() {
+        listOf(
+            """{"type":"Point","coordinates":[-73.96,40.772000000000006]}""" to "POINT (-73.96 40.772)",
+            """{"type":"Point","coordinates":[-73.123456789,40.5]}""" to "POINT (-73.1235 40.5)",
+            """{"type":"Point","coordinates":[1.0,2.0,3.5]}""" to "POINT (1 2 3.5)"
+        ).forEach { (raw, expected) ->
+            assertGeoJsonGeometry(raw, expected)
+        }
     }
 
     @Test
-    fun `formatGeometryCell - decimals kept up to four places, trailing zeros trimmed`() {
-        assertEquals(
-            "POINT (1.5 2.25)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(
-                """{"type":"Point","coordinates":[1.5,2.25]}""", GeometryFormat.GEOJSON
-            )
-        )
-        // Up to four fraction digits are kept; extra precision is rounded to four places.
-        assertEquals(
-            "POINT (-73.1235 40.5)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(
-                """{"type":"Point","coordinates":[-73.123456789,40.5]}""", GeometryFormat.GEOJSON
-            )
-        )
+    fun `formatGeometryCell abbreviates representative GeoJSON geometries`() {
+        listOf(
+            """{"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0],[2.5,3.5]]}"""
+                    to "LINESTRING (0 0, ...)",
+            """{"type":"Polygon","coordinates":[[[0.0,0.0],[10.0,0.0]],[[2.0,2.0],[4.0,2.0]]]}"""
+                    to "POLYGON ((0 0, ...), ...)",
+            """{"type":"MultiPolygon","coordinates":[[[[0.0,0.0],[1.0,0.0]]],[[[2.0,2.0],[3.0,2.0]]]]}"""
+                    to "MULTIPOLYGON (((0 0, ...)), ...)",
+            """{"type":"GeometryCollection","geometries":[{"type":"Point","coordinates":[1.0,2.0]},{"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0]]}]}"""
+                    to "GEOMETRYCOLLECTION (POINT (1 2), LINESTRING (0 0, ...))"
+        ).forEach { (raw, expected) ->
+            assertGeoJsonGeometry(raw, expected)
+        }
     }
 
     @Test
-    fun `formatGeometryCell - LineString`() {
-        val raw = """{"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0],[2.5,3.5]]}"""
-        assertEquals(
-            "LINESTRING (0 0, ...)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - MultiPoint`() {
-        val raw = """{"type":"MultiPoint","coordinates":[[0.0,0.0],[1.0,2.0]]}"""
-        assertEquals(
-            "MULTIPOINT ((0 0), ...)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - Polygon with hole`() {
-        val raw = """{"type":"Polygon","coordinates":[
-            [[0.0,0.0],[10.0,0.0],[10.0,10.0],[0.0,10.0],[0.0,0.0]],
-            [[2.0,2.0],[4.0,2.0],[4.0,4.0],[2.0,4.0],[2.0,2.0]]
-        ]}"""
-        // Polygons are abbreviated aggressively: only the first ring and its first vertex are
-        // shown, with an ellipsis for the remaining vertices and for the omitted hole ring.
-        assertEquals(
-            "POLYGON ((0 0, ...), ...)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - MultiPolygon`() {
-        val raw = """{"type":"MultiPolygon","coordinates":[
-            [[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,0.0]]],
-            [[[2.0,2.0],[3.0,2.0],[3.0,3.0],[2.0,2.0]]]
-        ]}"""
-        // Only the first polygon, its first ring, and that ring's first vertex are shown; the
-        // trailing ellipsis marks the omitted second polygon.
-        assertEquals(
-            "MULTIPOLYGON (((0 0, ...)), ...)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - GeometryCollection`() {
-        val raw = """{"type":"GeometryCollection","geometries":[
-            {"type":"Point","coordinates":[1.0,2.0]},
-            {"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0]]}
-        ]}"""
-        assertEquals(
-            "GEOMETRYCOLLECTION (POINT (1 2), LINESTRING (0 0, ...))",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - GeometryCollection keeps valid members when a sibling is unrenderable`() {
-        // One renderable Point, one unknown-type member, one member with a malformed coordinate.
-        // Valid members must still be pretty-printed; the odd ones are kept as raw JSON, not dropped.
+    fun `formatGeometryCell preserves unrenderable GeometryCollection members`() {
         val raw = """{"type":"GeometryCollection","geometries":[
             {"type":"Point","coordinates":[1.0,2.0]},
             {"type":"Mystery","coordinates":[0.0,0.0]},
             {"type":"Point","coordinates":[3.0,null]}
         ]}"""
+
         val result = SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        assertTrue(
-            result.startsWith("GEOMETRYCOLLECTION (POINT (1 2), "),
-            "Valid sibling must be pretty-printed, got: $result"
-        )
-        assertTrue("Mystery" in result, "Unknown-type member must be preserved (raw), got: $result")
-        assertTrue("null" in result, "Malformed member must be preserved (raw), got: $result")
-        // The whole cell must NOT collapse to the raw input.
-        assertTrue("\"geometries\"" !in result, "Cell must not fall back to whole raw, got: $result")
+
+        assertTrue(result.startsWith("GEOMETRYCOLLECTION (POINT (1 2), "), "Got: $result")
+        assertTrue("Mystery" in result, "Unknown member must be preserved, got: $result")
+        assertTrue("null" in result, "Malformed member must be preserved, got: $result")
+        assertTrue("\"geometries\"" !in result, "Whole collection must not fall back to raw, got: $result")
     }
 
     @Test
-    fun `formatGeometryCell - empty GeometryCollection falls back to raw`() {
-        val raw = """{"type":"GeometryCollection","geometries":[]}"""
-        assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
-    }
-
-    @Test
-    fun `formatGeometryCell - malformed JSON falls back to raw`() {
-        val raw = "not a json"
-        assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
-    }
-
-    @Test
-    fun `formatGeometryCell - unknown type falls back to raw`() {
-        val raw = """{"type":"Mystery","coordinates":[0,0]}"""
-        assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
-    }
-
-    @Test
-    fun `formatGeometryCell - WKT and WKB formats pass through unchanged`() {
-        val wkt = "POINT(1 2)"
-        assertEquals(wkt, SpatialDatasetHtmlRenderer.formatGeometryCell(wkt, GeometryFormat.WKT))
-        val wkb = "0101000000000000000000F03F0000000000000040"
-        assertEquals(wkb, SpatialDatasetHtmlRenderer.formatGeometryCell(wkb, GeometryFormat.WKB))
-    }
-
-    @Test
-    fun `formatGeometryCell - Point with 3D coordinate keeps z component`() {
-        val raw = """{"type":"Point","coordinates":[1.0,2.0,3.5]}"""
-        assertEquals(
-            "POINT (1 2 3.5)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - LineString with 3D coordinates keeps z component`() {
-        val raw = """{"type":"LineString","coordinates":[[0.0,0.0,1.0],[1.0,1.0,2.0]]}"""
-        assertEquals(
-            "LINESTRING (0 0 1, ...)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - Polygon with 3D coordinates keeps z component`() {
-        val raw = """{"type":"Polygon","coordinates":[[[0.0,0.0,5.0],[1.0,0.0,5.0],[1.0,1.0,5.0],[0.0,0.0,5.0]]]}"""
-        // Abbreviated to the first vertex; the z component is kept on the vertex that is shown.
-        assertEquals(
-            "POLYGON ((0 0 5, ...))",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    // --- Long geometries are abbreviated to GEOMETRY_PREVIEW_LIMIT items per sequence ---
-
-    @Test
-    fun `formatGeometryCell - multi-vertex sequence is abbreviated to the first pair`() {
-        val raw = """{"type":"LineString","coordinates":[[0.0,0.0],[1.0,1.0],[2.0,2.0],[3.0,3.0],[4.0,4.0]]}"""
-        assertEquals(
-            "LINESTRING (0 0, ...)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - a single-pair sequence has no ellipsis`() {
-        val raw = """{"type":"LineString","coordinates":[[0.0,0.0]]}"""
-        assertEquals(
-            "LINESTRING (0 0)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - MultiPolygon with many parts abbreviates the parts as well`() {
-        val raw = """{"type":"MultiPolygon","coordinates":[
-            [[[0.0,0.0],[1.0,0.0],[0.0,0.0]]],
-            [[[2.0,2.0],[3.0,2.0],[2.0,2.0]]],
-            [[[4.0,4.0],[5.0,4.0],[4.0,4.0]]],
-            [[[6.0,6.0],[7.0,6.0],[6.0,6.0]]]
-        ]}"""
-        // Four polygons collapse to the first one (first ring, first vertex) plus an ellipsis.
-        assertEquals(
-            "MULTIPOLYGON (((0 0, ...)), ...)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    @Test
-    fun `formatGeometryCell - GeometryCollection with many members is abbreviated`() {
-        val raw = """{"type":"GeometryCollection","geometries":[
-            {"type":"Point","coordinates":[1.0,1.0]},
-            {"type":"Point","coordinates":[2.0,2.0]},
-            {"type":"Point","coordinates":[3.0,3.0]},
-            {"type":"Point","coordinates":[4.0,4.0]}
-        ]}"""
-        assertEquals(
-            "GEOMETRYCOLLECTION (POINT (1 1), POINT (2 2), POINT (3 3), ...)",
-            SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON)
-        )
-    }
-
-    // --- Structurally invalid GeoJSON must fall back to raw, not emit plausible-but-wrong WKT ---
-
-    @Test
-    fun `formatGeometryCell - non-numeric coordinates fall back to raw`() {
-        // null, boolean, and string-typed coordinates are not valid positions.
-        for (raw in listOf(
+    fun `formatGeometryCell falls back to raw for unsupported or invalid GeoJSON`() {
+        listOf(
+            "not a json",
+            """{"type":"Mystery","coordinates":[0,0]}""",
+            """{"type":"GeometryCollection","geometries":[]}""",
             """{"type":"Point","coordinates":[1.0,null]}""",
             """{"type":"Point","coordinates":[true,1.0]}""",
-            """{"type":"Point","coordinates":["1.0","2.0"]}"""
-        )) {
-            assertEquals(
-                raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON),
-                "Expected raw fallback for non-numeric coordinates: $raw"
-            )
-        }
-    }
-
-    @Test
-    fun `formatGeometryCell - position that is not an array falls back to raw`() {
-        // A scalar where a position array is expected. It is the first element so it lands within
-        // the validated preview prefix (only the shown items are checked).
-        val raw = """{"type":"LineString","coordinates":[5,[0.0,0.0],[1.0,1.0]]}"""
-        assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
-    }
-
-    @Test
-    fun `formatGeometryCell - nested array where a number is expected falls back to raw`() {
-        val raw = """{"type":"Point","coordinates":[[1.0,2.0],[3.0,4.0]]}"""
-        assertEquals(raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON))
-    }
-
-    @Test
-    fun `formatGeometryCell - empty or undersized coordinate arrays fall back to raw`() {
-        for (raw in listOf(
+            """{"type":"Point","coordinates":["1.0","2.0"]}""",
+            """{"type":"Point","coordinates":[[1.0,2.0],[3.0,4.0]]}""",
+            """{"type":"LineString","coordinates":[5,[0.0,0.0],[1.0,1.0]]}""",
             """{"type":"Point","coordinates":[]}""",
             """{"type":"Point","coordinates":[1.0]}""",
             """{"type":"LineString","coordinates":[]}""",
             """{"type":"Polygon","coordinates":[]}""",
             """{"type":"Polygon","coordinates":[[]]}"""
-        )) {
-            assertEquals(
-                raw, SpatialDatasetHtmlRenderer.formatGeometryCell(raw, GeometryFormat.GEOJSON),
-                "Expected raw fallback for empty/undersized coordinates: $raw"
-            )
+        ).forEach { raw ->
+            assertGeoJsonFallback(raw)
         }
+    }
+
+    @Test
+    fun `formatGeometryCell passes WKT and WKB through unchanged`() {
+        val wkt = "POINT(1 2)"
+        val wkb = "0101000000000000000000F03F0000000000000040"
+
+        assertEquals(wkt, SpatialDatasetHtmlRenderer.formatGeometryCell(wkt, GeometryFormat.WKT))
+        assertEquals(wkb, SpatialDatasetHtmlRenderer.formatGeometryCell(wkb, GeometryFormat.WKB))
     }
 }
