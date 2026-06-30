@@ -11,6 +11,7 @@ import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.TextAesthetics
+import org.jetbrains.letsPlot.intern.layer.geom.TextHaloParameters
 import org.jetbrains.letsPlot.intern.layer.geom.TextMapping
 import org.jetbrains.letsPlot.intern.layer.geom.TextParameters
 import org.jetbrains.letsPlot.pos.positionIdentity
@@ -104,6 +105,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param colorBy default = "color" ("fill", "color", "paint_a", "paint_b", "paint_c").
  *  Defines the color aesthetic for the geometry.
  * @param checkOverlap Skips plotting text that overlaps previous text in the same layer.
+ * @param haloWidth Width of the halo (outline) around the text. A halo is rendered only when `haloWidth > 0`.
+ * @param haloColor Color of the halo around the text.
+ *  Setting `haloColor` alone has no visible effect unless `haloWidth > 0`.
+ *  When omitted, the panel background color is used (falling back to the plot background color
+ *  when the panel draws no rectangle).
  * @param naRm If true, silently removes missing values.
  *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
@@ -154,11 +160,14 @@ class geomText(
     override val nudgeUnit: String? = null,
     override val colorBy: String? = null,
     override val checkOverlap: Boolean? = null,
+    override val haloWidth: Number? = null,
+    override val haloColor: Any? = null,
     naRm: Boolean = false,
     mapping: TextMapping.() -> Unit = {}
 
 ) : TextAesthetics,
     TextParameters,
+    TextHaloParameters,
     WithSizeUnitOption,
     WithSpatialParameters,
     WithColorOption,
@@ -178,6 +187,7 @@ class geomText(
     override fun seal(): Options {
         return super<TextAesthetics>.seal() +
                 super<TextParameters>.seal() +
+                super<TextHaloParameters>.seal() +
                 super<WithSizeUnitOption>.seal() +
                 super<WithColorOption>.seal()
     }

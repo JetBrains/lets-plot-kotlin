@@ -7,6 +7,8 @@ package org.jetbrains.letsPlot
 
 import org.jetbrains.letsPlot.Stat.density
 import org.jetbrains.letsPlot.geom.geomPoint
+import org.jetbrains.letsPlot.geom.geomText
+import org.jetbrains.letsPlot.geom.geomTextRepel
 import org.jetbrains.letsPlot.stat.statBin
 import org.jetbrains.letsPlot.intern.GeomKind
 import org.jetbrains.letsPlot.intern.LayerAssert
@@ -82,6 +84,27 @@ class GeomLayerTest {
         assertFalse(LayerAssert.assertThat(falseLayer).parameterOptions.has("na_rm"))
         LayerAssert.assertThat(l)
             .parameter("na_rm", true)
+    }
+
+    @Test
+    fun `geomText halo params serialize to halo_width and halo_color`() {
+        val defaultLayer = geomText()
+        val l = geomText(haloWidth = 2.0, haloColor = "white")
+
+        assertFalse(LayerAssert.assertThat(defaultLayer).parameterOptions.has("halo_width"))
+        assertFalse(LayerAssert.assertThat(defaultLayer).parameterOptions.has("halo_color"))
+        LayerAssert.assertThat(l)
+            .parameter("halo_width", 2.0)
+            .parameter("halo_color", "white")
+    }
+
+    @Test
+    fun `geomTextRepel halo params serialize to halo_width and halo_color`() {
+        val l = geomTextRepel(haloWidth = 1.5, haloColor = "black")
+
+        LayerAssert.assertThat(l)
+            .parameter("halo_width", 1.5)
+            .parameter("halo_color", "black")
     }
 
     @Test

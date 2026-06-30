@@ -28,6 +28,16 @@ internal class LayerParams {
             added = true
             field = v
         }
+    var haloWidth: Number? = null
+        set(v) {
+            added = true
+            field = v
+        }
+    var haloColor: String? = null
+        set(v) {
+            added = true
+            field = v
+        }
 
     fun copy(): LayerParams {
         return LayerParams().apply {
@@ -36,6 +46,8 @@ internal class LayerParams {
             diag = this@LayerParams.diag
             color = this@LayerParams.color
             mapSize = this@LayerParams.mapSize
+            haloWidth = this@LayerParams.haloWidth
+            haloColor = this@LayerParams.haloColor
             added = wasAdded
         }
     }
@@ -52,6 +64,8 @@ internal class LayerParams {
         if (diag != other.diag) return false
         if (color != other.color) return false
         if (mapSize != other.mapSize) return false
+        if (haloWidth != other.haloWidth) return false
+        if (haloColor != other.haloColor) return false
 
         return true
     }
@@ -62,10 +76,13 @@ internal class LayerParams {
         result = 31 * result + (diag?.hashCode() ?: 0)
         result = 31 * result + (color?.hashCode() ?: 0)
         result = 31 * result + (mapSize?.hashCode() ?: 0)
+        result = 31 * result + (haloWidth?.hashCode() ?: 0)
+        result = 31 * result + (haloColor?.hashCode() ?: 0)
         return result
     }
 
     override fun toString(): String {
-        return "LayerParams(added=$added, type=$type, diag=$diag, color=$color, mapSize=$mapSize)"
+        return "LayerParams(added=$added, type=$type, diag=$diag, color=$color, mapSize=$mapSize, " +
+                "haloWidth=$haloWidth, haloColor=$haloColor)"
     }
 }

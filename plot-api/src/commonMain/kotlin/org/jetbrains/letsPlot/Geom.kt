@@ -420,9 +420,12 @@ object Geom {
         override val nudgeUnit: String? = null,
         override val colorBy: String? = null,
         override val checkOverlap: Boolean? = null,
+        override val haloWidth: Number? = null,
+        override val haloColor: Any? = null,
         mapping: TextMapping.() -> Unit = {}
     ) : TextAesthetics,
         TextParameters,
+        TextHaloParameters,
         WithSizeUnitOption,
         WithColorOption,
         GeomOptions(
@@ -433,6 +436,7 @@ object Geom {
 
         override fun seal() = super<TextAesthetics>.seal() +
                 super<TextParameters>.seal() +
+                super<TextHaloParameters>.seal() +
                 super<WithSizeUnitOption>.seal() +
                 super<WithColorOption>.seal()
     }
@@ -522,9 +526,12 @@ object Geom {
         override val maxOverlaps: Int? = null,
         override val minSegmentLength: Number? = null,
         override val arrow: Map<String, Any>? = null,
+        override val haloWidth: Number? = null,
+        override val haloColor: Any? = null,
         mapping: TextRepelMapping.() -> Unit = {},
     ) : TextRepelAesthetics,
         TextParameters,
+        TextHaloParameters,
         RepelParameters,
         WithSizeUnitOption,
         WithColorOption,
@@ -536,6 +543,7 @@ object Geom {
 
         override fun seal() = super<TextRepelAesthetics>.seal() +
                 super<TextParameters>.seal() +
+                super<TextHaloParameters>.seal() +
                 super<RepelParameters>.seal() +
                 super<WithSizeUnitOption>.seal() +
                 super<WithColorOption>.seal()

@@ -6,6 +6,7 @@ import org.jetbrains.letsPlot.intern.Layer
 import org.jetbrains.letsPlot.intern.Options
 import org.jetbrains.letsPlot.intern.layer.*
 import org.jetbrains.letsPlot.intern.layer.geom.RepelParameters
+import org.jetbrains.letsPlot.intern.layer.geom.TextHaloParameters
 import org.jetbrains.letsPlot.intern.layer.geom.TextParameters
 import org.jetbrains.letsPlot.intern.layer.geom.TextRepelAesthetics
 import org.jetbrains.letsPlot.intern.layer.geom.TextRepelMapping
@@ -127,6 +128,11 @@ import org.jetbrains.letsPlot.tooltips.TooltipOptions
  * @param minSegmentLength Minimum length of the line connecting the label to the point.
  *  Shorter segments will be omitted.
  * @param arrow Specification for arrow head, as created by [arrow()][org.jetbrains.letsPlot.geom.extras.arrow] function.
+ * @param haloWidth Width of the halo (outline) around the text. A halo is rendered only when `haloWidth > 0`.
+ * @param haloColor Color of the halo around the text.
+ *  Setting `haloColor` alone has no visible effect unless `haloWidth > 0`.
+ *  When omitted, the panel background color is used (falling back to the plot background color
+ *  when the panel draws no rectangle).
  * @param naRm If true, silently removes missing values.
  *  If false, missing values are removed with a warning.
  * @param mapping Set of aesthetic mappings.
@@ -194,10 +200,13 @@ class geomTextRepel(
     override val maxOverlaps: Int? = null,
     override val minSegmentLength: Number? = null,
     override val arrow: Map<String, Any>? = null,
+    override val haloWidth: Number? = null,
+    override val haloColor: Any? = null,
     naRm: Boolean = false,
     mapping: TextRepelMapping.() -> Unit = {},
 ) : TextRepelAesthetics,
     TextParameters,
+    TextHaloParameters,
     RepelParameters,
     WithSizeUnitOption,
     WithSpatialParameters,
@@ -218,6 +227,7 @@ class geomTextRepel(
     override fun seal(): Options {
         return super<TextRepelAesthetics>.seal() +
                 super<TextParameters>.seal() +
+                super<TextHaloParameters>.seal() +
                 super<RepelParameters>.seal() +
                 super<WithSizeUnitOption>.seal() +
                 super<WithColorOption>.seal()
