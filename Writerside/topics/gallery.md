@@ -2,6 +2,11 @@
 
 <list columns="3">
     <li>
+        <a href="%nb-text_halo%">
+            <img alt="Text halo" src="square-text_halo.png"/>
+        </a>
+    </li>
+    <li>
         <a href="%nb-raincloud%">
             <img alt="Raincloud plot" src="square-raincloud.png"/>
         </a>

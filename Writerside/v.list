@@ -28,6 +28,7 @@
     <var name="nbviewer_demo" value="%nbviewer_examples%/demo"/>
     <var name="nbviewer_cookbook" value="%nbviewer_examples%/cookbook"/>
     <var name="html_cookbook" value="https://lets-plot.org/kotlin/examples/cookbook"/>
+    <var name="html_demo" value="https://lets-plot.org/kotlin/examples/demo"/>
     <!-- Pages -->
     <var name="nbp-tooltips" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/2u1Afm6IqmUugSWKG6ULsq"/>
     <var name="nbp-annotations" value="https://datalore.jetbrains.com/report/static/HZqq77cegYd.E7get_WnChZ/mynA4kNRFpu3XYl2b7tlBd"/>
@@ -46,6 +47,7 @@
     <var name="nb-raincloud" value="%nbviewer_demo%/raincloud.ipynb"/>
     <var name="nb-spatialdataset_kotlin_isl" value="%nbviewer_demo%/spatialdataset_kotlin_isl.ipynb"/>
     <var name="nb-sunshine_hours" value="%nbviewer_demo%/sunshine_hours.ipynb"/>
+    <var name="nb-text_halo" value="%html_demo%/text_halo.html"/>
     <var name="nb-theme_legend_scheme" value="%nbviewer_demo%/theme_legend_scheme.ipynb"/>
     <var name="nb-trading_chart" value="%nbviewer_demo%/trading_chart.ipynb"/>
     <var name="nb-us_unemployment" value="%nbviewer_demo%/us_unemployment.ipynb"/>
@@ -160,6 +162,7 @@
     <var name="nb-scatter_plot" value="%nbviewer_cookbook%/scatter_plot.ipynb"/>
     <var name="nb-set_font_faces" value="%nbviewer_cookbook%/set_font_faces.ipynb"/>
     <var name="nb-smooth_summary" value="%html_cookbook%/smooth_summary.html"/>
+    <var name="nb-spatial_dataset_presentation" value="%html_cookbook%/spatial_dataset_presentation.html"/>
     <var name="nb-stat_boxplot_outlier" value="%nbviewer_cookbook%/stat_boxplot_outlier.ipynb"/>
     <var name="nb-stat_count_2d" value="%nbviewer_cookbook%/stat_count_2d.ipynb"/>
     <var name="nb-stat_ecdf" value="%nbviewer_cookbook%/stat_ecdf.ipynb"/>
@@ -173,6 +176,7 @@
     <var name="nb-time_date_datetime" value="%nbviewer_cookbook%/time_date_datetime.ipynb"/>
     <var name="nb-title_subtitle_caption" value="%nbviewer_cookbook%/title_subtitle_caption.ipynb"/>
     <var name="nb-tooltip_config" value="%nbviewer_cookbook%/tooltip_config.ipynb"/>
+    <var name="nb-tooltip_merge" value="%html_cookbook%/tooltip_merge.html"/>
     <var name="nb-tooltip_title" value="%nbviewer_cookbook%/tooltip_title.ipynb"/>
     <var name="nb-waterfall_plot" value="%nbviewer_cookbook%/waterfall_plot.ipynb"/>
     <var name="nb-y_orientation" value="%nbviewer_cookbook%/y_orientation.ipynb"/>

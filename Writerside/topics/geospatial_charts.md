@@ -98,6 +98,11 @@ When declaring additional GeoTools dependencies, check the compatible version in
 
   <img src="spatialdataset_kotlin_isl.png" alt="Inset map of Kotlin island" width="480"/>
 
+- `SpatialDataset` preview:
+  [spatial_dataset_presentation.ipynb](%nb-spatial_dataset_presentation%)
+
+  <img src="spatial_dataset_presentation.png" alt="SpatialDataset preview" width="480"/>
+
 - Using exotic map projections:
   [projection_provided.ipynb](%nb-projection_provided%)
 
