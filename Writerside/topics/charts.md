@@ -89,6 +89,7 @@ Cookbooks:
 Demos:
 
 - [Inset map of Kotlin island](%nb-spatialdataset_kotlin_isl%)
+- [Text halo](%nb-text_halo%)
 
 
 ## Discrete
